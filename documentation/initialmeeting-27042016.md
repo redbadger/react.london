@@ -1,6 +1,9 @@
 # react.london website
 < mission statement here >
 
+## MVP
+By next Friday (06/05/2016) we will have a page that displays key information about what react.london is and the next meetup. It will have some calls to action to sign up to the event, join the public slack channel, to be a sponsor and to be a speaker. Amy will be able to update, preview and publish this page.
+
 ## Initial meeting notes and understanding
 
 We identified three main themes the ideas addressed:
