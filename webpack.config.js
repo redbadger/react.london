@@ -5,14 +5,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        loader: "babel-loader",
-        include: [
-          path.resolve(__dirname, "src")
-        ],
+        loader: 'babel-loader',
+        exclude: /node_modules/,
         test: /\.jsx?$/,
         query: {
           plugins: ['transform-runtime'],
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         }
       }
     ]
