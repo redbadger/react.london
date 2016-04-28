@@ -19,6 +19,10 @@ const common = {
           plugins: ['transform-runtime'],
           presets: ['es2015', 'react', 'stage-0']
         }
+      }, {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: PATHS.app
       }
     ]
   },
@@ -38,6 +42,7 @@ const common = {
 // npm run start, give dev version
 if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
+    devtool: 'eval-source-map',
     devServer: {
       contentBase: PATHS.build,
       historyApiFallback: true,
@@ -46,11 +51,11 @@ if(TARGET === 'start' || !TARGET) {
       progress: true,
       stats: 'error-only',
       host: process.env.HOST,
-      port: process.env.PORT
+      port: process.env.PORT,
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
   });
 }
 
