@@ -1,5 +1,9 @@
 # react.london website
-< mission statement here >
+
+The client has a number of core issues surrounding advertisement, management and organisation of React Monthly, which is a technical speaking event regularly hosting over 200 people. Currently, this functionality is fragmented across a number of services and the client would like a unified platform for event information, management, community growth and speaker/sponsor outreach.
+
+This platform is will be available at [react.london](react.london).
+
 
 ## MVP
 By next Friday (06/05/2016) we will have a page that displays key information about what react.london is and the next meetup. It will have some calls to action to sign up to the event, join the public slack channel, to be a sponsor and to be a speaker. Amy will be able to update, preview and publish this page.
