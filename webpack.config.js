@@ -1,7 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-module.exports = {
+const TARGET = process.env.npm_lifecycle_event;
+const PATHS = {
+  app: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'build')
+};
+
+const common = {
   module: {
     loaders: [
       {
@@ -15,13 +22,39 @@ module.exports = {
       }
     ]
   },
+  entry: {
+    app: PATHS.app
+  },
   output: {
+    path: PATHS.build,
     filename: 'bundle.js'
   },
-  entry: [
-    './src/index.js'
-  ],
   watch: true,
   colors: true,
   progress: true,
 };
+
+
+// npm run start, give dev version
+if(TARGET === 'start' || !TARGET) {
+  module.exports = merge(common, {
+    devServer: {
+      contentBase: PATHS.build,
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      progress: true,
+      stats: 'error-only',
+      host: process.env.HOST,
+      port: process.env.PORT
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  });
+}
+
+// npm run build, give prod version
+if(TARGET === 'build') {
+  module.exports = merge(common, {});
+}
