@@ -15,10 +15,6 @@ const common = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         test: /\.jsx?$/,
-        query: {
-          plugins: ['transform-runtime'],
-          presets: ['es2015', 'react', 'stage-0']
-        }
       }, {
         test: /\.css$/,
         loaders: ['style', 'css'],
