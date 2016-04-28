@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { addText } from '../actions';
 
+import style from './App.css';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class App extends Component {
     console.log(this.props);
     return (
       <div>
-        <h1>This is React!</h1>
+        <h1>This is <span className='special'>React!</span></h1>
         <input
           type='text'
           value = {this.state.userText}

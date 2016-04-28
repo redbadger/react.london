@@ -4,8 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 
-require('./main.css');
-
+import style from './main.css';
 import App from './components/App.js';
 
 let store = createStore(reducers);
