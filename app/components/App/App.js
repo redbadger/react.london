@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addText } from '../actions';
+import { addText } from '../../actions';
 
 import style from './App.css';
 
