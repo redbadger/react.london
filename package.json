@@ -1,0 +1,27 @@
+{
+  "name": "react.london",
+  "version": "0.0.0",
+  "description": "London React Meetups",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redbadger/react.london.git"
+  },
+  "author": "Red Badger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redbadger/react.london/issues"
+  },
+  "homepage": "https://github.com/redbadger/react.london#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.0"
+  }
+}
