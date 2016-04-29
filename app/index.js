@@ -5,13 +5,17 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 
 import style from './main.css';
-import App from './components/App/App.js';
+import Preview from './containers/Preview.js';
+import Editor from './containers/Editor.js';
 
 let store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <div>
+      <Editor />
+      <Preview />
+    </div>
   </Provider>,
   document.getElementById('main')
 );

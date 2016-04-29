@@ -1,10 +1,12 @@
 const userTexts = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TEXT':
-      console.log(action);
       return [
         ...state,
-        action.userText,
+        {
+          value: action.userText,
+          id: action.id,
+        }
       ];
     default:
       return state;
