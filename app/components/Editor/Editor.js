@@ -18,12 +18,14 @@ class Editor extends Component {
   render() {
     return (
       <div className="Editor">
+        <label for="aboutTitle">Title</label>
         <input
           name="aboutTitle"
           value = {this.props.aboutTitle}
           onChange = {this.handleChange}
         ></input>
 
+        <label for="aboutSummary">Summary</label>
         <textarea
           name="aboutSummary"
           value = {this.props.aboutSummary}
