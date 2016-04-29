@@ -17,7 +17,7 @@ class Editor extends Component {
 
   render() {
     return (
-      <div className="Editor">
+      <aside className="Editor">
         <label for="aboutTitle">Title</label>
         <input
           name="aboutTitle"
@@ -31,7 +31,7 @@ class Editor extends Component {
           value = {this.props.aboutSummary}
           onChange = {this.handleChange}
         />
-      </div>
+    </aside>
     );
   }
 }

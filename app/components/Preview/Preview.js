@@ -4,9 +4,9 @@ import style from './Preview.css';
 import About from '../../containers/About.js';
 
 const Preview = ({ userText }) => (
-    <div className="Preview">
+    <main className="Preview">
       <About />
-    </div>
+    </main>
   );
 
 export default Preview;
