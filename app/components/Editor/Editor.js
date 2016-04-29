@@ -22,7 +22,7 @@ class Editor extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Editor">
         <input
           type='text'
           value = {this.state.userText}

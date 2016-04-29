@@ -1,0 +1,7 @@
+.Editor {
+  min-width: 250px;
+  border-right: 2px solid black;
+  padding: 20px;
+  resize: horizontal;
+  overflow:auto;
+}

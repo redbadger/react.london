@@ -1,3 +1,9 @@
-h1 {
-  color: yellow;
+html, body {
+ width: 100%;
+ margin: 0px;
+ font-family: sans-serif;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
 }
