@@ -6,7 +6,7 @@ const userTexts = (state = [], action) => {
         {
           value: action.userText,
           id: action.id,
-        }
+        },
       ];
     default:
       return state;
