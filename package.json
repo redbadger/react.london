@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "test": "mocha ./app/components/*/*-test.js --compilers js:babel-core/register --require ignore-styles",
+    "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
