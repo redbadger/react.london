@@ -2,17 +2,34 @@ import { expect } from 'chai';
 import reducer from './index.js';
 
 describe('User text reducer', () => {
-  it('Should add a user text on ADD_TEXT', () => {
-    const userText = 'PartyParrot';
+
+  const initialState = {
+    aboutTitle: 'London React User Group',
+    aboutSummary: 'A meetup',
+  };
+
+  it('Should update aboutTitle on ADD_TEXT', () => {
     const expectedAction = {
-      id: 0,
-      type: 'ADD_TEXT',
-      userText,
+      type: 'UPDATE_TEXT',
+      key: 'aboutTitle',
+      value: 'react.london',
     };
-    expect(reducer([], expectedAction)).to.deep.equal(
-      [
-        { id: 0, value: 'PartyParrot', },
-      ]
-    );
+
+    const results = reducer(initialState, expectedAction);
+    expect(results.aboutTitle).to.equal(expectedAction.value);
+    expect(results.aboutSummary).to.equal(initialState.aboutSummary);
   });
+
+  it('Should update aboutSummary on ADD_TEXT', () => {
+    const expectedAction = {
+      type: 'UPDATE_TEXT',
+      key: 'aboutSummary',
+      value: 'best thing ever!',
+    };
+
+    const results = reducer(initialState, expectedAction);
+    expect(results.aboutSummary).to.equal(expectedAction.value);
+    expect(results.aboutTitle).to.equal(initialState.aboutTitle);
+  });
+
 });

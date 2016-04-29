@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
 import style from './Preview.css';
+import About from '../../containers/About.js';
 
-const Preview = ({ userTexts }) => (
+const Preview = ({ userText }) => (
     <div className="Preview">
-      <h1>This is <span className='Preview__heading--special'>React!</span></h1>
-
-      {userTexts.map(u => (<div className='userText' key={u.id}>User said: {u.value}</div>))}
+      <About />
     </div>
   );
 

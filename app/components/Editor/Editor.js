@@ -4,33 +4,31 @@ import style from './Editor.css';
 class Editor extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userText: '',
-    };
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      userText: event.target.value,
-    });
   };
 
-  updateText = () => {
-    const { addText } = this.props;
-    addText(this.state.userText);
+  handleChange = (event) => {
+    const { updateText } = this.props;
+
+    updateText({
+      key: event.target.name,
+      value: event.target.value,
+    });
   };
 
   render() {
     return (
       <div className="Editor">
         <input
-          type='text'
-          value = {this.state.userText}
+          name="aboutTitle"
+          value = {this.props.aboutTitle}
           onChange = {this.handleChange}
-          />
-        <button onClick = {this.updateText}>
-          Add text!
-        </button>
+        ></input>
+
+        <textarea
+          name="aboutSummary"
+          value = {this.props.aboutSummary}
+          onChange = {this.handleChange}
+        />
       </div>
     );
   }

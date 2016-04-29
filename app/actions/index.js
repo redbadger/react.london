@@ -5,3 +5,8 @@ export const addText = (userText) => ({
   id: nextTextId++,
   userText,
 });
+
+export const updateText = (userText) =>({
+  type: 'UPDATE_TEXT',
+  ...userText,
+});
