@@ -38,6 +38,7 @@
     "babel-register": "^6.7.2",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "deep-freeze": "0.0.1",
     "enzyme": "^2.2.0",
     "ignore-styles": "^1.2.0",
     "jsdom": "^8.4.1",
