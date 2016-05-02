@@ -1,3 +1,21 @@
-h1 {
-  color: yellow;
+html, body {
+ width: 100%;
+ margin: 0px;
+ font-family: sans-serif;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 2px 5px;
+  margin: 2px 0px 20px;
+  font-size: 1em;
+}
+textarea {
+  max-width: 100%;
+  min-height: 200px;
 }
