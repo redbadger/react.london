@@ -1,0 +1,19 @@
+import React from 'react';
+import  { Route, IndexRoute, Link } from 'react-router';
+
+import Editor from '../containers/Editor.js';
+import Preview from '../containers/Preview.js';
+
+const App = ({ children }) => (
+  <div>
+    <Editor />
+    <Preview />
+    {children}
+  </div>
+);
+
+const routes = (
+  <Route path="/" component={App} />
+);
+
+export default routes;

@@ -25,9 +25,7 @@ const common = {
       }
     ]
   },
-  entry: {
-    app: PATHS.app
-  },
+  entry: './app/client.js',
   output: {
     path: PATHS.build,
     filename: 'bundle.js'

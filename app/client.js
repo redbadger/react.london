@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
+import style from './main.css';
 import reducers from './reducers';
-
-import App from './components/App/App.js';
+import routes from './routes';
 
 const store = createStore(
   combineReducers({
@@ -19,9 +19,7 @@ const store = createStore(
 const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <Route path='/' component={App} />
-    </Router>
+    <Router history={history} routes={routes} />
   </Provider>,
   document.getElementById('main')
 );
