@@ -18,9 +18,13 @@ import routes from './routes';
 
 const app = express();
 
-app.use(webpackDevMiddleware(webpack(webpackConfig), {
-  publicPath: '/build/',
+let compiler = webpack(webpackConfig);
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackConfig.output.publicPath,
 }));
+
+app.use(require('webpack-hot-middleware')(compiler));
 
 const HTML = ({ content, store }) => (
   <html>

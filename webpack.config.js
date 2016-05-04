@@ -25,11 +25,20 @@ const common = {
       }
     ]
   },
-  entry: require.resolve('./app/client'),
+  entry: [
+    './app/client',
+    'webpack-hot-middleware/client'
+  ],
   output: {
     path: PATHS.build,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/build/',
   },
+  node: {
+    __dirname: true,
+    __filename: true,
+  },
+  watch: true,
   colors: true,
   progress: true,
 };
@@ -50,7 +59,9 @@ if (TARGET === 'start' || TARGET === 'serve' || !TARGET) {
       port: process.env.PORT,
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+     new webpack.optimize.OccurenceOrderPlugin(),
+     new webpack.HotModuleReplacementPlugin(),
+     new webpack.NoErrorsPlugin()
     ],
   });
 }
