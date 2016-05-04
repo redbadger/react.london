@@ -21,7 +21,7 @@ export function configureStore(history, initialState) {
       applyMiddleware(
         routerMiddleware(history)
       ),
-      window.devToolsExtension ? window.devToolsExtension() : f => f,
+      typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f,
     )
   );
 

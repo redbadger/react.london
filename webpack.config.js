@@ -25,21 +25,20 @@ const common = {
       }
     ]
   },
-  entry: './app/client.js',
+  entry: require.resolve('./app/client'),
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
   },
-  watch: true,
   colors: true,
   progress: true,
 };
 
 
 // npm run start, give dev version
-if(TARGET === 'start' || !TARGET) {
+if (TARGET === 'start' || TARGET === 'serve' || !TARGET) {
   module.exports = merge(common, {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     devServer: {
       contentBase: PATHS.build,
       historyApiFallback: true,

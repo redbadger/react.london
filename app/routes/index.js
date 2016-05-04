@@ -5,7 +5,7 @@ import Editor from '../containers/Editor.js';
 import Preview from '../containers/Preview.js';
 
 const App = ({ children }) => (
-  <div>
+  <div className='wrapper'>
     <Editor />
     <Preview />
     {children}

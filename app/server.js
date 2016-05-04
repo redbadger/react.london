@@ -1,3 +1,5 @@
+import 'ignore-styles';
+
 import express from 'express';
 import serialize from 'serialize-javascript';
 
@@ -17,13 +19,13 @@ import routes from './routes';
 const app = express();
 
 app.use(webpackDevMiddleware(webpack(webpackConfig), {
-  publicPath: '/__build__/',
+  publicPath: '/build/',
 }));
 
 const HTML = ({ content, store }) => (
   <html>
     <body>
-      <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
+      <div id="main" dangerouslySetInnerHTML={{ __html: content }} />
       <div id="devtools" />
       <script dangerouslySetInnerHTML={{ __html: `window.__initialState__=${serialize(store.getState())}` }} />
       <script src='/build/bundle.js' />
