@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import style from './Editor.css';
 import { reduxForm, Field } from 'redux-form';
+import {Editor as Draft, EditorState} from 'draft-js';
 
 class TextField extends Component {
   render() {
@@ -20,15 +21,16 @@ class TextField extends Component {
 
 class Editor extends Component {
   render() {
-
+    const editorState = EditorState.createEmpty();
     return (
       <aside className="Editor">
         <h3>About section</h3>
 
+
           <Field
             name="aboutTitle"
             component={aboutTitle =>
-              <TextField component={aboutTitle} label="Title" />
+              <Draft editorState={editorState} onChange={aboutTitle.onChange} />
             }/>
 
           <Field

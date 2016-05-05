@@ -4,3 +4,7 @@
   width: 1000px;
   /*color: blue;*/
 }
+
+.DraftEditor-root {
+  border: 1px solid red;
+}
