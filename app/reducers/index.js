@@ -2,7 +2,54 @@ import {EditorState} from 'draft-js';
 
 const getInitialState = () => ({
   aboutTitle: 'London React User Group',
-  aboutSummary: EditorState.createEmpty(),
+  aboutSummary: {
+    entityMap: {},
+    blocks: [
+      {
+        key: '305s2',
+        text: 'This group was established by Red Badger, a software company at Old Street.',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: 'a6j5n',
+        text: 'React is already having a huge impact on the way we think about Web UI development at Red Badger and this is an opportunity to learn why and share your own experiences.',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: '6eu1n',
+        text: 'We meet once a month, usually on the 3rd Wednesday of each month',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: '756f1',
+        text: 'We generally have 2 or 3 speakers and loads of questions, pizzas and beer.',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: '6lvqe',
+        text: 'We are a sociable group and very welcoming to newcomers. Follow us on Twitter @Londonreact and join the conversation on Slack here',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: '425i0',
+        text: 'See you soon!',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      },
+    ],
+  },
   upcomingMeetupName: 'June React User Group',
   upcomingMeetupDetails: 'TICKET INFO WILL FOLLOW \n\nJoin us for an evening of great conversation around React.js- \n\n6:30- Doors open for pizza and beers \n\n7:00- Intro from Stu \n\n7:10- 2 or 3 speakers each with 20 minutes to talk followed by Q&A\n\n8:30/ 9:00- Everyone is welcome to stay for another drink Our speakers for the evening are....\n\nMore details will follow shortly\n\nWe will live stream and record the event- we will post a link here prior to the event.',
   upcomingMeetupWhen: 'Tuesday, June 28, 2016',

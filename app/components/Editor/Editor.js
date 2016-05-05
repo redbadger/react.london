@@ -1,94 +1,81 @@
 import React, {Component} from 'react';
 import style from './Editor.css';
 import { reduxForm, Field } from 'redux-form';
-import {Editor as Draft, EditorState} from 'draft-js';
-
-class TextField extends Component {
-  render() {
-    const { component } = this.props;
-    const { label } = this.props;
-    return (
-      <div>
-        <label>{label}</label>
-        <input type="text" {...component}/>
-        {component.touched &&
-          component.error &&
-          <span className="error">{component.error}</span>}
-      </div>
-    );
-  }
-}
+import TextField from './TextField/TextField.js';
+import RichField from './RichField/RichField.js';
 
 class Editor extends Component {
   render() {
-    const { aboutSummary } = this.props.initialValues;
-    console.log(aboutSummary);
     return (
       <aside className="Editor">
         <h3>About section</h3>
 
-
           <Field
             name="aboutTitle"
-            component={component =>
-              <TextField component={component} label="Title" />
+            component={field =>
+              <TextField field={field} label="Title" />
             }/>
 
-          <Draft editorState={aboutSummary} />
+          <Field
+            name="aboutSummary"
+            component={field =>
+              <RichField field={field} label="Summary" />
+            }/>
+
 
           <h3>Upcoming Meetup</h3>
           <Field
             name="upcomingMeetupName"
-            component={component =>
-            <TextField component={component} label="Name" />
+            component={field =>
+            <TextField field={field} label="Name" />
           }/>
 
           <Field
             name="upcomingMeetupDetails"
-            component={component =>
-            <TextField component={component} label="Details" />
+            component={field =>
+            <TextField field={field} label="Details" />
           }/>
 
           <Field
             name="upcomingMeetupWhen"
-            component={component =>
-            <TextField component={component} label="When" />
+            component={field =>
+            <TextField field={field} label="When" />
           }/>
 
           <Field
             name="upcomingMeetupWhere"
-            component={component =>
-            <TextField component={component} label="Where" />
+            component={field =>
+            <TextField field={field} label="Where" />
           }/>
 
           <Field
             name="upcomingMeetupWhereLink"
-            component={component =>
-            <TextField component={component} label="WhereLink" />
+            component={field =>
+            <TextField field={field} label="WhereLink" />
           }/>
 
           <Field
             name="upcomingMeetupCtaText"
-            component={component =>
-            <TextField component={component} label="CtaText" />
+            component={field =>
+            <TextField field={field} label="CtaText" />
           }/>
 
           <Field
             name="upcomingMeetupCtaLink"
-            component={component =>
-            <TextField component={component} label="CtaLink" />
+            component={field =>
+            <TextField field={field} label="CtaLink" />
           }/>
 
           <Field
             name="upcomingMeetupStreamingText"
-            component={component =>
-            <TextField component={component} label="StreamingText" />
+            component={field =>
+            <TextField field={field} label="StreamingText" />
           }/>
 
           <Field
             name="upcomingMeetupStreamingLink"
-            component={component =>
-            <TextField component={component} label="StreamingLink" />
+            component={field =>
+            <TextField field={field} label="StreamingLink" />
           }/>
 
       </aside>
