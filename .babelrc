@@ -12,6 +12,11 @@
       "presets": [
         "react-hmre"
       ]
+    },
+    "serve": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     }
   }
 }

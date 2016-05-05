@@ -8,7 +8,7 @@ process.env.BABEL_ENV = TARGET;
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
 };
 
 const common = {
@@ -21,13 +21,14 @@ const common = {
       }, {
         test: /\.css$/,
         loaders: ['style', 'css'],
-        include: PATHS.app
-      }
-    ]
+        include: PATHS.app,
+      },
+    ],
   },
   entry: [
+    'react-hot-loader/patch',
     './app/client',
-    'webpack-hot-middleware/client'
+    'webpack-hot-middleware/client',
   ],
   output: {
     path: PATHS.build,
@@ -42,7 +43,6 @@ const common = {
   colors: true,
   progress: true,
 };
-
 
 // npm run start, give dev version
 if (TARGET === 'start' || TARGET === 'serve' || !TARGET) {
@@ -67,6 +67,6 @@ if (TARGET === 'start' || TARGET === 'serve' || !TARGET) {
 }
 
 // npm run build, give prod version
-if(TARGET === 'build') {
+if (TARGET === 'build') {
   module.exports = merge(common, {});
 }

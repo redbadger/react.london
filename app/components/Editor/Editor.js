@@ -18,7 +18,7 @@ class Editor extends Component {
   render() {
     return (
       <aside className="Editor">
-        <h3>About sectkkkion</h3>
+        <h3>About section</h3>
         <label htmlFor="aboutTitle">Title</label>
         <input
           name="aboutTitle"
