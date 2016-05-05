@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "serve": "nodemon app/server.js --exec babel-node --presets es2015,stage-0",
+    "serve": "babel-node app/server.js --presets es2015,stage-0",
     "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
     "test:watch": "npm test -- --watch"
   },
@@ -24,6 +24,7 @@
     "babel-polyfill": "^6.7.4",
     "babel-runtime": "^6.6.1",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
