@@ -21,7 +21,8 @@ class TextField extends Component {
 
 class Editor extends Component {
   render() {
-    const editorState = EditorState.createEmpty();
+    const { aboutSummary } = this.props.initialValues;
+    console.log(aboutSummary);
     return (
       <aside className="Editor">
         <h3>About section</h3>
@@ -29,69 +30,65 @@ class Editor extends Component {
 
           <Field
             name="aboutTitle"
-            component={aboutTitle =>
-              <Draft editorState={editorState} onChange={aboutTitle.onChange} />
+            component={component =>
+              <TextField component={component} label="Title" />
             }/>
 
-          <Field
-            name="aboutSummary"
-            component={aboutSummary =>
-              <TextField component={aboutSummary} label="Summary" />
-            }/>
+          <Draft editorState={aboutSummary} />
 
           <h3>Upcoming Meetup</h3>
           <Field
             name="upcomingMeetupName"
-            component= {upcomingMeetupName =>
-            <TextField component={upcomingMeetupName} label="Name" />
+            component={component =>
+            <TextField component={component} label="Name" />
           }/>
 
           <Field
             name="upcomingMeetupDetails"
-            component= {upcomingMeetupDetails =>
-            <TextField component={upcomingMeetupDetails} label="Details" />
+            component={component =>
+            <TextField component={component} label="Details" />
           }/>
 
           <Field
             name="upcomingMeetupWhen"
-            component= {upcomingMeetupWhen =>
-            <TextField component={upcomingMeetupWhen} label="When" />
+            component={component =>
+            <TextField component={component} label="When" />
           }/>
 
           <Field
             name="upcomingMeetupWhere"
-            component= {upcomingMeetupWhere =>
-            <TextField component={upcomingMeetupWhere} label="Where" />
+            component={component =>
+            <TextField component={component} label="Where" />
           }/>
 
           <Field
             name="upcomingMeetupWhereLink"
-            component= {upcomingMeetupWhereLink =>
-            <TextField component={upcomingMeetupWhereLink} label="WhereLink" />
+            component={component =>
+            <TextField component={component} label="WhereLink" />
           }/>
 
           <Field
             name="upcomingMeetupCtaText"
-            component= {upcomingMeetupCtaText =>
-            <TextField component={upcomingMeetupCtaText} label="CtaText" />
+            component={component =>
+            <TextField component={component} label="CtaText" />
           }/>
 
           <Field
             name="upcomingMeetupCtaLink"
-            component= {upcomingMeetupCtaLink =>
-            <TextField component={upcomingMeetupCtaLink} label="CtaLink" />
+            component={component =>
+            <TextField component={component} label="CtaLink" />
           }/>
 
           <Field
             name="upcomingMeetupStreamingText"
-            component= {upcomingMeetupStreamingText =>
-            <TextField component={upcomingMeetupStreamingText} label="StreamingText" />
+            component={component =>
+            <TextField component={component} label="StreamingText" />
           }/>
 
           <Field
             name="upcomingMeetupStreamingLink"
-            component= {upcomingMeetupStreamingLink =>
-            <TextField component={upcomingMeetupStreamingLink} label="StreamingLink" />
+            component={component =>
+            <TextField component={component} label="StreamingLink" />
           }/>
 
       </aside>

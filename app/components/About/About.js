@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-
+import {stateToHTML} from 'draft-js-export-html';
 import style from './About.css';
 
-const About = ({ text, aboutSummary }) => (
+const About = ({ text }) => (
     <section className="About">
       <h1>{text.aboutTitle}</h1>
-      <div dangerouslySetInnerHTML={ { __html: aboutSummary } } />
     </section>
   );
 
