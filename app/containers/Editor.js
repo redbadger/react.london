@@ -6,7 +6,7 @@ import { updateText } from '../actions';
 import EditorComponent from '../components/Editor/Editor.js';
 
 const mapStateToProps = (state) => ({
-  ...state.userTexts,
+  initialValues: state.initialValues,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ updateText }, dispatch);

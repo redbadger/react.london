@@ -1,106 +1,153 @@
 import React, {Component} from 'react';
 import style from './Editor.css';
+import { reduxForm, Field } from 'redux-form';
 
 class Editor extends Component {
-  constructor(props) {
-    super(props);
-  };
-
-  handleChange = (event) => {
-    const { updateText } = this.props;
-
-    updateText({
-      key: event.target.name,
-      value: event.target.value,
-    });
-  };
-
   render() {
+
     return (
       <aside className="Editor">
         <h3>About section</h3>
-        <label htmlFor="aboutTitle">Title</label>
-        <input
-          name="aboutTitle"
-          value = {this.props.aboutTitle}
-          onChange = {this.handleChange}
-        />
+          <Field
+            name="aboutTitle"
+            component={aboutTitle =>
+              <div>
+                <label>About title</label>
+                <input type="text" {...aboutTitle}/>
+                {aboutTitle.touched &&
+                 aboutTitle.error &&
+                 <span className="error">{aboutTitle.error}</span>}
+              </div>
+            }/>
 
-      <label htmlFor="aboutSummary">Summary</label>
-        <textarea
-          name="aboutSummary"
-          value = {this.props.aboutSummary}
-          onChange = {this.handleChange}
-        />
+          <Field
+            name="aboutSummary"
+            component={aboutSummary =>
+              <div>
+                <label>About summary</label>
+                <input type="text" {...aboutSummary}/>
+                {aboutSummary.touched &&
+                 aboutSummary.error &&
+                 <span className="error">{aboutSummary.error}</span>}
+              </div>
+            }/>
 
-        <h3>Upcoming Meetup</h3>
+          <h3>Upcoming Meetup</h3>
+          <Field
+            name="upcomingMeetupName"
+            component= {upcomingMeetupName =>
+            <div>
+              <label>Name</label>
+              <input type="text" {...upcomingMeetupName} />
+              {upcomingMeetupName.touched &&
+                upcomingMeetupName.error &&
+                <span className="error">{upcomingMeetupName.error}</span>}
+            </div>
+          }/>
 
-        <label htmlFor="upcomingMeetupName">Name</label>
-        <input
-          name="upcomingMeetupName"
-          value={this.props.upcomingMeetupName}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupDetails"
+            component= {upcomingMeetupDetails =>
+            <div>
+              <label>Details</label>
+              <input type="text" {...upcomingMeetupDetails} />
+              {upcomingMeetupDetails.touched &&
+                upcomingMeetupDetails.error &&
+                <span className="error">{upcomingMeetupDetails.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupDetails">Details</label>
-        <input
-          name="upcomingMeetupDetails"
-          value={this.props.upcomingMeetupDetails}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhen"
+            component= {upcomingMeetupWhen =>
+            <div>
+              <label>When</label>
+              <input type="text" {...upcomingMeetupWhen} />
+              {upcomingMeetupWhen.touched &&
+                upcomingMeetupWhen.error &&
+                <span className="error">{upcomingMeetupWhen.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupWhen">When</label>
-        <input
-          name="upcomingMeetupWhen"
-          value={this.props.upcomingMeetupWhen}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhere"
+            component= {upcomingMeetupWhere =>
+            <div>
+              <label>Where</label>
+              <input type="text" {...upcomingMeetupWhere} />
+              {upcomingMeetupWhere.touched &&
+                upcomingMeetupWhere.error &&
+                <span className="error">{upcomingMeetupWhere.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupWhere">Where</label>
-        <input
-          name="upcomingMeetupWhere"
-          value={this.props.upcomingMeetupWhere}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhereLink"
+            component= {upcomingMeetupWhereLink =>
+            <div>
+              <label>WhereLink</label>
+              <input type="text" {...upcomingMeetupWhereLink} />
+              {upcomingMeetupWhereLink.touched &&
+                upcomingMeetupWhereLink.error &&
+                <span className="error">{upcomingMeetupWhereLink.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupWhereLink">WhereLink</label>
-        <input
-          name="upcomingMeetupWhereLink"
-          value={this.props.upcomingMeetupWhereLink}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupCtaText"
+            component= {upcomingMeetupCtaText =>
+            <div>
+              <label>CtaText</label>
+              <input type="text" {...upcomingMeetupCtaText} />
+              {upcomingMeetupCtaText.touched &&
+                upcomingMeetupCtaText.error &&
+                <span className="error">{upcomingMeetupCtaText.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupCtaText">CtaText</label>
-        <input
-          name="upcomingMeetupCtaText"
-          value={this.props.upcomingMeetupCtaText}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupCtaLink"
+            component= {upcomingMeetupCtaLink =>
+            <div>
+              <label>CtaLink</label>
+              <input type="text" {...upcomingMeetupCtaLink} />
+              {upcomingMeetupCtaLink.touched &&
+                upcomingMeetupCtaLink.error &&
+                <span className="error">{upcomingMeetupCtaLink.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupCtaLink">CtaLink</label>
-        <input
-          name="upcomingMeetupCtaLink"
-          value={this.props.upcomingMeetupCtaLink}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupStreamingText"
+            component= {upcomingMeetupStreamingText =>
+            <div>
+              <label>StreamingText</label>
+              <input type="text" {...upcomingMeetupStreamingText} />
+              {upcomingMeetupStreamingText.touched &&
+                upcomingMeetupStreamingText.error &&
+                <span className="error">{upcomingMeetupStreamingText.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupStreamingText">StreamingText</label>
-        <input
-          name="upcomingMeetupStreamingText"
-          value={this.props.upcomingMeetupStreamingText}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupStreamingLink"
+            component= {upcomingMeetupStreamingLink =>
+            <div>
+              <label>StreamingLink</label>
+              <input type="text" {...upcomingMeetupStreamingLink} />
+              {upcomingMeetupStreamingLink.touched &&
+                upcomingMeetupStreamingLink.error &&
+                <span className="error">{upcomingMeetupStreamingLink.error}</span>}
+            </div>
+          }/>
 
-      <label htmlFor="upcomingMeetupStreamingLink">StreamingLink</label>
-        <input
-          name="upcomingMeetupStreamingLink"
-          value={this.props.upcomingMeetupStreamingLink}
-          onChange={this.handleChange}
-        />
-
-    </aside>
+      </aside>
     );
   }
 }
+
+Editor = reduxForm({
+  form: 'editor',
+})(Editor);
 
 export default Editor;

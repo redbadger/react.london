@@ -12,7 +12,7 @@ const getInitialState = () => ({
   upcomingMeetupStreamingLink: 'https://www.youtube.com/channel/UCHlIVrJki1BxwKe7NtFYZRg',
 });
 
-const userTexts = (state = getInitialState(), action) => {
+const initialValues = (state = getInitialState(), action) => {
   switch (action.type) {
     case 'UPDATE_TEXT':
       const newState = { ...state };
@@ -23,4 +23,4 @@ const userTexts = (state = getInitialState(), action) => {
   }
 };
 
-export default userTexts;
+export default initialValues;

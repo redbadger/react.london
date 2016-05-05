@@ -4,7 +4,7 @@ import style from './Preview.css';
 import About from '../../containers/About.js';
 import UpcomingMeetup from '../../containers/UpcomingMeetup.js';
 
-const Preview = ({ userText }) => (
+const Preview = () => (
     <main className="Preview">
       <About />
       <UpcomingMeetup />

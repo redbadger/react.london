@@ -29,6 +29,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
+    "redux-form": "^6.0.0-alpha.7",
     "serialize-javascript": "^1.2.0"
   },
   "devDependencies": {
