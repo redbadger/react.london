@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import style from './UpcomingMeetup.css';
-
 const UpcomingMeetup = ({ text }) => (
     <section className="UpcomingMeetup">
       <h2>{text.upcomingMeetupName}</h2>

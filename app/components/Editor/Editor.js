@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
-import style from './Editor.css';
 import { reduxForm, Field } from 'redux-form';
+
 import TextField from './TextField/TextField.js';
 import RichField from './RichField/RichField.js';
+
+import Radium, { Style } from 'radium';
 
 class Editor extends Component {
   render() {
     return (
-      <aside className="Editor">
+      <aside style={styles} className="editor">
+        {genericStyles}
+
         <h3>About section</h3>
 
           <Field
@@ -77,7 +81,6 @@ class Editor extends Component {
             component={field =>
             <TextField field={field} label="StreamingLink" />
           }/>
-
       </aside>
     );
   }
@@ -87,4 +90,31 @@ Editor = reduxForm({
   form: 'editor',
 })(Editor);
 
-export default Editor;
+const styles = {
+  borderRight: '2px solid black',
+  padding: '20px',
+  width: '1000px',
+};
+
+const genericStyles  = (<Style
+  scopeSelector=".editor"
+  rules={{
+    'input, textarea': {
+      display: 'block',
+      width: '100%',
+      padding: '2px 5px',
+      margin: '2px 0px 20px',
+      fontSize: '1em',
+    },
+    textarea: {
+      maxWidth: '100%',
+      minHeight: 200,
+    },
+    'DraftEditor-root': {
+      width: '100%',
+      border: '1px solid #ccc',
+    },
+  }}
+/>);
+
+export default Radium(Editor);

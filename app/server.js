@@ -16,7 +16,6 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './store';
 import routes from './routes';
 
-import Dumb from './components/Dumb/Dumb';
 import Preview from './components/Preview/Preview';
 import About from './components/About/About';
 
@@ -37,7 +36,6 @@ app.use(bodyParser.json());
 const HTML = ({ content, store }) => (
   <html>
     <head>
-      <link rel="stylesheet" href="/build/styles.css" />
     </head>
     <body>
       <div id="main" dangerouslySetInnerHTML={{ __html: content }} />
@@ -52,7 +50,10 @@ app.post('/shipit/', (req, res) => {
   console.log(req.body);
   console.log(typeof req.body);
   console.log(Preview);
-  res.send(renderToStaticMarkup(<Preview {...req.body} />));
+  res.send(renderToStaticMarkup(<Preview
+    radiumConfig={{ userAgent: req.headers['user-agent'] }}
+    {...req.body}
+  />));
 });
 
 app.use((req, res) => {
@@ -67,7 +68,9 @@ app.use((req, res) => {
       res.redirect(302, redirectLocation.pathnname + redirectLocation.search);
     } else if (renderProps) {
       const content = renderToString(
-        <Provider store={store}>
+        <Provider
+          radiumConfig={{ userAgent: req.headers['user-agent'] }}
+          store={store}>
           <RouterContext {...renderProps} />
         </Provider>
       );

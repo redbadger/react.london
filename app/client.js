@@ -8,7 +8,6 @@ import { Router, Route, browserHistory } from 'react-router';
 import routes from './routes';
 import { configureStore } from './store';
 
-import style from './main.css';
 import reducers from './reducers';
 
 import App from './App';
