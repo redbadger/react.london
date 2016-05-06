@@ -1,8 +1,8 @@
 import React from 'react';
 import  { Route, IndexRoute, Link } from 'react-router';
 
-import Editor from '../containers/Editor.js';
-import Preview from '../components/Preview/Preview.js';
+import Editor from '../containers/Editor';
+import Preview from '../containers/Preview';
 
 const App = ({ children }) => (
   <div className='wrapper'>

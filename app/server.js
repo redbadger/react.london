@@ -18,6 +18,7 @@ import routes from './routes';
 
 import Dumb from './components/Dumb/Dumb';
 import Preview from './components/Preview/Preview';
+import About from './components/About/About';
 
 var bodyParser = require('body-parser');
 
@@ -51,7 +52,7 @@ app.post('/shipit/', (req, res) => {
   console.log(req.body);
   console.log(typeof req.body);
   console.log(Preview);
-  res.send(renderToStaticMarkup(<Preview store={req.body.name} />));
+  res.send(renderToStaticMarkup(<Preview {...req.body} />));
 });
 
 app.use((req, res) => {

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
 import style from './Preview.css';
-import About from '../../containers/About.js';
-import UpcomingMeetup from '../../containers/UpcomingMeetup.js';
+import About from '../About/About';
+import UpcomingMeetup from '../UpcomingMeetup/UpcomingMeetup';
 
-const Preview = () => (
+const Preview = ({ text, summary }) => (
     <main className="Preview">
-      <About />
-      <UpcomingMeetup />
+      <About text={text} summary={summary} />
+      <UpcomingMeetup text={text} />
     </main>
   );
 
