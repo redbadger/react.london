@@ -5,7 +5,7 @@ import style from './UpcomingMeetup.css';
 const UpcomingMeetup = ({ text }) => (
     <section className="UpcomingMeetup">
       <h2>{text.upcomingMeetupName}</h2>
-      <p>{text.upcomingMeetupDetails}</p>
+      <div dangerouslySetInnerHTML={ { __html: text.upcomingMeetupDetails } } />
       <p>{text.upcomingMeetupWhen}</p>
       <p><a target="_blank" href={text.upcomingMeetupWhereLink}>{text.upcomingMeetupWhere}</a></p>
       <p><a target="_blank" href={text.upcomingMeetupCtaLink}>{text.upcomingMeetupCtaText}</a></p>
