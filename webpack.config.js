@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 const TARGET = process.env.npm_lifecycle_event;
 
@@ -20,7 +22,10 @@ const common = {
         test: /\.jsx?$/,
       }, {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader'
+        ),
         include: PATHS.app,
       },
     ],
@@ -28,7 +33,7 @@ const common = {
   entry: [
     'react-hot-loader/patch',
     './app/client',
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
   ],
   output: {
     path: PATHS.build,
@@ -61,7 +66,8 @@ if (TARGET === 'start' || TARGET === 'serve' || !TARGET) {
     plugins: [
      new webpack.optimize.OccurenceOrderPlugin(),
      new webpack.HotModuleReplacementPlugin(),
-     new webpack.NoErrorsPlugin()
+     new ExtractTextPlugin('styles.css'),
+     new webpack.NoErrorsPlugin(),
     ],
   });
 }

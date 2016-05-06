@@ -28,6 +28,9 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 const HTML = ({ content, store }) => (
   <html>
+    <head>
+      <link rel="stylesheet" href="/build/styles.css" />
+    </head>
     <body>
       <div id="main" dangerouslySetInnerHTML={{ __html: content }} />
       <div id="devtools" />
