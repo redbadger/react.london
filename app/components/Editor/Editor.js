@@ -1,106 +1,90 @@
 import React, {Component} from 'react';
 import style from './Editor.css';
+import { reduxForm, Field } from 'redux-form';
+import TextField from './TextField/TextField.js';
+import RichField from './RichField/RichField.js';
 
 class Editor extends Component {
-  constructor(props) {
-    super(props);
-  };
-
-  handleChange = (event) => {
-    const { updateText } = this.props;
-
-    updateText({
-      key: event.target.name,
-      value: event.target.value,
-    });
-  };
-
   render() {
     return (
       <aside className="Editor">
         <h3>About section</h3>
-        <label htmlFor="aboutTitle">Title</label>
-        <input
-          name="aboutTitle"
-          value = {this.props.aboutTitle}
-          onChange = {this.handleChange}
-        />
 
-      <label htmlFor="aboutSummary">Summary</label>
-        <textarea
-          name="aboutSummary"
-          value = {this.props.aboutSummary}
-          onChange = {this.handleChange}
-        />
+          <Field
+            name="aboutTitle"
+            component={field =>
+              <TextField field={field} label="Title" />
+            }/>
 
-        <h3>Upcoming Meetup</h3>
+          <Field
+            name="aboutSummary"
+            component={field =>
+              <RichField field={field} label="Summary" />
+            }/>
 
-        <label htmlFor="upcomingMeetupName">Name</label>
-        <input
-          name="upcomingMeetupName"
-          value={this.props.upcomingMeetupName}
-          onChange={this.handleChange}
-        />
 
-      <label htmlFor="upcomingMeetupDetails">Details</label>
-        <input
-          name="upcomingMeetupDetails"
-          value={this.props.upcomingMeetupDetails}
-          onChange={this.handleChange}
-        />
+          <h3>Upcoming Meetup</h3>
+          <Field
+            name="upcomingMeetupName"
+            component={field =>
+            <TextField field={field} label="Name" />
+          }/>
 
-      <label htmlFor="upcomingMeetupWhen">When</label>
-        <input
-          name="upcomingMeetupWhen"
-          value={this.props.upcomingMeetupWhen}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupDetails"
+            component={field =>
+            <TextField field={field} label="Details" />
+          }/>
 
-      <label htmlFor="upcomingMeetupWhere">Where</label>
-        <input
-          name="upcomingMeetupWhere"
-          value={this.props.upcomingMeetupWhere}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhen"
+            component={field =>
+            <TextField field={field} label="When" />
+          }/>
 
-      <label htmlFor="upcomingMeetupWhereLink">WhereLink</label>
-        <input
-          name="upcomingMeetupWhereLink"
-          value={this.props.upcomingMeetupWhereLink}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhere"
+            component={field =>
+            <TextField field={field} label="Where" />
+          }/>
 
-      <label htmlFor="upcomingMeetupCtaText">CtaText</label>
-        <input
-          name="upcomingMeetupCtaText"
-          value={this.props.upcomingMeetupCtaText}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupWhereLink"
+            component={field =>
+            <TextField field={field} label="WhereLink" />
+          }/>
 
-      <label htmlFor="upcomingMeetupCtaLink">CtaLink</label>
-        <input
-          name="upcomingMeetupCtaLink"
-          value={this.props.upcomingMeetupCtaLink}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupCtaText"
+            component={field =>
+            <TextField field={field} label="CtaText" />
+          }/>
 
-      <label htmlFor="upcomingMeetupStreamingText">StreamingText</label>
-        <input
-          name="upcomingMeetupStreamingText"
-          value={this.props.upcomingMeetupStreamingText}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupCtaLink"
+            component={field =>
+            <TextField field={field} label="CtaLink" />
+          }/>
 
-      <label htmlFor="upcomingMeetupStreamingLink">StreamingLink</label>
-        <input
-          name="upcomingMeetupStreamingLink"
-          value={this.props.upcomingMeetupStreamingLink}
-          onChange={this.handleChange}
-        />
+          <Field
+            name="upcomingMeetupStreamingText"
+            component={field =>
+            <TextField field={field} label="StreamingText" />
+          }/>
 
-    </aside>
+          <Field
+            name="upcomingMeetupStreamingLink"
+            component={field =>
+            <TextField field={field} label="StreamingLink" />
+          }/>
+
+      </aside>
     );
   }
 }
+
+Editor = reduxForm({
+  form: 'editor',
+})(Editor);
 
 export default Editor;

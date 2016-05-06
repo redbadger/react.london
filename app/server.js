@@ -8,13 +8,18 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config';
 
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createMemoryHistory, match, RouterContext } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import { configureStore } from './store';
 import routes from './routes';
+
+import Dumb from './components/Dumb/Dumb';
+import Preview from './components/Preview/Preview';
+
+var bodyParser = require('body-parser');
 
 const app = express();
 
@@ -25,6 +30,8 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
+
+app.use(bodyParser.json());
 
 const HTML = ({ content, store }) => (
   <html>
@@ -40,7 +47,14 @@ const HTML = ({ content, store }) => (
   </html>
 );
 
-app.use(function (req, res) {
+app.post('/shipit/', (req, res) => {
+  console.log(req.body);
+  console.log(typeof req.body);
+  console.log(Preview);
+  res.send(renderToStaticMarkup(<Preview store={req.body.name} />));
+});
+
+app.use((req, res) => {
   const memoryHistory = createMemoryHistory(req.url);
   const store = configureStore(memoryHistory);
   const history = syncHistoryWithStore(memoryHistory, store);

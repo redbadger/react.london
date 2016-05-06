@@ -23,7 +23,12 @@
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "babel-runtime": "^6.6.1",
+<<<<<<< HEAD
     "body-parser": "^1.15.1",
+=======
+    "draft-js": "^0.7.0",
+    "draft-js-export-html": "^0.1.13",
+>>>>>>> redux-form
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "react": "^15.0.1",
@@ -31,6 +36,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
+    "redux-form": "^6.0.0-alpha.7",
     "serialize-javascript": "^1.2.0"
   },
   "devDependencies": {

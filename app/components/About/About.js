@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-
 import style from './About.css';
 
-const About = ({ aboutTitle, aboutSummary }) => (
+const About = ({ text, summary }) => (
     <section className="About">
-      <h1>{aboutTitle}</h1>
-      <p>{aboutSummary}</p>
+      <h1>{text.aboutTitle}</h1>
+      <div dangerouslySetInnerHTML={ { __html: summary } } />
     </section>
   );
 

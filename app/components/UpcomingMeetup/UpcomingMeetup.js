@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 
 import style from './UpcomingMeetup.css';
 
-const UpcomingMeetup = ({ upcomingMeetupName, upcomingMeetupDetails, upcomingMeetupWhen, upcomingMeetupWhere, upcomingMeetupWhereLink, upcomingMeetupCtaText, upcomingMeetupCtaLink, upcomingMeetupStreamingText, upcomingMeetupStreamingLink }) => (
+const UpcomingMeetup = ({ text }) => (
     <section className="UpcomingMeetup">
-      <h2>{upcomingMeetupName}</h2>
-      <p>{upcomingMeetupDetails}</p>
-      <p>{upcomingMeetupWhen}</p>
-      <p><a target="_blank" href={upcomingMeetupWhereLink}>{upcomingMeetupWhere}</a></p>
-      <p><a target="_blank" href={upcomingMeetupCtaLink}>{upcomingMeetupCtaText}</a></p>
-      <p><a target="_blank" href={upcomingMeetupStreamingLink}>{upcomingMeetupStreamingText}</a></p>
+      <h2>{text.upcomingMeetupName}</h2>
+      <p>{text.upcomingMeetupDetails}</p>
+      <p>{text.upcomingMeetupWhen}</p>
+      <p><a target="_blank" href={text.upcomingMeetupWhereLink}>{text.upcomingMeetupWhere}</a></p>
+      <p><a target="_blank" href={text.upcomingMeetupCtaLink}>{text.upcomingMeetupCtaText}</a></p>
+      <p><a target="_blank" href={text.upcomingMeetupStreamingLink}>{text.upcomingMeetupStreamingText}</a></p>
     </section>
   );
 
