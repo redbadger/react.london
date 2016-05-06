@@ -17,9 +17,10 @@ import { configureStore } from './store';
 import routes from './routes';
 
 import Preview from './components/Preview/Preview';
-import About from './components/About/About';
 
 var bodyParser = require('body-parser');
+import { minify } from 'html-minifier';
+
 
 const app = express();
 
@@ -47,13 +48,16 @@ const HTML = ({ content, store }) => (
 );
 
 app.post('/shipit/', (req, res) => {
-  console.log(req.body);
-  console.log(typeof req.body);
-  console.log(Preview);
-  res.send(renderToStaticMarkup(<Preview
+  const markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: req.headers['user-agent'] }}
     {...req.body}
-  />));
+  />);
+
+  res.send(minify(markup, {
+    removeAttributeQuotes: true,
+    minifyCSS: true,
+    collapseWhitespace: true,
+  }));
 });
 
 app.use((req, res) => {
