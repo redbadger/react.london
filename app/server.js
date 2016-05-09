@@ -48,10 +48,10 @@ const HTML = ({ content, store }) => (
   </html>
 );
 
-app.post('/shipit/', (req, res) => {
+generateStaticSite = (properties) => {
   const markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: req.headers['user-agent'] }}
-    {...req.body}
+    {...properties}
   />);
 
   let intermediate = '<!doctype html>\n<html><body>' + markup + '</body></html>';
@@ -62,6 +62,10 @@ app.post('/shipit/', (req, res) => {
     collapseWhitespace: true,
   }));
 
+  return site;
+};
+
+shipToAws = (bucketName, site) => {
   AWS.config.update({
     region: 'eu-west-1',
   });
@@ -69,7 +73,7 @@ app.post('/shipit/', (req, res) => {
   let s3 = new AWS.S3();
 
   s3.putObject({
-    Bucket: 'london.react.dev',
+    Bucket: bucketName,
     Key: 'index.html',
     ACL: 'public-read',
     Body: site,
@@ -78,8 +82,15 @@ app.post('/shipit/', (req, res) => {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
+};
 
+app.post('/staging/', (req, res) => {
+  const site = generateStaticSite(req.body);
+  shipToAws('london.react.dev', site)
   res.send(site);
+});
+
+app.post('/live/', function (req, res) => {
 
 });
 
