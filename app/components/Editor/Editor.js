@@ -12,7 +12,9 @@ class Editor extends Component {
       <aside style={styles} className="editor">
         {genericStyles}
 
-        <h3>About section</h3>
+        <h2>About section</h2>
+
+        <section style={styles.section}>
 
           <Field
             name="aboutTitle"
@@ -26,8 +28,12 @@ class Editor extends Component {
               <RichField field={field} label="Summary" />
             }/>
 
+        </section>
 
-          <h3>Upcoming Meetup</h3>
+        <h2>Upcoming Meetup</h2>
+
+        <section style={styles.section}>
+
           <Field
             name="upcomingMeetupName"
             component={field =>
@@ -43,44 +49,51 @@ class Editor extends Component {
           <Field
             name="upcomingMeetupWhen"
             component={field =>
-            <TextField field={field} label="When" />
+            <TextField field={field} label="When is it happening?" />
           }/>
+
+        <h4 style={styles.subHeading}>Details about the meetup location</h4>
 
           <Field
             name="upcomingMeetupWhere"
             component={field =>
-            <TextField field={field} label="Where" />
+            <TextField field={field} label="Where is it happening?" />
           }/>
 
           <Field
             name="upcomingMeetupWhereLink"
             component={field =>
-            <TextField field={field} label="WhereLink" />
+            <TextField field={field} label="Direction link" />
           }/>
+
+        <h4 style={styles.subHeading}>More information link</h4>
 
           <Field
             name="upcomingMeetupCtaText"
             component={field =>
-            <TextField field={field} label="CtaText" />
+            <TextField field={field} label="Link text" />
           }/>
 
           <Field
             name="upcomingMeetupCtaLink"
             component={field =>
-            <TextField field={field} label="CtaLink" />
+            <TextField field={field} label="Link" />
           }/>
 
+        <h4 style={styles.subHeading}>Live stream link</h4>
           <Field
             name="upcomingMeetupStreamingText"
             component={field =>
-            <TextField field={field} label="StreamingText" />
+            <TextField field={field} label="Link text" />
           }/>
 
           <Field
             name="upcomingMeetupStreamingLink"
             component={field =>
-            <TextField field={field} label="StreamingLink" />
+            <TextField field={field} label="Link" />
           }/>
+
+      </section>
       </aside>
     );
   }
@@ -93,7 +106,17 @@ Editor = reduxForm({
 const styles = {
   borderRight: '2px solid black',
   padding: '20px',
-  width: '1000px',
+  maxWidth: '500px',
+  resize: 'horizontal',
+  overflow: 'auto',
+  section: {
+    display: 'block',
+    marginBottom: 40,
+  },
+  subHeading: {
+    marginTop: '30px',
+    marginBottom: '10px',
+  },
 };
 
 const genericStyles  = (<Style
@@ -110,11 +133,17 @@ const genericStyles  = (<Style
       maxWidth: '100%',
       minHeight: 200,
     },
-    'DraftEditor-root': {
+    '.DraftEditor-root': {
       width: '100%',
-      border: '1px solid #ccc',
+      padding: '2px 5px',
+      margin: '2px 0px 20px',
+      border: '1px solid #CCCCCC',
+    },
+    '.public-DraftStyleDefault-block': {
+      marginBottom: '1em',
     },
   }}
 />);
+
 
 export default Radium(Editor);
