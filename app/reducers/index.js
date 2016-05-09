@@ -51,7 +51,91 @@ const getInitialState = () => ({
     ],
   },
   upcomingMeetupName: 'June React User Group',
-  upcomingMeetupDetails: 'TICKET INFO WILL FOLLOW \n\nJoin us for an evening of great conversation around React.js- \n\n6:30- Doors open for pizza and beers \n\n7:00- Intro from Stu \n\n7:10- 2 or 3 speakers each with 20 minutes to talk followed by Q&A\n\n8:30/ 9:00- Everyone is welcome to stay for another drink Our speakers for the evening are....\n\nMore details will follow shortly\n\nWe will live stream and record the event- we will post a link here prior to the event.',
+  upcomingMeetupDetails: {
+    entityMap: {},
+    blocks: [
+      {
+        key: '151i4',
+        text: 'TICKET INFO WILL FOLLOW',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [
+          {
+            offset: 0,
+            length: 23,
+            style: 'BOLD',
+          },
+        ],
+        entityRanges: [],
+      }, {
+        key: 'd3g2j',
+        text: 'Join us for an evening of great conversation around React.js- ',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      }, {
+        key: 'dl9t8',
+        text: '6:30- Doors open for pizza and beers ',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [
+          {
+            offset: 0,
+            length: 4,
+            style: 'BOLD',
+          },
+        ],
+        entityRanges: [],
+      }, {
+        key: '9fntu',
+        text: '7:00- Intro from Stu ',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [
+          {
+            offset: 0,
+            length: 4,
+            style: 'BOLD',
+          },
+        ],
+        entityRanges: [],
+      }, {
+        key: 'elsnd',
+        text: '7:10- 2 or 3 speakers each with 20 minutes to talk followed by Q&A ',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [
+          {
+            offset: 0,
+            length: 4,
+            style: 'BOLD',
+          },
+        ],
+        entityRanges: [],
+      }, {
+        key: '9nf5s',
+        text: '8:30\/ 9:00- Everyone is welcome to stay for another drink Our speakers for the evening are.... ',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [
+          {
+            offset: 0,
+            length: 10,
+            style: 'BOLD',
+          },
+        ],
+        entityRanges: [],
+      }, {
+        key: '6iivf',
+        text: 'More details will follow shortly We will live stream and record the event- we will post a link here prior to the event.',
+        type: 'unstyled',
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+      },
+    ],
+  },
   upcomingMeetupWhen: 'Tuesday, June 28, 2016',
   upcomingMeetupWhere: 'Facebook, 10 Brock Street, Regents Place, London',
   upcomingMeetupWhereLink: 'https://maps.google.com/maps?f=q&hl=en&q=10+Brock+Street%2C+Regents+Place%2C+London%2C+gb',

@@ -4,9 +4,9 @@ import Radium from 'radium';
 import About from '../About/About';
 import UpcomingMeetup from '../UpcomingMeetup/UpcomingMeetup';
 
-const Preview = Radium(({ text, summary }) => (
+const Preview = Radium(({ text }) => (
   <main style={style}>
-    <About text={text} summary={summary} />
+    <About text={text} />
     <UpcomingMeetup text={text} />
   </main>
 ));

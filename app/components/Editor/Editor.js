@@ -56,7 +56,7 @@ class Editor extends Component {
           <Field
             name="upcomingMeetupDetails"
             component={field =>
-            <TextField field={field} label="Details" />
+            <RichField field={field} label="Details" />
           }/>
 
           <Field
