@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 
 const About = ({ text, summary }) => (
-  <section>
-    <h1>{text.aboutTitle}</h1>
-    <div dangerouslySetInnerHTML={ { __html: summary } } />
-  </section>
-);
+
+    <section className="About">
+      <h1>{text.aboutTitle}</h1>
+      <div dangerouslySetInnerHTML={ { __html: text.aboutSummary } } />
+    </section>
+  );
 
 export default About;
