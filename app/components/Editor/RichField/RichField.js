@@ -14,7 +14,6 @@ class RichField extends React.Component {
       this.props.field.onChange(this.getRawContent());
       this.setState({ editorState });
     };
-
   }
 
   setDefaultValue(defaultValue) {

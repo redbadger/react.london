@@ -51,7 +51,7 @@ const HTML = ({ content, store }) => (
 function generateStaticSite(properties, headers) {
   let markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: headers['user-agent'] }}
-    {...properties}
+    text={ properties }
   />);
 
   markup = '<!doctype html><html><body>' + markup + '</body></html>';

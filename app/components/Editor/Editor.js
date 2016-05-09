@@ -7,6 +7,25 @@ import RichField from './RichField/RichField.js';
 import Radium, { Style } from 'radium';
 
 class Editor extends Component {
+  pushToExternal = (environment) => {
+    fetch(`/${environment}/`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(this.props.content.form.editor.values),
+    });
+  };
+
+  pushToStaging = () => {
+    this.pushToExternal('staging');
+  };
+
+  pushToLive = () => {
+    this.pushToExternal('live');
+  };
+
   render() {
     return (
       <aside style={styles} className="editor">
@@ -81,6 +100,9 @@ class Editor extends Component {
             component={field =>
             <TextField field={field} label="StreamingLink" />
           }/>
+
+        <button onClick={this.pushToStaging}>Push To Staging</button>
+        <button onClick={this.pushToLive}>Push To Live</button>
       </aside>
     );
   }
