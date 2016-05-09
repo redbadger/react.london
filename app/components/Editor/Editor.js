@@ -104,8 +104,9 @@ Editor = reduxForm({
 })(Editor);
 
 const styles = {
-  borderRight: '2px solid black',
-  padding: '20px',
+  borderRight: '1px solid #C9C9C9',
+  boxShadow: '3px 0px 5px 0px rgba(201,201,201,1)',
+  padding: '10px 40px 0px 30px',
   maxWidth: '500px',
   resize: 'horizontal',
   overflow: 'auto',
@@ -144,6 +145,5 @@ const genericStyles  = (<Style
     },
   }}
 />);
-
 
 export default Radium(Editor);
