@@ -48,15 +48,15 @@ const HTML = ({ content, store }) => (
   </html>
 );
 
-generateStaticSite = (properties) => {
-  const markup = renderToStaticMarkup(<Preview
-    radiumConfig={{ userAgent: req.headers['user-agent'] }}
+function generateStaticSite(properties, headers) {
+  let markup = renderToStaticMarkup(<Preview
+    radiumConfig={{ userAgent: headers['user-agent'] }}
     {...properties}
   />);
 
-  let intermediate = '<!doctype html>\n<html><body>' + markup + '</body></html>';
+  markup = '<!doctype html><html><body>' + markup + '</body></html>';
 
-  const site = (minify(intermediate, {
+  const site = (minify(markup, {
     removeAttributeQuotes: true,
     minifyCSS: true,
     collapseWhitespace: true,
@@ -65,7 +65,7 @@ generateStaticSite = (properties) => {
   return site;
 };
 
-shipToAws = (bucketName, site) => {
+function shipToAws(bucketName, site) {
   AWS.config.update({
     region: 'eu-west-1',
   });
@@ -85,13 +85,15 @@ shipToAws = (bucketName, site) => {
 };
 
 app.post('/staging/', (req, res) => {
-  const site = generateStaticSite(req.body);
-  shipToAws('london.react.dev', site)
+  const site = generateStaticSite(req.body, req.headers);
+  shipToAws('london.react.dev', site);
   res.send(site);
 });
 
-app.post('/live/', function (req, res) => {
-
+app.post('/live/', (req, res) => {
+  const site = generateStaticSite(req.body, req.headers);
+  shipToAws('london.react.live', site);
+  res.send(site);
 });
 
 app.use((req, res) => {
