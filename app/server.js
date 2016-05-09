@@ -21,6 +21,8 @@ import Preview from './components/Preview/Preview';
 import  bodyParser from 'body-parser';
 import { minify } from 'html-minifier';
 
+import AWS from 'aws-sdk';
+
 const app = express();
 
 let compiler = webpack(webpackConfig);
@@ -52,11 +54,33 @@ app.post('/shipit/', (req, res) => {
     {...req.body}
   />);
 
-  res.send(minify(markup, {
+  let intermediate = '<!doctype html>\n<html><body>' + markup + '</body></html>';
+
+  const site = (minify(intermediate, {
     removeAttributeQuotes: true,
     minifyCSS: true,
     collapseWhitespace: true,
   }));
+
+  AWS.config.update({
+    region: 'eu-west-1',
+  });
+
+  let s3 = new AWS.S3();
+
+  s3.putObject({
+    Bucket: 'london.react.dev',
+    Key: 'index.html',
+    ACL: 'public-read',
+    Body: site,
+    ContentType: 'text/html',
+  }, function (err, data) {
+    if (err) console.log(err, err.stack);
+    else console.log(data);
+  });
+
+  res.send(site);
+
 });
 
 app.use((req, res) => {

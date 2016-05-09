@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/redbadger/react.london#readme",
   "dependencies": {
+    "aws-sdk": "^2.3.9",
     "babel-polyfill": "^6.7.4",
     "babel-runtime": "^6.6.1",
     "body-parser": "^1.15.1",
