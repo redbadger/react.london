@@ -18,9 +18,8 @@ import routes from './routes';
 
 import Preview from './components/Preview/Preview';
 
-var bodyParser = require('body-parser');
+import  bodyParser from 'body-parser';
 import { minify } from 'html-minifier';
-
 
 const app = express();
 
