@@ -110,6 +110,7 @@ const styles = {
   maxWidth: '500px',
   resize: 'horizontal',
   overflow: 'auto',
+  backgroundColor: '#ffffff',
   section: {
     display: 'block',
     marginBottom: 40,

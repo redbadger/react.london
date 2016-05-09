@@ -21,13 +21,14 @@ const routes = (
 const styles = {
   width: '100%',
   display: 'flex',
-}
+};
 
 const appStyles = (<Style rules={{
   'body, html': {
     width: '100%',
     margin: 0,
     fontFamily: 'sans-serif',
+    backgroundColor: '#E2E2E2',
   },
 }} />);
 
