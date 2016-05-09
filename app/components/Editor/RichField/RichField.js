@@ -12,7 +12,6 @@ class RichField extends React.Component {
 
     this.onChange = (editorState) => {
       this.props.field.onChange(this.getRawContent());
-      console.log(JSON.stringify(this.getRawContent()));
       this.setState({ editorState });
     };
 
