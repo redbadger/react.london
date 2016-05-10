@@ -2,16 +2,33 @@ import React, {Component} from 'react';
 import Radium, { Style } from 'radium';
 import About from '../About/About';
 import UpcomingMeetup from '../UpcomingMeetup/UpcomingMeetup';
+import UpcomingMeetupSpeaker from '../UpcomingMeetupSpeaker/UpcomingMeetupSpeaker';
 
 const Preview = Radium(({ text }) => (
   <main className="preview">
     {previewStyles}
     {appStyles}
-    <About text={text} />
-    <UpcomingMeetup text={text} />
+    <div className="row"><About text={text} /></div>
+    <div className="row"><UpcomingMeetup text={text} /></div>
+    <div className="row speakers">
+      <UpcomingMeetupSpeaker
+        name={text.upcomingMeetupSpeaker1Name}
+        title={text.upcomingMeetupSpeaker1Title}
+        blurb={text.upcomingMeetupSpeaker1Blurb}
+        picture={text.upcomingMeetupSpeaker1Picture} />
+      <UpcomingMeetupSpeaker
+        name={text.upcomingMeetupSpeaker2Name}
+        title={text.upcomingMeetupSpeaker2Title}
+        blurb={text.upcomingMeetupSpeaker2Blurb}
+        picture={text.upcomingMeetupSpeaker2Picture} />
+      <UpcomingMeetupSpeaker
+        name={text.upcomingMeetupSpeaker3Name}
+        title={text.upcomingMeetupSpeaker3Title}
+        blurb={text.upcomingMeetupSpeaker3Blurb}
+        picture={text.upcomingMeetupSpeaker3Picture} />
+    </div>
   </main>
 ));
-
 
 const appStyles = (<Style rules={{
   'body, html': {
@@ -27,11 +44,13 @@ const previewStyles = (<Style
   rules={{
     section: {
       padding: '20px 30px',
-      margin: '30px auto',
-      width: '70%',
       backgroundColor: '#FFFFFF',
       boxShadow: '3px 3px 5px 0px rgba(204,204,204,1)',
       color: '#434343',
+    },
+    '.row': {
+      margin: '30px auto',
+      width: '70%',
     },
     h1: {
       fontSize: '2.2em',
@@ -44,6 +63,13 @@ const previewStyles = (<Style
     },
     a: {
       color: '#434343',
+    },
+    '.speakers': {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    '.speakers section': {
+      width: '200px',
     },
   }} />);
 

@@ -115,6 +115,71 @@ class Editor extends Component {
             <TextField field={field} label="Link" />
           }/>
 
+        <h4 style={styles.subHeading}>Talks</h4>
+          <h5>First talk</h5>
+          <Field
+            name="upcomingMeetupSpeaker1Name"
+            component={field =>
+              <TextField field={field} label="Name" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker1Title"
+            component={field =>
+              <TextField field={field} label="Title" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker1Blurb"
+            component={field =>
+              <TextField field={field} label="Blurb" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker1Picture"
+            component={field =>
+              <TextField field={field} label="Picture URL" />
+          } />
+          <h5>Second talk</h5>
+          <Field
+            name="upcomingMeetupSpeaker2Name"
+            component={field =>
+              <TextField field={field} label="Name" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker2Title"
+            component={field =>
+              <TextField field={field} label="Title" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker2Blurb"
+            component={field =>
+              <TextField field={field} label="Blurb" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker2Picture"
+            component={field =>
+              <TextField field={field} label="Picture URL" />
+          } />
+          <h5>Third talk</h5>
+          <Field
+            name="upcomingMeetupSpeaker3Name"
+            component={field =>
+              <TextField field={field} label="Name" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker3Title"
+            component={field =>
+              <TextField field={field} label="Title" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker3Blurb"
+            component={field =>
+              <TextField field={field} label="Blurb" />
+          } />
+          <Field
+            name="upcomingMeetupSpeaker3Picture"
+            component={field =>
+              <TextField field={field} label="Picture URL" />
+          } />
+
           <button onClick={this.pushToStaging}>Push To Staging</button>
           <button onClick={this.pushToLive}>Push To Live</button>
         </section>
