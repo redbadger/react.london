@@ -8,7 +8,6 @@ import Radium, { Style } from 'radium';
 
 const App = Radium(({ children }) => (
   <div style={styles}>
-    {appStyles}
     <Editor />
     <Preview />
   </div>
@@ -21,14 +20,6 @@ const routes = (
 const styles = {
   width: '100%',
   display: 'flex',
-}
-
-const appStyles = (<Style rules={{
-  'body, html': {
-    width: '100%',
-    margin: 0,
-    fontFamily: 'sans-serif',
-  },
-}} />);
+};
 
 export default routes;

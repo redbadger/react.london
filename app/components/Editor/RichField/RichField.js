@@ -43,10 +43,13 @@ class RichField extends React.Component {
   render() {
     const { editorState } = this.state;
     return (
-      <Draft
-        editorState={editorState}
-        handleKeyCommand={this.handleKeyCommand}
-        onChange={this.onChange} />
+      <div>
+        <label>{this.props.label}</label>
+        <Draft
+          editorState={editorState}
+          handleKeyCommand={this.handleKeyCommand}
+          onChange={this.onChange} />
+      </div>
     );
   }
 }
