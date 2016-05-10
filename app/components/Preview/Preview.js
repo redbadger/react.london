@@ -14,6 +14,7 @@ const Preview = Radium(({ text }) => (
 const appStyles = (<Style
   scopeSelector=".preview"
   rules={{
+    width: '100%',
     section: {
       padding: '20px 30px',
       margin: '30px auto',
@@ -33,7 +34,7 @@ const appStyles = (<Style
     },
     a: {
       color: '#434343',
-    },
+    }
   }} />);
 
 export default Preview;
