@@ -68,8 +68,12 @@ const previewStyles = (<Style
       display: 'flex',
       justifyContent: 'space-between',
     },
-    '.speakers section': {
-      width: '200px',
+    '.speakers section:nth-child(2)': {
+      margin: '0px 20px',
+    },
+    '.speakers section img': {
+      margin: '0px auto',
+      display: 'block',
     },
   }} />);
 
