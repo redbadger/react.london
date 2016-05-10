@@ -3,18 +3,21 @@ import { reduxForm, Field } from 'redux-form';
 
 import TextField from './TextField/TextField.js';
 import RichField from './RichField/RichField.js';
+import readyToRender from '../../utilities/readyToRender.js';
 
 import Radium, { Style } from 'radium';
 
 class Editor extends Component {
   pushToExternal = (environment) => {
+    const body = readyToRender(this.props.content.form.editor);
+
     fetch(`/${environment}/`, {
       method: 'POST',
       mode: 'cors',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-      body: JSON.stringify(this.props.content.form.editor.values),
+      body: JSON.stringify(body),
     });
   };
 
