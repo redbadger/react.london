@@ -54,7 +54,15 @@ function generateStaticSite(properties, headers) {
     text={ properties }
   />);
 
-  markup = '<!doctype html><html><body>' + markup + '</body></html>';
+  markup = `<!doctype html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+    </head>
+    <body>
+      ${markup}
+    </body>
+  </html>`;
 
   const site = (minify(markup, {
     removeAttributeQuotes: true,
