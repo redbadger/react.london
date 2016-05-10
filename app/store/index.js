@@ -1,9 +1,6 @@
 import React from 'react';
 
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { createDevTools } from 'redux-devtools';
-import LogMonitor from 'redux-devtools-log-monitor';
-import DockMonitor from 'redux-devtools-dock-monitor';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 

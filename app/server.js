@@ -38,6 +38,7 @@ app.use(bodyParser.json());
 const HTML = ({ content, store }) => (
   <html>
     <head>
+      <meta charset="UTF-8" />
     </head>
     <body>
       <div id="main" dangerouslySetInnerHTML={{ __html: content }} />
@@ -48,7 +49,7 @@ const HTML = ({ content, store }) => (
   </html>
 );
 
-function generateStaticSite(properties, headers) {
+const generateStaticSite = ((properties, headers) => {
   let markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: headers['user-agent'] }}
     text={ properties }
@@ -57,7 +58,7 @@ function generateStaticSite(properties, headers) {
   markup = `<!doctype html>
   <html>
     <head>
-      <meta charset="UTF-8">
+      <meta charset="UTF-8" />
     </head>
     <body>
       ${markup}
@@ -71,9 +72,9 @@ function generateStaticSite(properties, headers) {
   }));
 
   return site;
-};
+});
 
-function shipToAws(bucketName, site) {
+const shipToAws = ((bucketName, site) => {
   AWS.config.update({
     region: 'eu-west-1',
   });
@@ -90,7 +91,7 @@ function shipToAws(bucketName, site) {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
-};
+});
 
 app.post('/staging/', (req, res) => {
   const site = generateStaticSite(req.body, req.headers);

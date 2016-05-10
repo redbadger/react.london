@@ -1,5 +1,3 @@
-import {EditorState} from 'draft-js';
-
 const getInitialState = () => ({
   aboutTitle: 'London React User Group',
   aboutSummary: {
@@ -157,15 +155,6 @@ const getInitialState = () => ({
   upcomingMeetupSpeaker3Picture: 'http://lorempixel.com/200/200/animals/',
 });
 
-const initialValues = (state = getInitialState(), action) => {
-  switch (action.type) {
-    case 'UPDATE_TEXT':
-      const newState = { ...state };
-      newState[action.key] = action.value;
-      return newState;
-    default:
-      return state;
-  }
-};
+const initialValues = (state = getInitialState(), action) => state;
 
 export default initialValues;

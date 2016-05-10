@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-const About = ({ text, summary }) => (
+const About = ({ text }) => (
 
     <section className="About">
       <h1>{text.aboutTitle}</h1>
