@@ -155,6 +155,15 @@ const getInitialState = () => ({
   upcomingMeetupSpeaker3Picture: 'http://lorempixel.com/200/200/animals/',
 });
 
-const initialValues = (state = getInitialState(), action) => state;
+const initialValues = (state = getInitialState(), action) => {
+  switch (action.type) {
+    case 'FETCHED_CONTENT':
+      console.log('FETCHED_CONTENT');
+      console.log(action.payload.json());
+      return { ...action.payload };
+    default:
+      return state;
+  };
+};
 
 export default initialValues;
