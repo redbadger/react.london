@@ -158,8 +158,7 @@ const getInitialState = () => ({
 const initialValues = (state = getInitialState(), action) => {
   switch (action.type) {
     case 'FETCHED_CONTENT':
-      console.log('FETCHED_CONTENT');
-      console.log(action.payload.json());
+      console.log('FETCHED_CONTENT ', action.payload);
       return { ...action.payload };
     default:
       return state;
