@@ -7,9 +7,9 @@ export function* formatContent(payload) {
   yield put({ type: 'FETCHED_CONTENT', payload: payload });
 };
 
-const makeFetch = (url) => {
-  return fetch(url).then((res) => {
-    return res.json().then((output) => {
+export const makeFetch = (url) => {
+  return fetch(url).then((res) => { res.json()
+    .then((output) => {
       console.log('makeFetch res ', output);
       return output;
     });
@@ -19,6 +19,7 @@ const makeFetch = (url) => {
 export function* fetchContent() {
   try {
     yield put({ type: 'FETCHING_CONTENT' });
+    // TODO: remove hardcoded localhost url
     const content = yield call(makeFetch, 'http://localhost:8080/content');
     yield call(formatContent, content);
   } catch (e) {
