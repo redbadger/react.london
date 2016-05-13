@@ -3,7 +3,4 @@ require('isomorphic-fetch');
 
 export const makeFetch = url => fetch(url)
   .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    return data;
-  });
+  .then(data => data);

@@ -7,8 +7,6 @@ class RichField extends React.Component {
 
     const defaultValue = this.props.field.value;
 
-    console.log(this.props.field);
-
     this.state = {
       editorState: this.setDefaultValue(defaultValue),
     };
@@ -22,7 +20,6 @@ class RichField extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps ', nextProps.field.value);
     this.setState({ editorState: this.setDefaultValue(nextProps.field.value) });
   }
 

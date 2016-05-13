@@ -12,6 +12,7 @@ export function* fetchContent() {
     const content = yield call(makeFetch, 'http://localhost:8080/content');
 
     yield put(initialize('editor', content));
+    yield put({ type: 'FETCHED_CONTENT' });
   } catch (e) {
     yield put({ type: 'CONTENT_FETCH_FAILED', message: e.message });
   }

@@ -6,6 +6,7 @@ import { callFetchContent } from '../actions';
 const mapStateToProps = (state) => ({
   initialValues: state.initialValues,
   content: state,
+  loading: state.initialValues.loading,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ callFetchContent }, dispatch);
