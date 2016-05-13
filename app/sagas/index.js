@@ -7,11 +7,10 @@ import { initialize } from 'redux-form';
 export function* fetchContent() {
   try {
     yield put({ type: 'FETCHING_CONTENT' });
+
     // TODO: remove hardcoded localhost url
-    
-    //
     const content = yield call(makeFetch, 'http://localhost:8080/content');
-    //yield put({ type: 'FETCHED_CONTENT', payload: content });
+
     yield put(initialize('editor', content));
   } catch (e) {
     yield put({ type: 'CONTENT_FETCH_FAILED', message: e.message });
@@ -19,5 +18,5 @@ export function* fetchContent() {
 };
 
 export function* fetchContentRequested() {
-  yield* takeLatest("CONTENT_FETCH_REQUESTED", fetchContent);
+  yield* takeLatest('CONTENT_FETCH_REQUESTED', fetchContent);
 }
