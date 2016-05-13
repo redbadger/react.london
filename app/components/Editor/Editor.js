@@ -8,6 +8,11 @@ import Deploy from '../Deploy/Deploy';
 import Radium, { Style } from 'radium';
 
 class Editor extends Component {
+  componentDidMount() {
+    console.log('componentDidMount');
+    this.props.callFetchContent();
+  }
+
   render() {
     const { callFetchContent } = this.props;
     return (
