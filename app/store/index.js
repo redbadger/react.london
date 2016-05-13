@@ -6,7 +6,7 @@ import { reducer as formReducer } from 'redux-form';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from '../reducers';
-import {fetchContent} from '../sagas';
+import {fetchContentRequested} from '../sagas';
 
 export function configureStore(history, initialState) {
   const reducer = combineReducers({
@@ -27,6 +27,6 @@ export function configureStore(history, initialState) {
       typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f,
     )
   );
-  sagaMiddleware.run(fetchContent);
+  sagaMiddleware.run(fetchContentRequested);
   return store;
 }
