@@ -8,17 +8,10 @@ import Deploy from '../Deploy/Deploy';
 import Radium, { Style } from 'radium';
 
 class Editor extends Component {
-  componentDidMount() {
-    this.props.callFetchContent();
-  }
-
   render() {
-    const { callFetchContent, loading } = this.props;
     return (
       <aside style={styles} className="editor">
         {genericStyles}
-        {console.log('loading: ', loading)}
-        <button onClick={callFetchContent}>Load default content</button>
 
         <h2>About section</h2>
 
