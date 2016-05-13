@@ -108,7 +108,7 @@ app.post('/live/', (req, res) => {
 });
 
 const getInitialState = () => ({
-  aboutTitle: 'THE AWESOME London React User Group',
+  aboutTitle: 'The Awesome London React User Group',
   aboutSummary: {
     entityMap: {},
     blocks: [
