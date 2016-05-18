@@ -1,4 +1,4 @@
-import {EditorState} from 'draft-js';
+import { EditorState } from 'draft-js';
 
 const getInitialState = () => ({
   aboutTitle: 'London React User Group',
