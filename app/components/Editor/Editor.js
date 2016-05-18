@@ -1,13 +1,36 @@
-import React, {Component} from 'react';
-import { reduxForm, Field } from 'redux-form';
+import React, { Component } from 'react';
+import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from './TextField/TextField.js';
 import RichField from './RichField/RichField.js';
+import UpcomingMeetupSpeakerEditor from '../UpcomingMeetupSpeakerEditor/UpcomingMeetupSpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 
 import Radium, { Style } from 'radium';
 
 class Editor extends Component {
+
+  createTextField = field => (
+    <TextField field={field} label={field.label} />
+  );
+
+  createRichField = field => (
+    <RichField field={field} label={field.label} />
+  );
+
+  createUpcomingMeetupSpeakers = speakers => (
+    <div>
+      {speakers.map((speaker, index) =>
+        <UpcomingMeetupSpeakerEditor
+          key={index}
+          speaker={speaker}
+          index={index}
+          textField={this.createTextField}
+          />
+      )}
+    </div>
+  );
+
   render() {
     return (
       <aside style={styles} className="editor">
@@ -19,15 +42,15 @@ class Editor extends Component {
 
           <Field
             name="aboutTitle"
-            component={field =>
-              <TextField field={field} label="Title" />
-            }/>
+            label="Title"
+            component={this.createTextField}
+            />
 
           <Field
             name="aboutSummary"
-            component={field =>
-              <RichField field={field} label="Summary" />
-            }/>
+            label="Summary"
+            component={this.createRichField}
+            />
 
         </section>
 
@@ -37,127 +60,66 @@ class Editor extends Component {
 
           <Field
             name="upcomingMeetupName"
-            component={field =>
-            <TextField field={field} label="Name" />
-          }/>
+            label="Name"
+            component={this.createTextField}
+          />
 
           <Field
             name="upcomingMeetupDetails"
-            component={field =>
-            <RichField field={field} label="Details" />
-          }/>
+            label="Details"
+            component={this.createRichField}
+            />
 
           <Field
             name="upcomingMeetupWhen"
-            component={field =>
-            <TextField field={field} label="When is it happening?" />
-          }/>
+            label="When is it happening?"
+            component={this.createTextField}
+          />
 
         <h4 style={styles.subHeading}>Details about the meetup location</h4>
 
           <Field
             name="upcomingMeetupWhere"
-            component={field =>
-            <TextField field={field} label="Where is it happening?" />
-          }/>
+            label="Where is it happening?"
+            component={this.createTextField}
+            />
 
           <Field
             name="upcomingMeetupWhereLink"
-            component={field =>
-            <TextField field={field} label="Direction link" />
-          }/>
+            label="Direction link"
+            component={this.createTextField}
+            />
 
         <h4 style={styles.subHeading}>More information link</h4>
 
           <Field
             name="upcomingMeetupCtaText"
-            component={field =>
-            <TextField field={field} label="Link text" />
-          }/>
+            label="Link text"
+            component={this.createTextField}
+            />
 
           <Field
             name="upcomingMeetupCtaLink"
-            component={field =>
-            <TextField field={field} label="Link" />
-          }/>
+            label="Link"
+            component={this.createTextField}
+            />
 
         <h4 style={styles.subHeading}>Live stream link</h4>
           <Field
             name="upcomingMeetupStreamingText"
-            component={field =>
-            <TextField field={field} label="Link text" />
-          }/>
+            label="Link text"
+            component={this.createTextField}
+            />
 
           <Field
             name="upcomingMeetupStreamingLink"
-            component={field =>
-            <TextField field={field} label="Link" />
-          }/>
+            label="Link"
+            component={this.createTextField}
+            />
 
         <h4 style={styles.subHeading}>Talks</h4>
-          <h5>First talk</h5>
-          <Field
-            name="upcomingMeetupSpeaker1Name"
-            component={field =>
-              <TextField field={field} label="Name" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker1Title"
-            component={field =>
-              <TextField field={field} label="Title" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker1Blurb"
-            component={field =>
-              <TextField field={field} label="Blurb" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker1Picture"
-            component={field =>
-              <TextField field={field} label="Picture URL" />
-          } />
-          <h5>Second talk</h5>
-          <Field
-            name="upcomingMeetupSpeaker2Name"
-            component={field =>
-              <TextField field={field} label="Name" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker2Title"
-            component={field =>
-              <TextField field={field} label="Title" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker2Blurb"
-            component={field =>
-              <TextField field={field} label="Blurb" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker2Picture"
-            component={field =>
-              <TextField field={field} label="Picture URL" />
-          } />
-          <h5>Third talk</h5>
-          <Field
-            name="upcomingMeetupSpeaker3Name"
-            component={field =>
-              <TextField field={field} label="Name" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker3Title"
-            component={field =>
-              <TextField field={field} label="Title" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker3Blurb"
-            component={field =>
-              <TextField field={field} label="Blurb" />
-          } />
-          <Field
-            name="upcomingMeetupSpeaker3Picture"
-            component={field =>
-              <TextField field={field} label="Picture URL" />
-          } />
+
+        <FieldArray name="upcomingMeetupSpeakers" component={this.createUpcomingMeetupSpeakers}/>
 
         <Deploy environment='staging' content={this.props.content} url='dev' />
         <Deploy environment='live' content={this.props.content} url='live'/>
