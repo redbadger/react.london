@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Radium, { Style } from 'radium';
 import About from '../About/About';
 import UpcomingMeetup from '../UpcomingMeetup/UpcomingMeetup';
@@ -11,21 +11,15 @@ const Preview = Radium(({ text }) => (
     <div className="row"><About text={text} /></div>
     <div className="row"><UpcomingMeetup text={text} /></div>
     <div className="row speakers">
-      <UpcomingMeetupSpeaker
-        name={text.upcomingMeetupSpeaker1Name}
-        title={text.upcomingMeetupSpeaker1Title}
-        blurb={text.upcomingMeetupSpeaker1Blurb}
-        picture={text.upcomingMeetupSpeaker1Picture} />
-      <UpcomingMeetupSpeaker
-        name={text.upcomingMeetupSpeaker2Name}
-        title={text.upcomingMeetupSpeaker2Title}
-        blurb={text.upcomingMeetupSpeaker2Blurb}
-        picture={text.upcomingMeetupSpeaker2Picture} />
-      <UpcomingMeetupSpeaker
-        name={text.upcomingMeetupSpeaker3Name}
-        title={text.upcomingMeetupSpeaker3Title}
-        blurb={text.upcomingMeetupSpeaker3Blurb}
-        picture={text.upcomingMeetupSpeaker3Picture} />
+      {text.upcomingMeetupSpeakers.map((speaker, index) =>
+        <UpcomingMeetupSpeaker
+          key={index}
+          name={speaker.name}
+          title={speaker.title}
+          blurb={speaker.blurb}
+          picture={speaker.picture}
+          />
+      )}
     </div>
   </main>
 ));
