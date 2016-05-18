@@ -141,18 +141,26 @@ const getInitialState = () => ({
   upcomingMeetupCtaLink: 'http://www.meetup.com/London-React-User-Group/events/230114076/',
   upcomingMeetupStreamingText: 'Check out the live stream',
   upcomingMeetupStreamingLink: 'https://www.youtube.com/channel/UCHlIVrJki1BxwKe7NtFYZRg',
-  upcomingMeetupSpeaker1Name: 'Zoë',
-  upcomingMeetupSpeaker1Title: 'Stupid names for npm modules',
-  upcomingMeetupSpeaker1Blurb: 'If it\'s a word, it\'s probably been used to name a npm module.',
-  upcomingMeetupSpeaker1Picture: 'http://lorempixel.com/200/200/animals/',
-  upcomingMeetupSpeaker2Name: 'Marcel',
-  upcomingMeetupSpeaker2Title: 'Writing COBOL underwater',
-  upcomingMeetupSpeaker2Blurb: 'Writing COBOL underwater is quite difficult, as Marcel will explain',
-  upcomingMeetupSpeaker2Picture: 'http://lorempixel.com/200/200/animals/',
-  upcomingMeetupSpeaker3Name: 'To be confirmed',
-  upcomingMeetupSpeaker3Title: 'To be confirmed',
-  upcomingMeetupSpeaker3Blurb: 'If you are interested in taking this slot, please talk to Amy',
-  upcomingMeetupSpeaker3Picture: 'http://lorempixel.com/200/200/animals/',
+  upcomingMeetupSpeakers: [
+    {
+      name: 'Zoë',
+      title: 'Stupid names for npm modules',
+      blurb: 'If it\'s a word, it\'s probably been used to name a npm module.',
+      picture: 'http://lorempixel.com/200/200/animals/',
+    },
+    {
+      name: 'Marcel',
+      title: 'Writing COBOL underwater',
+      blurb: 'Writing COBOL underwater is quite difficult, as Marcel will explain',
+      picture: 'http://lorempixel.com/200/200/animals/',
+    },
+    {
+      name: 'To be confirmed',
+      title: 'To be confirmed',
+      blurb: 'If you are interested in taking this slot, please talk to Amy',
+      picture: 'http://lorempixel.com/200/200/animals/',
+    },
+  ],
 });
 
 const initialValues = (state = getInitialState(), action) => state;
