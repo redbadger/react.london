@@ -1,6 +1,6 @@
 const getInitialValues = {
-  loading: true
-}
+  loading: true,
+};
 
 const initialValues = (state = getInitialValues, action) => {
   switch (action.type) {
@@ -9,15 +9,16 @@ const initialValues = (state = getInitialValues, action) => {
       return {
         ...state,
         loading: true,
-      }
+      };
     }
+  
     case 'FETCH_CONTENT':
       console.log('FETCH_CONTENT');
       return { ...state };
 
     case 'FETCHED_CONTENT':
       console.log('FETCHED_CONTENT');
-      return { 
+      return {
         ...state,
         loading: false,
       };
