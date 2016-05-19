@@ -1,6 +1,7 @@
 const express  = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../webpack.config');
 const React = require('react');
 const ReactDOM = require('react-dom/server');
@@ -9,21 +10,22 @@ const minifier = require('html-minifier');
 const AWS = require('aws-sdk');
 
 const Preview = require('./components/Preview/Preview');
+const config = require('../webpack.config');
 
 const app = express();
 
-let compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, {
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath,
-}));
+const port = 8080;
+
+let compiler = webpack(config);
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
 
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
 
 function generateStaticSite(properties, headers) {
-  const markup = ReactDOM.renderToStaticMarkup();
+  let markup = ReactDOM.renderToStaticMarkup();
 
   markup = `<!doctype html>
   <html>
