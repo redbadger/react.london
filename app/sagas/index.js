@@ -8,7 +8,7 @@ export function* fetchContent() {
     yield put({ type: 'FETCHING_CONTENT' });
 
     // TODO: remove hardcoded localhost url
-    const content = yield call(makeFetch, 'http://localhost:8080/content/');
+    const content = yield call(makeFetch, 'http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a');
 
     yield put(initialize('editor', content));
     yield put({ type: 'FETCHED_CONTENT' });

@@ -108,19 +108,6 @@ app.post('/live/', (req, res) => {
   res.send(site);
 });
 
-function thing(url) {
-
-}
-
-app.get('/content/', (req, res) => {
-  console.log('******************************');
-  console.log('GET /content called!');
-  console.log('******************************');
-  fetch('http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a')
-  .then(result => result.json())
-  .then(json => res.send(json));
-});
-
 app.use((req, res) => {
   const memoryHistory = createMemoryHistory(req.url);
   const store = configureStore(memoryHistory);
