@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import Radium, { Style } from 'radium';
+import React from 'react';
 
 const UpcomingMeetup = ({ text }) => (
     <section className="UpcomingMeetup">
