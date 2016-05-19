@@ -11,7 +11,7 @@ const initialValues = (state = getInitialValues, action) => {
         loading: true,
       };
     }
-  
+
     case 'FETCH_CONTENT':
       console.log('FETCH_CONTENT');
       return { ...state };
@@ -22,6 +22,14 @@ const initialValues = (state = getInitialValues, action) => {
         ...state,
         loading: false,
       };
+
+    case 'PUT_CONTENT':
+      console.log('PUT_CONTENT');
+      return { ...state };
+
+    case 'FETCH_ERROR':
+      console.error(action.message);
+
     default:
       return state;
   };

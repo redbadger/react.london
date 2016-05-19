@@ -31,10 +31,17 @@ class Editor extends Component {
     </div>
   );
 
+  onSaveClick = () => {
+    const { callPutContent, content } = this.props;
+    callPutContent(content.form.editor.values);
+  }
+
   render() {
     return (
       <aside style={styles} className="editor">
         {genericStyles}
+
+        <button onClick={this.onSaveClick}>Save</button>
 
         <h2>About section</h2>
 
