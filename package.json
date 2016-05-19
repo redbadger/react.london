@@ -4,8 +4,7 @@
   "description": "London React Meetups",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server",
+    "postinstall": "sh couchdbsetup.sh && add-cors-to-couchdb",
     "serve": "babel-node app/server.js --presets es2015,stage-0",
     "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
     "test:watch": "npm test -- --watch"
@@ -43,6 +42,7 @@
     "serialize-javascript": "^1.2.0"
   },
   "devDependencies": {
+    "add-cors-to-couchdb": "0.0.5",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",

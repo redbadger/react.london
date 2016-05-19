@@ -8,6 +8,10 @@ Generated pages are deployed to and hosted on AWS S3 buckets.
 ## 🏃Getting started
 Before starting, be aware you will require an AWS account to push static pages to the web. AWS will inspect ENV variables for credentials at runtime. Bucket locations are currently hard-coded but will be configurable soonⒸ.
 
+### 🛠 Dependencies
+1. [NodeJS](https://nodejs.org/en/)
+2. [CouchDB](http://couchdb.apache.org/)
+
 ### 💻 Dev
 1. Standard start
 ``` npm install ```
