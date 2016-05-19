@@ -18,10 +18,6 @@ class RichField extends React.Component {
     this.setState({ editorState });
   };
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ editorState: this.setDefaultValue(nextProps.field.value) });
-  }
-
   handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
     if (newState) {
