@@ -1,26 +1,32 @@
+import 'babel-polyfill';
+
 import React from 'react';
 
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { createDevTools } from 'redux-devtools';
 import LogMonitor from 'redux-devtools-log-monitor';
 import DockMonitor from 'redux-devtools-dock-monitor';
+import rootReducer from '../reducers';
 
-import reducers from '../reducers';
+import DevTools from '../containers/DevTools';
 
-export function configureStore(history, initialState) {
-  const reducer = combineReducers({
-    initialValues: reducers,
-    form: formReducer,
-  });
+const enhancer = compose(
 
-  const store = createStore(
-    reducer,
-    initialState,
-    compose(
-      applyMiddleware(),
-      typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f,
-    )
-  );
+  // Middleware you want to use in development:
+  applyMiddleware(),
+
+  // Required! Enable Redux DevTools with the monitors you chose
+  DevTools.instrument()
+);
+
+export function configureStore(initialState) {
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  if (module.hot) {
+    module.hot.accept('../reducers', () =>
+     store.replaceReducer(require('../reducers')/*.default if you use Babel 6+ */)
+    );
+  }
 
   return store;
 }

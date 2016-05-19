@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-import { EditorState } from 'draft-js';
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
-=======
->>>>>>> master
 const getInitialState = () => ({
   aboutTitle: 'London React User Group',
   aboutSummary: {
@@ -170,4 +168,9 @@ const getInitialState = () => ({
 
 const initialValues = (state = getInitialState(), action) => state;
 
-export default initialValues;
+const reducers = combineReducers({
+  initialValues: initialValues,
+  form: formReducer,
+});
+
+export default reducers;
