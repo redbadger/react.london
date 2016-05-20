@@ -31,6 +31,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
+    "pouchdb": "^5.3.2",
     "radium": "^0.17.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

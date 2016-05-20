@@ -5,12 +5,13 @@ import { initialize, change } from 'redux-form';
 
 // TODO: remove hardcoded localhost url
 const url = 'http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a';
+const docId = '9db6c9bd6871df4fddcef7a3bb000d1a';
 
 export function* fetchContent() {
   try {
     yield put({ type: 'FETCHING_CONTENT' });
 
-    const content = yield call(makeFetch, url);
+    const content = yield call(makeFetch, docId);
 
     yield put(initialize('editor', content));
     yield put({ type: 'FETCHED_CONTENT' });

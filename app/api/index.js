@@ -1,9 +1,9 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-export const makeFetch = url => fetch(url)
-  .then(res => handleResponse(res))
-  .then(data => data);
+import { localDb, remoteDb } from '../dbSetup';
+
+export const makeFetch = docId => localDb.get(docId).then(doc => doc);
 
 export const makePut = (url, content) => fetch(url, {
     body: JSON.stringify(content),
