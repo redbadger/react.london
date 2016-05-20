@@ -1,23 +1,23 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+import PouchDB from 'pouchdb';
 
-export const makeFetch = url => fetch(url)
-  .then(res => handleResponse(res))
-  .then(data => data);
+export const localDb = new PouchDB('reactlondon');
 
-export const makePut = (url, content) => fetch(url, {
-    body: JSON.stringify(content),
-    method: 'PUT',
-    headers: {
-      'Content-type': 'application/json',
-    },
-  })
-  .then(res => handleResponse(res))
-  .then(data => data);
+export const getDocId = () => localDb.allDocs()
+  .then(result => result.rows[0].id)
+  .catch(handleError);
 
-const handleResponse = res => {
-  if (res.status >= 400)
-    throw new Error(res.statusText);
+export const getDoc = docId => localDb.get(docId)
+  .then(doc => doc)
+  .catch(handleError);
 
-  return res.json();
+export const saveDoc = content => localDb.put(content)
+  .then(data => data)
+  .catch(handleError);
+
+export const syncDatabase = url => localDb.sync(new PouchDB(url), { live: true });
+
+const handleError = error => {
+  throw new Error(error);
 };

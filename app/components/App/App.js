@@ -6,10 +6,6 @@ import Preview from '../../containers/Preview';
 import Radium, { Style } from 'radium';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.callFetchContent();
-  }
-
   render() {
     const { children, loading } = this.props;
     return (
