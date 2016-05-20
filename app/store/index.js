@@ -19,10 +19,6 @@ const enhancer = compose(
   DevTools.instrument()
 );
 
-// This MUST run after mounting the middleware
-// TODO: Unhack.
-
-
 export function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
 
