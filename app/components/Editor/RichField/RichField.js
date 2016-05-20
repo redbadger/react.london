@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Editor as Draft, EditorState, convertToRaw, convertFromRaw, RichUtils} from 'draft-js';
 
 class RichField extends React.Component {
