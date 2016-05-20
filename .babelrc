@@ -1,22 +1,10 @@
 {
   "presets": [
-    "es2015",
+    "es2015-loose",
     "react",
     "stage-0"
   ],
   "plugins": [
-    "transform-runtime"
-  ],
-  "env": {
-    "start": {
-      "presets": [
-        "react-hmre"
-      ]
-    },
-    "serve": {
-      "plugins": [
-        "react-hot-loader/babel"
-      ]
-    }
-  }
+    "react-hot-loader/babel"
+  ]
 }

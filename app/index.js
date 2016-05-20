@@ -1,30 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { configureStore } from './store';
+import { AppContainer } from 'react-hot-loader';
 
-import Editor from './containers/Editor';
-import Preview from './containers/Preview';
-import DevTools from './containers/DevTools';
+import App from './App';
 
-import Radium, { Style } from 'radium';
-
-const store = configureStore();
+const mountApp = document.getElementById('main');
 
 ReactDOM.render(
-  <Provider store={store}>
-    <div style={styles}>
-      <Editor />
-      <Preview />
-      <DevTools />
-    </div>
-  </Provider>,
-  document.getElementById('main')
+  <AppContainer>
+    <App />
+  </AppContainer>,
+  mountApp
 );
 
-module.hot.accept();
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    ReactDOM.render(
+      <AppContainer component={require('./App').default} />,
+      mountApp
+    );
+  });
+}
 
-const styles = {
-  width: '100%',
-  display: 'flex',
-};
+module.hot.accept();
