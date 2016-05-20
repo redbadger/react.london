@@ -1,25 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
-import App from './App';
+import { configureStore } from './store/';
+import App from './containers/App';
 
 const mountApp = document.getElementById('main');
+const store = configureStore();
 
 ReactDOM.render(
-  <AppContainer>
+  <Provider store={store}>
     <App />
-  </AppContainer>,
+  </Provider>,
   mountApp
 );
-
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    ReactDOM.render(
-      <AppContainer component={require('./App').default} />,
-      mountApp
-    );
-  });
-}
-
-module.hot.accept();
