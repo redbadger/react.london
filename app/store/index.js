@@ -3,17 +3,20 @@ import 'babel-polyfill';
 import React from 'react';
 
 import { createStore, compose, applyMiddleware } from 'redux';
-import { createDevTools } from 'redux-devtools';
-import LogMonitor from 'redux-devtools-log-monitor';
-import DockMonitor from 'redux-devtools-dock-monitor';
+import DevTools from '../containers/DevTools';
+import createSagaMiddleware from 'redux-saga';
+import { fetchContentRequested, putContentRequested } from '../sagas';
+
 import rootReducer from '../reducers';
 
-import DevTools from '../containers/DevTools';
+const sagaMiddleware = createSagaMiddleware();
+sagaMiddleware.run(fetchContentRequested);
+sagaMiddleware.run(putContentRequested);
 
 const enhancer = compose(
 
   // Middleware you want to use in development:
-  applyMiddleware(),
+  applyMiddleware(sagaMiddleware),
 
   // Required! Enable Redux DevTools with the monitors you chose
   DevTools.instrument()

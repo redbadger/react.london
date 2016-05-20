@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "babel-node app/server.js",
+    "start": "babel-node app/server.js --presets es2015,stage-0",
+    "postinstall": "sh couchdbsetup.sh && add-cors-to-couchdb",
     "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
     "test:watch": "npm test -- --watch"
   },
@@ -26,9 +27,11 @@
     "body-parser": "^1.15.1",
     "draft-js": "^0.7.0",
     "draft-js-export-html": "^0.1.13",
+    "es6-promise": "^3.1.2",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-minifier": "^2.1.2",
+    "isomorphic-fetch": "^2.2.1",
     "radium": "^0.17.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
@@ -37,9 +40,11 @@
     "react-router-redux": "^4.0.4",
     "react-hot-loader": "^3.0.0-beta.1",
     "redux-form": "^6.0.0-alpha.7",
+    "redux-saga": "^0.10.4",
     "serialize-javascript": "^1.2.0"
   },
   "devDependencies": {
+    "add-cors-to-couchdb": "0.0.5",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",

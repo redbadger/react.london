@@ -6,19 +6,19 @@ class RichField extends React.Component {
     super(props);
 
     const defaultValue = this.props.field.value;
+
     this.state = {
       editorState: this.setDefaultValue(defaultValue),
     };
 
-    this.onChange = (editorState) => {
-      this.props.field.onChange(this.getRawContent());
-      this.setState({ editorState });
-    };
-
-    this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
-  handleKeyCommand(command) {
+  onChange = (editorState) => {
+    this.props.field.onChange(this.getRawContent());
+    this.setState({ editorState });
+  };
+
+  handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
     if (newState) {
       this.onChange(newState);
@@ -26,7 +26,7 @@ class RichField extends React.Component {
     }
 
     return false;
-  }
+  };
 
   setDefaultValue(defaultValue) {
     if (defaultValue) {
