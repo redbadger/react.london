@@ -4,7 +4,6 @@ import { call, put } from 'redux-saga/effects';
 import { initialize, change } from 'redux-form';
 
 // TODO: remove hardcoded localhost url
-const url = 'http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a';
 const docId = '9db6c9bd6871df4fddcef7a3bb000d1a';
 
 export function* fetchContent() {
@@ -31,7 +30,7 @@ export function* putContent(action) {
   try {
     yield put({ type: 'PUTTING_CONTENT' });
 
-    const content = yield call(makePut, url, action.content);
+    const content = yield call(makePut, action.content);
 
     yield put(change('editor', '_rev', content.rev));
     yield put({ type: 'PUT_CONTENT_SUCCESS' });
