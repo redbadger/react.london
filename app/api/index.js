@@ -3,14 +3,18 @@ require('isomorphic-fetch');
 
 import { localDb } from '../dbSetup';
 
+export const getDocId = () => localDb.allDocs()
+  .then(result => result.rows[0].id)
+  .catch(handleError);
+
 export const makeFetch = docId => localDb.get(docId)
   .then(doc => doc)
-  .catch(err => {
-    throw new Error(err);
-  });
+  .catch(handleError);
 
 export const makePut = content => localDb.put(content)
   .then(data => data)
-  .catch(err => {
-    throw new Error(err);
-  });
+  .catch(handleError);
+
+const handleError = error => {
+  throw new Error(error);
+};
