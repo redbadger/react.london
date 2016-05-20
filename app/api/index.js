@@ -7,11 +7,11 @@ export const getDocId = () => localDb.allDocs()
   .then(result => result.rows[0].id)
   .catch(handleError);
 
-export const makeFetch = docId => localDb.get(docId)
+export const getDoc = docId => localDb.get(docId)
   .then(doc => doc)
   .catch(handleError);
 
-export const makePut = content => localDb.put(content)
+export const saveDoc = content => localDb.put(content)
   .then(data => data)
   .catch(handleError);
 

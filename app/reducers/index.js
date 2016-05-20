@@ -1,33 +1,36 @@
-const getInitialValues = {
-  loading: true,
-};
-
-const initialValues = (state = getInitialValues, action) => {
+const initialValues = (state = { loading: true }, action) => {
   switch (action.type) {
-    case 'FETCHING_CONTENT': {
-      console.log('FETCHING_CONTENT');
+    case 'GET_CONTENT_REQUESTED':
+      console.log('GET_CONTENT_REQUESTED');
+      return { ...state };
+
+    case 'GETTING_CONTENT':
+      console.log('GETTING_CONTENT');
       return {
         ...state,
         loading: true,
       };
-    }
 
-    case 'FETCH_CONTENT':
-      console.log('FETCH_CONTENT');
-      return { ...state };
-
-    case 'FETCHED_CONTENT':
-      console.log('FETCHED_CONTENT');
+    case 'GET_CONTENT_SUCCESS':
+      console.log('GET_CONTENT_SUCCESS');
       return {
         ...state,
         loading: false,
       };
 
-    case 'PUT_CONTENT':
-      console.log('PUT_CONTENT');
+    case 'SAVE_CONTENT_REQUESTED':
+      console.log('SAVE_CONTENT_REQUESTED');
       return { ...state };
 
-    case 'FETCH_ERROR':
+    case 'SAVING_CONTENT':
+      console.log('SAVING_CONTENT');
+      return { ...state };
+
+    case 'SAVE_CONTENT_SUCCESS':
+      console.log('SAVE_CONTENT_SUCCESS');
+      return { ...state };
+
+    case 'API_ERROR':
       console.error(action.message);
 
     default:
