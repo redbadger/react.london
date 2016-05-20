@@ -7,9 +7,6 @@ import routes from './routes';
 import { configureStore } from './store';
 import reducers from './reducers';
 import App from './App';
-import { syncPouch } from './dbSetup';
-
-syncPouch();
 
 const store = configureStore(browserHistory, window.__initialState__);
 const history = syncHistoryWithStore(browserHistory, store);

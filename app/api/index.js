@@ -1,7 +1,8 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
+import PouchDB from 'pouchdb';
 
-import { localDb } from '../dbSetup';
+export const localDb = new PouchDB('reactlondon');
 
 export const getDocId = () => localDb.allDocs()
   .then(result => result.rows[0].id)
@@ -14,6 +15,8 @@ export const getDoc = docId => localDb.get(docId)
 export const saveDoc = content => localDb.put(content)
   .then(data => data)
   .catch(handleError);
+
+export const syncDatabase = url => localDb.sync(new PouchDB(url), { live: true });
 
 const handleError = error => {
   throw new Error(error);

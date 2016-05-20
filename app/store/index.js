@@ -6,7 +6,9 @@ import { reducer as formReducer } from 'redux-form';
 import createSagaMiddleware from 'redux-saga';
 
 import reducers from '../reducers';
-import { watchGetContent, watchSaveContent } from '../sagas';
+import { watchGetContent, watchSaveContent, watchSyncDb } from '../sagas';
+
+import { callSyncDb, callGetContent } from '../actions';
 
 export function configureStore(history, initialState) {
   const reducer = combineReducers({
@@ -29,5 +31,10 @@ export function configureStore(history, initialState) {
   );
   sagaMiddleware.run(watchGetContent);
   sagaMiddleware.run(watchSaveContent);
+  sagaMiddleware.run(watchSyncDb);
+
+  store.dispatch(callSyncDb('http://localhost:5984/reactlondon'));
+  store.dispatch(callGetContent());
+
   return store;
 }

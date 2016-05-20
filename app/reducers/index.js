@@ -30,6 +30,15 @@ const initialValues = (state = { loading: true }, action) => {
       console.log('SAVE_CONTENT_SUCCESS');
       return { ...state };
 
+    case 'SYNC_DB_REQUESTED':
+      console.log('SYNC_DB_REQUESTED');
+
+    case 'SYNCING':
+      console.log('SYNCING');
+
+    case 'SYNC_SUCCESS':
+      console.log('SYNC_SUCCESS');
+
     case 'API_ERROR':
       console.error(action.message);
 
