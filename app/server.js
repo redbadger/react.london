@@ -1,16 +1,16 @@
-const express  = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('../webpack.config');
-const React = require('react');
-const ReactDOM = require('react-dom/server');
-const bodyParser = require('body-parser');
-const minifier = require('html-minifier');
-const AWS = require('aws-sdk');
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../webpack.config';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import bodyParser from 'body-parser';
+import { minify } from 'html-minifier';
+import AWS from 'aws-sdk';
 
-const Preview = require('./components/Preview/Preview');
-const config = require('../webpack.config');
+import Preview from './components/Preview/Preview';
+import config from '../webpack.config';
 
 const app = express();
 
@@ -25,7 +25,10 @@ app.use(require('webpack-hot-middleware')(compiler));
 app.use(bodyParser.json());
 
 function generateStaticSite(properties, headers) {
-  let markup = ReactDOM.renderToStaticMarkup();
+  let markup = renderToStaticMarkup(<Preview
+    radiumConfig={{ userAgent: headers['user-agent'] }}
+    text={ properties }
+  />);
 
   markup = `<!doctype html>
   <html>
@@ -37,7 +40,7 @@ function generateStaticSite(properties, headers) {
     </body>
   </html>`;
 
-  const site = (minifer.minify(markup, {
+  const site = (minify(markup, {
     removeAttributeQuotes: true,
     minifyCSS: true,
     collapseWhitespace: true,
