@@ -7,22 +7,35 @@ export function* watchGetContent() {
   yield* takeLatest('GET_CONTENT_REQUESTED', getContent);
 }
 
-function* getContent() {
-  try {
-    yield put({ type: 'GETTING_CONTENT' });
+export function loadFromDB() {
 
-    const docId = yield call(getDocId);
-    const content = yield call(getDoc, docId);
+}
 
-    yield put(initialize('editor', content));
-    yield put({ type: 'GET_CONTENT_SUCCESS' });
-  } catch (e) {
-    yield put({
-      type: 'API_ERROR',
-      message: `Error retrieving editor content. Error message: ${e.message}`,
-    });
-  }
+export function populateView() {
+
+}
+
+export function* getContent() {
+  yield call(loadFromDB);
+  yield call(populateView);
+  // try {
+  //   yield put({ type: 'GETTING_CONTENT' });
+
+  //   const docId = yield call(getDocId);
+  //   const content = yield call(getDoc, docId);
+
+  //   yield put(initialize('editor', content));
+  //   yield put({ type: 'GET_CONTENT_SUCCESS' });
+
+  // } catch (e) {
+  //   yield put({
+  //     type: 'API_ERROR',
+  //     message: `Error retrieving editor content. Error message: ${e.message}`,
+  //   });
+  // }
 };
+
+
 
 export function* watchSaveContent() {
   yield* takeLatest('SAVE_CONTENT_REQUESTED', saveContent);
@@ -44,6 +57,8 @@ function* saveContent(action) {
     });
   }
 }
+
+
 
 export function* watchSyncDb() {
   yield* takeLatest('SYNC_DB_REQUESTED', syncDb);

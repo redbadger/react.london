@@ -5,7 +5,10 @@ import PouchDB from 'pouchdb';
 export const localDb = new PouchDB('reactlondon');
 
 export const getDocId = () => localDb.allDocs()
-  .then(result => result.rows[0].id)
+  .then(result => {
+    console.log(result.rows[0].id);
+    return result.rows[0].id
+  })
   .catch(handleError);
 
 export const getDoc = docId => localDb.get(docId)
