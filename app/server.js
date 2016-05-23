@@ -14,7 +14,8 @@ import config from '../webpack.config';
 
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import serverConfig from './config';
+import session from 'express-session';
+import serverConfig from './serverConfig';
 
 const app = express();
 
@@ -28,24 +29,25 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
 
-passport.serializeUser((user, cb) => cb(null, user));
-passport.deserializeUser((obj, cb) => cb(null, obj));
-
 passport.use(
   new GoogleStrategy(
     { ...serverConfig.credentials, callbackURL: '/login/callback' },
     (token, refreshToken, profile, done) => {
-      console.log(profile);
-      if (serverConfig.allowedDomainNames.includes(profile._json.domain))
+      if (serverConfig.allowedDomainNames.includes(profile._json.domain)) {
         return done(null, profile);
-      else
+      } else {
         return done();
+      }
     }
   )
 );
 
+app.use(session({ secret: serverConfig.sessionSecret, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.serializeUser((user, cb) => cb(null, user));
+passport.deserializeUser((obj, cb) => cb(null, obj));
 
 app.get('/login', passport.authenticate('google', {
   scope: ['profile', 'email'],
@@ -55,11 +57,21 @@ app.get(
   '/login/callback',
   passport.authenticate(
     'google',
-    { failureRedirect: 'http://www.red-badger.com' }),
-    (req, res) => {
-      res.redirect('/');
-    }
+    { failureRedirect: 'http://www.red-badger.com' }
+  ),
+  (req, res) => {
+    res.redirect('/');
+  }
 );
+
+app.get('/', ensureAuthenticated, (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/login');
+};
 
 function generateStaticSite(properties, headers) {
   let markup = renderToStaticMarkup(<Preview
@@ -115,10 +127,6 @@ app.post('/live/', (req, res) => {
   const site = generateStaticSite(req.body, req.headers);
   shipToAws('london.react.live', site);
   res.send(site);
-});
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, function (error) {
