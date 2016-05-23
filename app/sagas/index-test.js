@@ -8,7 +8,7 @@ import { initialize, change } from 'redux-form';
 describe('getContent', () => {
   const getContentSaga = getContent();
 
-  it('loads from db and populate the view', () => {
+  it('loads from db and populates the view', () => {
     expect(getContentSaga.next().value)
       .to.eql(
         call(loadFromDB)
@@ -18,20 +18,46 @@ describe('getContent', () => {
         call(populateView)
       );
   });
-})
 
-describe('loadFromDB', () => {
-  const loadFromDBSaga = loadFromDB();
-  const docId = '1234';
+  describe('loadFromDB', () => {
+    const loadFromDBSaga = loadFromDB();
+    const docId = '1234';
+    const content = { _id: '1234' };
 
-  it('requests the document id and then returns the content for given id', () => {
-    expect(loadFromDBSaga.next().value)
-      .to.eql(
-        call(getDocId)
-      );
-    expect(loadFromDBSaga.next(docId).value)
-      .to.eql(
-        call(getDoc, docId)
-      );
+    it('requests the document id and then returns the content for given id', () => {
+      expect(loadFromDBSaga.next().value)
+        .to.eql(
+          call(getDocId)
+        );
+      expect(loadFromDBSaga.next(docId).value)
+        .to.eql(
+          call(getDoc, docId)
+        );
+      expect(loadFromDBSaga.next(content))
+        .to.eql({
+          "done": true,
+          "value": {
+            "_id": '1234'
+          },
+        });
+    })
   })
+
+  describe('populateView', () => {
+    const content = { _id: '1' };
+    const populateViewSaga = populateView(content);
+
+    it('gives the editor the content and announces the success of the endeavour', () => {
+      expect(populateViewSaga.next(content).value)
+        .to.eql(
+          put(initialize('editor', content))
+        );
+
+      expect(populateViewSaga.next().value)
+        .to.eql(
+          put({ type: 'GET_CONTENT_SUCCESS' })
+        );
+    })
+  })
+
 })

@@ -9,11 +9,13 @@ export function* watchGetContent() {
 
 export function* loadFromDB() {
   const docId = yield call(getDocId);
-  yield call(getDoc, docId);
+  const doc = yield call(getDoc, docId);
+  return doc
 }
 
-export function populateView() {
-
+export function* populateView(content) {
+  yield put(initialize('editor', content));
+  yield put({ type: 'GET_CONTENT_SUCCESS' });
 }
 
 export function* getContent() {
