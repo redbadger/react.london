@@ -13,9 +13,7 @@ import Preview from './components/Preview/Preview';
 import config from '../webpack.config';
 
 import passport from 'passport';
-// import { GoogleStrategy } from 'passport-google-oauth20';
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import serverConfig from './config';
 
 const app = express();
@@ -30,48 +28,38 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
 
-passport.serializeUser(function(user, cb) {
- cb(null, user);
-});
+passport.serializeUser((user, cb) => cb(null, user));
+passport.deserializeUser((obj, cb) => cb(null, obj));
 
-passport.deserializeUser(function(obj, cb) {
- cb(null, obj);
-});
-
-// set up your Google OAuth strategy elsewhere...
-passport.use(new GoogleStrategy({
-    clientID: "563722027137-rf5i5d96r2c0k1g7h8tjlqop4t7e7db7.apps.googleusercontent.com",
-    clientSecret: "48xHdvwwDPCTa11jR7oxGrMM",
-    callbackURL: "/connect/google/callback"
-}, function(token, refreshToken, profile, done){
-    if(profile._json.domain === "red-badger.com"){
-        // find or create user in database, etc
-        console.log(profile);
+passport.use(
+  new GoogleStrategy(
+    { ...serverConfig.credentials, callbackURL: '/login/callback' },
+    (token, refreshToken, profile, done) => {
+      console.log(profile);
+      if (serverConfig.allowedDomainNames.includes(profile._json.domain))
         return done(null, profile);
-
-        // User.find({ id: profile.id }).done(done);
-    }else{
-        // fail
-        done(new Error("Invalid host domain"));
+      else
+        return done();
     }
-}));
+  )
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// first make sure you have access to the proper scope on your login route
-app.get("/connect/google", passport.authenticate("google", {
-    scope: ["profile", "email"]
+app.get('/login', passport.authenticate('google', {
+  scope: ['profile', 'email'],
 }));
 
-app.get('/connect/google/callback',
-  passport.authenticate('google', { failureRedirect: '/connect/google' }),
-  function(req, res) {
-    console.log("redict");
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
-
+app.get(
+  '/login/callback',
+  passport.authenticate(
+    'google',
+    { failureRedirect: 'http://www.red-badger.com' }),
+    (req, res) => {
+      res.redirect('/');
+    }
+);
 
 function generateStaticSite(properties, headers) {
   let markup = renderToStaticMarkup(<Preview
