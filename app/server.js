@@ -3,21 +3,15 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
+
 import bodyParser from 'body-parser';
-import { minify } from 'html-minifier';
-import AWS from 'aws-sdk';
-
-import Preview from './components/Preview/Preview';
 import config from '../webpack.config';
-
-import passport from 'passport';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import session from 'express-session';
 import serverConfig from './serverConfig';
 
-const app = express();
+import { authSetup, ensureAuthenticated } from './server/auth';
+import { createSite } from './server/staticSite';
+
+const { app, passport } = authSetup(express());
 
 const port = 8080;
 
@@ -29,26 +23,6 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
 
-passport.use(
-  new GoogleStrategy(
-    { ...serverConfig.credentials, callbackURL: '/login/callback' },
-    (token, refreshToken, profile, done) => {
-      if (serverConfig.allowedDomainNames.includes(profile._json.domain)) {
-        return done(null, profile);
-      } else {
-        return done();
-      }
-    }
-  )
-);
-
-app.use(session({ secret: serverConfig.sessionSecret, resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser((user, cb) => cb(null, user));
-passport.deserializeUser((obj, cb) => cb(null, obj));
-
 app.get('/login', passport.authenticate('google', {
   scope: ['profile', 'email'],
 }));
@@ -59,74 +33,21 @@ app.get(
     'google',
     { failureRedirect: 'http://www.red-badger.com' }
   ),
-  (req, res) => {
-    res.redirect('/');
-  }
+  (req, res) => res.redirect('/')
 );
 
 app.get('/', ensureAuthenticated, (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect('/login');
-};
-
-function generateStaticSite(properties, headers) {
-  let markup = renderToStaticMarkup(<Preview
-    radiumConfig={{ userAgent: headers['user-agent'] }}
-    text={ properties }
-  />);
-
-  markup = `<!doctype html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-    </head>
-    <body>
-      ${markup}
-    </body>
-  </html>`;
-
-  const site = (minify(markup, {
-    removeAttributeQuotes: true,
-    minifyCSS: true,
-    collapseWhitespace: true,
-  }));
-
-  return site;
-};
-
-function shipToAws(bucketName, site) {
-  AWS.config.update({
-    region: 'eu-west-1',
-  });
-
-  let s3 = new AWS.S3();
-
-  s3.putObject({
-    Bucket: bucketName,
-    Key: 'index.html',
-    ACL: 'public-read',
-    Body: site,
-    ContentType: 'text/html',
-  }, function (err, data) {
-    if (err) console.log(err, err.stack);
-    else console.log(data);
-  });
-};
-
 app.post('/staging/', (req, res) => {
-  const site = generateStaticSite(req.body, req.headers);
-  shipToAws('london.react.dev', site);
-  res.send(site);
+  createSite(req.body, req.headers, serverConfig.buckets.staging);
+  res.sendStatus(200);
 });
 
 app.post('/live/', (req, res) => {
-  const site = generateStaticSite(req.body, req.headers);
-  shipToAws('london.react.live', site);
-  res.send(site);
+  createSite(req.body, req.headers, serverConfig.buckets.live);
+  res.sendStatus(200);
 });
 
 app.listen(port, function (error) {
