@@ -3,10 +3,6 @@ import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { initialize, change } from 'redux-form';
 
-export function* watchGetContent() {
-  yield* takeLatest('GET_CONTENT_REQUESTED', getContent);
-}
-
 export function* loadFromDB() {
   const docId = yield call(getDocId);
   const doc = yield call(getDoc, docId);
@@ -46,16 +42,10 @@ function* saveContent(action) {
   }
 }
 
-
-
-export function* watchSyncDb() {
-  yield* takeLatest('SYNC_DB_REQUESTED', syncDb);
-}
-
-function* syncDb(action) {
+export function* syncDb(url) {
   try {
     yield put({ type: 'SYNCING' });
-    yield call(syncDatabase, action.url);
+    yield call(syncDatabase, url);
     yield put({ type: 'SYNC_SUCCESS' });
 
   } catch (e) {

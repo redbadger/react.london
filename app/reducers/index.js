@@ -3,10 +3,6 @@ import { reducer as formReducer } from 'redux-form';
 
 const initialValues = (state = { loading: true }, action) => {
   switch (action.type) {
-    case 'GET_CONTENT_REQUESTED':
-      console.log('GET_CONTENT_REQUESTED');
-      return { ...state };
-
     case 'GETTING_CONTENT':
       console.log('GETTING_CONTENT');
       return {
@@ -32,9 +28,6 @@ const initialValues = (state = { loading: true }, action) => {
     case 'SAVE_CONTENT_SUCCESS':
       console.log('SAVE_CONTENT_SUCCESS');
       return state;
-
-    case 'SYNC_DB_REQUESTED':
-      console.log('SYNC_DB_REQUESTED');
 
     case 'SYNCING':
       console.log('SYNCING');

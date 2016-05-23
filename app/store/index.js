@@ -6,8 +6,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import DevTools from '../containers/DevTools';
 import createSagaMiddleware from 'redux-saga';
 
-import { watchGetContent, watchSaveContent, watchSyncDb } from '../sagas';
-import { callSyncDb, callGetContent } from '../actions';
+import { getContent, watchSaveContent, syncDb } from '../sagas';
 
 import rootReducer from '../reducers';
 
@@ -24,12 +23,9 @@ const enhancer = compose(
 export function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
 
-  sagaMiddleware.run(watchGetContent);
+  sagaMiddleware.run(getContent);
   sagaMiddleware.run(watchSaveContent);
-  sagaMiddleware.run(watchSyncDb);
-
-  store.dispatch(callSyncDb('http://localhost:5984/reactlondon'));
-  store.dispatch(callGetContent());
+  sagaMiddleware.run(syncDb, 'http://localhost:5984/reactlondon');
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
