@@ -7,8 +7,9 @@ export function* watchGetContent() {
   yield* takeLatest('GET_CONTENT_REQUESTED', getContent);
 }
 
-export function loadFromDB() {
-
+export function* loadFromDB() {
+  const docId = yield call(getDocId);
+  yield call(getDoc, docId);
 }
 
 export function populateView() {
@@ -18,21 +19,6 @@ export function populateView() {
 export function* getContent() {
   yield call(loadFromDB);
   yield call(populateView);
-  // try {
-  //   yield put({ type: 'GETTING_CONTENT' });
-
-  //   const docId = yield call(getDocId);
-  //   const content = yield call(getDoc, docId);
-
-  //   yield put(initialize('editor', content));
-  //   yield put({ type: 'GET_CONTENT_SUCCESS' });
-
-  // } catch (e) {
-  //   yield put({
-  //     type: 'API_ERROR',
-  //     message: `Error retrieving editor content. Error message: ${e.message}`,
-  //   });
-  // }
 };
 
 

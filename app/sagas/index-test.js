@@ -5,7 +5,7 @@ import { call, put } from 'redux-saga/effects';
 import { getDocId, getDoc, saveDoc, syncDatabase } from '../api';
 import { initialize, change } from 'redux-form';
 
-describe.only('getContent', () => {
+describe('getContent', () => {
   const getContentSaga = getContent();
 
   it('loads from db and populate the view', () => {
@@ -20,59 +20,18 @@ describe.only('getContent', () => {
   });
 })
 
-describe('Content actions', () => {
-  let stubbedFetch;
+describe('loadFromDB', () => {
+  const loadFromDBSaga = loadFromDB();
+  const docId = '1234';
 
-  // TODO: remove hardcoded localhost url
-  const contentUrl = 'http://localhost:8080/content';
-
-  beforeEach(() => {
-    stubbedFetch = fetchMock.mock(contentUrl, {
-      body: {
-        userText: 'awesome',
-      },
-    });
-  });
-
-  afterEach(() => {
-    fetchMock.restore;
-  });
-
-
-
-  const myContent = {
-    aboutTitle: 'stuff for aboutTitle',
-  };
-
-  const getContentSaga = getContent();
-  const docId = '12345';
-  const content = {};
-
-
-
-
-  it('should fire appropriate actions to fetch content', () => {
-    expect(getContentSaga.next().value)
-      .to.eql(
-        put({ type: 'GETTING_CONTENT' })
-      );
-    expect(getContentSaga.next().value)
+  it('requests the document id and then returns the content for given id', () => {
+    expect(loadFromDBSaga.next().value)
       .to.eql(
         call(getDocId)
       );
-    expect(getContentSaga.next(docId).value)
+    expect(loadFromDBSaga.next(docId).value)
       .to.eql(
         call(getDoc, docId)
       );
-    expect(getContentSaga.next(content).value)
-      .to.eql(
-        put(initialize('editor', content))
-      );
-  });
-
-  it('should fetch content', () => {
-    const results = makeFetch(contentUrl);
-    expect(fetchMock.called(contentUrl)).to.be.true;
-  });
-
-});
+  })
+})
