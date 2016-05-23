@@ -1,0 +1,12 @@
+{
+  "server": {
+    "protocol": "http",
+    "host": "dummy.com:3000"
+  },
+  "google": {
+    "key": "563722027137-rf5i5d96r2c0k1g7h8tjlqop4t7e7db7.apps.googleusercontent.com",
+    "secret": "48xHdvwwDPCTa11jR7oxGrMM",
+    "callback": "/handle_google_callback",
+    "scope": [ "email" ]
+  }
+}

@@ -8,13 +8,19 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import bodyParser from 'body-parser';
 import { minify } from 'html-minifier';
 import AWS from 'aws-sdk';
+import logger from 'morgan';
+import session from 'express-session';
 
 import Preview from './components/Preview/Preview';
 import config from '../webpack.config';
 
+import Grant from 'grant-express';
+import serverConfig from './config';
+const grant = new Grant(serverConfig);
+
 const app = express();
 
-const port = 8080;
+const port = 3000;
 
 let compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
@@ -23,6 +29,9 @@ app.use(webpackHotMiddleware(compiler));
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
+app.use(logger('dev'));
+app.use(session({ secret: 'suchsecretwow' }));
+app.use(grant);
 
 function generateStaticSite(properties, headers) {
   let markup = renderToStaticMarkup(<Preview
@@ -78,6 +87,11 @@ app.post('/live/', (req, res) => {
   const site = generateStaticSite(req.body, req.headers);
   shipToAws('london.react.live', site);
   res.send(site);
+});
+
+app.get('/handle_google_callback', function (req, res) {
+  console.log(req.query);
+  res.end(JSON.stringify(req.query, null, 2));
 });
 
 app.get('/', (req, res) => {
