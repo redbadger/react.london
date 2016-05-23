@@ -8,19 +8,19 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import bodyParser from 'body-parser';
 import { minify } from 'html-minifier';
 import AWS from 'aws-sdk';
-import logger from 'morgan';
-import session from 'express-session';
 
 import Preview from './components/Preview/Preview';
 import config from '../webpack.config';
 
-import Grant from 'grant-express';
+import passport from 'passport';
+// import { GoogleStrategy } from 'passport-google-oauth20';
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 import serverConfig from './config';
-const grant = new Grant(serverConfig);
 
 const app = express();
 
-const port = 3000;
+const port = 8080;
 
 let compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
@@ -29,9 +29,49 @@ app.use(webpackHotMiddleware(compiler));
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
-app.use(logger('dev'));
-app.use(session({ secret: 'suchsecretwow' }));
-app.use(grant);
+
+passport.serializeUser(function(user, cb) {
+ cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+ cb(null, obj);
+});
+
+// set up your Google OAuth strategy elsewhere...
+passport.use(new GoogleStrategy({
+    clientID: "563722027137-rf5i5d96r2c0k1g7h8tjlqop4t7e7db7.apps.googleusercontent.com",
+    clientSecret: "48xHdvwwDPCTa11jR7oxGrMM",
+    callbackURL: "/connect/google/callback"
+}, function(token, refreshToken, profile, done){
+    if(profile._json.domain === "red-badger.com"){
+        // find or create user in database, etc
+        console.log(profile);
+        return done(null, profile);
+
+        // User.find({ id: profile.id }).done(done);
+    }else{
+        // fail
+        done(new Error("Invalid host domain"));
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// first make sure you have access to the proper scope on your login route
+app.get("/connect/google", passport.authenticate("google", {
+    scope: ["profile", "email"]
+}));
+
+app.get('/connect/google/callback',
+  passport.authenticate('google', { failureRedirect: '/connect/google' }),
+  function(req, res) {
+    console.log("redict");
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
 
 function generateStaticSite(properties, headers) {
   let markup = renderToStaticMarkup(<Preview
@@ -87,11 +127,6 @@ app.post('/live/', (req, res) => {
   const site = generateStaticSite(req.body, req.headers);
   shipToAws('london.react.live', site);
   res.send(site);
-});
-
-app.get('/handle_google_callback', function (req, res) {
-  console.log(req.query);
-  res.end(JSON.stringify(req.query, null, 2));
 });
 
 app.get('/', (req, res) => {
