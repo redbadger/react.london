@@ -7,22 +7,22 @@ import { initialize, change } from 'redux-form';
 
 describe('getContent', () => {
   const getContentSaga = getContent();
+  const content = { _id: '1234' };
 
-  it('loads from db and populates the view', () => {
+  it('loads from db and populates the view with the content', () => {
     expect(getContentSaga.next().value)
       .to.eql(
         call(loadFromDB)
       );
-    expect(getContentSaga.next().value)
+    expect(getContentSaga.next(content).value)
       .to.eql(
-        call(populateView)
+        call(populateView, content)
       );
   });
 
   describe('loadFromDB', () => {
     const loadFromDBSaga = loadFromDB();
     const docId = '1234';
-    const content = { _id: '1234' };
 
     it('requests the document id and then returns the content for given id', () => {
       expect(loadFromDBSaga.next().value)
@@ -44,7 +44,6 @@ describe('getContent', () => {
   })
 
   describe('populateView', () => {
-    const content = { _id: '1' };
     const populateViewSaga = populateView(content);
 
     it('gives the editor the content and announces the success of the endeavour', () => {

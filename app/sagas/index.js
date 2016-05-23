@@ -19,8 +19,8 @@ export function* populateView(content) {
 }
 
 export function* getContent() {
-  yield call(loadFromDB);
-  yield call(populateView);
+  const doc = yield call(loadFromDB);
+  yield call(populateView, doc);
 };
 
 
