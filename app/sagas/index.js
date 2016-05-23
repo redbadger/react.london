@@ -41,17 +41,3 @@ function* saveContent(action) {
     });
   }
 }
-
-export function* syncDb(url) {
-  try {
-    yield put({ type: 'SYNCING' });
-    yield call(syncDatabase, url);
-    yield put({ type: 'SYNC_SUCCESS' });
-
-  } catch (e) {
-    yield put({
-      type: 'API_ERROR',
-      message: `Error saving editor content. Error message: ${e.message}`,
-    });
-  }
-}

@@ -1,6 +1,7 @@
 const fetchMock = require('fetch-mock');
 import { expect } from 'chai';
-import { getContent, loadFromDB, populateView } from './index.js';
+import { getContent, loadFromDB, populateView, watchSaveContent, saveContent } from './index.js';
+import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { getDocId, getDoc, saveDoc, syncDatabase } from '../api';
 import { initialize, change } from 'redux-form';

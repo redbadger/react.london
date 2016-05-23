@@ -6,7 +6,8 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import DevTools from '../containers/DevTools';
 import createSagaMiddleware from 'redux-saga';
 
-import { getContent, watchSaveContent, syncDb } from '../sagas';
+import { syncDatabase } from '../api'
+import { getContent, watchSaveContent } from '../sagas';
 
 import rootReducer from '../reducers';
 
@@ -25,7 +26,7 @@ export function configureStore(initialState) {
 
   sagaMiddleware.run(getContent);
   sagaMiddleware.run(watchSaveContent);
-  sagaMiddleware.run(syncDb, 'http://localhost:5984/reactlondon');
+  syncDatabase('http://localhost:5984/reactlondon');
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
