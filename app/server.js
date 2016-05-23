@@ -1,25 +1,16 @@
 import express from 'express';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../webpack.config';
 
 import bodyParser from 'body-parser';
-import config from '../webpack.config';
 import serverConfig from './serverConfig';
 
-import { authSetup, ensureAuthenticated } from './server/auth';
+import { authSetup, ensureAuthenticated } from './server/authSetup';
+import { webpackSetup } from './server/webpackSetup';
 import { createSite } from './server/staticSite';
 
-const { app, passport } = authSetup(express());
+let { app, passport } = authSetup(express());
+app = webpackSetup(app);
 
 const port = 8080;
-
-let compiler = webpack(config);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
-
-app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(bodyParser.json());
 
