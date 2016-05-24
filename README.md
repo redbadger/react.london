@@ -12,6 +12,25 @@ Before starting, be aware you will require an AWS account to push static pages t
 1. [NodeJS](https://nodejs.org/en/)
 2. [CouchDB](http://couchdb.apache.org/)
 
+### 🔬 Config
+The project requires a number of external services which utilise secret keys and configurations. By default, a file is kept at `app/serverConfig.json` to contain these details, but you will have to ask a fellow dev for it or create one yourself in the following format
+
+```
+{
+  "allowedDomainNames": <Array of Google App hosted domains one can login with>,
+  "sessionSecret": <String secret (anything) to make sessions work>,
+  "credentials": {
+    "clientID": <Google OAuth ID>,
+    "clientSecret": <Google OAuth Secret>
+  },
+  "buckets": {
+    "staging": <Name of staging S3 Bucket>,
+    "live": <Name of live S3 bucket>
+  }
+}
+
+```
+
 ### 💻 Dev
 1. Standard start
 ``` npm install ```
