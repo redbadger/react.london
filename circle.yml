@@ -1,10 +1,6 @@
 
-## Customize dependencies
-dependencies:
-  pre:
-    - npm install
 
 ## Customize test commands
 test:
   override:
-    - npm run test-server 
+    - npm run test-server
