@@ -1,27 +1,14 @@
 import path from 'path';
 import bodyParser from 'body-parser';
 
-import { ensureAuthenticated } from './authSetup';
 import serverConfig from '../serverConfig';
 import { createSite } from './staticSite';
 
 export const routingSetup = (app, passport) => {
   app.use(bodyParser.json());
 
-  app.get('/login', passport.authenticate('google', {
-    scope: ['profile', 'email'],
-  }));
-
-  app.get(
-    '/login/callback',
-    passport.authenticate(
-      'google',
-      { failureRedirect: 'http://www.red-badger.com' }
-    ),
-    (req, res) => res.redirect('/')
-  );
-
   app.get('/', ensureAuthenticated, (req, res) => {
+    res.location('/');
     res.sendFile(path.join(__dirname, '../', 'index.html'));
   });
 
@@ -35,4 +22,9 @@ export const routingSetup = (app, passport) => {
     res.sendStatus(200);
   });
   return app;
+};
+
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/login');
 };

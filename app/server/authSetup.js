@@ -24,13 +24,16 @@ export const authSetup = app => {
     )
   );
 
-  return {
-    app,
-    passport,
-  };
-};
+  app.get('/login', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-export const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
-  res.redirect('/login');
+  app.get(
+    '/login/callback',
+    passport.authenticate(
+      'google',
+      { failureRedirect: 'http://www.red-badger.com' }
+    ),
+    (req, res) => res.redirect('/')
+  );
+
+  return app;
 };

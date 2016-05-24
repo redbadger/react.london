@@ -4,9 +4,9 @@ import { authSetup } from './server/authSetup';
 import { webpackSetup } from './server/webpackSetup';
 import { routingSetup } from './server/routingSetup';
 
-let { app, passport } = authSetup(express());
+let app = authSetup(express());
 app = webpackSetup(app);
-app = routingSetup(app, passport);
+app = routingSetup(app);
 
 const port = 8080;
 
