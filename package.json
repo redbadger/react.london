@@ -8,8 +8,8 @@
     "start": "babel-node app/server.js --presets es2015,stage-0",
     "postinstall": "sh couchdbsetup.sh && add-cors-to-couchdb",
     "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
-    "test:watch": "npm test -- --watch",
-    "test-server": "mocha app/server/routingTest.js --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles"
+    "test-server": "mocha app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
