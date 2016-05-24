@@ -11,6 +11,11 @@ import { getContent, watchSaveContent } from '../sagas';
 
 import rootReducer from '../reducers';
 
+import PouchDB from 'pouchdb';
+export const localDb = new PouchDB('reactlondon');
+export const remoteDb = new PouchDB('http://localhost:5984/reactlondon')
+window.PouchDB = PouchDB
+
 const sagaMiddleware = createSagaMiddleware();
 const enhancer = compose(
 
@@ -26,7 +31,7 @@ export function configureStore(initialState) {
 
   sagaMiddleware.run(getContent);
   sagaMiddleware.run(watchSaveContent);
-  syncDatabase('http://localhost:5984/reactlondon');
+  syncDatabase(remoteDb);
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
