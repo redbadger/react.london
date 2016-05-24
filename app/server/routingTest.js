@@ -5,7 +5,7 @@ import passport from 'passport';
 import { routingSetup } from './routingSetup';
 
 describe('GET /', () => {
-  it('should return 302 when redirecting user to login', done => {
+  it('should return status 302 and redirect user to login when not authenticated', done => {
     let app = express();
     app.use(passport.initialize());
     app.use(passport.session());
@@ -18,7 +18,7 @@ describe('GET /', () => {
       .end(done);
   });
 
-  it('should return 200 when user is logged in', done => {
+  it('should return status 200 when authenticated', done => {
     let app = express();
     app.use(passport.initialize());
     app.use(passport.session());
