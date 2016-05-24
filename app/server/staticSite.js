@@ -5,13 +5,13 @@ import { minify } from 'html-minifier';
 
 import Preview from '../components/Preview/Preview';
 
-export function createSite(body, headers, bucketName) {
+export const createSite = (body, headers, bucketName) => {
   const site = generateStaticSite(body, headers);
   shipToAws(bucketName, site);
   return site;
 };
 
-function generateStaticSite(properties, headers) {
+const generateStaticSite = (properties, headers) => {
   let markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: headers['user-agent'] }}
     text={ properties }
@@ -36,7 +36,7 @@ function generateStaticSite(properties, headers) {
   return site;
 };
 
-function shipToAws(bucketName, site) {
+const shipToAws = (bucketName, site) => {
   AWS.config.update({
     region: 'eu-west-1',
   });

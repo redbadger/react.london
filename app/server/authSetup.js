@@ -3,7 +3,7 @@ import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import session from 'express-session';
 import serverConfig from '../serverConfig';
 
-export function authSetup(app) {
+export const authSetup = app => {
   app.use(session({ secret: serverConfig.sessionSecret, resave: true, saveUninitialized: true }));
   app.use(passport.initialize());
   app.use(passport.session());
@@ -30,7 +30,7 @@ export function authSetup(app) {
   };
 };
 
-export function ensureAuthenticated(req, res, next) {
+export const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   res.redirect('/login');
 };
