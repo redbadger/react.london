@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { persistentReducer } from 'redux-pouchdb-plus';
 
 const initialValues = (state = { loading: true }, action) => {
   switch (action.type) {
@@ -48,4 +49,4 @@ const reducers = combineReducers({
   form: formReducer,
 });
 
-export default reducers;
+export default persistentReducer(reducers);

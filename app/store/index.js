@@ -6,6 +6,8 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import DevTools from '../containers/DevTools';
 import createSagaMiddleware from 'redux-saga';
 
+import { persistentStore } from 'redux-pouchdb-plus';
+
 import { syncDatabase } from '../api'
 import { getContent, watchSaveContent } from '../sagas';
 
@@ -22,6 +24,8 @@ const enhancer = compose(
   // Middleware you want to use in development:
   applyMiddleware(sagaMiddleware),
 
+  persistentStore({db: localDb}),
+
   // Required! Enable Redux DevTools with the monitors you chose
   DevTools.instrument()
 );
@@ -29,7 +33,7 @@ const enhancer = compose(
 export function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
 
-  sagaMiddleware.run(getContent);
+  // sagaMiddleware.run(getContent);
   sagaMiddleware.run(watchSaveContent);
   syncDatabase(remoteDb);
 
