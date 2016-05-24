@@ -15,7 +15,7 @@ Before starting, be aware you will require an AWS account to push static pages t
 ### 🔬 Config
 The project requires a number of external services which utilise secret keys and configurations. By default, a file is kept at `app/serverConfig.json` to contain these details, but you will have to ask a fellow dev for it or create one yourself in the following format
 
-```
+```JSON
 {
   "allowedDomainNames": <Array of Google App hosted domains one can login with>,
   "sessionSecret": <String secret (anything) to make sessions work>,
