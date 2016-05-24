@@ -11,7 +11,7 @@ const Preview = Radium(({ text }) => (
     <div className="row"><About text={text} /></div>
     <div className="row"><UpcomingMeetup text={text} /></div>
     <div className="row speakers">
-      {text.upcomingMeetupSpeakers.map((speaker, index) =>
+      {text.upcomingMeetupSpeakers ? text.upcomingMeetupSpeakers.map((speaker, index) =>
         <UpcomingMeetupSpeaker
           key={index}
           name={speaker.name}
@@ -19,7 +19,7 @@ const Preview = Radium(({ text }) => (
           blurb={speaker.blurb}
           picture={speaker.picture}
           />
-      )}
+      ) : ''}
     </div>
   </main>
 ));

@@ -7,15 +7,13 @@ import Radium, { Style } from 'radium';
 
 class App extends Component {
   render() {
-    const { children, loading } = this.props;
+    const { children } = this.props;
     return (
       <div style={styles}>
-        { loading ? <div>LOADING</div> :
-          <div style={styles}>
-            <Editor />
-            <Preview />
-          </div>
-        }
+        <div style={styles}>
+          <Editor />
+          <Preview />
+        </div>
       </div>
     );
   }

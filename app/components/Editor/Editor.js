@@ -5,7 +5,6 @@ import TextField from './TextField/TextField.js';
 import RichField from './RichField/RichField.js';
 import UpcomingMeetupSpeakerEditor from '../UpcomingMeetupSpeakerEditor/UpcomingMeetupSpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
-import Save from '../Save/Save.js';
 
 import Radium, { Style } from 'radium';
 
@@ -36,8 +35,6 @@ class Editor extends Component {
     return (
       <aside style={styles} className="editor">
         {genericStyles}
-
-        <Save saveFunction={this.props.callPutContent} content={this.props.content.form.editor.values}/>
 
         <h2>About section</h2>
 
@@ -127,7 +124,6 @@ class Editor extends Component {
         <Deploy environment='staging' content={this.props.content} url='dev' />
         <Deploy environment='live' content={this.props.content} url='live'/>
 
-        <Save saveFunction={this.props.callPutContent} content={this.props.content.form.editor.values}/>
       </section>
       </aside>
     );
