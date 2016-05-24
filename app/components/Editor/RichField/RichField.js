@@ -7,11 +7,20 @@ class RichField extends React.Component {
 
     const defaultValue = this.props.field.value;
 
+    console.log('in RichField ', this.props.field);
+
     this.state = {
       editorState: this.setDefaultValue(defaultValue),
     };
 
-  }
+  };
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    this.setState({
+      editorState: this.setDefaultValue(nextProps.field.value)
+    })
+    return true;
+  };
 
   onChange = (editorState) => {
     this.props.field.onChange(this.getRawContent());
@@ -41,6 +50,7 @@ class RichField extends React.Component {
   }
 
   render() {
+    console.log('in RichField renDER', this.props.field);
     const { editorState } = this.state;
     return (
       <div>
