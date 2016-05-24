@@ -28,7 +28,6 @@ The project requires a number of external services which utilise secret keys and
     "live": "<Name of live S3 bucket>"
   }
 }
-
 ```
 
 ### 💻 Dev
