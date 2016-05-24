@@ -9,15 +9,13 @@ Generated pages are deployed to and hosted on AWS S3 buckets.
 Before starting, be aware you will require an AWS account to push static pages to the web. AWS will inspect ENV variables for credentials at runtime. Bucket locations are currently hard-coded but will be configurable soonⒸ.
 
 ### 🛠 Dependencies
-1. [NodeJS](https://nodejs.org/en/)
-2. [CouchDB](http://couchdb.apache.org/)
+1. [Docker](https://www.docker.com)
 
 ### 💻 Dev
 1. Standard start
-``` npm install ```
+```docker-compose up```
 and wait 🕣 for it to do its thing.
-2. `npm run serve` to start the node server.
-3. Navigate to http://localhost:8080 to see the site
+2. Navigate to http://localhost:8080 to see the site
 
 If you're running with Marcel or Zoë who have access to the default *BadgerDev* account, you should be able to see the current public staging site [here](http://london.react.live.s3-website-eu-west-1.amazonaws.com/) and the live one [here](http://london.react.dev.s3-website-eu-west-1.amazonaws.com/).
 
