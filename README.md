@@ -17,15 +17,15 @@ The project requires a number of external services which utilise secret keys and
 
 ```JSON
 {
-  "allowedDomainNames": <Array of Google App hosted domains one can login with>,
-  "sessionSecret": <String secret (anything) to make sessions work>,
+  "allowedDomainNames": ["<Array of Google App hosted domains one can login with>"],
+  "sessionSecret": "<String secret (anything) to make sessions work>",
   "credentials": {
-    "clientID": <Google OAuth ID>,
-    "clientSecret": <Google OAuth Secret>
+    "clientID": "<Google OAuth ID>",
+    "clientSecret": "<Google OAuth Secret>"
   },
   "buckets": {
-    "staging": <Name of staging S3 Bucket>,
-    "live": <Name of live S3 bucket>
+    "staging": "<Name of staging S3 Bucket>",
+    "live": "<Name of live S3 bucket>"
   }
 }
 
