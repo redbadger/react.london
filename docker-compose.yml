@@ -7,7 +7,7 @@ webapp:
   working_dir: /usr/src/react.london
   links:
     - couchdb:couchdb
-  command: bash -c "npm install --unsafe-perm && npm i -g add-cors-to-couchdb && npm run setupdb && npm start"
+  command: bash -c "npm install --unsafe-perm && npm run setupdb && npm start"
 couchdb:
   image: couchdb:1.6
   ports:
