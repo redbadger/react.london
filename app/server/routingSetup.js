@@ -1,7 +1,6 @@
 import path from 'path';
 import bodyParser from 'body-parser';
 
-import serverConfig from '../serverConfig';
 import { createSite } from './staticSite';
 
 export const routingSetup = (app, passport) => {
@@ -13,12 +12,12 @@ export const routingSetup = (app, passport) => {
   });
 
   app.post('/staging/', (req, res) => {
-    createSite(req.body, req.headers, serverConfig.buckets.staging);
+    createSite(req.body, req.headers, process.env.BUCKET_STAGING);
     res.sendStatus(200);
   });
 
   app.post('/live/', (req, res) => {
-    createSite(req.body, req.headers, serverConfig.buckets.live);
+    createSite(req.body, req.headers, process.env.BUCKET_LIVE);
     res.sendStatus(200);
   });
   return app;
