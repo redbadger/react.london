@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpcomingMeetupSpeaker = ({ title, name, blurb, picture }) => (
+const SpeakerPreview = ({ title, name, blurb, picture }) => (
     <section>
       <img src={picture} />
       <h4>{title}</h4>
@@ -9,4 +9,4 @@ const UpcomingMeetupSpeaker = ({ title, name, blurb, picture }) => (
     </section>
   );
 
-export default UpcomingMeetupSpeaker;
+export default SpeakerPreview;

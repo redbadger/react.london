@@ -3,7 +3,7 @@ import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from './TextField/TextField.js';
 import RichField from './RichField/RichField.js';
-import UpcomingMeetupSpeakerEditor from '../UpcomingMeetupSpeakerEditor/UpcomingMeetupSpeakerEditor.js';
+import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 import Save from '../Save/Save.js';
 
@@ -19,10 +19,10 @@ class Editor extends Component {
     <RichField field={field} label={field.label} />
   );
 
-  createUpcomingMeetupSpeakers = speakers => (
+  createSpeakers = speakers => (
     <div>
       {speakers.map((speaker, index) =>
-        <UpcomingMeetupSpeakerEditor
+        <SpeakerEditor
           key={index}
           speaker={speaker}
           index={index}
@@ -122,7 +122,7 @@ class Editor extends Component {
 
         <h4 style={styles.subHeading}>Talks</h4>
 
-        <FieldArray name="upcomingMeetupSpeakers" component={this.createUpcomingMeetupSpeakers}/>
+        <FieldArray name="upcomingMeetupSpeakers" component={this.createSpeakers}/>
 
         <Deploy environment='staging' content={this.props.content} url='dev' />
         <Deploy environment='live' content={this.props.content} url='live'/>
