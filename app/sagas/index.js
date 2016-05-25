@@ -1,4 +1,4 @@
-import { getDocId, getDoc, saveDoc, syncDatabase } from '../api';
+import { getDocId, getDoc, saveDoc } from '../api';
 import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { initialize, change } from 'redux-form';
