@@ -3,6 +3,7 @@ import Radium, { Style } from 'radium';
 import About from '../About/About';
 import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
+import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
 const Preview = Radium(({ text }) => (
   <main className="preview">
@@ -18,6 +19,16 @@ const Preview = Radium(({ text }) => (
           title={speaker.title}
           blurb={speaker.blurb}
           picture={speaker.picture}
+          />
+      )}
+    </div>
+    <div className="row speakers">
+      {text.sponsors.map((sponsor, index) =>
+        <SponsorPreview
+          key={index}
+          name={sponsor.name}
+          url={sponsor.url}
+          picture={sponsor.picture}
           />
       )}
     </div>
