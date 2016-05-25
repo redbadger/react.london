@@ -11,7 +11,7 @@ class RichField extends React.Component {
   };
 
   onChange = (editorState) => {
-    this.props.field.onChange(this.getRawContent());
+    this.props.field.onChange(this.getRawContent(editorState));
     this.setState({ editorState });
   };
 
@@ -29,8 +29,8 @@ class RichField extends React.Component {
     return EditorState.createEmpty();
   }
 
-  getRawContent() {
-    return convertToRaw(this.state.editorState.getCurrentContent());
+  getRawContent(editorState) {
+    return convertToRaw(editorState.getCurrentContent());
   }
 
   render() {
