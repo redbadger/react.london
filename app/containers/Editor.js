@@ -4,7 +4,6 @@ import EditorComponent from '../components/Editor/Editor.js';
 import { callPutContent } from '../actions';
 
 const mapStateToProps = (state) => ({
-  initialValues: state.initialValues,
   content: state
 });
 

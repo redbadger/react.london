@@ -11,10 +11,6 @@ export const getDoc = docId => localDb.get(docId)
   .then(doc => doc)
   .catch(handleError);
 
-export const saveDoc = content => localDb.put(content)
-  .then(data => data)
-  .catch(handleError);
-
 export const syncDatabase = remoteDb => localDb.sync(remoteDb, { live: true });
 
 const handleError = error => {
