@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpcomingMeetup = ({ text }) => (
+const Meetup = ({ text }) => (
     <section className="UpcomingMeetup">
       <h2>{text.upcomingMeetupName}</h2>
       <div dangerouslySetInnerHTML={ { __html: text.upcomingMeetupDetails } } />
@@ -11,4 +11,4 @@ const UpcomingMeetup = ({ text }) => (
     </section>
   );
 
-export default UpcomingMeetup;
+export default Meetup;
