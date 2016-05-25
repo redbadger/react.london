@@ -6,6 +6,7 @@ import RichField from './RichField/RichField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 import Save from '../Save/Save.js';
+import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
 import Radium, { Style } from 'radium';
 
@@ -25,6 +26,21 @@ class Editor extends Component {
         <SpeakerEditor
           key={index}
           speaker={speaker}
+          index={index}
+          textField={this.createTextField}
+          />
+      )}
+    </div>
+  );
+
+  createSponsors = sponsors => (
+    <div>
+      <button type="button" onClick={() => sponsors.push({})}>Add Sponsor</button>
+      {sponsors.map((sponsor, index) =>
+        <SponsorEditor
+          key={index}
+          sponsors={sponsors}
+          sponsor={sponsor}
           index={index}
           textField={this.createTextField}
           />
@@ -123,6 +139,8 @@ class Editor extends Component {
         <h4 style={styles.subHeading}>Talks</h4>
 
         <FieldArray name="upcomingMeetupSpeakers" component={this.createSpeakers}/>
+
+        <FieldArray name="sponsors" component={this.createSponsors}/>
 
         <Deploy environment='staging' content={this.props.content} url='dev' />
         <Deploy environment='live' content={this.props.content} url='live'/>
