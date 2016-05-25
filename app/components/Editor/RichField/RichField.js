@@ -5,21 +5,9 @@ class RichField extends React.Component {
   constructor(props) {
     super(props);
 
-    const defaultValue = this.props.field.value;
-
-    console.log('in RichField ', this.props.field);
-
     this.state = {
-      editorState: this.setDefaultValue(defaultValue),
+      editorState: this.getEditorState(this.props.field.value)
     };
-
-  };
-
-  shouldComponentUpdate = (nextProps, nextState) => {
-    this.setState({
-      editorState: this.setDefaultValue(nextProps.field.value)
-    })
-    return true;
   };
 
   onChange = (editorState) => {
@@ -28,18 +16,14 @@ class RichField extends React.Component {
   };
 
   handleKeyCommand = (command) => {
-    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
-    if (newState) {
-      this.onChange(newState);
-      return true;
-    }
-
-    return false;
+    const handled = RichUtils.handleKeyCommand(this.state.editorState, command);
+    this.onChange(this.state.editorState);
+    return handled;
   };
 
-  setDefaultValue(defaultValue) {
-    if (defaultValue) {
-      return EditorState.createWithContent(convertFromRaw(defaultValue));
+  getEditorState(content) {
+    if (content) {
+      return EditorState.createWithContent(convertFromRaw(content));
     }
 
     return EditorState.createEmpty();
@@ -50,13 +34,11 @@ class RichField extends React.Component {
   }
 
   render() {
-    console.log('in RichField renDER', this.props.field);
-    const { editorState } = this.state;
     return (
       <div>
         <label>{this.props.label}</label>
         <Draft
-          editorState={editorState}
+          editorState={this.state.editorState}
           handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange} />
       </div>
