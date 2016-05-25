@@ -8,18 +8,16 @@ class RichField extends React.Component {
     this.state = {
       editorState: this.getEditorState(this.props.field.value)
     };
-  };
+  }
 
-  onChange = (editorState) => {
+  onChange(editorState) {
     this.props.field.onChange(this.getRawContent(editorState));
     this.setState({ editorState });
-  };
+  }
 
-  handleKeyCommand = (command) => {
-    const handled = RichUtils.handleKeyCommand(this.state.editorState, command);
-    this.onChange(this.state.editorState);
-    return handled;
-  };
+  handleKeyCommand(command) {
+    return RichUtils.handleKeyCommand(this.state.editorState, command);
+  }
 
   getEditorState(content) {
     if (content) {
@@ -39,8 +37,9 @@ class RichField extends React.Component {
         <label>{this.props.label}</label>
         <Draft
           editorState={this.state.editorState}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.onChange} />
+          handleKeyCommand={this.handleKeyCommand.bind(this)}
+          onChange={this.onChange.bind(this)}
+          ref="editor" />
       </div>
     );
   }

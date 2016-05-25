@@ -14,10 +14,9 @@ class Editor extends Component {
     <TextField field={field} label={field.label} />
   );
 
-  createRichField = field => {
-    console.log('createRichField: ', field);
-    return <RichField field={field} label={field.label} />
-  };
+  createRichField = field => (
+    <RichField field={field} label={field.label} />
+  );
 
   createUpcomingMeetupSpeakers = speakers => (
     <div>

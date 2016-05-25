@@ -8,14 +8,14 @@ const initialValues = (state = { loading: true }, action) => {
       console.log('GETTING_CONTENT');
       return {
         ...state,
-        loading: true,
+        loading: true
       };
 
     case 'GET_CONTENT_SUCCESS':
       console.log('GET_CONTENT_SUCCESS');
       return {
         ...state,
-        loading: false,
+        loading: false
       };
 
     case 'SAVE_CONTENT_REQUESTED':
@@ -46,7 +46,7 @@ const initialValues = (state = { loading: true }, action) => {
 
 const reducers = combineReducers({
   initialValues: initialValues,
-  form: formReducer,
+  form: formReducer
 });
 
 export default persistentReducer(reducers);

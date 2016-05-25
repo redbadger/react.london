@@ -5,7 +5,7 @@ import { callPutContent } from '../actions';
 
 const mapStateToProps = (state) => ({
   initialValues: state.initialValues,
-  content: state,
+  content: state
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ callPutContent }, dispatch);
