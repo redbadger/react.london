@@ -7,9 +7,10 @@
     "build": "webpack",
     "setupdb": "./couchdbsetup.sh && add-cors-to-couchdb http://couchdb:5984",
     "start": "node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0",
-    "test": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
-    "test-server": "mocha app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles",
-    "test:watch": "npm test -- --watch"
+    "test": "npm run test:server && npm run test:browser",
+    "test:browser": "find . -path ./node_modules -prune -o -name '*-test.js' | xargs mocha --opts app/test/mocha.opts --compilers js:babel-core/register --require ignore-styles",
+    "test:server": "mocha app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles",
+    "test:watch": "npm test -- --watch",
   },
   "repository": {
     "type": "git",
