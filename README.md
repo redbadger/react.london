@@ -11,6 +11,18 @@ Before starting, be aware you will require an AWS account to push static pages t
 ### 🛠 Dependencies
 1. [Docker](https://www.docker.com)
 
+### 🔬 Config
+The project requires a number of external services which utilise secret keys and configurations. By default, a file is kept at `/.env` to contain these details which are loaded as environment variables at run-time. You will have to ask a fellow dev for the file or create one yourself in the following format.
+
+```
+ALLOWED_DOMAIN=<Your email domain you want to allow>
+SESSION_SECRET=<Random string for session cookies>
+OAUTH_CLIENT_ID=<Google project OAuth Client ID>
+OAUTH_SECRET=<Google project OAuth Secret Key>
+BUCKET_STAGING=<Name of staging S3 bucket>
+BUCKET_LIVE=<Name of live/production S3 bucket>
+```
+
 ### 💻 Dev
 1. Standard start
 ```docker-compose up```
