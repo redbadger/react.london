@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-class UpcomingMeetupSpeakerEditor extends Component {
+class SpeakerEditor extends Component {
 
   render() {
     const { speaker, index, textField } = this.props;
@@ -34,4 +34,4 @@ class UpcomingMeetupSpeakerEditor extends Component {
   }
 }
 
-export default UpcomingMeetupSpeakerEditor;
+export default SpeakerEditor;
