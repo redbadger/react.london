@@ -22,7 +22,7 @@ class Editor extends Component {
 
   createSpeakers = speakers => (
     <div>
-      <button type="button" onClick={() => speakers.push({ blurb: '', name: '', picture: '', title: ''})}>Add Speaker</button>
+      <button type="button" onClick={() => speakers.push({})}>Add Speaker</button>
       {speakers.map((speaker, index) =>
         <SpeakerEditor
           key={index}
