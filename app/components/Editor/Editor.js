@@ -21,9 +21,11 @@ class Editor extends Component {
 
   createSpeakers = speakers => (
     <div>
+      <button type="button" onClick={() => speakers.push({ blurb: '', name: '', picture: '', title: ''})}>Add Speaker</button>
       {speakers.map((speaker, index) =>
         <SpeakerEditor
           key={index}
+          speakers={speakers}
           speaker={speaker}
           index={index}
           textField={this.createTextField}
