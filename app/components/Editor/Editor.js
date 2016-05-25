@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from './TextField/TextField.js';
-import RichField from './RichField/RichField.js';
 import UpcomingMeetupSpeakerEditor from '../UpcomingMeetupSpeakerEditor/UpcomingMeetupSpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 
@@ -10,14 +9,7 @@ import Radium, { Style } from 'radium';
 
 class Editor extends Component {
 
-  createTextField = field => (
-    <TextField field={field} label={field.label} />
-  );
-
-  createRichField = field => {
-    console.log('createRichField: ', field);
-    return <RichField field={field} label={field.label} />
-  };
+  createTextField = field => <TextField field={field} label={field.label} />
 
   createUpcomingMeetupSpeakers = speakers => (
     <div>
@@ -50,7 +42,7 @@ class Editor extends Component {
           <Field
             name="aboutSummary"
             label="Summary"
-            component={this.createRichField}
+            component={this.createTextField}
             />
 
         </section>
@@ -68,7 +60,7 @@ class Editor extends Component {
           <Field
             name="upcomingMeetupDetails"
             label="Details"
-            component={this.createRichField}
+            component={this.createTextField}
             />
 
           <Field
