@@ -1,10 +1,9 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import session from 'express-session';
-import serverConfig from '../serverConfig';
 
 export const authSetup = app => {
-  app.use(session({ secret: serverConfig.sessionSecret, resave: true, saveUninitialized: true }));
+  app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -12,10 +11,13 @@ export const authSetup = app => {
   passport.deserializeUser((obj, cb) => cb(null, obj));
 
   passport.use(
-    new GoogleStrategy(
-      { ...serverConfig.credentials, callbackURL: '/login/callback' },
+    new GoogleStrategy({
+      clientID: process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_SECRET,
+      callbackURL: '/login/callback',
+    },
       (token, refreshToken, profile, done) => {
-        if (serverConfig.allowedDomainNames.includes(profile._json.domain)) {
+        if (process.env.ALLOWED_DOMAIN === profile._json.domain) {
           return done(null, profile);
         } else {
           return done();
