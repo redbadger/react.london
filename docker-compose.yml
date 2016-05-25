@@ -1,0 +1,14 @@
+webapp:
+  image: node:6.2
+  ports:
+    - "8080:8080"
+  volumes:
+    - .:/usr/src/react.london
+  working_dir: /usr/src/react.london
+  links:
+    - couchdb:couchdb
+  command: bash -c "npm install --unsafe-perm && npm run setupdb && npm start"
+couchdb:
+  image: couchdb:1.6
+  ports:
+    - "5984:5984"
