@@ -5,35 +5,57 @@ import PouchDB from 'pouchdb';
 import * as reducer from './index';
 
 describe('Reducers', () => {
-  const initialState = {
-    form: {}
+
+  const dataID = 'combination';
+
+  const createMocks = () => {
+    const db = new PouchDB('testdb', { db: require('memdown') });
+    const enhancer = persistentStore({ db: db });
+
+    return {
+      db: db,
+      store: createStore(reducer.default, undefined, enhancer)
+    };
   };
 
-  const createMockStore = (db) => {
-    const enhancer = persistentStore(db);
-    return createStore(reducer.default, undefined, enhancer);
+  const timeout = (delay) => {
+    // Not ideal, but it does the trick while I'm a relative noob
+    return new Promise(resolve => {
+      setTimeout(() => resolve(), delay);
+    });
   };
 
-  it('returns the default state', () => {
+  it('returns the default application state', () => {
     expect(reducer.default(undefined, {})).to.deep.eql({ form: {} });
   });
 
-  it('persists state changes to the local database', () => {
-    let db = new PouchDB('testdb', { db: require('memdown') });
-    const store = createMockStore({ db: db });
+  it('initializes with an empty local database', () => {
+    const mock = createMocks();
 
-    const waitForStateUpdated = new Promise((resolve) => {
-      store.subscribe(() => {
-        resolve();
-      });
-    });
-
-    store.dispatch({ type: 'TEST_PERSISTENCE' });
-    
-    return waitForStateUpdated.then(() => {
-      return db.get('combination').then(doc => {
-        expect(doc.state).to.deep.eql(store.getState());
-      });
+    return timeout(50).then(() => {
+      return mock.db.allDocs();
+    }).then(docs => {
+      expect(docs.rows.length).to.eql(1);
+      expect(docs.rows[0].id).to.eql(dataID);
+      expect(docs.rows[0].state).to.eql(undefined);
+    }).then(() => {
+      mock.db.destroy();
     });
   });
+
+  describe('when application state changes', () => {
+    it('stores the entire state in the local database', () => {
+      const mock = createMocks();
+
+      mock.store.dispatch({ type: 'PERSIST_DATA' });
+
+      return timeout(50).then(() => {
+        return mock.db.get(dataID);
+      }).then(doc => {
+        expect(doc.state).to.deep.eql(mock.store.getState());
+      }).then(() => {
+        mock.db.destroy();
+      });
+    });
+  })
 });
