@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Radium, { Style } from 'radium';
 import About from '../About/About';
-import UpcomingMeetup from '../UpcomingMeetup/UpcomingMeetup';
-import UpcomingMeetupSpeaker from '../UpcomingMeetupSpeaker/UpcomingMeetupSpeaker';
+import Meetup from '../Meetup/Meetup';
+import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
+import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
 const Preview = Radium(({ text }) => (
   <main className="preview">
     {previewStyles}
     {appStyles}
     <div className="row"><About text={text} /></div>
-    <div className="row"><UpcomingMeetup text={text} /></div>
+    <div className="row"><Meetup text={text} /></div>
     <div className="row speakers">
-      {text.upcomingMeetupSpeakers ? text.upcomingMeetupSpeakers.map((speaker, index) =>
-        <UpcomingMeetupSpeaker
+      {text.upcomingMeetupSpeakers.map((speaker, index) =>
+        <SpeakerPreview
           key={index}
           name={speaker.name}
           title={speaker.title}
@@ -20,6 +21,16 @@ const Preview = Radium(({ text }) => (
           picture={speaker.picture}
           />
       ) : ''}
+    </div>
+    <div className="row speakers">
+      {text.sponsors.map((sponsor, index) =>
+        <SponsorPreview
+          key={index}
+          name={sponsor.name}
+          url={sponsor.url}
+          picture={sponsor.picture}
+          />
+      )}
     </div>
   </main>
 ));

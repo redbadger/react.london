@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
-class UpcomingMeetupSpeakerEditor extends Component {
+class SpeakerEditor extends Component {
 
   render() {
-    const { speaker, index, textField } = this.props;
+    const { speakers, speaker, index, textField } = this.props;
 
     return (
       <div>
@@ -29,9 +29,10 @@ class UpcomingMeetupSpeakerEditor extends Component {
           label = "Picture URL"
           component={textField}
         />
+        <button type="button" onClick={() => speakers.remove(index)}>Remove Speaker</button>
       </div>
     );
   }
 }
 
-export default UpcomingMeetupSpeakerEditor;
+export default SpeakerEditor;

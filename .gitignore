@@ -4,3 +4,5 @@ build
 *.log
 dist
 reactlondon
+*config.json
+.env
