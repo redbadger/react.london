@@ -28,9 +28,16 @@ BUCKET_LIVE=<Name of live/production S3 bucket>
 1. Standard start
 ``` npm install ```
 and wait 🕣 for it to do its thing.
-2. `npm run serve` to start the node server.
+2. `npm start` to start the node server.
 3. Navigate to http://localhost:8080 to see the site
 
 If you're running with Marcel or Zoë who have access to the default *BadgerDev* account, you should be able to see the current public staging site [here](http://london.react.live.s3-website-eu-west-1.amazonaws.com/) and the live one [here](http://london.react.dev.s3-website-eu-west-1.amazonaws.com/).
 
 (Until we go live, which will then be discoverable at 🌟react.london🌟)
+
+### Tests
+Note: Ensure dependencies have been installed as per Dev step 1
+
+- `npm test` runs application tests
+- `npm run test-watch` applies a watcher to `npm test` and picks up changes between test runs
+- `npm run test-server` runs server-specific tests
