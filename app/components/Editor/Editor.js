@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from '../TextField/TextField.js';
+import ImageField from './ImageField/ImageField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 import Save from '../Save/Save.js';
@@ -13,6 +14,8 @@ class Editor extends Component {
 
   createTextField = field => <TextField field={field} label={field.label} />
 
+  createImageField = field => <ImageField field={field} label={field.label} />
+
   createSpeakers = speakers => (
     <div>
       <button type="button" onClick={() => speakers.push({})}>Add Speaker</button>
@@ -23,6 +26,7 @@ class Editor extends Component {
           speaker={speaker}
           index={index}
           textField={this.createTextField}
+          imageField={this.createImageField}
           />
       )}
     </div>
