@@ -20,7 +20,7 @@ const Preview = Radium(({ text }) => (
           blurb={speaker.blurb}
           picture={speaker.picture}
           />
-      ) : ''}
+      )}
     </div>
     <div className="row speakers">
       {text.sponsors.map((sponsor, index) =>
