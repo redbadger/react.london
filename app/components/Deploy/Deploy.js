@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import readyToRender from '../../utilities/readyToRender';
 
 class Deploy extends Component {
   constructor(props) {
     super(props);
     this.state = { deployed: false };
-  };
+  }
 
-  handleClick = (e) => {
+  handleClick(e) {
     const { environment, content } = this.props;
-    const body = readyToRender(content.form.editor);
+    const body = { ...content.form.editor.values };
     this.pushToExternal(environment, body);
     this.setState({ deployed: true });
-  };
+  }
 
-  pushToExternal = (environment, body) => {
+  pushToExternal(environment, body) {
     return fetch(`/${environment}/`, {
       method: 'POST',
       mode: 'cors',
       headers: new Headers({
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }),
-      body: JSON.stringify(body),
+      body: JSON.stringify(body)
     });
-  };
+  }
 
   render() {
     const { environment, url } = this.props;
