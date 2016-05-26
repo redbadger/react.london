@@ -14,7 +14,7 @@ export const localDb = new PouchDB('reactlondon');
 export const remoteDb = new PouchDB('http://localhost:5984/reactlondon')
 
 // Note: attaching PouchDB to the window is required for the chrome extension for debugging
-// window.PouchDB = PouchDB
+window.PouchDB = PouchDB
 
 const enhancer = compose(
   // Handles syncing PouchDB (local) and Redux
