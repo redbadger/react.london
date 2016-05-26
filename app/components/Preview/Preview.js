@@ -12,7 +12,7 @@ const Preview = Radium(({ text }) => (
     <div className="row"><About text={text} /></div>
     <div className="row"><Meetup text={text} /></div>
     <div className="row speakers">
-      {text.upcomingMeetupSpeakers.map((speaker, index) =>
+      {text.meetup.speakers.map((speaker, index) =>
         <SpeakerPreview
           key={index}
           name={speaker.name}
@@ -23,7 +23,7 @@ const Preview = Radium(({ text }) => (
       )}
     </div>
     <div className="row speakers">
-      {text.sponsors.map((sponsor, index) =>
+      {text.meetup.sponsors.map((sponsor, index) =>
         <SponsorPreview
           key={index}
           name={sponsor.name}
