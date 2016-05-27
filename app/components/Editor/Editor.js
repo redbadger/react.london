@@ -53,13 +53,13 @@ class Editor extends Component {
         <section style={styles.section}>
 
           <Field
-            name="aboutTitle"
+            name="about.title"
             label="Title"
             component={this.createTextField}
             />
 
           <Field
-            name="aboutSummary"
+            name="about.summary"
             label="Summary"
             component={this.createTextField}
             />
@@ -71,19 +71,19 @@ class Editor extends Component {
         <section style={styles.section}>
 
           <Field
-            name="upcomingMeetupName"
-            label="Name"
+            name="meetup.title"
+            label="Title"
             component={this.createTextField}
           />
 
           <Field
-            name="upcomingMeetupDetails"
+            name="meetup.details"
             label="Details"
             component={this.createTextField}
             />
 
           <Field
-            name="upcomingMeetupWhen"
+            name="meetup.when"
             label="When is it happening?"
             component={this.createTextField}
           />
@@ -91,13 +91,13 @@ class Editor extends Component {
         <h4 style={styles.subHeading}>Details about the meetup location</h4>
 
           <Field
-            name="upcomingMeetupWhere"
+            name="meetup.where.text"
             label="Where is it happening?"
             component={this.createTextField}
             />
 
           <Field
-            name="upcomingMeetupWhereLink"
+            name="meetup.where.url"
             label="Direction link"
             component={this.createTextField}
             />
@@ -105,35 +105,35 @@ class Editor extends Component {
         <h4 style={styles.subHeading}>More information link</h4>
 
           <Field
-            name="upcomingMeetupCtaText"
+            name="meetup.signup.text"
             label="Link text"
             component={this.createTextField}
             />
 
           <Field
-            name="upcomingMeetupCtaLink"
+            name="meetup.signup.url"
             label="Link"
             component={this.createTextField}
             />
 
         <h4 style={styles.subHeading}>Live stream link</h4>
           <Field
-            name="upcomingMeetupStreamingText"
+            name="meetup.streaming.text"
             label="Link text"
             component={this.createTextField}
             />
 
           <Field
-            name="upcomingMeetupStreamingLink"
+            name="meetup.streaming.url"
             label="Link"
             component={this.createTextField}
             />
 
         <h4 style={styles.subHeading}>Talks</h4>
 
-        <FieldArray name="upcomingMeetupSpeakers" component={this.createSpeakers}/>
+        <FieldArray name="meetup.speakers" component={this.createSpeakers}/>
 
-        <FieldArray name="sponsors" component={this.createSponsors}/>
+        <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
 
         <Deploy environment='staging' content={this.props.content} url='dev' />
         <Deploy environment='live' content={this.props.content} url='live'/>
