@@ -8,6 +8,13 @@ class ImageField extends Component {
 
     if (!imageType.test(file.type)) {
       alert('Please select a valid image');
+      return;
+    }
+
+    if (file.size > 1000000)
+    {
+      alert('Please select an image which is less than 1MB');
+      return;
     }
 
     let reader = new FileReader();
