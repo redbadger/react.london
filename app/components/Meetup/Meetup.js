@@ -8,9 +8,9 @@ class Meetup extends Component {
         <h2>{meetup ? meetup.name: null}</h2>
         <div dangerouslySetInnerHTML={ meetup ? { __html: meetup.details } : null } />
         <p>{meetup ? meetup.when: null}</p>
-        <p><a target="_blank" href={meetup ? meetup.where.url: null}>{meetup ? meetup.where.text : null}</a></p>
-        <p><a target="_blank" href={meetup ? meetup.signup.url : null}>{meetup ? meetup.signup.text: null}</a></p>
-        <p><a target="_blank" href={meetup ? meetup.streaming.url : null}>{meetup ? meetup.streaming.text: null}</a></p>
+        {(meetup && meetup.where) && <p><a target="_blank" href={meetup.where.url}>{meetup.where.text}</a></p>}
+        {(meetup && meetup.signup) && <p><a target="_blank" href={meetup.signup.url}>{meetup.signup.text}</a></p>}
+        {(meetup && meetup.streaming) && <p><a target="_blank" href={meetup.streaming.url}>{meetup.streaming.text}</a></p>}
       </section>
     );
   };
