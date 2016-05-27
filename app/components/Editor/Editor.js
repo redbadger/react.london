@@ -179,16 +179,7 @@ const genericStyles  = (<Style
     textarea: {
       maxWidth: '100%',
       minHeight: 200,
-    },
-    '.DraftEditor-root': {
-      width: '100%',
-      padding: '2px 5px',
-      margin: '2px 0px 20px',
-      border: '1px solid #CCCCCC',
-    },
-    '.public-DraftStyleDefault-block': {
-      marginBottom: '1em',
-    },
+    }
   }}
 />);
 
