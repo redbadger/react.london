@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 class SponsorEditor extends Component {
-
   render() {
     const { sponsors, sponsor, index, textField } = this.props;
     return (

@@ -5,35 +5,41 @@ import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
-const Preview = Radium(({ text }) => (
-  <main className="preview">
-    {previewStyles}
-    {appStyles}
-    <div className="row"><About text={text} /></div>
-    <div className="row"><Meetup text={text} /></div>
-    <div className="row speakers">
-      {text.meetup && text.meetup.speakers.map((speaker, index) =>
-        <SpeakerPreview
-          key={index}
-          name={speaker.name}
-          title={speaker.title}
-          blurb={speaker.blurb}
-          picture={speaker.picture}
-          />
-      )}
-    </div>
-    <div className="row speakers">
-      {text.meetup && text.meetup.sponsors.map((sponsor, index) =>
-        <SponsorPreview
-          key={index}
-          name={sponsor.name}
-          url={sponsor.url}
-          picture={sponsor.picture}
-          />
-      )}
-    </div>
-  </main>
-));
+class Preview extends Component {
+  render() {
+    const { text } = this.props
+    return (
+      <main className="preview">
+        {previewStyles}
+        {appStyles}
+        <div className="row"><About text={text} /></div>
+        <div className="row"><Meetup text={text} /></div>
+        <div className="row speakers">
+          {text.meetup && text.meetup.speakers.map((speaker, index) =>
+            <SpeakerPreview
+              key={index}
+              name={speaker.name}
+              title={speaker.title}
+              blurb={speaker.blurb}
+              picture={speaker.picture}
+              />
+          )}
+        </div>
+        <div className="row speakers">
+          {text.meetup && text.meetup.sponsors.map((sponsor, index) =>
+            <SponsorPreview
+              key={index}
+              name={sponsor.name}
+              url={sponsor.url}
+              picture={sponsor.picture}
+              />
+          )}
+        </div>
+      </main>
+    )
+  }
+}
+
 
 const appStyles = (<Style rules={{
   'body, html': {

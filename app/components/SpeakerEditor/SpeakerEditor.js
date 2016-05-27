@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 class SpeakerEditor extends Component {
-
   render() {
     const { speakers, speaker, index, textField } = this.props;
-
     return (
       <div>
         <h5>Talk {index + 1}</h5>
