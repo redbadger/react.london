@@ -5,25 +5,25 @@ import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
-const Preview = Radium(({ text }) => (
+const Preview = ({ text }) => (
   <main className="preview">
     {previewStyles}
     {appStyles}
     <div className="row"><About text={text} /></div>
     <div className="row"><Meetup text={text} /></div>
     <div className="row speakers">
-      {text.meetup && text.meetup.speakers.map((speaker, index) =>
-        <SpeakerPreview
+      { (text.meetup && text.meetup.speakers) && text.meetup.speakers.map((speaker, index) =>
+        speaker ? <SpeakerPreview
           key={index}
           name={speaker.name}
           title={speaker.title}
           blurb={speaker.blurb}
           picture={speaker.picture}
-          />
+          /> : null
       )}
     </div>
     <div className="row speakers">
-      {text.meetup && text.meetup.sponsors.map((sponsor, index) =>
+      { (text.meetup && text.meetup.sponsors) && text.meetup.sponsors.map((sponsor, index) =>
         <SponsorPreview
           key={index}
           name={sponsor.name}
@@ -33,7 +33,7 @@ const Preview = Radium(({ text }) => (
       )}
     </div>
   </main>
-));
+);
 
 const appStyles = (<Style rules={{
   'body, html': {
