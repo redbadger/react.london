@@ -7,7 +7,8 @@ class Deploy extends Component {
     this.state = { deployed: false };
   }
 
-  handleClick(e) {
+  handleClick = e => {
+    console.log('this.props: ', this.props);
     const { environment, content } = this.props;
     const body = { ...content.form.editor.values };
     this.pushToExternal(environment, body);
