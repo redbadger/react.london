@@ -18,7 +18,7 @@ const enhancer = compose(
   persistentStore({ db: localDatabase }),
   
   // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument()
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 );
 
 export function configureStore(initialState) {
