@@ -16,12 +16,12 @@ const remoteDatabase = new PouchDB('http://localhost:5984/' + databaseName);
 const enhancer = compose(
   // Syncs PouchDB (local) and Redux
   persistentStore({ db: localDatabase }),
-  
+
   // Required! Enable Redux DevTools with the monitors you chose
   typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 );
 
-export function configureStore(initialState) {
+export const configureStore = initialState => {
   const store = createStore(rootReducer, initialState, enhancer);
 
   // Syncs PounchDB (local) and CouchDB (remote)

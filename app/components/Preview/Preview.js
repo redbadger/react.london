@@ -5,7 +5,7 @@ import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
-const Preview = Radium(({ text }) => (
+const Preview = ({ text }) => (
   <main className="preview">
     {previewStyles}
     {appStyles}
@@ -33,7 +33,7 @@ const Preview = Radium(({ text }) => (
       )}
     </div>
   </main>
-));
+);
 
 const appStyles = (<Style rules={{
   'body, html': {

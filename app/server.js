@@ -10,7 +10,7 @@ app = routingSetup(app);
 
 const port = 8080;
 
-app.listen(port, function (error) {
+app.listen(port, error => {
   if (error) {
     console.error(error);
   } else {
