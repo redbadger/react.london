@@ -22,7 +22,6 @@ describe('ImageField', () => {
         label={mockLabel} />
     );
     const label = TestUtils.findRenderedDOMComponentWithClass(imageField, 'speaker');
-
     expect(label.textContent).to.equal('Marcel');
   });
 });
