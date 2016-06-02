@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 class SpeakerEditor extends Component {
+
   render() {
-    const { speakers, speaker, index, textField } = this.props;
+    const { speakers, speaker, index, textField, imageField } = this.props;
+
     return (
       <div>
         <h5>Talk {index + 1}</h5>
@@ -25,7 +27,7 @@ class SpeakerEditor extends Component {
         <Field
           name={`${speaker}.picture`}
           label = "Picture URL"
-          component={textField}
+          component={imageField}
         />
         <button type="button" onClick={() => speakers.remove(index)}>Remove Speaker</button>
       </div>

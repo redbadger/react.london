@@ -4,11 +4,11 @@ import React from 'react';
 
 import { createStore, compose, applyMiddleware } from 'redux';
 import { persistentStore } from 'redux-pouchdb-plus';
+import PouchDB from 'pouchdb';
 
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
-import PouchDB from 'pouchdb';
 const databaseName = 'reactlondon';
 const localDatabase = new PouchDB(databaseName);
 const remoteDatabase = new PouchDB('http://localhost:5984/' + databaseName);
@@ -18,7 +18,7 @@ const enhancer = compose(
   persistentStore({ db: localDatabase }),
 
   // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument()
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 );
 
 export const configureStore = initialState => {
