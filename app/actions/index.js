@@ -1,1 +1,0 @@
-export const callPutContent = content => ({ type: 'SAVE_CONTENT_REQUESTED', content });
