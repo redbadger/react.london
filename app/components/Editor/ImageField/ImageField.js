@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 class ImageField extends Component {
-
-  handleImage = (e) => {
+  handleImage = e => {
     let file = e.target.files[0];
     let imageType = /^image\//;
 
@@ -11,15 +10,13 @@ class ImageField extends Component {
       return;
     }
 
-    if (file.size > 1000000)
-    {
+    if (file.size > 1000000) {
       alert('Please select an image which is less than 1MB');
       return;
     }
 
-    let reader = new FileReader();
-
-    reader.onload = (e) => {
+    const reader = new FileReader();
+    reader.onload = e => {
       this.props.field.onChange(e.target.result);
     };
 
@@ -27,19 +24,17 @@ class ImageField extends Component {
   }
 
   render() {
-    const { field } = this.props;
-    const { label } = this.props;
+    const { field, label } = this.props;
+    const showError = field.touched && field.error;
     return (
       <div>
-        <label>{label}</label>
+        <label className="speaker">{label}</label>
         <input
           type="file"
           accept="image/*"
           onChange={this.handleImage}
         />
-        {field.touched &&
-          field.error &&
-          <span className="error">{field.error}</span>}
+      {showError && <span className="error">{field.error}</span>}
       </div>
     );
   }
