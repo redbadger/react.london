@@ -16,13 +16,13 @@ class Editor extends Component {
 
   createImageField = field => <ImageField field={field} label={field.label} />
 
-  createSpeakers = speakers => (
+  createSpeakers = ({ fields }) => (
     <div>
-      <button type="button" onClick={() => speakers.push({})}>Add Speaker</button>
-      {speakers.map((speaker, index) =>
+      <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
+      {fields.map((speaker, index) =>
         <SpeakerEditor
           key={index}
-          speakers={speakers}
+          speakers={fields}
           speaker={speaker}
           index={index}
           textField={this.createTextField}
@@ -32,13 +32,13 @@ class Editor extends Component {
     </div>
   );
 
-  createSponsors = sponsors => (
+  createSponsors = ({ fields }) => (
     <div>
-      <button type="button" onClick={() => sponsors.push({})}>Add Sponsor</button>
-      {sponsors.map((sponsor, index) =>
+      <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
+      {fields.map((sponsor, index) =>
         <SponsorEditor
           key={index}
-          sponsors={sponsors}
+          sponsors={fields}
           sponsor={sponsor}
           index={index}
           textField={this.createTextField}
