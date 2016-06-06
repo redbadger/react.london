@@ -16,7 +16,7 @@ Before starting, be aware you will require an AWS account to push static pages t
 ```sh
 # Install the dependencies
 npm install
-# Seed and configure the database
+# Configure the database
 sh couchdbsetup.sh
 # Set up the environment variables
 cp .env.example .env
