@@ -45,7 +45,8 @@
     "react-router-redux": "^4.0.4",
     "redux-form": "^6.0.0-alpha.7",
     "redux-pouchdb-plus": "^0.8.1",
-    "serialize-javascript": "^1.2.0"
+    "serialize-javascript": "^1.2.0",
+    "webpack-dev-middleware": "^1.6.1"
   },
   "devDependencies": {
     "add-cors-to-couchdb": "0.0.5",
