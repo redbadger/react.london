@@ -12,6 +12,15 @@ Before starting, be aware you will require an AWS account to push static pages t
 1. [NodeJS](https://nodejs.org/en/)
 2. [CouchDB](http://couchdb.apache.org/)
 
+### Installation
+
+```sh
+# Install the dependencies
+npm install
+# Seed and configure the database
+sh couchdbsetup.sh
+```
+
 ### 🔬 Config
 The project requires a number of external services which utilise secret keys and configurations. By default, a file is kept at `/.env` to contain these details which are loaded as environment variables at run-time. You will have to ask a fellow dev for the file or create one yourself in the following format.
 
