@@ -8,32 +8,23 @@ Generated pages are deployed to and hosted on AWS S3 buckets.
 ## 🏃Getting started
 Before starting, be aware you will require an AWS account to push static pages to the web. AWS will inspect ENV variables for credentials at runtime. Bucket locations are currently hard-coded but will be configurable soonⒸ.
 
-### 🛠 Dependencies
-1. [NodeJS](https://nodejs.org/en/)
-2. [CouchDB](http://couchdb.apache.org/)
+### Dev Setup
 
-### Installation
+* Install [NodeJS](https://nodejs.org/en/)
+* Install [CouchDB](http://couchdb.apache.org/)
 
 ```sh
 # Install the dependencies
 npm install
 # Seed and configure the database
 sh couchdbsetup.sh
-```
-
-### 🔬 Config
-The project requires a number of external services which utilise secret keys and configurations. By default, a file is kept at `/.env` to contain these details which are loaded as environment variables at run-time. You will have to ask a fellow dev for the file or create one yourself in the following format.
-
-```
-ALLOWED_DOMAIN=<Your email domain you want to allow>
-SESSION_SECRET=<Random string for session cookies>
-OAUTH_CLIENT_ID=<Google project OAuth Client ID>
-OAUTH_SECRET=<Google project OAuth Secret Key>
-BUCKET_STAGING=<Name of staging S3 bucket>
-BUCKET_LIVE=<Name of live/production S3 bucket>
+# Set up the environment variables
+cp .env.example .env
+vim .env  # Get values from another dev
 ```
 
 ### 💻 Dev
+
 1. Standard start
 ``` npm install ```
 and wait 🕣 for it to do its thing.
