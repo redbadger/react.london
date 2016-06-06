@@ -1,5 +1,7 @@
-curl -X PUT http://127.0.0.1:5984/reactlondon
-curl -X PUT http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a -d '
+HOST=http://127.0.0.1:5984
+
+curl -X PUT $HOST/reactlondon
+curl -X PUT $HOST/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a -d '
 {
 	"about": {
 		"title": "London React Meetup",
@@ -50,3 +52,8 @@ curl -X PUT http://127.0.0.1:5984/reactlondon/9db6c9bd6871df4fddcef7a3bb000d1a -
 	}
 }
 '
+curl -X PUT $HOST/_config/httpd/enable_cors -d '"true"'
+curl -X PUT $HOST/_config/cors/origins -d '"*"'
+curl -X PUT $HOST/_config/cors/credentials -d '"true"'
+curl -X PUT $HOST/_config/cors/methods -d '"GET, PUT, POST, HEAD, DELETE"'
+curl -X PUT $HOST/_config/cors/headers -d '"accept, authorization, content-type, origin, referer, x-csrf-token"'
