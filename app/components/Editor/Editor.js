@@ -29,6 +29,7 @@ class Editor extends Component {
           speaker={speaker}
           index={index}
           textField={this.createTextField}
+          richTextField={this.createRichTextField}
           imageField={this.createImageField}
           />
       )}
