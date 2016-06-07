@@ -4,12 +4,6 @@ import { Style } from 'radium';
 
 const scribePlugins = [
   'blockquote', 
-  'code', 
-  'h1', 
-  'h2', 
-  'h3', 
-  'h4', 
-  'h5', 
   'linkPrompt',
   'unlink', 
   'ol', 
