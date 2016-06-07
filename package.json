@@ -43,6 +43,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
+    "react-scribe": "^0.2.6",
     "redux-form": "^6.0.0-alpha.7",
     "redux-pouchdb-plus": "^0.8.1",
     "serialize-javascript": "^1.2.0",
