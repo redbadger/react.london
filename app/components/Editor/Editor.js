@@ -187,10 +187,6 @@ const genericStyles  = (<Style
       maxWidth: '100%',
       minHeight: 200,
     },
-    '.sc-editor': {
-      border: '1px solid #CCCCCC',
-      marginBottom: '20px',
-    }
   }}
 />);
 

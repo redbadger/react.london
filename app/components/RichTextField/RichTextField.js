@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ScribeEditor from 'react-scribe';
+import { Style } from 'radium';
 
 const scribePlugins = [
   'blockquote', 
@@ -16,7 +17,8 @@ const scribePlugins = [
 ];
 
 const RichTextField = ({field, label}) => (
-  <div>
+  <div className="rich-text-field">
+    {genericStyles}
     <label>{label}</label>
     <ScribeEditor {...field} config={scribePlugins} />
     {field.touched &&
@@ -24,5 +26,15 @@ const RichTextField = ({field, label}) => (
       <span className="error">{field.error}</span>}
   </div>
 );
+
+const genericStyles  = (<Style
+  scopeSelector=".rich-text-field"
+  rules={{
+    '.sc-editor': {
+      border: '1px solid #CCCCCC',
+      marginBottom: '20px',
+    }
+  }}
+/>);
 
 export default RichTextField;
