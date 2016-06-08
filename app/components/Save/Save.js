@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 import Radium from 'radium';
 
 const style = {
@@ -19,5 +19,10 @@ const Save = ({ saveFunction, content }) => (
     >Save</button>
   </div>
 );
+
+Save.PropTypes = {
+  saveFunction: PropTypes.func.isRequired,
+  content: PropTypes.string,
+};
 
 export default Radium(Save);
