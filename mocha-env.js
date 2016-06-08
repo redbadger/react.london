@@ -5,6 +5,9 @@
 // import es6
 require('babel-register');
 
+// Register test tools globally
+global.expect = require('chai').expect;
+
 // jsdom
 var jsdom = require('jsdom'); // eslint-disable-line
 
