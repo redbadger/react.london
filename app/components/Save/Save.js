@@ -10,7 +10,10 @@ class Save extends Component {
   render() {
     return (
       <div style={style.main}>
-        <button style={style.button} onClick={this.onSaveClick}>Save</button>
+        <button
+          style={style.button}
+          onClick={this.onSaveClick}
+        >Save</button>
       </div>
     )
   }

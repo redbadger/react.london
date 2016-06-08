@@ -4,7 +4,8 @@ import About from './About';
 
 function setup({ title, summary }) {
   const props = {
-    title, summary
+    title,
+    summary,
   };
   const output = shallow(<About {...props} />);
   return { props, output }
