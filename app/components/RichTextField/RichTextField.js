@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
 import { Style } from 'radium';
 
@@ -20,6 +20,15 @@ const RichTextField = ({field, label}) => (
       <span className="error">{field.error}</span>}
   </div>
 );
+
+RichTextField.propTypes = {
+  label: PropTypes.string.isRequired,
+  field: PropTypes.shape({
+    touched: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+    error: PropTypes.string,
+  }).isRequired,
+};
 
 const genericStyles  = (<Style
   scopeSelector=".rich-text-field"
