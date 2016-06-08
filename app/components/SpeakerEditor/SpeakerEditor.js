@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 const SpeakerEditor = ({
@@ -32,5 +32,13 @@ const SpeakerEditor = ({
     >Remove Speaker</button>
   </div>
 );
+
+SpeakerEditor.PropTypes = {
+  speakers: PropTypes.array.isRequired,
+  speaker: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  textField: PropTypes.func.isRequired,
+  imageField: PropTypes.func.isRequired,
+}
 
 export default SpeakerEditor;
