@@ -1,10 +1,14 @@
 import React from 'react';
 
-const About = ({ text }) => (
-    <section className="About">
-      <h1>{text.about && text.about.title ? text.about.title : null}</h1>
-      <div dangerouslySetInnerHTML={ text.about && text.about.summary ? { __html: text.about.summary } : null } />
-    </section>
-  );
+function html(content) {
+  return content ? { __html: content } : null
+}
+
+const About = ({ title, summary }) => (
+  <section className="About">
+    <h1>{title || null}</h1>
+    <div dangerouslySetInnerHTML={html(summary)} />
+  </section>
+);
 
 export default About;

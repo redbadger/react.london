@@ -2,11 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import About from './About';
 
-function setup(aboutProps) {
+function setup({ title, summary }) {
   const props = {
-    text: {
-      about: aboutProps,
-    },
+    title, summary
   };
   const output = shallow(<About {...props} />);
   return { props, output }
