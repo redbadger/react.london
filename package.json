@@ -31,6 +31,7 @@
     "express-session": "^1.13.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "fetch-mock": "^4.5.0",
+    "html-janitor": "^2.0.2",
     "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
     "passport": "^0.3.2",
@@ -46,7 +47,6 @@
     "react-scribe": "^0.2.6",
     "redux-form": "^6.0.0-alpha.7",
     "redux-pouchdb-plus": "^0.8.1",
-    "scribe-plugin-sanitizer": "^0.1.10",
     "serialize-javascript": "^1.2.0",
     "webpack-dev-middleware": "^1.6.1"
   },

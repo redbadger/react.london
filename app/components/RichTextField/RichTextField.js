@@ -1,36 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
 import { Style } from 'radium';
-import scribePluginSanitizer from 'scribe-plugin-sanitizer'; 
-
-const allowedTags = {
-  tags: {
-    p: {},
-    b: {},
-    i: {},
-    u: {},
-    ol: {},
-    ul: {},
-    li: {},
-    blockquote: {},
-    a: {
-      href: true,
-      target: true,
-    }
-  }
-};
+import scribeSanitizer from '../../scribe/sanitizer';
 
 const scribePlugins = [
-  'ol', 
+  'ol',
   'ul',
-  'unlink', 
-  'blockquote', 
+  'unlink',
+  'blockquote',
   'linkPrompt',
   'removeFormat',
   'cleanup',
   {
     'command': 'cleanup',
-    'action': scribePluginSanitizer(allowedTags),
+    'action': scribeSanitizer,
     'display': 'hidden',
   }
 ];
