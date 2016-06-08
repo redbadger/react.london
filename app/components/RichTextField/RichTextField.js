@@ -1,13 +1,38 @@
 import React, { Component, PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
 import { Style } from 'radium';
+import scribePluginSanitizer from 'scribe-plugin-sanitizer'; 
+
+const allowedTags = {
+  tags: {
+    p: {},
+    b: {},
+    i: {},
+    u: {},
+    ol: {},
+    ul: {},
+    li: {},
+    blockquote: {},
+    a: {
+      href: true,
+      target: true,
+    }
+  }
+};
 
 const scribePlugins = [
+  'ol', 
+  'ul',
+  'unlink', 
   'blockquote', 
   'linkPrompt',
-  'unlink', 
-  'ol', 
-  'ul'
+  'removeFormat',
+  'cleanup',
+  {
+    'command': 'cleanup',
+    'action': scribePluginSanitizer(allowedTags),
+    'display': 'hidden',
+  }
 ];
 
 const RichTextField = ({field, label}) => (
@@ -36,6 +61,9 @@ const genericStyles  = (<Style
     '.sc-editor': {
       border: '1px solid #CCCCCC',
       marginBottom: '20px',
+    },
+    'button[data-command-name="cleanup"]': {
+      display: 'none',
     }
   }}
 />);
