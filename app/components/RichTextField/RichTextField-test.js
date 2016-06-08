@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import ScribeEditor from 'react-scribe';
 import RichTextField from './RichTextField';
 
-function setup(touched = false, error = false) {
+function setup(touched = false, error) {
   const props = {
     field: {
       touched: touched,
@@ -41,19 +41,19 @@ describe('RichTextField', () => {
   });
 
   it('does not renders errors if no errors and not touched', () => {
-    const { output } = setup(false, false);
+    const { output } = setup();
     const error = output.find('.error').nodes[0];
     expect(error).to.equal(undefined);
   });
 
   it('does not renders errors if they are present but field is untouched', () => {
-    const { output } = setup(false, true);
+    const { output } = setup(false, "an error");
     const error = output.find('.error').nodes[0];
     expect(error).to.equal(undefined);
   });
 
   it('does not renders error span if errors present but field is untouched', () => {
-    const { output } = setup(true, false);
+    const { output } = setup(true);
     const error = output.find('.error').nodes[0];
     expect(error).to.equal(undefined);
   });
