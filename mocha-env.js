@@ -4,6 +4,7 @@
 
 // import es6
 require('babel-register');
+require('babel-polyfill');
 
 // jsdom
 var jsdom = require('jsdom'); // eslint-disable-line
