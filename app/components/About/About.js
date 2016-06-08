@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 function html(content) {
   return content ? { __html: content } : null
@@ -10,5 +10,10 @@ const About = ({ title, summary }) => (
     <div dangerouslySetInnerHTML={html(summary)} />
   </section>
 );
+
+About.PropTypes = {
+  title: PropTypes.string,
+  summary: PropTypes.string,
+};
 
 export default About;
