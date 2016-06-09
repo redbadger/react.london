@@ -23,8 +23,10 @@ class SponsorEditor extends Component {
           component={textField}
         />
         <button
+          className="remove-sponsor"
           type="button"
-          onClick={ () => sponsors.remove(index)}>
+          onClick={ () => sponsors.remove(index)}
+          >
             Remove Sponsor
         </button>
       </div>
