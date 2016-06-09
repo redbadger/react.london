@@ -35,7 +35,6 @@ class Editor extends Component {
           sponsors={fields}
           sponsor={sponsor}
           index={index}
-          textField={TextField}
           />
       )}
     </div>
@@ -50,17 +49,8 @@ class Editor extends Component {
 
         <section style={styles.section}>
 
-          <Field
-            name="about.title"
-            label="Title"
-            component={TextField}
-            />
-
-          <Field
-            name="about.summary"
-            label="Summary"
-            component={RichTextField}
-            />
+          <Field name="about.title" label="Title" component={TextField} />
+          <Field name="about.summary" label="Summary" component={RichTextField} />
 
         </section>
 
@@ -68,75 +58,42 @@ class Editor extends Component {
 
         <section style={styles.section}>
 
-          <Field
-            name="meetup.title"
-            label="Title"
-            component={TextField}
-          />
+          <Field name="meetup.title" label="Title" component={TextField} />
+          <Field name="meetup.details" label="Details" component={RichTextField} />
+          <Field name="meetup.when" label="When is it happening?" component={TextField} />
 
-          <Field
-            name="meetup.details"
-            label="Details"
-            component={RichTextField}
-            />
 
-          <Field
-            name="meetup.when"
-            label="When is it happening?"
-            component={TextField}
-          />
+          <h4 style={styles.subHeading}>Details about the meetup location</h4>
 
-        <h4 style={styles.subHeading}>Details about the meetup location</h4>
+          <Field name="meetup.where.text" label="Where is it happening?" component={TextField} />
+          <Field name="meetup.where.url" label="Direction link" component={TextField} />
 
-          <Field
-            name="meetup.where.text"
-            label="Where is it happening?"
-            component={TextField}
-            />
 
-          <Field
-            name="meetup.where.url"
-            label="Direction link"
-            component={TextField}
-            />
+          <h4 style={styles.subHeading}>More information link</h4>
 
-        <h4 style={styles.subHeading}>More information link</h4>
+          <Field name="meetup.signup.text" label="Link text" component={TextField} />
+          <Field name="meetup.signup.url" label="Link" component={TextField} />
 
-          <Field
-            name="meetup.signup.text"
-            label="Link text"
-            component={TextField}
-            />
 
-          <Field
-            name="meetup.signup.url"
-            label="Link"
-            component={TextField}
-            />
+          <h4 style={styles.subHeading}>Live stream link</h4>
 
-        <h4 style={styles.subHeading}>Live stream link</h4>
-          <Field
-            name="meetup.streaming.text"
-            label="Link text"
-            component={TextField}
-            />
+          <Field name="meetup.streaming.text" label="Link text" component={TextField} />
+          <Field name="meetup.streaming.url" label="Link" component={TextField} />
 
-          <Field
-            name="meetup.streaming.url"
-            label="Link"
-            component={TextField}
-            />
 
-        <h4 style={styles.subHeading}>Talks</h4>
+          <h4 style={styles.subHeading}>Talks</h4>
 
-        <FieldArray name="meetup.speakers" component={this.createSpeakers}/>
+          <FieldArray name="meetup.speakers" component={this.createSpeakers}/>
 
-        <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
+          <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
 
-        <Deploy environment='staging' content={this.props.content} url='dev' />
-        <Deploy environment='live' content={this.props.content} url='live'/>
 
-      </section>
+          <h4 style={styles.subHeading}>Deployment</h4>
+
+          <Deploy environment='staging' content={this.props.content} url='dev' />
+          <Deploy environment='live' content={this.props.content} url='live'/>
+
+        </section>
       </aside>
     );
   }
