@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FieldError from '../FieldError/FieldError';
 
 class ImageField extends Component {
   handleImage = e => {
@@ -25,7 +26,6 @@ class ImageField extends Component {
 
   render() {
     const { field, label } = this.props;
-    const showError = field.touched && field.error;
     return (
       <div>
         <label className="speaker">{label}</label>
@@ -34,7 +34,7 @@ class ImageField extends Component {
           accept="image/*"
           onChange={this.handleImage}
         />
-      {showError && <span className="error">{field.error}</span>}
+        <FieldError {...field} />
       </div>
     );
   }
