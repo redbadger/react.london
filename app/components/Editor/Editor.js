@@ -4,7 +4,7 @@ import { reduxForm, Field, FieldArray } from 'redux-form';
 import TextField from '../TextField/TextField.js';
 import ImageField from './ImageField/ImageField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
-import Deploy from '../Deploy/Deploy';
+import Deploy from '../../containers/Deploy';
 import Save from '../Save/Save.js';
 import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
@@ -139,8 +139,8 @@ class Editor extends Component {
 
         <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
 
-        <Deploy environment='staging' content={this.props.content} url='dev' />
-        <Deploy environment='live' content={this.props.content} url='live'/>
+        <Deploy environment='staging' url='dev' />
+        <Deploy environment='live' url='live'/>
 
       </section>
       </aside>

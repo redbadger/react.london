@@ -3,7 +3,7 @@ import fetch from 'whatwg-fetch';
 import { deployContent } from '.';
 import fetchMock from 'fetch-mock';
 
-describe.only('deployContent', () => {
+describe('deployContent', () => {
 
   const environment = 'staging';
   const content = { title: 'my awesome title' };
