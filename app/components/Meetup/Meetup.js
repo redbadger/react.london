@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 
+function maybeLink(attrs = {}) {
+  const { text, url } = attrs;
+  if (text && url) {
+    return <a target="_blank" href={url}>{text}</a>
+  } else {
+    return null;
+  }
+}
+
 const Meetup = ({ text }) => {
   const meetup = text.meetup;
   return <section className="upcoming-meetup">
@@ -8,10 +17,10 @@ const Meetup = ({ text }) => {
       className="details"
       dangerouslySetInnerHTML={ meetup ? { __html: meetup.details } : null }
     />
-    <p>{meetup ? meetup.when: null}</p>
-    {(meetup && meetup.where) && <p><a target="_blank" href={meetup.where.url}>{meetup.where.text}</a></p>}
-    {(meetup && meetup.signup) && <p><a target="_blank" href={meetup.signup.url}>{meetup.signup.text}</a></p>}
-    {(meetup && meetup.streaming) && <p><a target="_blank" href={meetup.streaming.url}>{meetup.streaming.text}</a></p>}
+    <p>{ meetup ? meetup.when: null }</p>
+    <p>{ maybeLink(meetup.where) }</p>
+    <p>{ maybeLink(meetup.signup) }</p>
+    <p>{ maybeLink(meetup.streaming) }</p>
   </section>;
 };
 
