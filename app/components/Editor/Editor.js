@@ -10,96 +10,91 @@ import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
 import Radium, { Style } from 'radium';
 
-class Editor extends Component {
+const SpeakerEditors = ({ fields }) => (
+  <div>
+    <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
+    {fields.map((speaker, index) =>
+      <SpeakerEditor
+        key={index}
+        speakers={fields}
+        speaker={speaker}
+        index={index}
+      />
+    )}
+  </div>
+);
 
-  createSpeakers = ({ fields }) => (
-    <div>
-      <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
-      {fields.map((speaker, index) =>
-        <SpeakerEditor
-          key={index}
-          speakers={fields}
-          speaker={speaker}
-          index={index}
+const SponsorEditors = ({ fields }) => (
+  <div>
+    <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
+    {fields.map((sponsor, index) =>
+      <SponsorEditor
+        key={index}
+        sponsors={fields}
+        sponsor={sponsor}
+        index={index}
         />
-      )}
-    </div>
-  );
+    )}
+  </div>
+);
 
-  createSponsors = ({ fields }) => (
-    <div>
-      <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
-      {fields.map((sponsor, index) =>
-        <SponsorEditor
-          key={index}
-          sponsors={fields}
-          sponsor={sponsor}
-          index={index}
-          />
-      )}
-    </div>
-  );
+const Editor = ({ content }) => (
+  <aside style={styles} className="editor">
+    {genericStyles}
 
-  render() {
-    return (
-      <aside style={styles} className="editor">
-        {genericStyles}
+    <h2>About section</h2>
 
-        <h2>About section</h2>
+    <section style={styles.section}>
 
-        <section style={styles.section}>
+      <Field name="about.title" label="Title" component={TextField} />
+      <Field name="about.summary" label="Summary" component={RichTextField} />
 
-          <Field name="about.title" label="Title" component={TextField} />
-          <Field name="about.summary" label="Summary" component={RichTextField} />
+    </section>
 
-        </section>
+    <h2>Upcoming Meetup</h2>
 
-        <h2>Upcoming Meetup</h2>
+    <section style={styles.section}>
 
-        <section style={styles.section}>
-
-          <Field name="meetup.title" label="Title" component={TextField} />
-          <Field name="meetup.details" label="Details" component={RichTextField} />
-          <Field name="meetup.when" label="When is it happening?" component={TextField} />
+      <Field name="meetup.title" label="Title" component={TextField} />
+      <Field name="meetup.details" label="Details" component={RichTextField} />
+      <Field name="meetup.when" label="When is it happening?" component={TextField} />
 
 
-          <h4 style={styles.subHeading}>Details about the meetup location</h4>
+      <h4 style={styles.subHeading}>Details about the meetup location</h4>
 
-          <Field name="meetup.where.text" label="Where is it happening?" component={TextField} />
-          <Field name="meetup.where.url" label="Direction link" component={TextField} />
-
-
-          <h4 style={styles.subHeading}>More information link</h4>
-
-          <Field name="meetup.signup.text" label="Link text" component={TextField} />
-          <Field name="meetup.signup.url" label="Link" component={TextField} />
+      <Field name="meetup.where.text" label="Where is it happening?" component={TextField} />
+      <Field name="meetup.where.url" label="Direction link" component={TextField} />
 
 
-          <h4 style={styles.subHeading}>Live stream link</h4>
+      <h4 style={styles.subHeading}>More information link</h4>
 
-          <Field name="meetup.streaming.text" label="Link text" component={TextField} />
-          <Field name="meetup.streaming.url" label="Link" component={TextField} />
-
-
-          <h4 style={styles.subHeading}>Talks</h4>
-
-          <FieldArray name="meetup.speakers" component={this.createSpeakers}/>
-
-          <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
+      <Field name="meetup.signup.text" label="Link text" component={TextField} />
+      <Field name="meetup.signup.url" label="Link" component={TextField} />
 
 
-          <h4 style={styles.subHeading}>Deployment</h4>
+      <h4 style={styles.subHeading}>Live stream link</h4>
 
-          <Deploy environment='staging' content={this.props.content} url='dev' />
-          <Deploy environment='live' content={this.props.content} url='live'/>
+      <Field name="meetup.streaming.text" label="Link text" component={TextField} />
+      <Field name="meetup.streaming.url" label="Link" component={TextField} />
 
-        </section>
-      </aside>
-    );
-  }
-}
 
-Editor = reduxForm({
+      <h4 style={styles.subHeading}>Talks</h4>
+
+      <FieldArray name="meetup.speakers" component={SpeakerEditors}/>
+
+      <FieldArray name="meetup.sponsors" component={SponsorEditors}/>
+
+
+      <h4 style={styles.subHeading}>Deployment</h4>
+
+      <Deploy environment='staging' content={content} url='dev' />
+      <Deploy environment='live' content={content} url='live'/>
+
+    </section>
+  </aside>
+);
+
+const EditorForm = reduxForm({
   form: 'editor',
 })(Editor);
 
@@ -138,4 +133,4 @@ const genericStyles  = (<Style
   }}
 />);
 
-export default Radium(Editor);
+export default Radium(EditorForm);
