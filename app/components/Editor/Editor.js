@@ -143,8 +143,8 @@ class Editor extends Component {
 
         <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
 
-        <Deploy environment='staging' url='dev' />
-        <Deploy environment='live' url='live'/>
+        <Deploy environment='staging' />
+        <Deploy environment='live' />
 
       </section>
       </aside>
