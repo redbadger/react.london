@@ -68,7 +68,7 @@ class Editor extends Component {
 
           <Field
             name="about.summary"
-            label="Title"
+            label="Summary"
             component={this.createRichTextField}
             />
 
