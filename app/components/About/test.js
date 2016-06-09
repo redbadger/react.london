@@ -16,7 +16,7 @@ describe('About', () => {
   it('does not render the heading ', () => {
     const { props, output } = setup({ title: undefined });
     const element = output.find('h1').nodes[0];
-    expect(element.props.children).to.equal(null);
+    expect(element.props.children).to.equal(undefined);
   });
 
   it('renders the heading with a title if there is one', () => {
@@ -29,7 +29,7 @@ describe('About', () => {
     const { props, output } = setup({ summary: undefined });
     const element = output.find('div').nodes[0];
     expect(element.props.children).to.equal(undefined);
-    expect(element.props.dangerouslySetInnerHTML).to.equal(null);
+    expect(element.props.dangerouslySetInnerHTML.__html).to.equal(undefined);
   });
 
   it('renders the HTML summary if there is one', () => {

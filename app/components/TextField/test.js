@@ -20,14 +20,14 @@ describe('TextField', () => {
   it('renders the label element', () => {
     const { props, output } = setup();
     const labelField = output.find('label').nodes[0];
-    expect(labelField).not.to.equal(undefined);
+    expect(labelField).to.exist;
     expect(labelField.props.children).to.equal(props.label);
   });
 
   it('renders the input', () => {
     const { props, output } = setup();
     const input = output.find("input").nodes[0];
-    expect(input).not.to.equal(undefined);
+    expect(input).to.exist;
     expect(input.props.type).to.equal("text");
   });
 
@@ -60,7 +60,7 @@ describe('TextField', () => {
     it('renders if present and touched', () => {
       const { output } = setup(true, "My errors.");
       const error = output.find('.error').nodes[0];
-      expect(error).not.to.equal(undefined);
+      expect(error).to.exist;
       expect(error.props.children).to.equal("My errors.");
     });
   });

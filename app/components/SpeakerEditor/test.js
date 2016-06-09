@@ -21,15 +21,15 @@ describe('SpeakerEditor', () => {
   it('renders the heading', () => {
     const { props, output } = setup();
     const element = output.find('h5').nodes[0];
-    expect(element).not.to.equal(undefined);
+    expect(element).to.exist;
     expect(element.props.children).to.deep.equal(["Talk ", props.index + 1]);
   });
 
   it('renders the remove button', () => {
     const { props, output } = setup();
     const element = output.find('button').nodes[0];
-    expect(element).not.to.equal(undefined);
-    expect(element.props.onClick).not.to.equal(undefined);
+    expect(element).to.exist;
+    expect(element.props.onClick).to.exist;
     expect(element.props.children).to.equal('Remove Speaker');
   });
 

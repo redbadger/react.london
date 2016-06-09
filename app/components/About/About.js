@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 
 function html(content) {
-  return content ? { __html: content } : null
+  return { __html: content };
 }
 
 const About = ({ title, summary }) => (
   <section className="About">
-    <h1>{title || null}</h1>
+    <h1>{ title }</h1>
     <div dangerouslySetInnerHTML={html(summary)} />
   </section>
 );

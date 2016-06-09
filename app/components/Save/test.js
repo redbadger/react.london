@@ -14,7 +14,7 @@ function setup(saveFunction = () => {}) {
 describe('Save', () => {
   it('calls saveFunction with content on click', () => {
     let savedContent;
-    const saveFunction = (x) => savedContent = x;
+    const saveFunction = x => savedContent = x;
     const { props, output } = setup(saveFunction);
     output.find('button').simulate('click');
     expect(savedContent).to.equal(props.content);
