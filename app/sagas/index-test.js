@@ -3,9 +3,8 @@ import { callDeploy, watchDeploy } from '.';
 import { deployContent } from '../api/';
 import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
-import fetch from 'whatwg-fetch';
 
-describe.only('Deploy Sagas', () => {
+describe('Deploy Sagas', () => {
 
   const payload = {
     type: 'DEPLOY_CONTENT',
