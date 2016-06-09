@@ -6,6 +6,9 @@
 require('babel-register');
 require('babel-polyfill');
 
+// Register test tools globally
+global.expect = require('chai').expect;
+
 // jsdom
 var jsdom = require('jsdom'); // eslint-disable-line
 

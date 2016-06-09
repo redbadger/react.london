@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from '../TextField/TextField.js';
-import ImageField from './ImageField/ImageField.js';
+import ImageField from '../ImageField/ImageField.js';
+import RichTextField from '../RichTextField/RichTextField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../../containers/Deploy';
 import Save from '../Save/Save.js';
@@ -14,31 +15,34 @@ class Editor extends Component {
 
   createTextField = field => <TextField field={field} label={field.label} />
 
+  createRichTextField = field => <RichTextField field={field} label={field.label} />
+
   createImageField = field => <ImageField field={field} label={field.label} />
 
-  createSpeakers = speakers => (
+  createSpeakers = ({ fields }) => (
     <div>
-      <button type="button" onClick={() => speakers.push({})}>Add Speaker</button>
-      {speakers.map((speaker, index) =>
+      <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
+      {fields.map((speaker, index) =>
         <SpeakerEditor
           key={index}
-          speakers={speakers}
+          speakers={fields}
           speaker={speaker}
           index={index}
           textField={this.createTextField}
+          richTextField={this.createRichTextField}
           imageField={this.createImageField}
           />
       )}
     </div>
   );
 
-  createSponsors = sponsors => (
+  createSponsors = ({ fields }) => (
     <div>
-      <button type="button" onClick={() => sponsors.push({})}>Add Sponsor</button>
-      {sponsors.map((sponsor, index) =>
+      <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
+      {fields.map((sponsor, index) =>
         <SponsorEditor
           key={index}
-          sponsors={sponsors}
+          sponsors={fields}
           sponsor={sponsor}
           index={index}
           textField={this.createTextField}
@@ -65,7 +69,7 @@ class Editor extends Component {
           <Field
             name="about.summary"
             label="Summary"
-            component={this.createTextField}
+            component={this.createRichTextField}
             />
 
         </section>
@@ -83,7 +87,7 @@ class Editor extends Component {
           <Field
             name="meetup.details"
             label="Details"
-            component={this.createTextField}
+            component={this.createRichTextField}
             />
 
           <Field
@@ -183,7 +187,7 @@ const genericStyles  = (<Style
     textarea: {
       maxWidth: '100%',
       minHeight: 200,
-    }
+    },
   }}
 />);
 

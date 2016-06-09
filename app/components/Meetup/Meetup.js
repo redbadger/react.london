@@ -1,19 +1,39 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-class Meetup extends Component {
-  render() {
-    const meetup = this.props.text.meetup;
-    return (
-      <section className="UpcomingMeetup">
-        <h2>{meetup ? meetup.name: null}</h2>
-        <div dangerouslySetInnerHTML={ meetup ? { __html: meetup.details } : null } />
-        <p>{meetup ? meetup.when: null}</p>
-        {(meetup && meetup.where) && <p><a target="_blank" href={meetup.where.url}>{meetup.where.text}</a></p>}
-        {(meetup && meetup.signup) && <p><a target="_blank" href={meetup.signup.url}>{meetup.signup.text}</a></p>}
-        {(meetup && meetup.streaming) && <p><a target="_blank" href={meetup.streaming.url}>{meetup.streaming.text}</a></p>}
-      </section>
-    );
-  };
+function maybeLink(attrs = {}) {
+  const { text, url } = attrs;
+  if (text && url) {
+    return <a target="_blank" href={url}>{text}</a>
+  } else {
+    return null;
+  }
 }
+
+const Meetup = ({ name, details, where, when, signup, streaming }) => (
+  <section className="upcoming-meetup">
+    <h2>{ name }</h2>
+    <div
+      className="details"
+      dangerouslySetInnerHTML={ details ? { __html: details } : null }
+    />
+    <p>{ when }</p>
+    <p>{ maybeLink(where) }</p>
+    <p>{ maybeLink(signup) }</p>
+    <p>{ maybeLink(streaming) }</p>
+  </section>
+);
+
+const urlType = PropTypes.shape({
+  url: PropTypes.string,
+  text: PropTypes.string,
+});
+
+Meetup.PropTypes = {
+  name: PropTypes.string,
+  details: PropTypes.string,
+  where: urlType,
+  signup: urlType,
+  streaming: urlType,
+};
 
 export default Meetup;
