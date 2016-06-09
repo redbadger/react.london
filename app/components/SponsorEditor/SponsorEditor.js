@@ -1,23 +1,24 @@
 import React, { PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import TextField from '../TextField/TextField.js';
 
-const SponsorEditor = ({ sponsors, sponsor, index, textField }) => (
+const SponsorEditor = ({ sponsors, sponsor, index }) => (
   <div>
     <h5>Sponsor {index + 1}</h5>
     <Field
       name={`${sponsor}.name`}
       label = "Name"
-      component={textField}
+      component={TextField}
     />
     <Field
       name={`${sponsor}.picture`}
       label = "Picture URL"
-      component={textField}
+      component={TextField}
     />
     <Field
       name={`${sponsor}.url`}
       label = "URL to Sponsor"
-      component={textField}
+      component={TextField}
     />
     <button
       className="remove-sponsor"
@@ -33,7 +34,6 @@ SponsorEditor.PropTypes = {
   sponsors: PropTypes.object,
   sponsor: PropTypes.string,
   index: PropTypes.number.isRequired,
-  textField: PropTypes.func.isRequired,
 };
 
 export default SponsorEditor;
