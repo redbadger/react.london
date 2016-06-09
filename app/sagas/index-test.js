@@ -1,23 +1,32 @@
 import { expect } from 'chai';
-import { deployToStaging } from '.';
+import { callDeploy, watchDeploy } from '.';
+import { deployContent } from '../api/';
+import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import fetch from 'whatwg-fetch';
 
 describe.only('Deploy Sagas', () => {
 
-  const deployToStagingSaga = deployToStaging();
+  const payload = {
+    type: 'DEPLOY_CONTENT',
+    environment: 'staging',
+    content: { title: 'my awesome title' },
+  }
 
-  it('POSTs to /staging with stringified content', () => {
-    const expectedReducer = {
-      type: 'DEPLOY_CONTENT',
-      environment: 'staging',
-      content: { title: 'my awesome title' },
-    }
-    console.log(deployToStagingSaga.next());
+  const watchDeploySaga = watchDeploy(payload);
+  const callDeploySaga = callDeploy(payload);
 
-    expect(deployToStagingSaga.next().value)
+  it('listens for DEPLOY_CONTENT, then calls deployContent', () => {
+    expect(watchDeploySaga.next().value.name)
+        .to.equal(
+          'takeLatest(DEPLOY_CONTENT, callDeploy)'
+        );    
+  })
+
+  it('calls deployContent with environment and content', () => {
+    expect(callDeploySaga.next().value)
         .to.eql(
-          call(fetch)
+          call(deployContent, payload.environment, payload.content)
         );
   });
 
