@@ -26,7 +26,13 @@ describe('Reducers', () => {
   };
 
   it('returns the default application state', () => {
-    expect(reducer.default(undefined, {})).to.deep.eql({ form: {} });
+    expect(reducer.default(undefined, {})).to.deep.eql({
+      deploy: {
+        inProgress: false,
+        wasSuccessful: false,
+      },
+      form: {}
+    });
   });
 
   it('initializes with an empty local database', () => {
@@ -57,5 +63,37 @@ describe('Reducers', () => {
         mock.db.destroy();
       });
     });
+  })
+
+  describe('deployingReducer', () => {
+    it('changes inProgress to true when DEPLOY_CONTENT action dispatched', () => {
+      const action = {
+        type: 'DEPLOY_CONTENT'
+      }
+      expect(reducer.default(undefined, action).deploy).to.contain({
+        inProgress: true
+      });
+    });
+
+    it('changes inProgress to false and wasSuccessful to true when DEPLOY_CONTENT_SUCCESSFUL action dispatched', () => {
+      const action = {
+        type: 'DEPLOY_CONTENT_SUCCESSFUL'
+      }
+      expect(reducer.default(undefined, action).deploy).to.deep.eql({
+        inProgress: false,
+        wasSuccessful: true,
+      });
+    });
+
+    it('changes inProgress to false and wasSuccessful to false when DEPLOY_CONTENT_FAILED action dispatched', () => {
+      const action = {
+        type: 'DEPLOY_CONTENT_FAILED'
+      }
+      expect(reducer.default(undefined, action).deploy).to.deep.eql({
+        inProgress: false,
+        wasSuccessful: false,
+      });
+    });
+
   })
 });

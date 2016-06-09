@@ -139,10 +139,6 @@ class Editor extends Component {
 
         <h4 style={styles.subHeading}>Talks</h4>
 
-        <FieldArray name="meetup.speakers" component={this.createSpeakers}/>
-
-        <FieldArray name="meetup.sponsors" component={this.createSponsors}/>
-
         <Deploy environment='staging' />
         <Deploy environment='live' />
 

@@ -5,7 +5,7 @@ import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import fetchMock from 'fetch-mock';
 
-describe.only('Deploy button', () => {
+describe('Deploy button', () => {
 
   const content = { title: 'my awesome title' }
 
