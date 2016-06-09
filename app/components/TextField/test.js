@@ -38,30 +38,10 @@ describe('TextField', () => {
     expect(fieldProps.error).to.equal(props.field.error);
   });
 
-  describe("Error display", () => {
-    it('does not render if no errors and not touched', () => {
-      const { output } = setup(false);
-      const error = output.find('.error').nodes[0];
-      expect(error).to.equal(undefined);
-    });
-
-    it('does not render if error present but field is untouched', () => {
-      const { output } = setup(false, "error!");
-      const error = output.find('.error').nodes[0];
-      expect(error).to.equal(undefined);
-    });
-
-    it('does not render if no error present and field is touched', () => {
-      const { output } = setup(true);
-      const error = output.find('.error').nodes[0];
-      expect(error).to.equal(undefined);
-    });
-
-    it('renders if present and touched', () => {
-      const { output } = setup(true, "My errors.");
-      const error = output.find('.error').nodes[0];
-      expect(error).to.exist;
-      expect(error.props.children).to.equal("My errors.");
-    });
+  it('passes field error fields onto FieldError', () => {
+    const { props, output } = setup();
+    const fieldError = output.find("FieldError").nodes[0];
+    expect(fieldError.props.touched).to.equal(props.field.touched);
+    expect(fieldError.props.error).to.equal(props.field.error);
   });
 });

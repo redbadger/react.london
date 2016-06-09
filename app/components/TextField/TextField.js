@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
+import FieldError from '../FieldError/FieldError';
 
 const TextField = ({ field, label }) => (
   <div>
     <label>{label}</label>
     <input type="text" {...field} />
-    {field.touched &&
-      field.error &&
-      <span className="error">{field.error}</span>}
+    <FieldError {...field} />
   </div>
 );
 

@@ -40,28 +40,10 @@ describe('RichTextField', () => {
     expect(scribeFieldProps.onChange).to.equal(props.field.onChange);
   });
 
-  it('does not renders errors if no errors and not touched', () => {
-    const { output } = setup();
-    const error = output.find('.error').nodes[0];
-    expect(error).to.equal(undefined);
-  });
-
-  it('does not renders errors if they are present but field is untouched', () => {
-    const { output } = setup(false, "an error");
-    const error = output.find('.error').nodes[0];
-    expect(error).to.equal(undefined);
-  });
-
-  it('does not renders error span if errors present but field is untouched', () => {
-    const { output } = setup(true);
-    const error = output.find('.error').nodes[0];
-    expect(error).to.equal(undefined);
-  });
-
-  it('renders errors if there are any', () => {
-    const { output } = setup(true, "My errors.");
-    const error = output.find('.error').nodes[0];
-    expect(error).not.to.equal(undefined);
-    expect(error.props.children).to.equal("My errors.");
+  it('passes field error fields onto FieldError', () => {
+    const { props, output } = setup();
+    const fieldError = output.find("FieldError").nodes[0];
+    expect(fieldError.props.touched).to.equal(props.field.touched);
+    expect(fieldError.props.error).to.equal(props.field.error);
   });
 });

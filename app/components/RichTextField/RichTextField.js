@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
 import Radium, { Style } from 'radium';
 import scribeSanitizer from '../../scribe/sanitizer';
+import FieldError from '../FieldError/FieldError';
 
 const scribePlugins = [
   'ol',
@@ -23,9 +24,7 @@ const RichTextField = ({field, label}) => (
     {genericStyles}
     <label>{label}</label>
     <ScribeEditor {...field} config={scribePlugins} />
-    {field.touched &&
-      field.error &&
-      <span className="error">{field.error}</span>}
+    <FieldError {...field} />
   </div>
 );
 
