@@ -13,8 +13,6 @@ import Radium, { Style } from 'radium';
 
 class Editor extends Component {
 
-  createRichTextField = field => <RichTextField field={field} label={field.label} />
-
   createSpeakers = ({ fields }) => (
     <div>
       <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
@@ -25,7 +23,7 @@ class Editor extends Component {
           speaker={speaker}
           index={index}
           textField={TextField}
-          richTextField={this.createRichTextField}
+          richTextField={RichTextField}
           imageField={ImageField}
           />
       )}
@@ -65,7 +63,7 @@ class Editor extends Component {
           <Field
             name="about.summary"
             label="Summary"
-            component={this.createRichTextField}
+            component={RichTextField}
             />
 
         </section>
@@ -83,7 +81,7 @@ class Editor extends Component {
           <Field
             name="meetup.details"
             label="Details"
-            component={this.createRichTextField}
+            component={RichTextField}
             />
 
           <Field
