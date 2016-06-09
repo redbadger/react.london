@@ -15,15 +15,13 @@ const defaultSponsors = [
 
 function setup(meetupArgs = {}) {
   const props = {
-    text: {
-      about: {
-        aboutProp: 'about prop',
-      },
-      meetup: {
-        speakers: defaultSpeakers,
-        sponsors: defaultSponsors,
-        ...meetupArgs,
-      },
+    about: {
+      aboutProp: 'about prop',
+    },
+    meetup: {
+      speakers: defaultSpeakers,
+      sponsors: defaultSponsors,
+      ...meetupArgs,
     },
   };
   const output = shallow(<Preview {...props} />);
@@ -33,19 +31,19 @@ function setup(meetupArgs = {}) {
 describe('Preview', () => {
   it('renders About', () => {
     const { props, output } = setup();
-    expect(output.find('About').props()).to.deep.equal(props.text.about);
+    expect(output.find('About').props()).to.deep.equal(props.about);
   });
 
   it('renders Meetup', () => {
     const { props, output } = setup();
-    expect(output.find('Meetup').props()).to.deep.equal(props.text.meetup);
+    expect(output.find('Meetup').props()).to.deep.equal(props.meetup);
   });
 
   describe('SponsorPreview rendering', () => {
     it('renders each sponsor', () => {
       const { props, output } = setup();
       const sponsorProps = output.find('.sponsors').children().map(e => e.props());
-      expect(sponsorProps).to.deep.equal(props.text.meetup.sponsors);
+      expect(sponsorProps).to.deep.equal(props.meetup.sponsors);
     });
 
     it('renders OK when no sponsors passed', () => {
@@ -57,7 +55,7 @@ describe('Preview', () => {
     it('renders each speaker', () => {
       const { props, output } = setup();
       const speakerProps = output.find('.speakers').children().map(e => e.props());
-      expect(speakerProps).to.deep.equal(props.text.meetup.speakers);
+      expect(speakerProps).to.deep.equal(props.meetup.speakers);
     });
 
     it('renders OK when no speakers passed', () => {
