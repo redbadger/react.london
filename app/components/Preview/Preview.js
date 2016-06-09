@@ -10,7 +10,7 @@ const Preview = ({ text }) => (
     {previewStyles}
     {appStyles}
     <div className="row"><About {...text.about} /></div>
-    <div className="row"><Meetup text={text} /></div>
+    <div className="row"><Meetup {...text.meetup} /></div>
     <div className="row speakers">
       { (text.meetup && text.meetup.speakers) && text.meetup.speakers.map((speaker, index) =>
         speaker ? <SpeakerPreview

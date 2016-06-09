@@ -2,12 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Meetup from './Meetup';
 
-function setup(meetupProps = {}) {
-  const props = {
-    text: {
-      meetup: meetupProps,
-    },
-  };
+function setup(props = {}) {
   const output = shallow(<Meetup {...props} />);
   return { props, output }
 }

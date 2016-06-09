@@ -9,19 +9,18 @@ function maybeLink(attrs = {}) {
   }
 }
 
-const Meetup = ({ text }) => {
-  const meetup = text.meetup;
-  return <section className="upcoming-meetup">
-    <h2>{meetup && meetup.name ? meetup.name: null}</h2>
+const Meetup = ({ name, details, where, when, signup, streaming }) => (
+  <section className="upcoming-meetup">
+    <h2>{ name }</h2>
     <div
       className="details"
-      dangerouslySetInnerHTML={ meetup ? { __html: meetup.details } : null }
+      dangerouslySetInnerHTML={ details ? { __html: details } : null }
     />
-    <p>{ meetup ? meetup.when: null }</p>
-    <p>{ maybeLink(meetup.where) }</p>
-    <p>{ maybeLink(meetup.signup) }</p>
-    <p>{ maybeLink(meetup.streaming) }</p>
-  </section>;
-};
+    <p>{ when }</p>
+    <p>{ maybeLink(where) }</p>
+    <p>{ maybeLink(signup) }</p>
+    <p>{ maybeLink(streaming) }</p>
+  </section>
+);
 
 export default Meetup;
