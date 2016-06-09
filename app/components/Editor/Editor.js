@@ -13,8 +13,6 @@ import Radium, { Style } from 'radium';
 
 class Editor extends Component {
 
-  createTextField = field => <TextField field={field} label={field.label} />
-
   createRichTextField = field => <RichTextField field={field} label={field.label} />
 
   createImageField = field => <ImageField field={field} label={field.label} />
@@ -28,7 +26,7 @@ class Editor extends Component {
           speakers={fields}
           speaker={speaker}
           index={index}
-          textField={this.createTextField}
+          textField={TextField}
           richTextField={this.createRichTextField}
           imageField={this.createImageField}
           />
@@ -45,7 +43,7 @@ class Editor extends Component {
           sponsors={fields}
           sponsor={sponsor}
           index={index}
-          textField={this.createTextField}
+          textField={TextField}
           />
       )}
     </div>
@@ -63,7 +61,7 @@ class Editor extends Component {
           <Field
             name="about.title"
             label="Title"
-            component={this.createTextField}
+            component={TextField}
             />
 
           <Field
@@ -81,7 +79,7 @@ class Editor extends Component {
           <Field
             name="meetup.title"
             label="Title"
-            component={this.createTextField}
+            component={TextField}
           />
 
           <Field
@@ -93,7 +91,7 @@ class Editor extends Component {
           <Field
             name="meetup.when"
             label="When is it happening?"
-            component={this.createTextField}
+            component={TextField}
           />
 
         <h4 style={styles.subHeading}>Details about the meetup location</h4>
@@ -101,13 +99,13 @@ class Editor extends Component {
           <Field
             name="meetup.where.text"
             label="Where is it happening?"
-            component={this.createTextField}
+            component={TextField}
             />
 
           <Field
             name="meetup.where.url"
             label="Direction link"
-            component={this.createTextField}
+            component={TextField}
             />
 
         <h4 style={styles.subHeading}>More information link</h4>
@@ -115,26 +113,26 @@ class Editor extends Component {
           <Field
             name="meetup.signup.text"
             label="Link text"
-            component={this.createTextField}
+            component={TextField}
             />
 
           <Field
             name="meetup.signup.url"
             label="Link"
-            component={this.createTextField}
+            component={TextField}
             />
 
         <h4 style={styles.subHeading}>Live stream link</h4>
           <Field
             name="meetup.streaming.text"
             label="Link text"
-            component={this.createTextField}
+            component={TextField}
             />
 
           <Field
             name="meetup.streaming.url"
             label="Link"
-            component={this.createTextField}
+            component={TextField}
             />
 
         <h4 style={styles.subHeading}>Talks</h4>
