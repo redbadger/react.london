@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
-import { Style } from 'radium';
+import Radium, { Style } from 'radium';
 import scribeSanitizer from '../../scribe/sanitizer';
 
 const scribePlugins = [
@@ -51,4 +51,4 @@ const genericStyles  = (<Style
   }}
 />);
 
-export default RichTextField;
+export default Radium(RichTextField);
