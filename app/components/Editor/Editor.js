@@ -22,10 +22,7 @@ class Editor extends Component {
           speakers={fields}
           speaker={speaker}
           index={index}
-          textField={TextField}
-          richTextField={RichTextField}
-          imageField={ImageField}
-          />
+        />
       )}
     </div>
   );
