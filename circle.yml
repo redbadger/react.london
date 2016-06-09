@@ -5,5 +5,6 @@ machine:
 ## Customize test commands
 test:
   override:
+    - npm run lint
     - npm test
     - npm run test-server
