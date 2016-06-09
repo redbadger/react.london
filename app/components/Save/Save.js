@@ -1,20 +1,5 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 import Radium from 'radium';
-
-class Save extends Component {
-  onSaveClick = () => {
-    const { saveFunction, content } = this.props;
-    saveFunction(content);
-  }
-
-  render() {
-    return (
-      <div style={style.main}>
-        <button style={style.button} onClick={this.onSaveClick}>Save</button>
-      </div>
-    )
-  }
-}
 
 const style = {
   main: {
@@ -24,6 +9,20 @@ const style = {
     padding: 10,
     marginBottom: 5,
   }
+};
+
+const Save = ({ saveFunction, content }) => (
+  <div style={style.main}>
+    <button
+      style={style.button}
+      onClick={() => { saveFunction(content) }}
+    >Save</button>
+  </div>
+);
+
+Save.PropTypes = {
+  saveFunction: PropTypes.func.isRequired,
+  content: PropTypes.string,
 };
 
 export default Radium(Save);

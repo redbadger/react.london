@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from '../TextField/TextField.js';
-import ImageField from './ImageField/ImageField.js';
+import ImageField from '../ImageField/ImageField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 import Save from '../Save/Save.js';
