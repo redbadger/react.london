@@ -13,23 +13,12 @@ const Preview = ({ text }) => (
     <div className="row"><Meetup {...text.meetup} /></div>
     <div className="row speakers">
       { (text.meetup && text.meetup.speakers) && text.meetup.speakers.map((speaker, index) =>
-        speaker ? <SpeakerPreview
-          key={index}
-          name={speaker.name}
-          title={speaker.title}
-          blurb={speaker.blurb}
-          picture={speaker.picture}
-          /> : null
+        speaker ? <SpeakerPreview key={index} {...speaker} /> : null
       )}
     </div>
-    <div className="row speakers">
+    <div className="row sponsors">
       { (text.meetup && text.meetup.sponsors) && text.meetup.sponsors.map((sponsor, index) =>
-        <SponsorPreview
-          key={index}
-          name={sponsor.name}
-          url={sponsor.url}
-          picture={sponsor.picture}
-          />
+        <SponsorPreview key={index} {...sponsor} />
       )}
     </div>
   </main>
