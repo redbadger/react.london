@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { deployToStaging } from '.';
 import { call, put } from 'redux-saga/effects';
+import fetch from 'whatwg-fetch';
 
 describe.only('Deploy Sagas', () => {
 
@@ -12,10 +13,11 @@ describe.only('Deploy Sagas', () => {
       environment: 'staging',
       content: { title: 'my awesome title' },
     }
+    console.log(deployToStagingSaga.next());
 
     expect(deployToStagingSaga.next().value)
         .to.eql(
-          call(Fetch)
+          call(fetch)
         );
   });
 
