@@ -7,8 +7,9 @@ function setup() {
     speakers: "speakers prop",
     speaker: "speaker prop",
     index: 1337,
-    textField: "Here is some text.",
-    imageField: "Here is an image",
+    textField: () => {},
+    imageField: () => {},
+    richTextField: () => {},
   };
   const output = shallow(
     <SpeakerEditor {...props} />

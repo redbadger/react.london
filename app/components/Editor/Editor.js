@@ -3,6 +3,7 @@ import { reduxForm, Field, FieldArray } from 'redux-form';
 
 import TextField from '../TextField/TextField.js';
 import ImageField from '../ImageField/ImageField.js';
+import RichTextField from '../RichTextField/RichTextField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
 import Save from '../Save/Save.js';
@@ -13,6 +14,8 @@ import Radium, { Style } from 'radium';
 class Editor extends Component {
 
   createTextField = field => <TextField field={field} label={field.label} />
+
+  createRichTextField = field => <RichTextField field={field} label={field.label} />
 
   createImageField = field => <ImageField field={field} label={field.label} />
 
@@ -26,6 +29,7 @@ class Editor extends Component {
           speaker={speaker}
           index={index}
           textField={this.createTextField}
+          richTextField={this.createRichTextField}
           imageField={this.createImageField}
           />
       )}
@@ -65,7 +69,7 @@ class Editor extends Component {
           <Field
             name="about.summary"
             label="Summary"
-            component={this.createTextField}
+            component={this.createRichTextField}
             />
 
         </section>
@@ -83,7 +87,7 @@ class Editor extends Component {
           <Field
             name="meetup.details"
             label="Details"
-            component={this.createTextField}
+            component={this.createRichTextField}
             />
 
           <Field
@@ -183,7 +187,7 @@ const genericStyles  = (<Style
     textarea: {
       maxWidth: '100%',
       minHeight: 200,
-    }
+    },
   }}
 />);
 

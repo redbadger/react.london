@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 const SpeakerEditor = ({
-  speakers, speaker, index, textField, imageField
+  speakers, speaker, index, textField, imageField, richTextField
 }) => (
   <div>
     <h5>Talk {index + 1}</h5>
@@ -19,7 +19,7 @@ const SpeakerEditor = ({
     <Field
       name={`${speaker}.blurb`}
       label = "Blurb"
-      component={textField}
+      component={richTextField}
     />
     <Field
       name={`${speaker}.picture`}
@@ -38,6 +38,7 @@ SpeakerEditor.PropTypes = {
   speaker: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   textField: PropTypes.func.isRequired,
+  richTextField: PropTypes.func.isRequired,
   imageField: PropTypes.func.isRequired,
 }
 

@@ -5,7 +5,7 @@ const SpeakerPreview = ({ title, name, blurb, picture }) => (
       <img src={picture} />
       <h4>{title}</h4>
       <h5>{name}</h5>
-      <p>{blurb}</p>
+      <div dangerouslySetInnerHTML={ blurb ? { __html: blurb } : null } />
     </section>
   );
 
