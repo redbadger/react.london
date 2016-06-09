@@ -25,7 +25,7 @@ class ImageField extends Component {
   }
 
   render() {
-    const { field } = this.props;
+    const field = this.props.field || {}; // TODO: test.
     return (
       <div>
         <label className="speaker">{field.label}</label>
