@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 const SponsorEditor = ({ sponsors, sponsor, index, textField }) => (
@@ -28,5 +28,12 @@ const SponsorEditor = ({ sponsors, sponsor, index, textField }) => (
     </button>
   </div>
 );
+
+SponsorEditor.PropTypes = {
+  sponsors: PropTypes.object,
+  sponsor: PropTypes.string,
+  index: PropTypes.number.isRequired,
+  textField: PropTypes.func.isRequired,
+};
 
 export default SponsorEditor;
