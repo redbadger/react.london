@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
 function maybeLink(attrs = {}) {
   const { text, url } = attrs;
@@ -22,5 +22,18 @@ const Meetup = ({ name, details, where, when, signup, streaming }) => (
     <p>{ maybeLink(streaming) }</p>
   </section>
 );
+
+const urlType = PropTypes.shape({
+  url: PropTypes.string,
+  text: PropTypes.string,
+});
+
+Meetup.PropTypes = {
+  name: PropTypes.string,
+  details: PropTypes.string,
+  where: urlType,
+  signup: urlType,
+  streaming: urlType,
+};
 
 export default Meetup;

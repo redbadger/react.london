@@ -19,6 +19,11 @@ describe('Meetup', () => {
     expect(output.text()).to.include('A name');
   });
 
+  it('displays when if given', () => {
+    const { output } = setup({ name: 'A place!' });
+    expect(output.text()).to.include('A place!');
+  });
+
   it('displays where link if present', () => {
     const { output } = setup({ where: { url: 'a-where-url', text: 'magic text' } });
     const element = output.find('a[href="a-where-url"]').nodes[0];
