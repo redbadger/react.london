@@ -5,16 +5,10 @@ import { minify } from 'html-minifier';
 
 import Preview from '../components/Preview/Preview';
 
-export const createSite = (body, headers, bucketName) => {
-  const site = generateStaticSite(body, headers);
-  shipToAws(bucketName, site);
-  return site;
-};
-
 const generateStaticSite = (properties, headers) => {
   let markup = renderToStaticMarkup(<Preview
     radiumConfig={{ userAgent: headers['user-agent'] }}
-    text={ properties }
+    text={properties}
   />);
 
   markup = `<!doctype html>
@@ -41,7 +35,7 @@ const shipToAws = (bucketName, site) => {
     region: 'eu-west-1',
   });
 
-  let s3 = new AWS.S3();
+  const s3 = new AWS.S3();
 
   s3.putObject({
     Bucket: bucketName,
@@ -49,8 +43,14 @@ const shipToAws = (bucketName, site) => {
     ACL: 'public-read',
     Body: site,
     ContentType: 'text/html',
-  }, function (err, data) {
+  }, (err, data) => {
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
+};
+
+export const createSite = (body, headers, bucketName) => {
+  const site = generateStaticSite(body, headers);
+  shipToAws(bucketName, site);
+  return site;
 };

@@ -4,8 +4,12 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../webpack.config';
 
 export const webpackSetup = app => {
-  let compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, stats: 'errors-only', publicPath: webpackConfig.output.publicPath }));
+  const compiler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    stats: 'errors-only',
+    publicPath: webpackConfig.output.publicPath,
+  }));
   app.use(webpackHotMiddleware(compiler));
   return app;
 };

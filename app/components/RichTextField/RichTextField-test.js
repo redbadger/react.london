@@ -5,15 +5,15 @@ import RichTextField from './RichTextField';
 
 function setup(touched = false, error) {
   const props = {
-    touched: touched,
-    error: error,
     onChange: () => {},
-    label: "This is a label",
-  }
+    label: 'This is a label',
+    touched,
+    error,
+  };
   const output = shallow(
     <RichTextField {...props} />
   );
-  return { props, output }
+  return { props, output };
 }
 
 describe('RichTextField', () => {
@@ -25,7 +25,7 @@ describe('RichTextField', () => {
   });
 
   it('renders the ScribeEditor', () => {
-    const { props, output } = setup();
+    const { output } = setup();
     const scribeField = output.find(ScribeEditor).nodes[0];
     expect(scribeField).not.to.equal(undefined);
   });
@@ -40,7 +40,7 @@ describe('RichTextField', () => {
 
   it('passes field error fields onto FieldError', () => {
     const { props, output } = setup();
-    const fieldError = output.find("FieldError").nodes[0];
+    const fieldError = output.find('FieldError').nodes[0];
     expect(fieldError.props.touched).to.equal(props.touched);
     expect(fieldError.props.error).to.equal(props.error);
   });

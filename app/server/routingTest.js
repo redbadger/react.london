@@ -23,8 +23,8 @@ describe('GET /', () => {
     app.use(passport.initialize());
     app.use(passport.session());
     app.use((req, res, next) => {
-      req.isAuthenticated = () => true;
-      req.user = {};
+      req.isAuthenticated = () => true; // eslint-disable-line no-param-reassign
+      req.user = {}; // eslint-disable-line no-param-reassign
       next();
     });
     app = routingSetup(app);

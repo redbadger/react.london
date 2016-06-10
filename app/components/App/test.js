@@ -4,7 +4,7 @@ import App from './App';
 
 function setup() {
   const output = shallow(<App />);
-  return { output }
+  return { output };
 }
 
 describe('App', () => {

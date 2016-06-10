@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
-import Radium, { Style } from 'radium';
+import radium, { Style } from 'radium';
 import scribeSanitizer from '../../scribe/sanitizer';
 import FieldError from '../FieldError/FieldError';
 
@@ -13,17 +13,30 @@ const scribePlugins = [
   'removeFormat',
   'cleanup',
   {
-    'command': 'cleanup',
-    'action': scribeSanitizer,
-    'display': 'hidden',
-  }
+    command: 'cleanup',
+    action: scribeSanitizer,
+    display: 'hidden',
+  },
 ];
+
+const genericStyles = (<Style
+  scopeSelector=".rich-text-field"
+  rules={{
+    '.sc-editor': {
+      border: '1px solid #CCCCCC',
+      marginBottom: '20px',
+    },
+    'button[data-command-name="cleanup"]': {
+      display: 'none',
+    },
+  }}
+/>);
 
 const RichTextField = (field) => (
   <div className="rich-text-field">
-    { genericStyles }
-    <label>{ field.label }</label>
-    <ScribeEditor {...field} config={ scribePlugins } />
+    {genericStyles}
+    <label>{field.label}</label>
+    <ScribeEditor {...field} config={scribePlugins} />
     <FieldError {...field} />
   </div>
 );
@@ -35,17 +48,4 @@ RichTextField.propTypes = {
   error: PropTypes.string,
 };
 
-const genericStyles  = (<Style
-  scopeSelector=".rich-text-field"
-  rules={{
-    '.sc-editor': {
-      border: '1px solid #CCCCCC',
-      marginBottom: '20px',
-    },
-    'button[data-command-name="cleanup"]': {
-      display: 'none',
-    }
-  }}
-/>);
-
-export default Radium(RichTextField);
+export default radium(RichTextField);

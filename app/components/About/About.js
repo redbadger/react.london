@@ -6,12 +6,12 @@ function html(content) {
 
 const About = ({ title, summary }) => (
   <section className="About">
-    <h1>{ title }</h1>
+    <h1>{title}</h1>
     <div dangerouslySetInnerHTML={html(summary)} />
   </section>
 );
 
-About.PropTypes = {
+About.propTypes = {
   title: PropTypes.string,
   summary: PropTypes.string,
 };

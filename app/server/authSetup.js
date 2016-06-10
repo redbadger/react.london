@@ -19,9 +19,8 @@ export const authSetup = app => {
       (token, refreshToken, profile, done) => {
         if (process.env.ALLOWED_DOMAIN === profile._json.domain) {
           return done(null, profile);
-        } else {
-          return done();
         }
+        return done();
       }
     )
   );

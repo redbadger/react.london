@@ -3,27 +3,27 @@ import { createStore } from 'redux';
 import { persistentStore } from 'redux-pouchdb-plus';
 import PouchDB from 'pouchdb';
 import * as reducer from './index';
+import memdown from 'memdown';
 
 describe('Reducers', () => {
-
   const dataID = 'combination';
 
   const createMocks = () => {
-    const db = new PouchDB('testdb', { db: require('memdown') });
-    const enhancer = persistentStore({ db: db });
+    const db = new PouchDB('testdb', { db: memdown });
+    const enhancer = persistentStore({ db });
 
     return {
-      db: db,
-      store: createStore(reducer.default, undefined, enhancer)
+      store: createStore(reducer.default, undefined, enhancer),
+      db,
     };
   };
 
-  const timeout = (delay) => {
+  const timeout = (delay) => (
     // Not ideal, but it does the trick while I'm a relative noob
-    return new Promise(resolve => {
+    new Promise(resolve => {
       setTimeout(() => resolve(), delay);
-    });
-  };
+    })
+  );
 
   it('returns the default application state', () => {
     expect(reducer.default(undefined, {})).to.deep.eql({ form: {} });
@@ -38,7 +38,8 @@ describe('Reducers', () => {
       expect(docs.rows.length).to.eql(1);
       expect(docs.rows[0].id).to.eql(dataID);
       expect(docs.rows[0].state).to.eql(undefined);
-    }).then(() => {
+    })
+    .then(() => {
       mock.db.destroy();
     });
   });
@@ -51,11 +52,13 @@ describe('Reducers', () => {
 
       return timeout(50).then(() => {
         return mock.db.get(dataID);
-      }).then(doc => {
+      })
+      .then(doc => {
         expect(doc.state).to.deep.eql(mock.store.getState());
-      }).then(() => {
+      })
+      .then(() => {
         mock.db.destroy();
       });
     });
-  })
+  });
 });

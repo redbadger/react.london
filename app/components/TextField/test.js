@@ -4,13 +4,13 @@ import TextField from './TextField';
 
 function setup(touched = false, error) {
   const props = {
-    label: "Hello label",
-    something: "Hello",
+    label: 'Hello label',
+    something: 'Hello',
     touched,
-    error
+    error,
   };
   const output = shallow(<TextField {...props} />);
-  return { props, output }
+  return { props, output };
 }
 
 
@@ -18,27 +18,25 @@ describe('TextField', () => {
   it('renders the label element', () => {
     const { props, output } = setup();
     const labelField = output.find('label').nodes[0];
-    expect(labelField).to.exist;
     expect(labelField.props.children).to.equal(props.label);
   });
 
   it('renders the input', () => {
-    const { props, output } = setup();
-    const input = output.find("input").nodes[0];
-    expect(input).to.exist;
-    expect(input.props.type).to.equal("text");
+    const { output } = setup();
+    const input = output.find('input').nodes[0];
+    expect(input.props.type).to.equal('text');
   });
 
   it('applies field props to input', () => {
     const { props, output } = setup();
-    const fieldProps = output.find("input").nodes[0].props;
+    const fieldProps = output.find('input').nodes[0].props;
     expect(fieldProps.touched).to.equal(props.touched);
     expect(fieldProps.error).to.equal(props.error);
   });
 
   it('passes field error fields onto FieldError', () => {
     const { props, output } = setup();
-    const fieldError = output.find("FieldError").nodes[0];
+    const fieldError = output.find('FieldError').nodes[0];
     expect(fieldError.props.touched).to.equal(props.touched);
     expect(fieldError.props.error).to.equal(props.error);
   });

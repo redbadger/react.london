@@ -4,12 +4,12 @@ import FieldError from './FieldError';
 
 function setup({ touched, error }) {
   const props = {
-    touched, error
+    touched, error,
   };
   const output = shallow(
     <FieldError {...props} />
   );
-  return { props, output }
+  return { props, output };
 }
 
 describe('FieldError', () => {
@@ -19,7 +19,7 @@ describe('FieldError', () => {
   });
 
   it('it renders nothing with error and untouched', () => {
-    const { output } = setup({ error: "an error!", touched: false });
+    const { output } = setup({ error: 'an error!', touched: false });
     expect(output.node).to.equal(null);
   });
 
@@ -29,7 +29,7 @@ describe('FieldError', () => {
   });
 
   it('it renders if error present and touched', () => {
-    const { output } = setup({ error: "An error!", touched: true });
-    expect(output.text()).to.equal("An error!");
+    const { output } = setup({ error: 'An error!', touched: true });
+    expect(output.text()).to.equal('An error!');
   });
 });

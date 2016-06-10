@@ -1,43 +1,9 @@
-import React, { Component } from 'react';
-import Radium, { Style } from 'radium';
+import React, { PropTypes } from 'react';
+import radium, { Style } from 'radium';
 import About from '../About/About';
 import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
-
-function getIn(object, key) {
-  return object && object[key] || [];
-}
-
-const Preview = ({ about, meetup }) => (
-  <main className="preview">
-    {previewStyles}
-    {appStyles}
-    <div className="row"><About {...about} /></div>
-    <div className="row"><Meetup {...meetup} /></div>
-
-    <div className="row speakers">
-      { getIn(meetup, 'speakers').map((speaker, index) =>
-        <SpeakerPreview key={index} {...speaker} />
-      )}
-    </div>
-
-    <div className="row sponsors">
-      { getIn(meetup, 'sponsors').map((sponsor, index) =>
-        <SponsorPreview key={index} {...sponsor} />
-      )}
-    </div>
-  </main>
-);
-
-const appStyles = (<Style rules={{
-  'body, html': {
-    width: '100%',
-    margin: 0,
-    fontFamily: 'sans-serif',
-    backgroundColor: '#E2E2E2',
-  },
-}} />);
 
 const previewStyles = (<Style
   scopeSelector=".preview"
@@ -75,7 +41,48 @@ const previewStyles = (<Style
       margin: '0px auto',
       display: 'block',
     },
-  }} />
+  }}
+/>
 );
 
-export default Radium(Preview);
+const appStyles = (<Style
+  rules={{
+    'body, html': {
+      width: '100%',
+      margin: 0,
+      fontFamily: 'sans-serif',
+      backgroundColor: '#E2E2E2',
+    },
+  }}
+/>);
+
+function getIn(object, key) {
+  return object && object[key] || [];
+}
+
+const Preview = ({ about, meetup }) => (
+  <main className="preview">
+    {previewStyles}
+    {appStyles}
+    <div className="row"><About {...about} /></div>
+    <div className="row"><Meetup {...meetup} /></div>
+
+    <div className="row speakers">
+      {getIn(meetup, 'speakers').map((speaker, index) =>
+        <SpeakerPreview key={index} {...speaker} />
+      )}
+    </div>
+
+    <div className="row sponsors">
+      {getIn(meetup, 'sponsors').map((sponsor, index) =>
+        <SponsorPreview key={index} {...sponsor} />
+      )}
+    </div>
+  </main>
+);
+Preview.propTypes = {
+  about: PropTypes.object,
+  meetup: PropTypes.object,
+};
+
+export default radium(Preview);

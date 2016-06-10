@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Radium from 'radium';
+import radium from 'radium';
 
 const style = {
   main: {
@@ -8,21 +8,21 @@ const style = {
   button: {
     padding: 10,
     marginBottom: 5,
-  }
+  },
 };
 
 const Save = ({ saveFunction, content }) => (
   <div style={style.main}>
     <button
       style={style.button}
-      onClick={() => { saveFunction(content) }}
+      onClick={() => { saveFunction(content); }}
     >Save</button>
   </div>
 );
 
-Save.PropTypes = {
+Save.propTypes = {
   saveFunction: PropTypes.func.isRequired,
   content: PropTypes.string,
 };
 
-export default Radium(Save);
+export default radium(Save);

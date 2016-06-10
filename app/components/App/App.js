@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import radium from 'radium';
 import Editor from '../../containers/Editor';
 import Preview from '../../containers/Preview';
 
-import Radium, { Style } from 'radium';
+const styles = {
+  width: '100%',
+  display: 'flex',
+};
 
 const App = () => (
   <div style={styles}>
@@ -12,9 +15,4 @@ const App = () => (
   </div>
 );
 
-const styles = {
-  width: '100%',
-  display: 'flex',
-};
-
-export default Radium(App);
+export default radium(App);

@@ -4,14 +4,14 @@ import SpeakerEditor from './SpeakerEditor';
 
 function setup() {
   const props = {
-    speakers: "speakers prop",
-    speaker: "speaker prop",
+    speakers: {},
+    speaker: 'speaker prop',
     index: 1337,
   };
   const output = shallow(
     <SpeakerEditor {...props} />
   );
-  return { props, output }
+  return { props, output };
 }
 
 
@@ -19,15 +19,15 @@ describe('SpeakerEditor', () => {
   it('renders the heading', () => {
     const { props, output } = setup();
     const element = output.find('h5').nodes[0];
-    expect(element).to.exist;
-    expect(element.props.children).to.deep.equal(["Talk ", props.index + 1]);
+    expect(element).to.exist();
+    expect(element.props.children).to.deep.equal(['Talk ', props.index + 1]);
   });
 
   it('renders the remove button', () => {
-    const { props, output } = setup();
+    const { output } = setup();
     const element = output.find('button').nodes[0];
-    expect(element).to.exist;
-    expect(element.props.onClick).to.exist;
+    expect(element).to.exist();
+    expect(element.props.onClick).to.exist();
     expect(element.props.children).to.equal('Remove Speaker');
   });
 

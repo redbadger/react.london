@@ -1,14 +1,48 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
+import radium, { Style } from 'radium';
 
 import TextField from '../TextField/TextField.js';
 import RichTextField from '../RichTextField/RichTextField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
 import Deploy from '../Deploy/Deploy';
-import Save from '../Save/Save.js';
 import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
-import Radium, { Style } from 'radium';
+
+const styles = {
+  borderRight: '1px solid #C9C9C9',
+  boxShadow: '3px 0px 5px 0px rgba(201,201,201,1)',
+  padding: '10px 40px 0px 30px',
+  maxWidth: '500px',
+  resize: 'horizontal',
+  overflow: 'auto',
+  backgroundColor: '#ffffff',
+  section: {
+    display: 'block',
+    marginBottom: 40,
+  },
+  subHeading: {
+    marginTop: '30px',
+    marginBottom: '10px',
+  },
+};
+
+const genericStyles = (<Style
+  scopeSelector=".editor"
+  rules={{
+    'input, textarea': {
+      display: 'block',
+      width: '100%',
+      padding: '2px 5px',
+      margin: '2px 0px 20px',
+      fontSize: '1em',
+    },
+    textarea: {
+      maxWidth: '100%',
+      minHeight: 200,
+    },
+  }}
+/>);
 
 const SpeakerEditors = ({ fields }) => (
   <div>
@@ -23,6 +57,9 @@ const SpeakerEditors = ({ fields }) => (
     )}
   </div>
 );
+SpeakerEditors.propTypes = {
+  fields: PropTypes.object,
+};
 
 const SponsorEditors = ({ fields }) => (
   <div>
@@ -33,10 +70,13 @@ const SponsorEditors = ({ fields }) => (
         sponsors={fields}
         sponsor={sponsor}
         index={index}
-        />
+      />
     )}
   </div>
 );
+SponsorEditors.propTypes = {
+  fields: PropTypes.object,
+};
 
 const Editor = ({ content }) => (
   <aside style={styles} className="editor">
@@ -80,57 +120,25 @@ const Editor = ({ content }) => (
 
       <h4 style={styles.subHeading}>Talks</h4>
 
-      <FieldArray name="meetup.speakers" component={SpeakerEditors}/>
+      <FieldArray name="meetup.speakers" component={SpeakerEditors} />
 
-      <FieldArray name="meetup.sponsors" component={SponsorEditors}/>
+      <FieldArray name="meetup.sponsors" component={SponsorEditors} />
 
 
       <h4 style={styles.subHeading}>Deployment</h4>
 
-      <Deploy environment='staging' content={content} url='dev' />
-      <Deploy environment='live' content={content} url='live'/>
+      <Deploy environment="staging" content={content} url="dev" />
+      <Deploy environment="live" content={content} url="live" />
 
     </section>
   </aside>
 );
+Editor.propTypes = {
+  content: PropTypes.object,
+};
 
 const EditorForm = reduxForm({
   form: 'editor',
 })(Editor);
 
-const styles = {
-  borderRight: '1px solid #C9C9C9',
-  boxShadow: '3px 0px 5px 0px rgba(201,201,201,1)',
-  padding: '10px 40px 0px 30px',
-  maxWidth: '500px',
-  resize: 'horizontal',
-  overflow: 'auto',
-  backgroundColor: '#ffffff',
-  section: {
-    display: 'block',
-    marginBottom: 40,
-  },
-  subHeading: {
-    marginTop: '30px',
-    marginBottom: '10px',
-  },
-};
-
-const genericStyles  = (<Style
-  scopeSelector=".editor"
-  rules={{
-    'input, textarea': {
-      display: 'block',
-      width: '100%',
-      padding: '2px 5px',
-      margin: '2px 0px 20px',
-      fontSize: '1em',
-    },
-    textarea: {
-      maxWidth: '100%',
-      minHeight: 200,
-    },
-  }}
-/>);
-
-export default Radium(EditorForm);
+export default radium(EditorForm);

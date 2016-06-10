@@ -67,6 +67,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "deep-freeze": "0.0.1",
+    "dirty-chai": "^1.2.2",
     "enzyme": "^2.3.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",

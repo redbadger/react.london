@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+
 var path = require('path');
 var webpack = require('webpack');
 
@@ -32,6 +34,6 @@ module.exports = {
         exclude: /node_modules/,
         include: __dirname,
       },
-    ]
-  }
-}
+    ],
+  },
+};
