@@ -26,7 +26,8 @@ describe('Reducers', () => {
   );
 
   it('returns the default application state', () => {
-    expect(reducer.default(undefined, {})).to.deep.eql({ form: {} });
+    expect(reducer.default(undefined, {})).to.contain.key('form')
+    expect(reducer.default(undefined, {})).to.contain.key('routing')
   });
 
   it('initializes with an empty local database', () => {
