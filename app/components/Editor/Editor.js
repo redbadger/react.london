@@ -22,7 +22,7 @@ class Editor extends Component {
   createSpeakers = ({ fields }) => (
     <div>
       <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
-      {fields ? fields.map((speaker, index) =>
+      {fields && fields.map((speaker, index) =>
         <SpeakerEditor
           key={index}
           speakers={fields}
@@ -32,14 +32,14 @@ class Editor extends Component {
           richTextField={this.createRichTextField}
           imageField={this.createImageField}
           />
-      ) : null}
+      )}
     </div>
   );
 
   createSponsors = ({ fields }) => (
     <div>
       <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
-      {fields ? fields.map((sponsor, index) =>
+      {fields && fields.map((sponsor, index) =>
         <SponsorEditor
           key={index}
           sponsors={fields}
@@ -47,7 +47,7 @@ class Editor extends Component {
           index={index}
           textField={this.createTextField}
           />
-      ) : null}
+      )}
     </div>
   );
 
