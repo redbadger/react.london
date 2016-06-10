@@ -5,8 +5,8 @@ import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
-function getIn(haystack, key) {
-  return haystack && haystack[key] || [];
+function getIn(object, key) {
+  return object && object[key] || [];
 }
 
 const Preview = ({ about, meetup }) => (

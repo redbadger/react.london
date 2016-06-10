@@ -4,7 +4,7 @@ import PreviewComponent from '../components/Preview/Preview.js';
 const mapStateToProps = (state) => {
   try {
     return { ...state.form.editor.values };
-  } catch (_) {
+  } catch (_error) {
     return {};
   }
 };
