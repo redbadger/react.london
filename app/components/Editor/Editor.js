@@ -10,10 +10,10 @@ import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
 import Radium, { Style } from 'radium';
 
-const SpeakerEditors = ({ fields }) => (
+const SpeakerEditors = (fields) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
-    {fields && fields.map((speaker, index) =>
+    {fields.map((speaker, index) =>
       <SpeakerEditor
         key={index}
         speakers={fields}
@@ -24,10 +24,10 @@ const SpeakerEditors = ({ fields }) => (
   </div>
 );
 
-const SponsorEditors = ({ fields }) => (
+const SponsorEditors = (fields) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
-    {fields && fields.map((sponsor, index) =>
+    {fields.map((sponsor, index) =>
       <SponsorEditor
         key={index}
         sponsors={fields}
