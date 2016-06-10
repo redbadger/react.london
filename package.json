@@ -50,7 +50,6 @@
     "webpack-dev-middleware": "^1.6.1"
   },
   "devDependencies": {
-    "add-cors-to-couchdb": "0.0.5",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.9.0",
     "babel-loader": "^6.2.4",
