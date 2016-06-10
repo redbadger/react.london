@@ -13,7 +13,7 @@ import Radium, { Style } from 'radium';
 const SpeakerEditors = ({ fields }) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
-    {fields.map((speaker, index) =>
+    {fields && fields.map((speaker, index) =>
       <SpeakerEditor
         key={index}
         speakers={fields}
@@ -27,7 +27,7 @@ const SpeakerEditors = ({ fields }) => (
 const SponsorEditors = ({ fields }) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
-    {fields.map((sponsor, index) =>
+    {fields && fields.map((sponsor, index) =>
       <SponsorEditor
         key={index}
         sponsors={fields}
@@ -102,7 +102,7 @@ const styles = {
   borderRight: '1px solid #C9C9C9',
   boxShadow: '3px 0px 5px 0px rgba(201,201,201,1)',
   padding: '10px 40px 0px 30px',
-  maxWidth: '500px',
+  minWidth: '350px',
   resize: 'horizontal',
   overflow: 'auto',
   backgroundColor: '#ffffff',
