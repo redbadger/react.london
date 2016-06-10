@@ -14,12 +14,9 @@ describe('ImageField', () => {
   });
 
   it('renders the correct speaker as a label', () => {
-    const mockField = { touched: false, error: false };
-    const mockLabel = 'Marcel';
+    const mockField = { label: 'Marcel', touched: false, error: false };
     const imageField = TestUtils.renderIntoDocument(
-      <ImageField
-        field={mockField}
-        label={mockLabel} />
+      <ImageField field={mockField} />
     );
     const label = TestUtils.findRenderedDOMComponentWithClass(imageField, 'speaker');
     expect(label.textContent).to.equal('Marcel');

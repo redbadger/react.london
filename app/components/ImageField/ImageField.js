@@ -25,10 +25,10 @@ class ImageField extends Component {
   }
 
   render() {
-    const { field, label } = this.props;
+    const field = this.props.field || {}; // TODO: test.
     return (
       <div>
-        <label className="speaker">{label}</label>
+        <label className="speaker">{field.label}</label>
         <input
           type="file"
           accept="image/*"
