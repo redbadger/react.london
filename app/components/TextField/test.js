@@ -5,11 +5,9 @@ import TextField from './TextField';
 function setup(touched = false, error) {
   const props = {
     label: "Hello label",
-    field: {
-      something: "Hello",
-      touched,
-      error
-    },
+    something: "Hello",
+    touched,
+    error
   };
   const output = shallow(<TextField {...props} />);
   return { props, output }
@@ -34,14 +32,14 @@ describe('TextField', () => {
   it('applies field props to input', () => {
     const { props, output } = setup();
     const fieldProps = output.find("input").nodes[0].props;
-    expect(fieldProps.touched).to.equal(props.field.touched);
-    expect(fieldProps.error).to.equal(props.field.error);
+    expect(fieldProps.touched).to.equal(props.touched);
+    expect(fieldProps.error).to.equal(props.error);
   });
 
   it('passes field error fields onto FieldError', () => {
     const { props, output } = setup();
     const fieldError = output.find("FieldError").nodes[0];
-    expect(fieldError.props.touched).to.equal(props.field.touched);
-    expect(fieldError.props.error).to.equal(props.field.error);
+    expect(fieldError.props.touched).to.equal(props.touched);
+    expect(fieldError.props.error).to.equal(props.error);
   });
 });

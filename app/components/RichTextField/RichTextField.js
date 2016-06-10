@@ -19,22 +19,20 @@ const scribePlugins = [
   }
 ];
 
-const RichTextField = ({field, label}) => (
+const RichTextField = (field) => (
   <div className="rich-text-field">
-    {genericStyles}
-    <label>{label}</label>
-    <ScribeEditor {...field} config={scribePlugins} />
+    { genericStyles }
+    <label>{ field.label }</label>
+    <ScribeEditor {...field} config={ scribePlugins } />
     <FieldError {...field} />
   </div>
 );
 
 RichTextField.propTypes = {
   label: PropTypes.string.isRequired,
-  field: PropTypes.shape({
-    touched: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired,
-    error: PropTypes.string,
-  }).isRequired,
+  touched: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 const genericStyles  = (<Style
