@@ -5,31 +5,26 @@ import Meetup from '../Meetup/Meetup';
 import SpeakerPreview from '../SpeakerPreview/SpeakerPreview';
 import SponsorPreview from '../SponsorPreview/SponsorPreview';
 
-const Preview = ({ text }) => (
+function getIn(object, key) {
+  return object && object[key] || [];
+}
+
+const Preview = ({ about, meetup }) => (
   <main className="preview">
     {previewStyles}
     {appStyles}
-    <div className="row"><About {...text.about} /></div>
-    <div className="row"><Meetup {...text.meetup} /></div>
+    <div className="row"><About {...about} /></div>
+    <div className="row"><Meetup {...meetup} /></div>
+
     <div className="row speakers">
-      { (text.meetup && text.meetup.speakers) && text.meetup.speakers.map((speaker, index) =>
-        speaker ? <SpeakerPreview
-          key={index}
-          name={speaker.name}
-          title={speaker.title}
-          blurb={speaker.blurb}
-          picture={speaker.picture}
-          /> : null
+      { getIn(meetup, 'speakers').map((speaker, index) =>
+        <SpeakerPreview key={index} {...speaker} />
       )}
     </div>
-    <div className="row speakers">
-      { (text.meetup && text.meetup.sponsors) && text.meetup.sponsors.map((sponsor, index) =>
-        <SponsorPreview
-          key={index}
-          name={sponsor.name}
-          url={sponsor.url}
-          picture={sponsor.picture}
-          />
+
+    <div className="row sponsors">
+      { getIn(meetup, 'sponsors').map((sponsor, index) =>
+        <SponsorPreview key={index} {...sponsor} />
       )}
     </div>
   </main>
