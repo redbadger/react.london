@@ -6,7 +6,7 @@ import ImageField from './ImageField';
 
 describe('ImageField', () => {
   it('renders the input element', () => {
-    const mockField = { touched: false, error: "hi" };
+    const mockField = { touched: false, error: 'hi' };
     const imageField = TestUtils.renderIntoDocument(<ImageField field={mockField} />);
     const input = TestUtils.find(imageField, 'input');
     expect(input.length).to.equal(1);
