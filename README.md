@@ -11,13 +11,10 @@ Before starting, be aware you will require an AWS account to push static pages t
 ### Dev Setup
 
 * Install [NodeJS](https://nodejs.org/en/)
-* Install [CouchDB](http://couchdb.apache.org/)
 
 ```sh
 # Install the dependencies
 npm install
-# Configure the database
-sh couchdbsetup.sh
 # Set up the environment variables
 cp .env.example .env
 vim .env  # Get values from another dev
