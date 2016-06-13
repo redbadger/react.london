@@ -19,7 +19,7 @@ const allowMarkers = {
     },
     em: { class: 'scribe-marker' },
     br: {},
-  }
+  },
 };
 
 export default function scribeSanitizer(scribe) {
@@ -28,4 +28,4 @@ export default function scribeSanitizer(scribe) {
     'sanitize',
     janitor.clean.bind(janitor)
   );
-};
+}

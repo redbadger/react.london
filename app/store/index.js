@@ -1,13 +1,11 @@
+/* eslint-disable global-require */
 import 'babel-polyfill';
 
-import React from 'react';
-
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, compose } from 'redux';
 import { persistentStore } from 'redux-pouchdb-plus';
 import PouchDB from 'pouchdb';
 
 import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools';
 
 const databaseName = 'reactlondon';
 const localDatabase = new PouchDB(databaseName);
@@ -17,7 +15,9 @@ const enhancer = compose(
   persistentStore({ db: localDatabase }),
 
   // Required! Enable Redux DevTools with the monitors you chose
-  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  (
+    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
+  ) ? window.devToolsExtension() : f => f
 );
 
 export const configureStore = initialState => {
@@ -25,7 +25,7 @@ export const configureStore = initialState => {
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers')/* .default if you use Babel 6+ */)
+      store.replaceReducer(require('../reducers')) // .default if you use Babel 6+
     );
   }
 

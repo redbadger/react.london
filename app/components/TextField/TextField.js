@@ -9,7 +9,7 @@ const TextField = (field) => (
   </div>
 );
 
-TextField.PropTypes = {
+TextField.propTypes = {
   label: PropTypes.string.isRequired,
   touched: PropTypes.bool.isRequired,
   error: PropTypes.string,

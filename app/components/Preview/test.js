@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import Preview from './Preview';
 
 const defaultSpeakers = [
-  { name: "speaker a" },
-  { name: "speaker b" },
-  { name: "speaker c" },
+  { name: 'speaker a' },
+  { name: 'speaker b' },
+  { name: 'speaker c' },
 ];
 
 const defaultSponsors = [
-  { name: "sponsor a" },
-  { name: "sponsor b" },
+  { name: 'sponsor a' },
+  { name: 'sponsor b' },
 ];
 
 function setup(meetupArgs = {}) {
@@ -25,7 +25,7 @@ function setup(meetupArgs = {}) {
     },
   };
   const output = shallow(<Preview {...props} />);
-  return { props, output }
+  return { props, output };
 }
 
 describe('Preview', () => {

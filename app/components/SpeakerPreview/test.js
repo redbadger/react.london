@@ -10,7 +10,7 @@ function setup() {
     picture: 'https://foo.bar/kitten.gif',
   };
   const output = shallow(<SpeakerPreview {...props} />);
-  return { props, output }
+  return { props, output };
 }
 
 

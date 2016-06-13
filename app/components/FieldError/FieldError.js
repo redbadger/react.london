@@ -3,12 +3,11 @@ import React, { PropTypes } from 'react';
 const FieldError = ({ touched, error }) => {
   if (touched && error) {
     return <span className="error">{error}</span>;
-  } else {
-    return null;
   }
-}
+  return null;
+};
 
-FieldError.PropTypes = {
+FieldError.propTypes = {
   error: PropTypes.string,
   touched: PropTypes.bool,
 };

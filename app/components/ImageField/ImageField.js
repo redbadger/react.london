@@ -1,10 +1,25 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import FieldError from '../FieldError/FieldError';
 
 class ImageField extends Component {
-  handleImage = e => {
-    let file = e.target.files[0];
-    let imageType = /^image\//;
+
+  static propTypes() {
+    return {
+      field: PropTypes.shape({
+        onClick: PropTypes.func,
+        onChange: PropTypes.func,
+      }),
+    };
+  }
+
+  constructor(props) {
+    super(props);
+    this.handleImage = this.handleImage.bind(this);
+  }
+
+  handleImage(e) {
+    const file = e.target.files[0];
+    const imageType = /^image\//;
 
     if (!imageType.test(file.type)) {
       alert('Please select a valid image');
@@ -17,8 +32,8 @@ class ImageField extends Component {
     }
 
     const reader = new FileReader();
-    reader.onload = e => {
-      this.props.field.onChange(e.target.result);
+    reader.onload = event => {
+      this.props.field.onChange(event.target.result);
     };
 
     reader.readAsDataURL(file);

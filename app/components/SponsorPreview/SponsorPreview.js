@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 const SpeakerPreview = ({ name, url, picture }) => (
   <section>
-    <img src={picture} />
+    <img alt={name} src={picture} />
     <h4>{name}</h4>
     <p>{url}</p>
   </section>
 );
 
-SpeakerPreview.PropTypes = {
+SpeakerPreview.propTypes = {
   name: PropTypes.string,
   url: PropTypes.string,
   picture: PropTypes.string,
