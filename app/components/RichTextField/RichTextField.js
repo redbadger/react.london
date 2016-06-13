@@ -7,15 +7,18 @@ import FieldError from '../FieldError/FieldError';
 const scribePlugins = [
   'ol',
   'ul',
-  'unlink',
   'blockquote',
   'linkPrompt',
-  'removeFormat',
-  'cleanup',
+  'unlink',
   {
-    command: 'cleanup',
+    command: 'removeFormat',
+    action: () => {},
+    display: 'fa-eraser',
+  },
+  {
+    command: 'sanitizer',
     action: scribeSanitizer,
-    display: 'hidden',
+    display: '',
   },
 ];
 
@@ -26,7 +29,7 @@ const genericStyles = (<Style
       border: '1px solid #CCCCCC',
       marginBottom: '20px',
     },
-    'button[data-command-name="cleanup"]': {
+    'button[data-command-name="sanitizer"]': {
       display: 'none',
     },
   }}
