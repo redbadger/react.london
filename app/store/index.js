@@ -11,7 +11,6 @@ import DevTools from '../containers/DevTools';
 
 const databaseName = 'reactlondon';
 const localDatabase = new PouchDB(databaseName);
-const remoteDatabase = new PouchDB('http://localhost:5984/' + databaseName);
 
 const enhancer = compose(
   // Syncs PouchDB (local) and Redux
@@ -23,9 +22,6 @@ const enhancer = compose(
 
 export const configureStore = initialState => {
   const store = createStore(rootReducer, initialState, enhancer);
-
-  // Syncs PounchDB (local) and CouchDB (remote)
-  localDatabase.sync(remoteDatabase, { live: true });
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
