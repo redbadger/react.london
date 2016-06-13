@@ -3,14 +3,6 @@
   "version": "0.0.0",
   "description": "London React Meetups",
   "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "start": "node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0",
-    "test": "find . -path ./node_modules -prune -o -name '*test.js' | xargs mocha --require ./mocha-env.js",
-    "test-server": "mocha app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles",
-    "test-watch": "npm test -- --watch",
-    "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redbadger/react.london.git"
