@@ -44,7 +44,7 @@ const genericStyles = (<Style
   }}
 />);
 
-const SpeakerEditors = (fields) => (
+const SpeakerEditors = ({ fields }) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Speaker</button>
     {fields.map((speaker, index) =>
@@ -61,7 +61,7 @@ SpeakerEditors.propTypes = {
   fields: PropTypes.object,
 };
 
-const SponsorEditors = (fields) => (
+const SponsorEditors = ({ fields }) => (
   <div>
     <button type="button" onClick={() => fields.push({})}>Add Sponsor</button>
     {fields.map((sponsor, index) =>
