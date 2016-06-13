@@ -29,6 +29,8 @@ npm install
 # Set up the environment variables (get them from another dev)
 cp .env.example .env
 vim .env
+cp infrastructure/secrets.tfvars.example infrastructure/secrets.tfvars
+vim infrastructure/secrets.tfvars
 ```
 
 ### 💻 Dev
