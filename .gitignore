@@ -7,3 +7,4 @@ reactlondon
 *config.json
 .env
 .eslintcache
+infrastructure/secrets.tfvars
