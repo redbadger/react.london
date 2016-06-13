@@ -5,6 +5,7 @@
 
 // import es6
 require('babel-register');
+require('babel-polyfill');
 
 var chai = require('chai');
 chai.use(require('dirty-chai')); // Function form for terminating assertions

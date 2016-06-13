@@ -5,7 +5,7 @@ import radium, { Style } from 'radium';
 import TextField from '../TextField/TextField.js';
 import RichTextField from '../RichTextField/RichTextField.js';
 import SpeakerEditor from '../SpeakerEditor/SpeakerEditor.js';
-import Deploy from '../Deploy/Deploy';
+import Deploy from '../../containers/Deploy';
 import SponsorEditor from '../SponsorEditor/SponsorEditor.js';
 
 
@@ -78,7 +78,7 @@ SponsorEditors.propTypes = {
   fields: PropTypes.object,
 };
 
-const Editor = ({ content }) => (
+const Editor = () => (
   <aside style={styles} className="editor">
     {genericStyles}
 
@@ -127,8 +127,8 @@ const Editor = ({ content }) => (
 
       <h4 style={styles.subHeading}>Deployment</h4>
 
-      <Deploy environment="staging" content={content} url="dev" />
-      <Deploy environment="live" content={content} url="live" />
+      <Deploy environment="staging" />
+      <Deploy environment="live" />
 
     </section>
   </aside>
