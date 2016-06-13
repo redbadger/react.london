@@ -22,6 +22,7 @@ locations are currently hard-coded but will be configurable soonⒸ.
 
 * Install [NodeJS](https://nodejs.org/en/)
 * Install [Terraform](https://www.terraform.io/)
+* Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
 ```sh
 # Install the dependencies
@@ -36,14 +37,17 @@ vim infrastructure/secrets.tfvars
 ### 💻 Dev
 
 ```sh
+# Print task help
+make
+
 # Run the dev server on localhost:8080
-npm start
+make start
 
 # Run the tests
-npm test
-npm test-server
-npm test-watch
-npm lint
+make test
+make test-server
+make test-watch
+make lint
 
 # Provision infrastructure
 make terraform-staging
