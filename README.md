@@ -22,6 +22,7 @@ locations are currently hard-coded but will be configurable soonⒸ.
 
 * Install [NodeJS](https://nodejs.org/en/)
 * Install [Terraform](https://www.terraform.io/)
+* Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
 ```sh
 # Install the dependencies
