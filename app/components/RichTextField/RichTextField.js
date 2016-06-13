@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
-import Radium, { Style } from 'radium';
+import radium, { Style } from 'radium';
 import scribeSanitizer from '../../scribe/sanitizer';
 import FieldError from '../FieldError/FieldError';
 
@@ -13,31 +13,13 @@ const scribePlugins = [
   'removeFormat',
   'cleanup',
   {
-    'command': 'cleanup',
-    'action': scribeSanitizer,
-    'display': 'hidden',
-  }
+    command: 'cleanup',
+    action: scribeSanitizer,
+    display: 'hidden',
+  },
 ];
 
-const RichTextField = ({field, label}) => (
-  <div className="rich-text-field">
-    {genericStyles}
-    <label>{label}</label>
-    <ScribeEditor {...field} config={scribePlugins} />
-    <FieldError {...field} />
-  </div>
-);
-
-RichTextField.propTypes = {
-  label: PropTypes.string.isRequired,
-  field: PropTypes.shape({
-    touched: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired,
-    error: PropTypes.string,
-  }).isRequired,
-};
-
-const genericStyles  = (<Style
+const genericStyles = (<Style
   scopeSelector=".rich-text-field"
   rules={{
     '.sc-editor': {
@@ -46,8 +28,24 @@ const genericStyles  = (<Style
     },
     'button[data-command-name="cleanup"]': {
       display: 'none',
-    }
+    },
   }}
 />);
 
-export default Radium(RichTextField);
+const RichTextField = (field) => (
+  <div className="rich-text-field">
+    {genericStyles}
+    <label>{field.label}</label>
+    <ScribeEditor {...field} config={scribePlugins} />
+    <FieldError {...field} />
+  </div>
+);
+
+RichTextField.propTypes = {
+  label: PropTypes.string.isRequired,
+  touched: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.string,
+};
+
+export default radium(RichTextField);

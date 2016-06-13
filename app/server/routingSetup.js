@@ -3,7 +3,12 @@ import bodyParser from 'body-parser';
 
 import { createSite } from './staticSite';
 
-export const routingSetup = (app, passport) => {
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/login');
+};
+
+export const routingSetup = (app) => {
   app.use(bodyParser.json());
 
   app.get('/', ensureAuthenticated, (req, res) => {
@@ -21,9 +26,4 @@ export const routingSetup = (app, passport) => {
     res.sendStatus(200);
   });
   return app;
-};
-
-const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
-  res.redirect('/login');
 };

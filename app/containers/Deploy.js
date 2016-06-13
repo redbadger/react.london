@@ -4,7 +4,7 @@ import { deployContent } from '../api';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => ({
-  content: state
+  content: state,
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ deployContent }, dispatch);

@@ -6,3 +6,4 @@ dist
 reactlondon
 *config.json
 .env
+.eslintcache

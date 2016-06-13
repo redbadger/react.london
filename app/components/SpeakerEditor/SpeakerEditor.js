@@ -1,30 +1,33 @@
 import React, { PropTypes } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { Field } from 'redux-form';
+import TextField from '../TextField/TextField.js';
+import ImageField from '../ImageField/ImageField.js';
+import RichTextField from '../RichTextField/RichTextField.js';
 
 const SpeakerEditor = ({
-  speakers, speaker, index, textField, imageField, richTextField
+  speakers, speaker, index,
 }) => (
   <div>
     <h5>Talk {index + 1}</h5>
     <Field
       name={`${speaker}.name`}
-      label = "Name"
-      component={textField}
+      label="Name"
+      component={TextField}
     />
     <Field
       name={`${speaker}.title`}
-      label = "Title"
-      component={textField}
+      label="Title"
+      component={TextField}
     />
     <Field
       name={`${speaker}.blurb`}
-      label = "Blurb"
-      component={richTextField}
+      label="Blurb"
+      component={RichTextField}
     />
     <Field
       name={`${speaker}.picture`}
-      label = "Picture URL"
-      component={imageField}
+      label="Picture URL"
+      component={ImageField}
     />
     <button
       type="button"
@@ -33,13 +36,10 @@ const SpeakerEditor = ({
   </div>
 );
 
-SpeakerEditor.PropTypes = {
-  speakers: PropTypes.array.isRequired,
+SpeakerEditor.propTypes = {
+  speakers: PropTypes.object.isRequired,
   speaker: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
-  textField: PropTypes.func.isRequired,
-  richTextField: PropTypes.func.isRequired,
-  imageField: PropTypes.func.isRequired,
-}
+};
 
 export default SpeakerEditor;

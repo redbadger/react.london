@@ -1,13 +1,5 @@
-import React, { Component } from 'react';
-import Radium from 'radium';
-
-const Deploy = ({ environment, deployContent, content }) => (
-  <div style={style.main}>
-    <button onClick={() => { deployContent(environment, content) }}>
-      Push to { environment }
-    </button>
-  </div>
-);
+import React, { PropTypes } from 'react';
+import radium from 'radium';
 
 const style = {
   main: {
@@ -22,4 +14,18 @@ const style = {
   },
 };
 
-export default Radium(Deploy);
+const Deploy = ({ environment, deployContent, content }) => (
+  <div style={style.main}>
+    <button onClick={() => { deployContent(environment, content); }}>
+      Push to {environment}
+    </button>
+  </div>
+);
+
+Deploy.propTypes = {
+  environment: PropTypes.string.isRequired,
+  deployContent: PropTypes.func.isRequired,
+  content: PropTypes.object.isRequired,
+};
+
+export default radium(Deploy);
