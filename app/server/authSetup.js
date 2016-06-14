@@ -1,9 +1,12 @@
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import session from 'express-session';
+import cookieSession from 'cookie-session';
 
 export const authSetup = app => {
-  app.use(session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
+  app.use(cookieSession({
+    secret: process.env.SESSION_SECRET,
+  }));
+
   app.use(passport.initialize());
   app.use(passport.session());
 
