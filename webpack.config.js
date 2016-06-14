@@ -8,7 +8,6 @@ module.exports = {
   noInfo: true,
   entry: [
     'babel-polyfill',
-    'webpack-hot-middleware/client',
     './app/index',
   ],
   output: {

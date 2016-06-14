@@ -23,11 +23,6 @@ clean: ## Remove compiled files
 
 build: clean dist/index.html dist/bundle.js ## Compile the app
 
-deploy-staging: build ## Compile and deploy the app to staging
-	aws s3 sync $(distDir) s3://$(stagingBucket)/ --region $(awsRegion)
-	@echo
-	@echo ==> http://$(stagingBucket).s3-website-eu-west-1.amazonaws.com/
-
 dist/bundle.js:
 	$(webpack)
 
@@ -53,7 +48,6 @@ lint: ## Lint Javascript files
 .PHONY: \
 	terraform-staging \
 	terraform-staging-apply \
-	deploy-staging \
 	start \
 	clean \
 	build \
