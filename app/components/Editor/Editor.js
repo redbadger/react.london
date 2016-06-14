@@ -127,8 +127,7 @@ const Editor = ({ content }) => (
 
       <h4 style={styles.subHeading}>Deployment</h4>
 
-      <Deploy environment="staging" content={content} url="dev" />
-      <Deploy environment="live" content={content} url="live" />
+      <Deploy content={content} />
 
     </section>
   </aside>

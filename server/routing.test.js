@@ -52,8 +52,10 @@ describe('POST /live/', () => {
     const app = setup();
     request(app)
       .post('/live/')
-      .expect(202)
+      .expect(201)
       // Assert that mock has been called.
       .end(done);
   });
+
+  it('500s when unable to upload to S3');
 });
