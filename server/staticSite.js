@@ -5,13 +5,10 @@ import { minify } from 'html-minifier';
 
 import Preview from '../app/components/Preview/Preview';
 
-const generateStaticSite = (properties, headers) => {
-  let markup = renderToStaticMarkup(<Preview
-    radiumConfig={{ userAgent: headers['user-agent'] }}
-    text={properties}
-  />);
+const generateStaticSite = (properties) => {
+  const markup = renderToStaticMarkup(<Preview text={properties} />);
 
-  markup = `<!doctype html>
+  const body = `<!doctype html>
   <html>
     <head>
       <meta charset="UTF-8">
@@ -21,7 +18,7 @@ const generateStaticSite = (properties, headers) => {
     </body>
   </html>`;
 
-  const site = (minify(markup, {
+  const site = (minify(body, {
     removeAttributeQuotes: true,
     minifyCSS: true,
     collapseWhitespace: true,

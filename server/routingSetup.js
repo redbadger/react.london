@@ -10,20 +10,21 @@ const ensureAuthenticated = (req, res, next) => {
 
 export const routingSetup = (app) => {
   app.use(bodyParser.json());
+  app.use(ensureAuthenticated);
 
-  app.get('/', ensureAuthenticated, (req, res) => {
+  app.get('/', (req, res) => {
     res.location('/');
     res.sendFile(path.join(__dirname, '../app', 'index.html'));
   });
 
   app.post('/staging/', (req, res) => {
-    createSite(req.body, req.headers, process.env.BUCKET_STAGING);
-    res.sendStatus(200);
+    createSite(req.body, process.env.BUCKET_STAGING);
+    res.sendStatus(202);
   });
 
   app.post('/live/', (req, res) => {
-    createSite(req.body, req.headers, process.env.BUCKET_LIVE);
-    res.sendStatus(200);
+    createSite(req.body, process.env.BUCKET_LIVE);
+    res.sendStatus(202);
   });
   return app;
 };
