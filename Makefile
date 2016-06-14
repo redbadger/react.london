@@ -23,11 +23,6 @@ clean: ## Remove compiled files
 
 build: clean dist/index.html dist/bundle.js ## Compile the app
 
-deploy-staging: build ## Compile and deploy the app to staging
-	aws s3 sync $(distDir) s3://$(stagingBucket)/ --region $(awsRegion)
-	@echo
-	@echo ==> http://$(stagingBucket).s3-website-eu-west-1.amazonaws.com/
-
 dist/bundle.js:
 	$(webpack)
 
@@ -36,7 +31,7 @@ dist/index.html:
 	cp app/index.html dist
 
 start: ## Start the dev server
-	npm start
+	node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0
 
 test-server: ## Run the backend tests
 	$(mocha) app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles
@@ -53,7 +48,6 @@ lint: ## Lint Javascript files
 .PHONY: \
 	terraform-staging \
 	terraform-staging-apply \
-	deploy-staging \
 	start \
 	clean \
 	build \
