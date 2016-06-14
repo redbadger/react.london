@@ -1,4 +1,4 @@
-import { compilePage } from '.';
+import { compilePreview } from '.';
 
 const previewData = {
   about: {
@@ -16,18 +16,13 @@ const previewData = {
   },
 };
 
-describe('compilePage', () => {
+describe('compilePreview', () => {
   it('renders the Preview page', () => {
-    const html = compilePage('Preview', previewData);
-    expect(html).to.include('<!doctype html>');
-    expect(html).to.include(previewData.about.title);
-    expect(html).to.include(previewData.about.summary);
-    expect(html).to.include('Getting Ship Done');
-  });
-
-  it('explodes for an unknown page', () => {
-    expect(
-      () => compilePage('AngularMeetup', {})
-    ).to.throw(Error);
+    const { path, body } = compilePreview(previewData);
+    expect(path).to.equal('index.html');
+    expect(body).to.include('<!doctype html>');
+    expect(body).to.include(previewData.about.title);
+    expect(body).to.include(previewData.about.summary);
+    expect(body).to.include('Getting Ship Done');
   });
 });

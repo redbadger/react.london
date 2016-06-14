@@ -1,7 +1,7 @@
 import path from 'path';
 import bodyParser from 'body-parser';
-import { compileSite } from './static-site';
-import publish from './publish';
+import { compilePreview } from './static-site';
+import { publishPage } from './publish';
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -18,14 +18,14 @@ export const routingSetup = (app) => {
   });
 
   app.post('/staging/', (req, res) => {
-    const site = compileSite(req.body);
-    publish(site, process.env.BUCKET_STAGING);
+    const html = compilePreview(req.body);
+    publishPage(html, process.env.BUCKET_STAGING);
     res.sendStatus(202);
   });
 
   app.post('/live/', (req, res) => {
-    const site = compileSite(req.body);
-    publish(site, process.env.BUCKET_LIVE);
+    const html = compilePreview(req.body);
+    publishPage(html, process.env.BUCKET_LIVE);
     res.sendStatus(202);
   });
   return app;
