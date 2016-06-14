@@ -36,7 +36,7 @@ dist/index.html:
 	cp app/index.html dist
 
 start: ## Start the dev server
-	node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0
+	npm start
 
 test-server: ## Run the backend tests
 	$(mocha) app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles

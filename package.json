@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "London React Meetups",
   "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redbadger/react.london.git"

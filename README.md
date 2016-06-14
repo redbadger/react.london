@@ -53,3 +53,7 @@ make lint
 make terraform-staging
 make terraform-staging-apply
 ```
+
+### Deployment
+
+The backend is currently on Heroku. Ask a dev for the details :)
