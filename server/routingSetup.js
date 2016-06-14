@@ -13,7 +13,7 @@ export const routingSetup = (app) => {
 
   app.get('/', ensureAuthenticated, (req, res) => {
     res.location('/');
-    res.sendFile(path.join(__dirname, '../', 'index.html'));
+    res.sendFile(path.join(__dirname, '../app', 'index.html'));
   });
 
   app.post('/staging/', (req, res) => {

@@ -7,4 +7,3 @@ test:
   override:
     - make lint
     - make test
-    - make test-server

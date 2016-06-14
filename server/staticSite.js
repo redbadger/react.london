@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import AWS from 'aws-sdk';
 import { minify } from 'html-minifier';
 
-import Preview from '../components/Preview/Preview';
+import Preview from '../app/components/Preview/Preview';
 
 const generateStaticSite = (properties, headers) => {
   let markup = renderToStaticMarkup(<Preview

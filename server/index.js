@@ -1,8 +1,8 @@
 import express from 'express';
 
-import { authSetup } from './server/authSetup';
-import { webpackSetup } from './server/webpackSetup';
-import { routingSetup } from './server/routingSetup';
+import { authSetup } from './authSetup';
+import { webpackSetup } from './webpackSetup';
+import { routingSetup } from './routingSetup';
 
 let app = authSetup(express());
 app = webpackSetup(app);

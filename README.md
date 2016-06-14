@@ -45,7 +45,6 @@ make start
 
 # Run the tests
 make test
-make test-server
 make test-watch
 make lint
 
