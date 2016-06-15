@@ -31,15 +31,12 @@ dist/index.html:
 	cp app/index.html dist
 
 start: ## Start the dev server
-	node -r dotenv/config -r babel-core/register app/server.js --presets es2015,stage-0
+	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0
 
-test-server: ## Run the backend tests
-	$(mocha) app/server/routingTest.js --compilers js:babel-core/register --require ignore-styles
-
-test: ## Run the frontend tests
+test: ## Run the tests
 	$(testCmd)
 
-test-watch: ## Run the frontend test watcher
+test-watch: ## Run the tests and watch for changes
 	$(testCmd) --watch
 
 lint: ## Lint Javascript files
