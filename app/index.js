@@ -8,6 +8,7 @@ import { configureStore } from './store/';
 import EditorHome from './components/EditorHome';
 import EditorLayout from './components/EditorLayout';
 import EditorNotFound from './components/EditorNotFound';
+import EventEditor from './components/EventEditor';
 import CommunityEditor from './components/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
 
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/" component={EditorHome} />
         <Route path="community" component={CommunityEditor} />
         <Route path="conference" component={ConferenceEditor} />
+        <Route path="event/:eventID" component={EventEditor} />
         <Route path="*" component={EditorNotFound} />
       </Route>
     </Router>
