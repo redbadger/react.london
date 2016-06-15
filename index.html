@@ -79,7 +79,7 @@
 
         <!-- NAVIGATION BAR -->
         <nav id="main-nav" class="block">
-          <ul class="content space-between">
+          <ul class="content space-between semantic-only">
             <li><a class="events active" href="#">Upcoming Events</a></li>
             <li><a class="conference" href="#">Conference</a></li>
           </ul>
@@ -96,22 +96,28 @@
         <!-- NEXT EVENT  -->
         <section id="next-event" class="block">
           <div class="content">
-            <h2 class="content-title">Next Event</h2>
-            <h3>June React Meetup</h3>
-            <ul>
-              <li class="date">
-                <a href="#">28 June 2016 Tuesday</a>
-              </li>
-              <li class="location">
-                <a href="#">10 Brock Street NW1 3FG London</a>
-              </li>
-              <li class="time">
-                <a href="#">from 18:30 to 21:30</a>
-              </li>
-            </ul>
-            <button>Get your free ticket</button>
-            <h3>The tickets will go live  on 8 June 2016</h3>
-            <p>We will post the Live Stream here</p>
+              <h2 class="content-title">Next Event</h2>
+          </div>
+          <div class="content space-between">
+            <article>
+              <h3>June React Meetup</h3>
+              <ul class="semantic-only">
+                <li class="date">
+                  <a href="#">28 June 2016 Tuesday</a>
+                </li>
+                <li class="location">
+                  <a href="#">10 Brock Street NW1 3FG London</a>
+                </li>
+                <li class="time">
+                  <a href="#">from 18:30 to 21:30</a>
+                </li>
+              </ul>
+            </article>
+            <article>
+              <button>Get your free ticket</button>
+              <h3>The tickets will go live  on 8 June 2016</h3>
+              <p>We will post the Live Stream here</p>
+            </article>
           </div>
         </section>
 
@@ -123,7 +129,7 @@
           <div class="content space-between">
             <article>
               <img src="#" alt="Stuart Harris">
-              <ul>
+              <ul class="semantic-only">
                 <li><a href="#"><img src="" alt="twitter"></a></li>
                 <li><a href="#"><img src="" alt="github"></a></li>
               </ul>
@@ -133,7 +139,7 @@
             </article>
             <article>
               <img src="#" alt="David Wynne">
-              <ul>
+              <ul class="semantic-only">
                 <li><a href="#"><img src="" alt="twitter"></a></li>
                 <li><a href="#"><img src="" alt="github"></a></li>
               </ul>
@@ -143,7 +149,7 @@
             </article>
             <article>
               <img src="#" alt="Cain Ullah">
-              <ul>
+              <ul class="semantic-only">
                 <li><a href="#"><img src="" alt="twitter"></a></li>
                 <li><a href="#"><img src="" alt="github"></a></li>
               </ul>
@@ -181,8 +187,9 @@
 
         <section id="event-details" class="block">
           <div class="content space-between">
+
             <!-- SCHEDULE -->
-            <article>
+            <article id="schedule">
               <h3>Schedule</h3>
               <dl class="schedule-timeline">
                 <dt>6.30PM</dt>
@@ -195,12 +202,13 @@
                 <dl>Everyone is welcome to stay for another drink </dl>
               </dl>
             </article>
+
             <!-- SPONSORS -->
-            <article>
+            <article id="sponsors">
               <h3>Sponsors</h3>
-              <ul>
+              <ul class="semantic-only">
                 <li>
-                  <a href="http://red-badger.com/" class="footer-logo" target="_blank">
+                  <a href="http://red-badger.com/" target="_blank">
                     <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
                       <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo">
                     </object>
@@ -209,6 +217,7 @@
                 <li><a href="#"><img src="" alt="facebook"></a></li>
               </ul>
             </article>
+
           </div>
         </section>
 
@@ -217,7 +226,7 @@
       <footer class="block">
         <div class="content space-between">
 
-          <ul>
+          <ul class="semantic-only">
             <li>
               <a href="mailto:hello@react.london">hello@react.london</a>
             </li>
@@ -226,6 +235,12 @@
             </li>
             <li>
               <a href="https://twitter.com/search?q=%23londonreact" target="_blank">#londonreact</a>
+            </li>
+            <li>
+              <a href="#" target="_blank">Join the conversation</a>
+            </li>
+            <li>
+              <a href="#" target="_blank">Watch videos</a>
             </li>
           </ul>
 

@@ -58,6 +58,14 @@
     pointer-events: none;
   }
 
+
+  ul.semantic-only {
+    @extend .reset-spacing;
+    li {
+      list-style-type: none;
+    }
+  }
+
 // BULDING BLOCKS
   #wrapper {
     display: -webkit-flex;
@@ -73,7 +81,7 @@
   }
 
   .block {
-    width: 100%;
+    width: 100vw;
 
     display: -webkit-flex;
     display: flex;
@@ -85,8 +93,13 @@
     align-items: center;
 
     .content {
-      width: $maximum-content-width;
       padding: 0px 20px;
+    }
+  }
+
+  @media (min-width: $maximum-content-width) {
+    .block .content {
+      width: $maximum-content-width;
     }
   }
 
@@ -130,35 +143,36 @@
 // NAVIGATION BAR
   #main-nav {
     ul {
-      @extend .reset-spacing;
-      li {
-        list-style-type: none;
-        a {
-          display: block;
-          width: 470px;
-          text-align: center;
-          &.active {
-            border-left: $solid-border;
-            border-right: $solid-border;
-          }
-          &.events {
-            background-color: $events;
-          }
-          &.conference {
-            background-color: $conference;
-          }
+      li a {
+        display: block;
+        text-align: center;
+        &.active {
+          border-left: $solid-border;
+          border-right: $solid-border;
+          padding-bottom: 3px;
+          margin-bottom: -3px;
+        }
+        &.events {
+          background-color: $events;
+        }
+        &.conference {
+          background-color: $conference;
         }
       }
     }
   }
 // ABOUT REACT LONDON EVENTS
   #about {
+    background-color: $events;
     border-top: $solid-border;
   }
 
 // NEXT EVENT
   #next-event {
     border-top: $solid-border;
+    .content article {
+      width: calc((#{$maximum-content-width} / 2) - 10px);
+    }
   }
 
   .content-title {
@@ -169,7 +183,7 @@
   #speakers {
     .content {
       article {
-        width: calc(#{$maximum-content-width} / 3);
+        width: calc((#{$maximum-content-width} / 3) - 10px);
       }
     }
   }
@@ -267,16 +281,73 @@
 
   }
 
-// SCHEDULE
-  .schedule-timeline {
-    dt {
-      float: left;
-      clear: left;
-      width: 65px;
-      padding-right: 15px;
-      border-right: $dash-border;
+  #event-details {
+    .content article {
+      width: calc((#{$maximum-content-width} / 2) - 10px);
+      &:first-of-type {
+        border-right: $dash-border;
+      }
     }
-    dl {
-      margin: 0px 0px 10px 100px;
+  }
+// SCHEDULE
+  #schedule {
+    .schedule-timeline {
+      dt {
+        float: left;
+        clear: left;
+        width: 105px;
+        text-align: right;
+  
+        border-right: $dash-border;
+        padding-right: 20px;
+        padding-bottom: 20px;
+  
+        &:last-of-type {
+          padding-bottom: 0px;
+        }
+      }
+      dl {
+        margin: 0px 0px 20px calc(105px + (20px * 2));
+      }
+    }
+  }
+
+// SPONSORS
+  #sponsors {
+    ul li a {
+      img, object {
+        height: 85px;
+      }
+    }
+  }
+
+
+// FOOTER
+  footer {
+    background: $grey;
+    height: 105px;
+    align-items: center;
+    justify-content: center;
+    ul {
+      font-weight: 500;
+      line-height: 1.7;
+      column-count: 2;
+      column-gap: 80px;
+      li a {
+        color: white;
+        &:hover {
+          color: $events;
+        }
+      }
+    }
+    a.footer-logo {
+      display: inline-block;
+      height: 85px;
+      img {
+        height: 100%;
+      }
+    }
+    object {
+      height: 85px;
     }
   }
