@@ -56,48 +56,112 @@
     <div id="wrapper">
       <main>
 
+        <!-- HERO (main banner) -->
         <header id="hero" class="block">
           <div class="content">
-            <h1>React London 2017</h1>
-            <p class="block-bg">Be part of it</p>
-            <h2 class="block-bg">March 2017</h2>
-            <a class="sign-up-trampoline" href="#register">
-              <p class="block-bg">
-                Keep me updated
-              </p>
-              <object data="assets/img/SVG/ReactLondon_Arrow-01.svg" type="image/svg+xml">
-                <img srcset="assets/img/PNG/ReactLondon_Arrow_x2-01.png" src="assets/img/PNG/ReactLondon_Arrow-01.png" alt="Red Badger logo">
-              </object>
-            </a>
-
+            <h1>
+              React London
+              <span>Community</span>
+            </h1>
           </div>
         </header>
 
-          <section id="banner" class="block">
-            <div class="content space-between">
-              <span>Powered by Red Badger</span>
+        <!-- POWERED BY RED BADGER BANNER -->
+        <section id="red-badger-banner" class="block">
+          <div class="content space-between">
+            <span>Powered by Red Badger</span>
 
-              <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
-                <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger logo">
-              </object>
-            </div>
-          </section>
-
-        <section id="about" class="block">
-          <div class="content">
-            <h2>Let’s explore!</h2>
-            <p>Red Badger is launching a new conference focused on React in London for 2017 – we’re calling it <strong>React London 2017.</strong></p>
-            <p>We’re bringing together some great speakers and events – get involved! More details to follow soon.</p>
+            <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
+              <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger logo">
+            </object>
           </div>
         </section>
 
+        <!-- NAVIGATION BAR -->
+        <nav id="main-nav" class="block">
+          <ul class="content space-between">
+            <li><a class="events active" href="#">Upcoming Events</a></li>
+            <li><a class="conference" href="#">Conference</a></li>
+          </ul>
+        </nav>
+
+        <!-- ABOUT REACT LONDON EVENTS  -->
+        <section id="about" class="block">
+          <div class="content">
+            <h2>About React London Events</h2>
+            <p>React is already having a huge impact on the way we think about Web UI development at Red Badger and this is an opportunity to learn why and share your own experiences.</p>
+          </div>
+        </section>
+
+        <!-- NEXT EVENT  -->
+        <section id="next-event" class="block">
+          <div class="content">
+            <h2 class="content-title">Next Event</h2>
+            <h3>June React Meetup</h3>
+            <ul>
+              <li class="date">
+                <a href="#">28 June 2016 Tuesday</a>
+              </li>
+              <li class="location">
+                <a href="#">10 Brock Street NW1 3FG London</a>
+              </li>
+              <li class="time">
+                <a href="#">from 18:30 to 21:30</a>
+              </li>
+            </ul>
+            <button>Get your free ticket</button>
+            <h3>The tickets will go live  on 8 June 2016</h3>
+            <p>We will post the Live Stream here</p>
+          </div>
+        </section>
+
+        <!-- SPEAKERS -->
+        <section id="speakers" class="block">
+          <div class="content">
+            <h2 class="content-title">Speakers</h2>
+          </div>
+          <div class="content space-between">
+            <article>
+              <img src="#" alt="Stuart Harris">
+              <ul>
+                <li><a href="#"><img src="" alt="twitter"></a></li>
+                <li><a href="#"><img src="" alt="github"></a></li>
+              </ul>
+              <h5>Stuart Harris Red Badger</h5>
+              <h4>IMMUTABLE INFRASTRUCTURE AS CODE</h4>
+              <p>React is already having a huge impact on the way we think about Web UI development at Red Badger and this is an opportunity to learn why and share your own experiences. </p>
+            </article>
+            <article>
+              <img src="#" alt="David Wynne">
+              <ul>
+                <li><a href="#"><img src="" alt="twitter"></a></li>
+                <li><a href="#"><img src="" alt="github"></a></li>
+              </ul>
+              <h5>David Wynne Red Badger</h5>
+              <h4>THE SCIENCE  OF ESTIMATING</h4>
+              <p>React is already having a huge impact on the way we think about Web UI development at Red Badger and this is an opportunity to learn why and share your own experiences. </p>
+            </article>
+            <article>
+              <img src="#" alt="Cain Ullah">
+              <ul>
+                <li><a href="#"><img src="" alt="twitter"></a></li>
+                <li><a href="#"><img src="" alt="github"></a></li>
+              </ul>
+              <h5>Cain Ullah Red Badger</h5>
+              <h4>INCENTIVISING YOUR STAFF BEYOND CARROT AND STICK</h4>
+              <p>React is already having a huge impact on the way we think about Web UI development at Red Badger and this is an opportunity to learn why and share your own experiences. </p>
+            </article>
+          </div>
+        </section>
+        
+        <!-- REGISTER -->
         <section id="register" class="block">
           <div class="content">
-            <h3>Sign up here for updates</h3>
+            <h3>Stay tuned</h3>
 
-            <!-- Begin MailChimp Signup Form -->
+            <!-- ACTION REMOVED Begin MailChimp Signup Form -->
             <div id="mc_embed_signup">
-              <form action="//london.us13.list-manage.com/subscribe/post?u=f3de268a0820d472cbd31f761&amp;id=c723cfd260" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <form  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
                   <label for="mce-EMAIL">Email:</label>
                   <input type="email" value="" autocomplete="off" name="EMAIL" class="email" id="mce-EMAIL" placeholder="name@address.com" required>
@@ -106,14 +170,46 @@
                     <input type="text" name="b_f3de268a0820d472cbd31f761_c723cfd260" tabindex="-1" value="">
                   </div>
                   <div class="clear">
-                    <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
                   </div>
                 </div>
               </form>
             </div>
             <!--End mc_embed_signup-->
           </div>
+        </section>
 
+        <section id="event-details" class="block">
+          <div class="content space-between">
+            <!-- SCHEDULE -->
+            <article>
+              <h3>Schedule</h3>
+              <dl class="schedule-timeline">
+                <dt>6.30PM</dt>
+                <dl>Doors open for pizza and beers </dl>
+                <dt>7.00PM</dt>
+                <dl>Intro from Stu </dl>
+                <dt>7.10PM</dt>
+                <dl>2 or 3 speakers each with 20 minutes to talk followed by Q&A</dl>
+                <dt>8.30PM</dt>
+                <dl>Everyone is welcome to stay for another drink </dl>
+              </dl>
+            </article>
+            <!-- SPONSORS -->
+            <article>
+              <h3>Sponsors</h3>
+              <ul>
+                <li>
+                  <a href="http://red-badger.com/" class="footer-logo" target="_blank">
+                    <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
+                      <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo">
+                    </object>
+                  </a>
+                </li>
+                <li><a href="#"><img src="" alt="facebook"></a></li>
+              </ul>
+            </article>
+          </div>
         </section>
 
       </main>

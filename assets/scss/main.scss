@@ -1,12 +1,19 @@
 // Utilities
-  $red: #D2091E;
-  $blue: #C6DDE7;
+  $red-badger: #D2091E;
+  $events: #CDE5B3;
+  $conference: #C6DDE7;
+
   $grey: #4A4A4A;
 
   $desktop-width: 1200px;
   $tablet-width: 1024px;
   $mobile-width: 435px;
   $tiny-mobile-width: 320px;
+
+  $solid-border: 3px solid $grey;
+  $dash-border: 3px dashed $grey;
+
+  $maximum-content-width: 980px;
 
   .reset-spacing {
     margin: 0px;
@@ -32,9 +39,13 @@
     font-weight: bold;
   }
 
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 500; // headers are bold by default
+  }
+
 // GENERAL
   body {
-    background: $blue;
+    background: white;
     color: $grey;
     font-family: 'Objektiv', Arial;
   }
@@ -45,91 +56,6 @@
 
   object {
     pointer-events: none;
-  }
-
-// MAILCHIMP
-  #mc_embed_signup{
-    clear: left;
-    font-size: 14px;
-    font-family: 'Objektiv', Arial;
-
-    form#mc-embedded-subscribe-form {
-      padding-top: 27px !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-      padding-bottom: 0 !important;
-    }
-
-    #mc_embed_signup_scroll {
-      display: -webkit-flex;
-      display: flex;
-      flex-flow: column wrap;
-      -webkit-flex-flow: column wrap;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    #mc_embed_signup_input {
-      position: absolute;
-      left: -5000px;
-      cursor: pointer;
-    }
-
-    label[for='mce-EMAIL'] {
-      width: calc(100vw - 80px);
-      max-width: 518px;
-      font-size: 19px;
-      font-weight: 700;
-    }
-
-    #mce-EMAIL {
-      margin: 0px;
-      margin-bottom: 10px;
-      border: 3px solid $grey;
-      background: white;
-      width: calc(100vw - 80px);
-      max-width: 500px;
-      min-height: 36px;
-      padding: 0 9px;
-    }
-
-    input[type="submit"].button {
-      background: $grey;
-      color: $blue;
-
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 36px;
-      
-      margin: 20px 0 0 0;
-      padding-bottom: 0px;
-
-      width: auto;
-      min-width: 90px;
-      height: auto;
-      
-      border: 0px;
-      border-radius: 5px;
-
-      cursor: pointer;
-      &:hover {
-        color: white;
-      }
-    }
-  }
-
-  @media (max-width: $mobile-width) {
-    #mc_embed_signup {
-      form#mc-embedded-subscribe-form {
-        padding: 0px;
-        padding-top: 50px;
-      }
-      #mce-EMAIL {
-        width: calc(100vw - 80px);
-      }
-      label[for='mce-EMAIL'] {
-        width: calc(100vw - 60px);
-      }
-    }
   }
 
 // BULDING BLOCKS
@@ -148,12 +74,18 @@
 
   .block {
     width: 100%;
+
     display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
+
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+
+    -webkit-align-items: center;
+    align-items: center;
+
     .content {
-      width: 980px;
+      width: $maximum-content-width;
       padding: 0px 20px;
     }
   }
@@ -161,10 +93,13 @@
   .content.space-between {
     display: -webkit-flex;
     display: flex;
+
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
+
     -webkit-align-items: center;
     align-items: center;
+
     -webkit-justify-content: space-between;
     justify-content: space-between;
   }
@@ -172,149 +107,15 @@
 
 // HERO
   #hero {
-    background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg")
-      no-repeat
-      center center;
-    background-size: cover;
-    min-height: 330px;
+    background-color: $events;
     .content {
       text-align: center;
-      margin-top: 135px;
-
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-flow: column wrap;
-      flex-flow: column wrap;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-    .block-bg {
-      background: $blue;
-      display: inline-block;
-      margin: 0px;
-      padding: 3px;
-    }
-    p.block-bg {
-      font-weight: 700;
-      font-size: 14px;
-      padding: 3px 10px;
-    }
-    h1 {
-      font-size: 30px;
-      display: inline-block;
-      margin: 0px;
-      padding: 3px;
-    }
-    h2.block-bg {
-      font-size: 40px;
-      font-weight: 200;
-    }
-    a {
-      color: $grey;
-    }
-    .sign-up-trampoline {
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-flow: column wrap;
-      flex-flow: column wrap;
-      -webkit-align-items: center;
-      align-items: center;
-      img, object {
-        margin-top: 5px;
-        width: 18px;
-        height: 12px;
-      }
     }
   }
 
-  @media (min-width: $desktop-width) {
-    #hero {
-      min-height: 660px;
-      background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
-        no-repeat
-        center center;
-      background-size: cover;
-      .content {
-        margin-top: 300px;
-      }
-      p.block-bg {
-        font-size: 21px;
-        margin-top: 15px;
-      }
-      h1.block-bg {
-        font-size: 45px;
-        margin-bottom: 26px;
-      }
-      h2.block-bg {
-        font-size: 60px;
-        line-height: 1;
-      }
-      .sign-up-trampoline {
-        margin-top: 0px;
-      }
-    }
-  }
-
-  @media (min-width: $mobile-width) and (max-width: $desktop-width) {
-    #hero {
-      p.block-bg {
-        margin-top: 5px;
-      }
-      h2.block-bg {
-        line-height: 1;
-      }
-      .sign-up-trampoline {
-        margin-top: 5px;
-      }
-    }
-  }
-
-  @media (max-width: $mobile-width) {
-    #hero {
-      background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
-        no-repeat
-        center -135px;
-      background-size: cover;
-      padding-bottom: 20px;
-      .content {
-        margin-top: 178px;
-      }
-      h2.block-bg {
-        line-height: 1;
-      }
-      p.block-bg {
-        margin-top: 5px;
-      }
-      .sign-up-trampoline {
-        margin-top: 5px;
-      }
-    }
-  }
-
-  @media (max-width: $tiny-mobile-width) {
-    #hero {
-      background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
-        no-repeat
-        center -110px;
-      background-size: cover;
-      .content {
-        margin-top: 142px;
-      }
-      p.block-bg {
-        margin-top: 8px;
-      }
-      .sign-up-trampoline {
-        margin-top: 4px;
-      }
-      h1 {
-        line-height: 1.2;
-      }
-    }
-  }
-
-// BANNER
-  #banner {
-    background: $red;
+// POWERED BY RED BADGER BANNER
+  #red-badger-banner {
+    background: $red-badger;
     height: 50px;
 
     color: white;
@@ -326,73 +127,156 @@
     }
   }
 
-// ABOUT
-  #about {
-    margin: 30px 0px 50px 0px;
-    h2, p {
-      font-size: 30px;
-    }
-    h2 {
+// NAVIGATION BAR
+  #main-nav {
+    ul {
       @extend .reset-spacing;
-      margin-bottom: 10px;
-    }
-    p {
-      line-height: 42px;
-      @extend .reset-spacing;
-    }
-    p:first-of-type {
-      margin-bottom: 10px;
+      li {
+        list-style-type: none;
+        a {
+          display: block;
+          width: 470px;
+          text-align: center;
+          &.active {
+            border-left: $solid-border;
+            border-right: $solid-border;
+          }
+          &.events {
+            background-color: $events;
+          }
+          &.conference {
+            background-color: $conference;
+          }
+        }
+      }
     }
   }
+// ABOUT REACT LONDON EVENTS
+  #about {
+    border-top: $solid-border;
+  }
 
-  @media (max-width: $mobile-width) {
-    #about {
-      h2, p {
-        font-size: 24px;
-      }
-      p {
-        line-height: 33px;
+// NEXT EVENT
+  #next-event {
+    border-top: $solid-border;
+  }
+
+  .content-title {
+    border-bottom: $dash-border;
+  }
+
+// SPEAKERS
+  #speakers {
+    .content {
+      article {
+        width: calc(#{$maximum-content-width} / 3);
       }
     }
   }
 
 // REGISTER
   #register {
-    border-top: 3px solid $grey;
-    padding: 30px 0 50px 0;
-    h3 {
-      font-size: 21px;
-      @extend .reset-spacing;
-      text-align: center;
-    }
-  }
+    background: $events;
 
-// FOOTER
-  footer {
-    background: $grey;
-    height: 105px;
-    ul {
-      @extend .reset-spacing;
-      font-weight: 700;
-      line-height: 1.7;
-      li {
-        list-style-type: none;
-        a {
-          color: $blue;
+
+    // MAILCHIMP
+      #mc_embed_signup{
+        clear: left;
+        font-size: 14px;
+        font-family: 'Objektiv', Arial;
+
+        form#mc-embedded-subscribe-form {
+          padding-top: 27px !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          padding-bottom: 0 !important;
+        }
+
+        #mc_embed_signup_scroll {
+          display: -webkit-flex;
+          display: flex;
+          flex-flow: column wrap;
+          -webkit-flex-flow: column wrap;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+        #mc_embed_signup_input {
+          position: absolute;
+          left: -5000px;
+          cursor: pointer;
+        }
+
+        label[for='mce-EMAIL'] {
+          width: calc(100vw - 80px);
+          max-width: 518px;
+          font-size: 19px;
+          font-weight: 700;
+        }
+
+        #mce-EMAIL {
+          margin: 0px;
+          margin-bottom: 10px;
+          border: 3px solid $grey;
+          background: white;
+          width: calc(100vw - 80px);
+          max-width: 500px;
+          min-height: 36px;
+          padding: 0 9px;
+        }
+
+        input[type="submit"].button {
+          background: $grey;
+          color: $events;
+
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 36px;
+          
+          margin: 20px 0 0 0;
+          padding-bottom: 0px;
+
+          width: auto;
+          min-width: 90px;
+          height: auto;
+          
+          border: 0px;
+          border-radius: 5px;
+
+          cursor: pointer;
           &:hover {
             color: white;
           }
         }
       }
-    }
-    a.footer-logo {
-      display: inline-block;
-      height: 85px;
-      img {
-        height: 100%;
+
+      @media (max-width: $mobile-width) {
+        #mc_embed_signup {
+          form#mc-embedded-subscribe-form {
+            padding: 0px;
+            padding-top: 50px;
+          }
+          #mce-EMAIL {
+            width: calc(100vw - 80px);
+          }
+          label[for='mce-EMAIL'] {
+            width: calc(100vw - 60px);
+          }
+        }
       }
+
+
+  }
+
+// SCHEDULE
+  .schedule-timeline {
+    dt {
+      float: left;
+      clear: left;
+      width: 65px;
+      padding-right: 15px;
+      border-right: $dash-border;
     }
-    object {
-      height: 85px;
+    dl {
+      margin: 0px 0px 10px 100px;
     }
   }
