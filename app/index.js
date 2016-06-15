@@ -15,7 +15,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={Preview} />
-      <Route path="editor" component={App}/>
+      <Route path="editor" component={App} />
     </Router>
   </Provider>,
   document.getElementById('main')

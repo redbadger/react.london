@@ -26,8 +26,9 @@ describe('Reducers', () => {
   );
 
   it('returns the default application state', () => {
-    expect(reducer.default(undefined, {})).to.contain.key('form')
-    expect(reducer.default(undefined, {})).to.contain.key('routing')
+    const state = reducer.default(undefined, {});
+    expect(state).to.contain.key('form');
+    expect(state).to.contain.key('routing');
   });
 
   it('initializes with an empty local database', () => {
