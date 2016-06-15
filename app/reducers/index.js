@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import { persistentReducer } from 'redux-pouchdb-plus';
+// import { persistentReducer } from 'redux-pouchdb-plus';
 import { routerReducer } from 'react-router-redux';
 
 const reducers = combineReducers({
@@ -9,4 +9,5 @@ const reducers = combineReducers({
 });
 
 // TODO: consider if we want routing data persisted...
-export default persistentReducer(reducers);
+// export default persistentReducer(reducers);
+export default reducers;

@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-
 import { configureStore } from './store/';
-import App from './components/App/App';
-import Preview from './components/Preview/Preview';
+
+import EditorHome from './components/EditorHome';
+import EditorLayout from './components/EditorLayout';
+import CommunityEditor from './components/CommunityEditor';
+import ConferenceEditor from './components/ConferenceEditor';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
@@ -14,8 +16,12 @@ const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Preview} />
-      <Route path="editor" component={App} />
+      <Route path="/" component={EditorLayout} >
+        <IndexRoute component={EditorHome} />
+        <Route path="/" component={EditorHome} />
+        <Route path="community" component={CommunityEditor} />
+        <Route path="conference" component={ConferenceEditor} />
+      </Route>
     </Router>
   </Provider>,
   document.getElementById('main')
