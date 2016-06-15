@@ -1,6 +1,7 @@
 // Utilities
   $red-badger: #D2091E;
   $events: #CDE5B3;
+  $events-faded: #F2FAEC;
   $conference: #C6DDE7;
 
   $grey: #4A4A4A;
@@ -184,6 +185,12 @@
     .content {
       article {
         width: calc((#{$maximum-content-width} / 3) - 10px);
+        figure img {
+          width: 120px;
+          height: 120px;
+          border: $solid-border;
+          border-radius: 100%;
+        }
       }
     }
   }
@@ -321,6 +328,24 @@
     }
   }
 
+// UPCOMING EVENTS
+  #upcoming-events {
+    background: $events-faded;
+    .content.events {
+      border-top: $dash-border;
+      align-items: stretch;
+      padding: 0px;
+
+      article {
+        padding: 0px 20px;
+        background: $events;
+        width: calc((#{$maximum-content-width} / 3) - 40px);
+        &.conference {
+          background: $conference;
+        }
+      }
+    }
+  }
 
 // FOOTER
   footer {
