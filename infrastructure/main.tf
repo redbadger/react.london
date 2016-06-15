@@ -17,19 +17,19 @@ resource "aws_s3_bucket" "website" {
   bucket = "${var.s3_bucket_name}"
   acl = "public-read"
   policy = <<POLICY
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-	"Sid": "PublicReadGetObject",
-	"Effect": "Allow",
-	"Principal": "*",
-	"Action": "s3:GetObject",
-	"Resource": "arn:aws:s3:::${var.s3_bucket_name}/*"
-      }
-    ]
-  }
-  POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::${var.s3_bucket_name}/*"
+    }
+  ]
+}
+POLICY
 
   website {
     index_document = "index.html"
@@ -46,22 +46,23 @@ resource "aws_iam_access_key" "staging-editor" {
 }
 
 resource "aws_iam_user_policy" "staging-editor" {
-  name = "test"
+  name = "react-london-staging-s3-access"
   user = "${aws_iam_user.staging-editor.name}"
   policy = <<EOF
-  {
-    "Statement": [
-      {
-	"Action": [
-	  "s3:*"
-	],
-	"Effect": "Allow",
-	"Resource": [
-	  "arn:aws:s3:::${aws_s3_bucket.website.bucket}",
-	  "arn:aws:s3:::${aws_s3_bucket.website.bucket}/*"
-	]
-      }
-    ]
-  }
-  EOF
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+	"s3:*"
+      ],
+      "Resource": [
+	"arn:aws:s3:::${aws_s3_bucket.website.bucket}",
+	"arn:aws:s3:::${aws_s3_bucket.website.bucket}/*"
+      ]
+    }
+  ]
+}
+EOF
 }
