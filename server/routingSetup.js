@@ -12,8 +12,11 @@ export const routingSetup = (app) => {
   app.use(bodyParser.json());
   app.use(ensureAuthenticated);
 
+  app.get('*.js', (req, res) => {
+    res.sendStatus(404);
+  });
+
   app.get('*', (req, res) => {
-    res.location('/');
     res.sendFile(path.join(__dirname, '../app', 'index.html'));
   });
 
