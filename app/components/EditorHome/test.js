@@ -1,9 +1,9 @@
-import Home from '.';
+import EditorHome from '.';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-describe('Home component', () => {
+describe('EditorHome component', () => {
   it('renders successfully', () => {
-    shallow(<Home />);
+    shallow(<EditorHome />);
   });
 });
