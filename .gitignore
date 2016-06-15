@@ -1,0 +1,11 @@
+node_modules
+build
+.DS_Store
+*.log
+dist
+reactlondon
+*config.json
+.env
+.sass-cache
+assets/css/*.css*
+assets/css/maps/main.css.map
