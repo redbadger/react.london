@@ -24,8 +24,8 @@ export const routingSetup = (app) => {
     const page = compilePreview(req.body);
     const pages = [page];
     publishSite(pages)
-    .then(() => res.sendStatus(200))
-    .catch(e => { throw e; });
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(503));
   });
   return app;
 };
