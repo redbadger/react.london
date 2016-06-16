@@ -41,9 +41,6 @@
     "eslint-plugin-jsx-a11y": "^1.3.0",
     "eslint-plugin-react": "^5.1.1",
     "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "fetch-mock": "^4.5.0",
     "html-janitor": "^2.0.2",
     "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
@@ -75,16 +72,11 @@
     "jsdom": "^8.4.1",
     "memdown": "^1.1.2",
     "mocha": "^2.4.5",
-    "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",
     "react-testutils-additions": "^15.1.0",
-    "redux-devtools": "^3.2.0",
-    "redux-devtools-dock-monitor": "^1.1.1",
-    "redux-devtools-log-monitor": "^1.0.11",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.1",
     "supertest": "^1.2.0",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.12.0"
+    "webpack-dev-server": "^1.14.1"
   }
 }
