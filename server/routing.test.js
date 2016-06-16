@@ -16,8 +16,8 @@ function setup(authenticated = true) {
   return routingSetup(app);
 }
 
-describe('GET /', () => {
-  it('302s and redirect user to login when not authenticated', done => {
+describe('GET routes', () => {
+  it('/ 302s and redirect user to login when not authenticated', done => {
     const app = setup(false);
     request(app)
       .get('/')
@@ -26,15 +26,32 @@ describe('GET /', () => {
       .end(done);
   });
 
-  it('200s when authenticated', done => {
+  it('/ 200s when authenticated', done => {
     const app = setup();
     request(app)
       .get('/')
       .expect(200)
-      .expect('Location', '/')
+      .end(done);
+  });
+
+  it('/whatever/route 200s when authenticated', done => {
+    const app = setup();
+    request(app)
+      .get('/whatever/route')
+      .expect(200)
+      .end(done);
+  });
+
+
+  it('404ss for unknown Javascript', done => {
+    const app = setup();
+    request(app)
+      .get('/angular.js')
+      .expect(404)
       .end(done);
   });
 });
+
 
 describe('POST /live/', () => {
   it('302s and redirect user to login when not authenticated', done => {

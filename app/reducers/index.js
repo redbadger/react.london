@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import { persistentReducer } from 'redux-pouchdb-plus';
+import { reducer as form } from 'redux-form';
+import { routerReducer as routing } from 'react-router-redux';
 
-const reducers = combineReducers({ form: formReducer });
+const reducers = combineReducers({
+  form,
+  routing,
+});
 
-export default persistentReducer(reducers);
+export default reducers;
