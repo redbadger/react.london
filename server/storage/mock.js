@@ -28,4 +28,3 @@ export function useFailingMockStore() {
 export function getMockStoreValue(key) {
   return dataStore[key];
 }
-
