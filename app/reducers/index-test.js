@@ -6,5 +6,6 @@ describe('Reducers', () => {
     const state = reducer(undefined, {});
     expect(state).to.contain.key('form');
     expect(state).to.contain.key('routing');
+    expect(state).to.contain.key('events');
   });
 });

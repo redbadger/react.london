@@ -1,9 +1,17 @@
 export const UPDATE_EVENT = 'UPDATE_EVENT';
+export const SET_EVENTS = 'SET_EVENTS';
 
-export default function updateEvent(eventID, eventData) {
+export function updateEvent(eventID, event) {
   return {
     type: UPDATE_EVENT,
-    eventData,
     eventID,
+    event,
+  };
+}
+
+export function setEvents(events) {
+  return {
+    type: SET_EVENTS,
+    events,
   };
 }
