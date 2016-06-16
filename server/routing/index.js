@@ -1,7 +1,7 @@
 import path from 'path';
 import bodyParser from 'body-parser';
-import { compilePreview } from './static-site';
-import { publishSite } from './publish';
+import { compilePreview } from '../static-site';
+import { publishSite } from '../publish';
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -17,7 +17,7 @@ export const routingSetup = (app) => {
   });
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../app', 'index.html'));
+    res.sendFile(path.join(__dirname, '../../app', 'index.html'));
   });
 
   app.post('/publish/', (req, res) => {

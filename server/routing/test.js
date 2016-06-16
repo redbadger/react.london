@@ -2,8 +2,10 @@ import express from 'express';
 import request from 'supertest';
 import passport from 'passport';
 
-import { routingSetup } from './routingSetup';
-import { useFailingMockStore, useMockStore, getMockStoreValue } from './storage/mock';
+import { routingSetup } from '.';
+import {
+  useFailingMockStore, useMockStore, getMockStoreValue,
+} from '../storage/mock';
 
 function setup(authenticated = true) {
   const app = express();
