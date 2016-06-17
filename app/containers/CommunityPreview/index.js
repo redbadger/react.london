@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
-import Community from '../components/Community';
+import Community from '../../components/Community';
 
-// TODO: test
 // TODO: Inject the selected event
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   try {
     return { ...state.form.community.values };
   } catch (e) {
