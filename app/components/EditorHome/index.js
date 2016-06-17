@@ -29,11 +29,11 @@ const EditorHome = () => (
     </ul>
     <h2>Events</h2>
     <ul>
-      {events.map((eventID, index) =>
+      {events.map((eventID, index) => (
         <li key={index}>
           <EventLink id={eventID} />
         </li>
-      )}
+      ))}
     </ul>
   </div>
 );

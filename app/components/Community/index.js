@@ -1,11 +1,6 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 
-  // eventTitle,
-  // eventAddress,
-  // eventDate,
-  // eventStartTime,
-  // eventEndTime,
   // eventSpeakers,
   // eventSchedule,
   // eventSponsors,
@@ -17,12 +12,17 @@ const Community = ({
   mailingListTitle,
   mailingListSummary,
   mailingListConferenceText,
+  eventTitle,
+  eventDate,
+  eventAddress,
+  eventStartTime,
+  eventEndTime,
 }) => (
   <div className="community">
     <div id="wrapper">
       <main>
 
-      {/* HERO (main banner) */}
+        {/* HERO (main banner) */}
         <header id="hero" className="block">
           <div className="content">
             <h1>
@@ -70,16 +70,16 @@ const Community = ({
           </div>
           <div className="content space-between">
             <article>
-              <h3>June React Meetup</h3>
+              <h3>{eventTitle}</h3>
               <ul className="event-details semantic-only">
                 <li className="date">
-                  <a href="#">28 June 2016 Tuesday</a>
+                  <a href="#">{eventDate}</a>
                 </li>
                 <li className="location">
-                  <a href="#">10 Brock Street NW1 3FG London</a>
+                  <a href="#">{eventAddress}</a>
                 </li>
                 <li className="time">
-                  <a href="#">from 18:30 to 21:30</a>
+                  <a href="#">from {eventStartTime} to {eventEndTime}</a>
                 </li>
               </ul>
             </article>
