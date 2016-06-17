@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Community from '../../components/Community';
 
 // TODO: test
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   let event;
   try {
     event = { ...state.form.event.values };
