@@ -1,6 +1,57 @@
 import React, { PropTypes } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, FieldArray } from 'redux-form';
 import CommunityPreview from '../../containers/CommunityPreview';
+
+const Speakers = ({ fields }) => (
+  <ul>
+    <div>
+      <button type="button" onClick={() => fields.push()}>Add Speaker</button>
+    </div>
+    {fields.map((speaker, index) => (
+      <li key={index}>
+        <button type="button" onClick={() => fields.remove(index)} >
+          Remove Speaker
+        </button>
+
+        <div>
+          <label>Name</label>
+          <Field name={speaker + 'name'} type="text" component="input" />
+        </div>
+        <div>
+          <label>Company</label>
+          <Field name={speaker + 'company'} type="text" component="input" />
+        </div>
+        <div>
+          <label>Talk Title</label>
+          <Field name={speaker + 'talkTitle'} type="text" component="input" />
+        </div>
+        <div>
+          <label>Talk Summary</label>
+          <Field name={speaker + 'talkSummary'} type="text" component="input" />
+        </div>
+        <div>
+          <label>Twitter Handle</label>
+          <Field name={speaker + 'twitterHandle'} type="text" component="input" />
+        </div>
+        <div>
+          <label>GitHub Handle</label>
+          <Field name={speaker + 'githubHandle'} type="text" component="input" />
+        </div>
+        <div>
+          <label>Blog URL</label>
+          <Field name={speaker + 'blogURL'} type="text" component="input" />
+        </div>
+      </li>
+    ))}
+  </ul>
+);
+
+Speakers.propTypes = {
+  fields: PropTypes.shape({
+    push: PropTypes.func,
+    remove: PropTypes.func,
+  }),
+};
 
 const Form = () => {
   return (
@@ -31,6 +82,7 @@ const Form = () => {
 
       <section>
         <h3>Speakers</h3>
+        <FieldArray name="members" component={Speakers} />
       </section>
 
       <section>

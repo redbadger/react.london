@@ -5,18 +5,14 @@ react.london
 
 A static site generator for the monthly London React meetup. Allows WYSIWIG creation and publication of meetup information pages.
 
-This project employs a number of javascript frameworks and approaches,
+This project employs a number of Javascript librarys and approaches,
 including _React_, _Redux_, _Redux Forms_, _Scribe_, _Radium_, _Server-Side
 Rendering_, and _WebPack_. Most importantly, we're utilising EDD (Emoji Driven
 Development 😱).
 
-Generated pages are publication to and hosted on AWS S3 buckets.
+Generated pages are hosted on AWS S3.
 
 ## 🏃Getting started
-
-Before starting, be aware you will require an AWS account to push static pages
-to the web. AWS will inspect ENV variables for credentials at runtime. Bucket
-locations are currently hard-coded but will be configurable soonⒸ.
 
 ### Dev Setup
 
