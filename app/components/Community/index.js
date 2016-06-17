@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
+import Speaker from '../Speaker';
 
-  // eventSpeakers,
   // eventSchedule,
   // eventSponsors,
   // upcomingEvents,
@@ -17,6 +17,7 @@ const Community = ({
   eventAddress,
   eventStartTime,
   eventEndTime,
+  eventSpeakers,
 }) => (
   <div className="community">
     <div id="wrapper">
@@ -92,48 +93,15 @@ const Community = ({
         </section>
 
         {/* SPEAKERS */}
-        {/* TODO: Iterate over speakers */}
         <section id="speakers" className="block">
           <div className="content">
             <h2 className="content-title">Speakers</h2>
           </div>
           <div className="content space-between">
-            <article>
-              <figure><img src="#" alt="Stuart Harris" /></figure>
-              <ul className="semantic-only">
-                <li><a href="#"><img src="" alt="twitter" /></a></li>
-                <li><a href="#"><img src="" alt="github" /></a></li>
-              </ul>
-              <h5>Stuart Harris Red Badger</h5>
-              <h4>IMMUTABLE INFRASTRUCTURE AS CODE</h4>
-              <p>React is already having a huge impact on the way we think about
-              Web UI development at Red Badger and this is an opportunity to
-              learn why and share your own experiences.</p>
-            </article>
-            <article>
-              <figure><img src="#" alt="David Wynne" /></figure>
-              <ul className="semantic-only">
-                <li><a href="#"><img src="" alt="twitter" /></a></li>
-                <li><a href="#"><img src="" alt="github" /></a></li>
-              </ul>
-              <h5>David Wynne Red Badger</h5>
-              <h4>THE SCIENCE OF ESTIMATING</h4>
-              <p>React is already having a huge impact on the way we think
-              about Web UI development at Red Badger and this is an opportunity
-              to learn why and share your own experiences.</p>
-            </article>
-            <article>
-              <figure><img src="#" alt="Cain Ullah" /></figure>
-              <ul className="semantic-only">
-                <li><a href="#"><img src="" alt="twitter" /></a></li>
-                <li><a href="#"><img src="" alt="github" /></a></li>
-              </ul>
-              <h5>Cain Ullah Red Badger</h5>
-              <h4>INCENTIVISING YOUR STAFF BEYOND CARROT AND STICK</h4>
-              <p>React is already having a huge impact on the way we think about
-              Web UI development at Red Badger and this is an opportunity to
-              learn why and share your own experiences.</p>
-            </article>
+
+            {eventSpeakers && eventSpeakers.fields.map((props, index) => (
+              <Speaker key={index} {...props} />
+            ))}
           </div>
         </section>
 
