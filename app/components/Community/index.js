@@ -1,6 +1,16 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 
+  // eventTitle,
+  // eventAddress,
+  // eventDate,
+  // eventStartTime,
+  // eventEndTime,
+  // eventSpeakers,
+  // eventSchedule,
+  // eventSponsors,
+  // upcomingEvents,
+
 const Community = ({
   communityTitle,
   communitySummary,
@@ -284,12 +294,23 @@ const Community = ({
   </div>
 );
 
+const collectionType = PropTypes.object;
+
 Community.propTypes = {
   communityTitle: PropTypes.string,
   communitySummary: PropTypes.string,
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
   mailingListConferenceText: PropTypes.string,
+  eventTitle: PropTypes.string,
+  eventAddress: PropTypes.string,
+  eventDate: PropTypes.string,
+  eventStartTime: PropTypes.string,
+  eventEndTime: PropTypes.string,
+  eventSpeakers: collectionType,
+  eventSchedule: collectionType,
+  eventSponsors: collectionType,
+  upcomingEvents: collectionType,
 };
 
 export default Community;

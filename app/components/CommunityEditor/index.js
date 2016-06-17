@@ -36,6 +36,7 @@ const Form = () => (
   </div>
 );
 
+// TODO: Inject initial state
 const ConnectedForm = reduxForm({
   form: 'community',
 })(Form);
@@ -43,7 +44,7 @@ const ConnectedForm = reduxForm({
 const CommunityEditor = () => (
   <div className="community-editor">
     <h1>
-      CommunityEditor!
+      Community Editor!
     </h1>
     <ConnectedForm />
 
