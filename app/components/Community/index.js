@@ -92,6 +92,7 @@ const Community = ({
         </section>
 
         {/* SPEAKERS */}
+        {/* TODO: Iterate over speakers */}
         <section id="speakers" className="block">
           <div className="content">
             <h2 className="content-title">Speakers</h2>
@@ -197,7 +198,8 @@ const Community = ({
         <section id="event-details" className="block">
           <div className="content space-between">
 
-          {/* SCHEDULE */}
+            {/* SCHEDULE */}
+            {/* TODO: Iterate over schedule items */}
             <article id="schedule">
               <h3>Schedule</h3>
               <dl className="schedule-timeline">
@@ -213,6 +215,7 @@ const Community = ({
             </article>
 
             {/* SPONSORS */}
+            {/* TODO: Iterate over sponsors */}
             <article id="sponsors">
               <h3>Sponsors</h3>
               <ul className="semantic-only">
@@ -241,7 +244,7 @@ const Community = ({
 
 
       {/* UPCOMING EVENTS */}
-      {/* TODO */}
+      {/* TODO: Iterate over upcomingEvents */}
       <section id="upcoming-events" className="block">
         <div className="content">
           <h2>Upcoming Events</h2>

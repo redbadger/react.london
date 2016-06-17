@@ -15,14 +15,16 @@ const SiteFooter = () => (
           <a href="https://twitter.com/search?q=%23londonreact" target="_blank">#londonreact</a>
         </li>
         <li>
+          {/* TODO: Get slack link */}
           <a href="#" target="_blank">Join the conversation</a>
         </li>
         <li>
+          {/* TODO: Get video archive link */}
           <a href="#" target="_blank">Watch videos</a>
         </li>
       </ul>
 
-      <a href="http://red-badger.com/" className="footer-logo" target="_blank">
+      <a href="https://red-badger.com/" className="footer-logo" target="_blank">
         <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
           <img
             srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
