@@ -8,3 +8,4 @@ reactlondon
 .env
 .eslintcache
 infrastructure/secrets.tfvars
+*.tfstate*
