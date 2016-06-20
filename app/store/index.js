@@ -1,26 +1,36 @@
 /* eslint-disable global-require */
 import 'babel-polyfill';
 
-import { createStore, compose } from 'redux';
-
+import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers';
 
 
-const enhancer = compose(
-  // Enable Redux DevTools with the monitors you chose
-  (
-    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined'
-  ) ? window.devToolsExtension() : f => f
+// Dev tools
+
+let devtoolsMiddleware;
+if (typeof window === 'object' && typeof window.devToolsExtension !== 'undefined') {
+  devtoolsMiddleware = window.devToolsExtension();
+} else {
+  devtoolsMiddleware = f => f;
+}
+
+
+// Sagas
+
+import createSagaMiddleware from 'redux-saga';
+const sagaMiddleware = createSagaMiddleware();
+import saga from '../sagas';
+
+
+// Store
+
+const middleware = compose(
+  devtoolsMiddleware,
+  applyMiddleware(sagaMiddleware)
 );
 
 export const configureStore = initialState => {
-  const store = createStore(rootReducer, initialState, enhancer);
-
-  if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers'))
-    );
-  }
-
+  const store = createStore(rootReducer, initialState, middleware);
+  sagaMiddleware.run(saga);
   return store;
 };
