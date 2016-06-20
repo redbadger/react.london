@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speaker from '../Speaker';
 import ScheduleItem from '../ScheduleItem';
+import Sponsor from '../Sponsor';
 
 const Community = ({
   communityTitle,
@@ -178,12 +179,8 @@ const Community = ({
             <article id="sponsors">
               <h3>Sponsors</h3>
               <ul className="semantic-only">
-                {eventSponsors && eventSponsors.map((sponsor, index) => (
-                  sponsor ? <li key={index}>
-                    <a href={sponsor.websiteURL} target="_blank">
-                      <img src={sponsor.imageURL} alt="Red Badger logo" />
-                    </a>
-                  </li> : null
+                {eventSponsors && eventSponsors.map((props, index) => (
+                  <Sponsor key={index} {...props} />
                 ))}
               </ul>
             </article>
