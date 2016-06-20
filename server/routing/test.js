@@ -2,7 +2,10 @@ import express from 'express';
 import request from 'supertest';
 import passport from 'passport';
 
-import { routingSetup } from './routingSetup';
+import { routingSetup } from '.';
+import {
+  useFailingMockStore, useMockStore, getMockStoreValue,
+} from '../storage/mock';
 
 function setup(authenticated = true) {
   const app = express();
@@ -23,7 +26,10 @@ describe('GET routes', () => {
       .get('/')
       .expect(302)
       .expect('Location', '/login')
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
   });
 
   it('/ 200s when authenticated', done => {
@@ -31,7 +37,10 @@ describe('GET routes', () => {
     request(app)
       .get('/')
       .expect(200)
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
   });
 
   it('/whatever/route 200s when authenticated', done => {
@@ -39,40 +48,63 @@ describe('GET routes', () => {
     request(app)
       .get('/whatever/route')
       .expect(200)
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
   });
 
 
-  it('404ss for unknown Javascript', done => {
+  it('404s for unknown Javascript', done => {
     const app = setup();
     request(app)
       .get('/angular.js')
       .expect(404)
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
   });
 });
 
 
-describe('POST /live/', () => {
+describe('POST /publish/', () => {
   it('302s and redirect user to login when not authenticated', done => {
+    useMockStore();
     const app = setup(false);
     request(app)
-      .post('/live/')
+      .post('/publish/', { events: {} })
       .expect(302)
       .expect('Location', '/login')
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
   });
 
-  it.skip('generates the site and 202s when authenticated', done => {
-    // TODO
-    // mock out the call to AWS somehow.
+  it('generates the site and 201s when authenticated', done => {
+    useMockStore();
     const app = setup();
     request(app)
-      .post('/live/')
+      .post('/publish/', {})
       .expect(201)
-      // Assert that mock has been called.
-      .end(done);
+      .end((err) => {
+        if (err) throw err;
+        const body = getMockStoreValue('index.html');
+        expect(body).to.match(/meetup/);
+        done();
+      });
   });
 
-  it('500s when unable to upload to S3');
+  it('500s when unable to upload to S3', done => {
+    useFailingMockStore();
+    const app = setup();
+    request(app)
+      .post('/publish/', {})
+      .expect(503)
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
+  });
 });
