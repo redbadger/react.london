@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
-import { reduxForm, Field, FieldArray } from 'redux-form';
+import { reduxForm, FieldArray } from 'redux-form';
 import EventPreview from '../../containers/EventPreview';
+import TextField from '../TextField/index.js';
 
 const Speakers = ({ fields }) => (
   <ul>
@@ -12,34 +13,13 @@ const Speakers = ({ fields }) => (
         <button type="button" onClick={() => fields.remove(index)} >
           Remove Speaker
         </button>
-        <div>
-          <label>Name</label>
-          <Field name={speaker + 'name'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Company</label>
-          <Field name={speaker + 'company'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Talk Title</label>
-          <Field name={speaker + 'talkTitle'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Talk Summary</label>
-          <Field name={speaker + 'talkSummary'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Twitter Handle</label>
-          <Field name={speaker + 'twitterHandle'} type="text" component="input" />
-        </div>
-        <div>
-          <label>GitHub Handle</label>
-          <Field name={speaker + 'githubHandle'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Blog URL</label>
-          <Field name={speaker + 'blogURL'} type="text" component="input" />
-        </div>
+        <TextField label="Name" name={speaker + 'name'} />
+        <TextField label="Company" name={speaker + 'company'} />
+        <TextField label="Talk Title" name={speaker + 'talkTitle'} />
+        <TextField label="Talk Summary" name={speaker + 'talkSummary'} />
+        <TextField label="Twitter Handle" name={speaker + 'twitterHandle'} />
+        <TextField label="GitHub Handle" name={speaker + 'githubHandle'} />
+        <TextField label="Blog URL" name={speaker + 'blogURL'} />
       </li>
     ))}
   </ul>
@@ -62,14 +42,8 @@ const Schedule = ({ fields }) => (
         <button type="button" onClick={() => fields.remove(index)} >
           Remove Schedule Item
         </button>
-        <div>
-          <label>Time</label>
-          <Field name={item + 'time'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Text</label>
-          <Field name={item + 'text'} type="text" component="input" />
-        </div>
+        <TextField label="Time" name={item + 'time'} />
+        <TextField label="Text" name={item + 'text'} />
       </li>
     ))}
   </ul>
@@ -92,14 +66,8 @@ const Sponsors = ({ fields }) => (
         <button type="button" onClick={() => fields.remove(index)} >
           Remove Sponsor
         </button>
-        <div>
-          <label>Image</label>
-          <Field name={sponsor + 'imageURL'} type="text" component="input" />
-        </div>
-        <div>
-          <label>URL</label>
-          <Field name={sponsor + 'websiteURL'} type="text" component="input" />
-        </div>
+        <TextField label="Image" name={sponsor + 'imageURL'} />
+        <TextField label="URL" name={sponsor + 'websiteURL'} />
       </li>
     ))}
   </ul>
@@ -122,22 +90,10 @@ const UpcomingEvents = ({ fields }) => (
         <button type="button" onClick={() => fields.remove(index)} >
           Remove Event
         </button>
-        <div>
-          <label>Title</label>
-          <Field name={event + 'title'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Date</label>
-          <Field name={event + 'date'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Time</label>
-          <Field name={event + 'time'} type="text" component="input" />
-        </div>
-        <div>
-          <label>Venue</label>
-          <Field name={event + 'venue'} type="text" component="input" />
-        </div>
+        <TextField label="Title" name={event + 'title'} />
+        <TextField label="Date" name={event + 'date'} />
+        <TextField label="Time" name={event + 'time'} />
+        <TextField label="Venue" name={event + 'venue'} />
       </li>
     ))}
   </ul>
@@ -155,26 +111,11 @@ const Form = () => {
     <div className="event-editor">
       <section>
         <h3>Event</h3>
-        <div>
-          <label>Title</label>
-          <Field name="eventTitle" type="text" component="input" />
-        </div>
-        <div>
-          <label>Address</label>
-          <Field name="eventAddress" type="text" component="input" />
-        </div>
-        <div>
-          <label>Date</label>
-          <Field name="eventDate" type="text" component="input" />
-        </div>
-        <div>
-          <label>Start Time</label>
-          <Field name="eventStartTime" type="text" component="input" />
-        </div>
-        <div>
-          <label>End Time</label>
-          <Field name="eventEndTime" type="text" component="input" />
-        </div>
+        <TextField label="Title" name={'eventTitle'} />
+        <TextField label="Address" name={'eventAddress'} />
+        <TextField label="Date" name={'eventDate'} />
+        <TextField label="Start Time" name={'eventStartTime'} />
+        <TextField label="End Time" name={'eventEndTime'} />
       </section>
 
       <section>
