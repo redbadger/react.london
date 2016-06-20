@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TextField from './TextField';
+import TextField from './index';
 
 function setup(touched = false, error) {
   const props = {
-    label: 'Hello label',
-    something: 'Hello',
+    label: 'Example Label',
+    name: 'Example Name',
     touched,
     error,
   };
@@ -13,31 +13,17 @@ function setup(touched = false, error) {
   return { props, output };
 }
 
-
 describe('TextField', () => {
-  it('renders the label element', () => {
+  it('passes the for property to the label correctly', () => {
     const { props, output } = setup();
-    const labelField = output.find('label').nodes[0];
-    expect(labelField.props.children).to.equal(props.label);
+    const label = output.find('label');
+    expect(label.prop('htmlFor')).to.equal(props.name);
   });
 
-  it('renders the input', () => {
-    const { output } = setup();
-    const input = output.find('input').nodes[0];
-    expect(input.props.type).to.equal('text');
-  });
-
-  it('applies field props to input', () => {
+  it('it passes the correct parameters to the input', () => {
     const { props, output } = setup();
-    const fieldProps = output.find('input').nodes[0].props;
-    expect(fieldProps.touched).to.equal(props.touched);
-    expect(fieldProps.error).to.equal(props.error);
-  });
-
-  it('passes field error fields onto FieldError', () => {
-    const { props, output } = setup();
-    const fieldError = output.find('FieldError').nodes[0];
-    expect(fieldError.props.touched).to.equal(props.touched);
-    expect(fieldError.props.error).to.equal(props.error);
+    const input = output.find('Field');
+    expect(input.prop('id')).to.equal(props.name);
+    expect(input.prop('name')).to.equal(props.name);
   });
 });

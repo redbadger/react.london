@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import ScribeEditor from 'react-scribe';
 import radium, { Style } from 'radium';
 import scribeSanitizer from '../../scribe/sanitizer';
-import FieldError from '../FieldError/FieldError';
+import FieldError from '../FieldError/index';
 
 const scribePlugins = [
   'ol',
