@@ -1,10 +1,59 @@
 import React from 'react';
+import radium, { Style } from 'radium';
+import { colors, layout } from '../../constants/brandingStyles';
+
+const style = {
+  footer: {
+    ...layout.block,
+    background: colors.grey,
+    height: '105px',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  content: {
+    ...layout.contentWithSpaceBetween,
+  },
+  logo: {
+    display: 'block',
+    height: '85px',
+    img: {
+      height: '100%',
+    },
+    svg: {
+      height: '85px',
+    },
+  },
+  links: {
+    fontWeight: '500',
+    lineHeight: '1.7',
+    columnCount: '2',
+    columnGap: '80px',
+  },
+};
+
+const componentWideStyles = (<Style
+  scopeSelector="#SiteFooter"
+  rules={{
+    li: {
+      listStyleType: 'none',
+    },
+    a: {
+      color: colors.white,
+      ':hover': {
+        color: colors.events,
+      },
+    },
+  }}
+/>);
+
 
 const SiteFooter = () => (
-  <footer className="block">
-    <div className="content space-between">
+  <footer id="SiteFooter" style={style.footer} >
+    {componentWideStyles}
 
-      <ul className="semantic-only">
+    <div style={style.content}>
+
+      <ul style={style.links}>
         <li>
           <a href="mailto:hello@react.london">hello@react.london</a>
         </li>
@@ -24,9 +73,13 @@ const SiteFooter = () => (
         </li>
       </ul>
 
-      <a href="https://red-badger.com/" className="footer-logo" target="_blank">
-        <object data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
+      <a href="https://red-badger.com/" style={style.logo} target="_blank">
+        <object
+          style={style.logo.svg}
+          data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml"
+        >
           <img
+            style={style.logo.img}
             srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
             src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
             alt="Red Badger logo"
@@ -38,4 +91,4 @@ const SiteFooter = () => (
   </footer>
 );
 
-export default SiteFooter;
+export default radium(SiteFooter);
