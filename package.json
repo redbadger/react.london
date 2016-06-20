@@ -71,7 +71,6 @@
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.1.0",
     "react-testutils-additions": "^15.1.0",
-    "sinon": "^1.17.3",
     "style-loader": "^0.13.1",
     "supertest": "^1.2.0",
     "webpack-dev-server": "^1.14.1"
