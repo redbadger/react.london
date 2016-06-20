@@ -11,6 +11,7 @@ import EditorNotFound from './components/EditorNotFound';
 import EventEditor from './components/EventEditor';
 import CommunityEditor from './components/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
+import Home from './components/Home';
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
@@ -21,6 +22,7 @@ ReactDOM.render(
       <Route path="/" component={EditorLayout} >
         <IndexRoute component={EditorHome} />
         <Route path="/" component={EditorHome} />
+        <Route path="home" component={Home} />
         <Route path="community" component={CommunityEditor} />
         <Route path="conference" component={ConferenceEditor} />
         <Route path="event/:eventID" component={EventEditor} />
