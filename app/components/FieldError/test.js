@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import FieldError from './FieldError';
+import FieldError from './index';
 
 function setup({ touched, error }) {
   const props = {
