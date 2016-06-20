@@ -2,9 +2,10 @@ import React, { PropTypes } from 'react';
 
 const GitHubLink = ({ handle }) => {
   const url = `https://github.com/${handle}`;
-  return handle && (
-    <a href={url}><img src="#TODO" alt="github" /></a>
-  );
+  if (handle) {
+    return <a href={url}><img src="#TODO" alt="github" /></a>;
+  }
+  return null;
 };
 
 GitHubLink.propTypes = {
@@ -13,9 +14,10 @@ GitHubLink.propTypes = {
 
 const TwitterLink = ({ handle }) => {
   const url = `https://twitter.com/${handle}`;
-  return handle && (
-    <a href={url}><img src="#TODO" alt="twitter" /></a>
-  );
+  if (handle) {
+    return <a href={url}><img src="#TODO" alt="twitter" /></a>;
+  }
+  return null;
 };
 
 TwitterLink.propTypes = {

@@ -2,12 +2,6 @@ import Community from '.';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-const fieldArray = {
-  fields: {
-    map: () => {},
-  },
-};
-
 describe('Community component', () => {
   it('renders successfully with collections', () => {
     const props = {
@@ -21,10 +15,33 @@ describe('Community component', () => {
       eventDate: 'Tomorrow!',
       eventStartTime: '6pm',
       eventEndTime: '9pm',
-      eventSpeakers: fieldArray,
-      eventSchedule: fieldArray,
-      eventSponsors: fieldArray,
-      upcomingEvents: fieldArray,
+      eventSpeakers: [
+        {
+          name: 'Sarah',
+          company: 'Green Elephant',
+          talkTitle: 'Clean GenServer APIs',
+          talkSummary: 'Making your processes developer friendly',
+          twitterHandle: 'foo',
+          githubHandle: 'bar',
+          blogURL: 'https://foo.bar',
+        },
+      ],
+      eventSchedule: [
+        { time: '6pm', text: 'Do things' },
+        { time: '9pm', text: 'Do stuff' },
+      ],
+      eventSponsors: [
+        { websiteURL: 'barfoo', imageURL: 'slim' },
+        { websiteURL: 'foobar', imageURL: 'foobar' },
+      ],
+      upcomingEvents: [
+        {
+          venue: 'codemesh',
+          time: '9pm',
+          date: '1915',
+          title: 'Code Mesh',
+        },
+      ],
     };
     shallow(<Community {...props} />);
   });

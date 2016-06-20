@@ -2,10 +2,6 @@ import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speaker from '../Speaker';
 
-  // eventSchedule,
-  // eventSponsors,
-  // upcomingEvents,
-
 const Community = ({
   communityTitle,
   communitySummary,
@@ -18,6 +14,9 @@ const Community = ({
   eventStartTime,
   eventEndTime,
   eventSpeakers,
+  eventSchedule,
+  eventSponsors,
+  upcomingEvents,
 }) => (
   <div className="community">
     <div id="wrapper">
@@ -99,7 +98,7 @@ const Community = ({
           </div>
           <div className="content space-between">
 
-            {eventSpeakers && eventSpeakers.fields.map((props, index) => (
+            {eventSpeakers && eventSpeakers.map((props, index) => (
               <Speaker key={index} {...props} />
             ))}
           </div>
@@ -158,8 +157,6 @@ const Community = ({
             </div>
             <p>{mailingListConferenceText}</p>
             {/* End mc_embed_signup */}
-
-            <div>Mailing List Conference Text: {mailingListConferenceText}</div>
           </div>
         </section>
 
@@ -167,41 +164,29 @@ const Community = ({
           <div className="content space-between">
 
             {/* SCHEDULE */}
-            {/* TODO: Iterate over schedule items */}
             <article id="schedule">
               <h3>Schedule</h3>
               <dl className="schedule-timeline">
-                <dt>6.30PM</dt>
-                <dl>Doors open for pizza and beers </dl>
-                <dt>7.00PM</dt>
-                <dl>Intro from Stu </dl>
-                <dt>7.10PM</dt>
-                <dl>2 or 3 speakers each with 20 minutes to talk followed by Q&A</dl>
-                <dt>8.30PM</dt>
-                <dl>Everyone is welcome to stay for another drink </dl>
+                {eventSchedule && eventSchedule.map((item, index) => (
+                  item ? <div key={index}>
+                    <dt>{item.time}</dt>
+                    <dd>{item.text}</dd>
+                  </div> : null
+                ))}
               </dl>
             </article>
 
             {/* SPONSORS */}
-            {/* TODO: Iterate over sponsors */}
             <article id="sponsors">
               <h3>Sponsors</h3>
               <ul className="semantic-only">
-                <li>
-                  <a href="http://red-badger.com/" target="_blank">
-                    <object
-                      data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg"
-                      type="image/svg+xml"
-                    >
-                      <img
-                        srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
-                        src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
-                        alt="Red Badger logo"
-                      />
-                    </object>
-                  </a>
-                </li>
-                <li><a href="#"><img src="" alt="facebook" /></a></li>
+                {eventSponsors && eventSponsors.map((sponsor, index) => (
+                  sponsor ? <li key={index}>
+                    <a href={sponsor.websiteURL} target="_blank">
+                      <img src={sponsor.imageURL} alt="Red Badger logo" />
+                    </a>
+                  </li> : null
+                ))}
               </ul>
             </article>
 
@@ -212,51 +197,27 @@ const Community = ({
 
 
       {/* UPCOMING EVENTS */}
-      {/* TODO: Iterate over upcomingEvents */}
       <section id="upcoming-events" className="block">
         <div className="content">
           <h2>Upcoming Events</h2>
         </div>
         <div className="content space-between events">
-          <article>
-            <h3>July React Meetup</h3>
-            <ul className="event-details semantic-only">
-              <li className="date">
-                <a href="#">28 July 2016 Tuesday</a>
-              </li>
-              <li className="location">
-                <a href="#">10 Brock Street NW1 3FG London</a>
-              </li>
-              <li className="time">
-                <a href="#">from 18:30 to 21:30</a>
-              </li>
-            </ul>
-          </article>
-          <article>
-            <h3>August React Meetup</h3>
-            <ul className="event-details semantic-only">
-              <li className="date">
-                <a href="#">28 August 2016 Tuesday</a>
-              </li>
-              <li className="location">
-                <a href="#">10 Brock Street NW1 3FG London</a>
-              </li>
-              <li className="time">
-                <a href="#">from 18:30 to 21:30</a>
-              </li>
-            </ul>
-          </article>
-          <article className="conference">
-            <h3>React London Conference 2017</h3>
-            <ul className="event-details semantic-only">
-              <li className="date">
-                <a href="#">March 2017</a>
-              </li>
-              <li className="location">
-                <a href="#">London</a>
-              </li>
-            </ul>
-          </article>
+          {upcomingEvents && upcomingEvents.map((event, index) => (
+            event ? <article key={index}>
+              <h3>{event.title}</h3>
+              <ul className="event-details semantic-only">
+                <li className="date">
+                  <a>{event.date}</a>
+                </li>
+                <li className="location">
+                  <a>{event.venue}</a>
+                </li>
+                <li className="time">
+                  <a>from {event.startTime} to {event.endTime}</a>
+                </li>
+              </ul>
+            </article> : null
+          ))}
         </div>
       </section>
 
@@ -264,8 +225,6 @@ const Community = ({
     </div>
   </div>
 );
-
-const collectionType = PropTypes.object;
 
 Community.propTypes = {
   communityTitle: PropTypes.string,
@@ -278,10 +237,10 @@ Community.propTypes = {
   eventDate: PropTypes.string,
   eventStartTime: PropTypes.string,
   eventEndTime: PropTypes.string,
-  eventSpeakers: collectionType,
-  eventSchedule: collectionType,
-  eventSponsors: collectionType,
-  upcomingEvents: collectionType,
+  eventSpeakers: PropTypes.array,
+  eventSchedule: PropTypes.array,
+  eventSponsors: PropTypes.array,
+  upcomingEvents: PropTypes.array,
 };
 
 export default Community;

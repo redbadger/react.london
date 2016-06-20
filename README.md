@@ -3,9 +3,10 @@ react.london
 
 [![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=svg)](https://circleci.com/gh/redbadger/react.london)
 
-A static site generator for the monthly London React meetup. Allows WYSIWIG creation and publication of meetup information pages.
+A static site generator for the monthly London React meetup. Allows WYSIWIG
+creation and publication of meetup information pages.
 
-This project employs a number of Javascript librarys and approaches,
+This project employs a number of Javascript libraries and approaches,
 including _React_, _Redux_, _Redux Forms_, _Scribe_, _Radium_, _Server-Side
 Rendering_, and _WebPack_. Most importantly, we're utilising EDD (Emoji Driven
 Development 😱).
