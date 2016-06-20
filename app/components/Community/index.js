@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speaker from '../Speaker';
+import ScheduleItem from '../ScheduleItem';
 
 const Community = ({
   communityTitle,
@@ -167,11 +168,8 @@ const Community = ({
             <article id="schedule">
               <h3>Schedule</h3>
               <dl className="schedule-timeline">
-                {eventSchedule && eventSchedule.map((item, index) => (
-                  item ? <div key={index}>
-                    <dt>{item.time}</dt>
-                    <dd>{item.text}</dd>
-                  </div> : null
+                {eventSchedule && eventSchedule.map((props, index) => (
+                  <ScheduleItem key={index} {...props} />
                 ))}
               </dl>
             </article>
