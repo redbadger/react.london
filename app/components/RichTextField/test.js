@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ScribeEditor from 'react-scribe';
-import RichTextField from './index';
+import RichTextField from '.';
 
 function setup(touched = false, error) {
   const props = {

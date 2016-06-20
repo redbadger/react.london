@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TextField from './index';
+import TextField from '.';
 
 function setup(touched = false, error) {
   const props = {
