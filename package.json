@@ -61,6 +61,7 @@
     "redux-form": "^6.0.0-alpha.13",
     "sass-loader": "^3.2.1",
     "serialize-javascript": "^1.2.0",
+    "watch": "^0.19.1",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1"
   },
