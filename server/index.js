@@ -5,10 +5,16 @@ import { authSetup } from './auth';
 import { webpackSetup } from './webpack';
 import { routingSetup } from './routing';
 
-let app = authSetup(express());
-app.use(morgan('dev'));
-app = webpackSetup(app);
-app = routingSetup(app);
+const app = authSetup(express());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(morgan('common'));
+} else {
+  app.use(morgan('dev'));
+  webpackSetup(app);
+}
+
+routingSetup(app);
 
 const port = process.env.PORT || 8080;
 
