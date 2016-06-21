@@ -51,7 +51,6 @@
     "normalize.css": "^4.1.1",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
-    "radium": "^0.17.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
