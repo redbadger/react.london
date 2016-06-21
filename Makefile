@@ -36,6 +36,9 @@ dist/index.html:
 	mkdir -p dist
 	cp app/index.html dist
 
+dist-serve:
+	ruby -run -e httpd . -p 4000
+
 start: ## Start the server
 	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0
 
