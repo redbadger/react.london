@@ -1,7 +1,7 @@
 export const colors = {
   redBadger: '#D2091E',
-  events: '#CDE5B3',
-  events_faded: '#F2FAEC',
+  community: '#CDE5B3',
+  community_faded: '#F2FAEC',
   conference: '#C6DDE7',
   grey: '#4A4A4A',
   white: '#FFFFFF',

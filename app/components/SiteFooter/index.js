@@ -40,7 +40,7 @@ const componentWideStyles = (<Style
     a: {
       color: colors.white,
       ':hover': {
-        color: colors.events,
+        color: colors.community,
       },
     },
   }}
