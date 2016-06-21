@@ -52,4 +52,11 @@ make terraform-staging-apply
 
 ### Deployment
 
-The editor is currently on Heroku. Ask a dev for the details :)
+The editor is currently on Heroku.
+
+```sh
+# Add the staging remote
+heroku git:remote -r staging -a staging-react-london
+# Deploy staging
+git push staging master
+```
