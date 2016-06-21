@@ -40,9 +40,13 @@ make
 # Run the server on localhost:8080
 make start
 
-# Run the front end build
+# Compile the front end
 make build
 make build-watch
+
+# Compile the static pages
+make pages
+make pages-watch
 
 # Run the tests
 make test

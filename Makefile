@@ -19,11 +19,11 @@ terraform-staging-apply: ## Apply infrastructure changes for staging
 	terraform apply $(tfSecrets) $(tfState) $(tfPath)
 
 clean: ## Remove compiled files
-	rm -r dist
+	rm -r dist/*
 
 build: clean dist/index.html dist/bundle.js dist/assets ## Compile the app
 
-build-watch: clean dist/index.html dist/assets ## Compile the app and watch for changes
+build-watch: dist/assets ## Compile the app and watch for changes
 	$(webpack) --watch --progess
 
 dist/bundle.js:
@@ -44,6 +44,12 @@ test: ## Run the tests
 
 test-watch: ## Run the tests and watch for changes
 	$(testCmd) --watch
+
+pages: ## Compile the static pages
+	node -r babel-core/register compile.js --presets es2015
+
+pages-watch: ## Compile the static pages and watch for changes
+	./node_modules/watch/cli.js 'make pages' app
 
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
