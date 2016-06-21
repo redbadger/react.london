@@ -20,6 +20,7 @@ Generated pages are hosted on AWS S3.
 * Install [NodeJS](https://nodejs.org/en/)
 * Install [Terraform](https://www.terraform.io/)
 * Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+* Install [Sass CLI](http://sass-lang.com/install)
 
 ```sh
 # Install the dependencies
@@ -37,8 +38,14 @@ vim infrastructure/secrets.tfvars
 # Print task help
 make
 
+# get the assets (must have Sass cli)
+make build
+
 # Run the dev server on localhost:8080
 make start
+
+# Run the sass watcher (must have Sass cli)
+make css-watch
 
 # Run the tests
 make test
