@@ -1,7 +1,7 @@
 /* eslint-disable no-var */
 
 var path = require('path');
-var webpack = require('webpack');
+var ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -15,7 +15,7 @@ module.exports = {
     filename: 'static/bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new ExtractText('[name].css', { allChunks: true }),
   ],
   module: {
     preLoaders: [
@@ -31,6 +31,10 @@ module.exports = {
         loaders: ['babel'],
         exclude: /node_modules/,
         include: __dirname,
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractText.extract('style', 'css!sass'),
       },
     ],
   },
