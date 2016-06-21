@@ -11,7 +11,7 @@
     <meta name="description" content="Red Badger is launching a new conference focused on React. Find out more here.">
     <meta name="keywords" content="react,london,conference,2017,red badger,facebook">
 
-    <link rel="stylesheet" href="assets/css/conf.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
     <link rel="stylesheet" href="assets/css/lib/normalize.css" type="text/css">
 
     <script type="text/javascript">
@@ -54,7 +54,7 @@
     <![endif]-->
 
     <div id="wrapper">
-      <main>
+      <main id="conference">
 
         <header id="hero" class="block">
           <div class="content">
@@ -73,15 +73,17 @@
           </div>
         </header>
 
-          <section id="banner" class="block">
-            <div class="content space-between">
-              <span>Powered by Red Badger</span>
+<!-- POWERED BY RED BADGER BANNER -->
+<section id="red-badger-banner" class="block">
+  <div class="content space-between">
+    <span>Powered by Red Badger</span>
 
-              <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
-                <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger logo">
-              </object>
-            </div>
-          </section>
+    <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
+      <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger logo">
+    </object>
+  </div>
+</section>
+<!-- /POWERED BY RED BADGER BANNER -->
 
         <section id="about" class="block">
           <div class="content">
@@ -118,35 +120,41 @@
 
       </main>
 
-      <footer class="block">
-        <div class="content space-between">
 
-          <ul>
-            <li>
-              <a href="mailto:hello@react.london">hello@react.london</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/londonreact" target="_blank">@londonreact</a>
-            </li>
-            <li>
-              <a href="https://twitter.com/search?q=%23londonreact" target="_blank">#londonreact</a>
-            </li>
-          </ul>
 
-          <a href="http://red-badger.com/" class="footer-logo" target="_blank">
-            <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
-              <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo">
-            </object>
-          </a>
+<!-- FOOTER (duplicated) -->
+<footer id="SiteFooter" class="block">
+  <div class="content space-between">
 
-        </div>
-      </footer>
+    <ul>
+      <li>
+        <a href="mailto:hello@react.london">hello@react.london</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/londonreact" target="_blank">@londonreact</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/search?q=%23londonreact" target="_blank">#londonreact</a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Join the conversation</a>
+      </li>
+      <li>
+        <a href="#" target="_blank">Watch videos</a>
+      </li>
+    </ul>
+
+    <a href="http://red-badger.com/" class="footer-logo" target="_blank">
+      <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
+        <img srcset="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo">
+      </object>
+    </a>
+
+  </div>
+</footer>
+<!-- /FOOTER -->
 
     </div>
-
-
-
-
 
   </body>
 </html>

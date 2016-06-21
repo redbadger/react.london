@@ -2,3 +2,16 @@ body {
   color: $grey;
   font-family: 'Objektiv', Arial;
 }
+
+
+
+  ul.semantic-only {
+    @extend .reset-spacing;
+    li {
+      list-style-type: none;
+    }
+  }
+
+  .content-title {
+    border-bottom: $dash-border;
+  }

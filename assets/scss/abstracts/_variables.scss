@@ -1,5 +1,6 @@
 $grey: #4A4A4A;
-$events-color: #C6DDE7;
+$events-color: #CDE5B3;
+$events-color-faded: #F5FAF0;
 $conference-color: #C6DDE7;
 $red-badger-color: #D2091E;
 
@@ -7,3 +8,9 @@ $desktop-width: 1200px;
 $tablet-width: 1024px;
 $mobile-width: 435px;
 $tiny-mobile-width: 320px;
+
+$maximum-content-width: 980px;
+
+
+$solid-border: 3px solid $grey;
+$dash-border: 3px dashed $grey;

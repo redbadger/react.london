@@ -1,0 +1,15 @@
+
+// SPEAKERS
+  #speakers {
+    .content {
+      article {
+        width: calc((#{$maximum-content-width} / 3) - 10px);
+        figure img {
+          width: 120px;
+          height: 120px;
+          border: $solid-border;
+          border-radius: 100%;
+        }
+      }
+    }
+  }

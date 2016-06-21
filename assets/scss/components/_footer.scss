@@ -1,6 +1,5 @@
 // FOOTER
 #SiteFooter {
-  width: 100vw;
   display: flex;
 
   background: $grey;
@@ -14,7 +13,7 @@
 
   .content {
     padding: 0px 20px;
-    width: 980px;
+    width: $maximum-content-width;
     display: flex;
     flex-flow: row wrap;
     align-items: center;

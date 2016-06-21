@@ -1,0 +1,8 @@
+
+// NEXT EVENT
+  #next-event {
+    border-top: $solid-border;
+    .content article {
+      width: calc((#{$maximum-content-width} / 2) - 10px);
+    }
+  }

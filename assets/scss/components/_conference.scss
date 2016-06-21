@@ -117,30 +117,6 @@
       flex: 1;
     }
 
-    .block {
-      width: 100%;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-justify-content: center;
-      justify-content: center;
-      .content {
-        width: 980px;
-        padding: 0px 20px;
-      }
-    }
-
-    .content.space-between {
-      display: -webkit-flex;
-      display: flex;
-      -webkit-flex-flow: row wrap;
-      flex-flow: row wrap;
-      -webkit-align-items: center;
-      align-items: center;
-      -webkit-justify-content: space-between;
-      justify-content: space-between;
-    }
-
-
   // HERO
     #hero {
       background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg")
@@ -283,22 +259,10 @@
       }
     }
 
-  // BANNER
-    #banner {
-      background: $red-badger-color;
-      height: 50px;
-
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      img, object {
-        height: 55px;
-        margin-top: -20px;
-      }
-    }
-
   // ABOUT
     #about {
+      background: $conference-color;
+      border-top: none;
       margin: 30px 0px 50px 0px;
       h2, p {
         font-size: 30px;
@@ -329,6 +293,7 @@
 
   // REGISTER
     #register {
+      background: $conference-color;
       border-top: 3px solid $grey;
       padding: 30px 0 50px 0;
       h3 {
