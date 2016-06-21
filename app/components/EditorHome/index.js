@@ -21,6 +21,9 @@ const EditorHome = () => (
     </h1>
     <ul>
       <li>
+        <Link to="/home">Edit Homepage</Link>
+      </li>
+      <li>
         <Link to="/community">Edit Community</Link>
       </li>
       <li>
