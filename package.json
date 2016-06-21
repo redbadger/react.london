@@ -15,15 +15,6 @@
   "homepage": "https://github.com/redbadger/react.london#readme",
   "scripts": {
     "start": "python -m SimpleHTTPServer 8080",
-    "build": "gulp build",
-    "watch": "gulp sass:watch"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^2.0.9",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0"
+    "watch": "sass --watch assets/scss/:assets/css"
   }
 }
