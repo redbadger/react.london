@@ -42,6 +42,12 @@ test-watch: ## Run the tests and watch for changes
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
 
+static:
+	node -r babel-core/register compile.js --presets es2015
+
+static-watch:
+	./node_modules/watch/cli.js 'make static' app
+
 .PHONY: \
 	terraform-staging \
 	terraform-staging-apply \
@@ -51,4 +57,6 @@ lint: ## Lint Javascript files
 	test \
 	test-watch \
 	lint \
+	static \
+	static-watch \
 	help
