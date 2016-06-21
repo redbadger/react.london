@@ -39,10 +39,10 @@ const Community = ({
           <div className="content space-between">
             <span>Powered by Red Badger</span>
 
-            <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
+            <object data="/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
               <img
-                srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png"
-                src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png"
+                srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png"
+                src="/img/PNG/ReactLondon_SaveTheDate_Icons-01.png"
                 alt="Red Badger logo"
               />
             </object>

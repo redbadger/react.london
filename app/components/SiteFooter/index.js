@@ -25,10 +25,10 @@ const SiteFooter = () => (
       </ul>
 
       <a href="https://red-badger.com/" className="footer-logo" target="_blank">
-        <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
+        <object data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
           <img
-            srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
-            src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
+            srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
+            src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
             alt="Red Badger logo"
           />
         </object>

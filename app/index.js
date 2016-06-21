@@ -12,6 +12,8 @@ import EventEditor from './components/EventEditor';
 import CommunityEditor from './components/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
 
+import './index.scss';
+
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 

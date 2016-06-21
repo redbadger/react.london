@@ -9,3 +9,4 @@ reactlondon
 .eslintcache
 infrastructure/secrets.tfvars
 *.tfstate*
+.sass-cache/

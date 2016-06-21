@@ -7,6 +7,7 @@ import { routingSetup } from './routing';
 
 let app = authSetup(express());
 app.use(morgan('dev'));
+app.use(express.static('dist'));
 app = webpackSetup(app);
 app = routingSetup(app);
 
