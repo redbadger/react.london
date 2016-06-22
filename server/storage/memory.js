@@ -20,11 +20,11 @@ function get(key) {
   });
 }
 
-export function useMockStore() {
+export function useMemoryStore() {
   dataStore = {};
   setBackend({ put, get });
 }
 
-export function getMockStoreValue(key) {
+export function getMemoryStoreValue(key) {
   return dataStore[key];
 }

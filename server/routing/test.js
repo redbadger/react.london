@@ -4,7 +4,7 @@ import passport from 'passport';
 
 import * as storage from '../storage';
 import { routingSetup } from '.';
-import { useMockStore, getMockStoreValue } from '../storage/mock';
+import { useMemoryStore, getMemoryStoreValue } from '../storage/memory';
 import { useFailStore } from '../storage/fail';
 
 function setup(authenticated = true) {
@@ -70,7 +70,7 @@ describe('GET routes', () => {
 
 describe('POST /site/', () => {
   it('302s and redirect user to login when not authenticated', done => {
-    useMockStore();
+    useMemoryStore();
     const app = setup(false);
     request(app)
       .post('/site/')
@@ -83,7 +83,7 @@ describe('POST /site/', () => {
   });
 
   it('generates the site, stores data, and 201s when authenticated', done => {
-    useMockStore();
+    useMemoryStore();
     const app = setup();
     request(app)
       .post('/site/')
@@ -91,9 +91,9 @@ describe('POST /site/', () => {
       .expect(201)
       .end((err) => {
         if (err) throw err;
-        const body = getMockStoreValue('index.html');
+        const body = getMemoryStoreValue('index.html');
         expect(body).to.match(/meetup/);
-        const data = getMockStoreValue('data/site.json');
+        const data = getMemoryStoreValue('data/site.json');
         expect(data).to.equal('{"hello":"world"}');
         done();
       });
@@ -114,7 +114,7 @@ describe('POST /site/', () => {
 
 describe('GET /site/', () => {
   it('302s and redirect user to login when not authenticated', done => {
-    useMockStore();
+    useMemoryStore();
     const app = setup(false);
     request(app)
       .get('/site/')
@@ -127,7 +127,7 @@ describe('GET /site/', () => {
   });
 
   it('returns site data and 201s when authenticated', done => {
-    useMockStore();
+    useMemoryStore();
     storage.put('data/site.json', '{"hello":"world"}');
     const app = setup();
     request(app)
