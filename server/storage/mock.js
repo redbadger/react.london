@@ -9,7 +9,13 @@ function mockStore(key, fileContent) {
   });
 }
 
-function failingMockStore() {
+function mockGet(key) {
+  return new Promise(resolve => {
+    resolve(dataStore[key]);
+  });
+}
+
+function failingMock() {
   return new Promise((resolve, reject) => {
     reject();
   });
@@ -17,11 +23,11 @@ function failingMockStore() {
 
 export function useMockStore() {
   dataStore = {};
-  setBackend(mockStore);
+  setBackend(mockStore, mockGet);
 }
 
 export function useFailingMockStore() {
-  setBackend(failingMockStore);
+  setBackend(failingMock, failingMock);
 }
 
 
