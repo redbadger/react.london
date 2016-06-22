@@ -4,9 +4,8 @@ import passport from 'passport';
 
 import * as storage from '../storage';
 import { routingSetup } from '.';
-import {
-  useFailingMockStore, useMockStore, getMockStoreValue,
-} from '../storage/mock';
+import { useMockStore, getMockStoreValue } from '../storage/mock';
+import { useFailStore } from '../storage/fail';
 
 function setup(authenticated = true) {
   const app = express();
@@ -101,7 +100,7 @@ describe('POST /site/', () => {
   });
 
   it('500s when unable to upload to S3', done => {
-    useFailingMockStore();
+    useFailStore();
     const app = setup();
     request(app)
       .post('/site/', {})
@@ -141,7 +140,7 @@ describe('GET /site/', () => {
   });
 
   it('500s when unable to get data', done => {
-    useFailingMockStore();
+    useFailStore();
     const app = setup();
     request(app)
       .get('/site/')

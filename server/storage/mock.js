@@ -20,21 +20,10 @@ function get(key) {
   });
 }
 
-function fail() {
-  return new Promise((resolve, reject) => {
-    reject();
-  });
-}
-
 export function useMockStore() {
   dataStore = {};
   setBackend({ put, get });
 }
-
-export function useFailingMockStore() {
-  setBackend({ put: fail, get: fail });
-}
-
 
 export function getMockStoreValue(key) {
   return dataStore[key];
