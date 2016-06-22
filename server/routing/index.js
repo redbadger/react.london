@@ -15,8 +15,15 @@ export const routingSetup = (app) => {
 
   app.get('/site/', (req, res) => {
     storage.get('data/site.json')
-      .then(data => res.set('Content-Type', 'Application/JSON').send(data))
-      .catch(() => res.sendStatus(503));
+      .then(data =>
+        res.status(200)
+          .set('Content-Type', 'Application/JSON')
+          .send(data)
+      )
+      .catch(() =>
+        res.status(404)
+          .json({ error: 'Cannot load site state.' })
+      );
   });
 
   app.post('/site/', (req, res) => {

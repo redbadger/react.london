@@ -139,12 +139,12 @@ describe('GET /site/', () => {
       });
   });
 
-  it('500s when unable to get data', done => {
+  it('404s when unable to get data', done => {
     useFailStore();
     const app = setup();
     request(app)
       .get('/site/')
-      .expect(503)
+      .expect(404)
       .end((err) => {
         if (err) throw err;
         done();

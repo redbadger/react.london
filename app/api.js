@@ -1,9 +1,8 @@
-const INITIAL_STATE = '/api/state';
+const SITE_ENDPOINT = '/site';
 
-export function fetchInitialState() {
-  return fetch(INITIAL_STATE, {
+export function fetchSiteState() {
+  return fetch(SITE_ENDPOINT, {
     credentials: 'same-origin',
   })
-  .then(response => response.json()
-  .then(json => json.data));
+  .then(response => response.json());
 }
