@@ -5,6 +5,7 @@ import { authSetup } from './auth';
 import { webpackSetup } from './webpack';
 import { routingSetup } from './routing';
 import { useS3Store } from './storage/s3';
+import { useDiskStore } from './storage/disk';
 
 const app = authSetup(express());
 
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.use(morgan('dev'));
   webpackSetup(app);
+  useDiskStore();
 }
 
 routingSetup(app);

@@ -28,11 +28,11 @@ function fail() {
 
 export function useMockStore() {
   dataStore = {};
-  setBackend(put, get);
+  setBackend({ put, get });
 }
 
 export function useFailingMockStore() {
-  setBackend(fail, fail);
+  setBackend({ put: fail, get: fail });
 }
 
 

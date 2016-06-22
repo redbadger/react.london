@@ -6,9 +6,13 @@ const fail = () => { throw new Error('storage backend not set'); };
 let doPut = fail;
 let doGet = fail;
 
-export function setBackend(putFunc, getFunc) {
-  doPut = putFunc;
-  doGet = getFunc;
+export function setBackend({ put: putFun, get: getFun }) {
+  if (putFun && getFun) {
+    doPut = putFun;
+    doGet = getFun;
+  } else {
+    throw new Error('Storage backend should implement `put` and `get`');
+  }
 }
 
 export function put(key, fileContent) {

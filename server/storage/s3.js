@@ -30,5 +30,5 @@ function get(key) {
 }
 
 export function useS3Store() {
-  setBackend(put, get);
+  setBackend({ put, get });
 }
