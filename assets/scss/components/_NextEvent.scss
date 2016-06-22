@@ -52,5 +52,19 @@
     &__booking-container {
       float: right;
       width:50%;
+      padding-left: 90px;
+
+      &__btn {
+        border-radius: 6px;
+        text-transform: uppercase;
+        border: 0px;
+        padding: 12px 15px;
+        color: $white;
+        font-weight: bold;
+
+        &.--disabled {
+          background-color: #C9C9C9;
+        }
+      }
     }
   }
