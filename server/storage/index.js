@@ -2,8 +2,9 @@
 // A key-value store module that abstracts over several backends.
 //
 
-let doPut;
-let doGet;
+const fail = () => { throw new Error('storage backend not set'); };
+let doPut = fail;
+let doGet = fail;
 
 export function setBackend(putFunc, getFunc) {
   doPut = putFunc;
