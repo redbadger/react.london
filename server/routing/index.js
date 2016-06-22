@@ -1,8 +1,7 @@
-import path from 'path';
 import bodyParser from 'body-parser';
-import { compileSite } from '../static-site';
-import { publishSite } from '../publish';
-import * as storage from '../storage';
+
+import * as site from './site';
+import * as page from './page';
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -13,37 +12,11 @@ export const routingSetup = (app) => {
   app.use(bodyParser.json());
   app.use(ensureAuthenticated);
 
-  app.get('/site/', (req, res) => {
-    storage.get('data/site.json')
-      .then(data =>
-        res.status(200)
-          .set('Content-Type', 'Application/JSON')
-          .send(data)
-      )
-      .catch(() =>
-        res.status(404)
-          .json({ error: 'Cannot load site state.' })
-      );
-  });
+  app.get('/site', site.show);
+  app.post('/site', site.create);
 
-  app.post('/site/', (req, res) => {
-    const site = compileSite(req.body);
-    Promise.all([
-      publishSite(site),
-      storage.put('data/site.json', JSON.stringify(req.body)),
-    ])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(503));
-  });
-
-
-  app.get('*.js', (req, res) => {
-    res.sendStatus(404);
-  });
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../app', 'index.html'));
-  });
+  app.get('*.js', page.notFound);
+  app.get('*', page.index);
 
   return app;
 };
