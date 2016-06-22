@@ -6,6 +6,7 @@ import { webpackSetup } from './webpack';
 import { routingSetup } from './routing';
 import { useS3Store } from './storage/s3';
 import { useDiskStore } from './storage/disk';
+import logger from './logger';
 
 const app = authSetup(express());
 
@@ -25,8 +26,8 @@ const port = process.env.PORT || 8080;
 
 app.listen(port, error => {
   if (error) {
-    console.error(error);
+    logger.error(error);
   } else {
-    console.info('==> 🌎  Listening on port %s.', port);
+    logger.info('==> 🌎  Listening on port %s.', port);
   }
 });
