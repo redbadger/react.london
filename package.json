@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "London React Meetups",
   "scripts": {
+    "postinstall": "make build",
     "start": "make start"
   },
   "repository": {
@@ -44,10 +45,10 @@
     "html-janitor": "^2.0.2",
     "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
+    "mkdirp": "^0.5.1",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
-    "radium": "^0.17.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",

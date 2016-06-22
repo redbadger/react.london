@@ -2,10 +2,10 @@ import express from 'express';
 import request from 'supertest';
 import passport from 'passport';
 
+import * as storage from '../storage';
 import { routingSetup } from '.';
-import {
-  useFailingMockStore, useMockStore, getMockStoreValue,
-} from '../storage/mock';
+import { useMemoryStore, getMemoryStoreValue } from '../storage/memory';
+import { useFailStore } from '../storage/fail';
 
 function setup(authenticated = true) {
   const app = express();
@@ -68,12 +68,12 @@ describe('GET routes', () => {
 });
 
 
-describe('POST /publish/', () => {
+describe('POST /site/', () => {
   it('302s and redirect user to login when not authenticated', done => {
-    useMockStore();
+    useMemoryStore();
     const app = setup(false);
     request(app)
-      .post('/publish/', { events: {} })
+      .post('/site/')
       .expect(302)
       .expect('Location', '/login')
       .end((err) => {
@@ -82,25 +82,68 @@ describe('POST /publish/', () => {
       });
   });
 
-  it('generates the site and 201s when authenticated', done => {
-    useMockStore();
+  it('generates the site, stores data, and 201s when authenticated', done => {
+    useMemoryStore();
     const app = setup();
     request(app)
-      .post('/publish/', {})
+      .post('/site/')
+      .send({ hello: 'world' })
       .expect(201)
       .end((err) => {
         if (err) throw err;
-        const body = getMockStoreValue('index.html');
+        const body = getMemoryStoreValue('index.html');
         expect(body).to.match(/meetup/);
+        const data = getMemoryStoreValue('data/site.json');
+        expect(data).to.equal('{"hello":"world"}');
         done();
       });
   });
 
   it('500s when unable to upload to S3', done => {
-    useFailingMockStore();
+    useFailStore();
     const app = setup();
     request(app)
-      .post('/publish/', {})
+      .post('/site/', {})
+      .expect(503)
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
+  });
+});
+
+describe('GET /site/', () => {
+  it('302s and redirect user to login when not authenticated', done => {
+    useMemoryStore();
+    const app = setup(false);
+    request(app)
+      .get('/site/')
+      .expect(302)
+      .expect('Location', '/login')
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
+  });
+
+  it('returns site data and 201s when authenticated', done => {
+    useMemoryStore();
+    storage.put('data/site.json', '{"hello":"world"}');
+    const app = setup();
+    request(app)
+      .get('/site/')
+      .expect(200, { hello: 'world' })
+      .end((err) => {
+        if (err) throw err;
+        done();
+      });
+  });
+
+  it('500s when unable to get data', done => {
+    useFailStore();
+    const app = setup();
+    request(app)
+      .get('/site/')
       .expect(503)
       .end((err) => {
         if (err) throw err;

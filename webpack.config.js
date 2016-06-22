@@ -1,7 +1,6 @@
 /* eslint-disable no-var */
 
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,11 +11,8 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'static/bundle.js',
+    filename: 'static/editor.js',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   module: {
     preLoaders: [
       {
@@ -30,7 +26,6 @@ module.exports = {
         test: /\.js$/,
         loaders: ['babel'],
         exclude: /node_modules/,
-        include: __dirname,
       },
     ],
   },

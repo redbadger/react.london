@@ -1,28 +1,24 @@
-import AWS from 'aws-sdk';
+//
+// A key-value store module that abstracts over several backends.
+//
 
-const s3 = new AWS.S3();
+const fail = () => { throw new Error('storage backend not set'); };
+let doPut = fail;
+let doGet = fail;
 
-AWS.config.update({ region: 'eu-west-1' });
-AWS.config.setPromisesDependency(null); // Enable native promises
-
-function s3Store(key, fileContent) {
-  const attrs = {
-    Bucket: process.env.AWS_PUBLISH_BUCKET,
-    Key: key,
-    ACL: 'public-read',
-    Body: fileContent,
-    ContentType: 'text/html',
-  };
-  return s3.putObject(attrs).promise();
+export function setBackend({ put: putFun, get: getFun }) {
+  if (putFun && getFun) {
+    doPut = putFun;
+    doGet = getFun;
+  } else {
+    throw new Error('Storage backend should implement `put` and `get`');
+  }
 }
 
-
-let backend = s3Store;
-
-export function setBackend(x) {
-  backend = x;
+export function put(key, fileContent) {
+  return doPut(key, fileContent);
 }
 
-export function store(key, fileContent) {
-  return backend(key, fileContent);
+export function get(key) {
+  return doGet(key);
 }
