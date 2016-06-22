@@ -68,12 +68,12 @@ describe('GET routes', () => {
 });
 
 
-describe('POST /publish/', () => {
+describe('POST /site/', () => {
   it('302s and redirect user to login when not authenticated', done => {
     useMockStore();
     const app = setup(false);
     request(app)
-      .post('/publish/', { events: {} })
+      .post('/site/', { events: {} })
       .expect(302)
       .expect('Location', '/login')
       .end((err) => {
@@ -82,16 +82,19 @@ describe('POST /publish/', () => {
       });
   });
 
-  it('generates the site and 201s when authenticated', done => {
+  it('generates the site, stores data, and 201s when authenticated', done => {
     useMockStore();
     const app = setup();
     request(app)
-      .post('/publish/', {})
+      .post('/site/')
+      .send({ hello: 'world' })
       .expect(201)
       .end((err) => {
         if (err) throw err;
         const body = getMockStoreValue('index.html');
         expect(body).to.match(/meetup/);
+        const data = getMockStoreValue('data/site.json');
+        expect(data).to.equal('{"hello":"world"}');
         done();
       });
   });
@@ -100,7 +103,7 @@ describe('POST /publish/', () => {
     useFailingMockStore();
     const app = setup();
     request(app)
-      .post('/publish/', {})
+      .post('/site/', {})
       .expect(503)
       .end((err) => {
         if (err) throw err;
