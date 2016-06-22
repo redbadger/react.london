@@ -19,7 +19,7 @@ terraform-staging-apply: ## Apply infrastructure changes for staging
 	terraform apply $(tfSecrets) $(tfState) $(tfPath)
 
 clean: ## Remove compiled files
-	rm -r dist
+	rm -rf dist/*
 
 build: clean dist/index.html dist/bundle.js ## Compile the app
 

@@ -9,6 +9,7 @@ const app = authSetup(express());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('common'));
+  app.use(express.static('dist'));
 } else {
   app.use(morgan('dev'));
   webpackSetup(app);

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "London React Meetups",
   "scripts": {
+    "postinstall": "make build",
     "start": "make start"
   },
   "repository": {
