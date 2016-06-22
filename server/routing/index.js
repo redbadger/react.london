@@ -13,6 +13,12 @@ export const routingSetup = (app) => {
   app.use(bodyParser.json());
   app.use(ensureAuthenticated);
 
+  app.get('/site/', (req, res) => {
+    storage.get('data/site.json')
+      .then(data => res.set('Content-Type', 'Application/JSON').send(data))
+      .catch(() => res.sendStatus(503));
+  });
+
   app.post('/site/', (req, res) => {
     const page = compilePreview(req.body);
     const pages = [page];
