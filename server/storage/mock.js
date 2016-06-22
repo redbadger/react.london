@@ -1,21 +1,26 @@
+//
+// A backend for the storage module that persists data in memory.
+// For use in tests
+//
+
 import { setBackend } from '.';
 
 let dataStore = {};
 
-function mockStore(key, fileContent) {
+function put(key, fileContent) {
   return new Promise(resolve => {
     dataStore[key] = fileContent;
     resolve();
   });
 }
 
-function mockGet(key) {
+function get(key) {
   return new Promise(resolve => {
     resolve(dataStore[key]);
   });
 }
 
-function failingMock() {
+function fail() {
   return new Promise((resolve, reject) => {
     reject();
   });
@@ -23,11 +28,11 @@ function failingMock() {
 
 export function useMockStore() {
   dataStore = {};
-  setBackend(mockStore, mockGet);
+  setBackend(put, get);
 }
 
 export function useFailingMockStore() {
-  setBackend(failingMock, failingMock);
+  setBackend(fail, fail);
 }
 
 

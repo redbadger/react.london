@@ -4,12 +4,14 @@ import morgan from 'morgan';
 import { authSetup } from './auth';
 import { webpackSetup } from './webpack';
 import { routingSetup } from './routing';
+import { useS3Store } from './storage/s3';
 
 const app = authSetup(express());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(morgan('common'));
   app.use(express.static('dist'));
+  useS3Store();
 } else {
   app.use(morgan('dev'));
   webpackSetup(app);

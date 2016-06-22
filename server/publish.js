@@ -1,7 +1,7 @@
-import { store } from './storage';
+import { put } from './storage';
 
 export function publishPage({ path, body }) {
-  return store(path, body);
+  return put(path, body);
 }
 
 export function publishSite(pages) {

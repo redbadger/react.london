@@ -2,7 +2,7 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import { compilePreview } from '../static-site';
 import { publishSite } from '../publish';
-import { store } from '../storage';
+import * as storage from '../storage';
 
 const ensureAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) return next();
@@ -13,6 +13,18 @@ export const routingSetup = (app) => {
   app.use(bodyParser.json());
   app.use(ensureAuthenticated);
 
+  app.post('/site/', (req, res) => {
+    const page = compilePreview(req.body);
+    const pages = [page];
+    Promise.all([
+      publishSite(pages),
+      storage.put('data/site.json', JSON.stringify(req.body)),
+    ])
+    .then(() => res.sendStatus(201))
+    .catch(() => res.sendStatus(503));
+  });
+
+
   app.get('*.js', (req, res) => {
     res.sendStatus(404);
   });
@@ -21,15 +33,5 @@ export const routingSetup = (app) => {
     res.sendFile(path.join(__dirname, '../../app', 'index.html'));
   });
 
-  app.post('/site/', (req, res) => {
-    const page = compilePreview(req.body);
-    const pages = [page];
-    Promise.all([
-      publishSite(pages),
-      store('data/site.json', JSON.stringify(req.body)),
-    ])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(503));
-  });
   return app;
 };
