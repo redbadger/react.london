@@ -1,0 +1,86 @@
+
+// STAY TUNED
+.StayTuned {
+  background: $events-color;
+
+  .content {
+    padding: 28px 20px 44px 20px;
+  }
+  &__heading {
+    font-size: 24px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  &__summary {
+    margin-bottom: 35px;
+  }
+
+
+  // MAILCHIMP
+  &__form {
+    font-size: 18px;
+
+    &__label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    &__email,
+    &__submit {
+      border-radius: 5px;
+      
+      font-size: 16px;
+      line-height: 36px;
+      border: $solid-border;
+    }
+
+    &__email {
+      background: $white;
+      padding: 0px 15px;
+
+      max-width: 510px;
+      width: calc(100% - 125px); // 95px button width + 15px margin = 125px removed.
+    }
+
+    &__submit {
+      width: 95px;
+      margin-left: 15px;
+
+      background: $grey;
+
+      color: $events-color;
+                
+      border: 0px;
+
+      cursor: pointer;
+      &:hover {
+        color: white;
+      }
+    }
+
+    &__hidden {
+      display: none;
+    }
+
+  }
+
+}
+
+@media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
+  .StayTuned {
+    &__form {
+
+      &__email {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      &__submit {
+        float: right;
+      }
+
+    }
+  }
+}
