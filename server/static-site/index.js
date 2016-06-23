@@ -28,3 +28,8 @@ export function compilePreview(state) {
     body,
   };
 }
+
+export function compileSite(state) {
+  const preview = compilePreview(state);
+  return [preview];
+}
