@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config';
+import logger from './logger';
 
 export function webpackSetup(app) {
   const compiler = webpack(webpackConfig);
@@ -9,7 +10,7 @@ export function webpackSetup(app) {
     stats: 'errors-only',
     publicPath: webpackConfig.output.publicPath,
   });
-  console.log('Using webpack dev middleware.');
+  logger.info('Using webpack dev middleware.');
   app.use(middleware);
   return app;
 }
