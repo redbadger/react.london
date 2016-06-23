@@ -1,0 +1,26 @@
+.JoinTheConversation {
+  background: $events-color;
+  text-align: center;
+  padding: 30px 0px;
+
+  .JoinTheConversation__text {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  .JoinTheConversation__btn {
+    border-radius: 6px;
+    text-transform: uppercase;
+    border: 0px;
+    padding: 12px 15px;
+    color: $white;
+    font-weight: bold;
+    background: $grey;
+    text-decoration: none;
+
+    font-size: 13px;
+    &:hover {
+      color: $events-color;
+    }
+  }
+}

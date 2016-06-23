@@ -45,15 +45,12 @@
     }
 
     &__submit {
-      width: 95px;
       margin-left: 15px;
 
+      width: 95px;
       background: $grey;
-
       color: $events-color;
-                
       border: 0px;
-
       cursor: pointer;
       &:hover {
         color: white;
