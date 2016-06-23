@@ -36,7 +36,7 @@
           color: $grey;
           vertical-align: middle;
           display: table-cell;
-          transition: 0.3s;
+          transition: border-bottom 0.3s;
 
           &:hover{
             border-bottom: $solid-border;
