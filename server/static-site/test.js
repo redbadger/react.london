@@ -1,4 +1,7 @@
-import { compilePreview } from '.';
+import {
+  compileSite,
+  compilePreview,
+} from '.';
 
 const previewData = {
   about: {
@@ -15,6 +18,17 @@ const previewData = {
     ],
   },
 };
+
+describe('compileSite', () => {
+  it('renders pages', () => {
+    const site = compileSite(previewData);
+    const paths = site.map(e => e.path).sort();
+    expect(paths).to.deep.equal([
+      'index.html',
+      'main.css',
+    ]);
+  });
+});
 
 describe('compilePreview', () => {
   it('renders the Preview page', () => {

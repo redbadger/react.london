@@ -1,6 +1,6 @@
 import path from 'path';
 import bodyParser from 'body-parser';
-import { compilePreview } from '../static-site';
+import { compileSite } from '../static-site';
 import { publishSite } from '../publish';
 import * as storage from '../storage';
 
@@ -20,10 +20,9 @@ export const routingSetup = (app) => {
   });
 
   app.post('/site/', (req, res) => {
-    const page = compilePreview(req.body);
-    const pages = [page];
+    const site = compileSite(req.body);
     Promise.all([
-      publishSite(pages),
+      publishSite(site),
       storage.put('data/site.json', JSON.stringify(req.body)),
     ])
     .then(() => res.sendStatus(201))
