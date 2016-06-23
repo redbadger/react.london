@@ -1,8 +1,19 @@
 $cell-size: 80;
+$grid-color: #4A4A4A;
+$grid-half-border-width: 0.25; // halved to account for overlapping borders.
 $grid: "data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='#{$cell-size}' height='#{$cell-size}'>\
-  <rect fill='#{$events-color}' style='stroke-width:0.25; stroke:#4A4A4A;' x='0' y='0' width='#{$cell-size + 1}' height='#{$cell-size + 1}'/>\
-</svg>";
+        <svg \
+          xmlns='http://www.w3.org/2000/svg' \
+          width='#{$cell-size}' \
+          height='#{$cell-size}'>\
+        <rect \
+          fill='#{$events-color}' \
+          style='stroke-width:#{$grid-half-border-width}; \
+          stroke:#{$grid-color};' \
+          x='0' y='0' \
+          width='#{$cell-size + 1}' \
+          height='#{$cell-size + 1}'/>\
+        </svg>";
 
 // HERO
   .Hero {
