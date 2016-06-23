@@ -11,11 +11,11 @@ describe('events reducer', () => {
 
   describe('STATE_LOADED handling', () => {
     it('adds the event when the ID is new', () => {
-      const prev = deepFreeze({ foo: 15 });
-      const community = { foo: 1, bar: 2 };
-      const action = stateLoaded({ community });
+      const prev = deepFreeze({ title: 'React London 5' });
+      const conference = { title: 'Elm' };
+      const action = stateLoaded({ conference });
       const state = reducer(prev, action);
-      expect(state).to.deep.equal({ foo: 1, bar: 2 });
+      expect(state).to.deep.equal({ title: 'Elm' });
     });
   });
 });
