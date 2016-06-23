@@ -1,8 +1,6 @@
 
 // HERO
-  #hero {
+  .Hero {
+    overflow: hidden;
     background-color: $events-color;
-    .content {
-      text-align: center;
-    }
   }
