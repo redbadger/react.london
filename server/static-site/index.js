@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { minify } from 'html-minifier';
 import Preview from '../../app/components/Preview/Preview';
+import fs from 'fs';
 
 function wrapBody(markup) {
   const body = `<!doctype html>
@@ -29,7 +30,16 @@ export function compilePreview(state) {
   };
 }
 
+function getStyles() {
+  const body = fs.readFileSync('./dist/website.css', 'utf8');
+  return {
+    path: 'main.css',
+    body,
+  };
+}
+
 export function compileSite(state) {
   const preview = compilePreview(state);
-  return [preview];
+  const styles = getStyles();
+  return [preview, styles];
 }

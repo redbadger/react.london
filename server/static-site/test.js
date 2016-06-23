@@ -25,6 +25,7 @@ describe('compileSite', () => {
     const paths = site.map(e => e.path).sort();
     expect(paths).to.deep.equal([
       'index.html',
+      'main.css',
     ]);
   });
 });
