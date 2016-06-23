@@ -10,9 +10,29 @@
       align-items: center;
       padding: 0 20px;
       margin: 0px;
+      
+      .NavBar__tab--active {
+        border-bottom: $solid-border;
+      }
 
-      &--active {
-        border-bottom: $solid-border !important;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        width: 40vw;
+        min-width: 130px;
+        border-bottom: $solid-border-faded;
+        text-align: center;
+        height: 63px;
+        color: $grey;
+        vertical-align: middle;
+        display: table-cell;
+        transition: border-bottom 0.3s;
+
+        &:hover{
+          border-bottom: $solid-border;
+        }
       }
 
       li {
@@ -23,25 +43,6 @@
           margin-right: 20px;
         }
 
-        a {
-          text-decoration: none;
-          text-transform: uppercase;
-          font-weight: bold;
-          font-size: 14px;
-          width: 40vw;
-          min-width: 130px;
-          border-bottom: $solid-border-faded;
-          text-align: center;
-          height: 63px;
-          color: $grey;
-          vertical-align: middle;
-          display: table-cell;
-          transition: border-bottom 0.3s;
-
-          &:hover{
-            border-bottom: $solid-border;
-          }
-        }
 
         @media (min-width: 660px) {
           width: 300px;
