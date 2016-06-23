@@ -1,6 +1,13 @@
+$cell-size: 80;
+$grid: "data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='#{$cell-size}' height='#{$cell-size}'>\
+  <rect fill='#{$events-color}' style='stroke-width:0.25; stroke:#4A4A4A;' x='0' y='0' width='#{$cell-size + 1}' height='#{$cell-size + 1}'/>\
+</svg>";
 
 // HERO
   .Hero {
     overflow: hidden;
+    background-image: url($grid);
     background-color: $events-color;
+    background-position: 50px 33px;
   }
