@@ -1,0 +1,51 @@
+// NAVIGATION BAR
+  .NavBar {
+    background: $events-color-faded;
+    &__tabs {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 0 20px;
+      margin: 0px;
+
+      &--active {
+        border-bottom: $solid-border !important;
+      }
+
+      li {
+        list-style-type: none;
+        display: table;
+
+        &:first-child {
+          margin-right: 20px;
+        }
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 14px;
+          width: 40vw;
+          min-width: 130px;
+          border-bottom: $solid-border-faded;
+          text-align: center;
+          height: 63px;
+          color: $grey;
+          vertical-align: middle;
+          display: table-cell;
+          transition: 0.3s;
+
+          &:hover{
+            border-bottom: $solid-border;
+          }
+        }
+
+        @media (min-width: 660px) {
+          width: 300px;
+        }
+      }
+    }
+  }
