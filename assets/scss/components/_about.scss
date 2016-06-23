@@ -1,5 +1,18 @@
 // ABOUT REACT LONDON EVENTS
-  #about {
+  .About {
     background-color: $events-color;
-    border-top: $solid-border;
+    font-size: 16px;
+    padding: 45px 0px;
+
+    &__text {
+      margin-bottom: 20px;
+      margin-top: 0px;
+    }
+    &__text--bold {
+      margin-bottom: 0px;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
   }
