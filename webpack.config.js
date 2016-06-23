@@ -1,17 +1,18 @@
 /* eslint-disable no-var */
 
 var path = require('path');
+var ExtractText = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   noInfo: true,
-  entry: [
-    'babel-polyfill',
-    './app/index',
-  ],
+  entry: {
+    'static/editor': ['babel-polyfill', './app/index'],
+    website: ['./app/styles/website.scss'],
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'static/editor.js',
+    filename: '[name].js',
   },
   module: {
     preLoaders: [
@@ -27,6 +28,15 @@ module.exports = {
         loaders: ['babel'],
         exclude: /node_modules/,
       },
+      {
+        test: /\.scss$/,
+        loader: ExtractText.extract('style', 'css!sass'),
+      },
     ],
   },
+  plugins: [
+    new ExtractText('[name].css', {
+      allChunks: true,
+    }),
+  ],
 };
