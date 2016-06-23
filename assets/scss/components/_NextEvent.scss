@@ -6,9 +6,37 @@
 
   padding-bottom: 30px;
 
-  &__ul {
+  &__details {
     padding: 0px;
     margin: 16px 0px 30px 0px;
+    li {
+      list-style: none;
+    }
+    a {
+      color: $grey;
+      text-decoration: none;
+      padding-left: 40px;
+      display: block;
+      margin-top: 15px;
+    }
+  }
+
+  &__link--date {
+    background: url("../../../../assets/img/PNG/Date_icon_green.png") no-repeat left top;
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  &__link--place {
+    background: url("../../../../assets/img/PNG/Place_icon_green.png") no-repeat left top;
+    height: 31px;
+    padding-top: 5px;
+  }
+
+  &__link--time {
+    background: url("../../../../assets/img/PNG/Time_icon_green.png") no-repeat left top;
+    height: 25px;
+    padding-top: 3px;
   }
 
   &__header {
@@ -21,35 +49,7 @@
     margin-bottom: 0px;
   }
 
-  &__li {
-    list-style: none;
-  }
 
-  &__link {
-    color: $grey;
-    text-decoration: none;
-    padding-left: 40px;
-    display: block;
-    margin-top: 15px;
-
-    &.--date {
-      background: url("../../../../assets/img/PNG/Date_icon_green.png") no-repeat left top;
-      height: 26px;
-      padding-top: 2px;
-    }
-
-    &.--place {
-      background: url("../../../../assets/img/PNG/Place_icon_green.png") no-repeat left top;
-      height: 31px;
-      padding-top: 5px;
-    }
-
-    &.--time {
-      background: url("../../../../assets/img/PNG/Time_icon_green.png") no-repeat left top;
-      height: 25px;
-      padding-top: 3px;
-    }
-  }
 
   &__booking-btn {
     border-radius: 6px;
@@ -59,7 +59,7 @@
     color: $white;
     font-weight: bold;
 
-    &.--disabled {
+    &--disabled {
       background-color: #C9C9C9;
       color: $events-color-faded;
       cursor: not-allowed;
@@ -88,7 +88,7 @@
 @media (min-width: 768px) {
   .NextEvent {
 
-    &__ul {
+    &__details {
       margin: 16px 0px 0px 0px;
     }
 
