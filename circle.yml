@@ -2,8 +2,8 @@ machine:
   node:
     version: 6.0.0
 
-## Customize test commands
 test:
   override:
+    - make build
     - make lint
     - make test

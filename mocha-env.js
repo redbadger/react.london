@@ -5,6 +5,11 @@
 
 // import es6
 require('babel-register');
+// Generator polyfill
+require('babel-polyfill');
+
+// Mock fetch
+global.fetch = () => { throw new Error('fetch called in tests'); };
 
 var chai = require('chai');
 chai.use(require('dirty-chai')); // Function form for terminating assertions

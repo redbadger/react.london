@@ -132,19 +132,21 @@ describe('GET /site/', () => {
     const app = setup();
     request(app)
       .get('/site/')
-      .expect(200, { hello: 'world' })
+      .expect('Content-Type', /json/)
+      .expect(200, { data: { hello: 'world' } })
       .end((err) => {
         if (err) throw err;
         done();
       });
   });
 
-  it('500s when unable to get data', done => {
+  it('404s when unable to get data', done => {
     useFailStore();
     const app = setup();
     request(app)
       .get('/site/')
-      .expect(503)
+      .expect('Content-Type', /json/)
+      .expect(404)
       .end((err) => {
         if (err) throw err;
         done();

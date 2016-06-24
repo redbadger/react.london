@@ -7,5 +7,7 @@ describe('Reducers', () => {
     expect(state).to.contain.key('form');
     expect(state).to.contain.key('routing');
     expect(state).to.contain.key('events');
+    expect(state).to.contain.key('community');
+    expect(state).to.contain.key('conference');
   });
 });

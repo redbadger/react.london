@@ -28,6 +28,6 @@ app.listen(port, error => {
   if (error) {
     logger.error(error);
   } else {
-    logger.info('==> 🌎  Listening on port %s.', port);
+    logger.info(`==> 🌎  Listening on port ${port}.`);
   }
 });

@@ -1,4 +1,5 @@
-import { SET_EVENTS, UPDATE_EVENT } from '../../actions/community_events';
+import { UPDATE_EVENT } from '../../actions/community_events';
+import { SITE_STATE_LOADED } from '../../actions/persistence';
 
 export default function events(state = {}, action) {
   switch (action.type) {
@@ -8,7 +9,7 @@ export default function events(state = {}, action) {
         [action.eventID]: action.event,
       };
 
-    case SET_EVENTS:
+    case SITE_STATE_LOADED:
       return action.events;
 
     default:
