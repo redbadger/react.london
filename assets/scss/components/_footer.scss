@@ -1,45 +1,69 @@
 // FOOTER
-#SiteFooter {
+.SiteFooter {
   display: flex;
 
   background: $grey;
-  height: 120px;
 
-  justify-content: center;
-
-  h1 {
-    color: #fff;
+  &__links {
+    padding: 20px 0px 13px 0px; // 7px on the __link margin-bottom
+    margin: 0px;
+    font-weight: bold;
   }
 
-  .content {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  ul {
-    padding: 0px;
-    font-weight: 500;
-    line-height: 1.7;
-    column-count: 2;
-    column-gap: 80px;
-    li a {
-      color: white;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+  &__link {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: #9B9B9B;
     }
-  }
-  a.footer-logo {
+
+    padding-left: 35px;
+    height: 23px;
+    margin-bottom: 7px;
     display: inline-block;
-    height: 81px;
-    img {
-      height: 100%;
+
+    &--mail {
+      background: url("../../../../assets/img/PNG/Mail.png") no-repeat left top;
+      &:hover {
+        background-image: url("../../../../assets/img/PNG/Mail_Hover.png");
+      }
+
+    }
+    &--slack {
+      background: url("../../../../assets/img/PNG/Slack.png") no-repeat left top;
+      &:hover {
+        background-image: url("../../../../assets/img/PNG/Slack_Hover.png");
+      }
+
+    }
+    &--youtube {
+      background: url("../../../../assets/img/PNG/Youtube.png") no-repeat left 2px;
+      &:hover {
+        background-image: url("../../../../assets/img/PNG/Youtube_Hover.png");
+      }
+
+    }
+    &--twitter {
+      background: url("../../../../assets/img/PNG/Twitter.png") no-repeat left 3px;
+      &:hover {
+        background-image: url("../../../../assets/img/PNG/Twitter_Hover.png");
+      }
+
     }
   }
-  object {
+
+  &__logo--img,
+  &__logo--svg {
     height: 81px;
   }
+
+
+  @media (min-width: 616px) { //eyeballed
+    &__links {
+      column-count: 2;
+      column-gap: 80px;
+    }
+  }
+  
+
 }
