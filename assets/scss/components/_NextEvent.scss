@@ -6,6 +6,25 @@
 
   padding-bottom: 30px;
 
+
+
+  &__booking__heading {
+    color: $red-badger-color;
+  }
+
+  &__booking__text {
+    font-weight: bold;
+  }
+
+  &__live-stream-text--bold {
+    font-weight: bold;
+    color: $grey;
+    text-decoration: none;
+  }
+
+
+
+
   &__details {
     padding: 0px;
     margin: 16px 0px 30px 0px;
