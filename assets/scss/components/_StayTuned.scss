@@ -30,7 +30,7 @@
     &__email,
     &__submit {
       border-radius: 5px;
-      
+
       font-size: 16px;
       line-height: 36px;
       border: $solid-border;
@@ -55,10 +55,6 @@
       &:hover {
         color: white;
       }
-    }
-
-    &__hidden {
-      display: none;
     }
 
   }
