@@ -9,8 +9,8 @@ describe('events reducer', () => {
     expect(state).to.deep.equal({});
   });
 
-  describe('STATE_LOADED handling', () => {
-    it('adds the event when the ID is new', () => {
+  describe('SITE_STATE_LOADED handling', () => {
+    it('overwrites the state', () => {
       const prev = deepFreeze({ foo: 15 });
       const community = { foo: 1, bar: 2 };
       const action = siteStateLoaded({ community });

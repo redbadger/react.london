@@ -9,8 +9,8 @@ describe('events reducer', () => {
     expect(state).to.deep.equal({});
   });
 
-  describe('STATE_LOADED handling', () => {
-    it('adds the event when the ID is new', () => {
+  describe('SITE_STATE_LOADED handling', () => {
+    it('overwrites the state', () => {
       const prev = deepFreeze({ title: 'React London 5' });
       const conference = { title: 'Elm' };
       const action = siteStateLoaded({ conference });
