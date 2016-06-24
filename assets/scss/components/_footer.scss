@@ -50,6 +50,19 @@
       }
 
     }
+
+
+    & > span {
+      @media (max-width: 616px) { //eyeballed
+        display: none;
+      }
+    }
+
+    &--hashtag {
+      @media (max-width: 616px) { //eyeballed
+        padding-left: 0px;
+      }
+    }
   }
 
   &__logo--img,
@@ -64,6 +77,6 @@
       column-gap: 80px;
     }
   }
-  
+
 
 }
