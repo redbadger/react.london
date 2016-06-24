@@ -16,8 +16,8 @@ export function show(req, res) {
   storage.get('data/site.json')
     .then(data =>
       res.status(200)
-        .set('Content-Type', 'Application/JSON')
-        .send(data)
+        .set('Content-Type', 'Application/json')
+        .send(`{"data":${data}}`)
     )
     .catch(() =>
       res.status(404)

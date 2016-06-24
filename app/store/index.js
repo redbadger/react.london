@@ -25,8 +25,8 @@ import saga from '../sagas';
 // Store
 
 const middleware = compose(
-  devtoolsMiddleware,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware),
+  devtoolsMiddleware
 );
 
 export const configureStore = initialState => {
