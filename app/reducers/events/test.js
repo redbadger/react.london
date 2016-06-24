@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import reducer from '.';
 import { updateEvent, setEvents } from '../../actions/community_events';
-import { stateLoaded } from '../../actions/persistence';
+import { siteStateLoaded } from '../../actions/persistence';
 
 describe('events reducer', () => {
   it('has default state', () => {
@@ -52,14 +52,14 @@ describe('events reducer', () => {
     });
   });
 
-  describe('STATE_LOADED handling', () => {
+  describe('SITE_STATE_LOADED handling', () => {
     it('adds the event when the ID is new', () => {
       const prev = deepFreeze({ 5: { title: 'React London 5' } });
       const events = {
         3: { title: 'React Thing' },
         8: { title: 'Redux Thing' },
       };
-      const action = stateLoaded({ events });
+      const action = siteStateLoaded({ events });
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
         3: { title: 'React Thing' },

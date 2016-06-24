@@ -1,7 +1,10 @@
 import { loadStateWorker } from '.';
 import { put, call } from 'redux-saga/effects';
-import { stateLoaded, stateLoadFailed } from '../../actions/persistence';
 import * as api from '../../api';
+import {
+  siteStateLoaded,
+  siteStateLoadFailed,
+} from '../../actions/persistence';
 
 describe('saga loadStateWorker', () => {
   it('fetches state from API and handles success', () => {
@@ -21,7 +24,7 @@ describe('saga loadStateWorker', () => {
     expect(
       generator.next(response).value
     ).to.deep.equal(
-      put(stateLoaded(response.data))
+      put(siteStateLoaded(response.data))
     );
   });
 
@@ -36,7 +39,7 @@ describe('saga loadStateWorker', () => {
     expect(
       generator.next(response).value
     ).to.deep.equal(
-      put(stateLoadFailed(response.error))
+      put(siteStateLoadFailed(response.error))
     );
   });
 });

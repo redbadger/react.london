@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import reducer from '.';
-import { stateLoaded } from '../../actions/persistence';
+import { siteStateLoaded } from '../../actions/persistence';
 
 describe('events reducer', () => {
   it('has default state', () => {
@@ -13,7 +13,7 @@ describe('events reducer', () => {
     it('adds the event when the ID is new', () => {
       const prev = deepFreeze({ foo: 15 });
       const community = { foo: 1, bar: 2 };
-      const action = stateLoaded({ community });
+      const action = siteStateLoaded({ community });
       const state = reducer(prev, action);
       expect(state).to.deep.equal({ foo: 1, bar: 2 });
     });
