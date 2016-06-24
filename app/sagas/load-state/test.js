@@ -26,6 +26,7 @@ describe('saga loadStateWorker', () => {
     ).to.deep.equal(
       put(siteStateLoaded(response.data))
     );
+    expect(generator.next().done).to.equal(true);
   });
 
   it('fetches state from API and handles failure', () => {
@@ -35,11 +36,11 @@ describe('saga loadStateWorker', () => {
     ).to.deep.equal(
       call(api.fetchSiteState)
     );
-    const response = { error: 'sadness :(' };
     expect(
-      generator.next(response).value
+      generator.throw('an error occured!').value
     ).to.deep.equal(
-      put(siteStateLoadFailed(response.error))
+      put(siteStateLoadFailed('an error occured!'))
     );
+    expect(generator.next().done).to.equal(true);
   });
 });
