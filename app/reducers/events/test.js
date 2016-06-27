@@ -2,6 +2,7 @@ import deepFreeze from 'deep-freeze';
 import reducer from '.';
 import { updateEvent } from '../../actions/community_events';
 import { siteStateLoaded } from '../../actions/persistence';
+import { change as formFieldChange } from 'redux-form';
 
 describe('events reducer', () => {
   it('has default state', () => {
@@ -49,6 +50,45 @@ describe('events reducer', () => {
       expect(state).to.deep.equal({
         3: { title: 'React Thing' },
         8: { title: 'Redux Thing' },
+      });
+    });
+  });
+
+
+  describe('redux-form/CHANGE handling', () => {
+    it('sets a value with a new event', () => {
+      const prev = deepFreeze({});
+      const action = formFieldChange(
+        'form::123', 'title', 'New Important Title'
+      );
+      const state = reducer(prev, action);
+      expect(state).to.deep.equal({
+        123: { title: 'New Important Title' },
+      });
+    });
+
+    it('inserts a value with an existing event', () => {
+      const prev = deepFreeze({ 99: { color: 'yellow' } });
+      const action = formFieldChange(
+        'form::99', 'size', 'really big'
+      );
+      const state = reducer(prev, action);
+      expect(state).to.deep.equal({
+        99: { color: 'yellow', size: 'really big' },
+      });
+    });
+
+
+    it('overrites a value with an existing event and value', () => {
+      const prev = deepFreeze({
+        20: { about: 'Not bad' },
+      });
+      const action = formFieldChange(
+        'form::20', 'about', 'Very good'
+      );
+      const state = reducer(prev, action);
+      expect(state).to.deep.equal({
+        20: { about: 'Very good' },
       });
     });
   });
