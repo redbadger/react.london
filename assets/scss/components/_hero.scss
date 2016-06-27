@@ -20,6 +20,6 @@ $grid: "data:image/svg+xml;utf8,\
     overflow: hidden;
     background-image: url($grid);
     background-color: $events-color;
-    background-position: 50px 33px;
     height: 260px;
+    background-position: calc(50% - 39px) calc(50% - 52px);
   }
