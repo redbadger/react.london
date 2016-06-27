@@ -78,7 +78,6 @@ describe('events reducer', () => {
       });
     });
 
-
     it('overrites a value with an existing event and value', () => {
       const prev = deepFreeze({
         20: { about: 'Not bad' },
