@@ -142,16 +142,14 @@ const Form = () => {
 };
 
 // TODO: Inject initial state
-const ConnectedForm = reduxForm({
-  form: 'event',
-})(Form);
+const ConnectedForm = reduxForm()(Form);
 
-const EventEditor = () => (
+const EventEditor = ({ event: { eventID } }) => (
   <div className="event-editor">
     <h1>
-      Event Editor!
+      Event {eventID}
     </h1>
-    <ConnectedForm />
+    <ConnectedForm form={'event::' + eventID} />
 
     <h2>Preview</h2>
     <div className="preview">
@@ -161,7 +159,9 @@ const EventEditor = () => (
 );
 
 EventEditor.propTypes = {
-  eventID: PropTypes.string,
+  event: PropTypes.shape({
+    eventID: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 
