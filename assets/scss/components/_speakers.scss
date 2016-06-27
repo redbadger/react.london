@@ -1,15 +1,55 @@
 
 // SPEAKERS
-  #speakers {
-    .content {
-      article {
-        width: calc((#{$maximum-content-width} / 3) - 10px);
-        figure img {
-          width: 120px;
-          height: 120px;
-          border: $solid-border;
-          border-radius: 100%;
-        }
-      }
+  .Speakers {
+
+    background-color: $events-color-faded;
+
+    &__header {
+      margin-bottom: 0px;
+      border-bottom: $dash-border;
+      line-height: 2em;
+    }
+  }
+
+
+  .Speaker {
+    width: 30%;
+    padding-top: 25px;
+
+    figure img {
+      width: 120px;
+      height: 120px;
+      border: $solid-border;
+      border-radius: 100%;
+      margin-top: 25px;
+    }
+
+    &__name {
+      font-size: 18px;
+    }
+
+    &__name--bold {
+      font-weight: 600;
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    &__details > li {
+      display : inline-block;
+      margin-right: 25px;
+    }
+
+    &__details {
+      padding: 0px;
+    }
+
+    &--svg {
+      height: 120px;
+    }
+
+    &--img {
+      height: 120px;
     }
   }
