@@ -11,10 +11,6 @@
       padding: 0 20px;
       margin: 0px;
 
-      .NavBar__tab--active {
-        border-bottom: $solid-border;
-      }
-
       a {
         text-decoration: none;
         text-transform: uppercase;
@@ -23,22 +19,32 @@
         width: 40vw;
         min-width: 130px;
         text-align: center;
-        height: 63px;
         color: $grey;
+        
+        height: 50px;
         vertical-align: middle;
         display: table-cell;
-        transition: border-bottom 0.3s;
-        border-bottom: 3px solid $events-color-faded;
 
-        &:not(.NavBar__tab--active):hover {
-          border-bottom: $solid-border-faded;
+        &.NavBar__tab--active {
+          border-bottom: $solid-border;
+        }
+
+        &:not(.NavBar__tab--active){
+          padding-bottom: 3px;
+          &:hover {
+            padding-bottom: 0px;
+            border-bottom: $solid-border-faded;
+          }
+        }
+
+        @media (min-width: 768px) { //same as in .About.scss
+          height: 63px;
         }
 
       }
 
       li {
         list-style-type: none;
-        display: table;
 
         &:first-child {
           margin-right: 20px;

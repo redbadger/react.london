@@ -3,6 +3,10 @@
 
 #conference {
 
+  .NavBar {
+    background: $conference-color-faded;
+  }
+
   background: $conference-color;
 
   .reset-spacing {
