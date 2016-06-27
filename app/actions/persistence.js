@@ -18,6 +18,13 @@ export function publishSiteSuccess() {
   };
 }
 
+export function publishSiteFailure(error) {
+  return {
+    type: PUBLISH_SITE_SUCCESS,
+    error,
+  };
+}
+
 export function siteStateLoaded({ community, conference, events }) {
   return {
     type: SITE_STATE_LOADED,

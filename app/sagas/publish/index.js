@@ -4,6 +4,7 @@ import { put, call } from 'redux-saga/effects';
 import {
   PUBLISH_SITE_STATE,
   publishSiteSuccess,
+  publishSiteFailure,
 } from '../../actions/persistence';
 
 export function* publishWorker(action) {
@@ -11,9 +12,7 @@ export function* publishWorker(action) {
     yield call(api.publishSiteState, action);
     yield put(publishSiteSuccess());
   } catch (error) {
-    console.error(error);
-    // TODO
-    // yield put(publishUnsuccessful(error));
+    yield put(publishSiteFailure(error));
   }
 }
 
