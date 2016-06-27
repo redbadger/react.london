@@ -1,8 +1,11 @@
-import { take, fork } from 'redux-saga/effects';
-import { PUBLISH_SITE_STATE } from '../../actions/persistence';
+import * as api from '../../api';
+import { call, take, fork } from 'redux-saga/effects';
 import { publishWatcher, publishWorker } from '.';
+import {
+  PUBLISH_SITE_STATE, publishSiteState,
+} from '../../actions/persistence';
 
-describe('/sagas/publish publishWorker', () => {
+describe('/sagas/publish publishWatcher', () => {
   it('listens to PUBLISH_SITE_STATE', () => {
     const saga = publishWatcher();
     expect(
@@ -15,6 +18,22 @@ describe('/sagas/publish publishWorker', () => {
       saga.next(action).value
     ).to.deep.equal(
       fork(publishWorker, action)
+    );
+  });
+});
+
+describe('/sagas/publish publishWorker', () => {
+  const community = { comm: 1 };
+  const conference = { conf: 2 };
+  const events = { first: { ev: 7 } };
+  const pubAction = publishSiteState({ community, conference, events });
+
+  it('listens to PUBLISH_SITE_STATE', () => {
+    const saga = publishWorker(pubAction);
+    expect(
+      saga.next().value
+    ).to.deep.equal(
+      call(api.publishSiteState, pubAction)
     );
   });
 });
