@@ -2,7 +2,7 @@
 // STAY TUNED
 .StayTuned {
   background: $events-color;
-
+  border-bottom: $solid-border;
   .content {
     padding: 28px 20px 44px 20px;
   }
@@ -10,16 +10,25 @@
     font-size: 24px;
     margin: 0px;
     padding: 0px;
+    text-align: center;
   }
 
   &__summary {
     margin-bottom: 35px;
+    text-align: center;
   }
 
 
   // MAILCHIMP
+  &__form__container {
+    width: 635px;
+  }
   &__form {
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 
     &__label {
       display: block;
@@ -46,7 +55,7 @@
 
     &__submit {
       margin-left: 15px;
-
+      font-weight: 600;
       width: 95px;
       background: $grey;
       color: $events-color;
