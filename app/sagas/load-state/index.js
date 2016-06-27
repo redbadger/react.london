@@ -5,10 +5,10 @@ import {
 } from '../../actions/persistence';
 
 export function* loadStateWorker() {
-  const res = yield call(api.fetchSiteState);
-  if (res.error) {
-    yield put(siteStateLoadFailed(res.error));
-  } else {
+  try {
+    const res = yield call(api.fetchSiteState);
     yield put(siteStateLoaded(res.data));
+  } catch (error) {
+    yield put(siteStateLoadFailed(error));
   }
 }
