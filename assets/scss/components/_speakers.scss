@@ -21,9 +21,7 @@
       justify-content: space-between;
     }
 
-
   }
-
 
   .Speaker {
     width: 100%;
@@ -56,18 +54,6 @@
       margin: 0px;
     }
 
-    &__details {
-      padding: 0px;
-      display: flex;
-      -webkit-display: flex;
-      align-items: center;
-      -webkit-align-items: center;
-      li {
-        list-style-type: none;
-        margin-right: 25px;
-      }
-    }
-
     &--svg {
       height: 120px;
     }
@@ -76,7 +62,19 @@
       height: 120px;
     }
 
+    &__details {
+      padding: 0px;
+      display: flex;
+      -webkit-display: flex;
+      align-items: center;
+      -webkit-align-items: center;
+      li {
+        list-style-type: none;
+      }
+    }
+
     &__detail {
+      margin-right: 25px;
       background: no-repeat;
 
       display: block;
