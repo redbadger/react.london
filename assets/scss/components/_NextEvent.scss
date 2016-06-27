@@ -6,7 +6,10 @@
 
   padding-bottom: 30px;
 
-
+  &__details__heading,
+  &__booking__heading {
+    margin-top: 16px;
+  }
 
   &__booking__heading {
     color: $red-badger-color;
@@ -16,14 +19,11 @@
     font-weight: bold;
   }
 
-  &__live-stream-text--bold {
+  &__live-stream-text--link {
     font-weight: bold;
+    text-decoration: underline;
     color: $grey;
-    text-decoration: none;
   }
-
-
-
 
   &__details {
     padding: 0px;
@@ -59,7 +59,7 @@
   }
 
   &__header {
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     border-bottom: $dash-border;
     line-height: 2em;
   }
@@ -125,7 +125,7 @@
       }
   
       &__booking {
-        padding-left: 90px;
+        padding-left: 35px;
       }
     }
   }
