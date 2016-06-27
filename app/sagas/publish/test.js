@@ -1,8 +1,8 @@
 import * as api from '../../api';
-import { call, take, fork } from 'redux-saga/effects';
+import { put, call, take, fork } from 'redux-saga/effects';
 import { publishWatcher, publishWorker } from '.';
 import {
-  PUBLISH_SITE_STATE, publishSiteState,
+  PUBLISH_SITE_STATE, publishSiteState, publishSiteSuccess,
 } from '../../actions/persistence';
 
 describe('/sagas/publish publishWatcher', () => {
@@ -34,6 +34,11 @@ describe('/sagas/publish publishWorker', () => {
       saga.next().value
     ).to.deep.equal(
       call(api.publishSiteState, pubAction)
+    );
+    expect(
+      saga.next().value
+    ).to.deep.equal(
+      put(publishSiteSuccess())
     );
   });
 });
