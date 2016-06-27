@@ -13,14 +13,14 @@
     text-transform: uppercase;
     border: 0px;
     padding: 12px 15px;
-    color: $white;
+    color: $events-color;
     font-weight: bold;
     background: $grey;
     text-decoration: none;
 
     font-size: 13px;
     &:hover {
-      color: $events-color;
+      color: $white;
     }
   }
 }
