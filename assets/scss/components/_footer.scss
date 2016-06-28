@@ -66,6 +66,7 @@
   &__logo--img,
   &__logo--svg {
     height: 81px;
+    display: block;
   }
 
   @media (min-width: 616px) { //eyeballed
