@@ -18,6 +18,8 @@
   -webkit-align-content: center;
   align-content: center;
 
+  z-index: -1;
+
   &__title {
     position: absolute;
     text-align: center;
