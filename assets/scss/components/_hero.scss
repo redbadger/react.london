@@ -6,10 +6,11 @@
   height: 260px;
   background-position: calc(50% - 39px) calc(50% - 39px);
 
+  
+  display: -webkit-flex;
   display: flex;
-  -webkit-display: flex;
-  align-content: center;
   -webkit-align-content: center;
+  align-content: center;
 
   &__title {
     font-weight: bold;

@@ -12,94 +12,9 @@
     padding: 0px;
   }
 
-
-
-    // MAILCHIMP
-      #mc_embed_signup {
-        font-size: 18px;
-      }
-
-//         clear: left;
-//         font-family: 'Objektiv', Arial;
-
-//         form#mc-embedded-subscribe-form {
-//           padding-top: 27px !important;
-//           padding-left: 0 !important;
-//           padding-right: 0 !important;
-//           padding-bottom: 0 !important;
-//         }
-
-//         #mc_embed_signup_scroll {
-//           display: -webkit-flex;
-//           display: flex;
-//           flex-flow: column wrap;
-//           -webkit-flex-flow: column wrap;
-//           -webkit-align-items: center;
-//           align-items: center;
-//         }
-//         #mc_embed_signup_input {
-//           position: absolute;
-//           left: -5000px;
-//           cursor: pointer;
-//         }
-
-//         label[for='mce-EMAIL'] {
-//           width: calc(100vw - 80px);
-//           max-width: 518px;
-//           font-size: 19px;
-//           font-weight: 700;
-//         }
-
-//         #mce-EMAIL {
-//           margin: 0px;
-//           margin-bottom: 10px;
-//           border: 3px solid $grey;
-//           background: white;
-//           width: calc(100vw - 80px);
-//           max-width: 500px;
-//           min-height: 36px;
-//           padding: 0 9px;
-//         }
-
-//         input[type="submit"].button {
-//           background: $grey;
-//           color: $events-color-faded;
-
-//           font-size: 16px;
-//           font-weight: 700;
-//           line-height: 36px;
-          
-//           margin: 20px 0 0 0;
-//           padding-bottom: 0px;
-
-//           width: auto;
-//           min-width: 90px;
-//           height: auto;
-          
-//           border: 0px;
-//           border-radius: 5px;
-
-//           cursor: pointer;
-//           &:hover {
-//             color: white;
-//           }
-//         }
-//       }
-
-//       @media (max-width: $mobile-width) {
-//         #mc_embed_signup {
-//           form#mc-embedded-subscribe-form {
-//             padding: 0px;
-//             padding-top: 50px;
-//           }
-//           #mce-EMAIL {
-//             width: calc(100vw - 80px);
-//           }
-//           label[for='mce-EMAIL'] {
-//             width: calc(100vw - 60px);
-//           }
-//         }
-//       }
-
-
+  // MAILCHIMP
+  #mc_embed_signup {
+    font-size: 18px;
   }
+
+}

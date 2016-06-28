@@ -68,8 +68,11 @@
     border-radius: 50%;
     text-align: center;
 
+    display: -webkit-flex;
     display: flex;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-justify-content: center;
     justify-content: center;
 
     &--svg, &--img {
@@ -80,10 +83,10 @@
 
   &__details {
     padding: 0px;
+    display: -webkit-flex;
     display: flex;
-    -webkit-display: flex;
-    align-items: center;
     -webkit-align-items: center;
+    align-items: center;
     li {
       list-style-type: none;
     }
