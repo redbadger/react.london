@@ -53,7 +53,7 @@
       padding: 0px 15px;
 
       max-width: 510px;
-      width: calc(100% - calc(109px + 15px + 18px + 18px)); // 109px button width + 15px margin & 18px paddings removed.
+      width: calc(100% - 160px); // 109px button width + 15px margin + 18px + 18px paddings removed.
     }
 
     &__submit {
