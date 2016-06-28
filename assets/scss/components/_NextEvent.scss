@@ -88,7 +88,7 @@
     font-weight: bold;
 
     &--disabled {
-      background-color: #C9C9C9;
+      background-color: $disabled-grey;
       color: $events-color-faded;
       cursor: not-allowed;
     }
