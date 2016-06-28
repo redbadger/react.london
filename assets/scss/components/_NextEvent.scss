@@ -30,14 +30,20 @@
     margin: 16px 0px 30px 0px;
     li {
       list-style: none;
+      &:first-child {
+        a {
+          margin-top: 0px;
+        }
+      }
     }
     a {
       color: $grey;
       text-decoration: none;
       padding-left: 40px;
-      display: block;
+      display: inline-block;
       margin-top: 15px;
     }
+
   }
 
   &__link--date {
@@ -69,7 +75,10 @@
   }
 
 
-
+  &__booking-btn__container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
   &__booking-btn {
     border-radius: 6px;
     text-transform: uppercase;
@@ -94,7 +103,7 @@
   &__section-container {
     display: flex;
     -webkit-flex-flow: column wrap;
-    flex-flow: column wrap; 
+    flex-flow: column wrap;
   }
 
   &__section__details {
@@ -113,17 +122,17 @@
 
     &__section {
       width: 50%;
-  
+
       &-container {
         -webkit-flex-flow: row wrap;
-        flex-flow: row wrap; 
+        flex-flow: row wrap;
       }
-  
+
       &__details {
         border-right: $dash-border;
         border-bottom: none;
       }
-  
+
       &__booking {
         padding-left: 35px;
       }
