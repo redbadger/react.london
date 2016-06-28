@@ -1,22 +1,28 @@
 // HERO
 .Hero {
-  overflow: hidden;
   background-image: url('/assets/img/SVG/Community_header_background.svg');
   background-color: $events-color;
-  height: 260px;
   background-position: calc(50% - 39px) calc(50% - 39px);
 
+  height: 260px;
+  overflow: hidden;
+
+  position: relative;
   
   display: -webkit-flex;
   display: flex;
+
+  -webkit-flex-direction: column;
+  flex-direction: column;
+
   -webkit-align-content: center;
   align-content: center;
 
   &__title {
-    font-weight: bold;
     position: absolute;
     text-align: center;
     top: 150px;
-    width: 100%;
+    left: 0;
+    right: 0;
   }
 }
