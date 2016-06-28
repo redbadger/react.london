@@ -296,13 +296,13 @@
             padding: 0px 15px;
 
             max-width: 510px;
-            width: calc(100% - 125px); // 95px button width + 15px margin = 125px removed.
+            width: calc(100% - calc(109px + 15px + 18px + 18px)); // 109px button width + 15px margin & 18px paddings removed.
           }
 
           &__submit {
             margin-left: 15px;
             font-weight: 600;
-            width: 95px;
+            padding: 3px 18px;
             background: $grey;
             color: $conference-color;
             border: 0px;
