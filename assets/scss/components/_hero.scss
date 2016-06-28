@@ -1,25 +1,8 @@
-$cell-size: 80;
-;
-$grid-half-border-width: 0.25; // halved to account for overlapping borders.
-$grid: "data:image/svg+xml;utf8,\
-        <svg \
-          xmlns='http://www.w3.org/2000/svg' \
-          width='#{$cell-size}' \
-          height='#{$cell-size}'>\
-        <rect \
-          fill='#{$events-color}' \
-          style='stroke-width:#{$grid-half-border-width}; \
-          stroke:#{$grey};' \
-          x='0' y='0' \
-          width='#{$cell-size + 1}' \
-          height='#{$cell-size + 1}'/>\
-        </svg>";
-
 // HERO
-  .Hero {
-    overflow: hidden;
-    background-image: url($grid);
-    background-color: $events-color;
-    height: 260px;
-    background-position: calc(50% - 39px) calc(50% - 39px);
-  }
+.Hero {
+  overflow: hidden;
+  background-image: url('/assets/img/SVG/Community_header_background.svg');
+  background-color: $events-color;
+  height: 260px;
+  background-position: calc(50% - 39px) calc(50% - 39px);
+}
