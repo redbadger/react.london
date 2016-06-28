@@ -54,13 +54,24 @@
       margin: 0px;
     }
 
-    &--svg {
+    &__photo {
+      width: 120px;
       height: 120px;
+      margin: 0px;
+      overflow: hidden;
+      border: $solid-border;
+      border-radius: 50%;
+      text-align: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--svg, &--img {
+        height: 100%;
+      }
     }
 
-    &--img {
-      height: 120px;
-    }
 
     &__details {
       padding: 0px;
