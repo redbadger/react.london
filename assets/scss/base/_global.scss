@@ -15,6 +15,11 @@ body {
     }
   }
 
+
+  object {
+    pointer-events: none;
+  }
+
   .content-title {
     border-bottom: $dash-border;
   }
