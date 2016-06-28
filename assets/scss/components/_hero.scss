@@ -5,4 +5,9 @@
   background-color: $events-color;
   height: 260px;
   background-position: calc(50% - 39px) calc(50% - 39px);
+
+  display: flex;
+  -webkit-display: flex;
+  align-content: center;
+  -webkit-align-content: center;
 }
