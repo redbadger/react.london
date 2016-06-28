@@ -71,8 +71,10 @@
   @media (min-width: 616px) { //eyeballed
     &__links {
       column-count: 2;
+      -webkit-column-count: 2;
       -moz-column-count: 2;
       column-gap: 80px;
+      -webkit-column-gap: 80px;
       -moz-column-gap: 80px;
     }
   }
