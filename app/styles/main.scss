@@ -4,9 +4,9 @@
 @import 'base/typography';
 @import 'base/global';
 @import '../components/SiteFooter/index';
-@import 'components/red-badger-banner';
+@import '../components/RedBadgerBanner/index';
 
-@import 'components/hero';
+@import '../components/Hero/index';
 @import 'components/NavBar';
 @import '../components/About/index';
 @import 'components/NextEvent';
