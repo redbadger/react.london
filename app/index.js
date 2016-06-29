@@ -8,7 +8,7 @@ import { configureStore } from './store/';
 import EditorHome from './components/EditorHome';
 import EditorLayout from './components/EditorLayout';
 import EditorNotFound from './components/EditorNotFound';
-import EventEditor from './components/EventEditor';
+import EventEditor from './containers/EventEditor';
 import CommunityEditor from './components/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
 
