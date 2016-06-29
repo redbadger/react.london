@@ -3,6 +3,7 @@ import SiteFooter from '../SiteFooter';
 import Speaker from '../Speaker';
 import ScheduleItem from '../ScheduleItem';
 import Sponsor from '../Sponsor';
+import Hero from '../Hero';
 
 const Community = ({
   communitySummary,
@@ -20,14 +21,7 @@ const Community = ({
   <div className="community">
     <div id="wrapper">
       <main>
-
-        {/* HERO (main banner) */}
-        <header className="Hero block">
-          <object className="Hero--svg" data="/img/SVG/Community_header_transparent.svg" type="image/svg+xml">
-            <img className="Hero--img" srcSet="/img/PNG/Community_header_transparent_x2.png" src="/img/PNG/Community_header_transparent.png" alt="Red Badger logo" />
-          </object>
-          <h1 className="Hero__title">React London</h1>
-        </header>
+        <Hero />
 
         {/* POWERED BY RED BADGER BANNER */}
         <section className="RedBadgerBanner block">
