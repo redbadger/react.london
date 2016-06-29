@@ -3,7 +3,12 @@ import { shallow } from 'enzyme';
 import CommunityEditor from '.';
 
 describe('CommunityEditor component', () => {
+  const props = {
+    community: {
+    },
+  };
+
   it('renders successfully', () => {
-    shallow(<CommunityEditor />);
+    shallow(<CommunityEditor {...props} />);
   });
 });

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import CommunityPreview from '../../containers/CommunityPreview';
+import Community from '../../components/Community';
 import TextField from '../TextField/index';
 
 const Form = () => (
@@ -26,7 +26,7 @@ const ConnectedForm = reduxForm({
   form: 'community',
 })(Form);
 
-const CommunityEditor = () => (
+const CommunityEditor = ({ community }) => (
   <div className="community-editor">
     <h1>
       Community Editor!
@@ -35,12 +35,13 @@ const CommunityEditor = () => (
 
     <h2>Preview</h2>
     <div className="preview">
-      <CommunityPreview />
+      <Community {...community} />
     </div>
   </div>
 );
 
 CommunityEditor.propTypes = {
+  community: PropTypes.shape(Community.propTypes).isRequired,
 };
 
 

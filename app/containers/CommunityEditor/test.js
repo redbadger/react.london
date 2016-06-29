@@ -1,6 +1,6 @@
 import { mapStateToProps } from '.';
 
-describe('CommunityPreview container mapStateToProps', () => {
+describe('CommunityEditor container mapStateToProps', () => {
   it('gets the form values if they exist', () => {
     const state = {
       form: {
@@ -13,8 +13,10 @@ describe('CommunityPreview container mapStateToProps', () => {
       },
     };
     expect(mapStateToProps(state)).to.deep.equal({
-      communityProp1: 'abc',
-      communityProp2: 'def',
+      community: {
+        communityProp1: 'abc',
+        communityProp2: 'def',
+      },
     });
   });
 
@@ -23,6 +25,8 @@ describe('CommunityPreview container mapStateToProps', () => {
       form: {
       },
     };
-    expect(mapStateToProps(state)).to.deep.equal({});
+    expect(mapStateToProps(state)).to.deep.equal({
+      community: {},
+    });
   });
 });
