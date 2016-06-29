@@ -6,6 +6,7 @@ import Sponsor from '../Sponsor';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
+import CommunityAbout from '../CommunityAbout';
 
 const Community = ({
   communitySummary,
@@ -26,13 +27,7 @@ const Community = ({
         <Hero />
         <RedBadgerBanner />
         <NavigationBar />
-
-        {/* ABOUT REACT LONDON EVENTS  */}
-        <section className="About block">
-          <div className="content">
-            <p className="About__text">{communitySummary}</p>
-          </div>
-        </section>
+        <CommunityAbout communitySummary={communitySummary} />
 
         {/* NEXT EVENT */}
         <section className="NextEvent block">
