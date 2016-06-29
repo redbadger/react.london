@@ -3,12 +3,12 @@
 @import 'base/layout';
 @import 'base/typography';
 @import 'base/global';
-@import 'components/footer';
+@import '../components/SiteFooter/index';
 @import 'components/red-badger-banner';
 
 @import 'components/hero';
 @import 'components/NavBar';
-@import 'components/about';
+@import '../components/About/index';
 @import 'components/NextEvent';
 @import 'components/speakers';
 @import 'components/StayTuned';
@@ -20,4 +20,4 @@
 
 
 
-@import 'components/conference';
+@import '../components/Conference/index';
