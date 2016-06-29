@@ -31,7 +31,7 @@ export function compilePreview(state) {
 }
 
 function getStyles() {
-  const body = fs.readFileSync('./dist/website.css', 'utf8');
+  const body = fs.readFileSync('./dist/main.css', 'utf8');
   return {
     path: 'main.css',
     body,
