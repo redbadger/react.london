@@ -5,12 +5,9 @@ import ScheduleItem from '../ScheduleItem';
 import Sponsor from '../Sponsor';
 
 const Community = ({
-  communityTitle,
   communitySummary,
   mailingListTitle,
   mailingListSummary,
-  mailingListConferenceText,
-  eventTitle,
   eventDate,
   eventAddress,
   eventStartTime,
@@ -25,70 +22,68 @@ const Community = ({
       <main>
 
         {/* HERO (main banner) */}
-        <header id="hero" className="block">
-          <div className="content">
-            <h1>
-              React London
-              <span>Community</span>
-            </h1>
-          </div>
+        <header className="Hero block">
+          <object className="Hero--svg" data="/img/SVG/Community_header_transparent.svg" type="image/svg+xml">
+            <img className="Hero--img" srcSet="/img/PNG/Community_header_transparent_x2.png" src="/img/PNG/Community_header_transparent.png" alt="Red Badger logo" />
+          </object>
+          <h1 className="Hero__title">React London</h1>
         </header>
 
         {/* POWERED BY RED BADGER BANNER */}
-        <section id="red-badger-banner" className="block">
+        <section className="RedBadgerBanner block">
           <div className="content space-between">
-            <span>Powered by Red Badger</span>
-
-            <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
-              <img
-                srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png"
-                src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-01.png"
-                alt="Red Badger logo"
-              />
+            <span className="RedBadgerBanner__tag">Powered by Red Badger</span>
+            <object className="RedBadgerBanner__logo--svg" data="/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg" type="image/svg+xml">
+              <img className="RedBadgerBanner__logo--img" srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-01.png" src="/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger logo" />
             </object>
           </div>
         </section>
 
         {/* NAVIGATION BAR */}
-        <nav id="main-nav" className="block">
-          <ul className="content space-between semantic-only">
-            <li><a className="events active" href="#">Upcoming Events</a></li>
-            <li><a className="conference" href="#">Conference</a></li>
+        <nav className="NavBar block">
+          <ul className="NavBar__tabs">
+            <li><a className="NavBar__tab--active" href="#">Meetups</a></li>
+            <li><a href="/conference">Conference</a></li>
           </ul>
         </nav>
 
         {/* ABOUT REACT LONDON EVENTS  */}
-        <section id="about" className="block">
+        <section className="About block">
           <div className="content">
-            <h2>{communityTitle}</h2>
-            <p>{communitySummary}</p>
+            <p className="About__text">{communitySummary}</p>
           </div>
         </section>
 
         {/* NEXT EVENT */}
-        <section id="next-event" className="block">
+        <section className="NextEvent block">
           <div className="content">
-            <h2 className="content-title">Next Event</h2>
-          </div>
-          <div className="content space-between">
-            <article>
-              <h3>{eventTitle}</h3>
-              <ul className="event-details semantic-only">
-                <li className="date">
-                  <a href="#">{eventDate}</a>
-                </li>
-                <li className="location">
-                  <a href="#">{eventAddress}</a>
-                </li>
-                <li className="time">
-                  <a href="#">from {eventStartTime} to {eventEndTime}</a>
-                </li>
-              </ul>
-            </article>
-            <article>
-              <button>Get your free ticket</button>
-              <h3>The tickets will go live on 8 June 2016</h3>
-              <p>We will post the Live Stream here</p>
+            <h2 className="NextEvent__header">Next Event</h2>
+            <article className="NextEvent__section-container">
+              <div className="NextEvent__section NextEvent__section__details">
+                <h3 className="NextEvent__details__heading">July React Meetup</h3>
+                <ul className="NextEvent__details">
+                  <li>
+                    <a className="NextEvent__link--date">{eventDate}</a>
+                  </li>
+                  <li>
+                    <a className="NextEvent__link--place">{eventAddress}</a>
+                  </li>
+                  <li>
+                    <a className="NextEvent__link--time">{eventStartTime} - {eventEndTime}</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="NextEvent__section NextEvent__section__booking">
+                <h3 className="NextEvent__booking__heading">TICKETS GO LIVE</h3>
+                <p className="NextEvent__booking__text">Monday, 11 July 2016 at 13:00</p>
+                <div className="NextEvent__booking-btn__container">
+                  <a className="NextEvent__booking-btn NextEvent__booking-btn--disabled">free ticket</a>
+                </div>
+                <p className="NextEvent__live-stream-text">
+                  To get reminders about tickets and future events <a className="NextEvent__live-stream-text--link" href="#stay-tuned">subscribe here</a>
+                </p>
+
+              </div>
             </article>
           </div>
         </section>
@@ -107,60 +102,24 @@ const Community = ({
         </section>
 
         {/* REGISTER */}
-        <section id="register" className="block">
+
+        <section id="stay-tuned" className="StayTuned block">
           <div className="content">
+            <h3 className="StayTuned__heading">{mailingListTitle}</h3>
+            <p className="StayTuned__summary">{mailingListSummary}</p>
 
-            <h3>{mailingListTitle}</h3>
-            <p>{mailingListSummary}</p>
-
-            {/* ACTION REMOVED Begin MailChimp Signup Form */}
             <div id="mc_embed_signup">
-              <form
-                method="post"
-                id="mc-embedded-subscribe-form"
-                name="mc-embedded-subscribe-form"
-                className="validate"
-                target="_blank"
-                noValidate
-              >
-                <div id="mc_embed_signup_scroll">
-                  <label htmlFor="mce-EMAIL">Email:</label>
-                  <input
-                    type="email"
-                    value=""
-                    autoComplete="off"
-                    name="EMAIL"
-                    className="email"
-                    id="mce-EMAIL"
-                    placeholder="name@address.com"
-                    required
-                  />
-                  {/* real people should not fill this in and expect good
-                      things - do not remove this or risk form bot signup */}
-                  <div id="mc_embed_signup_input" aria-hidden="true">
-                    <input
-                      type="text"
-                      name="b_f3de268a0820d472cbd31f761_c723cfd260"
-                      tabIndex="-1"
-                      value=""
-                    />
-                  </div>
-                  <div className="clear">
-                    <input
-                      type="submit"
-                      value="Subscribe"
-                      name="subscribe"
-                      id="mc-embedded-subscribe"
-                      className="button"
-                    />
-                  </div>
+              <form className="StayTuned__form" action="//london.us13.list-manage.com/subscribe/post?u=f3de268a0820d472cbd31f761&amp;id=c723cfd260&LOCATION=community" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" noValidate>
+                <div className="StayTuned__form__container">
+                  <label className="StayTuned__form__label" htmlFor="mce-EMAIL">Email</label>
+                  <input className="StayTuned__form__email" type="email" value="" autoComplete="off" name="EMAIL" id="mce-EMAIL" placeholder="name@address.com" required />
+                  <input className="StayTuned__form__submit" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" />
                 </div>
               </form>
             </div>
-            <p>{mailingListConferenceText}</p>
-            {/* End mc_embed_signup */}
           </div>
         </section>
+
 
         <section id="event-details" className="block">
           <div className="content space-between">
@@ -222,12 +181,9 @@ const Community = ({
 );
 
 Community.propTypes = {
-  communityTitle: PropTypes.string,
   communitySummary: PropTypes.string,
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
-  mailingListConferenceText: PropTypes.string,
-  eventTitle: PropTypes.string,
   eventAddress: PropTypes.string,
   eventDate: PropTypes.string,
   eventStartTime: PropTypes.string,

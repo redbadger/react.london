@@ -1,36 +1,40 @@
 import React from 'react';
 
 const SiteFooter = () => (
-  <footer className="block">
+  <footer className="SiteFooter block">
     <div className="content space-between">
 
-      <ul className="semantic-only">
+      <ul className="SiteFooter__links">
         <li>
-          <a href="mailto:hello@react.london">hello@react.london</a>
+          <a className="SiteFooter__link SiteFooter__link--mail" href="mailto:hello@react.london">
+            <span>hello@react.london</span>
+          </a>
         </li>
         <li>
-          <a href="https://twitter.com/londonreact" target="_blank">@londonreact</a>
+          <a className="SiteFooter__link SiteFooter__link--slack" target="_blank" href="http://slack.red-badger.com/" target="_blank">
+            <span>Join the conversation</span>
+          </a>
         </li>
         <li>
-          <a href="https://twitter.com/search?q=%23londonreact" target="_blank">#londonreact</a>
+          <a className="SiteFooter__link SiteFooter__link--youtube" target="_blank" href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ" target="_blank">
+            <span>Watch previous Meetups</span>
+          </a>
         </li>
         <li>
-          {/* TODO: Get slack link */}
-          <a href="#" target="_blank">Join the conversation</a>
+          <a className="SiteFooter__link SiteFooter__link--twitter" target="_blank" href="https://twitter.com/ReactLondon_" target="_blank">
+            <span>@ReactLondon_</span>
+          </a>
         </li>
         <li>
-          {/* TODO: Get video archive link */}
-          <a href="#" target="_blank">Watch videos</a>
+          <a className="SiteFooter__link SiteFooter__link--hashtag" target="_blank" href="https://twitter.com/search?q=%23reactlondon" target="_blank">
+            #reactlondon
+          </a>
         </li>
       </ul>
 
-      <a href="https://red-badger.com/" className="footer-logo" target="_blank">
-        <object data="assets/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
-          <img
-            srcSet="assets/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
-            src="assets/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
-            alt="Red Badger logo"
-          />
+      <a className="SiteFooter__logo" href="http://red-badger.com/" target="_blank">
+        <object className="SiteFooter__logo--svg" data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
+          <img className="SiteFooter__logo--img" srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo" />
         </object>
       </a>
 

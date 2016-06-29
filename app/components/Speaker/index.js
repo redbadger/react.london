@@ -34,22 +34,33 @@ const Speaker = ({
   githubHandle,
   blogURL,
 }) => (
-  <article>
-    <figure><img src="#TODO" alt={name} /></figure>
-    <ul className="semantic-only">
+  <article className="Speaker">
+    <figure className="Speaker__photo">
+      <img className="Speaker__photo--img" src="#TODO" alt={name} />
+    </figure>
+    <ul className="Speaker__details">
       <li>
-        <GitHubLink handle={githubHandle} />
-      </li>
+        <a
+          className="Speaker__detail Speaker__detail--github"
+          target="_blank"
+          href={'https://github.com/' + githubHandle}
+        >Github</a></li>
       <li>
-        <TwitterLink handle={twitterHandle} />
-      </li>
+        <a
+          className="Speaker__detail Speaker__detail--twitter"
+          target="_blank"
+          href={'https://twitter.com/' + twitterHandle}
+        >Twitter</a></li>
       <li>
-        <a href={blogURL}><img src="#TODO" alt="blog" /></a>
-      </li>
+        <a
+          className="Speaker__detail Speaker__detail--blog"
+          target="_blank"
+          href={blogURL}
+        >Blog</a></li>
     </ul>
-    <h5>{name} <span>{company}</span></h5>
-    <h4>{talkTitle}</h4>
-    <p>{talkSummary}</p>
+    <h5 className="Speaker__name"><span className="Speaker__name--bold">{name} </span>{company}</h5>
+    <h4 className="Speaker__title">{talkTitle}</h4>
+    <p className="Speaker__summary">{talkSummary}</p>
   </article>
 );
 
