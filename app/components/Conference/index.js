@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteFooter from '../SiteFooter';
 
-const ConferenceEditor = () => (
+const Conference = () => (
   <div id="wrapper">
     <main id="conference">
 
@@ -104,7 +104,7 @@ const ConferenceEditor = () => (
   </div>
 );
 
-ConferenceEditor.propTypes = {
+Conference.propTypes = {
 };
 
-export default ConferenceEditor;
+export default Conference;
