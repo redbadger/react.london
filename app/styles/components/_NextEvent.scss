@@ -1,0 +1,142 @@
+
+// NEXT EVENT
+.NextEvent {
+  border-top: $solid-border;
+  background-color: $events-color-faded;
+
+  padding-bottom: 30px;
+
+  &__details__heading,
+  &__booking__heading {
+    margin-top: 16px;
+  }
+
+  &__booking__heading {
+    color: $red-badger-color;
+  }
+
+  &__booking__text {
+    font-weight: bold;
+  }
+
+  &__live-stream-text--link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: $grey;
+  }
+
+  &__details {
+    padding: 0px;
+    margin: 16px 0px 30px 0px;
+    li {
+      list-style: none;
+      &:first-child {
+        a {
+          margin-top: 0px;
+        }
+      }
+    }
+    a {
+      color: $grey;
+      text-decoration: none;
+      padding-left: 40px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+  }
+
+  &__link--date {
+    background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  &__link--place {
+    background: url("/img/SVG/Place_icon_green.svg") no-repeat 0px 1px;
+    height: 32px;
+    padding-top: 5px;
+  }
+
+  &__link--time {
+    background: url("/img/SVG/Time_icon_green.svg") no-repeat left top;
+    height: 25px;
+    padding-top: 3px;
+  }
+
+  &__header {
+    margin-bottom: 5px;
+    border-bottom: $dash-border;
+    line-height: 2em;
+  }
+
+  &__live-stream-text {
+    margin-bottom: 0px;
+  }
+
+
+  &__booking-btn__container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  &__booking-btn {
+    border-radius: 6px;
+    text-transform: uppercase;
+    border: 0px;
+    padding: 12px 15px;
+    color: $white;
+    font-weight: bold;
+
+    &--disabled {
+      background-color: $disabled-grey;
+      color: $events-color-faded;
+      cursor: not-allowed;
+    }
+
+    &.--active {
+      background-color: $red-badger-color;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+
+  &__section-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+
+  &__section__details {
+    border-bottom: $dash-border;
+  }
+
+
+}
+
+@media (min-width: 768px) {
+  .NextEvent {
+
+    &__details {
+      margin: 16px 0px 0px 0px;
+    }
+
+    &__section {
+      width: 50%;
+
+      &-container {
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+      }
+
+      &__details {
+        border-right: $dash-border;
+        border-bottom: none;
+      }
+
+      &__booking {
+        padding-left: 35px;
+      }
+    }
+  }
+}

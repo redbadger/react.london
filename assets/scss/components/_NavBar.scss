@@ -1,0 +1,59 @@
+// NAVIGATION BAR
+  .NavBar {
+    background: $events-color-faded;
+    &__tabs {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      -webkit-align-items: center;
+      align-items: center;
+      padding: 0 20px;
+      margin: 0px;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        width: 40vw;
+        min-width: 130px;
+        text-align: center;
+        color: $grey;
+        
+        height: 50px;
+        vertical-align: middle;
+        display: table-cell;
+
+        &.NavBar__tab--active {
+          border-bottom: $solid-border;
+        }
+
+        &:not(.NavBar__tab--active){
+          padding-bottom: 3px;
+          &:hover {
+            padding-bottom: 0px;
+            border-bottom: $solid-border-faded;
+          }
+        }
+
+        @media (min-width: 768px) { //same as in .About.scss
+          height: 63px;
+        }
+
+      }
+
+      li {
+        list-style-type: none;
+
+        &:first-child {
+          margin-right: 20px;
+        }
+
+
+        @media (min-width: 660px) {
+          width: 300px;
+        }
+      }
+    }
+  }
