@@ -21,14 +21,17 @@ terraform-staging-apply: ## Apply infrastructure changes for staging
 clean: ## Remove compiled files
 	rm -rf dist/*
 
-build: clean dist/index.html dist/bundle.js ## Compile the app
+build: clean dist/index.html dist/assets dist/webpack ## Compile the app
 
-dist/bundle.js:
+dist/webpack:
 	$(webpack)
 
 dist/index.html:
 	mkdir -p dist
 	cp app/index.html dist
+
+dist/assets:
+	cp -a assets/. dist
 
 start: ## Start the dev server
 	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0
