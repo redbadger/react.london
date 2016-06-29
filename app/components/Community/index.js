@@ -5,6 +5,7 @@ import ScheduleItem from '../ScheduleItem';
 import Sponsor from '../Sponsor';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
+import NavigationBar from '../NavigationBar';
 
 const Community = ({
   communitySummary,
@@ -24,14 +25,7 @@ const Community = ({
       <main>
         <Hero />
         <RedBadgerBanner />
-
-        {/* NAVIGATION BAR */}
-        <nav className="NavBar block">
-          <ul className="NavBar__tabs">
-            <li><a className="NavBar__tab--active" href="#">Meetups</a></li>
-            <li><a href="/conference">Conference</a></li>
-          </ul>
-        </nav>
+        <NavigationBar />
 
         {/* ABOUT REACT LONDON EVENTS  */}
         <section className="About block">
