@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { reduxForm, FieldArray } from 'redux-form';
-import EventPreview from '../../containers/EventPreview';
+import Community from '../Community';
 import TextField from '../TextField/index.js';
 
 const Speakers = ({ fields }) => (
@@ -141,27 +141,29 @@ const Form = () => {
   );
 };
 
-// TODO: Inject initial state
 const ConnectedForm = reduxForm()(Form);
 
-const EventEditor = ({ event: { eventID } }) => (
+const EventEditor = ({ eventID, eventPreviewProps, initialFormValues }) => (
   <div className="event-editor">
     <h1>
       Event {eventID}
     </h1>
-    <ConnectedForm form={'event::' + eventID} />
+    <ConnectedForm
+      form={'event::' + eventID}
+      initialValues={initialFormValues}
+    />
 
     <h2>Preview</h2>
     <div className="preview">
-      <EventPreview />
+      <Community {...eventPreviewProps} />
     </div>
   </div>
 );
 
 EventEditor.propTypes = {
-  event: PropTypes.shape({
-    eventID: PropTypes.string.isRequired,
-  }).isRequired,
+  eventID: PropTypes.string.isRequired,
+  eventPreviewProps: PropTypes.shape(Community.propTypes).isRequired,
+  initialFormValues: PropTypes.shape(Community.propTypes).isRequired,
 };
 
 
