@@ -29,14 +29,3 @@ describe('compileSite', () => {
     ]);
   });
 });
-
-describe('compilePreview', () => {
-  it('renders the Preview page', () => {
-    const { path, body } = compilePreview(previewData);
-    expect(path).to.equal('index.html');
-    expect(body).to.include('<!doctype html>');
-    expect(body).to.include(previewData.about.title);
-    expect(body).to.include(previewData.about.summary);
-    expect(body).to.include('Getting Ship Done');
-  });
-});
