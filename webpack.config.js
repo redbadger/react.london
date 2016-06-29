@@ -8,7 +8,7 @@ module.exports = {
   noInfo: true,
   entry: {
     'static/editor': ['babel-polyfill', './app/index'],
-    website: ['./app/styles/website.scss'],
+    main: ['./app/styles/main.scss'],
   },
   output: {
     path: path.join(__dirname, 'dist'),

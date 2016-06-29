@@ -23,30 +23,30 @@
     }
 
     &--mail {
-      background: url("../../../../assets/img/SVG/Mail.svg") no-repeat left top;
+      background: url("/img/SVG/Mail.svg") no-repeat left top;
       &:hover {
-        background-image: url("../../../../assets/img/SVG/Mail_Hover.svg");
+        background-image: url("/img/SVG/Mail_Hover.svg");
       }
 
     }
     &--slack {
-      background: url("../../../../assets/img/SVG/Slack.svg") no-repeat left top;
+      background: url("/img/SVG/Slack.svg") no-repeat left top;
       &:hover {
-        background-image: url("../../../../assets/img/SVG/Slack_Hover.svg");
+        background-image: url("/img/SVG/Slack_Hover.svg");
       }
 
     }
     &--youtube {
-      background: url("../../../../assets/img/SVG/Youtube.svg") no-repeat left 2px;
+      background: url("/img/SVG/Youtube.svg") no-repeat left 2px;
       &:hover {
-        background-image: url("../../../../assets/img/SVG/Youtube_Hover.svg");
+        background-image: url("/img/SVG/Youtube_Hover.svg");
       }
 
     }
     &--twitter {
-      background: url("../../../../assets/img/SVG/Twitter_white.svg") no-repeat left 3px;
+      background: url("/img/SVG/Twitter_white.svg") no-repeat left 3px;
       &:hover {
-        background-image: url("../../../../assets/img/SVG/Twitter_Hover.svg");
+        background-image: url("/img/SVG/Twitter_Hover.svg");
       }
     }
 

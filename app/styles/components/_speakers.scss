@@ -102,28 +102,28 @@
     outline: 0;
 
     &--github {
-      background-image: url('/assets/img/SVG/Github.svg');
+      background-image: url('/img/SVG/Github.svg');
       height: 25px;
       width: 25px;
       &:hover {
-        background-image: url('/assets/img/SVG/Github_Hover.svg');
+        background-image: url('/img/SVG/Github_Hover.svg');
       }
     }
     &--twitter {
-      background-image: url('/assets/img/SVG/Twitter.svg');
+      background-image: url('/img/SVG/Twitter.svg');
       height: 19px;
       width: 24px;
       &:hover {
-        background-image: url('/assets/img/SVG/Twitter_Hover.svg');
+        background-image: url('/img/SVG/Twitter_Hover.svg');
       }
 
     }
     &--blog {
-      background-image: url('/assets/img/SVG/Blog.svg');
+      background-image: url('/img/SVG/Blog.svg');
       height: 23px;
       width: 23px;
       &:hover {
-        background-image: url('/assets/img/SVG/Blog_Hover.svg');
+        background-image: url('/img/SVG/Blog_Hover.svg');
       }
     }
   }

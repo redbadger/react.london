@@ -53,7 +53,7 @@
 
   // HERO
     #hero {
-      background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg")
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg")
         no-repeat
         center center;
       background-size: cover;
@@ -111,7 +111,7 @@
     @media (min-width: $desktop-width) {
       #hero {
         min-height: 660px;
-        background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
+        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
           no-repeat
           center center;
         background-size: cover;
@@ -152,7 +152,7 @@
 
     @media (max-width: $mobile-width) {
       #hero {
-        background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
           no-repeat
           center -135px;
         background-size: cover;
@@ -174,7 +174,7 @@
 
     @media (max-width: $tiny-mobile-width) {
       #hero {
-        background: url("../img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
           no-repeat
           center -110px;
         background-size: cover;
