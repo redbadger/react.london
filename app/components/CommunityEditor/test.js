@@ -4,7 +4,9 @@ import CommunityEditor from '.';
 
 describe('CommunityEditor component', () => {
   const props = {
-    community: {
+    communityProps: {
+    },
+    initialFormValues: {
     },
   };
 

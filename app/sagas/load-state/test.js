@@ -1,3 +1,4 @@
+import { initialize as formInit } from 'redux-form';
 import { loadStateWorker } from '.';
 import { put, call } from 'redux-saga/effects';
 import * as api from '../../api';
@@ -7,7 +8,7 @@ import {
 } from '../../actions/persistence';
 
 describe('saga loadStateWorker', () => {
-  it('fetches state from API and handles success', () => {
+  it('fetches state from API and handles success, loading forms', () => {
     const generator = loadStateWorker();
     expect(
       generator.next().value
@@ -16,15 +17,25 @@ describe('saga loadStateWorker', () => {
     );
     const response = {
       data: {
-        events: [1, 2],
+        events: { 1: 1, 2: 2 },
         community: 'comm',
         conference: 'conf',
       },
     };
-    expect(
-      generator.next(response).value
-    ).to.deep.equal(
+    expect(generator.next(response).value).to.deep.equal(
       put(siteStateLoaded(response.data))
+    );
+    expect(generator.next().value).to.deep.equal(
+      put(formInit('community', 'comm'))
+    );
+    expect(generator.next().value).to.deep.equal(
+      put(formInit('conference', 'conf'))
+    );
+    expect(generator.next().value).to.deep.equal(
+      put(formInit('event::1', 1))
+    );
+    expect(generator.next().value).to.deep.equal(
+      put(formInit('event::2', 2))
     );
     expect(generator.next().done).to.equal(true);
   });

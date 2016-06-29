@@ -11,12 +11,13 @@ describe('CommunityEditor container mapStateToProps', () => {
           },
         },
       },
+      community: {
+        hello: 'world',
+      },
     };
     expect(mapStateToProps(state)).to.deep.equal({
-      community: {
-        communityProp1: 'abc',
-        communityProp2: 'def',
-      },
+      communityProps: { communityProp1: 'abc', communityProp2: 'def' },
+      initialFormValues: { hello: 'world' },
     });
   });
 
@@ -24,9 +25,13 @@ describe('CommunityEditor container mapStateToProps', () => {
     const state = {
       form: {
       },
+      community: {
+        hello: 'world',
+      },
     };
     expect(mapStateToProps(state)).to.deep.equal({
-      community: {},
+      communityProps: {},
+      initialFormValues: { hello: 'world' },
     });
   });
 });

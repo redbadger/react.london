@@ -21,27 +21,27 @@ const Form = () => (
   </div>
 );
 
-// TODO: Inject initial state
 const ConnectedForm = reduxForm({
   form: 'community',
 })(Form);
 
-const CommunityEditor = ({ community }) => (
+const CommunityEditor = ({ initialFormValues, communityProps }) => (
   <div className="community-editor">
     <h1>
       Community Editor!
     </h1>
-    <ConnectedForm />
+    <ConnectedForm initialValues={initialFormValues} />
 
     <h2>Preview</h2>
     <div className="preview">
-      <Community {...community} />
+      <Community {...communityProps} />
     </div>
   </div>
 );
 
 CommunityEditor.propTypes = {
-  community: PropTypes.shape(Community.propTypes).isRequired,
+  communityProps: PropTypes.shape(Community.propTypes).isRequired,
+  initialFormValues: PropTypes.shape(CommunityEditor.propTypes).isRequired,
 };
 
 

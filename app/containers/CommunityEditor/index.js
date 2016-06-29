@@ -2,13 +2,14 @@ import { connect } from 'react-redux';
 import CommunityEditor from '../../components/CommunityEditor';
 
 export const mapStateToProps = (state) => {
-  let community;
+  const initialFormValues = state.community;
+  let communityProps;
   try {
-    community = state.form.community.values;
+    communityProps = state.form.community.values;
   } catch (e) {
-    community = {};
+    communityProps = {};
   }
-  return { community };
+  return { communityProps, initialFormValues };
 };
 
 export default connect(mapStateToProps)(CommunityEditor);
