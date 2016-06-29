@@ -68,7 +68,6 @@ const ConferenceEditor = () => (
               method="post"
               id="mc-embedded-subscribe-form"
               name="mc-embedded-subscribe-form"
-              className="validate"
               target="_blank"
               noValidate
             >
@@ -80,7 +79,6 @@ const ConferenceEditor = () => (
                   value=""
                   autoComplete="off"
                   name="EMAIL"
-                  className="email"
                   id="mce-EMAIL"
                   placeholder="name@address.com"
                   required
@@ -91,7 +89,6 @@ const ConferenceEditor = () => (
                   value="Subscribe"
                   name="subscribe"
                   id="mc-embedded-subscribe"
-                  className="button"
                 />
               </div>
             </form>
