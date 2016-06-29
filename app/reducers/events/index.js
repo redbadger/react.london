@@ -3,13 +3,17 @@ import { SITE_STATE_LOADED } from '../../actions/persistence';
 import { actionTypes as formActions } from 'redux-form';
 
 function handleFormChange(state, action) {
-  const id = /::(.+)$/.exec(action.meta.form)[1];
-  const event = (state[id] || {});
-  const newEvent = {
-    ...event,
-    [action.meta.field]: action.payload,
-  };
-  return { ...state, [id]: newEvent };
+  const match = /^event::(.+)$/.exec(action.meta.form);
+  if (match) {
+    const id = match[1];
+    const event = (state[id] || {});
+    const newEvent = {
+      ...event,
+      [action.meta.field]: action.payload,
+    };
+    return { ...state, [id]: newEvent };
+  }
+  return state;
 }
 
 export default function events(state = {}, action) {

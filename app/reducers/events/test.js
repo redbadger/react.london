@@ -59,7 +59,7 @@ describe('events reducer', () => {
     it('sets a value with a new event', () => {
       const prev = deepFreeze({});
       const action = formFieldChange(
-        'form::123', 'title', 'New Important Title'
+        'event::123', 'title', 'New Important Title'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
@@ -70,7 +70,7 @@ describe('events reducer', () => {
     it('inserts a value with an existing event', () => {
       const prev = deepFreeze({ 99: { color: 'yellow' } });
       const action = formFieldChange(
-        'form::99', 'size', 'really big'
+        'event::99', 'size', 'really big'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
@@ -80,15 +80,25 @@ describe('events reducer', () => {
 
     it('overrites a value with an existing event and value', () => {
       const prev = deepFreeze({
-        20: { about: 'Not bad' },
+        20: { about: 'not bad' },
       });
       const action = formFieldChange(
-        'form::20', 'about', 'Very good'
+        'event::20', 'about', 'Very good'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
         20: { about: 'Very good' },
       });
+    });
+
+    it('discards actions from non-event forms', () => {
+      const prev = deepFreeze({ 20: { name: 'Red' } });
+      const action1 = formFieldChange('thing::1', 'title', 'Black');
+      expect(reducer(prev, action1)).to.deep.equal(prev);
+      const action2 = formFieldChange('conference', 'title', 'Yellow');
+      expect(reducer(prev, action2)).to.deep.equal(prev);
+      const action3 = formFieldChange('the-event::3', 'title', 'Blue');
+      expect(reducer(prev, action3)).to.deep.equal(prev);
     });
   });
 });
