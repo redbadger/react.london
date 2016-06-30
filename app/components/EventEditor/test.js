@@ -4,7 +4,11 @@ import EventEditor from '.';
 
 describe('EventEditor component', () => {
   it('renders successfully', () => {
-    const params = { eventID: '4' };
-    shallow(<EventEditor params={params} />);
+    const props = {
+      eventID: '4',
+      eventPreviewProps: {},
+      initialFormValues: {},
+    };
+    shallow(<EventEditor {...props} />);
   });
 });
