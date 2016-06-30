@@ -5,9 +5,9 @@ function html(content) {
 }
 
 const CommunityAbout = ({ communitySummary }) => (
-  <section className="About block">
+  <section className="CommunityAbout block">
     <div className="content">
-      <p className="About__text" dangerouslySetInnerHTML={html(communitySummary)} />
+      <p className="CommunityAbout__text" dangerouslySetInnerHTML={html(communitySummary)} />
     </div>
   </section>
 );

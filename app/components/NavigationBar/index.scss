@@ -1,5 +1,5 @@
 // NAVIGATION BAR
-  .NavBar {
+  .NavigationBar {
     background: $events-color-faded;
     &__tabs {
       display: -webkit-flex;
@@ -25,11 +25,11 @@
         vertical-align: middle;
         display: table-cell;
 
-        &.NavBar__tab--active {
+        &.NavigationBar__tab--active {
           border-bottom: $solid-border;
         }
 
-        &:not(.NavBar__tab--active){
+        &:not(.NavigationBar__tab--active){
           padding-bottom: 3px;
           &:hover {
             padding-bottom: 0px;
