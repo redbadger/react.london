@@ -9,7 +9,7 @@ import EditorHome from './components/EditorHome';
 import EditorLayout from './components/EditorLayout';
 import EditorNotFound from './components/EditorNotFound';
 import EventEditor from './containers/EventEditor';
-import CommunityEditor from './components/CommunityEditor';
+import CommunityEditor from './containers/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
 
 const store = configureStore();

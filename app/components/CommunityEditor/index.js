@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import CommunityPreview from '../../containers/CommunityPreview';
+import Community from '../../components/Community';
 import TextField from '../TextField/index';
+import { COMMUNITY_FORM } from '../../names/form';
 
 const Form = () => (
   <div className="community-editor">
@@ -21,26 +22,27 @@ const Form = () => (
   </div>
 );
 
-// TODO: Inject initial state
 const ConnectedForm = reduxForm({
-  form: 'community',
+  form: COMMUNITY_FORM,
 })(Form);
 
-const CommunityEditor = () => (
+const CommunityEditor = ({ initialFormValues, communityProps }) => (
   <div className="community-editor">
     <h1>
       Community Editor!
     </h1>
-    <ConnectedForm />
+    <ConnectedForm initialValues={initialFormValues} />
 
     <h2>Preview</h2>
     <div className="preview">
-      <CommunityPreview />
+      <Community {...communityProps} />
     </div>
   </div>
 );
 
 CommunityEditor.propTypes = {
+  communityProps: PropTypes.shape(Community.propTypes).isRequired,
+  initialFormValues: PropTypes.shape(CommunityEditor.propTypes).isRequired,
 };
 
 
