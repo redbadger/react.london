@@ -14,237 +14,235 @@
     padding: 0px;
   }
 
-    a {
-      text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    object {
-      pointer-events: none;
-    }
+  object {
+    pointer-events: none;
+  }
 
-    @media (max-width: $mobile-width) {
-      #mc_embed_signup {
-        form#mc-embedded-subscribe-form {
-          padding: 0px;
-          padding-top: 50px;
-        }
-        #mce-EMAIL {
-          width: calc(100vw - 80px);
-        }
-        label[for='mce-EMAIL'] {
-          width: calc(100vw - 60px);
-        }
+  @media (max-width: $mobile-width) {
+    #mc_embed_signup {
+      form#mc-embedded-subscribe-form {
+        padding: 0px;
+        padding-top: 50px;
+      }
+      #mce-EMAIL {
+        width: calc(100vw - 80px);
+      }
+      label[for='mce-EMAIL'] {
+        width: calc(100vw - 60px);
       }
     }
+  }
 
   // BULDING BLOCKS
-    #wrapper {
-      display: -webkit-flex;
-      display: flex;
-      min-height: 100vh;
-      -webkit-flex-direction: column;
-      flex-direction: column;
-    }
+  #wrapper {
+    display: -webkit-flex;
+    display: flex;
+    min-height: 100vh;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
 
-    main {
-      -webkit-flex: 1;
-      flex: 1;
-    }
+  main {
+    -webkit-flex: 1;
+    flex: 1;
+  }
 
   // HERO
-    #hero {
-      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg")
-        no-repeat
-        center center;
-      background-size: cover;
-      min-height: 330px;
-      .content {
-        text-align: center;
-        margin-top: 135px;
+  #hero {
+    background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg") no-repeat center center;
+    background-size: cover;
+    min-height: 330px;
+    .content {
+      text-align: center;
+      margin-top: 135px;
 
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: column wrap;
-        flex-flow: column wrap;
-        -webkit-align-items: center;
-        align-items: center;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: column wrap;
+      flex-flow: column wrap;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .block-bg {
+      background: $conference-color;
+      display: inline-block;
+      margin: 0px;
+      padding: 3px;
+    }
+    p.block-bg {
+      font-weight: 700;
+      font-size: 14px;
+      padding: 3px 10px;
+    }
+    h1 {
+      font-size: 30px;
+      display: inline-block;
+      margin: 0px;
+      padding: 3px;
+    }
+    h2.block-bg {
+      font-size: 40px;
+      font-weight: 200;
+    }
+    a {
+      color: $grey;
+    }
+    .sign-up-trampoline {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: column wrap;
+      flex-flow: column wrap;
+      -webkit-align-items: center;
+      align-items: center;
+      img, object {
+        margin-top: 5px;
+        width: 18px;
+        height: 12px;
       }
-      .block-bg {
-        background: $conference-color;
-        display: inline-block;
-        margin: 0px;
-        padding: 3px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    #hero {
+      min-height: 660px;
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
+      no-repeat
+      center center;
+      background-size: cover;
+      .content {
+        margin-top: 300px;
       }
       p.block-bg {
-        font-weight: 700;
-        font-size: 14px;
-        padding: 3px 10px;
+        font-size: 21px;
+        margin-top: 15px;
       }
-      h1 {
-        font-size: 30px;
-        display: inline-block;
-        margin: 0px;
-        padding: 3px;
+      h1.block-bg {
+        font-size: 45px;
+        margin-bottom: 26px;
       }
       h2.block-bg {
-        font-size: 40px;
-        font-weight: 200;
-      }
-      a {
-        color: $grey;
+        font-size: 60px;
+        line-height: 1;
       }
       .sign-up-trampoline {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: column wrap;
-        flex-flow: column wrap;
-        -webkit-align-items: center;
-        align-items: center;
-        img, object {
-          margin-top: 5px;
-          width: 18px;
-          height: 12px;
-        }
+        margin-top: 0px;
       }
     }
+  }
 
-    @media (min-width: $desktop-width) {
-      #hero {
-        min-height: 660px;
-        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
-          no-repeat
-          center center;
-        background-size: cover;
-        .content {
-          margin-top: 300px;
-        }
-        p.block-bg {
-          font-size: 21px;
-          margin-top: 15px;
-        }
-        h1.block-bg {
-          font-size: 45px;
-          margin-bottom: 26px;
-        }
-        h2.block-bg {
-          font-size: 60px;
-          line-height: 1;
-        }
-        .sign-up-trampoline {
-          margin-top: 0px;
-        }
+  @media (min-width: $mobile-width) and (max-width: $desktop-width) {
+    #hero {
+      p.block-bg {
+        margin-top: 5px;
+      }
+      h2.block-bg {
+        line-height: 1;
+      }
+      .sign-up-trampoline {
+        margin-top: 5px;
       }
     }
+  }
 
-    @media (min-width: $mobile-width) and (max-width: $desktop-width) {
-      #hero {
-        p.block-bg {
-          margin-top: 5px;
-        }
-        h2.block-bg {
-          line-height: 1;
-        }
-        .sign-up-trampoline {
-          margin-top: 5px;
-        }
+  @media (max-width: $mobile-width) {
+    #hero {
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+      no-repeat
+      center -135px;
+      background-size: cover;
+      padding-bottom: 20px;
+      .content {
+        margin-top: 178px;
+      }
+      h2.block-bg {
+        line-height: 1;
+      }
+      p.block-bg {
+        margin-top: 5px;
+      }
+      .sign-up-trampoline {
+        margin-top: 5px;
       }
     }
+  }
 
-    @media (max-width: $mobile-width) {
-      #hero {
-        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
-          no-repeat
-          center -135px;
-        background-size: cover;
-        padding-bottom: 20px;
-        .content {
-          margin-top: 178px;
-        }
-        h2.block-bg {
-          line-height: 1;
-        }
-        p.block-bg {
-          margin-top: 5px;
-        }
-        .sign-up-trampoline {
-          margin-top: 5px;
-        }
+  @media (max-width: $tiny-mobile-width) {
+    #hero {
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+      no-repeat
+      center -110px;
+      background-size: cover;
+      .content {
+        margin-top: 142px;
+      }
+      p.block-bg {
+        margin-top: 8px;
+      }
+      .sign-up-trampoline {
+        margin-top: 4px;
+      }
+      h1 {
+        line-height: 1.2;
       }
     }
-
-    @media (max-width: $tiny-mobile-width) {
-      #hero {
-        background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
-          no-repeat
-          center -110px;
-        background-size: cover;
-        .content {
-          margin-top: 142px;
-        }
-        p.block-bg {
-          margin-top: 8px;
-        }
-        .sign-up-trampoline {
-          margin-top: 4px;
-        }
-        h1 {
-          line-height: 1.2;
-        }
-      }
-    }
+  }
 
   // ABOUT
-    #about {
-      background: $conference-color;
-      border-top: none;
-      margin: 22px 0px;
+  #about {
+    background: $conference-color;
+    border-top: none;
+    margin: 22px 0px;
 
-      h2, p {
-        font-size: 16px;
-        @media (min-width: 768px) {
-          font-size: 24px;
-        }
+    h2, p {
+      font-size: 16px;
+      @media (min-width: $tablet-portrait-width) {
+        font-size: 24px;
       }
+    }
 
 
-      h2 {
-        @extend .reset-spacing;
-      }
+    h2 {
+      @extend .reset-spacing;
+    }
 
-      p {
-        line-height: 1.3;
-        @extend .reset-spacing;
-      }
+    p {
+      line-height: 1.3;
+      @extend .reset-spacing;
+    }
+
+    h2, p:first-of-type {
+      margin-bottom: 7px;
+    }
+
+
+    @media (min-width: $small-desktop-width) {
+      margin: 30px 0px 40px 0px;
 
       h2, p:first-of-type {
-        margin-bottom: 7px;
-      }
-
-
-      @media (min-width: 1024px) {
-        margin: 30px 0px 40px 0px;
-
-        h2, p:first-of-type {
-          margin-bottom: 10px;
-        }
+        margin-bottom: 10px;
       }
     }
+  }
 
   // REGISTER
-    #register {
-      background: $conference-color;
-      border-top: 3px solid $grey;
-      padding: 30px 0 50px 0;
-      h3 {
-        font-size: 21px;
-        @extend .reset-spacing;
-        text-align: center;
-      }
+  #register {
+    background: $conference-color;
+    border-top: 3px solid $grey;
+    padding: 30px 0 50px 0;
+    h3 {
+      font-size: 21px;
+      @extend .reset-spacing;
+      text-align: center;
     }
+  }
 
-    #update {
-      padding: 28px 20px 44px 20px;
-      border-top: $solid-border;
+  #update {
+    padding: 28px 20px 44px 20px;
+    border-top: $solid-border;
       // STAY TUNED
       .Update {
         background: $conference-color;
@@ -337,4 +335,4 @@
       }
 
     }
-}
+  }
