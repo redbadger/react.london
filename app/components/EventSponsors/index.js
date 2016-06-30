@@ -13,7 +13,7 @@ const EventSponsors = ({ eventSponsors }) => (
 );
 
 EventSponsors.propTypes = {
-  eventSponsors: PropTypes.array,
+  eventSponsors: PropTypes.arrayOf(Sponsor.propTypes),
 };
 
 

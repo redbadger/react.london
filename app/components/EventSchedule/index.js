@@ -15,10 +15,7 @@ const EventSchedule = ({ eventSchedule }) => (
 );
 
 EventSchedule.propTypes = {
-  eventSchedule: PropTypes.arrayOf(React.PropTypes.shape({
-    time: PropTypes.string,
-    text: PropTypes.string,
-  })),
+  eventSchedule: PropTypes.arrayOf(ScheduleItem.propTypes),
 };
 
 export default EventSchedule;

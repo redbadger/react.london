@@ -18,12 +18,7 @@ const Speakers = ({ eventSpeakers }) => (
 );
 
 Speakers.propTypes = {
-  eventSpeakers: PropTypes.arrayOf(React.PropTypes.shape({
-    venue: PropTypes.string,
-    time: PropTypes.string,
-    date: PropTypes.string,
-    title: PropTypes.string,
-  })),
+  eventSpeakers: PropTypes.arrayOf(Speaker.propTypes),
 };
 
 
