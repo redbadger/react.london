@@ -1,6 +1,7 @@
 import { initialize as formInit } from 'redux-form';
 import { loadStateWorker } from '.';
 import { put, call } from 'redux-saga/effects';
+import { eventIDToFormName } from '../../names/event';
 import * as api from '../../api';
 import {
   siteStateLoaded,
@@ -32,10 +33,10 @@ describe('saga loadStateWorker', () => {
       put(formInit('conference', 'conf'))
     );
     expect(generator.next().value).to.deep.equal(
-      put(formInit('event::1', 1))
+      put(formInit(eventIDToFormName('1'), 1))
     );
     expect(generator.next().value).to.deep.equal(
-      put(formInit('event::2', 2))
+      put(formInit(eventIDToFormName('2'), 2))
     );
     expect(generator.next().done).to.equal(true);
   });

@@ -1,6 +1,7 @@
 import _forOwn from 'lodash/map';
 import { put, call } from 'redux-saga/effects';
 import { initialize as formInitialize } from 'redux-form';
+import { eventIDToFormName } from '../../names/event';
 import * as api from '../../api';
 import {
   siteStateLoaded, siteStateLoadFailed,
@@ -10,8 +11,9 @@ import {
 function buildEventActions(events) {
   const eventActions = [];
   _forOwn(events, (value, key) => {
-    const x = put(formInitialize(`event::${key}`, value));
-    eventActions.push(x);
+    const formName = eventIDToFormName(key);
+    const action = put(formInitialize(formName, value));
+    eventActions.push(action);
   });
   return eventActions;
 }

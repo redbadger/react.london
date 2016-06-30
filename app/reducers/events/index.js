@@ -1,11 +1,11 @@
 import { UPDATE_EVENT } from '../../actions/community_events';
 import { SITE_STATE_LOADED } from '../../actions/persistence';
 import { actionTypes as formActions } from 'redux-form';
+import { formNameToEventID } from '../../names/event';
 
 function handleFormChange(state, action) {
-  const match = /^event::(.+)$/.exec(action.meta.form);
-  if (match) {
-    const id = match[1];
+  const id = formNameToEventID(action.meta.form);
+  if (id) {
     const event = (state[id] || {});
     const newEvent = {
       ...event,

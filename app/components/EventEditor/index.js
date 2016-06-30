@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { reduxForm, FieldArray } from 'redux-form';
 import Community from '../Community';
 import TextField from '../TextField/index.js';
+import { eventIDToFormName } from '../../names/event';
 
 const Speakers = ({ fields }) => (
   <ul>
@@ -149,7 +150,7 @@ const EventEditor = ({ eventID, eventPreviewProps, initialFormValues }) => (
       Event {eventID}
     </h1>
     <ConnectedForm
-      form={'event::' + eventID}
+      form={eventIDToFormName(eventID)}
       initialValues={initialFormValues}
     />
 

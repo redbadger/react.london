@@ -3,6 +3,7 @@ import reducer from '.';
 import { updateEvent } from '../../actions/community_events';
 import { siteStateLoaded } from '../../actions/persistence';
 import { change as formFieldChange } from 'redux-form';
+import { eventIDToFormName } from '../../names/event';
 
 describe('events reducer', () => {
   it('has default state', () => {
@@ -59,7 +60,7 @@ describe('events reducer', () => {
     it('sets a value with a new event', () => {
       const prev = deepFreeze({});
       const action = formFieldChange(
-        'event::123', 'title', 'New Important Title'
+        eventIDToFormName('123'), 'title', 'New Important Title'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
@@ -70,7 +71,7 @@ describe('events reducer', () => {
     it('inserts a value with an existing event', () => {
       const prev = deepFreeze({ 99: { color: 'yellow' } });
       const action = formFieldChange(
-        'event::99', 'size', 'really big'
+        eventIDToFormName('99'), 'size', 'really big'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({
@@ -83,7 +84,7 @@ describe('events reducer', () => {
         20: { about: 'not bad' },
       });
       const action = formFieldChange(
-        'event::20', 'about', 'Very good'
+        eventIDToFormName('20'), 'about', 'Very good'
       );
       const state = reducer(prev, action);
       expect(state).to.deep.equal({

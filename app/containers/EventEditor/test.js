@@ -1,4 +1,5 @@
 import { mapStateToProps } from '.';
+import { eventIDToFormName } from '../../names/event';
 
 describe('EventEditor mapStateToProps', () => {
   const state = {
@@ -12,7 +13,7 @@ describe('EventEditor mapStateToProps', () => {
       communityTitle: 'community title!',
     },
     form: {
-      'event::foo': {
+      [eventIDToFormName('foo')]: {
         values: {
           eventTitle: 'form title data',
         },

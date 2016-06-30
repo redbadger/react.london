@@ -1,7 +1,7 @@
 const namePattern = /^event::(.+)$/;
 
 export function formNameToEventID(name) {
-  const match = namePattern.exec(name)
+  const match = namePattern.exec(name);
   if (match) { return match[1]; }
 }
 
