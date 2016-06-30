@@ -10,6 +10,11 @@ EventLink.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
+function newEventID(eventIDs) {
+  const max = Math.max.apply(null, eventIDs);
+  return (max + 1).toString();
+}
+
 const EditorHome = ({ eventIDs }) => (
   <div className="home">
     <h1>
@@ -30,6 +35,10 @@ const EditorHome = ({ eventIDs }) => (
           <EventLink id={eventID} />
         </li>
       ))}
+      <li key={eventIDs.length + 1}>
+        <h3>New Event</h3>
+        <EventLink id={newEventID(eventIDs)} />
+      </li>
     </ul>
   </div>
 );

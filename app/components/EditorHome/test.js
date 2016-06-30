@@ -10,6 +10,6 @@ describe('EditorHome component', () => {
   it('renders successfully, with event links', () => {
     const el = shallow(<EditorHome {...props} />);
     const links = el.find('EventLink');
-    expect(links).to.have.length(3);
+    expect(links).to.have.length(4);
   });
 });
