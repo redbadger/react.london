@@ -47,10 +47,10 @@ const Conference = () => (
         </div>
       </section>
 
-      <nav className="NavBar block">
-        <ul className="NavBar__tabs">
+      <nav className="NavigationBar block">
+        <ul className="NavigationBar__tabs">
           <li><a href="/">Meetups</a></li>
-          <li><a className="NavBar__tab--active" href="#">Conference</a></li>
+          <li><a className="NavigationBar__tab--active" href="#">Conference</a></li>
         </ul>
       </nav>
 
