@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 describe('UpcomingEvents component', () => {
   it('renders successfully with collections', () => {
-    const props = {  
+    const props = {
       upcomingEvents: [
         {
           venue: 'codemesh',

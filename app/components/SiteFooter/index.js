@@ -33,8 +33,17 @@ const SiteFooter = () => (
       </ul>
 
       <a className="SiteFooter__logo" href="http://red-badger.com/" target="_blank">
-        <object className="SiteFooter__logo--svg" data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg" type="image/svg+xml">
-          <img className="SiteFooter__logo--img" srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png" src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png" alt="Red Badger logo" />
+        <object
+          className="SiteFooter__logo--svg"
+          data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg"
+          type="image/svg+xml"
+        >
+          <img
+            className="SiteFooter__logo--img"
+            srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
+            src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
+            alt="Red Badger logo"
+          />
         </object>
       </a>
 

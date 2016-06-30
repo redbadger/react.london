@@ -1,6 +1,9 @@
 import React from 'react';
 import SiteFooter from '../SiteFooter';
 
+const signupActionURL = '//london.us13.list-manage.com/subscribe/' +
+  'post?u=f3de268a0820d472cbd31f761&id=c723cfd260&LOCATION=conference';
+
 const Conference = () => (
   <div id="wrapper">
     <main id="conference">
@@ -54,8 +57,10 @@ const Conference = () => (
       <section id="about" className="block">
         <div className="content">
           <h2>Let’s explore!</h2>
-          <p>Red Badger is launching a new conference focused on React in London for 2017 – we’re calling it <strong>React London 2017.</strong></p>
-          <p>We’re bringing together some great speakers and events – get involved! More details to follow soon.</p>
+          <p>Red Badger is launching a new conference focused on React in London for
+            2017 – we’re calling it <strong>React London 2017.</strong></p>
+          <p>We’re bringing together some great speakers and events
+          – get involved! More details to follow soon.</p>
         </div>
       </section>
 
@@ -65,7 +70,7 @@ const Conference = () => (
           <div>
             <form
               className="Update__form"
-              action="//london.us13.list-manage.com/subscribe/post?u=f3de268a0820d472cbd31f761&amp;id=c723cfd260&LOCATION=conference"
+              action={signupActionURL}
               method="post"
               id="mc-embedded-subscribe-form"
               name="mc-embedded-subscribe-form"

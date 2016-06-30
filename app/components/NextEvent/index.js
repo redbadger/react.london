@@ -26,7 +26,9 @@ const NextEvent = ({ eventTitle, eventDate, eventAddress, eventStartTime, eventE
             <a className="NextEvent__booking-btn NextEvent__booking-btn--disabled">free ticket</a>
           </div>
           <p className="NextEvent__live-stream-text">
-            To get reminders about tickets and future events <a className="NextEvent__live-stream-text--link" href="#stay-tuned">subscribe here</a>
+            To get reminders about tickets and future
+            events <a className="NextEvent__live-stream-text--link" href="#stay-tuned">
+            subscribe here</a>
           </p>
 
         </div>

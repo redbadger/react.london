@@ -12,8 +12,7 @@ describe('UpcomingEvent component', () => {
         title: 'Code Mesh',
       },
       id: 1,
-    }
-
+    };
     shallow(<UpcomingEvent {...props} />);
   });
 });

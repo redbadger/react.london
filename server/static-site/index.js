@@ -1,5 +1,3 @@
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { minify } from 'html-minifier';
 import fs from 'fs';
 
@@ -20,7 +18,7 @@ function wrapBody(markup) {
   });
 }
 
-export function compilePreview(state) {
+export function compilePreview() {
   const markup = ''; // TODO
   const body = wrapBody(markup);
   return {

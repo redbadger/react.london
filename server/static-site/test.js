@@ -1,6 +1,5 @@
 import {
   compileSite,
-  compilePreview,
 } from '.';
 
 const previewData = {
