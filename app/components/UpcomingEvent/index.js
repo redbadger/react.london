@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-const UpcomingEvent = ({ venue, time, date, title, key }) => (
-  <article className="UpcomingEvent" {...key}>
+const UpcomingEvent = ({ venue, time, date, title }) => (
+  <article className="UpcomingEvent">
     <h3>{title}</h3>
     <ul className="UpcomingEvent__details">
       <li className="UpcomingEvent__details--date">
@@ -22,7 +22,6 @@ UpcomingEvent.propTypes = {
   time: PropTypes.string,
   date: PropTypes.string,
   title: PropTypes.string,
-  key: PropTypes.number,
 };
 
 
