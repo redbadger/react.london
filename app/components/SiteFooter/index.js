@@ -35,7 +35,7 @@ const SiteFooter = () => (
       <a className="SiteFooter__logo" href="http://red-badger.com/" target="_blank">
         <object
           className="SiteFooter__logo--svg"
-          data="/img/SVG/ReactLondon_SaveTheDate_Icons-02.svg"
+          data="/img/SVG/Badger_Roundel.svg"
           type="image/svg+xml"
         >
           <img

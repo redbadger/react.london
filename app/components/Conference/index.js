@@ -34,7 +34,7 @@ const Conference = () => (
           <span className="RedBadgerBanner__tag">Powered by Red Badger</span>
           <object
             className="RedBadgerBanner__logo--svg"
-            data="/img/SVG/ReactLondon_SaveTheDate_Icons-01.svg"
+            data="/img/SVG/Badger.svg"
             type="image/svg+xml"
           >
             <img
