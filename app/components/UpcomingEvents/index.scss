@@ -1,0 +1,9 @@
+
+  .UpcomingEvents {
+    background: $events-color-faded;
+    &__events {
+      border-top: $dash-border;
+      align-items: stretch;
+      padding: 0px;
+    }
+  }

@@ -1,0 +1,16 @@
+
+  .UpcomingEvent {
+    padding: 0px 20px;
+    background: $events-color;
+    width: calc((#{$maximum-content-width} / 3) - 40px);
+
+    &__details {
+      &--date {}
+      &--location {}
+      &--time {}
+    }
+
+    &--conference {
+      background: $conference-color;
+    }
+  }

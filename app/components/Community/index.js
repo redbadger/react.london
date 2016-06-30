@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speakers from '../Speakers';
-import Speaker from '../Speaker';
 import ScheduleItem from '../ScheduleItem';
 import Sponsor from '../Sponsor';
 import Hero from '../Hero';
@@ -10,6 +9,7 @@ import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import NextEvent from '../NextEvent';
 import MailingList from '../MailingList';
+import UpcomingEvents from '../UpcomingEvents';
 import JoinSlack from '../JoinSlack';
 
 const Community = ({
@@ -41,9 +41,8 @@ const Community = ({
           eventEndTime={eventEndTime}
         />
 
-        {eventSpeakers && <Speakers eventSpeakers={eventSpeakers} />}
+        <Speakers eventSpeakers={eventSpeakers} />
 
-        {/* REGISTER */}
         <MailingList
           mailingListTitle={mailingListTitle}
           mailingListSummary={mailingListSummary}
@@ -78,31 +77,7 @@ const Community = ({
 
       </main>
 
-
-      {/* UPCOMING EVENTS */}
-      <section id="upcoming-events" className="block">
-        <div className="content">
-          <h2>Upcoming Events</h2>
-        </div>
-        <div className="content space-between events">
-          {upcomingEvents && upcomingEvents.map((event, index) => (
-            event ? <article key={index}>
-              <h3>{event.title}</h3>
-              <ul className="event-details semantic-only">
-                <li className="date">
-                  <a>{event.date}</a>
-                </li>
-                <li className="location">
-                  <a>{event.venue}</a>
-                </li>
-                <li className="time">
-                  <a>from {event.startTime} to {event.endTime}</a>
-                </li>
-              </ul>
-            </article> : null
-          ))}
-        </div>
-      </section>
+      <UpcomingEvents upcomingEvents={upcomingEvents} />
 
       <JoinSlack />
 
