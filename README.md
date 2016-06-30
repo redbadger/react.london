@@ -37,6 +37,9 @@ vim infrastructure/secrets.tfvars
 # Print task help
 make
 
+# Set up the dev seed data
+make seed
+
 # Run the server
 make start
 
