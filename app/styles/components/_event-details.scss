@@ -1,9 +1,0 @@
-
-  #event-details {
-    .content article {
-      width: calc((#{$maximum-content-width} / 2) - 10px);
-      &:first-of-type {
-        border-right: $dash-border;
-      }
-    }
-  }

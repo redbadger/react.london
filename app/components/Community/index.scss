@@ -1,0 +1,85 @@
+/// THIS SCSS should be componentised
+
+  #event-details {
+    .content article {
+      width: calc((#{$maximum-content-width} / 2) - 10px);
+      &:first-of-type {
+        border-right: $dash-border;
+      }
+    }
+  }
+
+// SCHEDULE
+  #schedule {
+    .schedule-timeline {
+      dt {
+        float: left;
+        clear: left;
+        width: 105px;
+        text-align: right;
+  
+        border-right: $dash-border;
+        padding-right: 20px;
+        padding-bottom: 20px;
+  
+        &:last-of-type {
+          padding-bottom: 0px;
+        }
+      }
+      dl {
+        margin: 0px 0px 20px calc(105px + (20px * 2));
+      }
+    }
+  }
+
+// SPEAKERS
+.Speakers {
+
+  background-color: $events-color-faded;
+
+  &__header {
+    margin: 0px;
+    border-bottom: $dash-border;
+    line-height: 2em;
+  }
+
+  &__container {
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+}
+
+// SPONSORS
+  #sponsors {
+    ul li a {
+      img, object {
+        height: 85px;
+      }
+    }
+  }
+
+// UPCOMING EVENTS
+  #upcoming-events {
+    background: $events-color-faded;
+    .content.events {
+      border-top: $dash-border;
+      align-items: stretch;
+      padding: 0px;
+
+      article {
+        padding: 0px 20px;
+        background: $events-color;
+        width: calc((#{$maximum-content-width} / 3) - 40px);
+        &.conference {
+          background: $conference-color;
+        }
+      }
+    }
+  }
