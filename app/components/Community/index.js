@@ -9,6 +9,7 @@ import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import NextEvent from '../NextEvent';
 import MailingList from '../MailingList';
+import JoinSlack from '../JoinSlack';
 
 const Community = ({
   communitySummary,
@@ -112,6 +113,8 @@ const Community = ({
           ))}
         </div>
       </section>
+
+      <JoinSlack />
 
       <SiteFooter />
     </div>

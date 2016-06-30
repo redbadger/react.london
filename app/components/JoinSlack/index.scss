@@ -1,14 +1,14 @@
-.JoinTheConversation {
+.JoinSlack {
   background: $events-color;
   text-align: center;
   padding: 40px 0px;
 
-  .JoinTheConversation__text {
+  &__text {
     margin-top: 0px;
     font-size: 20px;
   }
 
-  .JoinTheConversation__btn {
+  &__btn {
     border-radius: 6px;
     border: 0px;
     padding: 12px 20px 12px 48px;

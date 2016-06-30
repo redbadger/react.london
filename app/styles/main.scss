@@ -3,6 +3,7 @@
 @import 'base/layout';
 @import 'base/typography';
 @import 'base/global';
+
 @import '../components/SiteFooter/index';
 @import '../components/RedBadgerBanner/index';
 
@@ -10,20 +11,13 @@
 @import '../components/NavigationBar/index';
 @import '../components/CommunityAbout/index';
 @import '../components/NextEvent/index';
-@import 'components/speakers';
 @import '../components/Speaker/index';
 @import '../components/MailingList/index';
+@import '../components/JoinSlack/index';
+@import '../components/Conference/index';
 
-
+@import 'components/speakers';
 @import 'components/event-details';
 @import 'components/schedule';
 @import 'components/sponsors';
 @import 'components/upcoming-events';
-
-
-
-@import 'components/JoinTheConversation';
-
-
-
-@import '../components/Conference/index';
