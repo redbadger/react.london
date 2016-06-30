@@ -1,9 +1,9 @@
 // SPONSORS
-  .EventSponsors {
-    width: calc((#{$maximum-content-width} / 2) - 30px);
-    ul li a {
-      img, object {
-        height: 85px;
-      }
+.EventSponsors {
+  width: calc((#{$maximum-content-width} / 2) - 30px);
+  ul li a {
+    img, object {
+      height: 85px;
     }
   }
+}

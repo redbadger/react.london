@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Sponsor from '../Sponsor';
 
 const EventSponsors = ({ eventSponsors }) => (
-
   <article className="EventSponsors">
     <h3>Sponsors</h3>
     <ul>
@@ -11,7 +10,6 @@ const EventSponsors = ({ eventSponsors }) => (
       ))}
     </ul>
   </article>
-
 );
 
 EventSponsors.propTypes = {
