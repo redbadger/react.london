@@ -10,7 +10,7 @@ mocha   = ./node_modules/mocha/bin/mocha
 testCmd = find . -path ./node_modules -prune -o -name '*test.js' | xargs $(mocha) --require ./mocha-env.js
 
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+  @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 terraform-staging: ## Preview infrastructure changes for staging
 	terraform plan $(tfSecrets) $(tfState) $(tfPath)
@@ -21,14 +21,14 @@ terraform-staging-apply: ## Apply infrastructure changes for staging
 clean: ## Remove compiled files
 	rm -rf dist/*
 
-build: clean dist/assets dist/index.html ## Compile the app
+build: clean assets dist/index.html ## Compile the app
 	$(webpack)
 
 dist/index.html:
 	mkdir -p dist
 	cp app/index.html dist
 
-dist/assets:
+assets:
 	cp -a assets/. dist
 
 start: ## Start the dev server
@@ -47,7 +47,7 @@ test-watch: ## Run the tests and watch for changes
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
 
-.PHONY: \
+	.PHONY: \
 	terraform-staging \
 	terraform-staging-apply \
 	start \
@@ -56,4 +56,5 @@ lint: ## Lint Javascript files
 	test \
 	test-watch \
 	lint \
-	help
+	help \
+	assets
