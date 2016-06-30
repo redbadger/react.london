@@ -2,6 +2,7 @@ import { initialize as formInit } from 'redux-form';
 import { loadStateWorker } from '.';
 import { put, call } from 'redux-saga/effects';
 import { eventIDToFormName } from '../../names/event';
+import { COMMUNITY_FORM, CONFERENCE_FORM } from '../../names/form';
 import * as api from '../../api';
 import {
   siteStateLoaded,
@@ -27,10 +28,10 @@ describe('saga loadStateWorker', () => {
       put(siteStateLoaded(response.data))
     );
     expect(generator.next().value).to.deep.equal(
-      put(formInit('community', 'comm'))
+      put(formInit(COMMUNITY_FORM, 'comm'))
     );
     expect(generator.next().value).to.deep.equal(
-      put(formInit('conference', 'conf'))
+      put(formInit(CONFERENCE_FORM, 'conf'))
     );
     expect(generator.next().value).to.deep.equal(
       put(formInit(eventIDToFormName('1'), 1))

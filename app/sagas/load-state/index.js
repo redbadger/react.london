@@ -2,6 +2,7 @@ import _forOwn from 'lodash/map';
 import { put, call } from 'redux-saga/effects';
 import { initialize as formInitialize } from 'redux-form';
 import { eventIDToFormName } from '../../names/event';
+import { COMMUNITY_FORM, CONFERENCE_FORM } from '../../names/form';
 import * as api from '../../api';
 import {
   siteStateLoaded, siteStateLoadFailed,
@@ -22,8 +23,8 @@ export function* loadStateWorker() {
   try {
     const res = yield call(api.fetchSiteState);
     yield put(siteStateLoaded(res.data));
-    yield put(formInitialize('community', res.data.community));
-    yield put(formInitialize('conference', res.data.conference));
+    yield put(formInitialize(COMMUNITY_FORM, res.data.community));
+    yield put(formInitialize(CONFERENCE_FORM, res.data.conference));
     yield* buildEventActions(res.data.events);
   } catch (error) {
     yield put(siteStateLoadFailed(error));

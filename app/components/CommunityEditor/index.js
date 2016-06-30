@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import Community from '../../components/Community';
 import TextField from '../TextField/index';
+import { COMMUNITY_FORM } from '../../names/form';
 
 const Form = () => (
   <div className="community-editor">
@@ -22,7 +23,7 @@ const Form = () => (
 );
 
 const ConnectedForm = reduxForm({
-  form: 'community',
+  form: COMMUNITY_FORM,
 })(Form);
 
 const CommunityEditor = ({ initialFormValues, communityProps }) => (
