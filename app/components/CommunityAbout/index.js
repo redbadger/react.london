@@ -16,5 +16,4 @@ CommunityAbout.propTypes = {
   communitySummary: PropTypes.string,
 };
 
-
 export default CommunityAbout;
