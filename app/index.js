@@ -5,7 +5,7 @@ import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './store/';
 
-import EditorHome from './components/EditorHome';
+import EditorHome from './containers/EditorHome';
 import EditorLayout from './components/EditorLayout';
 import EditorNotFound from './components/EditorNotFound';
 import EventEditor from './containers/EventEditor';

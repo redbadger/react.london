@@ -1,20 +1,21 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const events = [ // TODO: Take from props
-  1, 2, 3, 4,
-];
-
 const EventLink = ({ id }) => {
   const slug = `/event/${id}`;
   return <Link to={slug}>Edit Event {id}</Link>;
 };
 
 EventLink.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string.isRequired,
 };
 
-const EditorHome = () => (
+function newEventID(eventIDs) {
+  const max = Math.max.apply(null, eventIDs);
+  return (max + 1).toString();
+}
+
+const EditorHome = ({ eventIDs }) => (
   <div className="home">
     <h1>
       Home!
@@ -29,16 +30,21 @@ const EditorHome = () => (
     </ul>
     <h2>Events</h2>
     <ul>
-      {events.map((eventID, index) => (
+      {eventIDs.map((eventID, index) => (
         <li key={index}>
           <EventLink id={eventID} />
         </li>
       ))}
+      <li key={eventIDs.length + 1}>
+        <h3>New Event</h3>
+        <EventLink id={newEventID(eventIDs)} />
+      </li>
     </ul>
   </div>
 );
 
 EditorHome.propTypes = {
+  eventIDs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default EditorHome;
