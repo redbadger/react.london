@@ -1,0 +1,6 @@
+
+// SCHEDULE
+  .EventSchedule {
+    width: calc((#{$maximum-content-width} / 2) - 10px);
+    border-right: $dash-border;
+  }

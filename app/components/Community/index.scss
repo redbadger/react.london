@@ -1,39 +1,8 @@
 /// THIS SCSS should be componentised
 
-  #event-details {
-    .content article {
-      width: calc((#{$maximum-content-width} / 2) - 10px);
-      &:first-of-type {
-        border-right: $dash-border;
-      }
-    }
-  }
-
-// SCHEDULE
-  #schedule {
-    .schedule-timeline {
-      dt {
-        float: left;
-        clear: left;
-        width: 105px;
-        text-align: right;
-  
-        border-right: $dash-border;
-        padding-right: 20px;
-        padding-bottom: 20px;
-  
-        &:last-of-type {
-          padding-bottom: 0px;
-        }
-      }
-      dl {
-        margin: 0px 0px 20px calc(105px + (20px * 2));
-      }
-    }
-  }
-
 // SPONSORS
-  #sponsors {
+  .EventSponsors {
+    width: calc((#{$maximum-content-width} / 2) - 10px);
     ul li a {
       img, object {
         height: 85px;

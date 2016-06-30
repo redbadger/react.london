@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speakers from '../Speakers';
-import ScheduleItem from '../ScheduleItem';
+import EventSchedule from '../EventSchedule';
 import Sponsor from '../Sponsor';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
@@ -49,23 +49,15 @@ const Community = ({
         />
 
 
-        <section id="event-details" className="block">
+        <section className="block">
           <div className="content space-between">
 
-            {/* SCHEDULE */}
-            <article id="schedule">
-              <h3>Schedule</h3>
-              <dl className="schedule-timeline">
-                {eventSchedule && eventSchedule.map((props, index) => (
-                  <ScheduleItem key={index} {...props} />
-                ))}
-              </dl>
-            </article>
+            <EventSchedule eventSchedule={eventSchedule} />
 
             {/* SPONSORS */}
-            <article id="sponsors">
+            <article className="EventSponsors">
               <h3>Sponsors</h3>
-              <ul className="semantic-only">
+              <ul>
                 {eventSponsors && eventSponsors.map((props, index) => (
                   <Sponsor key={index} {...props} />
                 ))}
