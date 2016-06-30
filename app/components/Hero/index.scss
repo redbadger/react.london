@@ -8,14 +8,9 @@
   overflow: hidden;
 
   position: relative;
-  
-  display: -webkit-flex;
+
   display: flex;
-
-  -webkit-flex-direction: column;
   flex-direction: column;
-
-  -webkit-align-content: center;
   align-content: center;
 
   z-index: -1;

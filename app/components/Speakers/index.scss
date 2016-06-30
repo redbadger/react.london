@@ -1,6 +1,5 @@
 // SPEAKERS
 .Speakers {
-
   background-color: $events-color-faded;
 
   &__header {
@@ -10,14 +9,8 @@
   }
 
   &__container {
-    display: -webkit-flex;
     display: flex;
-
-    -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
-
-    -webkit-justify-content: space-between;
     justify-content: space-between;
   }
-
 }

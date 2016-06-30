@@ -101,9 +101,7 @@
   }
 
   &__section-container {
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: column wrap;
     flex-flow: column wrap;
   }
 
@@ -125,7 +123,6 @@
       width: 50%;
 
       &-container {
-        -webkit-flex-flow: row wrap;
         flex-flow: row wrap;
       }
 

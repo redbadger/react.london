@@ -1,12 +1,6 @@
 .block {
-
-  display: -webkit-flex;
   display: flex;
-
-  -webkit-flex-flow: column wrap;
   flex-flow: column wrap;
-
-  -webkit-align-items: center;
   align-items: center;
 
   .content {
@@ -22,15 +16,8 @@
 }
 
 .content.space-between {
-  display: -webkit-flex;
   display: flex;
-
-  -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-
-  -webkit-align-items: center;
   align-items: center;
-
-  -webkit-justify-content: space-between;
   justify-content: space-between;
 }

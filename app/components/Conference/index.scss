@@ -39,15 +39,12 @@
 
   // BULDING BLOCKS
   #wrapper {
-    display: -webkit-flex;
     display: flex;
     min-height: 100vh;
-    -webkit-flex-direction: column;
     flex-direction: column;
   }
 
   main {
-    -webkit-flex: 1;
     flex: 1;
   }
 
@@ -60,11 +57,8 @@
       text-align: center;
       margin-top: 135px;
 
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-flow: column wrap;
       flex-flow: column wrap;
-      -webkit-align-items: center;
       align-items: center;
     }
     .block-bg {
@@ -92,11 +86,8 @@
       color: $grey;
     }
     .sign-up-trampoline {
-      display: -webkit-flex;
       display: flex;
-      -webkit-flex-flow: column wrap;
       flex-flow: column wrap;
-      -webkit-align-items: center;
       align-items: center;
       img, object {
         margin-top: 5px;
@@ -269,11 +260,8 @@
         }
         &__form {
           font-size: 18px;
-          display: -webkit-flex;
           display: flex;
-          -webkit-align-items: center;
           align-items: center;
-          -webkit-justify-content: center;
           justify-content: center;
 
 
