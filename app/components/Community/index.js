@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
+import Speakers from '../Speakers';
 import Speaker from '../Speaker';
 import ScheduleItem from '../ScheduleItem';
 import Sponsor from '../Sponsor';
@@ -40,18 +41,7 @@ const Community = ({
           eventEndTime={eventEndTime}
         />
 
-        {/* SPEAKERS */}
-        <section id="speakers" className="block">
-          <div className="content">
-            <h2 className="content-title">Speakers</h2>
-          </div>
-          <div className="content space-between">
-
-            {eventSpeakers && eventSpeakers.map((props, index) => (
-              <Speaker key={index} {...props} />
-            ))}
-          </div>
-        </section>
+        {eventSpeakers && <Speakers eventSpeakers={eventSpeakers} />}
 
         {/* REGISTER */}
         <MailingList
