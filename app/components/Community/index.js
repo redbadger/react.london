@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speakers from '../Speakers';
 import EventSchedule from '../EventSchedule';
-import Sponsor from '../Sponsor';
+import EventSponsors from '../EventSponsors';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
@@ -32,41 +32,28 @@ const Community = ({
         <Hero />
         <RedBadgerBanner />
         <NavigationBar />
-        <CommunityAbout communitySummary={communitySummary} />
+        <CommunityAbout {...communitySummary} />
         <NextEvent
-          eventTitle={eventTitle}
-          eventDate={eventDate}
-          eventAddress={eventAddress}
-          eventStartTime={eventStartTime}
-          eventEndTime={eventEndTime}
+          {...eventTitle}
+          {...eventDate}
+          {...eventAddress}
+          {...eventStartTime}
+          {...eventEndTime}
         />
 
         <Speakers eventSpeakers={eventSpeakers} />
 
         <MailingList
-          mailingListTitle={mailingListTitle}
-          mailingListSummary={mailingListSummary}
+          {...mailingListTitle}
+          {...mailingListSummary}
         />
-
 
         <section className="block">
           <div className="content space-between">
-
             <EventSchedule eventSchedule={eventSchedule} />
-
-            {/* SPONSORS */}
-            <article className="EventSponsors">
-              <h3>Sponsors</h3>
-              <ul>
-                {eventSponsors && eventSponsors.map((props, index) => (
-                  <Sponsor key={index} {...props} />
-                ))}
-              </ul>
-            </article>
-
+            <EventSponsors eventSponsors={eventSponsors} />
           </div>
         </section>
-
       </main>
 
       <UpcomingEvents upcomingEvents={upcomingEvents} />
