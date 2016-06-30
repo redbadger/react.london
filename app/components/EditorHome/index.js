@@ -19,7 +19,7 @@ const EditorHome = () => (
     <h1>
       Home!
     </h1>
-    <img src="/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="" />
+    <img src="/img/PNG/ReactLondon_SaveTheDate_Icons-01.png" alt="Red Badger" />
     <ul>
       <li>
         <Link to="/community">Edit Community</Link>
