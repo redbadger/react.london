@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const UpcomingEvent = ({ venue, time, date, title, key }) => (
   <article className="UpcomingEvent" {...key}>
     <h3>{title}</h3>
-    <ul className="UpcomingEvent__details semantic-only">
+    <ul className="UpcomingEvent__details">
       <li className="UpcomingEvent__details--date">
         <a>{date}</a>
       </li>

@@ -7,19 +7,6 @@ body {
   box-sizing: border-box;
 }
 
-
-  ul.semantic-only {
-    @extend .reset-spacing;
-    li {
-      list-style-type: none;
-    }
-  }
-
-
-  object {
-    pointer-events: none;
-  }
-
-  .content-title {
-    border-bottom: $dash-border;
-  }
+object {
+  pointer-events: none;
+}

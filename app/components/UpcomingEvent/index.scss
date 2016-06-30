@@ -4,6 +4,11 @@
   width: calc((#{$maximum-content-width} / 3) - 40px);
 
   &__details {
+    margin: 0px;
+    padding: 0px;
+    li {
+      list-style-type: none;
+    }
     &--date {}
     &--location {}
     &--time {}
