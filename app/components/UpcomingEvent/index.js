@@ -18,7 +18,12 @@ const UpcomingEvent = ({ event, index }) => (
 );
 
 UpcomingEvent.propTypes = {
-  event: PropTypes.shape,
+  event: PropTypes.shape({
+    venue: PropTypes.string,
+    time: PropTypes.string,
+    date: PropTypes.string,
+    title: PropTypes.string,
+  }),
   index: PropTypes.number,
 };
 
