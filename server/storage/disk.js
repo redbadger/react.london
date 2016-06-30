@@ -21,7 +21,7 @@ function writeFile(target, contents, cb) {
 
 function put(key, fileContent) {
   return new Promise((resolve, reject) => {
-    writeFile(`data/${key}`, fileContent, (err) => {
+    writeFile(`tmp/${key}`, fileContent, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -33,7 +33,7 @@ function put(key, fileContent) {
 
 function get(key) {
   return new Promise((resolve, reject) => {
-    fs.readFile(`data/${key}`, 'utf8', (err, data) => {
+    fs.readFile(`tmp/${key}`, 'utf8', (err, data) => {
       if (err) {
         reject(err);
       } else {
