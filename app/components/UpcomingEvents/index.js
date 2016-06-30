@@ -15,7 +15,15 @@ const UpcomingEvents = ({ upcomingEvents }) => (
 );
 
 UpcomingEvents.propTypes = {
-  upcomingEvents: PropTypes.array,
+  upcomingEvents: PropTypes.arrayOf(React.PropTypes.shape({
+    name: PropTypes.string,
+    company: PropTypes.string,
+    talkTitle: PropTypes.string,
+    talkSummary: PropTypes.string,
+    twitterHandle: PropTypes.string,
+    githubHandle: PropTypes.string,
+    blogURL: PropTypes.string,
+  })),
 };
 
 export default UpcomingEvents;

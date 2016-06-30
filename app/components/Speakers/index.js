@@ -19,13 +19,10 @@ const Speakers = ({ eventSpeakers }) => (
 
 Speakers.propTypes = {
   eventSpeakers: PropTypes.arrayOf(React.PropTypes.shape({
-    name: PropTypes.string,
-    company: PropTypes.string,
-    talkTitle: PropTypes.string,
-    talkSummary: PropTypes.string,
-    twitterHandle: PropTypes.string,
-    githubHandle: PropTypes.string,
-    blogURL: PropTypes.string,
+    venue: PropTypes.string,
+    time: PropTypes.string,
+    date: PropTypes.string,
+    title: PropTypes.string,
   })),
 };
 
