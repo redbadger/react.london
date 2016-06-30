@@ -8,7 +8,7 @@ const UpcomingEvents = ({ upcomingEvents }) => (
     </div>
     <div className="content space-between UpcomingEvents__events">
       {upcomingEvents && upcomingEvents.map((event) => (
-        event ? <UpcomingEvent {...event} /> : null
+        <UpcomingEvent {...event} />
       ))}
     </div>
   </section>

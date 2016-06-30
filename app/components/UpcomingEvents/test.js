@@ -14,10 +14,12 @@ describe('UpcomingEvents component', () => {
         },
       ],
     };
-    shallow(<UpcomingEvents {...props} />);
+    const element = shallow(<UpcomingEvents {...props} />);
+    expect(element.find('UpcomingEvent')).to.have.length(1);
   });
 
   it('renders successfully without collections', () => {
-    shallow(<UpcomingEvents />);
+    const element = shallow(<UpcomingEvents upcomingEvents={[]} />);
+    expect(element.find('UpcomingEvent')).to.have.length(0);
   });
 });
