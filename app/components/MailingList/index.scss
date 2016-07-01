@@ -13,6 +13,11 @@
     text-align: center;
   }
 
+  &--conference {
+    background: $conference-color;
+    border-top: $solid-border;
+  }
+
   &__summary {
     margin-bottom: 35px;
     text-align: center;
@@ -63,6 +68,10 @@
       cursor: pointer;
       &:hover {
         color: $white;
+      }
+
+      &--conference {
+        color: $conference-color;
       }
     }
 

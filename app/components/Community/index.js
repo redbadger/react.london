@@ -46,6 +46,7 @@ const Community = ({
         <MailingList
           {...mailingListTitle}
           {...mailingListSummary}
+          page="community"
         />
 
         <section className="block">
