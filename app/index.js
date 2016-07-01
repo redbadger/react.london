@@ -4,6 +4,10 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './store/';
+import buildBeforeUnload from './before-unload';
+
+const store = configureStore();
+window.onbeforeunload = buildBeforeUnload(store);
 
 import EditorHome from './containers/EditorHome';
 import EditorLayout from './components/EditorLayout';
@@ -12,7 +16,6 @@ import EventEditor from './containers/EventEditor';
 import CommunityEditor from './containers/CommunityEditor';
 import ConferenceEditor from './components/ConferenceEditor';
 
-const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
