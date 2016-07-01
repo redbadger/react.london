@@ -11,22 +11,22 @@ const SiteFooter = () => (
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--slack" target="_blank" href="http://slack.red-badger.com/" target="_blank">
+          <a className="SiteFooter__link SiteFooter__link--slack" href="http://slack.red-badger.com/" target="_blank">
             <span>Join the conversation</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--youtube" target="_blank" href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ" target="_blank">
+          <a className="SiteFooter__link SiteFooter__link--youtube" href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ" target="_blank">
             <span>Watch previous Meetups</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--twitter" target="_blank" href="https://twitter.com/ReactLondon_" target="_blank">
+          <a className="SiteFooter__link SiteFooter__link--twitter" href="https://twitter.com/ReactLondon_" target="_blank">
             <span>@ReactLondon_</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--hashtag" target="_blank" href="https://twitter.com/search?q=%23reactlondon" target="_blank">
+          <a className="SiteFooter__link SiteFooter__link--hashtag" href="https://twitter.com/search?q=%23reactlondon">
             #reactlondon
           </a>
         </li>
