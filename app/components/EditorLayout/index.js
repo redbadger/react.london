@@ -11,7 +11,7 @@ const EditorLayout = ({ children }) => (
 );
 
 EditorLayout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.element.isRequired,
 };
 
 export default EditorLayout;

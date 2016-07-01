@@ -74,10 +74,10 @@ Community.propTypes = {
   eventDate: PropTypes.string,
   eventStartTime: PropTypes.string,
   eventEndTime: PropTypes.string,
-  eventSpeakers: PropTypes.array,
-  eventSchedule: PropTypes.array,
-  eventSponsors: PropTypes.array,
-  upcomingEvents: PropTypes.array,
+  eventSpeakers: PropTypes.arrayOf(PropTypes.shape(Speakers.propTypes)),
+  eventSchedule: PropTypes.arrayOf(PropTypes.shape(EventSchedule.propTypes)),
+  eventSponsors: PropTypes.arrayOf(PropTypes.shape(EventSponsors.propTypes)),
+  upcomingEvents: PropTypes.arrayOf(PropTypes.shape(UpcomingEvents.propTypes)),
 };
 
 export default Community;
