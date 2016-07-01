@@ -42,7 +42,7 @@ test: ## Run the tests
 	$(testCmd)
 
 test-watch: ## Run the tests and watch for changes
-	$(testCmd) --watch
+	$(testCmd) --reporter min --watch
 
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
