@@ -5,6 +5,7 @@ import { routerReducer as routing } from 'react-router-redux';
 import events from './events';
 import community from './community';
 import conference from './conference';
+import unsavedChanges from './unsaved-changes';
 
 const reducers = combineReducers({
   form,
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   events,
   community,
   conference,
+  unsavedChanges,
 });
 
 export default reducers;
