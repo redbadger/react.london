@@ -13,7 +13,7 @@
   flex-direction: column;
   align-content: center;
 
-  z-index: -1;
+  z-index: 999;
 
   &__title {
     position: absolute;
