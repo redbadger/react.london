@@ -2,6 +2,7 @@ import React from 'react';
 import SiteFooter from '../SiteFooter';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
+import NavigationBar from '../NavigationBar';
 
 const signupActionURL = '//london.us13.list-manage.com/subscribe/' +
   'post?u=f3de268a0820d472cbd31f761&id=c723cfd260&LOCATION=conference';
@@ -12,12 +13,7 @@ const Conference = () => (
       <main id="conference">
         <Hero page="Conference" />
         <RedBadgerBanner />
-        <nav className="NavigationBar block">
-          <ul className="NavigationBar__tabs">
-            <li><a href="/">Meetups</a></li>
-            <li><a className="NavigationBar__tab--active" href="#">Conference</a></li>
-          </ul>
-        </nav>
+        <NavigationBar />
         <section id="about" className="block">
           <div className="content">
             <h2>Let’s explore!</h2>
