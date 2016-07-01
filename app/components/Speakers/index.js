@@ -18,7 +18,7 @@ const Speakers = ({ eventSpeakers }) => (
 );
 
 Speakers.propTypes = {
-  eventSpeakers: PropTypes.arrayOf(Speaker.propTypes),
+  eventSpeakers: PropTypes.arrayOf(PropTypes.shape(Speaker.propTypes)),
 };
 
 

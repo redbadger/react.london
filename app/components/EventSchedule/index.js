@@ -15,7 +15,7 @@ const EventSchedule = ({ eventSchedule }) => (
 );
 
 EventSchedule.propTypes = {
-  eventSchedule: PropTypes.arrayOf(ScheduleItem.propTypes),
+  eventSchedule: PropTypes.arrayOf(PropTypes.shape(ScheduleItem.propTypes)),
 };
 
 export default EventSchedule;
