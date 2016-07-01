@@ -1,0 +1,23 @@
+.block {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  .content {
+    padding: 0px 20px;
+    width: 100%;
+  }
+}
+
+@media (min-width: $maximum-content-width) {
+  .block .content {
+    width: $maximum-content-width;
+  }
+}
+
+.content.space-between {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,7 +1,4 @@
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { minify } from 'html-minifier';
-import Preview from '../../app/components/Preview/Preview';
 import fs from 'fs';
 
 function wrapBody(markup) {
@@ -21,8 +18,8 @@ function wrapBody(markup) {
   });
 }
 
-export function compilePreview(state) {
-  const markup = renderToStaticMarkup(<Preview {...state} />);
+export function compilePreview() {
+  const markup = ''; // TODO
   const body = wrapBody(markup);
   return {
     path: 'index.html',
@@ -31,7 +28,7 @@ export function compilePreview(state) {
 }
 
 function getStyles() {
-  const body = fs.readFileSync('./dist/website.css', 'utf8');
+  const body = fs.readFileSync('./dist/main.css', 'utf8');
   return {
     path: 'main.css',
     body,

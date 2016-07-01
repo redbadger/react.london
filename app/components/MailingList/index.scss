@@ -1,0 +1,88 @@
+
+// STAY TUNED
+.MailingList {
+  background: $events-color;
+  border-bottom: $solid-border;
+  .content {
+    padding: 28px 20px 44px 20px;
+  }
+  &__heading {
+    font-size: 24px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+
+  &__summary {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+
+  // MAILCHIMP
+  &__form__container {
+    width: 635px;
+  }
+  &__form {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &__label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    &__email,
+    &__submit {
+      border-radius: 5px;
+
+      font-size: 16px;
+      line-height: 36px;
+      border: $solid-border;
+    }
+
+    &__email {
+      background: $white;
+      padding: 0px 15px;
+
+      max-width: 510px;
+      width: calc(100% - 160px); // 109px button width + 15px margin + 18px + 18px paddings removed.
+    }
+
+    &__submit {
+      margin-left: 15px;
+      font-weight: 600;
+      padding: 3px 18px;
+      background: $grey;
+      color: $events-color;
+      border: 0px;
+      cursor: pointer;
+      &:hover {
+        color: $white;
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
+  .MailingList {
+    &__form {
+
+      &__email {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      &__submit {
+        float: right;
+      }
+
+    }
+  }
+}

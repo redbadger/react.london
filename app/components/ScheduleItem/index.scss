@@ -1,0 +1,19 @@
+.ScheduleItem {
+  dt {
+    float: left;
+    clear: left;
+    width: 105px;
+    text-align: right;
+
+    border-right: $dash-border;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    &:last-of-type {
+      padding-bottom: 0px;
+    }
+  }
+  dl {
+    margin: 0px 0px 20px calc(105px + (20px * 2));
+  }
+}

@@ -1,0 +1,326 @@
+// THIS PAGE IS TEMPORARY
+// 'scuse the non modular approach
+
+#conference {
+
+  .NavigationBar {
+    background: $conference-color-faded;
+  }
+
+  background: $conference-color;
+
+  .reset-spacing {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  object {
+    pointer-events: none;
+  }
+
+  @media (max-width: $mobile-width) {
+    #mc_embed_signup {
+      form#mc-embedded-subscribe-form {
+        padding: 0px;
+        padding-top: 50px;
+      }
+      #mce-EMAIL {
+        width: calc(100vw - 80px);
+      }
+      label[for='mce-EMAIL'] {
+        width: calc(100vw - 60px);
+      }
+    }
+  }
+
+  // BULDING BLOCKS
+  #wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  // HERO
+  #hero {
+    background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-01.svg") no-repeat center center;
+    background-size: cover;
+    min-height: 330px;
+    .content {
+      text-align: center;
+      margin-top: 135px;
+
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+    .block-bg {
+      background: $conference-color;
+      display: inline-block;
+      margin: 0px;
+      padding: 3px;
+    }
+    p.block-bg {
+      font-weight: 700;
+      font-size: 14px;
+      padding: 3px 10px;
+    }
+    h1 {
+      font-size: 30px;
+      display: inline-block;
+      margin: 0px;
+      padding: 3px;
+    }
+    h2.block-bg {
+      font-size: 40px;
+      font-weight: 200;
+    }
+    a {
+      color: $grey;
+    }
+    .sign-up-trampoline {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      img, object {
+        margin-top: 5px;
+        width: 18px;
+        height: 12px;
+      }
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    #hero {
+      min-height: 660px;
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-02.svg")
+      no-repeat
+      center center;
+      background-size: cover;
+      .content {
+        margin-top: 300px;
+      }
+      p.block-bg {
+        font-size: 21px;
+        margin-top: 15px;
+      }
+      h1.block-bg {
+        font-size: 45px;
+        margin-bottom: 26px;
+      }
+      h2.block-bg {
+        font-size: 60px;
+        line-height: 1;
+      }
+      .sign-up-trampoline {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  @media (min-width: $mobile-width) and (max-width: $desktop-width) {
+    #hero {
+      p.block-bg {
+        margin-top: 5px;
+      }
+      h2.block-bg {
+        line-height: 1;
+      }
+      .sign-up-trampoline {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    #hero {
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+      no-repeat
+      center -135px;
+      background-size: cover;
+      padding-bottom: 20px;
+      .content {
+        margin-top: 178px;
+      }
+      h2.block-bg {
+        line-height: 1;
+      }
+      p.block-bg {
+        margin-top: 5px;
+      }
+      .sign-up-trampoline {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @media (max-width: $tiny-mobile-width) {
+    #hero {
+      background: url("/img/SVG/ReactLondon_SaveTheDate_Web_background-03.svg")
+      no-repeat
+      center -110px;
+      background-size: cover;
+      .content {
+        margin-top: 142px;
+      }
+      p.block-bg {
+        margin-top: 8px;
+      }
+      .sign-up-trampoline {
+        margin-top: 4px;
+      }
+      h1 {
+        line-height: 1.2;
+      }
+    }
+  }
+
+  // ABOUT
+  #about {
+    background: $conference-color;
+    border-top: none;
+    margin: 22px 0px;
+
+    h2, p {
+      font-size: 16px;
+      @media (min-width: $tablet-portrait-width) {
+        font-size: 24px;
+      }
+    }
+
+
+    h2 {
+      @extend .reset-spacing;
+    }
+
+    p {
+      line-height: 1.3;
+      @extend .reset-spacing;
+    }
+
+    h2, p:first-of-type {
+      margin-bottom: 7px;
+    }
+
+
+    @media (min-width: $tablet-width) {
+      margin: 30px 0px 40px 0px;
+
+      h2, p:first-of-type {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  // REGISTER
+  #register {
+    background: $conference-color;
+    border-top: 3px solid $grey;
+    padding: 30px 0 50px 0;
+    h3 {
+      font-size: 21px;
+      @extend .reset-spacing;
+      text-align: center;
+    }
+  }
+
+  #update {
+    padding: 28px 20px 44px 20px;
+    border-top: $solid-border;
+      // STAY TUNED
+      .Update {
+        background: $conference-color;
+        .content {
+          padding: 28px 20px 44px 20px;
+        }
+        &__heading {
+          font-size: 24px;
+          margin: 0px;
+          padding: 0px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        &__summary {
+          margin-bottom: 35px;
+          text-align: center;
+        }
+
+
+        // MAILCHIMP
+        &__form__container {
+          width: 635px;
+        }
+        &__form {
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+
+          &__label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 5px;
+          }
+
+          &__email,
+          &__submit {
+            border-radius: 5px;
+
+            font-size: 16px;
+            line-height: 36px;
+            border: $solid-border;
+          }
+
+          &__email {
+            background: $white;
+            padding: 0px 15px;
+
+            max-width: 510px;
+            width: calc(100% - 160px); // 109px button width + 15px margin + 18px + 18px paddings removed.
+          }
+
+          &__submit {
+            margin-left: 15px;
+            font-weight: 600;
+            padding: 3px 18px;
+            background: $grey;
+            color: $conference-color;
+            border: 0px;
+            cursor: pointer;
+            &:hover {
+              color: $white;
+            }
+          }
+
+        }
+
+      }
+
+      @media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
+        .Update {
+          &__form {
+
+            &__email {
+              width: 100%;
+              margin-bottom: 20px;
+            }
+
+            &__submit {
+              float: right;
+            }
+
+          }
+        }
+      }
+
+    }
+  }

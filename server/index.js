@@ -20,6 +20,8 @@ if (process.env.NODE_ENV === 'production') {
   useDiskStore();
 }
 
+app.use(express.static('assets'));
+
 routingSetup(app);
 
 const port = process.env.PORT || 8080;

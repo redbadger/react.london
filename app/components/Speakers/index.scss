@@ -1,0 +1,16 @@
+// SPEAKERS
+.Speakers {
+  background-color: $events-color-faded;
+
+  &__header {
+    margin: 0px;
+    border-bottom: $dash-border;
+    line-height: 2em;
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+}

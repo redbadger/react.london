@@ -4,7 +4,7 @@ const ScheduleItem = ({
   time,
   text,
 }) => (
-  <div>
+  <div className="ScheduleItem">
     <dt>{time}</dt>
     <dd>{text}</dd>
   </div>
