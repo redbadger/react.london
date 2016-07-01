@@ -40,15 +40,12 @@ const Community = ({
           {...eventStartTime}
           {...eventEndTime}
         />
-
         <Speakers eventSpeakers={eventSpeakers} />
-
         <MailingList
           {...mailingListTitle}
           {...mailingListSummary}
           page="community"
         />
-
         <section className="block">
           <div className="content space-between">
             <EventSchedule eventSchedule={eventSchedule} />
@@ -56,11 +53,8 @@ const Community = ({
           </div>
         </section>
       </main>
-
       <UpcomingEvents upcomingEvents={upcomingEvents} />
-
       <JoinSlack />
-
       <SiteFooter />
     </div>
   </div>

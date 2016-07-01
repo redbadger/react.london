@@ -1,6 +1,11 @@
 // NAVIGATION BAR
 .NavigationBar {
   background: $events-color-faded;
+
+
+  &--Conference {
+    background: $conference-color-faded;
+  }
   &__tabs {
     display: flex;
     flex-flow: row wrap;
