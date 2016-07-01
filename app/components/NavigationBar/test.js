@@ -11,4 +11,9 @@ describe('NavigationBar component', () => {
     const output = shallow(<NavigationBar />);
     expect(output.find('li').length).to.equal(2);
   });
+
+  it('renders the navbar with the correct class name', () => {
+    const output = shallow(<NavigationBar page="Conference" />);
+    expect(output.props().className.indexOf('--Conference')).to.not.equal(-1);
+  });
 });
