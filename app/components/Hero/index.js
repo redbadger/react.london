@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const Hero = () => (
-  <header className="Hero block">
+const Hero = ({ page }) => (
+  <header className={`Hero block Hero--${page}`}>
     <object
-      data="/img/SVG/Community_header_transparent.svg"
+      data={`/img/SVG/${page}_header_transparent.svg`}
       type="image/svg+xml"
     >
       <img
-        srcSet="/img/PNG/Community_header_transparent_x2.png"
-        src="/img/PNG/Community_header_transparent.png"
+        srcSet={`/img/PNG/${page}_header_transparent_x2.png`}
+        src={`/img/PNG/${page}_header_transparent.png`}
         alt="Red Badger logo"
       />
     </object>
     <h1 className="Hero__title">React London</h1>
   </header>
 );
+
+Hero.propTypes = {
+  page: PropTypes.oneOf(['Conference', 'Community']).isRequired,
+};
 
 export default Hero;
