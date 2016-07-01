@@ -24,11 +24,11 @@ clean: ## Remove compiled files
 build: clean assets dist/index.html ## Compile the app
 	$(webpack)
 
-	dist/index.html:
+dist/index.html:
 	mkdir -p dist
 	cp app/index.html dist
 
-	assets:
+assets:
 	cp -a assets/. dist
 
 start: ## Start the dev server
