@@ -5,6 +5,10 @@ import { shallow } from 'enzyme';
 describe('EditorHome component', () => {
   const props = {
     eventIDs: ['1', '2', '3'],
+    events: {},
+    community: {},
+    conference: {},
+    publish: () => {},
   };
 
   it('renders successfully, with event links', () => {

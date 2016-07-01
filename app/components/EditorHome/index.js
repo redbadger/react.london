@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { eventPropTypes, communityPropTypes } from '../Community';
 
 const EventLink = ({ id }) => {
   const slug = `/event/${id}`;
@@ -15,7 +16,7 @@ function newEventID(eventIDs) {
   return (max + 1).toString();
 }
 
-const EditorHome = ({ eventIDs }) => (
+const EditorHome = ({ eventIDs, events, community, conference, publish }) => (
   <div className="home">
     <h1>
       Home!
@@ -41,11 +42,18 @@ const EditorHome = ({ eventIDs }) => (
         <EventLink id={newEventID(eventIDs)} />
       </li>
     </ul>
+    <button onClick={() => publish({ events, community, conference })}>
+      Publish
+    </button>
   </div>
 );
 
 EditorHome.propTypes = {
   eventIDs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  events: PropTypes.shape(eventPropTypes).isRequired,
+  community: PropTypes.shape(communityPropTypes).isRequired,
+  conference: PropTypes.shape({}).isRequired,
+  publish: PropTypes.func.isRequired,
 };
 
 export default EditorHome;

@@ -65,10 +65,7 @@ const Community = ({
   </div>
 );
 
-Community.propTypes = {
-  communitySummary: PropTypes.string,
-  mailingListTitle: PropTypes.string,
-  mailingListSummary: PropTypes.string,
+export const eventPropTypes = {
   eventTitle: PropTypes.string,
   eventAddress: PropTypes.string,
   eventDate: PropTypes.string,
@@ -78,6 +75,18 @@ Community.propTypes = {
   eventSchedule: PropTypes.array,
   eventSponsors: PropTypes.array,
   upcomingEvents: PropTypes.array,
+};
+
+export const communityPropTypes = {
+  communitySummary: PropTypes.string,
+  mailingListTitle: PropTypes.string,
+  mailingListSummary: PropTypes.string,
+};
+
+
+Community.propTypes = {
+  ...eventPropTypes,
+  ...communityPropTypes,
 };
 
 export default Community;
