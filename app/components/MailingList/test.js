@@ -10,7 +10,7 @@ function setup({ page }) {
   return { props, output };
 }
 
-describe.only('MailingList component', () => {
+describe('MailingList component', () => {
   it('renders successfully', () => {
     const props = {
       mailingListTitle: 'Hear more about events',
