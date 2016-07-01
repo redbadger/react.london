@@ -29,7 +29,7 @@ const Community = ({
   <div className="community">
     <div id="wrapper">
       <main>
-        <Hero />
+        <Hero page="Community" />
         <RedBadgerBanner />
         <NavigationBar />
         <CommunityAbout {...communitySummary} />

@@ -22,4 +22,10 @@
     left: 0;
     right: 0;
   }
+
+  &--Conference {
+    background-color: $conference-color;
+    background-image: none;
+    background-position: 0px 0px;
+  }
 }
