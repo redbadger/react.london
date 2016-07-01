@@ -32,7 +32,7 @@ const Community = ({
         <Hero />
         <RedBadgerBanner />
         <NavigationBar />
-        <CommunityAbout {...communitySummary} />
+        <CommunityAbout communitySummary={communitySummary} />
         <NextEvent
           {...eventTitle}
           {...eventDate}
