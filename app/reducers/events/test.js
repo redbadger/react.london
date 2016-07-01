@@ -7,8 +7,7 @@ import { eventIDToFormName } from '../../names/event';
 
 describe('events reducer', () => {
   it('has default state', () => {
-    const prev = deepFreeze({});
-    const state = reducer(undefined, prev);
+    const state = reducer(undefined, {});
     expect(state).to.deep.equal({});
   });
 

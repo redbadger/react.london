@@ -9,5 +9,6 @@ describe('Reducers', () => {
     expect(state).to.contain.key('events');
     expect(state).to.contain.key('community');
     expect(state).to.contain.key('conference');
+    expect(state).to.contain.key('unsavedChanges');
   });
 });
