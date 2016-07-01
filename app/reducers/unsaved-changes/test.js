@@ -1,5 +1,6 @@
 import reducer from '.';
 import { change as formFieldChange } from 'redux-form';
+import { publishSiteSuccess } from '../../actions/persistence';
 
 describe('events reducer', () => {
   it('has default state', () => {
@@ -16,6 +17,15 @@ describe('events reducer', () => {
       );
       const state = reducer(prev, action);
       expect(state).to.equal(true);
+    });
+  });
+
+  describe('PUBLISH_SITE_SUCCESS', () => {
+    it('registers all changes as saved', () => {
+      const prev = true;
+      const action = publishSiteSuccess();
+      const state = reducer(prev, action);
+      expect(state).to.equal(false);
     });
   });
 });
