@@ -25,7 +25,7 @@ describe('EditorHome container mapStateToProps', () => {
     expect(events).to.deep.equal(state.events);
   });
 
-  it('sets events', () => {
+  it('sets conference', () => {
     const { conference } = mapStateToProps(state);
     expect(conference).to.deep.equal(state.conference);
   });
