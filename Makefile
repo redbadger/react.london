@@ -11,15 +11,8 @@ help:
 clean: ## Remove compiled files
 	rm -rf dist/*
 
-build: clean assets dist/index.html ## Compile the app
+build: clean ## Compile the app
 	$(webpack)
-
-dist/index.html:
-	mkdir -p dist
-	cp app/index.html dist
-
-assets:
-	cp -a assets/. dist
 
 start: ## Start the dev server
 	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0

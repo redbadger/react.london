@@ -3,6 +3,8 @@
 /* eslint vars-on-top: 0 */
 /* eslint no-var: 0 */
 
+process.env.NODE_ENV = 'test';
+
 // import es6
 require('babel-register');
 // Generator polyfill

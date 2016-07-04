@@ -7,8 +7,8 @@ module.exports = {
   devtool: 'source-map',
   noInfo: true,
   entry: {
-    'static/editor': ['babel-polyfill', './app/index'],
-    main: ['./app/styles/main.scss'],
+    'static/editor': ['babel-polyfill', './client/index'],
+    main: ['./client/styles/main.scss'],
   },
   output: {
     path: path.join(__dirname, 'dist'),
