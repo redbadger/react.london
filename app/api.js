@@ -1,9 +1,9 @@
+import 'isomorphic-fetch';
+
 const SITE_ENDPOINT = '/site';
 
 function assertStatusOK(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
+  if (response.ok) { return response; }
   const error = new Error(response.statusText);
   error.response = response;
   throw error;
