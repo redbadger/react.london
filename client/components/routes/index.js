@@ -8,6 +8,7 @@ import Conference from '../Conference';
 export default (
   <Route path="/" component={Layout}>
     <IndexRoute component={Community} />
+    <Route path="community" component={Community} />
     <Route path="conference" component={Conference} />
   </Route>
 );
