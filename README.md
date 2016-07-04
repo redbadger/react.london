@@ -3,13 +3,11 @@ react.london
 
 [![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=svg)](https://circleci.com/gh/redbadger/react.london)
 
-A static site generator for the monthly London React meetup. Allows WYSIWIG
-creation and publication of meetup information pages.
+A site for the monthly React London Community
 
 This project employs a number of Javascript libraries and approaches,
-including _React_, _Redux_, _Redux Forms_, _Scribe_, _Server-Side
-Rendering_, and _WebPack_. Most importantly, we're utilising EDD (Emoji Driven
-Development 😱).
+including _React_, _Redux_, _Server-Side Rendering_, and _WebPack_. Most
+importantly, we're utilising EDD (Emoji Driven Development 😱).
 
 Generated pages are hosted on AWS S3.
 
@@ -18,18 +16,7 @@ Generated pages are hosted on AWS S3.
 ### Dev Setup
 
 * Install [NodeJS](https://nodejs.org/en/)
-* Install [Terraform](https://www.terraform.io/)
 * Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
-
-```sh
-# Install the dependencies
-npm install
-# Set up the environment variables (get them from another dev)
-cp .env.example .env
-vim .env
-cp infrastructure/secrets.tfvars.example infrastructure/secrets.tfvars
-vim infrastructure/secrets.tfvars
-```
 
 ### 💻 Dev
 
@@ -47,10 +34,6 @@ make start
 make test
 make test-watch
 make lint
-
-# Provision infrastructure
-make terraform-staging
-make terraform-staging-apply
 ```
 
 ### Deployment
