@@ -1,7 +1,3 @@
-tfSecrets = -var-file="infrastructure/secrets.tfvars"
-tfState   = -state="infrastructure/terraform.tfstate"
-tfPath    = infrastructure/
-
 stagingBucket = staging.react.london
 awsRegion = eu-west-1
 distDir = ./dist/
@@ -11,12 +7,6 @@ testCmd = find . -path ./node_modules -prune -o -name '*test.js' | xargs $(mocha
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-terraform-staging: ## Preview infrastructure changes for staging
-	terraform plan $(tfSecrets) $(tfState) $(tfPath)
-
-terraform-staging-apply: ## Apply infrastructure changes for staging
-	terraform apply $(tfSecrets) $(tfState) $(tfPath)
 
 clean: ## Remove compiled files
 	rm -rf dist/*
