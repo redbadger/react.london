@@ -9,16 +9,11 @@ This project employs a number of Javascript libraries and approaches,
 including _React_, _Redux_, _Server-Side Rendering_, and _WebPack_. Most
 importantly, we're utilising EDD (Emoji Driven Development 😱).
 
-Generated pages are hosted on AWS S3.
-
-## 🏃Getting started
-
-### Dev Setup
-
-* Install [NodeJS](https://nodejs.org/en/)
-* Install [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+## 🏃 Getting started
 
 ### 💻 Dev
+
+* Install [NodeJS](https://nodejs.org/en/)
 
 ```sh
 # Print task help
@@ -38,11 +33,16 @@ make lint
 
 ### Deployment
 
-The editor is currently on Heroku.
+The site backend is deployed to AWS Elastic Beanstalk.
 
 ```sh
-# Add the staging remote
-heroku git:remote -r staging -a staging-react-london
+# Set up the elastic beanstalk CLI tools
+pip install awsebcli
+cd /path/to/react.london
+eb init
+
 # Deploy staging
-git push staging master
+???
+# Deploy production
+???
 ```

@@ -12,3 +12,8 @@ infrastructure/secrets.tfvars
 data/*
 .sass-cache
 tmp
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

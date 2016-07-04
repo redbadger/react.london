@@ -67,7 +67,6 @@
     "deep-freeze": "0.0.1",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.3.0",
-    "ignore-styles": "^1.2.0",
     "jsdom": "^8.4.1",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.1.0",
