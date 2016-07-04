@@ -1,11 +1,8 @@
-import express from 'express';
 import request from 'supertest';
-import router from '.';
-
-const app = express().use(router);
+import app from '../app';
 
 describe('GET /', () => {
-  it('/', done => {
+  it('renders OK', done => {
     request(app)
       .get('/')
       .expect(200)
@@ -14,7 +11,7 @@ describe('GET /', () => {
 });
 
 describe('GET /conference', () => {
-  it('/conference', done => {
+  it('/renders OK', done => {
     request(app)
       .get('/')
       .expect(200)

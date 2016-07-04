@@ -6,36 +6,15 @@ import { Provider } from 'react-redux';
 import routes from '../../client/components/routes';
 import reducer from '../../client/reducers';
 
-function wrapHTML(html) {
-  return `
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>React London</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
-  </head>
-  <body>
-    <main id="main">
-      ${html}
-    </main>
-    <script src="/static/editor.js"></script>
-  </body>
-</html>
-    `;
-}
-
 function sendSite(res, renderProps) {
   const defaultState = {}; // TODO
-  const store = createStore(reducer);
-  const page = renderToString(
+  const store = createStore(reducer, defaultState);
+  const content = renderToString(
     <Provider store={store}>
       <RouterContext {...renderProps} />
     </Provider>
   );
-  const body = wrapHTML(page);
-  res.status(200).send(body);
+  res.render('index', { content });
 }
 
 function router(req, res) {
@@ -49,6 +28,6 @@ function router(req, res) {
     }
     res.status(404).send('Not found');
   });
-};
+}
 
 export default router;
