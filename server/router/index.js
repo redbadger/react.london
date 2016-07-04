@@ -3,18 +3,25 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import routes from '../../client/components/routes';
-import reducer from '../../client/reducers';
+import routes from '../../shared/components/routes';
+import reducer from '../../shared/reducers';
+
+const dummyState = {
+  community: {
+    summary: 'Hello, world!',
+  },
+};
 
 function sendSite(res, renderProps) {
-  const defaultState = {}; // TODO
-  const store = createStore(reducer, defaultState);
+  const state = dummyState; // TODO
+  const store = createStore(reducer, state);
+  const initialState = store.getState();
   const content = renderToString(
     <Provider store={store}>
       <RouterContext {...renderProps} />
     </Provider>
   );
-  res.render('index', { content });
+  res.render('index', { content, initialState });
 }
 
 function router(req, res) {

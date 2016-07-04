@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import Layout from '../Layout';
-import Community from '../Community';
+import Community from '../../containers/Community';
 import Conference from '../Conference';
 
 export default (

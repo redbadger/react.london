@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+
+import community from './community';
 
 const reducer = combineReducers({
-  routing: routerReducer,
+  community,
 });
 
 export default reducer;

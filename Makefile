@@ -1,5 +1,3 @@
-stagingBucket = staging.react.london
-awsRegion = eu-west-1
 distDir = ./dist/
 webpack = ./node_modules/webpack/bin/webpack.js
 mocha   = ./node_modules/mocha/bin/mocha
@@ -16,10 +14,6 @@ build: clean ## Compile the app
 
 start: ## Start the dev server
 	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0
-
-seed: ## Set up seed data for use in development
-	mkdir -p tmp/data
-	cp data/seed.json tmp/data/site.json
 
 test: ## Run the tests
 	$(testCmd)

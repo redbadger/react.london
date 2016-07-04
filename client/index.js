@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import routes from './components/routes';
-import reducer from './reducers';
+import routes from '../shared/components/routes';
+import reducer from '../shared/reducers';
 
-const store = createStore(reducer);
+const initialState = window.__INITIAL_STATE__;
+const store = createStore(reducer, initialState);
 
 const components = (
   <Provider store={store}>

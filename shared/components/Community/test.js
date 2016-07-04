@@ -5,8 +5,7 @@ import { shallow } from 'enzyme';
 describe('Community component', () => {
   it('renders successfully with collections', () => {
     const props = {
-      communityTitle: 'A title!',
-      communitySummary: 'All very important',
+      summary: 'All very important',
       mailingListTitle: 'Sign up',
       mailingListSummary: 'Learn all sort about React',
       mailingListConferenceText: 'Want to know about the conference too?',
@@ -48,8 +47,7 @@ describe('Community component', () => {
 
   it('renders successfully without collections', () => {
     const props = {
-      communityTitle: 'A title!',
-      communitySummary: 'All very important',
+      summary: 'All very important',
       mailingListTitle: 'Sign up',
       mailingListSummary: 'Learn all sort about React',
       mailingListConferenceText: 'Want to know about the conference too?',
