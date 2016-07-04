@@ -12,7 +12,7 @@ EventLink.propTypes = {
 };
 
 function newEventID(eventIDs) {
-  const max = Math.max.apply(null, eventIDs);
+  const max = Math.max.apply(null, [0].concat(eventIDs));
   return (max + 1).toString();
 }
 
