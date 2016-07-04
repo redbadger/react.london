@@ -4,16 +4,16 @@ function html(content) {
   return { dangerouslySetInnerHTML: { __html: content } };
 }
 
-const CommunityAbout = ({ communitySummary }) => (
+const CommunityAbout = ({ summary }) => (
   <section className="CommunityAbout block">
     <div className="content">
-      <p className="CommunityAbout__text" {...html(communitySummary)} />
+      <p className="CommunityAbout__text" {...html(summary)} />
     </div>
   </section>
 );
 
 CommunityAbout.propTypes = {
-  communitySummary: PropTypes.string,
+  summary: PropTypes.string,
 };
 
 export default CommunityAbout;

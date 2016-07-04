@@ -13,7 +13,7 @@ import UpcomingEvents from '../UpcomingEvents';
 import JoinSlack from '../JoinSlack';
 
 const Community = ({
-  communitySummary,
+  summary,
   mailingListTitle,
   mailingListSummary,
   eventTitle,
@@ -31,8 +31,8 @@ const Community = ({
       <main>
         <Hero page="Community" />
         <RedBadgerBanner />
-        <NavigationBar />
-        <CommunityAbout communitySummary={communitySummary} />
+        <NavigationBar page="Community" />
+        <CommunityAbout summary={summary} />
         <NextEvent
           {...eventTitle}
           {...eventDate}
@@ -73,7 +73,7 @@ export const eventPropTypes = {
 };
 
 export const communityPropTypes = {
-  communitySummary: PropTypes.string,
+  summary: PropTypes.string,
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
 };
