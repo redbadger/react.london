@@ -1,19 +1,21 @@
+import 'isomorphic-fetch';
+
 const SITE_ENDPOINT = '/site';
 
-export function fetchSiteState() {
-  return fetch(SITE_ENDPOINT, {
-    credentials: 'same-origin',
-  })
-  .then(response => {
-    if (response.status === 200) return response.json();
-    throw new Error('Unable to load site content from server');
-  })
-  .catch(error => { throw error; });
+function assertStatusOK(response) {
+  if (response.ok) { return response; }
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
 }
 
-export function publishSiteState({ community, conference, events }) {
-  const body = JSON.stringify({ community, conference, events });
-  return fetch(SITE_ENDPOINT, {
+function parseJSON(response) {
+  return response.json();
+}
+
+function post(url, object) {
+  const body = JSON.stringify(object);
+  return fetch(url, {
     credentials: 'same-origin',
     method: 'POST',
     headers: {
@@ -22,9 +24,22 @@ export function publishSiteState({ community, conference, events }) {
     },
     body,
   })
-  .then(response => {
-    if (response.status === 201) return response.json();
-    throw new Error('Unable to publush site content');
+  .then(assertStatusOK)
+  .then(parseJSON);
+}
+
+function get(url) {
+  return fetch(url, {
+    credentials: 'same-origin',
   })
-  .catch(error => { throw error; });
+  .then(assertStatusOK)
+  .then(parseJSON);
+}
+
+export function fetchSiteState() {
+  return get(SITE_ENDPOINT);
+}
+
+export function publishSiteState({ community, conference, events }) {
+  return post(SITE_ENDPOINT, { community, conference, events });
 }
