@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import routes from '../../client/components/routes';
+import routes from '../../shared/components/routes';
 import reducer from '../../client/reducers';
 
 function sendSite(res, renderProps) {
