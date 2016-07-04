@@ -1,17 +1,9 @@
 import { SITE_STATE_LOADED } from '../../actions/persistence';
 import { actionTypes as formActions } from 'redux-form';
 import { CONFERENCE_FORM } from '../../names/form';
+import { buildFormChangeHandler } from '../form-change';
 
-function handleFormChange(state, action) {
-  if (action.meta.form === CONFERENCE_FORM) {
-    return {
-      ...state,
-      [action.meta.field]: action.payload,
-    };
-  }
-  return state;
-}
-
+const handleFormChange = buildFormChangeHandler(CONFERENCE_FORM);
 
 export default function conference(state = {}, action) {
   switch (action.type) {

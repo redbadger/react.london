@@ -1,16 +1,9 @@
 import { SITE_STATE_LOADED } from '../../actions/persistence';
 import { actionTypes as formActions } from 'redux-form';
 import { COMMUNITY_FORM } from '../../names/form';
+import { buildFormChangeHandler } from '../form-change';
 
-function handleFormChange(state, action) {
-  if (action.meta.form === COMMUNITY_FORM) {
-    return {
-      ...state,
-      [action.meta.field]: action.payload,
-    };
-  }
-  return state;
-}
+const handleFormChange = buildFormChangeHandler(COMMUNITY_FORM);
 
 export default function community(state = {}, action) {
   switch (action.type) {
