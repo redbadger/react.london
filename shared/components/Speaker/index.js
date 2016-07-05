@@ -28,27 +28,33 @@ const Speaker = ({
   twitterHandle,
   githubHandle,
   blogURL,
-}) => (
-  <article className="Speaker">
-    <figure className="Speaker__photo">
-      <img className="Speaker__photo--img" src="#TODO" alt={name} />
-    </figure>
-    <ul className="Speaker__details">
-      <li>
-        <IconLink present={githubHandle} type="GitHub" url={'https://github.com/' + githubHandle} />
-      </li>
-      <li>
-        <IconLink present={twitterHandle} type="Twitter" url={'https://twitter.com/' + twitterHandle} />
-      </li>
-      <li>
-        <IconLink present={blogURL} type="Blog" url={blogURL} />
-      </li>
-    </ul>
-    <h5 className="Speaker__name"><span className="Speaker__name--bold">{name} </span>{company}</h5>
-    <h4 className="Speaker__title">{talkTitle}</h4>
-    <p className="Speaker__summary">{talkSummary}</p>
-  </article>
-);
+  imageURL,
+}) => {
+  const avatarURL = imageURL || '/img/PNG/Speaker_Anon.png';
+  return (
+    <article className="Speaker">
+      <figure className="Speaker__photo">
+        <img className="Speaker__photo--img" src={avatarURL} alt={name} />
+      </figure>
+      <ul className="Speaker__details">
+        <li>
+          <IconLink present={githubHandle} type="GitHub" url={'https://github.com/' + githubHandle} />
+        </li>
+        <li>
+          <IconLink present={twitterHandle} type="Twitter" url={'https://twitter.com/' + twitterHandle} />
+        </li>
+        <li>
+          <IconLink present={blogURL} type="Blog" url={blogURL} />
+        </li>
+      </ul>
+      <h5 className="Speaker__name">
+        <span className="Speaker__name--bold">{name} </span>
+        {company}</h5>
+      <h4 className="Speaker__title">{talkTitle}</h4>
+      <p className="Speaker__summary">{talkSummary}</p>
+    </article>
+  );
+};
 
 Speaker.propTypes = {
   name: PropTypes.string,
@@ -58,6 +64,7 @@ Speaker.propTypes = {
   twitterHandle: PropTypes.string,
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
+  imageURL: PropTypes.string,
 };
 
 export default Speaker;

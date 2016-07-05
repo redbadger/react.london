@@ -32,11 +32,12 @@ const dummyState = {
         her experience using it on a project along with Redux Form.`,
         twitterHandle: 'kadikraman',
         githubHandle: 'kadikraman',
+        imageURL: '/img/Speakers/kadikraman.jpg',
       },
       {
         name: 'Ben Lambert',
         company: 'BBC Sport',
-        talkTitle: 'Draft.js in the real world',
+        talkTitle: 'BBC Sport and React',
         talkSummary: `A talk around the challenges that BBC Sport have faced
         with running React at scale, and what we did to overcome them, and our
         migration from an old Angluar stack. Ben will also cover in a little
@@ -44,6 +45,7 @@ const dummyState = {
         simultaneously.`,
         twitterHandle: 'benjdlambert',
         githubHandle: 'benjdlambert',
+        imageURL: '/img/Speakers/benjdlambert.jpeg',
       },
       {
         name: 'Fabio Santos',
@@ -54,6 +56,7 @@ const dummyState = {
         wrong, traps to avoid, and how to avoid them.`,
         twitterHandle: 'fabiosantoscode',
         githubHandle: 'fabiosantosart',
+        imageURL: '/img/Speakers/fabiosantosart.jpg',
       },
     ],
     // eventSchedule,
