@@ -22,6 +22,10 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static('assets'));
 }
 
+app.get('/__health__', (req, res) => {
+  res.status(200).send('ok');
+});
+
 app.use(router);
 
 export default app;

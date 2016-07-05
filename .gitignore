@@ -12,3 +12,8 @@ infrastructure/secrets.tfvars
 data/*
 .sass-cache
 tmp
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+Dockerrun.aws.json
+*.zip
