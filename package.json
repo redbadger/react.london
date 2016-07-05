@@ -62,7 +62,6 @@
     "webpack-dev-middleware": "^1.6.1"
   },
   "devDependencies": {
-    "babel-polyfill": "^6.9.1",
     "chai": "^3.5.0",
     "deep-freeze": "0.0.1",
     "dirty-chai": "^1.2.2",
