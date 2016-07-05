@@ -1,27 +1,22 @@
 import React, { PropTypes } from 'react';
 
-const GitHubLink = ({ handle }) => {
-  const url = `https://github.com/${handle}`;
-  if (handle) {
-    return <a href={url}><img src="#TODO" alt="github" /></a>;
-  }
-  return null;
+const IconLink = ({ present, url, type }) => {
+  if (!present) { return null; }
+  return (
+    <a
+      className={'Speaker__detail Speaker__detail--' + type.toLowerCase()}
+      target="_blank"
+      href={url}
+    >
+      {type}
+    </a>
+  );
 };
 
-GitHubLink.propTypes = {
-  handle: PropTypes.string,
-};
-
-const TwitterLink = ({ handle }) => {
-  const url = `https://twitter.com/${handle}`;
-  if (handle) {
-    return <a href={url}><img src="#TODO" alt="twitter" /></a>;
-  }
-  return null;
-};
-
-TwitterLink.propTypes = {
-  handle: PropTypes.string,
+IconLink.propTypes = {
+  present: PropTypes.string,
+  url: PropTypes.string,
+  type: PropTypes.string,
 };
 
 
@@ -40,23 +35,14 @@ const Speaker = ({
     </figure>
     <ul className="Speaker__details">
       <li>
-        <a
-          className="Speaker__detail Speaker__detail--github"
-          target="_blank"
-          href={'https://github.com/' + githubHandle}
-        >Github</a></li>
+        <IconLink present={githubHandle} type="GitHub" url={'https://github.com/' + githubHandle} />
+      </li>
       <li>
-        <a
-          className="Speaker__detail Speaker__detail--twitter"
-          target="_blank"
-          href={'https://twitter.com/' + twitterHandle}
-        >Twitter</a></li>
+        <IconLink present={twitterHandle} type="Twitter" url={'https://twitter.com/' + twitterHandle} />
+      </li>
       <li>
-        <a
-          className="Speaker__detail Speaker__detail--blog"
-          target="_blank"
-          href={blogURL}
-        >Blog</a></li>
+        <IconLink present={blogURL} type="Blog" url={blogURL} />
+      </li>
     </ul>
     <h5 className="Speaker__name"><span className="Speaker__name--bold">{name} </span>{company}</h5>
     <h4 className="Speaker__title">{talkTitle}</h4>
