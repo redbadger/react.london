@@ -49,10 +49,15 @@ aws s3 cp $ZIP_FILE s3://$EB_BUCKET/$APP_NAME/$ZIP_FILE
 if [ "$ENV" == "production" ]
 then
   # Create a new application version with the zipped up Dockerrun file
-  aws elasticbeanstalk create-application-version --application-name $APP_NAME \
-      --version-label $VERSION --source-bundle S3Bucket=$EB_BUCKET,S3Key=$APP_NAME/$ZIP_FILE --region $AWS_REGION
+  aws elasticbeanstalk create-application-version \
+    --application-name $APP_NAME \
+    --version-label $VERSION \
+    --source-bundle S3Bucket=$EB_BUCKET,S3Key=$APP_NAME/$ZIP_FILE \
+    --region $AWS_REGION
 fi
 
 # Update the environment to use the new application version
-aws elasticbeanstalk update-environment --environment-name $APP_NAME-$ENV \
-    --version-label $VERSION --region $AWS_REGION
+aws elasticbeanstalk update-environment \
+  --environment-name $APP_NAME-$ENV \
+  --version-label $VERSION \
+  --region $AWS_REGION
