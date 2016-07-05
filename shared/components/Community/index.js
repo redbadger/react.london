@@ -13,7 +13,7 @@ import UpcomingEvents from '../UpcomingEvents';
 import JoinSlack from '../JoinSlack';
 
 const Community = ({
-  summary,
+  communitySummary,
   mailingListTitle,
   mailingListSummary,
   eventTitle,
@@ -22,9 +22,9 @@ const Community = ({
   eventStartTime,
   eventEndTime,
   eventSpeakers,
-  eventSchedule,
-  eventSponsors,
-  upcomingEvents,
+  // eventSchedule,
+  // eventSponsors,
+  // upcomingEvents,
 }) => (
   <div className="community">
     <div id="wrapper">
@@ -32,28 +32,32 @@ const Community = ({
         <Hero page="Community" />
         <RedBadgerBanner />
         <NavigationBar page="Community" />
-        <CommunityAbout summary={summary} />
+        <CommunityAbout communitySummary={communitySummary} />
         <NextEvent
-          {...eventTitle}
-          {...eventDate}
-          {...eventAddress}
-          {...eventStartTime}
-          {...eventEndTime}
+          eventTitle={eventTitle}
+          eventDate={eventDate}
+          eventAddress={eventAddress}
+          eventStartTime={eventStartTime}
+          eventEndTime={eventEndTime}
         />
         <Speakers eventSpeakers={eventSpeakers} />
         <MailingList
-          {...mailingListTitle}
-          {...mailingListSummary}
+          mailingListTitle={mailingListTitle}
+          mailingListSummary={mailingListSummary}
           page="community"
         />
-        <section className="block">
+        {/* TODO
+          <section className="block">
           <div className="content space-between">
             <EventSchedule eventSchedule={eventSchedule} />
             <EventSponsors eventSponsors={eventSponsors} />
           </div>
         </section>
+        */}
       </main>
+      {/* TODO
       <UpcomingEvents upcomingEvents={upcomingEvents} />
+      */}
       <JoinSlack />
       <SiteFooter />
     </div>
@@ -73,7 +77,7 @@ export const eventPropTypes = {
 };
 
 export const communityPropTypes = {
-  summary: PropTypes.string,
+  communitySummary: PropTypes.string,
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
 };

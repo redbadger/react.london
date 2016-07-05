@@ -1,19 +1,22 @@
 import React, { PropTypes } from 'react';
 
-function html(content) {
-  return { dangerouslySetInnerHTML: { __html: content } };
-}
-
-const CommunityAbout = ({ summary }) => (
+const CommunityAbout = ({ communitySummary }) => (
   <section className="CommunityAbout block">
     <div className="content">
-      <p className="CommunityAbout__text" {...html(summary)} />
+      <p className="CommunityAbout__text">
+        {communitySummary}
+      </p>
+      <p className="CommunityAbout__text--bold">
+        <strong>
+          See you soon!
+        </strong>
+      </p>
     </div>
   </section>
 );
 
 CommunityAbout.propTypes = {
-  summary: PropTypes.string,
+  communitySummary: PropTypes.string,
 };
 
 export default CommunityAbout;

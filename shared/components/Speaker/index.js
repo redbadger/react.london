@@ -1,27 +1,22 @@
 import React, { PropTypes } from 'react';
 
-const GitHubLink = ({ handle }) => {
-  const url = `https://github.com/${handle}`;
-  if (handle) {
-    return <a href={url}><img src="#TODO" alt="github" /></a>;
-  }
-  return null;
+const IconLink = ({ present, url, type }) => {
+  if (!present) { return null; }
+  return (
+    <a
+      className={'Speaker__detail Speaker__detail--' + type.toLowerCase()}
+      target="_blank"
+      href={url}
+    >
+      {type}
+    </a>
+  );
 };
 
-GitHubLink.propTypes = {
-  handle: PropTypes.string,
-};
-
-const TwitterLink = ({ handle }) => {
-  const url = `https://twitter.com/${handle}`;
-  if (handle) {
-    return <a href={url}><img src="#TODO" alt="twitter" /></a>;
-  }
-  return null;
-};
-
-TwitterLink.propTypes = {
-  handle: PropTypes.string,
+IconLink.propTypes = {
+  present: PropTypes.string,
+  url: PropTypes.string,
+  type: PropTypes.string,
 };
 
 
@@ -33,36 +28,33 @@ const Speaker = ({
   twitterHandle,
   githubHandle,
   blogURL,
-}) => (
-  <article className="Speaker">
-    <figure className="Speaker__photo">
-      <img className="Speaker__photo--img" src="#TODO" alt={name} />
-    </figure>
-    <ul className="Speaker__details">
-      <li>
-        <a
-          className="Speaker__detail Speaker__detail--github"
-          target="_blank"
-          href={'https://github.com/' + githubHandle}
-        >Github</a></li>
-      <li>
-        <a
-          className="Speaker__detail Speaker__detail--twitter"
-          target="_blank"
-          href={'https://twitter.com/' + twitterHandle}
-        >Twitter</a></li>
-      <li>
-        <a
-          className="Speaker__detail Speaker__detail--blog"
-          target="_blank"
-          href={blogURL}
-        >Blog</a></li>
-    </ul>
-    <h5 className="Speaker__name"><span className="Speaker__name--bold">{name} </span>{company}</h5>
-    <h4 className="Speaker__title">{talkTitle}</h4>
-    <p className="Speaker__summary">{talkSummary}</p>
-  </article>
-);
+  imageURL,
+}) => {
+  const avatarURL = imageURL || '/img/PNG/Speaker_Anon.png';
+  return (
+    <article className="Speaker">
+      <figure className="Speaker__photo">
+        <img className="Speaker__photo--img" src={avatarURL} alt={name} />
+      </figure>
+      <ul className="Speaker__details">
+        <li>
+          <IconLink present={githubHandle} type="GitHub" url={'https://github.com/' + githubHandle} />
+        </li>
+        <li>
+          <IconLink present={twitterHandle} type="Twitter" url={'https://twitter.com/' + twitterHandle} />
+        </li>
+        <li>
+          <IconLink present={blogURL} type="Blog" url={blogURL} />
+        </li>
+      </ul>
+      <h5 className="Speaker__name">
+        <span className="Speaker__name--bold">{name} </span>
+        {company}</h5>
+      <h4 className="Speaker__title">{talkTitle}</h4>
+      <p className="Speaker__summary">{talkSummary}</p>
+    </article>
+  );
+};
 
 Speaker.propTypes = {
   name: PropTypes.string,
@@ -72,6 +64,7 @@ Speaker.propTypes = {
   twitterHandle: PropTypes.string,
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
+  imageURL: PropTypes.string,
 };
 
 export default Speaker;
