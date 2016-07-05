@@ -11,10 +11,6 @@ function setup({ page }) {
 }
 
 describe('Hero component', () => {
-  it('renders successfully', () => {
-    shallow(<Hero />);
-  });
-
   it('sets the properties of the header correctly', () => {
     const page = 'Community';
     const { output } = setup({ page });
