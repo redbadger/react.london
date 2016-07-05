@@ -13,7 +13,7 @@ build: clean ## Compile the app
 	$(webpack)
 
 start: ## Start the dev server
-	node -r dotenv/config -r babel-core/register server/index.js --presets es2015,stage-0
+	node -r dotenv/config -r babel-core/register bin/start-server.js --presets es2015,stage-0
 
 test: ## Run the tests
 	$(testCmd)
