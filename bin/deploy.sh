@@ -61,3 +61,6 @@ aws elasticbeanstalk update-environment \
   --environment-name $APP_NAME-$ENV \
   --version-label $VERSION \
   --region $AWS_REGION
+
+echo
+echo Done! AWS EB deployment rollout in progress.
