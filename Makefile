@@ -1,3 +1,4 @@
+deploy  = ./bin/deploy.sh
 distDir = ./dist/
 webpack = ./node_modules/webpack/bin/webpack.js
 mocha   = ./node_modules/mocha/bin/mocha
@@ -24,14 +25,20 @@ test-watch: ## Run the tests and watch for changes
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
 
+deploy-staging: ## Deploy the current branch to staging
+	$(deploy) staging
+
+deploy-production: ## Deploy the current branch to production
+	$(deploy) production
+
+
 .PHONY: \
-	terraform-staging \
-	terraform-staging-apply \
+	deploy-staging \
+	deploy-production \
 	start \
 	clean \
 	build \
 	test \
 	test-watch \
 	lint \
-	help \
-	assets
+	help

@@ -1,7 +1,7 @@
 react.london
 ============
 
-[![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=svg)](https://circleci.com/gh/redbadger/react.london)
+[![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=shield)](https://circleci.com/gh/redbadger/react.london)
 
 A site for the monthly React London Community
 
@@ -33,14 +33,14 @@ make lint
 
 ### Deployment
 
-The site backend is deployed to AWS Elastic Beanstalk.
+The site is deployed to AWS Elastic Beanstalk.
 
 * Install [Docker](https://www.docker.com/)
 * Install [AWS CLI](https://aws.amazon.com/cli/)
 
 ```sh
 # Deploy staging
-???
+make deploy-staging
 # Deploy production
-???
+make deploy-production
 ```
