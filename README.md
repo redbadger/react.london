@@ -35,12 +35,10 @@ make lint
 
 The site backend is deployed to AWS Elastic Beanstalk.
 
-```sh
-# Set up the elastic beanstalk CLI tools
-pip install awsebcli
-cd /path/to/react.london
-eb init
+* Install [Docker](https://www.docker.com/)
+* Install [AWS CLI](https://aws.amazon.com/cli/)
 
+```sh
 # Deploy staging
 ???
 # Deploy production
