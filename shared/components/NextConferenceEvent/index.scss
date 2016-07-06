@@ -16,12 +16,30 @@
 
     li {
       list-style: none;
+
+      &:first-child {
+        margin-top: 0px;
+      }
     }
 
     h3 {
-      margin-top: 0;
-      margin-bottom: 14px;
+      margin: 0;
     }
+  }
+
+  &__link--date,
+  &__link--place {
+    padding-left: 40px;
+  }
+
+  &__link--date,
+  &__link--place,
+  &__link--save-the-date {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: $grey;
+    font-size: 18px;
   }
 
   &__link--date {
@@ -40,23 +58,9 @@
     background: url("/img/SVG/Save_the_date_icon_blue.svg") no-repeat 0px 1px;
     height: 67px;
     padding-left: 80px;
-    padding-top: 11px;
+    padding-top: 10px;
+    margin-top: 7px;
     max-width: 15em;
-  }
-
-  &__link--date,
-  &__link--place {
-    padding-left: 40px;
-  }
-
-  &__link--date,
-  &__link--place,
-  &__link--save-the-date {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    color: $grey;
-    font-size: 18px;
   }
 
   &__section-container {
