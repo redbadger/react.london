@@ -4,10 +4,14 @@ const mailingListActionURL = '//london.us13.list-manage.com/subscribe/post' +
   '?u=f3de268a0820d472cbd31f761&amp;id=c723cfd260&LOCATION=';
 
 const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
-  <section id="stay-tuned" className={`MailingList block MailingList--${page}`}>
+  <section id="stay-tuned" className={'MailingList block MailingList--' + page}>
     <div className="content">
-      <h3 className="MailingList__heading">{mailingListTitle}</h3>
-      <p className="MailingList__summary">{mailingListSummary}</p>
+      <h3 className="MailingList__heading">
+        {mailingListTitle}
+      </h3>
+      <p className="MailingList__summary">
+        {mailingListSummary}
+      </p>
 
       <div id="mc_embed_signup">
         <form
@@ -32,7 +36,7 @@ const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
               required
             />
             <input
-              className={`MailingList__form__submit MailingList__form__submit--${page}`}
+              className={'MailingList__form__submit MailingList__form__submit--' + page}
               type="submit"
               value="Subscribe"
               name="subscribe"

@@ -18,7 +18,8 @@ const Conference = () => (
         <ConferenceAbout />
         <NextConferenceEvent />
         <MailingList
-          mailingListTitle="Sign up here for conference updates"
+          mailingListTitle="Stay tuned"
+          mailingListSummary="Get ticket reminders and event information about the conference."
           page="conference"
         />
         <ShareYourIdeas />
