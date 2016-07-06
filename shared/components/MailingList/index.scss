@@ -73,9 +73,7 @@
         color: $conference-color;
       }
     }
-
   }
-
 }
 
 @media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
@@ -90,7 +88,6 @@
       &__submit {
         float: right;
       }
-
     }
   }
 }
