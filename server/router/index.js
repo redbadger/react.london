@@ -22,9 +22,12 @@ function sendSite(res, renderProps) {
 
 function router(req, res) {
   const location = req.url;
-  match({ routes, location }, (error, _, renderProps) => {
+  match({ routes, location }, (error, redirect, renderProps) => {
     if (error) {
       return res.status(500).send(error.message);
+    }
+    if (redirect) {
+      return res.redirect(302, redirect.pathname + redirect.search);
     }
     if (renderProps) {
       return sendSite(res, renderProps);
