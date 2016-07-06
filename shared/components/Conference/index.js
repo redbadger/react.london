@@ -6,6 +6,7 @@ import NavigationBar from '../NavigationBar';
 import MailingList from '../MailingList';
 import ConferenceAbout from '../ConferenceAbout';
 import NextConferenceEvent from '../NextConferenceEvent';
+import ShareYourIdeas from '../ShareYourIdeas';
 
 const Conference = () => (
   <div className="conference">
@@ -20,6 +21,7 @@ const Conference = () => (
           mailingListTitle="Sign up here for conference updates"
           page="conference"
         />
+        <ShareYourIdeas />
         <SiteFooter />
       </main>
     </div>

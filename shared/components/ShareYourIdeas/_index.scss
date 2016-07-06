@@ -1,0 +1,27 @@
+.ShareYourIdeas {
+  background-color: $conference-color-faded;
+  text-align: center;
+  padding: 40px 0px;
+
+  &__text {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  &__btn {
+    color: $conference-color;
+    background-color: $grey;
+    text-transform: uppercase;
+    border-radius: 6px;
+    border: 0px;
+    padding: 12px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
