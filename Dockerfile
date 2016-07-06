@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . /usr/src/app
 
 # Build assets
-RUN make build
+RUN make build-production
 
 EXPOSE 8080
-CMD [ "make", "start" ]
+CMD [ "make", "start-production" ]
