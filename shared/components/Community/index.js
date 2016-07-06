@@ -7,7 +7,7 @@ import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
-import NextEvent from '../NextEvent';
+import NextCommunityEvent from '../NextCommunityEvent';
 import MailingList from '../MailingList';
 import UpcomingEvents from '../UpcomingEvents';
 import JoinSlack from '../JoinSlack';
@@ -33,7 +33,7 @@ const Community = ({
         <RedBadgerBanner />
         <NavigationBar page="Community" />
         <CommunityAbout communitySummary={communitySummary} />
-        <NextEvent
+        <NextCommunityEvent
           eventTitle={eventTitle}
           eventDate={eventDate}
           eventAddress={eventAddress}

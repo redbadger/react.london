@@ -1,0 +1,105 @@
+// NEXT EVENT
+.NextConferenceEvent {
+  border-top: $solid-border;
+  background-color: $conference-color-faded;
+  padding: 30px 20px;
+
+  &__save-the-date,
+  &__details,
+  &__section {
+    padding: 10px 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__link--date {
+    background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  &__link--place {
+    background: url("/img/SVG/Place_icon_blue.svg") no-repeat 0px 1px;
+    height: 32px;
+    padding-top: 5px;
+  }
+
+  &__link--save-the-date {
+    background: url("/img/SVG/Save_the_date_icon_blue.svg") no-repeat 0px 1px;
+    height: 67px;
+    padding-left: 80px;
+    padding-top: 11px;
+    max-width: 15em;
+  }
+
+  &__link--date,
+  &__link--place {
+    padding-left: 40px;
+  }
+
+  &__link--date,
+  &__link--place,
+  &__link--save-the-date {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: $grey;
+    font-size: 18px;
+  }
+
+  &__section-container {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+
+  $vert-spacing: 30px;
+
+  &__details {
+    border-bottom: $dash-border;
+    padding-bottom: $vert-spacing;
+  }
+
+  &__save-the-date {
+    padding-top: $vert-spacing;
+  }
+}
+
+@media (min-width: 768px) {
+  .NextConferenceEvent {
+    &__section-container {
+      flex-flow: row wrap;
+
+      > * {
+        width: 50%;
+      }
+    }
+
+    &__details,
+    &__save-the-date {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &__details {
+      border-right: $dash-border;
+      border-bottom: none;
+    }
+
+    &__save-the-date {
+      padding-left: 33px;
+    }
+  }
+}

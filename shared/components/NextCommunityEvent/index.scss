@@ -1,6 +1,6 @@
 
 // NEXT EVENT
-.NextEvent {
+.NextCommunityEvent {
   border-top: $solid-border;
   background-color: $events-color-faded;
 
@@ -113,7 +113,7 @@
 }
 
 @media (min-width: 768px) {
-  .NextEvent {
+  .NextCommunityEvent {
 
     &__details {
       margin: 16px 0px 0px 0px;

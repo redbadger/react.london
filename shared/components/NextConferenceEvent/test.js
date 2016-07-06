@@ -1,8 +1,8 @@
 import React from 'react';
-import NextEvent from '.';
+import NextConferenceEvent from '.';
 import { shallow } from 'enzyme';
 
-describe('NextEvent component', () => {
+describe('NextConferenceEvent component', () => {
   it('renders successfully', () => {
     const props = {
       eventTitle: 'The best event yet',
@@ -11,6 +11,6 @@ describe('NextEvent component', () => {
       eventStartTime: '6pm',
       eventEndTime: '9pm',
     };
-    shallow(<NextEvent {...props} />);
+    shallow(<NextConferenceEvent {...props} />);
   });
 });
