@@ -4,6 +4,6 @@ machine:
 
 test:
   override:
-    - make build
+    - make build-production
     - make lint
     - make test

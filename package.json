@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "description": "London React Meetups",
   "scripts": {
-    "postinstall": "make build",
-    "start": "make start"
+    "postinstall": "make build-production"
   },
   "repository": {
     "type": "git",
@@ -68,6 +67,7 @@
     "enzyme": "^2.3.0",
     "jsdom": "^8.4.1",
     "mocha": "^2.4.5",
+    "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",
     "react-testutils-additions": "^15.1.0",
     "supertest": "^1.2.0",

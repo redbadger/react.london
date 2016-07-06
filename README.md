@@ -19,11 +19,10 @@ importantly, we're utilising EDD (Emoji Driven Development 😱).
 # Print task help
 make
 
-# Set up the dev seed data
-make seed
-
-# Run the server
+# Run the dev server
 make start
+# Run the dev frontend compiler
+make build
 
 # Run the tests
 make test
