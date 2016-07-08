@@ -23,8 +23,8 @@ eval $(aws ecr get-login --region=$AWS_REGION)
 
 # Build Docker image
 VERSION=$RELEASE_TAG
-docker build -t $APP_NAME:$RELEASE_TAG .
-docker tag $APP_NAME:$RELEASE_TAG $ECR_REPO:$RELEASE_TAG
+docker build -t $APP_NAME .
+docker tag $APP_NAME $ECR_REPO:$RELEASE_TAG
 docker push $ECR_REPO:$RELEASE_TAG
 
 # Apply docker image path to Dockerrun.aws.json template
