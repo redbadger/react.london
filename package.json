@@ -39,6 +39,7 @@
     "eslint-plugin-react": "^5.1.1",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "helmet": "^2.1.1",
     "html-janitor": "^2.0.2",
     "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
