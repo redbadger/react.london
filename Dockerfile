@@ -6,7 +6,7 @@ ENV NODE_ENV=production
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Install app dependencies
+# Install app dependencies if changed
 COPY package.json /usr/src/app/
 RUN npm install --production
 
