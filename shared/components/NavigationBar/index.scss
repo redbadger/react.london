@@ -10,8 +10,7 @@
   }
 
   &--Community {
-    color: $events-color;
-
+    a,
     a:visited {
       color: $events-color;
     }
@@ -26,8 +25,7 @@
   }
 
   &--Conference {
-    color: $conference-color;
-
+    a,
     a:visited {
       color: $conference-color;
     }
