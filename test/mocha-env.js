@@ -1,31 +1,8 @@
-/* eslint prefer-template: 0 */
-/* eslint object-shorthand: 0 */
-/* eslint vars-on-top: 0 */
-/* eslint no-var: 0 */
-
 process.env.NODE_ENV = 'test';
-
-// import es6
-require('babel-register');
-// Generator polyfill
-require('babel-polyfill');
 
 // Mock fetch
 global.fetch = () => { throw new Error('fetch called in tests'); };
 
-var chai = require('chai');
+const chai = require('chai');
 chai.use(require('dirty-chai')); // Function form for terminating assertions
 global.expect = chai.expect;     // Register test tools globally
-
-// jsdom
-var jsdom = require('jsdom'); // eslint-disable-line
-
-global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
-global.window = global.document.defaultView;
-global.navigator = global.window.navigator;
-
-global.window.URL = {
-  createObjectURL: function createObjectURL(arg) {
-    return 'data://' + arg.name;
-  },
-};
