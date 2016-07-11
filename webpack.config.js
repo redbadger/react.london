@@ -1,9 +1,9 @@
-/* eslint-disable no-var */
+const path = require('path');
+const ExtractText = require('extract-text-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
-var path = require('path');
-var ExtractText = require('extract-text-webpack-plugin');
-
-module.exports = {
+const browserConfig = {
+  target: 'web',
   devtool: 'source-map',
   noInfo: true,
   entry: {
@@ -40,3 +40,37 @@ module.exports = {
     }),
   ],
 };
+
+const serverConfig = {
+  devtool: 'source-map',
+  noInfo: true,
+  target: 'node',
+  externals: [nodeExternals()],
+  entry: {
+    server: ['babel-polyfill', './server/start-server.js'],
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+  module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+    ],
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+      },
+    ],
+  },
+};
+
+module.exports = [
+  browserConfig,
+  serverConfig,
+];

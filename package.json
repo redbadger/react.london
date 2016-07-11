@@ -59,7 +59,8 @@
     "serialize-javascript": "^1.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
-    "webpack-dev-middleware": "^1.6.1"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-node-externals": "^1.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

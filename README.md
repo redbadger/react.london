@@ -3,7 +3,7 @@ react.london
 
 [![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=shield)](https://circleci.com/gh/redbadger/react.london)
 
-A site for the monthly React London Community
+A site for the React London Community.
 
 This project employs a number of Javascript libraries and approaches,
 including _React_, _Redux_, _Server-Side Rendering_, and _WebPack_. Most
