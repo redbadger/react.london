@@ -1,4 +1,4 @@
-serverArgs = -r dotenv/config -r babel-core/register ./bin/start-server.js --presets es2015,stage-0
+serverArgs = -r dotenv/config ./dist/server.js
 deploy     = ./bin/deploy.sh
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
@@ -10,13 +10,13 @@ help:
 clean: ## Remove compiled files
 	rm -rf dist/*
 
-build: clean ## Start the dev frontend compiler
+build: clean ## Start the dev compiler
 	$(webpack) --progress --watch
 
-build-production: clean ## Compile the frontend
+build-production: clean ## Compile the app
 	$(webpack)
 
-start: ## Start the server in dev mode
+start: ## Start the server in dev mode (run build first)
 	./node_modules/nodemon/bin/nodemon.js $(serverArgs)
 
 start-production: ## Start the server in production mode
