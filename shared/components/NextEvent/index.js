@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 
-const NextEvent = ({ title, datetime, location, talks }) => (
+const NextEvent = ({ title, datetime, talks }) => (
   <section className="NextEvent block">
     <div className="content">
       <h2 className="NextEvent__header">Next Event</h2>
@@ -13,7 +13,7 @@ const NextEvent = ({ title, datetime, location, talks }) => (
               <a className="NextEvent__link--date">{datetime.iso}</a>
             </li>
             <li>
-              <a className="NextEvent__link--place">{location}</a>
+              <a className="NextEvent__link--place">'needs location'</a>
             </li>
             <li>
               <a className="NextEvent__link--time">{datetime.iso}</a>
@@ -41,7 +41,6 @@ const NextEvent = ({ title, datetime, location, talks }) => (
 
 NextEvent.propTypes = {
   title: React.PropTypes.string,
-  location: React.PropTypes.string,
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   datetime: PropTypes.shape({
     iso: React.PropTypes.string,

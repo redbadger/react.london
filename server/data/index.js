@@ -1,119 +1,120 @@
 import fetch from 'isomorphic-fetch';
 
 const dummyState = {
-  "data": {
-    "community": {
-      "id": "V3-PWiMAAGEz2yz5",
-      "title": "React London",
-      "summary": "React is having a huge impact on the way we think about Web UI development. Our Meetups are an opportunity to learn why and share experiences. We are a sociable group and very welcoming to newcomers.\nSee you soon!",
-      "mailingListTitle": "Get ticket reminders and event information about React London events straight to your inbox.",
-      "events": [
+  data: {
+    community: {
+      id: 'V3-PWiMAAGEz2yz5',
+      title: 'React London',
+      summary: 'React is having a huge impact on the way we think about Web UI development. Our Meetups are an opportunity to learn why and share experiences. We are a sociable group and very welcoming to newcomers.\nSee you soon!',
+      mailingListTitle: 'Get ticket reminders and event information about React London events straight to your inbox.',
+      events: [
         {
-          "id": "V3-PjyMAAF0n2y3Q",
-          "title": "React London July Meetup",
-          "datetime": {
-            "iso": "2016-07-27T23:00:00+0000"
+          id: 'V3-PjyMAAF0n2y3Q',
+          title: 'React London July Meetup',
+          datetime: {
+            iso: '2016-07-27T23:00:00+0000',
           },
-          location: "Skills Matter, CodeNode, 10 South Place, London EC2M 7EB",
-          "talks": [
+          location: 'Skills Matter, CodeNode, 10 South Place, London EC2M 7EB',
+          talks: [
             {
-              "id": "V3-t-SMAALE426eq",
-              "summary": "Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.",
-              "title": "GraphQL for beginners",
-              "speakers": [
+              id: 'V3-t-SMAALE426eq',
+              summary: 'Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.',
+              title: 'GraphQL for beginners',
+              speakers: [
                 {
-                  "name": "Alex Savin",
-                  "company": "Red Badger",
-                  "twitterHandle": "alexsavinme",
-                  "githubHandle": "asavin",
-                  "blogURL": "https://alexsavin.me",
-                  "imageURL": "http://react.london/assets/img/Speakers/kadikraman.jpg"
-                }
-              ]
+                  name: 'Alex Savin',
+                  company: 'Red Badger',
+                  twitterHandle: 'alexsavinme',
+                  githubHandle: 'asavin',
+                  blogURL: 'https://alexsavin.me',
+                  imageURL: 'http://react.london/assets/img/Speakers/kadikraman.jpg',
+                },
+              ],
             },
             {
-              "id": "V3-t-SMAALE426eq",
-              "summary": "Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.",
-              "title": "GraphQL for beginners",
-              "speakers": [
+              id: 'V3-t-SMAALE426eq',
+              summary: 'Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.',
+              title: 'GraphQL for beginners',
+              speakers: [
                 {
-                  "name": "Alex Savin",
-                  "company": "Red Badger",
-                  "twitterHandle": "alexsavinme",
-                  "githubHandle": "asavin",
-                  "blogURL": "https://alexsavin.me",
-                  "imageURL": "http://react.london/assets/img/Speakers/kadikraman.jpg"
-                }
-              ]
+                  name: 'Alex Savin',
+                  company: 'Red Badger',
+                  twitterHandle: 'alexsavinme',
+                  githubHandle: 'asavin',
+                  blogURL: 'https://alexsavin.me',
+                  imageURL: 'http://react.london/assets/img/Speakers/kadikraman.jpg',
+                },
+              ],
             },
             {
-              "id": "V3-t-SMAALE426eq",
-              "summary": "Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.",
-              "title": "GraphQL for beginners",
-              "speakers": [
+              id: 'V3-t-SMAALE426eq',
+              summary: 'Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.',
+              title: 'GraphQL for beginners',
+              speakers: [
                 {
-                  "name": "Alex Savin",
-                  "company": "Red Badger",
-                  "twitterHandle": "alexsavinme",
-                  "githubHandle": "asavin",
-                  "blogURL": "https://alexsavin.me",
-                  "imageURL": "http://react.london/assets/img/Speakers/kadikraman.jpg"
-                }
-              ]
-            },
-          ]
-        }
-      ]
-    }
+                  name: 'Alex Savin',
+                  company: 'Red Badger',
+                  twitterHandle: 'alexsavinme',
+                  githubHandle: 'asavin',
+                  blogURL: 'https://alexsavin.me',
+                  imageURL: 'http://react.london/assets/img/Speakers/kadikraman.jpg',
+                },
+              ],
+            },,
+          ],
+        },
+      ],
+    },
   },
 };
 
 export function getSiteState() {
-  return new Promise(resolve => resolve(dummyState.data));
-  // return fetch('http://brain-staging.red-badger.com/graphql', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     query: `query {
-  //     community(id: "V3-PWiMAAGEz2yz5"){
-  //       id
-  //       title
-  //       mailingListTitle
-  //       summary
-  //       events {
-  //         id
-  //         title
-  //         talks {
-  //           id
-  //           summary
-  //           title
-  //           speakers {
-  //             name
-  //             company
-  //             twitterHandle
-  //             githubHandle
-  //             blogURL
-  //             imageURL
-  //           }
-  //         }
-  //       }
-  //     }
-  //     }`,
-  //   }),
-  // })
-  //   .then(function(response) {
-  //       if (response.status >= 400) {
-  //           throw new Error("Bad response from server");
-  //       }
-  //       return response.json();
-  //   })
-  //   .then(function(news) {
-  //     console.log('newsx', news.data);
-  //       return news.data;
-  //   })
-  //   .catch((err) => {
-  //     console.log('error', err);
-  //   })
+  return fetch('http://brain-staging.red-badger.com/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `query {
+      community(id: "V3-PWiMAAGEz2yz5"){
+        id
+        title
+        mailingListTitle
+        summary
+        events {
+          id
+          title
+          datetime {
+            iso
+          }
+          talks {
+            id
+            summary
+            title
+            speakers {
+              name
+              company
+              twitterHandle
+              githubHandle
+              blogURL
+              imageURL
+            }
+          }
+        }
+      }
+      }`,
+    }),
+  })
+  .then((response) => {
+    if (response.status >= 400) {
+      throw new Error('Bad response from server');
+    }
+    return response.json();
+  })
+  .then((result) => {
+    return result.data;
+  })
+  .catch((err) => {
+    console.log('error', err);
+  });
 }
