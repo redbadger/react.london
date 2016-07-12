@@ -66,10 +66,6 @@
         border-bottom: $border-bottom-size solid $grey;
         padding-bottom: 0;
       }
-
-      @media (min-width: 768px) { //same as in .About.scss
-        height: 55px;
-      }
     }
   }
 }
