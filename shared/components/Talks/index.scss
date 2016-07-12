@@ -1,0 +1,12 @@
+.Talk {
+  width: 100%;
+
+  @media (min-width: $tablet-portrait-width) {
+    width: 48%;
+  }
+
+  @media (min-width: $tablet-width) {
+    width: 30%;
+  }
+
+}

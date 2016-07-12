@@ -2,9 +2,9 @@ import React from 'react';
 import CommunityAbout from '.';
 import { shallow } from 'enzyme';
 
-function setup({ communitySummary }) {
+function setup({ summary }) {
   const props = {
-    communitySummary,
+    summary,
   };
   const output = shallow(<CommunityAbout {...props} />);
   return { props, output };
@@ -12,7 +12,7 @@ function setup({ communitySummary }) {
 
 describe('CommunityAbout component', () => {
   it('renders the summary', () => {
-    const { output } = setup({ communitySummary: 'Hi!' });
+    const { output } = setup({ summary: 'Hi!' });
     expect(output.text()).to.include('Hi!');
   });
 });

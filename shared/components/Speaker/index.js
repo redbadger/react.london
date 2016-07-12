@@ -1,40 +1,33 @@
 import React, { PropTypes } from 'react';
 
-const IconLink = ({ present, url, type }) => {
-  if (!present) { return null; }
+const IconLink = ({ url, type }) => {
+  if (!url) { return null; }
   return (
     <a
       className={'Speaker__detail Speaker__detail--' + type.toLowerCase()}
       target="_blank"
       href={url}
-    >
-      {type}
-    </a>
+    />
   );
 };
 
 IconLink.propTypes = {
-  present: PropTypes.string,
   url: PropTypes.string,
   type: PropTypes.string,
 };
 
-
 const Speaker = ({
   name,
   company,
-  talkTitle,
-  talkSummary,
-  twitterHandle,
-  githubHandle,
-  blogURL,
   imageURL,
+  githubHandle,
+  twitterHandle,
+  blogURL,
 }) => {
-  const avatarURL = imageURL || '/img/PNG/Speaker_Anon.png';
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
-        <img className="Speaker__photo--img" src={avatarURL} alt={name} />
+        <img className="Speaker__photo--img" src={imageURL} alt={'name'} />
       </figure>
       <ul className="Speaker__details">
         <li>
@@ -49,9 +42,8 @@ const Speaker = ({
       </ul>
       <h5 className="Speaker__name">
         <span className="Speaker__name--bold">{name} </span>
-        {company}</h5>
-      <h4 className="Speaker__title">{talkTitle}</h4>
-      <p className="Speaker__summary">{talkSummary}</p>
+        {company}
+      </h5>
     </article>
   );
 };
@@ -59,8 +51,7 @@ const Speaker = ({
 Speaker.propTypes = {
   name: PropTypes.string,
   company: PropTypes.string,
-  talkTitle: PropTypes.string,
-  talkSummary: PropTypes.string,
+  title: PropTypes.string,
   twitterHandle: PropTypes.string,
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
