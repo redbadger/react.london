@@ -13,7 +13,7 @@ const NextConferenceEvent = () => (
               <a className="NextConferenceEvent__link--date">Tuesday, 28 March 2017</a>
             </li>
             <li>
-              <a className="NextConferenceEvent__link--place">QEII Centre,</a>
+              <a className="NextConferenceEvent__link--place">QEII Centre, Westminster</a>
             </li>
           </ul>
         </div>
