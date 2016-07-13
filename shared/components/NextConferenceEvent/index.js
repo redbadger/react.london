@@ -24,9 +24,7 @@ const NextConferenceEvent = () => (
           <h3>
             Save the date
           </h3>
-          <a className="NextConferenceEvent__link--save-the-date">
-            Download the date to your calendar
-          </a>
+          <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=YTVpcXZjcTI2aGJhb3Zoamw2NjVkZ2QwOWsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com" className="NextConferenceEvent__btn">Add to calendar</a>
         </div>
       </article>
     </div>

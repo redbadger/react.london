@@ -9,5 +9,6 @@
     height: 55px;
     margin-top: $height - 70.5px;
     z-index: 200;
+    -webkit-transform: translate3d(0,0,0);
   }
 }

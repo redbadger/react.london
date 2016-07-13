@@ -4,6 +4,25 @@
   background-color: $conference-color-faded;
   padding: 40px 30px;
 
+  &__btn {
+    border-radius: 6px;
+    border: 0px;
+    padding: 12px 20px 12px 48px;
+    color: $conference-color-faded;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: inline-block;
+    background-size: 22px !important;
+    background: url("/img/SVG/G_blue.svg") no-repeat 17px 15px $grey;
+    font-size: 20px;
+    &:hover {
+      color: $white;
+      background-image: url("/img/SVG/G_white.svg");
+    }
+
+  }
+
   &__save-the-date,
   &__details,
   &__section {
