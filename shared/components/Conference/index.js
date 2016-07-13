@@ -5,6 +5,8 @@ import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import MailingList from '../MailingList';
 import ConferenceAbout from '../ConferenceAbout';
+import NextConferenceEvent from '../NextConferenceEvent';
+import ShareYourIdeas from '../ShareYourIdeas';
 
 const Conference = () => (
   <div className="conference">
@@ -14,10 +16,13 @@ const Conference = () => (
         <RedBadgerBanner />
         <NavigationBar page="Conference" />
         <ConferenceAbout />
+        <NextConferenceEvent />
         <MailingList
-          mailingListTitle="Sign up here for conference updates"
+          mailingListTitle="Stay tuned"
+          mailingListSummary="Get ticket reminders and event information about the conference."
           page="conference"
         />
+        <ShareYourIdeas />
         <SiteFooter />
       </main>
     </div>

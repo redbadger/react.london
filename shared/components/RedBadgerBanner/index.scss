@@ -1,20 +1,14 @@
-// POWERED BY RED BADGER BANNER
 .RedBadgerBanner {
+  $height: 30px;
+
   background: $red-badger-color;
-  height: 50px;
+  height: $height;
   justify-content: center;
 
-  .RedBadgerBanner__tag {
-    color: white;
-    font-size: 14px;
-    margin-top: -3px;
-    font-weight: bold;
-  }
-
-  .RedBadgerBanner__logo--svg,
-  .RedBadgerBanner__logo--img {
+  .RedBadgerBanner__logo {
     height: 55px;
-    margin-top: -15.5px;
+    margin-top: $height - 70.5px;
     z-index: 200;
+    -webkit-transform: translate3d(0,0,0);
   }
 }
