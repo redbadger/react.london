@@ -2,7 +2,7 @@
 .NextConferenceEvent {
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 30px 20px;
+  padding: 40px 30px;
 
   &__save-the-date,
   &__details,
@@ -23,7 +23,9 @@
     }
 
     h3 {
-      margin: 0;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      font-size: 20px;
     }
   }
 
@@ -36,7 +38,7 @@
   &__link--place,
   &__link--save-the-date {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 20px;
     text-decoration: none;
     color: $grey;
     font-size: 18px;
