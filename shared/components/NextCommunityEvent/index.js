@@ -26,13 +26,13 @@ const NextCommunityEvent = ({
           </ul>
         </div>
         <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
-          <h3 className="NextCommunityEvent__booking__heading">TICKETS GO LIVE</h3>
-          <p className="NextCommunityEvent__booking__text">Monday, 11 July 2016 at 13:00</p>
+          <h3 className="NextCommunityEvent__booking__heading">TICKETS NOW SOLD OUT</h3>
           <div className="NextCommunityEvent__booking-btn__container">
             <a
-              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--disabled"
+              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
+              href="https://skillsmatter.com/meetups/8306-react-graphql-and-relay-in-practice-and-draft-js-in-the-real-world"
             >
-              free ticket
+              Join waiting list
             </a>
           </div>
           <p className="NextCommunityEvent__live-stream-text">

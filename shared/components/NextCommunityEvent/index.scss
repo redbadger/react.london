@@ -93,10 +93,11 @@
       cursor: not-allowed;
     }
 
-    &.--active {
+    &--active {
       background-color: $red-badger-color;
       color: $white;
       cursor: pointer;
+      text-decoration: none;
     }
   }
 
