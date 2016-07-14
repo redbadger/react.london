@@ -73,6 +73,7 @@
     &:focus,
     &:hover {
       background-image: url("/img/SVG/Date_icon_white.svg");
+      text-decoration: underline;
     }
   }
 
@@ -84,6 +85,7 @@
     &:focus,
     &:hover {
       background-image: url("/img/SVG/Place_icon_white.svg");
+      text-decoration: underline;
     }
   }
 
