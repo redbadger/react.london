@@ -10,6 +10,9 @@ describe('NextCommunityEvent component', () => {
       datetime: {
         iso: 'test',
       },
+      timestampEnd: {
+        iso: 'end',
+      },
     };
     shallow(<NextCommunityEvent {...props} />);
   });

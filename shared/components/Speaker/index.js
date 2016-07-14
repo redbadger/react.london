@@ -28,7 +28,7 @@ const Speaker = ({
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
-        <img className="Speaker__photo--img" src={imageURL} alt={'name'} />
+        <img className="Speaker__photo--img" src={imageURL} alt={name} />
       </figure>
       <ul className="Speaker__details">
         <li>
