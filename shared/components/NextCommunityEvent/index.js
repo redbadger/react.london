@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import Talks from '../Talks';
+import format from 'date-fns/format';
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
@@ -6,19 +8,13 @@ const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE'
 
 const locationURL = 'https://goo.gl/maps/Z8SU87i4Fy42';
 
-const NextCommunityEvent = ({
-  eventTitle,
-  eventDate,
-  eventAddress,
-  eventStartTime,
-  eventEndTime,
-}) => (
+const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) => (
   <section className="NextCommunityEvent block">
     <div className="content">
       <h2 className="NextCommunityEvent__header">Next Event</h2>
       <article className="NextCommunityEvent__section-container">
         <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
-          <h3 className="NextCommunityEvent__details__heading">{eventTitle}</h3>
+          <h3 className="NextCommunityEvent__details__heading">{title}</h3>
           <ul className="NextCommunityEvent__details">
             <li>
               <a
@@ -26,7 +22,7 @@ const NextCommunityEvent = ({
                 href={calendarURL}
                 target="_blank"
               >
-                {eventDate}
+                {format(datetime.iso, 'dddd, Do MMMM YYYY')}
               </a>
             </li>
             <li>
@@ -35,7 +31,7 @@ const NextCommunityEvent = ({
                 href={calendarURL}
                 target="_blank"
               >
-                {eventStartTime} - {eventEndTime}
+                {format(datetime.iso, 'HH:mm - ') + format(timestampEnd.iso, 'HH:mm')}
               </a>
             </li>
             <li>
@@ -44,19 +40,19 @@ const NextCommunityEvent = ({
                 href={locationURL}
                 target="_blank"
               >
-                {eventAddress}
+                {address}
               </a>
             </li>
           </ul>
         </div>
         <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
-          <h3 className="NextCommunityEvent__booking__heading">TICKETS NOW SOLD OUT</h3>
+          <h3 className="NextCommunityEvent__booking__heading">TICKETS GO LIVE</h3>
+          <p className="NextCommunityEvent__booking__text">Monday, 11 July 2016 at 13:00</p>
           <div className="NextCommunityEvent__booking-btn__container">
             <a
-              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
-              href="https://skillsmatter.com/meetups/8306-react-graphql-and-relay-in-practice-and-draft-js-in-the-real-world"
+              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--disabled"
             >
-              Join waiting list
+              free ticket
             </a>
           </div>
           <p className="NextCommunityEvent__live-stream-text">
@@ -68,15 +64,20 @@ const NextCommunityEvent = ({
         </div>
       </article>
     </div>
+    <Talks talks={talks} />
   </section>
 );
 
 NextCommunityEvent.propTypes = {
-  eventTitle: PropTypes.string,
-  eventDate: PropTypes.string,
-  eventAddress: PropTypes.string,
-  eventStartTime: PropTypes.string,
-  eventEndTime: PropTypes.string,
+  title: React.PropTypes.string,
+  talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
+  datetime: PropTypes.shape({
+    iso: React.PropTypes.string,
+  }),
+  timestampEnd: PropTypes.shape({
+    iso: React.PropTypes.string,
+  }),
+  address: React.PropTypes.string,
 };
 
 export default NextCommunityEvent;

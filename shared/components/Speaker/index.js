@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-const IconLink = ({ url, type }) => {
-  if (!url) { return null; }
+const IconLink = ({ present, url, type }) => {
+  if (!present) { return null; }
   return (
     <a
       className={'Speaker__detail Speaker__detail--' + type.toLowerCase()}
@@ -12,6 +12,7 @@ const IconLink = ({ url, type }) => {
 };
 
 IconLink.propTypes = {
+  present: PropTypes.string,
   url: PropTypes.string,
   type: PropTypes.string,
 };

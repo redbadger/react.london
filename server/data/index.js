@@ -69,52 +69,5 @@ const dummyState = {
 };
 
 export function getSiteState() {
-  return fetch('http://brain-staging.red-badger.com/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `query {
-      community(id: "V3-PWiMAAGEz2yz5"){
-        id
-        title
-        mailingListTitle
-        summary
-        events {
-          id
-          title
-          datetime {
-            iso
-          }
-          talks {
-            id
-            summary
-            title
-            speakers {
-              name
-              company
-              twitterHandle
-              githubHandle
-              blogURL
-              imageURL
-            }
-          }
-        }
-      }
-      }`,
-    }),
-  })
-  .then((response) => {
-    if (response.status >= 400) {
-      throw new Error('Bad response from server');
-    }
-    return response.json();
-  })
-  .then((result) => {
-    return result.data;
-  })
-  .catch((err) => {
-    console.log('error', err);
-  });
+  return new Promise(resolve => resolve(dummyState.data));
 }
