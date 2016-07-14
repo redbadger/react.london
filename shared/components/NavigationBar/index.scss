@@ -15,6 +15,7 @@
       color: $events-color;
     }
 
+    a:focus,
     a:hover {
       color: $events-color-faded;
     }
@@ -30,6 +31,7 @@
       color: $conference-color;
     }
 
+    a:focus,
     a:hover {
       color: $conference-color-faded;
     }

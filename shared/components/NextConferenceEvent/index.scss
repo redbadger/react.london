@@ -16,6 +16,8 @@
     background-size: 22px !important;
     background: url("/img/SVG/G_blue.svg") no-repeat 17px 15px $grey;
     font-size: 20px;
+
+    &:focus,
     &:hover {
       color: $white;
       background-image: url("/img/SVG/G_white.svg");
