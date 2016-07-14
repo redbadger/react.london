@@ -1,54 +1,44 @@
 #!/usr/bin/env bash
 
-ENV=$1
-RELEASE_TAG=$(git rev-parse HEAD)
+VERSION=$(git rev-parse HEAD)
 APP_NAME=react-london
 AWS_ACCOUNT=578418881509
 AWS_REGION=eu-west-1
 ECR_REPO=$AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME
 EB_BUCKET=elasticbeanstalk-$AWS_REGION-$AWS_ACCOUNT
 
-if [ -z "$ENV" ] || [ -z "$RELEASE_TAG" ]
-then
-  echo Usage:
-  echo "  deploy.sh ENVIRONMENT"
-  exit 1
-fi
-
 set -eu
 set -o pipefail
 
 # Authenticate
+# Requires these env vars set on CI:
+#   - AWS_ACCESS_KEY_ID
+#   - AWS_SECRET_ACCESS_KEY
+echo Authenticating.
 eval $(aws ecr get-login --region=$AWS_REGION)
 
-# Build Docker image
-VERSION=$RELEASE_TAG
+echo Building docker image
 docker build -t $APP_NAME .
-docker tag $APP_NAME $ECR_REPO:$RELEASE_TAG
-docker push $ECR_REPO:$RELEASE_TAG
+docker tag $APP_NAME $ECR_REPO:$VERSION
 
-# Apply docker image path to Dockerrun.aws.json template
+echo Pushing docker image
+docker push $ECR_REPO:$VERSION
+
+echo Creating new EB version zip
 cp Dockerrun.aws.json.template Dockerrun.aws.json
 perl -pi -e "s,<ECR_REPO>,$ECR_REPO,g" "Dockerrun.aws.json"
 perl -pi -e "s,<TAG>,$VERSION,g" "Dockerrun.aws.json"
-
-# Zip up Dockerrun.aws.json and upload to S3 bucket
 ZIP_FILE=$VERSION.zip
 zip -r $ZIP_FILE Dockerrun.aws.json
+
+echo Pushing EB version zip to S3
 aws s3 cp $ZIP_FILE s3://$EB_BUCKET/$APP_NAME/$ZIP_FILE
 
-# Create a new application version with the zipped up Dockerrun file
+echo Registering new EB application version
 aws elasticbeanstalk create-application-version \
   --application-name $APP_NAME \
   --version-label $VERSION \
   --source-bundle S3Bucket=$EB_BUCKET,S3Key=$APP_NAME/$ZIP_FILE \
   --region $AWS_REGION
 
-# Update the environment to use the new application version
-aws elasticbeanstalk update-environment \
-  --environment-name $APP_NAME-$ENV \
-  --version-label $VERSION \
-  --region $AWS_REGION
-
-echo
-echo Done! AWS EB deployment rollout in progress.
+echo Done

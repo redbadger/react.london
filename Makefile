@@ -1,5 +1,5 @@
 serverArgs = -r dotenv/config ./dist/server.js
-deploy     = ./bin/deploy.sh
+deploy     = node bin/deploy-version.js
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
 mocha      = ./node_modules/mocha/bin/mocha

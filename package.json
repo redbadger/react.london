@@ -2,9 +2,6 @@
   "name": "react.london",
   "version": "0.0.0",
   "description": "London React Meetups",
-  "scripts": {
-    "postinstall": "make build-production"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redbadger/react.london.git"

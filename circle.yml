@@ -1,9 +1,19 @@
 machine:
   node:
-    version: 6.0.0
+    version: 4.3.0 # Match Dockerfile. ish.
+  services:
+    - docker
 
 test:
   override:
     - make build-production
     - make lint
     - make test
+
+deployment:
+  staging:
+    branch:
+      - master
+    commands:
+      - ./bin/push-new-version.sh
+      - ./bin/deploy-version.js
