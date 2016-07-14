@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const calendarURL = 'TODO';
+const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
+  '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
+  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
+
 const locationURL = 'https://goo.gl/maps/Z8SU87i4Fy42';
 
 const NextCommunityEvent = ({

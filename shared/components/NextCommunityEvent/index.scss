@@ -12,6 +12,11 @@
 
   &__booking__heading {
     color: $red-badger-color;
+
+    &:focus,
+    &:hover {
+      color: $red-badger-color;
+    }
   }
 
   &__booking__text {
