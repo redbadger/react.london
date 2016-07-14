@@ -5,11 +5,11 @@ import { shallow } from 'enzyme';
 describe('NextCommunityEvent component', () => {
   it('renders successfully', () => {
     const props = {
-      eventTitle: 'The best event yet',
-      eventAddress: '123 Old Street',
-      eventDate: 'Tomorrow!',
-      eventStartTime: '6pm',
-      eventEndTime: '9pm',
+      title: 'Example Title',
+      talks: [{ name: 'name' }],
+      datetime: {
+        iso: 'test',
+      },
     };
     shallow(<NextCommunityEvent {...props} />);
   });
