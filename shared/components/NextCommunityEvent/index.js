@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react';
 
+const calendarURL = 'TODO';
+const locationURL = 'https://goo.gl/maps/Z8SU87i4Fy42';
+
 const NextCommunityEvent = ({
   eventTitle,
   eventDate,
@@ -15,13 +18,31 @@ const NextCommunityEvent = ({
           <h3 className="NextCommunityEvent__details__heading">{eventTitle}</h3>
           <ul className="NextCommunityEvent__details">
             <li>
-              <a className="NextCommunityEvent__link--date">{eventDate}</a>
+              <a
+                className="NextCommunityEvent__link--date"
+                href={calendarURL}
+                target="_blank"
+              >
+                {eventDate}
+              </a>
             </li>
             <li>
-              <a className="NextCommunityEvent__link--place">{eventAddress}</a>
+              <a
+                className="NextCommunityEvent__link--time"
+                href={calendarURL}
+                target="_blank"
+              >
+                {eventStartTime} - {eventEndTime}
+              </a>
             </li>
             <li>
-              <a className="NextCommunityEvent__link--time">{eventStartTime} - {eventEndTime}</a>
+              <a
+                className="NextCommunityEvent__link--place"
+                href={locationURL}
+                target="_blank"
+              >
+                {eventAddress}
+              </a>
             </li>
           </ul>
         </div>

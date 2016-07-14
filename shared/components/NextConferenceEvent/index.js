@@ -1,5 +1,11 @@
 import React from 'react';
 
+const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
+  '&tmeid=YTVpcXZjcTI2aGJhb3Zoamw2NjVkZ2QwOWsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
+  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
+
+const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
+
 const NextConferenceEvent = () => (
   <section className="NextConferenceEvent block">
     <div className="content">
@@ -10,10 +16,22 @@ const NextConferenceEvent = () => (
           </h3>
           <ul>
             <li>
-              <a className="NextConferenceEvent__link--date">Tuesday, 28 March 2017</a>
+              <a
+                className="NextConferenceEvent__link--date"
+                href={calendarURL}
+                target="_blank"
+              >
+                Tuesday, 28 March 2017
+              </a>
             </li>
             <li>
-              <a className="NextConferenceEvent__link--place">QEII Centre, Westminster</a>
+              <a
+                className="NextConferenceEvent__link--place"
+                href={locationURL}
+                target="_blank"
+              >
+                QEII Centre, Westminster
+              </a>
             </li>
           </ul>
         </div>
@@ -24,7 +42,13 @@ const NextConferenceEvent = () => (
           <h3>
             Save the date
           </h3>
-          <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=YTVpcXZjcTI2aGJhb3Zoamw2NjVkZ2QwOWsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com" className="NextConferenceEvent__btn">Add to calendar</a>
+          <a
+            className="NextConferenceEvent__btn"
+            href={calendarURL}
+            target="_blank"
+          >
+            Add to calendar
+          </a>
         </div>
       </article>
     </div>
