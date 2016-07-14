@@ -28,7 +28,6 @@ const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
             <input
               className="MailingList__form__email"
               type="email"
-              value=""
               autoComplete="off"
               name="EMAIL"
               id="mce-EMAIL"
