@@ -2,6 +2,12 @@ import React from 'react';
 import MailingList from '.';
 import { shallow } from 'enzyme';
 
+const defaultProps = Object.freeze({
+  mailingListTitle: 'Hear more about events',
+  mailingListSummary: 'They are going to be great!',
+  page: 'conference',
+});
+
 function setup({ page }) {
   const props = {
     page,
@@ -11,56 +17,36 @@ function setup({ page }) {
 }
 
 describe('MailingList component', () => {
-  it('renders successfully', () => {
-    const props = {
-      mailingListTitle: 'Hear more about events',
-      mailingListSummary: 'They are going to be great!',
-      page: 'conference',
-    };
-    shallow(<MailingList {...props} />);
-  });
-
   it('uses the correct form action', () => {
-    const props = {
-      mailingListTitle: 'Hear more about events',
-      mailingListSummary: 'They are going to be great!',
-      page: 'conference',
-    };
-    const { output } = setup({ ...props });
+    const { output } = setup(defaultProps);
     const element = output.find('form');
-    expect(element.props().action.indexOf(props.page)).to.not.equal(-1);
+    expect(element.props().action).to.include(defaultProps.page);
   });
 
   it('assigns the submit button the correct class', () => {
-    const props = {
-      mailingListTitle: 'Hear more about events',
-      mailingListSummary: 'They are going to be great!',
-      page: 'conference',
-    };
-    const { output } = setup({ ...props });
+    const { output } = setup(defaultProps);
     const element = output.find('input').last();
-    expect(element.props().className.indexOf('--' + props.page)).to.not.equal(-1);
+    expect(element.props().className).to.include('--' + defaultProps.page);
   });
 
   it('assigns the section the correct class', () => {
-    const props = {
-      mailingListTitle: 'Hear more about events',
-      mailingListSummary: 'They are going to be great!',
-      page: 'conference',
-    };
-    const { output } = setup({ ...props });
-    const element = output.find('section').last();
-    expect(element.props().className.indexOf('--' + props.page)).to.not.equal(-1);
+    let { output } = setup({ ...defaultProps, page: 'conference' });
+    let element = output.find('section').last();
+    expect(element.props().className).to.include('--conference');
+    output = setup({ ...defaultProps, page: 'community' }).output;
+    element = output.find('section').last();
+    expect(element.props().className).to.include('--community');
   });
 
   it('assigns the submit button the correct class', () => {
-    const props = {
-      mailingListTitle: 'Hear more about events',
-      mailingListSummary: 'They are going to be great!',
-      page: 'conference',
-    };
-    const { output } = setup({ ...props });
+    const { output } = setup(defaultProps);
     const element = output.find('input').last();
-    expect(element.props().className.indexOf('--' + props.page)).to.not.equal(-1);
+    expect(element.props().className).to.include('--' + defaultProps.page);
+  });
+
+  it('does not have an explicit input value, so a user can type in it', () => {
+    const { output } = setup(defaultProps);
+    const input = output.find('input.MailingList__form__email').last();
+    expect(input.props().value).to.be.undefined();
   });
 });
