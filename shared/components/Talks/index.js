@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Speaker from '../Speaker';
+import { pathOr } from 'ramda';
 
 const Talks = ({ talks }) => (
   <section className="Speakers block">
@@ -9,7 +10,7 @@ const Talks = ({ talks }) => (
     <div className="Speakers__container content">
       {talks && talks.map((talk, index) => (
         <div className="Talk" key={index}>
-          <Speaker {...talk.speakers[0]} />
+          <Speaker {...pathOr('', ['speakers', 0], talk)} />
           <h4 className="Speaker__title">{talk.title}</h4>
           <p className="Speaker__summary">{talk.summary}</p>
         </div>
