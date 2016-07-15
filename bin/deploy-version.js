@@ -32,20 +32,24 @@ function versionExists(versionLabel) {
 }
 
 const version = shell('git rev-parse HEAD');
-console.log(`Checking version ${version}`);
+const branch = shell('git rev-parse --abbrev-ref HEAD')
+  .replace(/[^a-zA-Z_-]/, '-');
 
-if (!versionExists(version)) {
-  console.log(`Error: Application version ${version} not found on AWS EB`);
+const tag = `${branch}-${version}`;
+console.log(`Checking version ${tag}`);
+
+if (!versionExists(tag)) {
+  console.log(`Error: Application version ${tag} not found on AWS EB`);
   console.log('Perhaps this version has not been built on CI yet?');
   process.exit(1);
 }
 
 console.log('Found!');
-console.log(`Deploying ${version} to ${environment}`);
+console.log(`Deploying ${tag} to ${environment}`);
 
 shell(
   'aws elasticbeanstalk update-environment ' +
-    `--region=${region} --version-label=${version} ` +
+    `--region=${region} --version-label=${tag} ` +
     `--environment-name=${target}`
 );
 
