@@ -67,15 +67,15 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
   </section>
 );
 
+const dateTimeType = PropTypes.shape({
+  iso: React.PropTypes.string,
+});
+
 NextCommunityEvent.propTypes = {
   title: React.PropTypes.string,
-  talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
-  datetime: PropTypes.shape({
-    iso: React.PropTypes.string,
-  }),
-  timestampEnd: PropTypes.shape({
-    iso: React.PropTypes.string,
-  }),
+  talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)).isRequired,
+  datetime: dateTimeType,
+  timestampEnd: dateTimeType,
   address: React.PropTypes.string,
 };
 
