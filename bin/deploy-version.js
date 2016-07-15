@@ -35,12 +35,18 @@ const version = shell('git rev-parse HEAD');
 const branch = shell('git rev-parse --abbrev-ref HEAD')
   .replace(/[^a-zA-Z_-]/, '-');
 
+if (environment === 'production' && branch !== 'master') {
+  console.log('\nDeploying a non master branch to production?');
+  console.log("I can't let you do that Dave...\n");
+  process.exit(1);
+}
+
 const tag = `${branch}-${version}`;
 console.log(`Checking version ${tag}`);
 
 if (!versionExists(tag)) {
-  console.log(`Error: Application version ${tag} not found on AWS EB`);
-  console.log('Perhaps this version has not been built on CI yet?');
+  console.log(`\nError: Application version ${tag} not found on AWS EB`);
+  console.log('Perhaps this version has not been built on CI yet?\n');
   process.exit(1);
 }
 
