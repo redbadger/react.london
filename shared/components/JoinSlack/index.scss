@@ -20,6 +20,8 @@
 
     background: url("/img/SVG/Slack_green.svg") no-repeat 17px 14px $grey;
     font-size: 20px;
+
+    &:focus,
     &:hover {
       color: $white;
       background-image: url("/img/SVG/Slack.svg");

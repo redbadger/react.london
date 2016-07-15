@@ -1,4 +1,3 @@
-
 // NEXT EVENT
 .NextCommunityEvent {
   border-top: $solid-border;
@@ -50,18 +49,36 @@
     background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
     height: 26px;
     padding-top: 2px;
+
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Date_icon_white.svg");
+      text-decoration: underline;
+    }
   }
 
   &__link--place {
     background: url("/img/SVG/Place_icon_green.svg") no-repeat 0px 1px;
     height: 32px;
     padding-top: 5px;
+
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Place_icon_white.svg");
+      text-decoration: underline;
+    }
   }
 
   &__link--time {
     background: url("/img/SVG/Time_icon_green.svg") no-repeat left top;
     height: 25px;
     padding-top: 3px;
+
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Time_icon_white.svg");
+      text-decoration: underline;
+    }
   }
 
   &__header {
@@ -98,6 +115,11 @@
       color: $white;
       cursor: pointer;
       text-decoration: none;
+
+      &:focus,
+      &:hover {
+        background-color: $red-badger-color-darker;
+      }
     }
   }
 

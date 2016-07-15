@@ -66,6 +66,7 @@
       cursor: pointer;
       float: right;
 
+      &:focus,
       &:hover {
         color: $white;
       }

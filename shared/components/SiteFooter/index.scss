@@ -17,12 +17,14 @@
     margin-bottom: 7px;
     display: inline-block;
 
+    &:focus,
     &:hover {
       color: white;
     }
 
     &--mail {
       background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
+      &:focus,
       &:hover {
         background-image: url("/img/SVG/Mail.svg");
       }
@@ -30,6 +32,7 @@
     }
     &--slack {
       background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
+      &:focus,
       &:hover {
         background-image: url("/img/SVG/Slack.svg");
       }
@@ -37,6 +40,7 @@
     }
     &--youtube {
       background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
+      &:focus,
       &:hover {
         background-image: url("/img/SVG/Youtube.svg");
       }
@@ -44,6 +48,7 @@
     }
     &--twitter {
       background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
+      &:focus,
       &:hover {
         background-image: url("/img/SVG/Twitter_white.svg");
       }
