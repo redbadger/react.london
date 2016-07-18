@@ -1,4 +1,3 @@
-/*eslint-disable */
 import dummyState from './mock-data.json';
 
 export function getSiteState() {
