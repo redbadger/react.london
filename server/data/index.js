@@ -51,8 +51,30 @@ const dummyState = {
         imageURL: '/img/Speakers/fabiosantosart.jpg',
       },
     ],
-    // eventSchedule,
-    // eventSponsors,
+    eventSchedule: [
+      {
+        time: '8:30',
+        text: 'Introduction from Louis',
+      },
+      {
+        time: '9:30',
+        text: 'Why React is fooBar',
+      },
+      {
+        time: '11.00',
+        text: 'Time for some lunch',
+      },
+      {
+        time: '2.00',
+        text: 'Home time, enough React',
+      },
+    ],
+    eventSponsors: [
+      {
+        websiteURL: 'http://google.com',
+        imageURL: 'https://www.google.co.uk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+      },
+    ],
     // upcomingEvents,
   },
 };

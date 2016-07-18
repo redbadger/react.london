@@ -22,8 +22,8 @@ const Community = ({
   eventStartTime,
   eventEndTime,
   eventSpeakers,
-  // eventSchedule,
-  // eventSponsors,
+  eventSchedule,
+  eventSponsors,
   // upcomingEvents,
 }) => (
   <div className="community">
@@ -46,14 +46,14 @@ const Community = ({
           mailingListSummary={mailingListSummary}
           page="community"
         />
-        {/* TODO
+        {
           <section className="block">
-          <div className="content space-between">
-            <EventSchedule eventSchedule={eventSchedule} />
-            <EventSponsors eventSponsors={eventSponsors} />
-          </div>
-        </section>
-        */}
+            <div className="content space-between">
+              <EventSchedule eventSchedule={eventSchedule} />
+              <EventSponsors eventSponsors={eventSponsors} />
+            </div>
+          </section>
+        }
       </main>
       {/* TODO
       <UpcomingEvents upcomingEvents={upcomingEvents} />

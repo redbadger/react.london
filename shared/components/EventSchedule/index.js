@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import ScheduleItem from '../ScheduleItem';
 
 const EventSchedule = ({ eventSchedule }) => (
-
   <article className="EventSchedule">
     <h3>Schedule</h3>
     <dl>
@@ -11,7 +10,6 @@ const EventSchedule = ({ eventSchedule }) => (
       ))}
     </dl>
   </article>
-
 );
 
 EventSchedule.propTypes = {
