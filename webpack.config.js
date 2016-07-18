@@ -9,7 +9,7 @@ const baseConfig = {
     filename: '[name].js',
   },
   module: {
-    preloaders: [
+    preLoaders: [
       {
         test: /\.js$/,
         loader: 'eslint-loader',
@@ -29,7 +29,7 @@ const baseConfig = {
         test: /\.scss$/,
         loader: ExtractText.extract('style', 'css!sass'),
       },
-    ]
+    ],
   },
 };
 

@@ -1,5 +1,5 @@
 serverArgs = -r dotenv/config ./dist/server.js
-deploy     = ./bin/deploy.sh
+deploy     = node bin/deploy-version.js
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
 mocha      = ./node_modules/mocha/bin/mocha
@@ -31,14 +31,18 @@ test-watch: ## Run the tests and watch for changes
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
 
-deploy-staging: ## Deploy the current branch to staging
+build-version: ## Register a new application version from the current commit
+	./bin/push-new-version.sh
+
+deploy-staging: ## Deploy the current branch + commit to staging
 	$(deploy) staging
 
-deploy-production: ## Deploy the current branch to production
+deploy-production: ## Deploy the current branch + commit to production
 	$(deploy) production
 
 
 .PHONY: \
+	build-version \
 	deploy-staging \
 	deploy-production \
 	start \

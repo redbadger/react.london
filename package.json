@@ -2,9 +2,6 @@
   "name": "react.london",
   "version": "0.0.0",
   "description": "London React Meetups",
-  "scripts": {
-    "postinstall": "make build-production"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/redbadger/react.london.git"
@@ -41,11 +38,8 @@
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
     "helmet": "^2.1.1",
-    "html-janitor": "^2.0.2",
-    "html-minifier": "^2.1.2",
     "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
-    "lodash": "^4.13.1",
     "morgan": "^1.7.0",
     "node-sass": "^3.8.0",
     "pug": "^2.0.0-beta3",
@@ -54,11 +48,9 @@
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.5.2",
-    "react-scribe": "^0.2.6",
     "redux": "^3.5.2",
     "redux-saga": "^0.10.5",
     "sass-loader": "^3.2.1",
-    "serialize-javascript": "^1.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-node-externals": "^1.2.0"
@@ -68,7 +60,6 @@
     "deep-freeze": "0.0.1",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.3.0",
-    "jsdom": "^8.4.1",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",
