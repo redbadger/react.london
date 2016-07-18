@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-const CommunityAbout = ({ communitySummary }) => (
+const CommunityAbout = ({ summary }) => (
   <section className="CommunityAbout block">
     <div className="content">
       <p className="CommunityAbout__text">
-        {communitySummary}
+        {summary}
       </p>
       <p className="CommunityAbout__text--bold">
         <strong>
@@ -16,7 +16,7 @@ const CommunityAbout = ({ communitySummary }) => (
 );
 
 CommunityAbout.propTypes = {
-  communitySummary: PropTypes.string,
+  summary: PropTypes.string,
 };
 
 export default CommunityAbout;
