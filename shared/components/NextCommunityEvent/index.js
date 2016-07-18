@@ -1,6 +1,12 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
-import format from 'date-fns/format';
+import dateFnsFormat from 'date-fns/format';
+
+function formatDate(datetime, format) {
+  if (datetime && datetime.iso) {
+    return dateFnsFormat(datetime.iso, format);
+  }
+}
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
@@ -22,7 +28,7 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
                 href={calendarURL}
                 target="_blank"
               >
-                {format(datetime.iso, 'dddd, Do MMMM YYYY')}
+                {formatDate(datetime, 'dddd, Do MMMM YYYY')}
               </a>
             </li>
             <li>
@@ -31,7 +37,7 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
                 href={calendarURL}
                 target="_blank"
               >
-                {format(datetime.iso, 'HH:mm - ') + format(timestampEnd.iso, 'HH:mm')}
+                {formatDate(datetime, 'HH:mm - ') + formatDate(timestampEnd, 'HH:mm')}
               </a>
             </li>
             <li>
