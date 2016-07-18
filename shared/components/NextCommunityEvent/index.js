@@ -73,7 +73,7 @@ const dateTimeType = PropTypes.shape({
 
 NextCommunityEvent.propTypes = {
   title: React.PropTypes.string,
-  talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)).isRequired,
+  talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   datetime: dateTimeType,
   timestampEnd: dateTimeType,
   address: React.PropTypes.string,
