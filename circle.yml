@@ -16,4 +16,4 @@ deployment:
       - master
     commands:
       - ./bin/push-new-version.sh
-      - ./bin/deploy-version.js
+      - ./bin/deploy-version.js staging
