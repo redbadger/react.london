@@ -17,6 +17,9 @@ function sendSite(res, renderProps) {
       </Provider>
     );
     res.render('index', { content, initialState });
+  })
+  .catch((err) => {
+    res.status(500).send(err);
   });
 }
 
