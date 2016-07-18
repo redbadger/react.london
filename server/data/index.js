@@ -46,8 +46,8 @@ const dummyState = {
         talkSummary: `Using React, GraphQL and Relay, in production, for a
         national publication. Fabio will outline what went well, what went
         wrong, traps to avoid, and how to avoid them.`,
-        twitterHandle: 'fabiosantoscode',
-        githubHandle: 'fabiosantosart',
+        twitterHandle: 'fabiosantosart',
+        githubHandle: 'fabiosantoscode',
         imageURL: '/img/Speakers/fabiosantosart.jpg',
       },
     ],
