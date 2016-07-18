@@ -32,14 +32,21 @@ make lint
 
 ### Deployment
 
-The site is deployed to AWS Elastic Beanstalk.
+The site is compiled to a docker image and deployed to AWS Elastic Beanstalk.
 
 * Install [Docker](https://www.docker.com/)
 * Install [AWS CLI](https://aws.amazon.com/cli/)
 
+The docker images are built from the master branch on CI, and are automatically
+deployed to staging.
+
+Once built versions can be manually deployed using either the Elastic
+Beanstalk Application Versions section of the AWS web console, or with the
+commands below:
+
 ```sh
-# Deploy staging
+# Deploy the current commit to staging
 make deploy-staging
-# Deploy production
+# Deploy the current commit to production
 make deploy-production
 ```
