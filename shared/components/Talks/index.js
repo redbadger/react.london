@@ -8,13 +8,16 @@ const Talks = ({ talks }) => (
       <h2 className="Speakers__header">Speakers</h2>
     </div>
     <div className="Speakers__container content">
-      {talks && talks.map((talk, index) => (
-        <div className="Talk" key={index}>
-          <Speaker {...pathOr('', ['speakers', 0], talk)} />
-          <h4 className="Speaker__title">{talk.title}</h4>
-          <p className="Speaker__summary">{talk.summary}</p>
-        </div>
-      ))}
+      {talks && talks.map((talk, index) => {
+        const speakerProps = pathOr({}, ['speakers', 0], talk);
+        return (
+          <div className="Talk" key={index}>
+            <Speaker {...speakerProps} />
+            <h4 className="Speaker__title">{talk.title}</h4>
+            <p className="Speaker__summary">{talk.summary}</p>
+          </div>
+        );
+      })}
     </div>
   </section>
 );
