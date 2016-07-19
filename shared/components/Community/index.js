@@ -30,11 +30,11 @@ const Community = ({
         mailingListSummary={mailingListSummary}
         page="community"
       />
-      <JoinSlack />
       <EventDetails
         eventSchedule={eventSchedule}
         eventSponsors={eventSponsors}
       />
+      <JoinSlack />
       <SiteFooter />
     </div>
   </div>

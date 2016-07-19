@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 
 import EventSchedule from '../EventSchedule';
 import EventSponsors from '../EventSponsors';
+import { eventSchedule, eventSponsors } from './mock-data';
 
-const EventDetails = ({
-  eventSchedule,
-  eventSponsors,
-}) => (
+// TODO: schedule & sponsors passed in as props as soon as data is
+// in badger-brain.
+const EventDetails = () => (
   <section className="EventDetails block">
     <div className="content">
       <div className="EventDetails__section-container">
@@ -20,7 +20,6 @@ const EventDetails = ({
     </div>
   </section>
 );
-
 
 EventDetails.propTypes = {
   eventSponsors: PropTypes.arrayOf(PropTypes.shape(EventSponsors.propTypes)),
