@@ -10,17 +10,14 @@
 
   &__text {
     margin-right: 30px;
-    flex: 7;
+    flex: 4;
   }
 
   &__line {
-    margin-top: 0.2em;
-    margin-right: 1em;
-    margin-left: 1em;
+    margin: 0.2em 1em 0 1em;
     width: 1em;
     height: 1em;
-    line-height: 1em;
-    border-radius: 0.5em;
+    border-radius: 50%;
     background: $grey;
     position: relative;
   }
