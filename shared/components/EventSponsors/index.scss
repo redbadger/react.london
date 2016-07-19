@@ -1,14 +1,29 @@
 .EventSponsors {
-  margin-left: 20px;
-  height: 100%;
+  margin-left: 0px;
 
-  h3 {
-    flex: 1;
+  ul {
+    padding-left: 0px;
   }
-  // width: calc((#{$maximum-content-width} / 2) - 30px);
+
+  ul li {
+    padding-top: 20px;
+    list-style-type: none;
+  }
+
   ul li a {
     img, object {
       height: 80px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .EventSponsors {
+    margin-left: 30px;
+
+    ul li {
+      padding-left: 40px;
+      display: inline;
     }
   }
 }
