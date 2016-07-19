@@ -14,7 +14,13 @@ const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE'
 
 const locationURL = 'https://goo.gl/maps/Z8SU87i4Fy42';
 
-const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) => (
+const NextCommunityEvent = ({
+  title,
+  startDateTime,
+  endDateTime,
+  address,
+  talks,
+}) => (
   <section className="NextCommunityEvent block">
     <div className="content">
       <h2 className="NextCommunityEvent__header">Next Event</h2>
@@ -28,7 +34,7 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
                 href={calendarURL}
                 target="_blank"
               >
-                {formatDate(datetime, 'dddd, Do MMMM YYYY')}
+                {formatDate(startDateTime, 'dddd, Do MMMM YYYY')}
               </a>
             </li>
             <li>
@@ -37,7 +43,7 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
                 href={calendarURL}
                 target="_blank"
               >
-                {formatDate(datetime, 'HH:mm - ') + formatDate(timestampEnd, 'HH:mm')}
+                {formatDate(startDateTime, 'HH:mm - ') + formatDate(endDateTime, 'HH:mm')}
               </a>
             </li>
             <li>
@@ -74,14 +80,14 @@ const NextCommunityEvent = ({ title, datetime, timestampEnd, address, talks }) =
 );
 
 const dateTimeType = PropTypes.shape({
-  iso: React.PropTypes.string,
+  iso: React.PropTypes.string.isRequired,
 });
 
 NextCommunityEvent.propTypes = {
   title: React.PropTypes.string,
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
-  datetime: dateTimeType,
-  timestampEnd: dateTimeType,
+  startDateTime: dateTimeType,
+  endDateTime: dateTimeType,
   address: React.PropTypes.string,
 };
 
