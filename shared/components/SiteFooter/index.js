@@ -6,27 +6,46 @@ const SiteFooter = () => (
 
       <ul className="SiteFooter__links">
         <li>
-          <a className="SiteFooter__link SiteFooter__link--mail" href="mailto:hello@react.london">
+          <a
+            className="SiteFooter__link SiteFooter__link--mail"
+            href="mailto:hello@react.london"
+          >
             <span>hello@react.london</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--slack" href="http://slack.red-badger.com/" target="_blank">
+          <a
+            className="SiteFooter__link SiteFooter__link--slack"
+            href="http://slack.red-badger.com/"
+            target="_blank"
+          >
             <span>Join the conversation</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--youtube" href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ" target="_blank">
+          <a
+            className="SiteFooter__link SiteFooter__link--youtube"
+            href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ"
+            target="_blank"
+          >
             <span>Watch previous Meetups</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--twitter" href="https://twitter.com/ReactLondon_" target="_blank">
+          <a
+            className="SiteFooter__link SiteFooter__link--twitter"
+            href="https://twitter.com/ReactLondon_"
+            target="_blank"
+          >
             <span>@ReactLondon_</span>
           </a>
         </li>
         <li>
-          <a className="SiteFooter__link SiteFooter__link--hashtag" href="https://twitter.com/search?q=%23reactlondon">
+          <a
+            className="SiteFooter__link SiteFooter__link--hashtag"
+            href="https://twitter.com/search?q=%23reactlondon"
+            target="_blank"
+          >
             #reactlondon
           </a>
         </li>

@@ -1,4 +1,3 @@
-// SPEAKERS
 .Speakers {
   background-color: $events-color-faded;
 
@@ -13,4 +12,17 @@
     flex-flow: row wrap;
     justify-content: space-between;
   }
+}
+
+.Talk {
+  width: 100%;
+
+  @media (min-width: $tablet-portrait-width) {
+    width: 48%;
+  }
+
+  @media (min-width: $tablet-width) {
+    width: 30%;
+  }
+
 }

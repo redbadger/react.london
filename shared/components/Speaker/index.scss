@@ -1,14 +1,6 @@
 .Speaker {
   width: 100%;
-  margin: 25px 0px 30px 0px;
-
-  @media (min-width: $tablet-portrait-width) {
-    width: 48%;
-  }
-
-  @media (min-width: $tablet-width) {
-    width: 30%;
-  }
+  margin: 25px 0px 0px 0px;
 
   &__name {
     margin: 0px;
