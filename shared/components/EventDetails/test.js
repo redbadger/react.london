@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import EventDetails from '.';
 import EventSchedule from '../EventSchedule';
 import EventSponsors from '../EventSponsors';
-import {eventSchedule, eventSponsors } from './mock-data';
+import { eventSchedule, eventSponsors } from './mock-data';
 
 describe('EventDetails component', () => {
   it('renders successfully', () => {
