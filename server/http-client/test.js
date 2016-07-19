@@ -15,13 +15,12 @@ describe('http post', () => {
       fetchParams = args;
       return new Promise(resolve => resolve(successResponse));
     };
-    http.post('/my-url', { team: 'yellow' }, fetchFn)
+    http.post('/my-url', 'this is the body', fetchFn)
       .then(() => {
         expect(fetchParams[0]).to.equal('/my-url');
-        expect(fetchParams[1].body).to.equal('{"team":"yellow"}');
+        expect(fetchParams[1].body).to.equal('this is the body');
         expect(fetchParams[1].headers).to.deep.equal({
           Accept: 'application/json',
-          'Content-Type': 'application/json',
         });
         done();
       })

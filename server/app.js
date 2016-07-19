@@ -1,8 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
+import securityMiddleware from 'helmet';
 import router from './router';
 import enforceHTTPS from './enforce-https';
-import securityMiddleware from 'helmet';
+import { setDataSource } from './data';
+import * as badgerBrain from './data/badger-brain';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -11,6 +13,7 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', './server/views');
 app.set('trust proxy');
+setDataSource(badgerBrain);
 
 app.use(securityMiddleware());
 
