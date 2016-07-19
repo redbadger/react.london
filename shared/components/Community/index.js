@@ -5,8 +5,6 @@ import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import EventDetails from '../EventDetails';
-import EventSchedule from '../EventSchedule';
-import EventSponsors from '../EventSponsors';
 import NextCommunityEvent from '../../containers/NextCommunityEvent';
 import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
@@ -15,8 +13,6 @@ const Community = ({
   summary,
   mailingListTitle,
   mailingListSummary,
-  eventSchedule,
-  eventSponsors,
 }) => (
   <div className="community">
     <div id="wrapper">
@@ -30,10 +26,7 @@ const Community = ({
         mailingListSummary={mailingListSummary}
         page="community"
       />
-      <EventDetails
-        eventSchedule={eventSchedule}
-        eventSponsors={eventSponsors}
-      />
+      <EventDetails />
       <JoinSlack />
       <SiteFooter />
     </div>
@@ -45,8 +38,6 @@ Community.propTypes = {
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
   events: PropTypes.arrayOf(PropTypes.shape(NextCommunityEvent.propTypes)),
-  eventSchedule: PropTypes.arrayOf(PropTypes.shape(EventSchedule.propTypes)),
-  eventSponsors: PropTypes.arrayOf(PropTypes.shape(EventSponsors.propTypes)),
 };
 
 export default Community;
