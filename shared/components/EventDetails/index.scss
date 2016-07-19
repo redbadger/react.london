@@ -1,5 +1,6 @@
 .EventDetails {
-  background-color: #F5FAF0;
+  background-color: $events-color-faded;
+
   &__section {
     &-container {
       flex: 1;
