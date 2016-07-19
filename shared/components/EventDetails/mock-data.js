@@ -19,10 +19,6 @@ export const eventSchedule = [
 
 export const eventSponsors = [
   {
-    websiteURL: 'http://google.com',
-    imageURL: 'https://www.google.co.uk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
-  },
-  {
     websiteURL: 'https://red-badger.com',
     imageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTpn3QeF8knfH62-ZBLCVXVUN_Qpcb2U9A_lFS0bBCwaWXulBU54ZJkWPY',
   },
