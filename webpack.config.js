@@ -56,7 +56,11 @@ const serverConfig = Object.assign({},
     target: 'node',
     externals: [nodeExternals()],
     entry: {
-      server: ['babel-polyfill', './server/start-server.js'],
+      server: [
+        'isomorphic-fetch',
+        'babel-polyfill',
+        './server/start-server.js',
+      ],
     },
   }
 );
