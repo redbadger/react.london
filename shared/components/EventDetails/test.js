@@ -11,16 +11,25 @@ describe('EventDetails component', () => {
   });
 
   it('renders two EventSchedule & EventSponsors', () => {
+    const props = {
+      eventSchedule: [
+        { time: 'foo', text: 'bar' },
+        { time: 'bar', text: 'foo' },
+      ],
+      eventSponsors: [
+        { companyURL: 'foo.com', imageURL: 'bar.com/img'}
+      ]
+    };
     const schedules = [{'foo': 'bar'}, {'bar': 'foo'}];
     const sponsors = [{'foo': 'bar'}, {'bar': 'foo'}];
 
-    const wrapper = shallow(<EventDetails eventSchedule={schedules} eventSponsors={sponsors} />);
+    const wrapper = shallow(<EventDetails {...props} />);
     const shallowSchedule = wrapper.find(EventSchedule);
     const shallowSponsors = wrapper.find(EventSponsors);
 
     expect(shallowSchedule).to.have.length(1);
-    expect(shallowSchedule.props()).to.deep.equal({eventSchedule: schedules});
+    expect(shallowSchedule.props()).to.deep.equal({eventSchedule: props.eventSchedule});
     expect(shallowSponsors).to.have.length(1);
-    expect(shallowSponsors.props()).to.deep.equal({eventSponsors: sponsors});
+    expect(shallowSponsors.props()).to.deep.equal({eventSponsors: props.eventSponsors});
   });
 });
