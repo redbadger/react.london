@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-top: 20px;
 
   &__time {
     flex: 1;
@@ -18,18 +19,17 @@
     height: 1em;
     line-height: 1em;
     border-radius: 0.5em;
-    background: black;
+    background: $grey;
     position: relative;
   }
 
   &__line:before {
      content: '';
      position: absolute;
-     top: -2em;
-     left: 0.46em;
-     width: 2em;
-     height: 2em;
+     top: -3em;
+     left: 0.43em;
+     height: 3em;
      z-index: -1;
-     border-left: 2px dashed grey;
+     border-left: $dash-border;
   }
 }

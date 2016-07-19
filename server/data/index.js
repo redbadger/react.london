@@ -58,7 +58,7 @@ const dummyState = {
       },
       {
         time: '09:30',
-        text: 'Why React is fooBar, and it is two lines, well we need more text! and how about a third line',
+        text: 'Why React is fooBar, and it is two lines, and how',
       },
       {
         time: '11:00',
