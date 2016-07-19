@@ -12,13 +12,18 @@ export const badgerBrainURL = 'https://brain-staging.red-badger.com/graphql';
 
 export const siteStateQuery = `
 query {
-  community(id: "${communityID}"){
-    id
+  community(id: "${communityID}") {
     title
+    summary
     mailingListTitle
-    events {
-      id
+    featuredEvent {
       title
+      startDateTime {
+        iso
+      }
+      endDateTime {
+        iso
+      }
       talks {
         id
         summary

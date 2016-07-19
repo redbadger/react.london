@@ -7,7 +7,7 @@ const defaultProps = {
 };
 
 export const mapStateToProps = (state) => {
-  const props = pathOr(defaultProps, ['community', 'events', 0], state);
+  const props = pathOr(defaultProps, ['community', 'featuredEvent'], state);
   return {
     ...defaultProps,
     ...props,
