@@ -1,4 +1,6 @@
 .EventSchedule {
-  width: calc((#{$maximum-content-width} / 2) - 30px);
-  border-right: $dash-border;
+  // don't display the border for the 1st event
+  div:first-child div:nth-child(2):before {
+     display: none;
+  }
 }

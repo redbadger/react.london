@@ -1,0 +1,40 @@
+.EventDetails {
+  &__section {
+
+    &-container {
+      flex: 1;
+      padding: 30px 0px;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    &-schedule {
+      flex: 1;
+      padding-bottom: 30px;
+      border-bottom: $dash-border;
+    }
+
+    &-sponsors {
+      flex: 1;
+    }
+
+  }
+}
+
+@media (min-width: 768px) {
+  .EventDetails {
+
+    &__section {
+
+      &-container {
+        flex-flow: row wrap;
+      }
+
+      &-schedule {
+        border-bottom: none;
+        border-right: $dash-border;
+      }
+
+    }
+  }
+}

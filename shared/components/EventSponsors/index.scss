@@ -1,9 +1,14 @@
-// SPONSORS
 .EventSponsors {
-  width: calc((#{$maximum-content-width} / 2) - 30px);
+  margin-left: 20px;
+  height: 100%;
+
+  h3 {
+    flex: 1;
+  }
+  // width: calc((#{$maximum-content-width} / 2) - 30px);
   ul li a {
     img, object {
-      height: 85px;
+      height: 80px;
     }
   }
 }

@@ -53,19 +53,19 @@ const dummyState = {
     ],
     eventSchedule: [
       {
-        time: '8:30',
+        time: '08:30',
         text: 'Introduction from Louis',
       },
       {
-        time: '9:30',
-        text: 'Why React is fooBar',
+        time: '09:30',
+        text: 'Why React is fooBar, and it is two lines, well we need more text! and how about a third line',
       },
       {
-        time: '11.00',
+        time: '11:00',
         text: 'Time for some lunch',
       },
       {
-        time: '2.00',
+        time: '14:00',
         text: 'Home time, enough React',
       },
     ],

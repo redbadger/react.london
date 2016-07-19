@@ -5,8 +5,13 @@ const ScheduleItem = ({
   text,
 }) => (
   <div className="ScheduleItem">
-    <dt>{time}</dt>
-    <dd>{text}</dd>
+    <div className="ScheduleItem__time">
+      {time}
+    </div>
+    <div className="ScheduleItem__line"></div>
+    <div className="ScheduleItem__text">
+      {text}
+    </div>
   </div>
 );
 

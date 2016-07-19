@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Speakers from '../Speakers';
-import EventSchedule from '../EventSchedule';
-import EventSponsors from '../EventSponsors';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import NextCommunityEvent from '../NextCommunityEvent';
+import EventDetails from '../EventDetails';
+import EventSchedule from '../EventSchedule';
+import EventSponsors from '../EventSponsors';
 import MailingList from '../MailingList';
 import UpcomingEvents from '../UpcomingEvents';
 import JoinSlack from '../JoinSlack';
@@ -46,14 +47,10 @@ const Community = ({
           mailingListSummary={mailingListSummary}
           page="community"
         />
-        {
-          <section className="block">
-            <div className="content space-between">
-              <EventSchedule eventSchedule={eventSchedule} />
-              <EventSponsors eventSponsors={eventSponsors} />
-            </div>
-          </section>
-        }
+        <EventDetails
+          eventSchedule={eventSchedule}
+          eventSponsors={eventSponsors}
+        />
       </main>
       {/* TODO
       <UpcomingEvents upcomingEvents={upcomingEvents} />
