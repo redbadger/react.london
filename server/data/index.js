@@ -10,5 +10,7 @@ export function setDataSource(functions) {
 }
 
 export function getSiteState() {
-  return dataSource.getSiteState();
+  return dataSource
+    .getSiteState()
+    .then(payload => payload.data);
 }

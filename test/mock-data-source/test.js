@@ -1,24 +1,24 @@
 import deepFreeze from 'deep-freeze';
-import fixtureData from '../fixtures/badger-brain-payload.json';
+import fixturePayload from '../fixtures/badger-brain-payload.json';
 import { getSiteState } from '../../server/data';
 import { useDummyData } from '.';
 
-deepFreeze(fixtureData);
+deepFreeze(fixturePayload);
 
 describe('data/dummy-source useDummyData', () => {
   it('uses fixture data by default', done => {
     useDummyData();
     getSiteState().then(data => {
-      expect(data).to.deep.equal(fixtureData);
+      expect(data).to.deep.equal(fixturePayload.data);
       done();
     })
     .catch(done);
   });
 
   it('can use other data if passed', done => {
-    useDummyData({ key: 'value' });
+    useDummyData({ data: 'value' });
     getSiteState().then(data => {
-      expect(data).to.deep.equal({ key: 'value' });
+      expect(data).to.deep.equal('value');
       done();
     })
     .catch(done);

@@ -36,6 +36,6 @@ query {
   }
 }`;
 
-export function getSiteState(httpPostFn = http.post) {
+export function getSiteState(httpPostFn = http.postGraphQL) {
   return httpPostFn(badgerBrainURL, siteStateQuery);
 }
