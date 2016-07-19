@@ -1,7 +1,7 @@
 .ScheduleItem {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   padding-top: 20px;
 
   &__time {
@@ -14,7 +14,10 @@
   }
 
   &__line {
-    margin: 1em 1em;
+    // margin: 0.16em 1em;
+    margin-top: 0.2em;
+    margin-right: 1em;
+    margin-left: 1em;
     width: 1em;
     height: 1em;
     line-height: 1em;
@@ -26,9 +29,9 @@
   &__line:before {
      content: '';
      position: absolute;
-     top: -3em;
+     top: -2.5em;
      left: 0.43em;
-     height: 3em;
+     height: 2.5em;
      z-index: -1;
      border-left: $dash-border;
   }
