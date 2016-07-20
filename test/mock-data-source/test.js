@@ -6,21 +6,19 @@ import { useDummyData } from '.';
 deepFreeze(fixturePayload);
 
 describe('data/dummy-source useDummyData', () => {
-  it('uses fixture data by default', done => {
+  it('uses fixture data by default', () => {
     useDummyData();
-    getSiteState().then(data => {
-      expect(data).to.deep.equal(fixturePayload.data);
-      done();
-    })
-    .catch(done);
+    return getSiteState()
+      .then(data => {
+        expect(data).to.deep.equal(fixturePayload.data);
+      });
   });
 
-  it('can use other data if passed', done => {
+  it('can use other data if passed', () => {
     useDummyData({ data: 'value' });
-    getSiteState().then(data => {
-      expect(data).to.deep.equal('value');
-      done();
-    })
-    .catch(done);
+    return getSiteState()
+      .then(data => {
+        expect(data).to.deep.equal('value');
+      });
   });
 });

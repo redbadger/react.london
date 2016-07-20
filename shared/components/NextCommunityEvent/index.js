@@ -15,7 +15,7 @@ const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE'
 
 function googleMapsUrl(location) {
   const { latitude, longitude } = pathOr({}, ['coordinates'], location);
-  if (!latitude && !longitude) { return null; }
+  if (!latitude || !longitude) { return null; }
   return `http://www.google.com/maps/place/${latitude},${longitude}`;
 }
 
