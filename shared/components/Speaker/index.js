@@ -25,10 +25,11 @@ const Speaker = ({
   twitterHandle,
   blogURL,
 }) => {
+  const avatar = imageURL || '/img/PNG/Speaker_Anon.png';
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
-        <img className="Speaker__photo--img" src={imageURL} alt={name} />
+        <img className="Speaker__photo--img" src={avatar} alt={name} />
       </figure>
       <ul className="Speaker__details">
         <li>
