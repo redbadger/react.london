@@ -39,6 +39,10 @@ lint: ## Lint Javascript files
 build-version: ## Register a new application version from the current commit
 	./bin/push-new-version.sh
 
+compress-assets: ## Compress frontend assets
+	./node_modules/.bin/svgo -f assets/img/SVG
+	./node_modules/.bin/svgo -f assets/img/favicons
+
 deploy-staging: ## Deploy the current branch + commit to staging
 	$(deploy) staging
 
