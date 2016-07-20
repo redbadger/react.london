@@ -20,10 +20,10 @@ export const eventSchedule = [
 export const eventSponsors = [
   {
     websiteURL: 'https://red-badger.com',
-    imageURL: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTpn3QeF8knfH62-ZBLCVXVUN_Qpcb2U9A_lFS0bBCwaWXulBU54ZJkWPY',
+    imageURL: '/img/SVG/Badger_Roundel.svg',
   },
   {
     websiteURL: 'https://facebook.com',
-    imageURL: 'https://www.nl-ix.net/img/companies/facebook.png',
+    imageURL: 'http://blog.adstage.io/wp-content/uploads/2014/07/facebook-logo.png',
   },
 ];
