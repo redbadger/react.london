@@ -5,6 +5,7 @@ webpack    = ./node_modules/webpack/bin/webpack.js
 mocha      = ./node_modules/mocha/bin/mocha
 _mocha     = ./node_modules/mocha/bin/_mocha
 istanbul   = ./node_modules/.bin/istanbul
+coveralls  = ./node_modules/coveralls/bin/coveralls.js
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -32,6 +33,9 @@ test-watch: ## Run the tests and watch for changes
 
 test-cover:
 	$(istanbul) cover $(_mocha)
+
+send-cover:
+	cat ./coverage/lcov.info | $(coveralls) && rm -rf ./coverage
 
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
