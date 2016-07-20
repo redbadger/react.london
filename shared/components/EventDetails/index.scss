@@ -4,14 +4,12 @@
   &__section {
     &-container {
       flex: 1;
-      padding: 30px 0px;
       display: flex;
       flex-flow: column wrap;
     }
 
     &-schedule {
       flex: 1;
-      padding-bottom: 30px;
       border-bottom: $dash-border;
     }
 

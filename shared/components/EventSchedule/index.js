@@ -4,11 +4,11 @@ import ScheduleItem from '../ScheduleItem';
 const EventSchedule = ({ eventSchedule }) => (
   <div className="EventSchedule">
     <h3>Schedule</h3>
-    <div className="EventSchedule__schedule">
+    <ol className="EventSchedule__schedule">
       {eventSchedule && eventSchedule.map((props, index) => (
         <ScheduleItem key={index} {...props} />
       ))}
-    </div>
+    </ol>
   </div>
 );
 

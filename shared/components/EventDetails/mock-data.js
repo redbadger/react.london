@@ -9,7 +9,7 @@ export const eventSchedule = [
   },
   {
     time: '19:10',
-    text: '2 or 3 speakers each with 20 minutes to talk followed by Q&A',
+    text: '2 or 3 speakers each with 20 minutes to talk followed by Q&A.',
   },
   {
     time: '20:30',
