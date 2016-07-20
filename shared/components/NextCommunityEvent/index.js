@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import dateFnsFormat from 'date-fns/format';
+import pathOr from 'ramda/src/pathOr';
 
 function formatDate(datetime, format) {
   if (datetime && datetime.iso) {
@@ -12,13 +13,17 @@ const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE'
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
   '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
 
-const locationURL = 'https://goo.gl/maps/Z8SU87i4Fy42';
+function googleMapsUrl(location) {
+  const { latitude, longitude } = pathOr({}, ['coordinates'], location);
+  if (!latitude && !longitude) { return null; }
+  return `http://www.google.com/maps/place/${latitude},${longitude}`;
+}
 
 const NextCommunityEvent = ({
   title,
   startDateTime,
   endDateTime,
-  address,
+  location,
   talks,
 }) => (
   <section className="NextCommunityEvent block">
@@ -49,10 +54,10 @@ const NextCommunityEvent = ({
             <li>
               <a
                 className="NextCommunityEvent__link--place"
-                href={locationURL}
+                href={googleMapsUrl(location)}
                 target="_blank"
               >
-                {address}
+                {pathOr(null, ['address'], location)}
               </a>
             </li>
           </ul>
@@ -84,11 +89,17 @@ const dateTimeType = PropTypes.shape({
 });
 
 NextCommunityEvent.propTypes = {
-  title: React.PropTypes.string,
+  title: PropTypes.string,
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
-  address: React.PropTypes.string,
+  location: PropTypes.shape({
+    address: PropTypes.string,
+    coordinates: PropTypes.shape({
+      latitude: PropTypes.string,
+      longitude: PropTypes.string,
+    }),
+  }),
 };
 
 export default NextCommunityEvent;

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Speaker from '../Speaker';
-import { pathOr } from 'ramda';
+import pathOr from 'ramda/src/pathOr';
 
 const Talks = ({ talks }) => (
   <section className="Speakers block">
