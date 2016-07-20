@@ -1,6 +1,10 @@
 .EventDetails {
   background-color: $events-color-faded;
 
+  h3 {
+    font-size: 24px;
+  }
+
   &__section {
     &-container {
       flex: 1;
