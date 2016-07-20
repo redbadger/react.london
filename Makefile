@@ -2,7 +2,8 @@ serverArgs = -r dotenv/config ./dist/server.js
 deploy     = node bin/deploy-version.js
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
-mocha      = ./node_modules/mocha/bin/_mocha
+mocha      = ./node_modules/mocha/bin/mocha
+_mocha     = ./node_modules/mocha/bin/_mocha
 istanbul   = ./node_modules/.bin/istanbul
 
 help:
@@ -30,8 +31,7 @@ test-watch: ## Run the tests and watch for changes
 	$(mocha) --reporter min --watch
 
 test-cover:
-	$(istanbul) cover $(mocha)
-
+	$(istanbul) cover $(_mocha)
 
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
@@ -44,7 +44,6 @@ deploy-staging: ## Deploy the current branch + commit to staging
 
 deploy-production: ## Deploy the current branch + commit to production
 	$(deploy) production
-
 
 .PHONY: \
 	build-version \
