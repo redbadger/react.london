@@ -2,7 +2,8 @@ serverArgs = -r dotenv/config ./dist/server.js
 deploy     = node bin/deploy-version.js
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
-mocha      = ./node_modules/mocha/bin/mocha
+mocha      = ./node_modules/mocha/bin/_mocha
+istanbul   = ./node_modules/.bin/istanbul
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -27,6 +28,10 @@ test: ## Run the tests
 
 test-watch: ## Run the tests and watch for changes
 	$(mocha) --reporter min --watch
+
+test-cover:
+	$(istanbul) cover $(mocha)
+
 
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
