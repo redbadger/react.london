@@ -58,9 +58,11 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.11",
     "deep-freeze": "0.0.1",
     "dirty-chai": "^1.2.2",
     "enzyme": "^2.3.0",
+    "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.2",
     "react-addons-test-utils": "^15.1.0",

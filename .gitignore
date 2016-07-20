@@ -17,3 +17,4 @@ tmp
 !.elasticbeanstalk/*.global.yml
 Dockerrun.aws.json
 *.zip
+coverage

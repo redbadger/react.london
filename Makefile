@@ -3,6 +3,9 @@ deploy     = node bin/deploy-version.js
 distDir    = ./dist/
 webpack    = ./node_modules/webpack/bin/webpack.js
 mocha      = ./node_modules/mocha/bin/mocha
+_mocha     = ./node_modules/mocha/bin/_mocha
+istanbul   = ./node_modules/.bin/istanbul
+coveralls  = ./node_modules/coveralls/bin/coveralls.js
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -28,6 +31,12 @@ test: ## Run the tests
 test-watch: ## Run the tests and watch for changes
 	$(mocha) --reporter min --watch
 
+test-cover:
+	$(istanbul) cover $(_mocha)
+
+send-cover:
+	cat ./coverage/lcov.info | $(coveralls) && rm -rf ./coverage
+
 lint: ## Lint Javascript files
 	./node_modules/eslint/bin/eslint.js . --ext .js --ext .jsx --ignore-path .gitignore --cache
 
@@ -43,7 +52,6 @@ deploy-staging: ## Deploy the current branch + commit to staging
 
 deploy-production: ## Deploy the current branch + commit to production
 	$(deploy) production
-
 
 .PHONY: \
 	build-version \

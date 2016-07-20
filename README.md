@@ -2,6 +2,7 @@ react.london
 ============
 
 [![CircleCI](https://circleci.com/gh/redbadger/react.london.svg?style=shield)](https://circleci.com/gh/redbadger/react.london)
+[![Coveralls](https://coveralls.io/repos/github/redbadger/react.london/badge.svg)](https://coveralls.io/github/redbadger/react.london)
 
 A site for the React London Community.
 
