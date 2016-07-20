@@ -14,7 +14,7 @@ build: clean ## Start the dev compiler
 	$(webpack) --progress --watch
 
 build-production: clean ## Compile the app
-	$(webpack) -p
+	NODE_ENV=production $(webpack) -p
 
 start: ## Start the server in dev mode (run build first)
 	./node_modules/nodemon/bin/nodemon.js $(serverArgs)

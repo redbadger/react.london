@@ -22,6 +22,7 @@ query {
     title
     summary
     mailingListTitle
+    mailingListSummary
     featuredEvent {
       title
       startDateTime {
@@ -30,8 +31,14 @@ query {
       endDateTime {
         iso
       }
+      location {
+        address
+        coordinates {
+          latitude
+          longitude
+        }
+      }
       talks {
-        id
         summary
         title
         speakers {
