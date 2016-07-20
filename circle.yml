@@ -8,7 +8,8 @@ test:
   override:
     - make build-production
     - make lint
-    - make test
+    - make test-cover
+    - make send-cover
 
 deployment:
   staging:
