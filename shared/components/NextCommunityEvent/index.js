@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
-import dateFnsFormat from 'date-fns/format';
 import pathOr from 'ramda/src/pathOr';
+import moment from 'moment-timezone';
 
 function formatDate(datetime, format) {
   if (datetime && datetime.iso) {
-    return dateFnsFormat(datetime.iso, format);
+    return moment(datetime.iso).tz('Europe/London').format(format);
   }
 }
 
