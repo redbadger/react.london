@@ -5,10 +5,16 @@
 
 import * as http from '../http-client';
 
-// TODO inject this value
-const communityID = 'V3-PWiMAAGEz2yz5';
-// TODO inject this value
-export const badgerBrainURL = 'https://brain-staging.red-badger.com/graphql';
+function getEnvVar(key) {
+  const value = process.env[key];
+  if (process.env.NODE_ENV !== 'test' && !value) {
+    throw new Error(`Missing ${key} env var`);
+  }
+  return value;
+}
+
+export const communityID = getEnvVar('BADGER_BRAIN_COMMUNITY_ID');
+export const badgerBrainURL = getEnvVar('BADGER_BRAIN_ENDPOINT');
 
 export const siteStateQuery = `
 query {
