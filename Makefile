@@ -14,7 +14,7 @@ clean: ## Remove compiled files
 	rm -rf dist/*
 
 build: clean ## Start the dev compiler
-	$(webpack) --progress --watch
+	NODE_ENV=development $(webpack) --progress --watch
 
 build-production: clean ## Compile the app
 	NODE_ENV=production $(webpack) -p
