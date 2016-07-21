@@ -59,9 +59,14 @@ deploy-production: ## Deploy the current branch + commit to production
 	deploy-staging \
 	deploy-production \
 	start \
-	clean \
+	start-production \
 	build \
+	build-production \
 	test \
 	test-watch \
+	test-cover \
+	send-cover \
+	compress-images \
+	clean \
 	lint \
 	help
