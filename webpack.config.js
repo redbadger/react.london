@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractText = require('extract-text-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
@@ -31,6 +32,14 @@ const baseConfig = {
       },
     ],
   },
+  plugins: [
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+    ]),
+    new ExtractText('[name].css', {
+      allChunks: true,
+    }),
+  ],
   sassLoader: {
     outputStyle: 'compressed',
   },
@@ -45,11 +54,6 @@ const browserConfig = Object.assign({},
       'static/main': ['babel-polyfill', './client/index'],
       main: ['./client/styles/main.scss'],
     },
-    plugins: [
-      new ExtractText('[name].css', {
-        allChunks: true,
-      }),
-    ],
   }
 );
 

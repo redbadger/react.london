@@ -4,8 +4,6 @@ import router from './router';
 import enforceHTTPS from './enforce-https';
 import securityMiddleware from 'helmet';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
 const app = express();
 
 app.set('view engine', 'pug');
