@@ -31,6 +31,9 @@ const baseConfig = {
       },
     ],
   },
+  sassLoader: {
+    outputStyle: 'compressed',
+  },
 };
 
 
