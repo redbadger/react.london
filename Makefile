@@ -14,7 +14,7 @@ clean: ## Remove compiled files
 	rm -rf dist/*
 
 build: clean ## Start the dev compiler
-	$(webpack) --progress --watch
+	NODE_ENV=development $(webpack) --progress --watch
 
 build-production: clean ## Compile the app
 	NODE_ENV=production $(webpack) -p
@@ -43,9 +43,10 @@ lint: ## Lint Javascript files
 build-version: ## Register a new application version from the current commit
 	./bin/push-new-version.sh
 
-compress-assets: ## Compress frontend assets
+compress-images: ## Compress images in repo
 	./node_modules/.bin/svgo -f assets/img/SVG
 	./node_modules/.bin/svgo -f assets/img/favicons
+	./node_modules/.bin/imagemin assets/img/PNG/* -o assets/img/PNG/
 
 deploy-staging: ## Deploy the current branch + commit to staging
 	$(deploy) staging
@@ -58,9 +59,14 @@ deploy-production: ## Deploy the current branch + commit to production
 	deploy-staging \
 	deploy-production \
 	start \
-	clean \
+	start-production \
 	build \
+	build-production \
 	test \
 	test-watch \
+	test-cover \
+	send-cover \
+	compress-images \
+	clean \
 	lint \
 	help
