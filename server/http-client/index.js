@@ -11,12 +11,11 @@ function parseJSON(response) {
   return response.json();
 }
 
-export function post(url, data, fetchFn = fetch) {
+export function postGraphQL(url, body, fetchFn = fetch) {
   const headers = {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/graphql',
   };
-  const body = JSON.stringify(data);
   return fetchFn(url, {
     method: 'POST',
     headers,

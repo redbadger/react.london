@@ -19,7 +19,8 @@ function sendSite(res, renderProps) {
     res.render('index', { content, initialState });
   })
   .catch((err) => {
-    res.status(500).send(err);
+    // TODO Replace this with a user friendly error page
+    res.status(500).json({ error: err.message });
   });
 }
 

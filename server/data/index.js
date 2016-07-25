@@ -1,5 +1,16 @@
-import dummyState from './mock-data.json';
+//
+// An interface to the site data source.
+// In production Badger Brain is the source.
+//
+
+let dataSource;
+
+export function setDataSource(functions) {
+  dataSource = functions;
+}
 
 export function getSiteState() {
-  return new Promise(resolve => resolve(dummyState.data));
+  return dataSource
+    .getSiteState()
+    .then(payload => payload.data);
 }

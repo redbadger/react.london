@@ -45,7 +45,6 @@ const baseConfig = {
   },
 };
 
-
 const browserConfig = Object.assign({},
   baseConfig,
   {
