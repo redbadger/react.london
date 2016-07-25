@@ -4,10 +4,11 @@ const ScheduleItem = ({
   time,
   text,
 }) => (
-  <div className="ScheduleItem">
-    <dt>{time}</dt>
-    <dd>{text}</dd>
-  </div>
+  <li className="ScheduleItem" data-time={time}>
+    <p className="ScheduleItem__text">
+      {text}
+    </p>
+  </li>
 );
 
 ScheduleItem.propTypes = {

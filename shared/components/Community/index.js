@@ -4,11 +4,16 @@ import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
+import EventDetails from '../EventDetails';
 import NextCommunityEvent from '../../containers/NextCommunityEvent';
 import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
 
-const Community = ({ summary, mailingListTitle, mailingListSummary }) => (
+const Community = ({
+  summary,
+  mailingListTitle,
+  mailingListSummary,
+}) => (
   <div className="community">
     <div id="wrapper">
       <Hero page="Community" />
@@ -21,6 +26,7 @@ const Community = ({ summary, mailingListTitle, mailingListSummary }) => (
         mailingListSummary={mailingListSummary}
         page="community"
       />
+      <EventDetails />
       <JoinSlack />
       <SiteFooter />
     </div>

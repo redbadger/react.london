@@ -1,19 +1,33 @@
 .ScheduleItem {
-  dt {
-    float: left;
-    clear: left;
-    width: 105px;
-    text-align: right;
+  font-size: 18px;
+  padding-bottom: 5px;
+  position: relative;
 
-    border-right: $dash-border;
-    padding-right: 20px;
-    padding-bottom: 20px;
-
-    &:last-of-type {
-      padding-bottom: 0px;
-    }
+  &:last-of-type {
+    padding-bottom: 0;
   }
-  dl {
-    margin: 0px 0px 20px calc(105px + (20px * 2));
+
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    display: block;
+  }
+
+  &:before {
+    content: attr(data-time);
+    min-width: 120px;
+    left: -194px;
+    text-align: right;
+    color: $grey;
+  }
+
+  &:after {
+    margin-top: 5px;
+    content: "";
+    left: -48px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $grey;
   }
 }
