@@ -15,7 +15,7 @@ describe('http-client postGraphQL', () => {
       fetchParams = args;
       return new Promise(resolve => resolve(successResponse));
     };
-    const promise = http.postGraphQL('/my-url', 'this is the body', fetchFn)
+    return http.postGraphQL('/my-url', 'this is the body', fetchFn)
       .then(() => {
         expect(fetchParams[0]).to.equal('/my-url');
         expect(fetchParams[1].body).to.equal('this is the body');
@@ -24,7 +24,6 @@ describe('http-client postGraphQL', () => {
           'Content-Type': 'application/graphql',
         });
       });
-    return promise;
   });
 
   it('throws when the status is not 2xx or 3xx', () => {
@@ -33,20 +32,18 @@ describe('http-client postGraphQL', () => {
       statusText: 'Oh no! it broke',
     };
     const fetchFn = () => new Promise(resolve => resolve(response));
-    const promise = http.postGraphQL('/', {}, fetchFn)
+    return http.postGraphQL('/', {}, fetchFn)
       .catch(err => {
         expect(err.response).to.equal(response);
         expect(err.message).to.equal(response.statusText);
       });
-    return promise;
   });
 
   it('parses and returns JSON when successful', () => {
     const fetchFn = () => new Promise(resolve => resolve(successResponse));
-    const promise = http.postGraphQL('/', {}, fetchFn)
+    return http.postGraphQL('/', {}, fetchFn)
       .then(data => {
         expect(data).to.equal(jsonValue);
       });
-    return promise;
   });
 });

@@ -4,7 +4,7 @@ import { useDummyData } from '../../test/mock-data-source';
 
 describe('GET /__health__', () => {
   it('returns 200, to be checked by load balancer', () => {
-    request(app)
+    return request(app)
       .get('/__health__')
       .expect(200);
   });
