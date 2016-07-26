@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
+import { formatDate } from '../../utilities/format-date';
 
 const ScheduleItem = ({
-  time,
+  datetime,
   text,
 }) => (
-  <li className="ScheduleItem" data-time={time}>
+  <li className="ScheduleItem" data-time={formatDate(datetime, 'HH:mm')}>
     <p className="ScheduleItem__text">
       {text}
     </p>
@@ -12,7 +13,7 @@ const ScheduleItem = ({
 );
 
 ScheduleItem.propTypes = {
-  time: PropTypes.string,
+  datetime: PropTypes.string,
   text: PropTypes.string,
 };
 

@@ -28,8 +28,8 @@ const Community = ({
         page="community"
       />
       <EventDetails
-        schedule={featuredEvent.schedule}
-        sponsors={featuredEvent.sponsors}
+        eventSchedule={featuredEvent.schedule}
+        eventSponsors={featuredEvent.sponsors}
       />
       <JoinSlack />
       <SiteFooter />
