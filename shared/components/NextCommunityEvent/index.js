@@ -1,13 +1,7 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
+import { formatDate } from '../../utilities/format-date';
 import pathOr from 'ramda/src/pathOr';
-import moment from 'moment-timezone';
-
-function formatDate(datetime, format) {
-  if (datetime && datetime.iso) {
-    return moment(datetime.iso).tz('Europe/London').format(format);
-  }
-}
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +

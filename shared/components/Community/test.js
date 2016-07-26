@@ -25,14 +25,16 @@ describe('Community component', () => {
           blogURL: 'https://foo.bar',
         },
       ],
-      eventSchedule: [
-        { time: '6pm', text: 'Do things' },
-        { time: '9pm', text: 'Do stuff' },
-      ],
-      eventSponsors: [
-        { websiteURL: 'barfoo', imageURL: 'slim' },
-        { websiteURL: 'foobar', imageURL: 'foobar' },
-      ],
+      featuredEvent: {
+        schedule: [
+          { time: '6pm', text: 'Do things' },
+          { time: '9pm', text: 'Do stuff' },
+        ],
+        sponsors: [
+          { websiteURL: 'barfoo', imageURL: 'slim' },
+          { websiteURL: 'foobar', imageURL: 'foobar' },
+        ],
+      },
       upcomingEvents: [
         {
           venue: 'codemesh',
@@ -56,6 +58,7 @@ describe('Community component', () => {
       eventDate: 'Tomorrow!',
       eventStartTime: '6pm',
       eventEndTime: '9pm',
+      featuredEvent: {},
     };
     shallow(<Community {...props} />);
   });
