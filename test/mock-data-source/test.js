@@ -6,7 +6,7 @@ import { useDummyData } from '.';
 deepFreeze(fixturePayload);
 
 describe('data/dummy-source useDummyData', () => {
-  it('uses fixture data by default', () => {
+  it('uses fixture data by default.', () => {
     useDummyData();
     return getSiteState()
       .then(data => {
