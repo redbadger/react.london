@@ -13,6 +13,7 @@ const Community = ({
   summary,
   mailingListTitle,
   mailingListSummary,
+  featuredEvent,
 }) => (
   <div className="community">
     <div id="wrapper">
@@ -26,7 +27,10 @@ const Community = ({
         mailingListSummary={mailingListSummary}
         page="community"
       />
-      <EventDetails />
+      <EventDetails
+        schedule={featuredEvent.schedule}
+        sponsors={featuredEvent.sponsors}
+      />
       <JoinSlack />
       <SiteFooter />
     </div>
@@ -38,6 +42,7 @@ Community.propTypes = {
   mailingListTitle: PropTypes.string,
   mailingListSummary: PropTypes.string,
   events: PropTypes.arrayOf(PropTypes.shape(NextCommunityEvent.propTypes)),
+  featuredEvent: PropTypes.shape(EventDetails.propTypes),
 };
 
 export default Community;
