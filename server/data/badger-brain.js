@@ -38,6 +38,15 @@ query {
           longitude
         }
       }
+      schedule {
+        datetime
+        text
+      }
+      sponsors {
+        websiteURL
+        imageURL
+        name
+      }
       talks {
         summary
         title
