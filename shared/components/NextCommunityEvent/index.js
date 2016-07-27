@@ -22,7 +22,7 @@ const NextCommunityEvent = ({
 }) => (
   <section className="NextCommunityEvent block">
     <div className="content">
-      <h2 className="NextCommunityEvent__header">Next Event</h2>
+      <h2 className="NextCommunityEvent__header">Last Event</h2>
       <article className="NextCommunityEvent__section-container">
         <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
           <h3 className="NextCommunityEvent__details__heading">{title}</h3>
@@ -57,13 +57,16 @@ const NextCommunityEvent = ({
           </ul>
         </div>
         <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
-          <h3 className="NextCommunityEvent__booking__heading">TICKETS NOW SOLD OUT</h3>
+          <h3 className="NextCommunityEvent__booking__heading">This event has ended</h3>
+          <h3 className="NextCommunityEvent__booking__text">
+            Couldn’t make the event? <div>We’ve got your back.</div>
+          </h3>
           <div className="NextCommunityEvent__booking-btn__container">
             <a
               className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
               href="https://www.youtube.com/watch?v=HrECWxWVcEI"
             >
-              Join live stream
+              Watch Video
             </a>
           </div>
           <p className="NextCommunityEvent__live-stream-text">
