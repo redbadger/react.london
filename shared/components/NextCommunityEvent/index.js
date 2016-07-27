@@ -61,9 +61,9 @@ const NextCommunityEvent = ({
           <div className="NextCommunityEvent__booking-btn__container">
             <a
               className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
-              href="https://www.youtube.com/watch?v=HrECWxWVcEI"
+              href="https://skillsmatter.com/meetups/8306-react-graphql-and-relay-in-practice-and-draft-js-in-the-real-world"
             >
-              Join live stream
+              Join waiting list
             </a>
           </div>
           <p className="NextCommunityEvent__live-stream-text">
