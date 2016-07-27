@@ -58,9 +58,9 @@ const NextCommunityEvent = ({
         </div>
         <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
           <h3 className="NextCommunityEvent__booking__heading">This event has ended</h3>
-          <h3 className="NextCommunityEvent__booking__text">
+          <p className="NextCommunityEvent__live-stream-text">
             Couldn’t make the event? <div>We’ve got your back.</div>
-          </h3>
+          </p>
           <div className="NextCommunityEvent__booking-btn__container">
             <a
               className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
