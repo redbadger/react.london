@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import { formatDate } from '../../utilities/format-date';
 import pathOr from 'ramda/src/pathOr';
+import moment from 'moment';
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
@@ -13,6 +14,12 @@ function googleMapsUrl(location) {
   return `http://www.google.com/maps/place/${latitude},${longitude}`;
 }
 
+export function getHeaderText(eventTime) {
+  return moment().isBefore(eventTime)
+    ? 'Next Event'
+    : 'Last Event';
+}
+
 const NextCommunityEvent = ({
   title,
   startDateTime,
@@ -22,7 +29,9 @@ const NextCommunityEvent = ({
 }) => (
   <section className="NextCommunityEvent block">
     <div className="content">
-      <h2 className="NextCommunityEvent__header">Last Event</h2>
+      <h2 className="NextCommunityEvent__header">
+        {getHeaderText(startDateTime)}
+      </h2>
       <article className="NextCommunityEvent__section-container">
         <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
           <h3 className="NextCommunityEvent__details__heading">{title}</h3>
@@ -72,7 +81,7 @@ const NextCommunityEvent = ({
           <p className="NextCommunityEvent__live-stream-text">
             To get reminders about tickets and future
             events <a className="NextCommunityEvent__live-stream-text--link" href="#stay-tuned">
-            subscribe here</a>
+            subscribtatuse here</a>
           </p>
         </div>
       </article>

@@ -1,6 +1,8 @@
 import React from 'react';
 import NextCommunityEvent from '.';
 import { shallow } from 'enzyme';
+// import sinon from 'sinon';
+// import moment from 'moment';
 
 const props = {
   title: 'July React Meetup',
@@ -28,3 +30,16 @@ describe('NextCommunityEvent component', () => {
     shallow(<NextCommunityEvent />);
   });
 });
+
+// describe('getHeaderText', () => {
+//   it('test', () => {
+//   });
+// });
+
+
+
+// export function renderHeader(eventTime) {
+//   return moment().isBefore(eventTime)
+//     ? 'Next Event'
+//     : 'Last Event';
+// }
