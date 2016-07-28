@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
+import EventStatus from '../EventStatus';
 import { formatDate } from '../../utilities/format-date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
@@ -22,10 +23,13 @@ export function getHeaderText(eventTime) {
 
 const NextCommunityEvent = ({
   title,
+  ticketsAvailable,
   startDateTime,
   endDateTime,
+  ticketReleaseDate,
   location,
   talks,
+  externalLinks,
 }) => (
   <section className="NextCommunityEvent block">
     <div className="content">
@@ -65,25 +69,12 @@ const NextCommunityEvent = ({
             </li>
           </ul>
         </div>
-        <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
-          <h3 className="NextCommunityEvent__booking__heading">This event has ended</h3>
-          <p className="NextCommunityEvent__live-stream-text">
-            Couldn’t make the event? <div>We’ve got your back.</div>
-          </p>
-          <div className="NextCommunityEvent__booking-btn__container">
-            <a
-              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
-              href="https://www.youtube.com/watch?v=HrECWxWVcEI"
-            >
-              Watch Video
-            </a>
-          </div>
-          <p className="NextCommunityEvent__live-stream-text">
-            To get reminders about tickets and future
-            events <a className="NextCommunityEvent__live-stream-text--link" href="#stay-tuned">
-            subscribtatuse here</a>
-          </p>
-        </div>
+        <EventStatus
+          ticketsAvailable={ticketsAvailable}
+          ticketReleaseDate={ticketReleaseDate}
+          externalLinks={externalLinks}
+          startDateTime={startDateTime}
+        />
       </article>
     </div>
     <Talks talks={talks} />
@@ -96,9 +87,16 @@ const dateTimeType = PropTypes.shape({
 
 NextCommunityEvent.propTypes = {
   title: PropTypes.string,
+  ticketsAvailable: PropTypes.bool,
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
+  ticketReleaseDate: dateTimeType,
+  externalLinks: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+    type: PropTypes.string,
+  })),
   location: PropTypes.shape({
     address: PropTypes.string,
     coordinates: PropTypes.shape({

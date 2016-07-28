@@ -25,11 +25,20 @@ query {
     mailingListSummary
     featuredEvent {
       title
+      ticketsAvailable
       startDateTime {
         iso
       }
       endDateTime {
         iso
+      }
+      ticketReleaseDate {
+        iso
+      }
+      externalLinks {
+        url
+        title
+        type
       }
       location {
         address
