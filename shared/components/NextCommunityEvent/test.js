@@ -31,15 +31,43 @@ describe('NextCommunityEvent component', () => {
 });
 
 describe('getHeaderText', () => {
-  it('returns Last Event if the event time is before the current time', () => {
-    tk.freeze(new Date(100)); // The mocked current time
-    const result = getHeaderText(new Date(99));
-    expect(result).to.equal('Last Event');
+  afterEach(() => {
+    tk.reset();
   });
 
   it('returns Next Event if the event time is after the current time', () => {
-    tk.freeze(new Date(98)); // The mocked current time
-    const result = getHeaderText(new Date(99));
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
+    const result = getHeaderText(
+      new Date('2016-07-26T17:30:00+0000'),
+      new Date('2016-07-26T19:30:00+0000')
+    );
     expect(result).to.equal('Next Event');
+  });
+
+  it('returns Last Event if the event time is before the current time (sameDay)', () => {
+    tk.freeze(new Date('2016-07-26T20:30:00+0000'));
+    const result = getHeaderText(
+      new Date('2016-07-26T17:30:00+0000'),
+      new Date('2016-07-26T19:30:00+0000')
+    );
+    expect(result).to.equal('Last Event');
+  });
+
+  it('returns Last Event if the event time is before the current time (nextDay)', () => {
+    tk.freeze(new Date('2016-07-27T20:30:00+0000'));
+    const result = getHeaderText(
+      new Date('2016-07-26T17:30:00+0000'),
+      new Date('2016-07-26T19:30:00+0000')
+    );
+    expect(result).to.equal('Last Event');
+  });
+
+  it('returns Todays Event if the event time is today & before the end time', () => {
+    tk.freeze(new Date('2016-07-26T16:30:00+0000'));
+    const result = getHeaderText(
+      new Date('2016-07-26T17:30:00+0000'),
+      new Date('2016-07-26T19:30:00+0000')
+    );
+    expect(result).to.equal('Today\'s Event');
   });
 });

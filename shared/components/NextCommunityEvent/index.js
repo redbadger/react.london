@@ -15,8 +15,13 @@ function googleMapsUrl(location) {
   return `http://www.google.com/maps/place/${latitude},${longitude}`;
 }
 
-export function getHeaderText(eventTime) {
-  return moment().isBefore(eventTime)
+export function getHeaderText(startDateTime, endDateTime) {
+  // Today's Event
+  const isToday = moment(startDateTime).isSame(moment(), 'day');
+  if (isToday && moment().isBefore(endDateTime)) {
+    return 'Today\'s Event';
+  }
+  return moment().isBefore(startDateTime)
     ? 'Next Event'
     : 'Last Event';
 }
@@ -34,7 +39,7 @@ const NextCommunityEvent = ({
   <section className="NextCommunityEvent block">
     <div className="content">
       <h2 className="NextCommunityEvent__header">
-        {getHeaderText(startDateTime)}
+        {getHeaderText(startDateTime, endDateTime)}
       </h2>
       <article className="NextCommunityEvent__section-container">
         <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
