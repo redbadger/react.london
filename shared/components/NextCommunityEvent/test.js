@@ -1,8 +1,7 @@
 import React from 'react';
-import NextCommunityEvent from '.';
+import NextCommunityEvent, { getHeaderText } from '.';
 import { shallow } from 'enzyme';
-// import sinon from 'sinon';
-// import moment from 'moment';
+import tk from 'timekeeper';
 
 const props = {
   title: 'July React Meetup',
@@ -31,15 +30,16 @@ describe('NextCommunityEvent component', () => {
   });
 });
 
-// describe('getHeaderText', () => {
-//   it('test', () => {
-//   });
-// });
+describe('getHeaderText', () => {
+  it('returns Last Event if the event time is before the current time', () => {
+    tk.freeze(new Date(100)); // The mocked current time
+    const result = getHeaderText(new Date(99));
+    expect(result).to.equal('Last Event');
+  });
 
-
-
-// export function renderHeader(eventTime) {
-//   return moment().isBefore(eventTime)
-//     ? 'Next Event'
-//     : 'Last Event';
-// }
+  it('returns Next Event if the event time is after the current time', () => {
+    tk.freeze(new Date(98)); // The mocked current time
+    const result = getHeaderText(new Date(99));
+    expect(result).to.equal('Next Event');
+  });
+});

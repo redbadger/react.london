@@ -71,6 +71,7 @@
     "react-testutils-additions": "^15.1.0",
     "supertest": "^1.2.0",
     "svgo": "^0.6.6",
+    "timekeeper": "^0.1.1",
     "webpack-dev-server": "^1.14.1"
   }
 }
