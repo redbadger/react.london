@@ -16,14 +16,20 @@ function googleMapsUrl(location) {
 }
 
 export function getHeaderText(startDateTime, endDateTime) {
-  // Today's Event
-  const isToday = moment(startDateTime).isSame(moment(), 'day');
-  if (isToday && moment().isBefore(endDateTime)) {
+  const currentDateTime = moment();
+  const isToday = moment(startDateTime).isSame(currentDateTime, 'day');
+
+  if (isToday && currentDateTime.isBefore(endDateTime)) {
     return 'Today\'s Event';
   }
-  return moment().isBefore(startDateTime)
-    ? 'Next Event'
-    : 'Last Event';
+
+  if (currentDateTime.isAfter(endDateTime)) {
+    return 'Last Event';
+  }
+
+  if (!isToday && currentDateTime.isBefore(startDateTime)) {
+    return 'Next Event';
+  }
 }
 
 const NextCommunityEvent = ({
