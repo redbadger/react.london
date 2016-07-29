@@ -1,5 +1,5 @@
 import React from 'react';
-import EventStatus, { getActionLink, renderButton } from '.';
+import EventStatus, { StatusButton, getActionLink } from '.';
 import { shallow } from 'enzyme';
 
 const props = {
@@ -29,28 +29,28 @@ describe('EventStatus component', () => {
   });
 });
 
-describe.only('getActionLink', () => {
+describe('getActionLink', () => {
   let externalLinks;
 
   beforeEach(() => {
     externalLinks = [
       {
-        name: 'Baz',
+        title: 'Baz',
         url: 'baz.com',
         type: null // here we test that a null type is handled
       },
       {
-        name: 'Foo',
+        title: 'Foo',
         url: 'foo.com',
         type: 'EVENT',
       },
       {
-        name: 'Boz',
+        title: 'Boz',
         url: 'boz.com',
         type: 'EVENT',
       },
       {
-        name: 'Bar',
+        title: 'Bar',
         url: 'bar.com',
         type: 'STREAM',
       },
@@ -75,5 +75,41 @@ describe.only('getActionLink', () => {
   it('handles a falsy list of externalLinks being passed in', () => {
     expect(getActionLink(null, 'EVENT'))
       .to.equal(undefined);
+  });
+});
+
+describe('StatusButton component', () => {
+  it('renders a disabled StatusButton correctly', () => {
+    const inactiveButtonProps = {
+      externalLinks: [
+        {
+          title: 'foo baz',
+          url: 'foobaz.com',
+          type: 'OTHER',
+        },
+      ],
+    };
+    const wrapper = shallow(<StatusButton {...inactiveButtonProps} />);
+    const linkProps = wrapper.find('a').props();
+
+    expect(linkProps.href).to.equal(undefined); // we don't have a url
+    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--disabled');;
+  });
+
+  it('renders an active StatusButton correctly', () => {
+    const activeButtonProps = {
+      externalLinks: [
+        {
+          title: 'foo baz',
+          url: 'foobaz.com',
+          type: 'EVENT',
+        },
+      ],
+    };
+    const wrapper = shallow(<StatusButton {...activeButtonProps} />);
+    const linkProps = wrapper.find('a').props();
+
+    expect(linkProps.href).to.equal('foobaz.com');
+    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--active');;
   });
 });

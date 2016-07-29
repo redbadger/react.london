@@ -13,7 +13,7 @@ export const getActionLink = (externalLinks, type) => {
     : undefined;
 };
 
-export const renderButton = (externalLinks) => {
+export const StatusButton = ({ externalLinks }) => {
   let actionLink = getActionLink(externalLinks, 'EVENT');
   let actionLinkClasses = classnames({
     'EventStatus__booking-btn': true,
@@ -45,7 +45,7 @@ const EventStatus = ({
       <p className="EventStatus__live-stream-text">
         Couldn’t make the event? <div>We’ve got your back.</div>
       </p>
-      {renderButton(externalLinks)}
+      <StatusButton externalLinks={externalLinks} />
       <p className="EventStatus__live-stream-text">
         To get reminders about tickets and future
         events <a className="EventStatus__live-stream-text--link" href="#stay-tuned">
