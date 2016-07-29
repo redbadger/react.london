@@ -1,4 +1,35 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
+
+const getActionLink = (externalLinks, type) => {
+  const foundLink = externalLinks.find((link) => {
+    return link.type === type;
+  });
+
+  return foundLink.url
+    ? foundLink.url
+    : undefined;
+};
+
+const renderButton = (externalLinks) => {
+  let actionLink = getActionLink(externalLinks, 'EVENT');
+  let actionLinkClasses = classnames({
+    'EventStatus__booking-btn': true,
+    'EventStatus__booking-btn--active': actionLink,
+    'EventStatus__booking-btn--disabled': !actionLink,
+  });
+
+  return (
+    <div className="EventStatus__booking-btn__container">
+      <a
+        className={actionLinkClasses}
+        href={actionLink}
+      >
+        Watch Video
+      </a>
+    </div>
+  );
+};
 
 const EventStatus = ({
   ticketsAvailable,
@@ -12,14 +43,7 @@ const EventStatus = ({
       <p className="EventStatus__live-stream-text">
         Couldn’t make the event? <div>We’ve got your back.</div>
       </p>
-      <div className="EventStatus__booking-btn__container">
-        <a
-          className="EventStatus__booking-btn EventStatus__booking-btn--active"
-          href="https://www.youtube.com/watch?v=HrECWxWVcEI"
-        >
-          Watch Video
-        </a>
-      </div>
+      {renderButton(externalLinks)}
       <p className="EventStatus__live-stream-text">
         To get reminders about tickets and future
         events <a className="EventStatus__live-stream-text--link" href="#stay-tuned">
