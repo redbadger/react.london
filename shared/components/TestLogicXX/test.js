@@ -4,11 +4,11 @@ import tk from 'timekeeper';
 
 // export function getButtonText(ticketsReleaseDateTime, startDateTime, endDateTime, ticketsAvailiable, waitingListOpen) {
 
-describe('getButtonText component', () => {
+describe.only('getButtonText component', () => {
   it('returns Free Ticket and empty linkType if the current time is before the ticket release time', () => {
     tk.freeze(new Date(100));
     const ticketsReleaseDateTime = new Date(101);
-    const result = getButtonText(ticketsReleaseDateTime);
+    const result = getButtonText({ ticketsReleaseDateTime });
 
     expect(result).to.deep.equal({
       buttonText: 'Free Ticket',
@@ -19,7 +19,7 @@ describe('getButtonText component', () => {
   it('returns Free ticket and Event linkType if the current Time is greater than the release date and there are tickets availiable', () => {
     tk.freeze(new Date(100));
     const ticketsReleaseDateTime = new Date(99);
-    const result = getButtonText(ticketsReleaseDateTime, null, true, false);
+    const result = getButtonText({ ticketsReleaseDateTime, ticketsAvailiable: true, waitingListOpen: false });
 
     expect(result).to.deep.equal({
       buttonText: 'Free Ticket',
@@ -28,7 +28,9 @@ describe('getButtonText component', () => {
   });
 
   it('returns Join Waitlist and Event linkType if the waiting list is open', () => {
-    const result = getButtonText(null, null, false, true);
+    tk.freeze(new Date(100));
+    const ticketsReleaseDateTime = new Date(99);
+    const result = getButtonText({ ticketsReleaseDateTime, ticketsAvailiable: false, waitingListOpen: true });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Waitlist',
@@ -38,7 +40,7 @@ describe('getButtonText component', () => {
 
   it('returns Watch and Stream linkType if the event is completed', () => {
     tk.freeze(new Date(100));
-    const result = getButtonText(null, new Date(99), false, false);
+    const result = getButtonText({ endDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
 
     expect(result).to.deep.equal({
       buttonText: 'Watch',
@@ -48,7 +50,7 @@ describe('getButtonText component', () => {
 
   it('returns Join Live Stream and Stream linkType if the current time is greater than the release date time and there are no tickets and no wait list', () => {
     tk.freeze(new Date(100));
-    const result = getButtonText(new Date(99), null, false, false);
+    const result = getButtonText({ ticketsReleaseDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Live Stream',
