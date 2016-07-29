@@ -4,30 +4,26 @@ import classnames from 'classnames';
 export const getActionLink = (externalLinks, type) => {
   if (!externalLinks) return undefined;
 
-  const foundLink = externalLinks.find((link) => {
+  return externalLinks.find((link) => {
     return link.type === type;
   });
-
-  return (foundLink && foundLink.url)
-    ? foundLink.url
-    : undefined;
 };
 
 export const StatusButton = ({ externalLinks }) => {
-  let actionLink = getActionLink(externalLinks, 'EVENT');
-  let actionLinkClasses = classnames({
+  const action = getActionLink(externalLinks, 'EVENT');
+  const actionClasses = classnames({
     'EventStatus__booking-btn': true,
-    'EventStatus__booking-btn--active': actionLink,
-    'EventStatus__booking-btn--disabled': !actionLink,
+    'EventStatus__booking-btn--active': action && action.url,
+    'EventStatus__booking-btn--disabled': !action || !action.url,
   });
 
   return (
     <div className="EventStatus__booking-btn__container">
       <a
-        className={actionLinkClasses}
-        href={actionLink}
+        className={actionClasses}
+        href={(action && action.url) || '#'}
       >
-        Watch Video
+        {(action && action.title) || ''}
       </a>
     </div>
   );

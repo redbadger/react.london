@@ -59,7 +59,11 @@ describe('getActionLink', () => {
 
   it('returns the first found link URL when multiple exist', () => {
     expect(getActionLink(externalLinks, 'EVENT'))
-      .to.equal('foo.com');
+      .to.deep.equal({
+        title: 'Foo',
+        url: 'foo.com',
+        type: 'EVENT',
+      });
   });
 
   it('returns undefined when nothing is found', () => {
@@ -92,7 +96,8 @@ describe('StatusButton component', () => {
     const wrapper = shallow(<StatusButton {...inactiveButtonProps} />);
     const linkProps = wrapper.find('a').props();
 
-    expect(linkProps.href).to.equal(undefined); // we don't have a url
+    expect(linkProps.href).to.equal('#'); // we don't have a url
+    expect(linkProps.children).to.equal('');
     expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--disabled');;
   });
 
@@ -110,6 +115,7 @@ describe('StatusButton component', () => {
     const linkProps = wrapper.find('a').props();
 
     expect(linkProps.href).to.equal('foobaz.com');
-    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--active');;
+    expect(linkProps.children).to.equal('foo baz');
+    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--active');
   });
 });
