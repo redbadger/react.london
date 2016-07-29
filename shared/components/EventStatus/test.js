@@ -1,5 +1,5 @@
 import React from 'react';
-import EventStatus from '.';
+import EventStatus, { getActionLink, renderButton } from '.';
 import { shallow } from 'enzyme';
 
 const props = {
@@ -27,4 +27,8 @@ describe('EventStatus component', () => {
   it('renders OK without props', () => {
     shallow(<EventStatus />);
   });
+});
+
+describe('getActionLink', () => {
+
 });

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-const getActionLink = (externalLinks, type) => {
+export const getActionLink = (externalLinks, type) => {
   const foundLink = externalLinks.find((link) => {
     return link.type === type;
   });
@@ -11,7 +11,7 @@ const getActionLink = (externalLinks, type) => {
     : undefined;
 };
 
-const renderButton = (externalLinks) => {
+export const renderButton = (externalLinks) => {
   let actionLink = getActionLink(externalLinks, 'EVENT');
   let actionLinkClasses = classnames({
     'EventStatus__booking-btn': true,
