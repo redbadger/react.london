@@ -2,11 +2,13 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
 export const getActionLink = (externalLinks, type) => {
+  if (!externalLinks) return undefined;
+
   const foundLink = externalLinks.find((link) => {
     return link.type === type;
   });
 
-  return foundLink.url
+  return (foundLink && foundLink.url)
     ? foundLink.url
     : undefined;
 };
