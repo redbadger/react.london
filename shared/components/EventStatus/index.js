@@ -71,4 +71,12 @@ EventStatus.propTypes = {
   endDateTime: dateTimeType,
 };
 
+StatusButton.propTypes = {
+  externalLinks: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+    type: PropTypes.string,
+  })),
+};
+
 export default EventStatus;
