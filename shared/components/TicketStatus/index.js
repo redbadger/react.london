@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-export const StatusButton = ({ externalLinks, buttonText, link }) => {
+export const StatusButton = ({ buttonText, link }) => {
   const actionClasses = classnames({
     'TicketStatus__booking-btn': true,
     'TicketStatus__booking-btn--active': link,
@@ -54,7 +54,7 @@ TicketStatus.propTypes = {
 StatusButton.propTypes = {
   buttonText: PropTypes.string,
   linkType: PropTypes.string,
-
+  link: PropTypes.string,
   externalLinks: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     url: PropTypes.string,
