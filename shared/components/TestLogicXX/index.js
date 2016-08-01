@@ -1,5 +1,13 @@
 import moment from 'moment';
 
+export function getActionLink(externalLinks, type) {
+  if (!externalLinks) return undefined;
+
+  return externalLinks.find((link) => {
+    return link.type === type;
+  });
+}
+
 /*
  * isTicketPreRelease
  * This function will return the correct values if the tickets are still to be released.
@@ -105,5 +113,8 @@ export function getTicketStatusOptions(options) {
     result = check(parameters);
     return result;
   });
-  return result;
+
+  return Object.assign({}, result, {
+    link: getActionLink(options.externalLinks, result.linkType),
+  });
 }

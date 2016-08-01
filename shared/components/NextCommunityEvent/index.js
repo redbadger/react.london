@@ -34,13 +34,10 @@ export function getHeaderText(startDateTime, endDateTime) {
 
 const NextCommunityEvent = ({
   title,
-  ticketsAvailable,
   startDateTime,
   endDateTime,
-  ticketReleaseDate,
   location,
   talks,
-  externalLinks,
 }) => (
   <section className="NextCommunityEvent block">
     <div className="content">

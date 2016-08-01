@@ -1,27 +1,18 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-export const getActionLink = (externalLinks, type) => {
-  if (!externalLinks) return undefined;
-
-  return externalLinks.find((link) => {
-    return link.type === type;
-  });
-};
-
-export const StatusButton = ({ externalLinks, buttonText }) => {
-  const action = getActionLink(externalLinks, 'EVENT');
+export const StatusButton = ({ externalLinks, buttonText, link }) => {
   const actionClasses = classnames({
     'TicketStatus__booking-btn': true,
-    'TicketStatus__booking-btn--active': action && action.url,
-    'TicketStatus__booking-btn--disabled': !action || !action.url,
+    'TicketStatus__booking-btn--active': link,
+    'TicketStatus__booking-btn--disabled': !link,
   });
 
   return (
     <div className="TicketStatus__booking-btn__container">
       <a
         className={actionClasses}
-        href={(action && action.url) || '#'}
+        href={link || '#'}
       >
         {buttonText}
       </a>
@@ -29,17 +20,17 @@ export const StatusButton = ({ externalLinks, buttonText }) => {
   );
 };
 
-const TicketStatus = ({
-  externalLinks,
-  buttonText,
-}) => {
+const TicketStatus = (props) => {
+  const { statusHeader, statusSubHeader } = props;
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
-      <h3 className="TicketStatus__booking__heading">This event has </h3>
+      <h3 className="TicketStatus__booking__heading">
+        {statusHeader}
+      </h3>
       <p className="TicketStatus__live-stream-text">
-        Couldn’t make the event? <div>We’ve got your back.</div>
+        {statusSubHeader}
       </p>
-      <StatusButton externalLinks={externalLinks} buttonText={buttonText} />
+      <StatusButton {...props} />
       <p className="TicketStatus__live-stream-text">
         To get reminders about tickets and future
         events <a className="TicketStatus__live-stream-text--link" href="#stay-tuned">
@@ -49,10 +40,6 @@ const TicketStatus = ({
   );
 };
 
-const dateTimeType = PropTypes.shape({
-  iso: PropTypes.string.isRequired,
-});
-
 TicketStatus.propTypes = {
   ticketsAvailable: PropTypes.bool,
   externalLinks: PropTypes.arrayOf(PropTypes.shape({
@@ -60,12 +47,14 @@ TicketStatus.propTypes = {
     url: PropTypes.string,
     type: PropTypes.string,
   })),
-  ticketReleaseDate: dateTimeType,
-  startDateTime: dateTimeType,
-  endDateTime: dateTimeType,
+  statusHeader: PropTypes.string,
+  statusSubHeader: PropTypes.string,
 };
 
 StatusButton.propTypes = {
+  buttonText: PropTypes.string,
+  linkType: PropTypes.string,
+
   externalLinks: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     url: PropTypes.string,
