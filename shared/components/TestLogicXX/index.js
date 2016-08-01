@@ -10,6 +10,8 @@ export function isTicketPreRelease({ currentTime, ticketsReleaseDateTime }) {
     return {
       buttonText: 'Free Ticket',
       linkType: '',
+      statusHeader: 'TICKETS WILL GO LIVE ON',
+      statusSubHeader: 'Monday, 11 July 2016 at 12:00',
     };
   }
 }
@@ -25,6 +27,8 @@ export function isTicketRelease({ currentTime, ticketsReleaseDateTime, ticketsAv
     return {
       buttonText: 'Free Ticket',
       linkType: 'EVENT',
+      statusHeader: 'TICKETS LIVE',
+      statusSubHeader: 'Go to {Eventbrite} to get yours',
     };
   }
 }
@@ -48,6 +52,8 @@ export function isWaitlist({
     return {
       buttonText: 'Join Waitlist',
       linkType: 'EVENT',
+      statusHeader: 'TICKETS NOW SOLD OUT',
+      statusSubHeader: 'Join the waiting list on {eventbrite}',
     };
   }
 }
@@ -68,6 +74,8 @@ export function isStreaming({
     return {
       buttonText: 'Join Live Stream',
       linkType: 'STREAM',
+      statusHeader: 'TICKETS NOW SOLD OUT',
+      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
     };
   }
 }
@@ -82,6 +90,8 @@ export function isEnded({ currentTime, endDateTime }) {
     return {
       buttonText: 'Watch',
       linkType: 'STREAM',
+      statusHeader: 'This event has ended',
+      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
     };
   }
 }
