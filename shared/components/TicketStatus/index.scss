@@ -1,5 +1,5 @@
 // NEXT EVENT
-.EventStatus {
+.TicketStatus {
   border-top: $solid-border;
   background-color: $events-color-faded;
 
@@ -57,7 +57,7 @@
 }
 
 @media (min-width: 768px) {
-  .EventStatus {
+  .TicketStatus {
     &__section {
       width: 50%;
 

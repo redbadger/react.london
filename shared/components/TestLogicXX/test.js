@@ -4,7 +4,7 @@ import tk from 'timekeeper';
 
 // export function getButtonText(ticketsReleaseDateTime, startDateTime, endDateTime, ticketsAvailiable, waitingListOpen) {
 
-describe.only('getButtonText component', () => {
+describe('getButtonText component', () => {
   it('returns Free Ticket and empty linkType if the current time is before the ticket release time', () => {
     tk.freeze(new Date(100));
     const ticketsReleaseDateTime = new Date(101);

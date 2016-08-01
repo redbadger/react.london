@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
-import EventStatus from '../EventStatus';
+import TicketStatus from '../TicketStatus';
 import { formatDate } from '../../utilities/format-date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
@@ -80,7 +80,7 @@ const NextCommunityEvent = ({
             </li>
           </ul>
         </div>
-        <EventStatus
+        <TicketStatus
           ticketsAvailable={ticketsAvailable}
           ticketReleaseDate={ticketReleaseDate}
           externalLinks={externalLinks}

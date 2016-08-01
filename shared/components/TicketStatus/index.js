@@ -12,13 +12,13 @@ export const getActionLink = (externalLinks, type) => {
 export const StatusButton = ({ externalLinks }) => {
   const action = getActionLink(externalLinks, 'EVENT');
   const actionClasses = classnames({
-    'EventStatus__booking-btn': true,
-    'EventStatus__booking-btn--active': action && action.url,
-    'EventStatus__booking-btn--disabled': !action || !action.url,
+    'TicketStatus__booking-btn': true,
+    'TicketStatus__booking-btn--active': action && action.url,
+    'TicketStatus__booking-btn--disabled': !action || !action.url,
   });
 
   return (
-    <div className="EventStatus__booking-btn__container">
+    <div className="TicketStatus__booking-btn__container">
       <a
         className={actionClasses}
         href={(action && action.url) || '#'}
@@ -29,22 +29,22 @@ export const StatusButton = ({ externalLinks }) => {
   );
 };
 
-const EventStatus = ({
+const TicketStatus = ({
   ticketsAvailable,
   externalLinks,
   startDateTime,
   endDateTime,
 }) => {
   return (
-    <div className="EventStatus__section EventStatus__section__booking">
-      <h3 className="EventStatus__booking__heading">This event has </h3>
-      <p className="EventStatus__live-stream-text">
+    <div className="TicketStatus__section TicketStatus__section__booking">
+      <h3 className="TicketStatus__booking__heading">This event has </h3>
+      <p className="TicketStatus__live-stream-text">
         Couldn’t make the event? <div>We’ve got your back.</div>
       </p>
       <StatusButton externalLinks={externalLinks} />
-      <p className="EventStatus__live-stream-text">
+      <p className="TicketStatus__live-stream-text">
         To get reminders about tickets and future
-        events <a className="EventStatus__live-stream-text--link" href="#stay-tuned">
+        events <a className="TicketStatus__live-stream-text--link" href="#stay-tuned">
         subscribe here</a>
       </p>
     </div>
@@ -55,7 +55,7 @@ const dateTimeType = PropTypes.shape({
   iso: PropTypes.string.isRequired,
 });
 
-EventStatus.propTypes = {
+TicketStatus.propTypes = {
   ticketsAvailable: PropTypes.bool,
   externalLinks: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
@@ -75,4 +75,4 @@ StatusButton.propTypes = {
   })),
 };
 
-export default EventStatus;
+export default TicketStatus;

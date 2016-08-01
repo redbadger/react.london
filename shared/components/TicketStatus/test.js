@@ -1,5 +1,5 @@
 import React from 'react';
-import EventStatus, { StatusButton, getActionLink } from '.';
+import TicketStatus, { StatusButton, getActionLink } from '.';
 import { shallow } from 'enzyme';
 
 const props = {
@@ -19,13 +19,13 @@ const props = {
   },
 };
 
-describe('EventStatus component', () => {
+describe('TicketStatus component', () => {
   it('renders OK with all props', () => {
-    shallow(<EventStatus {...props} />);
+    shallow(<TicketStatus {...props} />);
   });
 
   it('renders OK without props', () => {
-    shallow(<EventStatus />);
+    shallow(<TicketStatus />);
   });
 });
 
@@ -98,7 +98,7 @@ describe('StatusButton component', () => {
 
     expect(linkProps.href).to.equal('#'); // we don't have a url
     expect(linkProps.children).to.equal('');
-    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--disabled');;
+    expect(linkProps.className).to.equal('TicketStatus__booking-btn TicketStatus__booking-btn--disabled');;
   });
 
   it('renders an active StatusButton correctly', () => {
@@ -116,6 +116,6 @@ describe('StatusButton component', () => {
 
     expect(linkProps.href).to.equal('foobaz.com');
     expect(linkProps.children).to.equal('foo baz');
-    expect(linkProps.className).to.equal('EventStatus__booking-btn EventStatus__booking-btn--active');
+    expect(linkProps.className).to.equal('TicketStatus__booking-btn TicketStatus__booking-btn--active');
   });
 });
