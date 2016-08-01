@@ -13,8 +13,8 @@ export function getActionLink(externalLinks, type) {
  * This function will return the correct values if the tickets are still to be released.
  * This is calculated by finding whether the currentTime is before the ticket release date
  */
-export function isTicketPreRelease({ currentTime, ticketsReleaseDateTime }) {
-  if (currentTime.isBefore(ticketsReleaseDateTime)) {
+export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
+  if (currentTime.isBefore(ticketReleaseDate)) {
     return {
       buttonText: 'Free Ticket',
       linkType: '',
@@ -30,8 +30,8 @@ export function isTicketPreRelease({ currentTime, ticketsReleaseDateTime }) {
  * This is calculated by finding whether the currentTime is after the ticket release date
  * and whether there are actually any tickets availiable.
  */
-export function isTicketRelease({ currentTime, ticketsReleaseDateTime, ticketsAvailiable }) {
-  if (currentTime.isAfter(ticketsReleaseDateTime) && ticketsAvailiable) {
+export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailiable }) {
+  if (currentTime.isAfter(ticketReleaseDate) && ticketsAvailiable) {
     return {
       buttonText: 'Free Ticket',
       linkType: 'EVENT',
@@ -54,9 +54,9 @@ export function isWaitlist({
   currentTime,
   ticketsAvailiable,
   waitingListOpen,
-  ticketsReleaseDateTime,
+  ticketReleaseDate,
 }) {
-  if (waitingListOpen && !ticketsAvailiable && (currentTime.isAfter(ticketsReleaseDateTime))) {
+  if (waitingListOpen && !ticketsAvailiable && (currentTime.isAfter(ticketReleaseDate))) {
     return {
       buttonText: 'Join Waitlist',
       linkType: 'EVENT',
@@ -74,11 +74,12 @@ export function isWaitlist({
  */
 export function isStreaming({
   currentTime,
-  ticketsReleaseDateTime,
+  ticketReleaseDate,
   ticketsAvailiable,
   waitingListOpen,
+  endDateTime,
 }) {
-  if (currentTime.isAfter(ticketsReleaseDateTime) && !waitingListOpen && !ticketsAvailiable) {
+  if (currentTime.isAfter(ticketReleaseDate) && !waitingListOpen && !ticketsAvailiable && currentTime.isBefore(endDateTime)) {
     return {
       buttonText: 'Join Live Stream',
       linkType: 'STREAM',
