@@ -9,7 +9,7 @@ export const getActionLink = (externalLinks, type) => {
   });
 };
 
-export const StatusButton = ({ externalLinks }) => {
+export const StatusButton = ({ externalLinks, buttonText }) => {
   const action = getActionLink(externalLinks, 'EVENT');
   const actionClasses = classnames({
     'TicketStatus__booking-btn': true,
@@ -23,17 +23,15 @@ export const StatusButton = ({ externalLinks }) => {
         className={actionClasses}
         href={(action && action.url) || '#'}
       >
-        {(action && action.title) || ''}
+        {buttonText}
       </a>
     </div>
   );
 };
 
 const TicketStatus = ({
-  ticketsAvailable,
   externalLinks,
-  startDateTime,
-  endDateTime,
+  buttonText,
 }) => {
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
@@ -41,7 +39,7 @@ const TicketStatus = ({
       <p className="TicketStatus__live-stream-text">
         Couldn’t make the event? <div>We’ve got your back.</div>
       </p>
-      <StatusButton externalLinks={externalLinks} />
+      <StatusButton externalLinks={externalLinks} buttonText={buttonText} />
       <p className="TicketStatus__live-stream-text">
         To get reminders about tickets and future
         events <a className="TicketStatus__live-stream-text--link" href="#stay-tuned">

@@ -86,7 +86,7 @@ export function isEnded({ currentTime, endDateTime }) {
   }
 }
 
-export function getButtonText(options) {
+export function getTicketStatusOptions(options) {
   const parameters = { ...options, currentTime: moment() };
   const checks = [isTicketPreRelease, isTicketRelease, isWaitlist, isStreaming, isEnded];
   let result;
