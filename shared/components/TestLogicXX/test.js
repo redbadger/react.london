@@ -79,7 +79,7 @@ describe('getTicketStatusOptions', () => {
         {
           title: 'Baz',
           url: 'baz.com',
-          type: null // here we test that a null type is handled
+          type: null, // here we test that a null type is handled
         },
         {
           title: 'Foo',
