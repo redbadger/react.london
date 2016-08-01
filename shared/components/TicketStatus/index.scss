@@ -22,10 +22,11 @@
 
   &__live-stream-text {
     margin-bottom: 0px;
+    line-height: 20px;
   }
 
   &__booking-btn__container{
-    padding-top: 15px;
+    padding-top: 32px;
     padding-bottom: 15px;
   }
   &__booking-btn {
@@ -35,6 +36,7 @@
     padding: 12px 15px;
     color: $white;
     font-weight: bold;
+    text-decoration: none;
 
     &--disabled {
       background-color: $disabled-grey;

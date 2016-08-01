@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import pathOr from 'ramda/src/pathOr';
 import TicketStatus from '../../components/TicketStatus';
-import { getTicketStatusOptions } from '../../components/TestLogicXX';
+import { getTicketStatusOptions } from '../../utilities/get-ticket-status';
 
 const defaultProps = {
   talks: [],

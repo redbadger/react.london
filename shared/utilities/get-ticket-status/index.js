@@ -79,12 +79,7 @@ export function isStreaming({
   waitingListOpen,
   endDateTime,
 }) {
-  if (
-    currentTime.isAfter(ticketReleaseDate)
-    && !waitingListOpen
-    && !ticketsAvailiable
-    && currentTime.isBefore(endDateTime)
-  ) {
+  if (currentTime.isAfter(ticketReleaseDate) && !waitingListOpen && !ticketsAvailiable && currentTime.isBefore(endDateTime)) {
     return {
       buttonText: 'Join Live Stream',
       linkType: 'STREAM',
