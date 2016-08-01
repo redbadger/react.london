@@ -60,11 +60,7 @@ describe('getTicketStatusOptions', () => {
 
   it('returns Watch and Stream linkType if the event is completed', () => {
     tk.freeze(new Date(100));
-// <<<<<<< Updated upstream
-//     const result = getTicketStatusOptions({ endDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
-// =======
     const result = getTicketStatusOptions({ ticketReleaseDate: new Date(98), endDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
-// >>>>>>> Stashed changes
 
     expect(result).to.deep.equal({
       buttonText: 'Watch',
