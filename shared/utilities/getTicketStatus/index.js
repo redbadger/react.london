@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { isBefore, isAfter } from '../dateUtils';
 
 export function getActionLink(externalLinks, type) {
   if (!externalLinks) return undefined;
@@ -14,7 +15,7 @@ export function getActionLink(externalLinks, type) {
  * This is calculated by finding whether the currentTime is before the ticket release date
  */
 export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
-  if (currentTime.isBefore(ticketReleaseDate)) {
+  if (isBefore(currentTime, ticketReleaseDate)) {
     return {
       buttonText: 'Free Ticket',
       linkType: '',
@@ -31,7 +32,7 @@ export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
  * and whether there are actually any tickets availiable.
  */
 export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailiable }) {
-  if (currentTime.isAfter(ticketReleaseDate) && ticketsAvailiable) {
+  if (isAfter(currentTime, ticketReleaseDate) && ticketsAvailiable) {
     return {
       buttonText: 'Free Ticket',
       linkType: 'EVENT',
@@ -56,7 +57,7 @@ export function isWaitlist({
   waitingListOpen,
   ticketReleaseDate,
 }) {
-  if (waitingListOpen && !ticketsAvailiable && (currentTime.isAfter(ticketReleaseDate))) {
+  if (waitingListOpen && !ticketsAvailiable && (isAfter(currentTime, ticketReleaseDate))) {
     return {
       buttonText: 'Join Waitlist',
       linkType: 'EVENT',
@@ -80,10 +81,10 @@ export function isStreaming({
   endDateTime,
 }) {
   if (
-    currentTime.isAfter(ticketReleaseDate)
+    isAfter(currentTime, ticketReleaseDate)
     && !waitingListOpen
     && !ticketsAvailiable
-    && currentTime.isBefore(endDateTime)
+    && isBefore(currentTime, endDateTime)
   ) {
     return {
       buttonText: 'Join Live Stream',
@@ -100,7 +101,7 @@ export function isStreaming({
  * This is calculated by finding whether the currentTime is after the event endDateTime
  */
 export function isEnded({ currentTime, endDateTime }) {
-  if (currentTime.isAfter(endDateTime)) {
+  if (isAfter(currentTime, endDateTime)) {
     return {
       buttonText: 'Watch',
       linkType: 'STREAM',

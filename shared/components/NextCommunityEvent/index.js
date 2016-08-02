@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import TicketStatus from '../../containers/TicketStatus';
-import { formatDate } from '../../utilities/format-date';
+import { formatDate } from '../../utilities/dateUtils';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 

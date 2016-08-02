@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { formatDate } from '../../utilities/format-date';
+import { formatDate } from '../../utilities/dateUtils';
 
 const ScheduleItem = ({
   datetime,
