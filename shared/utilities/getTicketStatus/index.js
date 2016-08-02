@@ -4,16 +4,9 @@ import { isBefore, isAfter, formatDate } from '../dateUtils';
 export function getActionLink(externalLinks, type) {
   if (!externalLinks) return undefined;
 
-  return externalLinks.find((link) => {
-    return link.type === type;
-  });
+  return externalLinks.find(link => link.type === type);
 }
 
-/*
- * isTicketPreRelease
- * This function will return the correct values if the tickets are still to be released.
- * This is calculated by finding whether the currentTime is before the ticket release date
- */
 export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
   if (isBefore(currentTime, ticketReleaseDate)) {
     return {
@@ -25,12 +18,6 @@ export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
   }
 }
 
-/*
- * isTicketRelease
- * This function will return the correct values if the tickets are released.
- * This is calculated by finding whether the currentTime is after the ticket release date
- * and whether there are actually any tickets availiable.
- */
 export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailable }) {
   if (isAfter(currentTime, ticketReleaseDate) && ticketsAvailable) {
     return {
@@ -42,15 +29,6 @@ export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailab
   }
 }
 
-/*
- * isWaitlist
- * This function will return the correct values if the waiting list is open.
- * This is calculated by finding whether the waiting list is indeed open,
- * whether the current time is after the ticket release date
- * and whether there are no more tickets availiable.
- * The !ticketsAvailable and time check aren't really necessary but they enable
- * all these functions to be run in any order and they serve as a data validator.
- */
 export function isWaitlist({
   currentTime,
   ticketsAvailable,
@@ -67,12 +45,6 @@ export function isWaitlist({
   }
 }
 
-/*
- * isStreaming
- * This function will return the correct values if the event is streaming.
- * This is calculated by finding whether the currentTime is after the ticket release date
- * and whether the waiting list is closed and there are no tickets availiable.
- */
 export function isStreaming({
   currentTime,
   ticketReleaseDate,
@@ -95,11 +67,6 @@ export function isStreaming({
   }
 }
 
-/*
- * isEnded
- * This function will return the correct values if the event is completed.
- * This is calculated by finding whether the currentTime is after the event endDateTime
- */
 export function isEnded({ currentTime, endDateTime }) {
   if (isAfter(currentTime, endDateTime)) {
     return {

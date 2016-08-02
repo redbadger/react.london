@@ -1,40 +1,53 @@
-/* eslint max-len: ["error", 2000] */
 import { getTicketStatusOptions, getActionLink } from '.';
 import tk from 'timekeeper';
 
 describe('getTicketStatusOptions', () => {
-  it('returns Free Ticket and empty linkType if the current time is before the ticket release time', () => {
-    tk.freeze(new Date(100));
-    const ticketReleaseDate = new Date(101);
-    const result = getTicketStatusOptions({ ticketReleaseDate });
+  it(
+    'returns Free Ticket and empty linkType if the current time is before the ticket release time',
+    () => {
+      tk.freeze(new Date(100));
+      const ticketReleaseDate = new Date(101);
+      const result = getTicketStatusOptions({ ticketReleaseDate });
 
-    expect(result).to.deep.equal({
-      buttonText: 'Free Ticket',
-      linkType: '',
-      statusHeader: 'TICKETS WILL GO LIVE ON',
-      statusSubHeader: 'Thursday, 1st January 1970, 01:00',
-      link: undefined,
-    });
-  });
+      expect(result).to.deep.equal({
+        buttonText: 'Free Ticket',
+        linkType: '',
+        statusHeader: 'TICKETS WILL GO LIVE ON',
+        statusSubHeader: 'Thursday, 1st January 1970, 01:00',
+        link: undefined,
+      });
+    }
+  );
 
-  it('returns Free ticket and Event linkType if the current Time is greater than the release date and there are tickets availiable', () => {
-    tk.freeze(new Date(100));
-    const ticketReleaseDate = new Date(99);
-    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailable: true, waitingListOpen: false });
+  it(
+    'returns freeTicket + eventLinkType when currentTime > the releaseDate + ticketsAvailiable',
+    () => {
+      tk.freeze(new Date(100));
+      const ticketReleaseDate = new Date(99);
+      const result = getTicketStatusOptions({
+        ticketReleaseDate,
+        ticketsAvailable: true,
+        waitingListOpen: false,
+      });
 
-    expect(result).to.deep.equal({
-      buttonText: 'Free Ticket',
-      linkType: 'TICKET',
-      statusHeader: 'TICKETS LIVE',
-      statusSubHeader: 'Go to {Eventbrite} to get yours',
-      link: undefined,
-    });
-  });
+      expect(result).to.deep.equal({
+        buttonText: 'Free Ticket',
+        linkType: 'TICKET',
+        statusHeader: 'TICKETS LIVE',
+        statusSubHeader: 'Go to {Eventbrite} to get yours',
+        link: undefined,
+      });
+    }
+  );
 
   it('returns Join Waitlist and Event linkType if the waiting list is open', () => {
     tk.freeze(new Date(100));
     const ticketReleaseDate = new Date(99);
-    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailable: false, waitingListOpen: true });
+    const result = getTicketStatusOptions({
+      ticketReleaseDate,
+      ticketsAvailable: false,
+      waitingListOpen: true,
+    });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Waitlist',
@@ -45,26 +58,36 @@ describe('getTicketStatusOptions', () => {
     });
   });
 
-  it('returns Join Live Stream and Stream linkType if the current time is greater than the release date time and there are no tickets and no wait list', () => {
-    tk.freeze(new Date(100));
-    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(99), endDateTime: new Date(101), ticketsAvailable: false, waitingListOpen: false });
+  it(
+    'returns Join Live Stream and Stream linkType if the current time is greater than the' +
+    'release date time and there are no tickets and no wait list',
+    () => {
+      tk.freeze(new Date(100));
+      const result = getTicketStatusOptions({
+        ticketReleaseDate: new Date(99),
+        endDateTime: new Date(101),
+        ticketsAvailable: false,
+        waitingListOpen: false,
+      });
 
-    expect(result).to.deep.equal({
-      buttonText: 'Join Live Stream',
-      linkType: 'STREAM',
-      statusHeader: 'TICKETS NOW SOLD OUT',
-      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
-      link: undefined,
-    });
-  });
+      expect(result).to.deep.equal({
+        buttonText: 'Join Live Stream',
+        linkType: 'STREAM',
+        statusHeader: 'TICKETS NOW SOLD OUT',
+        statusSubHeader: 'Couldn’t get a ticket? We got your back.',
+        link: undefined,
+      });
+    }
+  );
 
   it('returns Watch and Stream linkType if the event is completed', () => {
     tk.freeze(new Date(100));
-// <<<<<<< Updated upstream
-//     const result = getTicketStatusOptions({ endDateTime: new Date(99), ticketsAvailable: false, waitingListOpen: false });
-// =======
-    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(98), endDateTime: new Date(99), ticketsAvailable: false, waitingListOpen: false });
-// >>>>>>> Stashed changes
+    const result = getTicketStatusOptions({
+      ticketReleaseDate: new Date(98),
+      endDateTime: new Date(99),
+      ticketsAvailable: false,
+      waitingListOpen: false,
+    });
 
     expect(result).to.deep.equal({
       buttonText: 'Watch',
@@ -83,7 +106,7 @@ describe('getTicketStatusOptions', () => {
         {
           title: 'Baz',
           url: 'baz.com',
-          type: null, // here we test that a null type is handled
+          type: null,
         },
         {
           title: 'Foo',
