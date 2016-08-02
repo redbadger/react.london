@@ -26,6 +26,7 @@ query {
     featuredEvent {
       title
       ticketsAvailable
+      waitingListOpen
       startDateTime {
         iso
       }

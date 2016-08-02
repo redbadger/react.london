@@ -31,11 +31,11 @@ export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
  * This is calculated by finding whether the currentTime is after the ticket release date
  * and whether there are actually any tickets availiable.
  */
-export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailiable }) {
-  if (isAfter(currentTime, ticketReleaseDate) && ticketsAvailiable) {
+export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailable }) {
+  if (isAfter(currentTime, ticketReleaseDate) && ticketsAvailable) {
     return {
       buttonText: 'Free Ticket',
-      linkType: 'EVENT',
+      linkType: 'TICKET',
       statusHeader: 'TICKETS LIVE',
       statusSubHeader: 'Go to {Eventbrite} to get yours',
     };
@@ -48,19 +48,20 @@ export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailia
  * This is calculated by finding whether the waiting list is indeed open,
  * whether the current time is after the ticket release date
  * and whether there are no more tickets availiable.
- * The !ticketsAvailiable and time check aren't really necessary but they enable
+ * The !ticketsAvailable and time check aren't really necessary but they enable
  * all these functions to be run in any order and they serve as a data validator.
  */
 export function isWaitlist({
   currentTime,
-  ticketsAvailiable,
+  ticketsAvailable,
   waitingListOpen,
   ticketReleaseDate,
 }) {
-  if (waitingListOpen && !ticketsAvailiable && (isAfter(currentTime, ticketReleaseDate))) {
+  console.log('world', waitingListOpen, ticketsAvailable);
+  if (waitingListOpen && !ticketsAvailable && (isAfter(currentTime, ticketReleaseDate))) {
     return {
       buttonText: 'Join Waitlist',
-      linkType: 'EVENT',
+      linkType: 'TICKET',
       statusHeader: 'TICKETS NOW SOLD OUT',
       statusSubHeader: 'Join the waiting list on {eventbrite}',
     };
@@ -76,14 +77,14 @@ export function isWaitlist({
 export function isStreaming({
   currentTime,
   ticketReleaseDate,
-  ticketsAvailiable,
+  ticketsAvailable,
   waitingListOpen,
   endDateTime,
 }) {
   if (
     isAfter(currentTime, ticketReleaseDate)
     && !waitingListOpen
-    && !ticketsAvailiable
+    && !ticketsAvailable
     && isBefore(currentTime, endDateTime)
   ) {
     return {

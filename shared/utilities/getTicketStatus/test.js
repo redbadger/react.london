@@ -20,11 +20,11 @@ describe('getTicketStatusOptions', () => {
   it('returns Free ticket and Event linkType if the current Time is greater than the release date and there are tickets availiable', () => {
     tk.freeze(new Date(100));
     const ticketReleaseDate = new Date(99);
-    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailiable: true, waitingListOpen: false });
+    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailable: true, waitingListOpen: false });
 
     expect(result).to.deep.equal({
       buttonText: 'Free Ticket',
-      linkType: 'EVENT',
+      linkType: 'TICKET',
       statusHeader: 'TICKETS LIVE',
       statusSubHeader: 'Go to {Eventbrite} to get yours',
       link: undefined,
@@ -34,11 +34,11 @@ describe('getTicketStatusOptions', () => {
   it('returns Join Waitlist and Event linkType if the waiting list is open', () => {
     tk.freeze(new Date(100));
     const ticketReleaseDate = new Date(99);
-    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailiable: false, waitingListOpen: true });
+    const result = getTicketStatusOptions({ ticketReleaseDate, ticketsAvailable: false, waitingListOpen: true });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Waitlist',
-      linkType: 'EVENT',
+      linkType: 'TICKET',
       statusHeader: 'TICKETS NOW SOLD OUT',
       statusSubHeader: 'Join the waiting list on {eventbrite}',
       link: undefined,
@@ -47,7 +47,7 @@ describe('getTicketStatusOptions', () => {
 
   it('returns Join Live Stream and Stream linkType if the current time is greater than the release date time and there are no tickets and no wait list', () => {
     tk.freeze(new Date(100));
-    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(99), endDateTime: new Date(101), ticketsAvailiable: false, waitingListOpen: false });
+    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(99), endDateTime: new Date(101), ticketsAvailable: false, waitingListOpen: false });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Live Stream',
@@ -61,9 +61,9 @@ describe('getTicketStatusOptions', () => {
   it('returns Watch and Stream linkType if the event is completed', () => {
     tk.freeze(new Date(100));
 // <<<<<<< Updated upstream
-//     const result = getTicketStatusOptions({ endDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
+//     const result = getTicketStatusOptions({ endDateTime: new Date(99), ticketsAvailable: false, waitingListOpen: false });
 // =======
-    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(98), endDateTime: new Date(99), ticketsAvailiable: false, waitingListOpen: false });
+    const result = getTicketStatusOptions({ ticketReleaseDate: new Date(98), endDateTime: new Date(99), ticketsAvailable: false, waitingListOpen: false });
 // >>>>>>> Stashed changes
 
     expect(result).to.deep.equal({
@@ -88,12 +88,12 @@ describe('getTicketStatusOptions', () => {
         {
           title: 'Foo',
           url: 'foo.com',
-          type: 'EVENT',
+          type: 'TICKET',
         },
         {
           title: 'Boz',
           url: 'boz.com',
-          type: 'EVENT',
+          type: 'TICKET',
         },
         {
           title: 'Bar',
@@ -104,11 +104,11 @@ describe('getTicketStatusOptions', () => {
     });
 
     it('returns the first found link URL when multiple exist', () => {
-      expect(getActionLink(externalLinks, 'EVENT'))
+      expect(getActionLink(externalLinks, 'TICKET'))
         .to.deep.equal({
           title: 'Foo',
           url: 'foo.com',
-          type: 'EVENT',
+          type: 'TICKET',
         });
     });
 
@@ -118,12 +118,12 @@ describe('getTicketStatusOptions', () => {
     });
 
     it('handles an empty list of externalLinks being passed in', () => {
-      expect(getActionLink([], 'EVENT'))
+      expect(getActionLink([], 'TICKET'))
         .to.equal(undefined);
     });
 
     it('handles a falsy list of externalLinks being passed in', () => {
-      expect(getActionLink(null, 'EVENT'))
+      expect(getActionLink(null, 'TICKET'))
         .to.equal(undefined);
     });
   });
