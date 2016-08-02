@@ -57,7 +57,6 @@ export function isWaitlist({
   waitingListOpen,
   ticketReleaseDate,
 }) {
-  console.log('world', waitingListOpen, ticketsAvailable);
   if (waitingListOpen && !ticketsAvailable && (isAfter(currentTime, ticketReleaseDate))) {
     return {
       buttonText: 'Join Waitlist',

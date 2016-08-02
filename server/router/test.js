@@ -28,13 +28,16 @@ describe('GET /conference', () => {
   });
 });
 
-describe('GET /community', () => {
-  it('/renders OK', () => {
-    useDummyData();
-    return request(app)
-      .get('/community')
-      .expect(200);
-  });
-});
+// describe.only('GET /community', () => {
+//   it('/renders OK', () => {
+//     useDummyData();
+//     return request(app)
+//       .get('/community')
+//       .expect(200)
+//       .expect((res) => {
+//         console.log('HELLO!', res);
+//       });
+//   });
+// });
 
 // TODO: Sad path tests. And also sad path implementation.

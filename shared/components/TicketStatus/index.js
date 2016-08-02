@@ -7,12 +7,11 @@ export const StatusButton = ({ buttonText, link }) => {
     'TicketStatus__booking-btn--active': link,
     'TicketStatus__booking-btn--disabled': !link,
   });
-
   return (
     <div className="TicketStatus__booking-btn__container">
       <a
         className={actionClasses}
-        href={link || '#'}
+        href={link && link.url || '#'}
       >
         {buttonText}
       </a>
@@ -54,7 +53,11 @@ TicketStatus.propTypes = {
 StatusButton.propTypes = {
   buttonText: PropTypes.string,
   linkType: PropTypes.string,
-  link: PropTypes.string,
+  link: PropTypes.shape({
+    title: PropTypes.string,
+    url: PropTypes.string,
+    type: PropTypes.string,
+  }),
   externalLinks: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     url: PropTypes.string,

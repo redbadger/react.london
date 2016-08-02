@@ -47,7 +47,7 @@ describe('StatusButton component', () => {
   it('renders an active StatusButton correctly', () => {
     const activeButtonProps = {
       buttonText: 'foo',
-      link: 'foobaz.com',
+      link: { url: 'foobaz.com' },
     };
     const wrapper = shallow(<StatusButton {...activeButtonProps} />);
     const linkProps = wrapper.find('a').props();
