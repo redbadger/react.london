@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { isBefore, isAfter } from '../dateUtils';
+import { isBefore, isAfter, formatDate } from '../dateUtils';
 
 export function getActionLink(externalLinks, type) {
   if (!externalLinks) return undefined;
@@ -20,7 +20,7 @@ export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
       buttonText: 'Free Ticket',
       linkType: '',
       statusHeader: 'TICKETS WILL GO LIVE ON',
-      statusSubHeader: 'Monday, 11 July 2016 at 12:00',
+      statusSubHeader: formatDate(ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm'),
     };
   }
 }

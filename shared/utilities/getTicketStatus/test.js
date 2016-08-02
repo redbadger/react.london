@@ -12,7 +12,7 @@ describe('getTicketStatusOptions', () => {
       buttonText: 'Free Ticket',
       linkType: '',
       statusHeader: 'TICKETS WILL GO LIVE ON',
-      statusSubHeader: 'Monday, 11 July 2016 at 12:00',
+      statusSubHeader: 'Thursday, 1st January 1970, 01:00',
       link: undefined,
     });
   });
