@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import TicketStatus from '../../containers/TicketStatus';
-import { formatDate } from '../../utilities/dateUtils';
+import { formatDate, isBefore, isAfter } from '../../utilities/dateUtils';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 
@@ -16,18 +16,21 @@ function googleMapsUrl(location) {
 }
 
 export function getHeaderText(startDateTime, endDateTime) {
+  if (!startDateTime || !endDateTime) {
+    return 'Community Event';
+  }
   const currentDateTime = moment();
-  const isToday = moment(startDateTime).isSame(currentDateTime, 'day');
+  const isToday = moment(startDateTime.iso).isSame(currentDateTime, 'day');
 
-  if (isToday && currentDateTime.isBefore(endDateTime)) {
+  if (isToday && isBefore(currentDateTime, endDateTime.iso)) {
     return 'Today\'s Event';
   }
 
-  if (currentDateTime.isAfter(endDateTime)) {
+  if (isAfter(currentDateTime, endDateTime.iso)) {
     return 'Last Event';
   }
 
-  if (!isToday && currentDateTime.isBefore(startDateTime)) {
+  if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
     return 'Next Event';
   }
 }

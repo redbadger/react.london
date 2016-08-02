@@ -38,17 +38,22 @@ describe('getHeaderText', () => {
   it('returns Next Event if the event time is after the current time', () => {
     tk.freeze(new Date('2016-07-24T20:30:00+0000'));
     const result = getHeaderText(
-      new Date('2016-07-26T17:30:00+0000'),
-      new Date('2016-07-26T19:30:00+0000')
+      { iso: new Date('2016-07-26T17:30:00+0000') },
+      { iso: new Date('2016-07-26T19:30:00+0000') }
     );
     expect(result).to.equal('Next Event');
+  });
+
+  it('returns Community Event if no props are passed', () => {
+    const result = getHeaderText(null, null);
+    expect(result).to.equal('Community Event');
   });
 
   it('returns Last Event if the event time is before the current time (sameDay)', () => {
     tk.freeze(new Date('2016-07-26T20:30:00+0000'));
     const result = getHeaderText(
-      new Date('2016-07-26T17:30:00+0000'),
-      new Date('2016-07-26T19:30:00+0000')
+      { iso: new Date('2016-07-26T17:30:00+0000') },
+      { iso: new Date('2016-07-26T19:30:00+0000') }
     );
     expect(result).to.equal('Last Event');
   });
@@ -56,8 +61,8 @@ describe('getHeaderText', () => {
   it('returns Last Event if the event time is before the current time (nextDay)', () => {
     tk.freeze(new Date('2016-07-27T20:30:00+0000'));
     const result = getHeaderText(
-      new Date('2016-07-26T17:30:00+0000'),
-      new Date('2016-07-26T19:30:00+0000')
+      { iso: new Date('2016-07-26T17:30:00+0000') },
+      { iso: new Date('2016-07-26T19:30:00+0000') }
     );
     expect(result).to.equal('Last Event');
   });
@@ -65,8 +70,8 @@ describe('getHeaderText', () => {
   it('returns Todays Event if the event time is today & before the end time', () => {
     tk.freeze(new Date('2016-07-26T16:30:00+0000'));
     const result = getHeaderText(
-      new Date('2016-07-26T17:30:00+0000'),
-      new Date('2016-07-26T19:30:00+0000')
+      { iso: new Date('2016-07-26T17:30:00+0000') },
+      { iso: new Date('2016-07-26T19:30:00+0000') }
     );
     expect(result).to.equal('Today\'s Event');
   });
