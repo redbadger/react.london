@@ -1,0 +1,51 @@
+.FutureEvents {
+  background-color: $events-color-faded;
+
+  &__header {
+    line-height: 2em;
+    margin-bottom: 5px;
+  }
+
+  &__events-container {
+    padding-bottom: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+}
+
+.FutureEvent {
+  border-top: $dash-border;
+  background: $events-color;
+  width: 100%;
+  padding: 20px;
+
+  &__title {
+    margin: 0 0 20px 0;
+  }
+
+  &__details {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__datetime,
+  &__location {
+    padding-left: 40px;
+    list-style: none;
+  }
+
+  &__location {
+    background: url("/img/SVG/Place_icon_white.svg") no-repeat left top;
+    margin-top: 15px;
+    min-height: 32px;
+    padding-top: 5px;
+  }
+
+  &__datetime {
+    background: url("/img/SVG/Date_icon_white.svg") no-repeat left top;
+    min-height: 26px;
+    padding-top: 2px;
+  }
+}

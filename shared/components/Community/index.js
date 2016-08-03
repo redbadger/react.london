@@ -8,6 +8,7 @@ import EventDetails from '../EventDetails';
 import NextCommunityEvent from '../../containers/NextCommunityEvent';
 import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
+import FutureEvents from '../FutureEvents';
 
 const Community = ({
   summary,
@@ -32,6 +33,7 @@ const Community = ({
         eventSponsors={featuredEvent.sponsors}
       />
       <JoinSlack />
+      <FutureEvents />
       <SiteFooter />
     </div>
   </div>
