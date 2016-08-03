@@ -13,6 +13,9 @@
         "endDateTime": {
           "iso": "2016-07-26T08:30:00+0000"
         },
+        "ticketReleaseDate": {
+          "iso": "2016-08-02T16:19:00+0000"
+        },
         "location": {
           "address": "Skills Matter, CodeNode, 10 South Place, London EC2M 7EB",
           "coordinates": {
