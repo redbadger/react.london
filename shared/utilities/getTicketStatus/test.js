@@ -99,32 +99,28 @@ describe('getTicketStatusOptions', () => {
   });
 
   describe('getActionLink', () => {
-    let externalLinks;
-
-    beforeEach(() => {
-      externalLinks = [
-        {
-          title: 'Baz',
-          url: 'baz.com',
-          type: null,
-        },
-        {
-          title: 'Foo',
-          url: 'foo.com',
-          type: 'TICKET',
-        },
-        {
-          title: 'Boz',
-          url: 'boz.com',
-          type: 'TICKET',
-        },
-        {
-          title: 'Bar',
-          url: 'bar.com',
-          type: 'STREAM',
-        },
-      ];
-    });
+    const externalLinks = [
+      {
+        title: 'Baz',
+        url: 'baz.com',
+        type: null,
+      },
+      {
+        title: 'Foo',
+        url: 'foo.com',
+        type: 'TICKET',
+      },
+      {
+        title: 'Boz',
+        url: 'boz.com',
+        type: 'TICKET',
+      },
+      {
+        title: 'Bar',
+        url: 'bar.com',
+        type: 'STREAM',
+      },
+    ];
 
     it('returns the first found link URL when multiple exist', () => {
       expect(getActionLink(externalLinks, 'TICKET'))

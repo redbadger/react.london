@@ -30,7 +30,7 @@ describe('TicketStatus component', () => {
 });
 
 describe('StatusButton component', () => {
-  it('renders a disabled StatusButton correctly', () => {
+  it('renders a disabled StatusButton with the disabled className and # link', () => {
     const inactiveButtonProps = {
       buttonText: 'bar',
       link: undefined,
@@ -38,13 +38,13 @@ describe('StatusButton component', () => {
     const wrapper = shallow(<StatusButton {...inactiveButtonProps} />);
     const linkProps = wrapper.find('a').props();
 
-    expect(linkProps.href).to.equal('#'); // we don't have a url
+    expect(linkProps.href).to.equal('#');
     expect(linkProps.children).to.equal('bar');
     expect(linkProps.className)
       .to.equal('TicketStatus__booking-btn TicketStatus__booking-btn--disabled');
   });
 
-  it('renders an active StatusButton correctly', () => {
+  it('renders an active StatusButton with the active class Name and passed link', () => {
     const activeButtonProps = {
       buttonText: 'foo',
       link: { url: 'foobaz.com' },
