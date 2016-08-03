@@ -1,0 +1,18 @@
+engines:
+  duplication:
+    enabled: true
+    exclude_paths:
+      - "shared/components/*"
+      - "**/*test.js"
+    config:
+      languages:
+        - javascript
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - "**.js"
+    - "**.jsx"
+    - "**.module"
