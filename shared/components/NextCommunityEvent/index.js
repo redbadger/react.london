@@ -93,16 +93,9 @@ const dateTimeType = PropTypes.shape({
 
 NextCommunityEvent.propTypes = {
   title: PropTypes.string,
-  ticketsAvailable: PropTypes.bool,
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
-  ticketReleaseDate: dateTimeType,
-  externalLinks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    url: PropTypes.string,
-    type: PropTypes.string,
-  })),
   location: PropTypes.shape({
     address: PropTypes.string,
     coordinates: PropTypes.shape({

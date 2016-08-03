@@ -40,29 +40,15 @@ const TicketStatus = (props) => {
 };
 
 TicketStatus.propTypes = {
-  ticketsAvailable: PropTypes.bool,
-  externalLinks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    url: PropTypes.string,
-    type: PropTypes.string,
-  })),
   statusHeader: PropTypes.string,
   statusSubHeader: PropTypes.string,
 };
 
 StatusButton.propTypes = {
   buttonText: PropTypes.string,
-  linkType: PropTypes.string,
   link: PropTypes.shape({
-    title: PropTypes.string,
     url: PropTypes.string,
-    type: PropTypes.string,
   }),
-  externalLinks: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    url: PropTypes.string,
-    type: PropTypes.string,
-  })),
 };
 
 export default TicketStatus;
