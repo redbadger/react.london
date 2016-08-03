@@ -2,26 +2,10 @@
 .NextCommunityEvent {
   border-top: $solid-border;
   background-color: $events-color-faded;
-
   padding-bottom: 30px;
 
-  &__details__heading,
-  &__booking__heading {
+  &__details__heading {
     margin-top: 16px;
-  }
-
-  &__booking__heading {
-    color: $red-badger-color;
-  }
-
-  &__booking__text {
-    font-weight: 100;
-  }
-
-  &__live-stream-text--link {
-    font-weight: bold;
-    text-decoration: underline;
-    color: $grey;
   }
 
   &__details {
@@ -42,7 +26,6 @@
       display: inline-block;
       margin-top: 15px;
     }
-
   }
 
   &__link--date {
@@ -87,42 +70,6 @@
     line-height: 2em;
   }
 
-  &__live-stream-text {
-    margin-bottom: 0px;
-  }
-
-
-  &__booking-btn__container{
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-  &__booking-btn {
-    border-radius: 6px;
-    text-transform: uppercase;
-    border: 0px;
-    padding: 12px 15px;
-    color: $white;
-    font-weight: bold;
-
-    &--disabled {
-      background-color: $disabled-grey;
-      color: $events-color-faded;
-      cursor: not-allowed;
-    }
-
-    &--active {
-      background-color: $red-badger-color;
-      color: $white;
-      cursor: pointer;
-      text-decoration: none;
-
-      &:focus,
-      &:hover {
-        background-color: $red-badger-color-darker;
-      }
-    }
-  }
-
   &__section-container {
     display: flex;
     flex-flow: column wrap;
@@ -131,7 +78,6 @@
   &__section__details {
     border-bottom: $dash-border;
   }
-
 
 }
 
@@ -152,10 +98,6 @@
       &__details {
         border-right: $dash-border;
         border-bottom: none;
-      }
-
-      &__booking {
-        padding-left: 35px;
       }
     }
   }

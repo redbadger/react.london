@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
-import { formatDate } from '../../utilities/format-date';
+import TicketStatus from '../../containers/TicketStatus';
+import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
+import moment from 'moment';
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
@@ -13,6 +15,26 @@ function googleMapsUrl(location) {
   return `http://www.google.com/maps/place/${latitude},${longitude}`;
 }
 
+export function getHeaderText(startDateTime, endDateTime) {
+  if (!startDateTime || !endDateTime) {
+    return 'Community Event';
+  }
+  const currentDateTime = moment();
+  const isToday = moment(startDateTime.iso).isSame(currentDateTime, 'day');
+
+  if (isToday && isBefore(currentDateTime, endDateTime.iso)) {
+    return 'Today\'s Event';
+  }
+
+  if (isAfter(currentDateTime, endDateTime.iso)) {
+    return 'Last Event';
+  }
+
+  if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
+    return 'Next Event';
+  }
+}
+
 const NextCommunityEvent = ({
   title,
   startDateTime,
@@ -22,7 +44,9 @@ const NextCommunityEvent = ({
 }) => (
   <section className="NextCommunityEvent block">
     <div className="content">
-      <h2 className="NextCommunityEvent__header">Last Event</h2>
+      <h2 className="NextCommunityEvent__header">
+        {getHeaderText(startDateTime, endDateTime)}
+      </h2>
       <article className="NextCommunityEvent__section-container">
         <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
           <h3 className="NextCommunityEvent__details__heading">{title}</h3>
@@ -56,25 +80,7 @@ const NextCommunityEvent = ({
             </li>
           </ul>
         </div>
-        <div className="NextCommunityEvent__section NextCommunityEvent__section__booking">
-          <h3 className="NextCommunityEvent__booking__heading">This event has ended</h3>
-          <p className="NextCommunityEvent__live-stream-text">
-            Couldn’t make the event? <div>We’ve got your back.</div>
-          </p>
-          <div className="NextCommunityEvent__booking-btn__container">
-            <a
-              className="NextCommunityEvent__booking-btn NextCommunityEvent__booking-btn--active"
-              href="https://www.youtube.com/watch?v=HrECWxWVcEI"
-            >
-              Watch Video
-            </a>
-          </div>
-          <p className="NextCommunityEvent__live-stream-text">
-            To get reminders about tickets and future
-            events <a className="NextCommunityEvent__live-stream-text--link" href="#stay-tuned">
-            subscribe here</a>
-          </p>
-        </div>
+        <TicketStatus />
       </article>
     </div>
     <Talks talks={talks} />
