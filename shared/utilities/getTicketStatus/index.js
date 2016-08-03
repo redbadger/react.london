@@ -24,7 +24,7 @@ export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailab
       buttonText: 'Free Ticket',
       linkType: 'TICKET',
       statusHeader: 'TICKETS LIVE',
-      statusSubHeader: 'Go to {Eventbrite} to get yours',
+      statusSubHeader: 'To get yours, go to',
     };
   }
 }
@@ -40,7 +40,7 @@ export function isWaitlist({
       buttonText: 'Join Waitlist',
       linkType: 'TICKET',
       statusHeader: 'TICKETS NOW SOLD OUT',
-      statusSubHeader: 'Join the waiting list on {eventbrite}',
+      statusSubHeader: 'Join the waiting list on',
     };
   }
 }
@@ -88,7 +88,13 @@ export function getTicketStatusOptions(options) {
     return result;
   });
 
-  return Object.assign({}, result, {
-    link: getActionLink(options.externalLinks, result.linkType),
-  });
+  const link = getActionLink(options.externalLinks, result.linkType);
+  const statusSubHeader =
+    `${result.statusSubHeader}${result.linkType === 'TICKET' ? ' ' + link.title : ''}`;
+
+  return {
+    ...result,
+    link,
+    statusSubHeader,
+  };
 }

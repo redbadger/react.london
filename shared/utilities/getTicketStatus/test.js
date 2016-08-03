@@ -28,14 +28,25 @@ describe('getTicketStatusOptions', () => {
         ticketReleaseDate,
         ticketsAvailable: true,
         waitingListOpen: false,
+        externalLinks: [
+          {
+            title: 'Baz',
+            url: 'baz.com',
+            type: 'TICKET',
+          },
+        ],
       });
 
       expect(result).to.deep.equal({
         buttonText: 'Free Ticket',
         linkType: 'TICKET',
         statusHeader: 'TICKETS LIVE',
-        statusSubHeader: 'Go to {Eventbrite} to get yours',
-        link: undefined,
+        statusSubHeader: 'To get yours, go to Baz',
+        link: {
+          title: 'Baz',
+          url: 'baz.com',
+          type: 'TICKET',
+        },
       });
     }
   );
@@ -47,14 +58,25 @@ describe('getTicketStatusOptions', () => {
       ticketReleaseDate,
       ticketsAvailable: false,
       waitingListOpen: true,
+      externalLinks: [
+        {
+          title: 'Baz',
+          url: 'baz.com',
+          type: 'TICKET',
+        },
+      ],
     });
 
     expect(result).to.deep.equal({
       buttonText: 'Join Waitlist',
       linkType: 'TICKET',
       statusHeader: 'TICKETS NOW SOLD OUT',
-      statusSubHeader: 'Join the waiting list on {eventbrite}',
-      link: undefined,
+      statusSubHeader: 'Join the waiting list on Baz',
+      link: {
+        title: 'Baz',
+        url: 'baz.com',
+        type: 'TICKET',
+      },
     });
   });
 
@@ -68,6 +90,13 @@ describe('getTicketStatusOptions', () => {
         endDateTime: new Date(101),
         ticketsAvailable: false,
         waitingListOpen: false,
+        externalLinks: [
+          {
+            title: 'Baz',
+            url: 'baz.com',
+            type: 'TICKET',
+          },
+        ],
       });
 
       expect(result).to.deep.equal({
