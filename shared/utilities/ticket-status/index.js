@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { isBefore, isAfter, formatDate } from '../dateUtils';
+import { isBefore, isAfter, formatDate } from '../date';
 
 export function getActionLink(externalLinks, type) {
   if (!externalLinks) return undefined;
