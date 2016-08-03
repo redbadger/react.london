@@ -3,16 +3,39 @@ import pathOr from 'ramda/src/pathOr';
 import TicketStatus from '../../components/TicketStatus';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
-const defaultProps = {
+const emptyFeaturedEvent = {
+  title: '',
+  ticketsAvailable: false,
+  waitingListOpen: false,
+  startDateTime: {
+    iso: '',
+  },
+  endDateTime: {
+    iso: '',
+  },
+  ticketReleaseDate: {
+    iso: '',
+  },
+  externalLinks: [
+    { url: '', title: '', type: 'OTHER' },
+  ],
+  location: {
+    address: null,
+    coordinates: {
+      latitude: '',
+      longitude: '',
+    },
+  },
+  schedule: [],
+  sponsors: [],
   talks: [],
 };
 
 export const mapStateToProps = (state) => {
-  const featuredEvent = pathOr(defaultProps, ['community', 'featuredEvent'], state);
+  const featuredEvent = pathOr(emptyFeaturedEvent, ['community', 'featuredEvent'], state);
   const props = getTicketStatusOptions(featuredEvent);
 
   return {
-    ...defaultProps,
     ...props,
   };
 };
