@@ -26,22 +26,28 @@ FutureEvent.propTypes = {
 const events = [
   {
     title: 'React London Meetup August 2016',
-    date: 'Tuesday, 21st August 2016',
-    location: 'TBD',
+    date: 'Tuesday, 24th August 2016',
+    location: 'Facebook',
   },
   {
     title: 'React London Meetup September 2016',
     date: 'Tuesday, 21st September 2016',
-    location: 'TBD',
+    location: 'Skillsmatter',
   },
   {
     title: 'React London 2017',
-    date: 'Tuesday, 28 March 2017',
+    date: 'Tuesday, 28th March 2017',
     location: 'QEII Center, London SW1P 3EE',
   },
-  {
-    date: 'Tuesday8 March 2017',
-    location: 'QEII Center, London SW1P 3EE',
+  { // Not displayed yet
+    title: 'React London Meetup October 2016',
+    date: 'Tuesday, 18th October 2016',
+    location: 'Facebook',
+  },
+  { // Not displayed yet
+    title: 'React London Meetup November 2016',
+    date: 'Tuesday, 7th November 2016',
+    location: 'Bloomberg',
   },
 ];
 
