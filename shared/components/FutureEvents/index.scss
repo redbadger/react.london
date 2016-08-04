@@ -1,4 +1,5 @@
 .FutureEvents {
+  border-top: $solid-border;
   background-color: $events-color-faded;
 
   &__header {
@@ -24,6 +25,10 @@
   &:nth-child(2) {
     border-left: $dash-border;
     border-right: $dash-border;
+  }
+
+  &:last-child {
+    border-right: none;
   }
 
   &__title {
