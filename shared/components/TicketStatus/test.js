@@ -38,7 +38,7 @@ describe('StatusButton component', () => {
     const wrapper = shallow(<StatusButton {...inactiveButtonProps} />);
     const linkProps = wrapper.find('a').props();
 
-    expect(linkProps.href).to.equal('#');
+    expect(linkProps.href).to.equal(undefined);
     expect(linkProps.children).to.equal('bar');
     expect(linkProps.className)
       .to.equal('TicketStatus__booking-btn TicketStatus__booking-btn--disabled');

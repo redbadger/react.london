@@ -6,7 +6,7 @@ import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
-  '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
+  '&tmeid=amhsZzdlaXRpanRoamw5bHRrMm1pZ2x2dm8gbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
   '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
 
 function googleMapsUrl(location) {
