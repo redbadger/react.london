@@ -6,8 +6,8 @@ import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
-  '&tmeid=NWY0cDE3Y3N0MzZhbWp2amxmdjhkdHBqbGsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
-  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
+  '&tmeid=ZTBnODRkajhhOTk2ZmJyNmoxM3QzMTBnM28gYW5kcmV3LmJlc3RiaWVyQG0' +
+  '&tmsrc=andrew.bestbier%40gmail.com';
 
 function googleMapsUrl(location) {
   const { latitude, longitude } = pathOr({}, ['coordinates'], location);
