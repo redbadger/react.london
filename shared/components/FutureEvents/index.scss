@@ -9,17 +9,22 @@
   &__events-container {
     padding-bottom: 20px;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
   }
-
 }
 
 .FutureEvent {
-  border-top: $dash-border;
   background: $events-color;
-  width: 100%;
+  border-right: none;
+  border-top: $dash-border;
+  min-width: 33.33%;
   padding: 20px;
+  flex: 1;
+
+  &:nth-child(2) {
+    border-left: $dash-border;
+    border-right: $dash-border;
+  }
 
   &__title {
     margin: 0 0 20px 0;
@@ -47,5 +52,27 @@
     background: url("/img/SVG/Date_icon_white.svg") no-repeat left top;
     min-height: 26px;
     padding-top: 2px;
+  }
+}
+
+
+@media (max-width: $tablet-width) {
+  .FutureEvent {
+    min-width: 50%;
+
+    &:nth-child(2) {
+      border-right: none;
+    }
+  }
+}
+
+@media (max-width: $tablet-portrait-width) {
+  .FutureEvent {
+    border-top: $dash-border;
+    min-width: 100%;
+
+    &:nth-child(2) {
+      border-left: none;
+    }
   }
 }

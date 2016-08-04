@@ -16,6 +16,7 @@ const FutureEvent = ({ title, date, location }) => (
   </div>
 );
 
+
 FutureEvent.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
@@ -36,6 +37,10 @@ const events = [
   {
     title: 'React London 2017',
     date: 'Tuesday, 28 March 2017',
+    location: 'QEII Center, London SW1P 3EE',
+  },
+  {
+    date: 'Tuesday8 March 2017',
     location: 'QEII Center, London SW1P 3EE',
   },
 ];
