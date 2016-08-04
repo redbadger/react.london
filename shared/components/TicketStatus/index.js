@@ -11,7 +11,7 @@ export const StatusButton = ({ buttonText, link }) => {
     <div className="TicketStatus__booking-btn__container">
       <a
         className={actionClasses}
-        href={link && link.url || '#0'}
+        href={link && link.url}
       >
         {buttonText}
       </a>
