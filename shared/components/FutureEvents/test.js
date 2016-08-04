@@ -8,6 +8,11 @@ describe('FutureEvents component', () => {
     expect(element.find('FutureEvent')).to.have.length(2);
   });
 
+  it('renders no more than 3 FutureEvent components', () => {
+    const element = shallow(<FutureEvents events={[{}, {}, {}, {}, {}]} />);
+    expect(element.find('FutureEvent')).to.have.length(3);
+  });
+
   it('renders nothing if no events', () => {
     const element = shallow(<FutureEvents events={[]} />);
     expect(element.html()).to.equal(null);
