@@ -5,6 +5,8 @@ import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 
+export const placeholderText = 'To be confirmed.';
+
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=amhsZzdlaXRpanRoamw5bHRrMm1pZ2x2dm8gbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
   '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
@@ -13,6 +15,24 @@ function googleMapsUrl(location) {
   const { latitude, longitude } = pathOr({}, ['coordinates'], location);
   if (!latitude || !longitude) { return null; }
   return `http://www.google.com/maps/place/${latitude},${longitude}`;
+}
+
+function eventLocation(location) {
+  return pathOr(placeholderText, ['address'], location);
+}
+
+function eventDate(date) {
+  if (date && date.iso) {
+    return formatDate(date, 'dddd, Do MMMM YYYY');
+  }
+  return placeholderText;
+}
+
+function eventTime(startDateTime, endDateTime) {
+  if (startDateTime && startDateTime.iso && endDateTime && endDateTime.iso) {
+    return formatDate(startDateTime, 'HH:mm - ') + formatDate(endDateTime, 'HH:mm');
+  }
+  return placeholderText;
 }
 
 export function getHeaderText(startDateTime, endDateTime) {
@@ -57,7 +77,7 @@ const NextCommunityEvent = ({
                 href={calendarURL}
                 target="_blank"
               >
-                {formatDate(startDateTime, 'dddd, Do MMMM YYYY')}
+                {eventDate(startDateTime)}
               </a>
             </li>
             <li>
@@ -66,7 +86,7 @@ const NextCommunityEvent = ({
                 href={calendarURL}
                 target="_blank"
               >
-                {formatDate(startDateTime, 'HH:mm - ') + formatDate(endDateTime, 'HH:mm')}
+                {eventTime(startDateTime, endDateTime)}
               </a>
             </li>
             <li>
@@ -75,7 +95,7 @@ const NextCommunityEvent = ({
                 href={googleMapsUrl(location)}
                 target="_blank"
               >
-                {pathOr(null, ['address'], location)}
+                {eventLocation(location)}
               </a>
             </li>
           </ul>
@@ -88,7 +108,7 @@ const NextCommunityEvent = ({
 );
 
 const dateTimeType = PropTypes.shape({
-  iso: React.PropTypes.string.isRequired,
+  iso: React.PropTypes.string,
 });
 
 NextCommunityEvent.propTypes = {

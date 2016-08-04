@@ -1,5 +1,7 @@
 import { formatDate } from './';
 
+// TODO: Test the other functions in this module
+
 describe('formatDate', () => {
   const testDate = new Date('2016-07-26T19:30:00+01:00');
 

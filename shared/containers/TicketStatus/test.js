@@ -43,4 +43,6 @@ describe('Community mapStateToProps', () => {
       link: { url: 'google.com', title: 'EventBrite', type: 'TICKET' } }
     );
   });
+
+  // TODO: test sad path. What happens if some dates are missing?
 });
