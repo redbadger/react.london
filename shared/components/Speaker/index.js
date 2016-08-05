@@ -60,7 +60,7 @@ const Speaker = ({
         </li>
       </ul>
       <h5 className="Speaker__name">
-        <span className="Speaker__name--bold">{name} </span>
+        <div className="Speaker__name--bold">{name} </div>
         {company}
       </h5>
     </article>

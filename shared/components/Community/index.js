@@ -12,18 +12,18 @@ import FutureEvents from '../FutureEvents';
 
 const events = [
   {
-    title: 'React London Meetup October 2016',
-    date: 'Tuesday, 18th October 2016',
-    location: 'Facebook',
-  },
-  {
-    title: 'React London Meetup September 2016',
-    date: 'Tuesday, 21st September 2016',
+    title: 'September Meetup 2016',
+    date: 'Wed, 21st September 2016',
     location: 'Skillsmatter',
   },
   {
+    title: 'October Meetup 2016',
+    date: 'Tues, 18th October 2016',
+    location: 'Facebook',
+  },
+  {
     title: 'React London 2017',
-    date: 'Tuesday, 28th March 2017',
+    date: 'Tues, 28th March 2017',
     location: 'QEII Center, London SW1P 3EE',
   },
   {
