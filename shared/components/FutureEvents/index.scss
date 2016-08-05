@@ -32,6 +32,10 @@
     border-right: none;
   }
 
+  &:last-child {
+    background-color: $conference-color;
+  }
+
   &__title {
     margin: 0 0 20px 0;
     height: 2em;
