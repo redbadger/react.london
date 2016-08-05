@@ -11,10 +11,7 @@ export function formatDate(datetime, format = 'HH:mm') {
 }
 
 export function isBefore(date1, date2) {
-  const firstDate = date1.iso || date1;
-  const secondDate = date2.iso || date2;
-
-  return moment(firstDate).tz(timezone).isBefore(moment(secondDate).tz(timezone));
+  return moment(date1).tz(timezone).isBefore(moment(date2).tz(timezone));
 }
 
 export function isAfter(date1, date2) {
