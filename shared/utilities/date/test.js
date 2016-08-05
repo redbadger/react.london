@@ -1,6 +1,4 @@
-import { formatDate } from './';
-
-// TODO: Test the other functions in this module
+import { formatDate, isAfter, isBefore } from './';
 
 describe('formatDate', () => {
   const testDate = new Date('2016-07-26T19:30:00+01:00');
@@ -31,5 +29,35 @@ describe('formatDate', () => {
 
   it('returns undefined when no date passed in', () => {
     expect(formatDate()).to.equal(undefined);
+  });
+});
+
+describe('isBefore', () => {
+  const isoBefore = '2016-07-26T19:30:00+01:00';
+  const isoAfter = '2016-07-26T19:30:00+01:01';
+
+  it('can detect the earlier of iso strings', () => {
+    expect(isBefore(isoAfter, isoBefore)).to.equal(true);
+    expect(isBefore(isoBefore, isoAfter)).to.equal(false);
+  });
+
+  it('can detect the earlier of Date objects', () => {
+    expect(isBefore(new Date(isoAfter), new Date(isoBefore))).to.equal(true);
+    expect(isBefore(new Date(isoBefore, new Date(isoAfter)))).to.equal(false);
+  });
+});
+
+describe('isAfter', () => {
+  const isoBefore = '2016-07-26T19:30:00+01:00';
+  const isoAfter = '2016-07-26T19:30:00+01:01';
+
+  it('can detect the later of iso strings', () => {
+    expect(isAfter(isoAfter, isoBefore)).to.equal(false);
+    expect(isAfter(isoBefore, isoAfter)).to.equal(true);
+  });
+
+  it('can detect the later of Date objects', () => {
+    expect(isAfter(new Date(isoAfter), new Date(isoBefore))).to.equal(false);
+    expect(isAfter(new Date(isoBefore), new Date(isoAfter))).to.equal(true);
   });
 });

@@ -32,7 +32,7 @@ describe('NextCommunityEvent component', () => {
     expect(locText).to.equal(fullProps.location.address);
   });
 
-  it('renders without crashing when passes no props', () => {
+  it('renders without crashing when passed no props', () => {
     shallow(<NextCommunityEvent />);
   });
 
