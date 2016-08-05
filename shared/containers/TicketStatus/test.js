@@ -1,7 +1,7 @@
 import { mapStateToProps } from '.';
 import R from 'ramda';
 
-describe('Community mapStateToProps', () => {
+describe('TicketStatus mapStateToProps', () => {
   const fullState = {
     community: {
       featuredEvent: {
@@ -67,7 +67,12 @@ describe('Community mapStateToProps', () => {
       ['community', 'featuredEvent', 'talks'],
     ].forEach(path => {
       const state = R.dissocPath(path, fullState);
-      mapStateToProps(state);
+      try {
+        mapStateToProps(state);
+      } catch (e) {
+        expect(e).to.equal(null,
+          `should not crash when ${path.join('.')} is missing`);
+      }
     });
   });
 });

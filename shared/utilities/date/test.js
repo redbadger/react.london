@@ -43,7 +43,12 @@ describe('isBefore', () => {
 
   it('can detect the earlier of Date objects', () => {
     expect(isBefore(new Date(isoAfter), new Date(isoBefore))).to.equal(true);
-    expect(isBefore(new Date(isoBefore, new Date(isoAfter)))).to.equal(false);
+    expect(isBefore(new Date(isoBefore), new Date(isoAfter))).to.equal(false);
+  });
+
+  it('can detect the earlier of { iso: "" } objects', () => {
+    expect(isBefore({ iso: isoAfter }, { iso: isoBefore })).to.equal(true);
+    expect(isBefore({ iso: isoBefore }, { iso: isoAfter })).to.equal(false);
   });
 });
 
@@ -59,5 +64,10 @@ describe('isAfter', () => {
   it('can detect the later of Date objects', () => {
     expect(isAfter(new Date(isoAfter), new Date(isoBefore))).to.equal(false);
     expect(isAfter(new Date(isoBefore), new Date(isoAfter))).to.equal(true);
+  });
+
+  it('can detect the earlier of { iso: "" } objects', () => {
+    expect(isAfter({ iso: isoAfter }, { iso: isoBefore })).to.equal(false);
+    expect(isAfter({ iso: isoBefore }, { iso: isoAfter })).to.equal(true);
   });
 });

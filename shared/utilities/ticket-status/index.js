@@ -7,6 +7,15 @@ export function getActionLink(externalLinks, type) {
   return externalLinks.find(link => link.type === type);
 }
 
+function defaultValues() {
+  return {
+    buttonText: 'Ticket',
+    linkType: '',
+    statusHeader: 'Tickets not currently available',
+    statusSubHeader: 'Stay tuned for more info',
+  };
+}
+
 export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
   if (isBefore(currentTime, ticketReleaseDate)) {
     return {
@@ -93,6 +102,7 @@ export function getTicketStatusOptions(options) {
     isWaitlist,
     isStreaming,
     isEnded,
+    defaultValues,
   ];
   const statusFunc = checks.find(check => check(parameters));
   const result = statusFunc(parameters);
