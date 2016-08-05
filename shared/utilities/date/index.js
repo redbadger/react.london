@@ -2,7 +2,6 @@ import moment from 'moment-timezone';
 
 const timezone = 'Europe/London';
 
-// TODO: test this format when it takes { iso: whatever } instead of a date
 export function formatDate(datetime, format = 'HH:mm') {
   if (datetime) {
     return moment(datetime.iso || datetime)
