@@ -30,6 +30,7 @@
 
   &:last-child {
     border-right: none;
+    background-color: $conference-color;
   }
 
   &__title {
