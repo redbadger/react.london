@@ -68,7 +68,7 @@ export function isStreaming({
 }
 
 export function isEnded({ currentTime, endDateTime }) {
-  if (isAfter(currentTime, endDateTime)) {
+  if (currentTime && endDateTime && isAfter(currentTime, endDateTime)) {
     return {
       buttonText: 'Watch',
       linkType: 'STREAM',
@@ -78,23 +78,28 @@ export function isEnded({ currentTime, endDateTime }) {
   }
 }
 
+function statusSubHeader(result, link) {
+  const suffix = (result.linkType === 'TICKET' && link !== undefined)
+    ? ' ' + link.title
+    : '';
+  return `${result.statusSubHeader}${suffix}`;
+}
+
 export function getTicketStatusOptions(options) {
   const parameters = { ...options, currentTime: moment() };
-  const checks = [isTicketPreRelease, isTicketRelease, isWaitlist, isStreaming, isEnded];
-  let result;
-
-  checks.some((check) => {
-    result = check(parameters);
-    return result;
-  });
-
+  const checks = [
+    isTicketPreRelease,
+    isTicketRelease,
+    isWaitlist,
+    isStreaming,
+    isEnded,
+  ];
+  const statusFunc = checks.find(check => check(parameters));
+  const result = statusFunc(parameters);
   const link = getActionLink(options.externalLinks, result.linkType);
-  const statusSubHeader =
-    `${result.statusSubHeader}${result.linkType === 'TICKET' ? ' ' + link.title : ''}`;
-
   return {
     ...result,
     link,
-    statusSubHeader,
+    statusSubHeader: statusSubHeader(result, link),
   };
 }
