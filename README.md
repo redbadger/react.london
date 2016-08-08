@@ -8,12 +8,15 @@ react.london
 A site for the React London Community.
 
 This project employs a number of Javascript libraries and approaches,
-including _React_, _Redux_, _Server-Side Rendering_, and _WebPack_. Most
-importantly, we're utilising EDD (Emoji Driven Development 😱).
+including _React_, _Redux_, _Server-Side Rendering_, GraphQL, and _WebPack_.
 
-## 🏃 Getting started
+Most importantly, we're utilising GDD (Gif Driven Development).
 
-### 💻 Dev
+<img src="https://raw.github.com/red-badger/react.london/master/assets/img/cat-hacking.gif" />
+
+## Getting started
+
+### Dev
 
 * Install [NodeJS](https://nodejs.org/en/)
 
