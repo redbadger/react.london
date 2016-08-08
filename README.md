@@ -12,7 +12,7 @@ including _React_, _Redux_, _Server-Side Rendering_, GraphQL, and _WebPack_.
 
 Most importantly, we're utilising GDD (Gif Driven Development).
 
-<img src="https://raw.github.com/red-badger/react.london/master/assets/img/cat-hacking.gif" />
+<img src="https://raw.github.com/redbadger/react.london/master/assets/img/cat-hacking.gif" />
 
 ## Getting started
 
