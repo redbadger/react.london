@@ -5,7 +5,7 @@ import RedBadgerBanner from '../RedBadgerBanner';
 import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import EventDetails from '../EventDetails';
-import NextCommunityEvent from '../../containers/NextCommunityEvent';
+import NextCommunityEvent from '../../components/NextCommunityEvent';
 import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
 import FutureEvents from '../FutureEvents';
@@ -45,7 +45,7 @@ const Community = ({
       <RedBadgerBanner />
       <NavigationBar page="Community" />
       <CommunityAbout summary={summary} />
-      <NextCommunityEvent />
+      <NextCommunityEvent {...featuredEvent} />
       <MailingList
         mailingListTitle={mailingListTitle}
         mailingListSummary={mailingListSummary}

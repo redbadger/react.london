@@ -11,6 +11,7 @@ describe('Speakers component', () => {
   });
 
   it('renders successfully without talks', () => {
-    shallow(<Speakers />);
+    const output = shallow(<Speakers />);
+    expect(output.html()).to.equal(null);
   });
 });
