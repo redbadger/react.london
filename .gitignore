@@ -9,7 +9,7 @@ reactlondon
 .eslintcache
 infrastructure/secrets.tfvars
 *.tfstate*
-data/*
+/data/*
 .sass-cache
 tmp
 .elasticbeanstalk/*
