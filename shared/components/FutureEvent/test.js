@@ -6,19 +6,29 @@ describe('FutureEvent component', () => {
   it('renders OK when props passed', () => {
     const props = {
       title: 'The title',
-      date: 'The date',
-      location: 'The location',
+      location: {
+        address: 'The location',
+      },
+      startDateTime: {
+        iso: '2016-08-10',
+      },
     };
     const el = shallow(<FutureEvent {...props} />);
     expect(el.find('.FutureEvent__title').text()).to.equal('The title');
-    expect(el.find('.FutureEvent__datetime').text()).to.equal('The date');
     expect(el.find('.FutureEvent__location').text()).to.equal('The location');
+    expect(el.find('.FutureEvent__datetime').text()).to.equal(
+      'Wednesday, 10th August 2016'
+    );
   });
 
   it('renders nothing when title is missing', () => {
     const props = {
-      date: 'The date',
-      location: 'The location',
+      location: {
+        address: 'The location',
+      },
+      startDateTime: {
+        iso: '2016-08-10',
+      },
     };
     const el = shallow(<FutureEvent {...props} />);
     expect(el.html()).to.equal(null);
@@ -27,7 +37,9 @@ describe('FutureEvent component', () => {
   it('has fallback text for date', () => {
     const props = {
       title: 'The title',
-      location: 'The location',
+      location: {
+        address: 'The location',
+      },
     };
     const el = shallow(<FutureEvent {...props} />);
     expect(el.find('.FutureEvent__datetime').text()).to.equal(placeholderText);
@@ -36,7 +48,9 @@ describe('FutureEvent component', () => {
   it('has fallback text for location', () => {
     const props = {
       title: 'The title',
-      date: 'The date',
+      startDateTime: {
+        iso: '2016-08-10',
+      },
     };
     const el = shallow(<FutureEvent {...props} />);
     expect(el.find('.FutureEvent__location').text()).to.equal(placeholderText);
