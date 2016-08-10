@@ -20,57 +20,57 @@ export const siteStateQuery = `
 query {
   community(id: "${communityID}") {
     title
-      summary
-      mailingListTitle
-      mailingListSummary
-      events {
+    summary
+    mailingListTitle
+    mailingListSummary
+    events {
+      title
+      ticketsAvailable
+      waitingListOpen
+      displayLevel
+      startDateTime {
+        iso
+      }
+      endDateTime {
+        iso
+      }
+      ticketReleaseDate {
+        iso
+      }
+      externalLinks {
+        url
         title
-          ticketsAvailable
-          waitingListOpen
-          displayLevel
-          startDateTime {
-            iso
-          }
-        endDateTime {
-          iso
-        }
-        ticketReleaseDate {
-          iso
-        }
-        externalLinks {
-          url
-            title
-            type
-        }
-        location {
-          address
-            coordinates {
-              latitude
-                longitude
-            }
-        }
-        schedule {
-          datetime
-            text
-        }
-        sponsors {
-          websiteURL
-            imageURL
-            name
-        }
-        talks {
-          summary
-            title
-            speakers {
-              name
-                company
-                twitterHandle
-                githubHandle
-                blogURL
-                imageURL
-            }
+        type
+      }
+      location {
+        address
+        coordinates {
+          latitude
+          longitude
         }
       }
+      schedule {
+        datetime
+        text
+      }
+      sponsors {
+        websiteURL
+        imageURL
+        name
+      }
+      talks {
+        summary
+        title
+        speakers {
+          name
+          company
+          twitterHandle
+          githubHandle
+          blogURL
+          imageURL
+        }
+      }
+    }
   }
 }`;
 
