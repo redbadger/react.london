@@ -14,10 +14,18 @@ function dateText(date) {
   return placeholderText;
 }
 
-const FutureEvent = ({ title, startDateTime, location }) => {
+function classes(eventType) {
+  if (eventType) {
+    const type = eventType.replace(/[^a-z]/gi, '-');
+    return `FutureEvent FutureEvent--${type}`;
+  }
+  return 'FutureEvent';
+}
+
+const FutureEvent = ({ title, eventType, startDateTime, location }) => {
   if (!title) { return null; }
   return (
-    <div className="FutureEvent">
+    <div className={classes(eventType)}>
       <h3 className="FutureEvent__title">
         {title}
       </h3>
@@ -35,6 +43,7 @@ const FutureEvent = ({ title, startDateTime, location }) => {
 
 FutureEvent.propTypes = {
   title: PropTypes.string,
+  eventType: PropTypes.string,
   startDateTime: PropTypes.shape({ iso: PropTypes.string }),
   location: PropTypes.shape({ address: PropTypes.string }),
 };

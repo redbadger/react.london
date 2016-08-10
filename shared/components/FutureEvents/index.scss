@@ -30,6 +30,9 @@
 
   &:last-child {
     border-right: none;
+  }
+
+  &--Conference {
     background-color: $conference-color;
   }
 

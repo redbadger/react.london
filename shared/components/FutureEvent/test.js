@@ -55,4 +55,17 @@ describe('FutureEvent component', () => {
     const el = shallow(<FutureEvent {...props} />);
     expect(el.find('.FutureEvent__location').text()).to.equal(placeholderText);
   });
+
+
+  it('adds a class for the eventType', () => {
+    const props = {
+      title: 'The title',
+      startDateTime: {
+        iso: '2016-08-10',
+      },
+      eventType: 'Dance ! Party',
+    };
+    const el = shallow(<FutureEvent {...props} />);
+    expect(el.find('.FutureEvent').props().className).to.include('FutureEvent--Dance---Party');
+  });
 });
