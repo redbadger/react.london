@@ -18,4 +18,4 @@ deployment:
     commands:
       - ./bin/push-new-version.sh
       - ./bin/deploy-version.js staging
-      - ./bin/notify-slack.sh '[CircleCi] Deploying master to staging.'
+      - ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
