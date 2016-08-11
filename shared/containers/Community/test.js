@@ -9,12 +9,12 @@ describe('Community mapStateToProps', () => {
     const community = fixture.community;
     const state = mapStateToProps(fixture);
     expect(Object.keys(state)).to.deep.equal([
+      'shhhhhhhh',
       'title',
       'summary',
       'mailingListTitle',
       'mailingListSummary',
       'featuredEvent',
-      'shhhhhhhh',
     ]);
     expect(state.title).to.equal(community.title);
     expect(state.summary).to.equal(community.summary);

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Community from '../../components/Community';
 
 export const mapStateToProps = (state) => {
-  if (!state || !state.community) { return {}; }
+  if (!state || !state.community) return {};
   const {
     title,
     summary,
