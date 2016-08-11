@@ -25,8 +25,10 @@ events, etc), make our edits, and then save and publish the documents.
 React.London queries BadgerBrain for site data every time a user visits the
 site, so the user will always get the latest content in Prismic.
 
-Andy is spearheading the creation of a content editor's guide. Once more
-complete we shall link it, until then ask him to see it.
+Andy is spearheading the creation of a content editor's guide. It can be found
+[here][editor-guide].
+
+[editor-guide]: https://andrewbestbier1.gitbooks.io/red-badger-prismic-guide/content/
 
 
 ## Images
