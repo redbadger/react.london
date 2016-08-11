@@ -2,9 +2,7 @@ import { connect } from 'react-redux';
 import Community from '../../components/Community';
 
 export const mapStateToProps = (state) => {
-  console.log(state);
   if (!state || !state.community) { return {}; }
-  console.log('EHY!!!!');
   const {
     title,
     summary,
