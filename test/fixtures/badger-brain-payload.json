@@ -2,72 +2,206 @@
   "data": {
     "community": {
       "title": "React London",
-      "summary": "React is having a huge impact on the way we think about Web UI development. Our Meetups are an opportunity to learn why and share experiences. We are a sociable group and very welcoming to newcomers.\nSee you soon!",
-      "mailingListTitle": "Stay tuned",
+      "summary": "React is having a huge impact on the way we think about Web UI development. Our Meetups are an opportunity to learn why and share experiences. We are a sociable group and very welcoming to newcomers.",
+      "mailingListTitle": "Stay Tuned",
       "mailingListSummary": "Get ticket reminders and event information about React London events straight to your inbox.",
-      "featuredEvent": {
-        "title": "July React Meetup",
-        "startDateTime": {
-          "iso": "2016-07-26T17:30:00+0000"
-        },
-        "endDateTime": {
-          "iso": "2016-07-26T08:30:00+0000"
-        },
-        "ticketReleaseDate": {
-          "iso": "2016-08-02T16:19:00+0000"
-        },
-        "location": {
-          "address": "Skills Matter, CodeNode, 10 South Place, London EC2M 7EB",
-          "coordinates": {
-            "latitude": "51.518550762323734",
-            "longitude": "-0.08610963821411133"
-          }
-        },
-        "talks": [
-          {
-            "summary": "Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.",
-            "title": "Draft.js in the real world",
-            "speakers": [
-              {
-                "name": "Kadi Kraman",
-                "company": "Red Badger",
-                "twitterHandle": "kadikraman",
-                "githubHandle": "kadikraman",
-                "blogURL": null,
-                "imageURL": null
-              }
-            ]
+      "events": [
+        {
+          "title": "React London Meetup July 2016",
+          "ticketsAvailable": false,
+          "waitingListOpen": false,
+          "displayLevel": "Featured",
+          "startDateTime": {
+            "iso": "2016-07-26T17:30:00+0000"
           },
-          {
-            "summary": "A talk around the challenges that BBC Sport have faced with running React at scale, and what we did to overcome them, and our migration from an old Angluar stack. Ben will also cover in a little detail how the BBC push updates to millions of clients simultaneously.",
-            "title": "BBC Sport and React",
-            "speakers": [
-              {
-                "name": "Ben Lambert",
-                "company": "BBC Sport",
-                "twitterHandle": "benjdlambert",
-                "githubHandle": "benjdlambert",
-                "blogURL": null,
-                "imageURL": null
-              }
-            ]
+          "endDateTime": {
+            "iso": "2016-07-26T20:00:00+0000"
           },
-          {
-            "summary": "Using React, GraphQL and Relay, in production, for a national publication. Fabio will outline what went well, what went wrong, traps to avoid, and how to avoid them.",
-            "title": "React, GraphQL and Relay in practice",
-            "speakers": [
-              {
-                "name": "Fabio Santos",
-                "company": "YLD",
-                "twitterHandle": "fabiosantosart",
-                "githubHandle": "fabiosantoscode",
-                "blogURL": null,
-                "imageURL": null
-              }
-            ]
-          }
-        ]
-      }
+          "ticketReleaseDate": {
+            "iso": "2016-07-05T23:00:00+0000"
+          },
+          "externalLinks": [
+            {
+              "url": "http://react.london/",
+              "title": "For tickets please visit -",
+              "type": "OTHER"
+            }
+          ],
+          "location": {
+            "address": "Skills Matter, CodeNode, 10 South Place, London EC2M 7EB",
+            "coordinates": {
+              "latitude": "51.518550762323734",
+              "longitude": "-0.08610963821411133"
+            }
+          },
+          "schedule": [
+            {
+              "datetime": "2016-07-26T17:30:00+0000",
+              "text": "Doors open for pizza and beers"
+            },
+            {
+              "datetime": "2016-07-25T18:00:00+0000",
+              "text": "Intro by Stu"
+            },
+            {
+              "datetime": "2016-07-25T18:10:00+0000",
+              "text": "Up to 3 speakers each with 20 minutes to talk followed by Q&A"
+            },
+            {
+              "datetime": "2016-07-25T19:30:00+0000",
+              "text": "Everyone is welcome to stay for another drink"
+            }
+          ],
+          "sponsors": [
+            {
+              "websiteURL": "https://red-badger.com",
+              "imageURL": "http://react.london/img/SVG/Badger_Roundel.svg",
+              "name": "Red Badger"
+            }
+          ],
+          "talks": [
+            {
+              "summary": "A talk around the challenges that BBC Sport have faced with running React at scale, and what we did to overcome them, and our migration from an old Angluar stack. Ben will also cover in a little detail how the BBC push updates to millions of clients simultaneously.",
+              "title": "BBC Sport and React",
+              "speakers": [
+                {
+                  "name": "Ben Lambert",
+                  "company": "BBC Sport",
+                  "twitterHandle": "benjdlambert",
+                  "githubHandle": "benjdlambert",
+                  "blogURL": null,
+                  "imageURL": "https://res.cloudinary.com/red-badger-assets/image/upload/v1469025661/events/react-london-speakers/benjdlambert.jpg"
+                }
+              ]
+            },
+            {
+              "summary": "Using React, GraphQL and Relay, in production, for a national publication. Fabio will outline what went well, what went wrong, traps to avoid, and how to avoid them.",
+              "title": "React, GraphQL and Relay in practice",
+              "speakers": [
+                {
+                  "name": "Fabio Santos",
+                  "company": "YLD",
+                  "twitterHandle": "fabiosantosart",
+                  "githubHandle": "fabiosantoscode",
+                  "blogURL": null,
+                  "imageURL": "https://res.cloudinary.com/red-badger-assets/image/upload/v1469025661/events/react-london-speakers/fabiosantosart.jpg"
+                }
+              ]
+            },
+            {
+              "summary": "Earlier this year, Facebook came out with their take on building a highly customisable rich text editor ­Draft.js. Built especially for React and powered by an immutable data model, it takes on the daunting task of solving all our rich text editing problems. She will provide a brief explanation on how Draft.js works and talk about her experience using it on a project along with Redux Form.",
+              "title": "Draft.js in the real world",
+              "speakers": [
+                {
+                  "name": "Kadi Kraman",
+                  "company": "Red Badger",
+                  "twitterHandle": "kadikraman",
+                  "githubHandle": "kadikraman",
+                  "blogURL": null,
+                  "imageURL": "https://res.cloudinary.com/red-badger-assets/image/upload/v1469025661/events/react-london-speakers/kadikraman.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "August React London Meetup",
+          "ticketsAvailable": false,
+          "waitingListOpen": false,
+          "displayLevel": "Highlighted",
+          "startDateTime": {
+            "iso": "2016-08-24T17:30:00+0000"
+          },
+          "endDateTime": {
+            "iso": "2016-08-24T20:30:00+0000"
+          },
+          "ticketReleaseDate": {
+            "iso": "2016-08-10T12:00:00+0000"
+          },
+          "externalLinks": [],
+          "location": {
+            "address": "Facebook, 10 Brock Street, NW1 3FG",
+            "coordinates": {
+              "latitude": "51.52574329999998",
+              "longitude": "-0.13992250000002038"
+            }
+          },
+          "schedule": [
+            {
+              "datetime": "2016-08-24T17:30:00+0000",
+              "text": "Doors open for pizza and beers"
+            },
+            {
+              "datetime": "2016-08-24T18:00:00+0000",
+              "text": "Intro from Stu"
+            },
+            {
+              "datetime": "2016-08-24T18:10:00+0000",
+              "text": "2 or 3 speakers each with 20 minutes to talk followed by a Q&A"
+            },
+            {
+              "datetime": "2016-08-24T19:30:00+0000",
+              "text": "Everyone is welcome to stay for another drink"
+            }
+          ],
+          "sponsors": [
+            {
+              "websiteURL": "https://red-badger.com/",
+              "imageURL": "//res.cloudinary.com/red-badger-assets/image/upload/t_media_lib_thumb/v1470319113/badger_circle_RGB_400x400_Copy_ymiuwq.png",
+              "name": "Red Badger"
+            },
+            {
+              "websiteURL": "http://www.facebook.com",
+              "imageURL": "//res.cloudinary.com/red-badger-assets/image/upload/t_media_lib_thumb/v1470400847/Facebook_Transparent_yrgtcl.png",
+              "name": "Facebook"
+            }
+          ],
+          "talks": [
+            {
+              "summary": "Jonny will explain how Redux Middleware can be used to encapsulate and model your application's side-effects in a way that's easy to understand and unit test.",
+              "title": "Redux Middleware",
+              "speakers": [
+                {
+                  "name": "John Reeves",
+                  "company": "Improbable",
+                  "twitterHandle": null,
+                  "githubHandle": "jonnyreeves",
+                  "blogURL": "http://jonnyreeves.co.uk/",
+                  "imageURL": "//res.cloudinary.com/red-badger-assets/image/upload/v1470318216/speaker2_zlrdo7.png"
+                }
+              ]
+            },
+            {
+              "summary": "How Notonthehighstreet use a component library served dynamically over an API allowing them to easily re-write their pages one component at a time.\nLearn some of the patterns and see technologies they've built to make a developer’s life more pleasant.",
+              "title": "Re-writing a frontend with re-usable React Components via an API",
+              "speakers": [
+                {
+                  "name": "Chris McKenzie",
+                  "company": "Not on the High Street",
+                  "twitterHandle": null,
+                  "githubHandle": "chrisface",
+                  "blogURL": null,
+                  "imageURL": "//res.cloudinary.com/red-badger-assets/image/upload/v1470318214/speaker1_qdmndw.png"
+                }
+              ]
+            },
+            {
+              "summary": "Cycle.js is a reactive framework that is approaching web apps in a different way from other frameworks. Luca will give a brief introduction to reactive programming concepts in Cycle.js and present an existing example made with Model-View-Intent architecture, the main way to approach this elegant and interesting fractal framework.",
+              "title": "Cycle.js: a reactive framework",
+              "speakers": [
+                {
+                  "name": "Luca Mezzalira",
+                  "company": "Massive Interactive",
+                  "twitterHandle": "lucamezzalira",
+                  "githubHandle": "lucamezzalira",
+                  "blogURL": null,
+                  "imageURL": "//res.cloudinary.com/red-badger-assets/image/upload/v1470318218/speaker3_zkq7nl.png"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 }

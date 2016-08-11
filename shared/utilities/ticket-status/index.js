@@ -1,6 +1,37 @@
 import moment from 'moment';
 import { isBefore, isAfter, formatDate } from '../date';
 
+const defaultOptions = [
+  {
+    title: '',
+    ticketsAvailable: false,
+    waitingListOpen: false,
+    displayLevel: 'Featured',
+    startDateTime: {
+      iso: '',
+    },
+    endDateTime: {
+      iso: '',
+    },
+    ticketReleaseDate: {
+      iso: '',
+    },
+    externalLinks: [
+      { url: '', title: '', type: 'OTHER' },
+    ],
+    location: {
+      address: null,
+      coordinates: {
+        latitude: '',
+        longitude: '',
+      },
+    },
+    schedule: [],
+    sponsors: [],
+    talks: [],
+  },
+];
+
 export function getActionLink(externalLinks, type) {
   if (!externalLinks) return undefined;
 
@@ -94,7 +125,8 @@ function statusSubHeader(result, link) {
   return `${result.statusSubHeader}${suffix}`;
 }
 
-export function getTicketStatusOptions(options) {
+export function getTicketStatusOptions(opts) {
+  const options = opts || defaultOptions;
   const parameters = { ...options, currentTime: moment() };
   const checks = [
     isTicketPreRelease,

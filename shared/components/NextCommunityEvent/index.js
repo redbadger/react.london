@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
-import TicketStatus from '../../containers/TicketStatus';
+import TicketStatus from '../../components/TicketStatus';
 import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
+import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
 export const placeholderText = 'To be confirmed.';
 
@@ -55,57 +56,55 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
-const NextCommunityEvent = ({
-  title,
-  startDateTime,
-  endDateTime,
-  location,
-  talks,
-}) => (
-  <section className="NextCommunityEvent block">
-    <div className="content">
-      <h2 className="NextCommunityEvent__header">
-        {getHeaderText(startDateTime, endDateTime)}
-      </h2>
-      <article className="NextCommunityEvent__section-container">
-        <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
-          <h3 className="NextCommunityEvent__details__heading">{title}</h3>
-          <ul className="NextCommunityEvent__details">
-            <li>
-              <a
-                className="NextCommunityEvent__link--date"
-                href={calendarURL}
-                target="_blank"
-              >
-                {eventDate(startDateTime)}
-              </a>
-            </li>
-            <li>
-              <a
-                className="NextCommunityEvent__link--time"
-                href={calendarURL}
-                target="_blank"
-              >
-                {eventTime(startDateTime, endDateTime)}
-              </a>
-            </li>
-            <li>
-              <a
-                className="NextCommunityEvent__link--place"
-                href={googleMapsUrl(location)}
-                target="_blank"
-              >
-                {eventLocation(location)}
-              </a>
-            </li>
-          </ul>
-        </div>
-        <TicketStatus />
-      </article>
-    </div>
-    <Talks talks={talks} />
-  </section>
-);
+const NextCommunityEvent = (featuredEvent) => {
+  const { title, startDateTime, endDateTime, location, talks } = featuredEvent;
+  const statusProps = getTicketStatusOptions(featuredEvent);
+  return (
+    <section className="NextCommunityEvent block">
+      <div className="content">
+        <h2 className="NextCommunityEvent__header">
+          {getHeaderText(startDateTime, endDateTime)}
+        </h2>
+        <article className="NextCommunityEvent__section-container">
+          <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
+            <h3 className="NextCommunityEvent__details__heading">{title}</h3>
+            <ul className="NextCommunityEvent__details">
+              <li>
+                <a
+                  className="NextCommunityEvent__link--date"
+                  href={calendarURL}
+                  target="_blank"
+                >
+                  {eventDate(startDateTime)}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="NextCommunityEvent__link--time"
+                  href={calendarURL}
+                  target="_blank"
+                >
+                  {eventTime(startDateTime, endDateTime)}
+                </a>
+              </li>
+              <li>
+                <a
+                  className="NextCommunityEvent__link--place"
+                  href={googleMapsUrl(location)}
+                  target="_blank"
+                >
+                  {eventLocation(location)}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <TicketStatus {...statusProps} />
+        </article>
+      </div>
+      <Talks talks={talks} />
+    </section>
+  );
+};
 
 const dateTimeType = PropTypes.shape({
   iso: React.PropTypes.string,

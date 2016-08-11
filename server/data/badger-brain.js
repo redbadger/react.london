@@ -23,10 +23,11 @@ query {
     summary
     mailingListTitle
     mailingListSummary
-    featuredEvent {
+    events {
       title
       ticketsAvailable
       waitingListOpen
+      displayLevel
       startDateTime {
         iso
       }
