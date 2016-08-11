@@ -1,20 +1,40 @@
 import React, { PropTypes } from 'react';
+import { formatDate } from '../../utilities/date';
 
 export const placeholderText = 'To be confirmed';
 
-const FutureEvent = ({ title, date, location }) => {
+function address(location) {
+  return location && location.address || placeholderText;
+}
+
+function dateText(date) {
+  if (date) {
+    return formatDate(date, 'dddd, Do MMMM YYYY');
+  }
+  return placeholderText;
+}
+
+function classes(eventType) {
+  if (eventType) {
+    const type = eventType.replace(/[^a-z]/gi, '-');
+    return `FutureEvent FutureEvent--${type}`;
+  }
+  return 'FutureEvent';
+}
+
+const FutureEvent = ({ title, eventType, startDateTime, location }) => {
   if (!title) { return null; }
   return (
-    <div className="FutureEvent">
+    <div className={classes(eventType)}>
       <h3 className="FutureEvent__title">
         {title}
       </h3>
       <ul className="FutureEvent__details">
         <li className="FutureEvent__datetime">
-          {date || placeholderText}
+          {dateText(startDateTime)}
         </li>
         <li className="FutureEvent__location">
-          {location || placeholderText}
+          {address(location)}
         </li>
       </ul>
     </div>
@@ -23,8 +43,9 @@ const FutureEvent = ({ title, date, location }) => {
 
 FutureEvent.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.string,
-  location: PropTypes.string,
+  eventType: PropTypes.string,
+  startDateTime: PropTypes.shape({ iso: PropTypes.string }),
+  location: PropTypes.shape({ address: PropTypes.string }),
 };
 
 export default FutureEvent;

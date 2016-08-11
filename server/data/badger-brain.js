@@ -25,6 +25,7 @@ query {
     mailingListSummary
     events {
       title
+      eventType
       ticketsAvailable
       waitingListOpen
       displayLevel

@@ -14,6 +14,7 @@ describe('Community mapStateToProps', () => {
       'mailingListTitle',
       'mailingListSummary',
       'featuredEvent',
+      'futureEvents',
     ]);
     expect(state.title).to.equal(community.title);
     expect(state.summary).to.equal(community.summary);
@@ -50,6 +51,40 @@ describe('Community mapStateToProps', () => {
       const data = { community: { ...fixture.community, events } };
       const state = mapStateToProps(data);
       expect(state.featuredEvent).to.deep.equal({});
+    });
+  });
+
+  describe('futureEvents selection', () => {
+    it('selects the first 3 highlighted events', () => {
+      const events = deepFreeze([
+        { title: '1', displayLevel: 'Regular' },
+        { title: '2', displayLevel: 'Highlighted' },
+        { title: '3', displayLevel: 'Featured' },
+        { title: '3', displayLevel: 'Highlighted' },
+        { title: '4', displayLevel: 'Highlighted' },
+        { title: '5', displayLevel: 'Featured' },
+        { title: '6', displayLevel: 'Highlighted' },
+        { title: '7', displayLevel: 'Highlighted' },
+      ]);
+      const data = { community: { ...fixture.community, events } };
+      const state = mapStateToProps(data);
+      expect(state.futureEvents).to.deep.equal([
+        { title: '2', displayLevel: 'Highlighted' },
+        { title: '3', displayLevel: 'Highlighted' },
+        { title: '4', displayLevel: 'Highlighted' },
+      ]);
+    });
+
+    it('gets as many as possible if there are less than 3', () => {
+      const events = deepFreeze([
+        { title: '1', displayLevel: 'Regular' },
+        { title: '2', displayLevel: 'Highlighted' },
+      ]);
+      const data = { community: { ...fixture.community, events } };
+      const state = mapStateToProps(data);
+      expect(state.futureEvents).to.deep.equal([
+        { title: '2', displayLevel: 'Highlighted' },
+      ]);
     });
   });
 });

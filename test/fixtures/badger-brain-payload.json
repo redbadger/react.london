@@ -8,6 +8,7 @@
       "events": [
         {
           "title": "React London Meetup July 2016",
+          "eventType": "Featured",
           "ticketsAvailable": false,
           "waitingListOpen": false,
           "displayLevel": "Featured",
@@ -106,6 +107,7 @@
         },
         {
           "title": "August React London Meetup",
+          "eventType": null,
           "ticketsAvailable": false,
           "waitingListOpen": false,
           "displayLevel": "Highlighted",
