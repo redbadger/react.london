@@ -19,7 +19,7 @@ The data flow looks like this:
 ## Updating content
 
 If we want to update the content of the site we log into Prismic, search for
-the appropriate documentent (the React.London community and the contained
+the appropriate document (the React.London community and the contained
 events, etc), make our edits, and then save and publish the documents.
 
 React.London queries BadgerBrain for site data every time a user visits the
@@ -27,6 +27,16 @@ site, so the user will always get the latest content in Prismic.
 
 Andy is spearheading the creation of a content editor's guide. Once more
 complete we shall link it, until then ask him to see it.
+
+
+## Images
+
+Image content used on React.London (namely the photos of the speakers) is
+hosted on a third party image hosting service called [Cloudinary][cloudinary].
+The file name is copied into a document's field in Prismic. The URL to the
+image will then be exposed by Badger Brain for use by React.London.
+
+[cloudinary]: http://cloudinary.com/
 
 
 ## Developing new editable content
