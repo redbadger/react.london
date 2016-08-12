@@ -3,9 +3,10 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import routes from '../../shared/components/routes';
+import routes from '../../shared/components/community-routes';
 import reducer from '../../shared/reducers';
 import { getSiteState } from '../data';
+import { CONFERENCE_URL } from '../constants';
 
 function sendSite(res, renderProps) {
   getSiteState().then(state => {
@@ -25,6 +26,7 @@ function sendSite(res, renderProps) {
 }
 
 function router(req, res) {
+  if (req.path === '/conference') { return res.redirect(CONFERENCE_URL); }
   const location = req.url;
   match({ routes, location }, (error, redirect, renderProps) => {
     if (error) {

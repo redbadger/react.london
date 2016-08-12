@@ -1,10 +1,15 @@
 import express from 'express';
 import morgan from 'morgan';
 import securityMiddleware from 'helmet';
-import router from './router';
+import communityRouter from './community-router';
+import conferenceRouter from './conference-router';
 import enforceHTTPS from './enforce-https';
 import { setDataSource } from './data';
 import * as badgerBrain from './data/badger-brain';
+
+function isMeetupRequest(req) {
+  return req.hostname.indexOf('meetup') === 0;
+}
 
 const app = express();
 
@@ -28,6 +33,12 @@ if (process.env.NODE_ENV === 'production') {
   app.use(enforceHTTPS());
 }
 
-app.use(router);
+app.use((req, res) => {
+  if (isMeetupRequest(req)) {
+    communityRouter(req, res);
+  } else {
+    conferenceRouter(req, res);
+  }
+});
 
 export default app;
