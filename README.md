@@ -27,7 +27,8 @@ Add these lines to your hosts file
 127.0.0.1	meetup-dev.react.london
 ```
 
-TODO: Explain that you don't use localhost.
+Then you can access the community site from `meetup-dev.react.london:8080` and
+the conference site from `dev.react.london:8080`.
 
 ```sh
 # Print task help
