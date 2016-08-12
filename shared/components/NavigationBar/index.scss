@@ -9,22 +9,6 @@
     }
   }
 
-  &--Community {
-    a,
-    a:visited {
-      color: $events-color;
-    }
-
-    a:focus,
-    a:hover {
-      color: $events-color-faded;
-    }
-
-    a.NavigationBar__tab--active {
-      background-color: $events-color-faded;
-    }
-  }
-
   &--Conference {
     a,
     a:visited {

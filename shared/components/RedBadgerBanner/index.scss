@@ -1,10 +1,10 @@
 .RedBadgerBanner {
-  $height: 35px;
+  $height: 24px;
 
-  color: $white;
+  font-size: 12px;
   font-weight: bold;
+  color: $white;
   background: $red-badger-color;
-  justify-content: center;
   text-align: right;
 
   > * {
