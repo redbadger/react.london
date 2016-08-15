@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import routes from '../../shared/components/community-routes';
+import routes from '../../shared/routes/community-routes';
 import reducer from '../../shared/reducers';
 import { getSiteState } from '../data';
 import { CONFERENCE_URL } from '../constants';

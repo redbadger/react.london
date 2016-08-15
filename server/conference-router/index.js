@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
-import routes from '../../shared/components/conference-routes';
+import routes from '../../shared/routes/conference-routes';
 import { COMMUNITY_URL } from '../constants';
 import { useRoutes } from '../routes';
 

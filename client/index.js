@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import routes from '../shared/components/community-routes';
+import routes from '../shared/routes/community-routes';
 import reducer from '../shared/reducers';
 
 const initialState = window.__INITIAL_STATE__;
