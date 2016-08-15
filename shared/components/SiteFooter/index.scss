@@ -1,82 +1,112 @@
 // FOOTER
 .SiteFooter {
   display: flex;
-  background: $grey;
+
+  > * {
+    width: 100%;
+  }
+
+  &__conference {
+    background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center top $conference-color;
+    text-align: center;
+    height: 320px;
+    border-top: 3px solid $grey;
+    border-bottom: 3px solid $grey;
+    color: $grey;
+    font-size: 16px;
+
+    h2 {
+      margin: 170px 0 0;
+      font-size: 30px;
+    }
+
+    a {
+      font-weight: bold;
+      line-height: 0.9;
+      text-align: center;
+      color: $footer-grey;
+    }
+  }
+
+  &__badger {
+    margin-bottom: 12px;
+  }
 
   &__links {
     padding: 20px 0px 13px 0px; // 7px on the __link margin-bottom
-    margin: 0px;
+    margin: 23px 0 0;
     font-weight: bold;
+    list-style-type: none;
   }
 
-  &__link {
+  &__content {
+    background: $footer-grey;
+    padding: 60px 29px 80px 29px;
+    color: $white;
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0 0 50px;
+    }
+  }
+
+  &__social-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  &__social-link {
+    width: 30px;
     color: #9B9B9B;
     text-decoration: none;
-    padding-left: 35px;
     height: 23px;
     margin-bottom: 7px;
-    display: inline-block;
 
     &:focus,
     &:hover {
       color: white;
     }
-
-    &--mail {
-      background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Mail.svg");
-      }
-
-    }
-    &--slack {
-      background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Slack.svg");
-      }
-
-    }
-    &--youtube {
-      background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Youtube.svg");
-      }
-
-    }
-    &--twitter {
-      background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Twitter_white.svg");
-      }
-    }
-
-    & > span {
-      @media (max-width: 616px) {
-        display: none;
-      }
-    }
-
-    &--hashtag {
-      @media (max-width: 616px) {
-        padding-left: 0px;
-      }
-    }
   }
 
-  &__logo--img,
-  &__logo--svg {
-    height: 81px;
-    display: block;
+
+  &__serious a {
+    color: $white;
   }
 
-  @media (min-width: 616px) {
-    &__links {
-      column-count: 2;
-      column-gap: 80px;
+  &__mail {
+    background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Mail.svg");
+    }
+
+  }
+  &__slack {
+    background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Slack.svg");
+    }
+
+  }
+  &__youtube {
+    background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Youtube.svg");
+    }
+
+  }
+  &__twitter {
+    background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Twitter_white.svg");
     }
   }
 }

@@ -2,70 +2,61 @@ import React from 'react';
 
 const SiteFooter = () => (
   <footer className="SiteFooter block">
-    <div className="content space-between">
+    <div className="SiteFooter__conference block">
+      <h2>React London 2017</h2>
+      <p>We're launching a new conference<br />focused on React</p>
+      <a className="SiteFooter__conference-cta" href="#">Find out more</a>
+    </div>
+    <div className="SiteFooter__content block">
+      <div className="content">
+        <object
+          className="SiteFooter__badger"
+          data="/img/SVG/Badger.svg"
+          type="image/svg+xml"
+        />
 
-      <ul className="SiteFooter__links">
-        <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum.
+        </p>
+
+        <h2>Talk to us</h2>
+        <div className="SiteFooter__links SiteFooter__social-links">
           <a
-            className="SiteFooter__link SiteFooter__link--mail"
+            className="SiteFooter__social-link SiteFooter__mail"
             href="mailto:hello@react.london"
           >
-            <span>hello@react.london</span>
           </a>
-        </li>
-        <li>
           <a
-            className="SiteFooter__link SiteFooter__link--slack"
+            className="SiteFooter__social-link SiteFooter__slack"
             href="http://slack.red-badger.com/"
             target="_blank"
           >
-            <span>Join the conversation</span>
           </a>
-        </li>
-        <li>
           <a
-            className="SiteFooter__link SiteFooter__link--youtube"
+            className="SiteFooter__social-link SiteFooter__youtube"
             href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ"
             target="_blank"
           >
-            <span>Watch previous Meetups</span>
           </a>
-        </li>
-        <li>
           <a
-            className="SiteFooter__link SiteFooter__link--twitter"
+            className="SiteFooter__social-link SiteFooter__twitter"
             href="https://twitter.com/ReactLondon_"
             target="_blank"
           >
-            <span>@ReactLondon_</span>
           </a>
-        </li>
-        <li>
-          <a
-            className="SiteFooter__link SiteFooter__link--hashtag"
-            href="https://twitter.com/search?q=%23reactlondon"
-            target="_blank"
-          >
-            #reactlondon
-          </a>
-        </li>
-      </ul>
+        </div>
 
-      <a className="SiteFooter__logo" href="http://red-badger.com/" target="_blank">
-        <object
-          className="SiteFooter__logo--svg"
-          data="/img/SVG/Badger_Roundel.svg"
-          type="image/svg+xml"
-        >
-          <img
-            className="SiteFooter__logo--img"
-            srcSet="/img/PNG/ReactLondon_SaveTheDate_Icons_x2-02.png"
-            src="/img/PNG/ReactLondon_SaveTheDate_Icons-02.png"
-            alt="Red Badger logo"
-          />
-        </object>
-      </a>
-
+        <h2>Serious Stuff</h2>
+        <ul className="SiteFooter__links SiteFooter__serious">
+          <li><a href="#">Our Code of Conduct</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 );
