@@ -28,12 +28,49 @@
     }
   }
 
+  @media (min-width: 750px) {
+    &__conference {
+      background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat center top $conference-color;
+      height: 200px;
+
+      h2 {
+        margin: 43px 0 0 0;
+      }
+
+      > * {
+        position: relative;
+        left: 220px;
+      }
+
+      .text-background {
+        background: $conference-color;
+        line-height: 1.1em;
+      }
+    }
+
+    &__content-container {
+      display: flex;
+      flex-flow: row wrap;
+
+      .SiteFooter__blerb {
+        flex: 2;
+        width: 50%;
+        padding-right: 100px;
+      }
+
+      .SiteFooter__additional-info {
+        flex: 1;
+        width: 200px;
+      }
+    }
+  }
+
   &__badger {
     margin-bottom: 12px;
   }
 
   &__links {
-    padding: 20px 0px 13px 0px; // 7px on the __link margin-bottom
+    padding: 20px 0px 13px 0px;
     margin: 23px 0 0;
     font-weight: bold;
     list-style-type: none;
@@ -107,6 +144,14 @@
     &:focus,
     &:hover {
       background-image: url("/img/SVG/Twitter_white.svg");
+    }
+  }
+
+  &__instagram {
+    background: url("/img/SVG/Instagram_Grey.svg") no-repeat left 3px;
+    &:focus,
+    &:hover {
+      background-image: url("/img/SVG/Instagram.svg");
     }
   }
 }
