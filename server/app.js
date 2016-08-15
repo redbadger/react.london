@@ -6,6 +6,7 @@ import conferenceRouter from './routers/conference';
 import enforceHTTPS from './enforce-https';
 import { setDataSource } from './data';
 import * as badgerBrain from './data/badger-brain';
+import isMeetupRequest from '../shared/utilities/meetup-request';
 
 const app = express();
 
@@ -27,10 +28,6 @@ app.get('/__health__', (req, res) => res.status(200).send('ok'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(enforceHTTPS());
-}
-
-function isMeetupRequest(req) {
-  return req.hostname.indexOf('meetup') === 0;
 }
 
 app.use((req, res) => {
