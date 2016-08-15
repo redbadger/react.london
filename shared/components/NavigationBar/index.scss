@@ -1,10 +1,12 @@
-$flex_nav_breakpoint: 600px;
+$flex_nav_breakpoint: 1100px;
 
 .NavigationBar {
   background-color: $grey;
+  display: flex;
+  padding-left: 44px;
+  padding-right: 44px;
   ul {
     display:none;
-    width:100%;
     list-style:none;
     margin:0px;
     padding:0px;
@@ -31,7 +33,7 @@ $flex_nav_breakpoint: 600px;
     left: -9999px;
     &:checked ~ ul,&:checked ~ ul li ul {
       display:block !important;
-      @media (min-width:$flex_nav_breakpoint){
+      @media (min-width: $tablet-width){
         display: flex;
         flex-direction: row;
       }
@@ -51,6 +53,7 @@ $flex_nav_breakpoint: 600px;
     cursor:pointer;
     line-height: 2em;
     color: $conference-color;
+    flex: 1;
   }
 
   label:before {
@@ -63,10 +66,35 @@ $flex_nav_breakpoint: 600px;
     color: $conference-color;
   }
 
-  @media(min-width:$flex_nav_breakpoint){
+  .wild {
+    flex: 1;
+    .ticket__button {
+      background-color: red;
+      border-radius: 6px;
+      text-transform: uppercase;
+      background-color: #d2091e;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 6px;
+      text-transform: uppercase;
+      border: 0;
+      padding: 5px 15px;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-direction: row;
     ul {
       display: flex;
       flex-direction: row;
+      flex: 5;
       li {
         position:relative;
         text-align: center;
@@ -75,6 +103,12 @@ $flex_nav_breakpoint: 600px;
     }
     label {
       display:none;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    ul {
+      flex: 6;
     }
   }
 }
