@@ -1,57 +1,80 @@
+$flex_nav_breakpoint: 600px;
+
 .NavigationBar {
-  background: $grey;
+  background-color: $grey;
+  ul {
+    display:none;
+    width:100%;
+    list-style:none;
+    margin:0px;
+    padding:0px;
 
-  li {
-    list-style-type: none;
-
-    @media (min-width: 660px) {
-      width: 280px;
-    }
-  }
-
-  &--Conference {
-    a,
-    a:visited {
-      color: $conference-color;
-    }
-
-    a:focus,
-    a:hover {
-      color: $conference-color-faded;
-    }
-
-
-    a.NavigationBar__tab--active {
-      background-color: $conference-color-faded;
-    }
-  }
-
-  &__tabs {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-
-    a {
-      $border-bottom-size: 3px;
-
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      width: 40vw;
-      min-width: 130px;
-      text-align: center;
-      height: 50px;
-      vertical-align: middle;
-      display: table-cell;
-      padding-bottom: $border-bottom-size;
-
-      &.NavigationBar__tab--active {
-        color: $grey;
-        border-bottom: $border-bottom-size solid $grey;
-        padding-bottom: 0;
+    li {
+      a {
+        display:block;
+        padding:14px;
+        font-weight: bold;
+        font-size: 18px;
+        color: $conference-color;
+        text-decoration:none;
+        &:hover {
+          background:$grey;
+          color: $conference-color-faded;
+        }
       }
+    }
+  }
+
+  input.trigger {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    &:checked ~ ul,&:checked ~ ul li ul {
+      display:block !important;
+      @media (min-width:$flex_nav_breakpoint){
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+  label {
+    position:relative;
+    display:block;
+    width: 100%;
+    min-height:2em;
+    padding-top: 0.45em;
+    padding-left: 3.5em;
+    padding-bottom: 0.45em;
+    font-size: 18px;
+    font-weight: bold;
+    margin:0;
+    cursor:pointer;
+    line-height: 2em;
+    color: $conference-color;
+  }
+
+  label:before {
+    position: absolute;
+    left: 1em;
+    top: .2em;
+    content:"\2261";
+    font-weight: normal;
+    font-size:1.8em;
+    color: $conference-color;
+  }
+
+  @media(min-width:$flex_nav_breakpoint){
+    ul {
+      display: flex;
+      flex-direction: row;
+      li {
+        position:relative;
+        text-align: center;
+        flex: 1;
+      }
+    }
+    label {
+      display:none;
     }
   }
 }
