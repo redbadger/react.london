@@ -1,8 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import securityMiddleware from 'helmet';
-import communityRouter from './community-router';
-import conferenceRouter from './conference-router';
+import communityRouter from './routers/community';
+import conferenceRouter from './routers/conference';
 import enforceHTTPS from './enforce-https';
 import { setDataSource } from './data';
 import * as badgerBrain from './data/badger-brain';
