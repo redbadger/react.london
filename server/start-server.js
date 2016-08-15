@@ -3,7 +3,7 @@ import logger from './logger';
 import { readFileSync } from 'fs';
 
 const port = process.env.PORT || 8080;
-app.listen(port, error => {
+app.listen(port, '0.0.0.0', error => {
   if (error) {
     logger.error(error);
   } else {

@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import SiteFooter from '../SiteFooter';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
-import NavigationBar from '../NavigationBar';
 import CommunityAbout from '../CommunityAbout';
 import EventDetails from '../EventDetails';
 import NextCommunityEvent from '../../components/NextCommunityEvent';
@@ -21,7 +20,6 @@ const Community = ({
     <div id="wrapper">
       <Hero page="Community" />
       <RedBadgerBanner />
-      <NavigationBar page="Community" />
       <CommunityAbout summary={summary} />
       <NextCommunityEvent {...featuredEvent} />
       <MailingList

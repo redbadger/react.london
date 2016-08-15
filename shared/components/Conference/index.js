@@ -2,7 +2,6 @@ import React from 'react';
 import SiteFooter from '../SiteFooter';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
-import NavigationBar from '../NavigationBar';
 import MailingList from '../MailingList';
 import ConferenceAbout from '../ConferenceAbout';
 import NextConferenceEvent from '../NextConferenceEvent';
@@ -14,7 +13,6 @@ const Conference = () => (
       <main>
         <Hero page="Conference" />
         <RedBadgerBanner />
-        <NavigationBar page="Conference" />
         <ConferenceAbout />
         <NextConferenceEvent />
         <MailingList

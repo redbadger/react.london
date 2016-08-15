@@ -20,6 +20,16 @@ Most importantly, we're utilising GDD (Gif Driven Development).
 
 * Install [NodeJS](https://nodejs.org/en/)
 
+Add these lines to your hosts file
+
+```
+127.0.0.1	dev.react.london
+127.0.0.1	meetup-dev.react.london
+```
+
+Then you can access the community site from `meetup-dev.react.london:8080` and
+the conference site from `dev.react.london:8080`.
+
 ```sh
 # Print task help
 make
