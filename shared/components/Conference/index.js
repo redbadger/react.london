@@ -7,7 +7,7 @@ import ConferenceAbout from '../ConferenceAbout';
 import NextConferenceEvent from '../NextConferenceEvent';
 import ShareYourIdeas from '../ShareYourIdeas';
 
-let sssh = {
+const sssh = {
   whatdoesthe___say: {
     flip: 'Gur orfg jnl gb',
     open: ' yrnea vf ol qbvat',
