@@ -24,29 +24,29 @@ const third = {
 };
 
 const usefulLinks = [
-  {
-    text: 'Our Code of Conduct',
-    url: '#',
-  },
-  {
-    text: 'T & Cs',
-    url: '#',
-  },
-  {
-    text: 'Accessibility',
-    url: '#',
-  },
+  // {
+  //   text: 'Our Code of Conduct',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'T & Cs',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'Accessibility',
+  //   url: '#',
+  // },
 ];
 
 const seriousLinks = [
-  {
-    text: 'Visiting London',
-    url: '#',
-  },
-  {
-    text: 'Accommodation',
-    url: '#',
-  },
+  // {
+  //   text: 'Visiting London',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'Accommodation',
+  //   url: '#',
+  // },
 ];
 
 

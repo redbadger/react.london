@@ -10,10 +10,10 @@ import JoinSlack from '../JoinSlack';
 import FutureEvents from '../FutureEvents';
 
 const usefulLinks = [
-  {
-    text: 'Our Code of Conduct',
-    url: '#',
-  },
+  // {
+  //   text: 'Our Code of Conduct',
+  //   url: '#',
+  // },
 ];
 
 const seriousLinks = [
