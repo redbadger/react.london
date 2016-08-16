@@ -5,90 +5,81 @@ body {
 .NavigationBar {
   background-color: $grey;
   display: flex;
-  flex-direction: row;
-  .links_container {
+  &__links-container {
     width: 100%;
-  }
-  div {
-  ul {
-    display:none;
-    list-style:none;
-    margin:0px;
-    padding:0px;
-    flex-direction: column;
-    li {
-      a {
-        padding-left: 80px;
-        display:block;
-        padding-top:14px;
-        padding-bottom:14px;
-        font-weight: bold;
-        font-size: 18px;
-        color: $conference-color;
-        text-decoration:none;
-        &:hover {
-          background:$grey;
-          color: white;
-          @media (max-width: $tablet-width){
+    ul {
+      display: none; /* Not displayed on mobile unless the hamburger menu is opened */
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-direction: column;
+      li {
+        a {
+          padding: 14px 0px 14px 80px;
+          display: block;
+          font-weight: bold;
+          font-size: 18px;
+          color: $conference-color;
+          text-decoration: none;
+          &:hover {
             background: $conference-color;
             color: $grey;
           }
         }
-      }
-      a.active {
-        background: $conference-color;
-        color: $grey;
+        a.active {
+          background: $conference-color;
+          color: $grey;
+        }
       }
     }
   }
-}
 
+  /* Opening menu from hamburger */
   input.trigger {
     position: absolute;
     top: -9999px;
     left: -9999px;
     &:checked ~ ul {
-      @media (max-width: $tablet-width){
-        display:block !important;
+      @media (max-width: $tablet-width) {
+        display: block !important; /* Displaying the menu when the burger is clicked */
         display: flex;
         flex-direction: row;
       }
     }
+    /* When the menu is opened, the hamburger label's text is changed to white */
     &:checked ~ label {
-      @media (max-width: $tablet-width){
+      @media (max-width: $tablet-width) {
         color: white;
       }
     }
+    /* When the menu is opened, the hamburger icon is changed to white */
     &:checked ~ label:before {
-      @media (max-width: $tablet-width){
+      @media (max-width: $tablet-width) {
         color: white;
       }
     }
   }
   label {
-    position:relative;
-    display:block;
+    position: relative;
+    display: block;
     width: 5px;
-    padding-top: 0.5em;
-    padding-left: 35px;
-    padding-bottom: 0.5em;
+    padding: 9px 0px 9px 35px;
     font-size: 18px;
     font-weight: bold;
-    margin:0;
-    cursor:pointer;
+    margin: 0;
+    cursor: pointer;
     line-height: 2em;
     color: $conference-color;
-    flex: 1;
     margin-left: 44px;
   }
-
+  /* Burger icon */
   label:before {
     position: absolute;
-    top: .25em;
-    left: 0em;
-    content:"\2261";
+    top: 8px;
+    left: 0;
+    content: "\2261";
     font-weight: normal;
-    font-size:1.8em;
+    font-size: 30px;
     color: $conference-color;
   }
 
@@ -118,33 +109,36 @@ body {
     }
   }
 
+  /* Tablet and Desktop View */
   @media (min-width: $tablet-width) {
-    display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Changed from column to row as links are now displayed horizontally */
     padding-left: 44px;
     padding-right: 44px;
-    div {
+    &__links-container {
       flex: 6;
-    ul {
-      display: flex;
-      flex-direction: row;
-      li {
-        position:relative;
-        text-align: center;
-        flex: 1;
-        a {
-          padding-left: 0px;
-        }
-        a.active {
-          color: white;
-          background-color: $grey;
-          border-bottom: 3px solid white;
+      ul {
+        display: flex;
+        flex-direction: row;
+        li {
+          text-align: center;
+          flex: 1;
+          a {
+            padding-left: 0;
+          }
+          a.active {
+            color: white;
+            background-color: $grey;
+            border-bottom: 3px solid white;
+          }
+          a:hover {
+            color: white;
+            background-color: $grey;
+          }
         }
       }
     }
-  }
     label {
-      display:none;
+      display: none;
     }
 
     .ticket__button__container {
@@ -152,15 +146,5 @@ body {
       flex: 1;
       right: 20px;
     }
-  }
-
-  @media (min-width: $desktop-width) {
-    div {
-    ul {
-      flex: 6;
-      li {
-      }
-    }
-  }
   }
 }
