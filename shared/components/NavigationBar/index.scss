@@ -1,7 +1,3 @@
-body {
-  background-color: $conference-color;
-}
-
 .NavigationBar {
   background-color: $grey;
   display: flex;
@@ -13,23 +9,21 @@ body {
       margin: 0;
       padding: 0;
       flex-direction: column;
-      li {
-        a {
-          padding: 14px 0px 14px 80px;
-          display: block;
-          font-weight: bold;
-          font-size: 18px;
-          color: $conference-color;
-          text-decoration: none;
-          &:hover {
-            background: $conference-color;
-            color: $grey;
-          }
-        }
-        a.active {
+      a {
+        padding: 14px 0px 14px 80px;
+        display: block;
+        font-weight: bold;
+        font-size: 18px;
+        color: $conference-color;
+        text-decoration: none;
+        &:hover {
           background: $conference-color;
           color: $grey;
         }
+      }
+      .active {
+        background: $conference-color;
+        color: $grey;
       }
     }
   }
@@ -125,7 +119,7 @@ body {
           a {
             padding-left: 0;
           }
-          a.active {
+          .active {
             color: white;
             background-color: $grey;
             border-bottom: 3px solid white;
