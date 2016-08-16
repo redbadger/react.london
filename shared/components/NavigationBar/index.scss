@@ -1,11 +1,14 @@
-$flex_nav_breakpoint: 1100px;
+body {
+  background-color: $conference-color;
+}
 
 .NavigationBar {
   background-color: $grey;
   display: flex;
   flex-direction: row;
-  padding-left: 44px;
-  padding-right: 44px;
+  .links_container {
+    width: 100%;
+  }
   div {
   ul {
     display:none;
@@ -15,16 +18,26 @@ $flex_nav_breakpoint: 1100px;
     flex-direction: column;
     li {
       a {
+        padding-left: 80px;
         display:block;
-        padding:14px;
+        padding-top:14px;
+        padding-bottom:14px;
         font-weight: bold;
         font-size: 18px;
         color: $conference-color;
         text-decoration:none;
         &:hover {
           background:$grey;
-          color: $conference-color-faded;
+          color: white;
+          @media (max-width: $tablet-width){
+            background: $conference-color;
+            color: $grey;
+          }
         }
+      }
+      a.active {
+        background: $conference-color;
+        color: $grey;
       }
     }
   }
@@ -35,21 +48,30 @@ $flex_nav_breakpoint: 1100px;
     top: -9999px;
     left: -9999px;
     &:checked ~ ul {
-      display:block !important;
-      @media (min-width: $tablet-width){
+      @media (max-width: $tablet-width){
+        display:block !important;
         display: flex;
         flex-direction: row;
+      }
+    }
+    &:checked ~ label {
+      @media (max-width: $tablet-width){
+        color: white;
+      }
+    }
+    &:checked ~ label:before {
+      @media (max-width: $tablet-width){
+        color: white;
       }
     }
   }
   label {
     position:relative;
     display:block;
-    width: 100%;
-    min-height:2em;
-    padding-top: 0.45em;
-    padding-left: 0px;
-    padding-bottom: 0.45em;
+    width: 5px;
+    padding-top: 0.5em;
+    padding-left: 35px;
+    padding-bottom: 0.5em;
     font-size: 18px;
     font-weight: bold;
     margin:0;
@@ -57,12 +79,13 @@ $flex_nav_breakpoint: 1100px;
     line-height: 2em;
     color: $conference-color;
     flex: 1;
+    margin-left: 44px;
   }
 
   label:before {
     position: absolute;
-    left: -1em;
-    top: .2em;
+    top: .25em;
+    left: 0em;
     content:"\2261";
     font-weight: normal;
     font-size:1.8em;
@@ -71,8 +94,11 @@ $flex_nav_breakpoint: 1100px;
 
   .ticket__button__container {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    right: 44px;
+    top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .ticket__button {
       background-color: red;
       border-radius: 6px;
@@ -95,8 +121,10 @@ $flex_nav_breakpoint: 1100px;
   @media (min-width: $tablet-width) {
     display: flex;
     flex-direction: row;
+    padding-left: 44px;
+    padding-right: 44px;
     div {
-      flex: 5;
+      flex: 6;
     ul {
       display: flex;
       flex-direction: row;
@@ -104,6 +132,14 @@ $flex_nav_breakpoint: 1100px;
         position:relative;
         text-align: center;
         flex: 1;
+        a {
+          padding-left: 0px;
+        }
+        a.active {
+          color: white;
+          background-color: $grey;
+          border-bottom: 3px solid white;
+        }
       }
     }
   }
@@ -114,6 +150,7 @@ $flex_nav_breakpoint: 1100px;
     .ticket__button__container {
       position: initial;
       flex: 1;
+      right: 20px;
     }
   }
 
@@ -121,6 +158,8 @@ $flex_nav_breakpoint: 1100px;
     div {
     ul {
       flex: 6;
+      li {
+      }
     }
   }
   }
