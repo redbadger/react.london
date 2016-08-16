@@ -13,18 +13,16 @@ const linkType = PropTypes.shape({
 function Banner({ page }) {
   if (page === 'Community') {
     return (
-      <div className="SiteFooter__conference block">
-        <h2>
-          <span className="text-background">
-            React London 2017
-          </span>
+      <div className="SiteFooter__banner SiteFooter__conference block">
+        <h2 className="SiteFooter__banner-title">
+          React London 2017
         </h2>
         <p>
           <span className="text-background">
             We're launching a new conference<br />focused on React
           </span>
         </p>
-        <a className="SiteFooter__conference-cta" href="#">
+        <a className="SiteFooter__banner-cta" href="#">
           <span className="text-background">
             Find out more
           </span>
@@ -33,7 +31,21 @@ function Banner({ page }) {
     );
   }
   return (
-    null
+    <div className="SiteFooter__banner SiteFooter__community block">
+      <h2 className="SiteFooter__banner-title">
+        React London Meetup
+      </h2>
+      <p>
+        <span className="text-background">
+          Looking for our meetups?
+        </span>
+      </p>
+      <a className="SiteFooter__banner-cta" href="#">
+        <span className="text-background">
+          Find out more
+        </span>
+      </a>
+    </div>
   );
 }
 
@@ -112,14 +124,6 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 target="_blank"
               >
               </a>
-              {/*
-                <a
-                  className="SiteFooter__social-link SiteFooter__instagram"
-                  href="#TODO"
-                  target="_blank"
-                >
-                </a>
-              */}
             </div>
           </div>
 

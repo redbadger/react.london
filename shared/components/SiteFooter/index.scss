@@ -1,3 +1,11 @@
+@mixin text-outline($c) {
+  text-shadow:
+    -2px -2px $c, -2px -1px $c, -2px 0px $c, -2px 1px $c, -2px -2px $c,
+    -1px -2px $c, -1px -1px $c, -1px 0px $c, -1px 1px $c, -1px -2px $c,
+    0px -2px  $c, 0px -1px  $c, 0px 0px  $c, 0px 1px  $c, 0px -2px  $c,
+    1px -2px  $c, 1px -1px  $c, 1px 0px  $c, 1px 1px  $c, 1px -2px  $c,
+    2px -2px  $c, 2px -1px  $c, 2px 0px  $c, 2px 1px  $c, 2px -2px  $c;
+}
 .SiteFooter {
   border-top: 3px solid $grey;
   display: flex;
@@ -7,11 +15,10 @@
   }
 }
 
-.SiteFooter__conference {
-  background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center top $conference-color;
+.SiteFooter__banner {
   text-align: center;
-  height: 320px;
   color: $grey;
+  height: 320px;
   font-size: 16px;
 
   h2 {
@@ -27,25 +34,52 @@
   }
 
   @media (min-width: 750px) {
-    background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat center top $conference-color;
     height: 200px;
-
     h2 {
       margin: 43px 0 0 0;
     }
+
+    .text-background {
+      line-height: 1.1em;
+    }
+  }
+}
+
+.SiteFooter__conference {
+  background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center top $conference-color;
+
+  @media (min-width: 750px) {
+    background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat center top $conference-color;
 
     > * {
       position: relative;
       left: 220px;
     }
 
+    .SiteFooter__banner-title {
+      @include text-outline($conference-color);
+    }
+
     .text-background {
-      background: $conference-color;
-      line-height: 1.1em;
     }
   }
 }
 
+.SiteFooter__community {
+  background: url("/img/SVG/Community_Banner_background.svg") no-repeat center top $events-color;
+
+  @media (min-width: 750px) {
+    background: url("/img/SVG/Community_Banner_background_large.svg") no-repeat center top $events-color;
+
+    .SiteFooter__banner-title {
+      @include text-outline($events-color);
+    }
+
+    .text-background {
+      background: $events-color;
+    }
+  }
+}
 
 .SiteFooter__badger {
   margin-bottom: 12px;
