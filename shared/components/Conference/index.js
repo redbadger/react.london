@@ -24,7 +24,7 @@ const third = {
 };
 
 const Conference = () => {
-  console.log('Hey, there is something to find here=urer! Email us the decrypted message to win a free ticket!'); // eslint-disable-line max-len, no-console
+  console.log('Hey, there is something to find here=urer! Email us the decrypted message to win a free ticket to a REACT conference!'); // eslint-disable-line max-len, no-console
   return (
     <div className="conference">
       <div id="wrapper">
