@@ -87,13 +87,15 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
           />
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            React has made a huge impact to the way we approach front end
+            development at Red Badger. We have played an active part in the
+            React London community since mid 2014. It has provided an
+            opportunity for us to learn from very talented people and share
+            ideas.
+          </p>
+
+          <p>
+            Thank you for being part of this brilliant community!
           </p>
         </div>
 
