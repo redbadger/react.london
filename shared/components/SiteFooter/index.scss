@@ -82,6 +82,7 @@
 }
 
 .SiteFooter__badger {
+  height: 40px;
   margin-bottom: 12px;
 }
 
@@ -113,6 +114,10 @@
 
 .SiteFooter__blerb {
   margin-bottom: 50px;
+
+  p {
+    margin-top: 0;
+  }
 }
 
 .SiteFooter__social-links {
@@ -163,34 +168,34 @@
 }
 
 .SiteFooter__mail {
-  background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
+  background: url("/img/SVG/Mail.svg") no-repeat left top;
   &:focus,
   &:hover {
-    background-image: url("/img/SVG/Mail.svg");
+    background-image: url("/img/SVG/Mail_Grey.svg");
   }
 
 }
 .SiteFooter__slack {
-  background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
+  background: url("/img/SVG/Slack.svg") no-repeat left top;
   &:focus,
   &:hover {
-    background-image: url("/img/SVG/Slack.svg");
+    background-image: url("/img/SVG/Slack_Grey.svg");
   }
 
 }
 .SiteFooter__youtube {
-  background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
+  background: url("/img/SVG/Youtube.svg") no-repeat left 2px;
   &:focus,
   &:hover {
-    background-image: url("/img/SVG/Youtube.svg");
+    background-image: url("/img/SVG/Youtube_Grey.svg");
   }
 
 }
 .SiteFooter__twitter {
-  background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
+  background: url("/img/SVG/Twitter_white.svg") no-repeat left 3px;
   &:focus,
   &:hover {
-    background-image: url("/img/SVG/Twitter_white.svg");
+    background-image: url("/img/SVG/Twitter_Grey.svg");
   }
 }
 
