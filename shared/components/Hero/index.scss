@@ -30,7 +30,23 @@
     top: 198px;
     font-size: 16px
   }
+
+  @media (max-width: $mobile-width) {
+    height: 240px;
+    & > object {
+      height: 240px;
+    }
+    &__title {
+      top: 140px;
+    }
+
+    &__subtitle {
+      top: 192px;
+      font-size: 16px
+    }
+  }
 }
+
 
 
 .Hero--Conference {
