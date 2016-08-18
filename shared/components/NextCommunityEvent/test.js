@@ -89,7 +89,7 @@ describe('getHeaderText', () => {
       { iso: new Date('2016-07-26T17:30:00+0000') },
       { iso: new Date('2016-07-26T19:30:00+0000') }
     );
-    expect(result).to.equal('Next Event');
+    expect(result).to.equal('Next Meetup');
   });
 
   it('returns Community Event if no props are passed', () => {

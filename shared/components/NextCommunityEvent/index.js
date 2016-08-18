@@ -52,7 +52,7 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 
   if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
-    return 'Next Event';
+    return 'Next Meetup';
   }
 }
 
