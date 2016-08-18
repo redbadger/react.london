@@ -22,7 +22,7 @@ function Banner({ page }) {
             We&rsquo;re launching a new conference<br />focused on React
           </span>
         </p>
-        <a className="SiteFooter__banner-cta" href="#">
+        <a className="SiteFooter__banner-cta" href="https://react.london/">
           <span className="text-background">
             Find out more
           </span>
@@ -40,7 +40,7 @@ function Banner({ page }) {
           Looking for our meetups?
         </span>
       </p>
-      <a className="SiteFooter__banner-cta" href="#">
+      <a className="SiteFooter__banner-cta" href="https://meetup.react.london/">
         <span className="text-background">
           Find out more
         </span>
@@ -73,6 +73,17 @@ LinkList.propTypes = {
   links: PropTypes.arrayOf(linkType),
 };
 
+function footerBlerb(page) {
+  if (page === 'Community') {
+    return 'Red Badger run the React.London meetups to help chart what’s possible' +
+      ' and give the community a place to share discoveries.';
+  }
+  return 'Red Badger are running the React.London Conference to help chart what’s' +
+    ' possible and give the community a place to share discoveries. This is' +
+    ' not-for-profit, the money generated will help cover our costs for this' +
+    ' and future events.';
+}
+
 const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
   <footer className={'block SiteFooter SiteFooter__' + page}>
     <Banner page={page} />
@@ -86,17 +97,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
             type="image/svg+xml"
           />
 
-          <p>
-            React has made a huge impact to the way we approach front end
-            development at Red Badger. We have played an active part in the
-            React London community since mid 2014. It has provided an
-            opportunity for us to learn from very talented people and share
-            ideas.
-          </p>
-
-          <p>
-            Thank you for being part of this brilliant community!
-          </p>
+          <p>{footerBlerb(page)}</p>
         </div>
 
         <div className="SiteFooter__additional-info">
