@@ -1,4 +1,3 @@
-// HERO
 .Hero {
   background-image: url('/img/SVG/Community_header_background.svg');
   background-color: $events-color;
@@ -15,17 +14,43 @@
 
   z-index: 100;
 
-  &__title {
+  &__title,
+  &__subtitle {
     position: absolute;
     text-align: center;
-    top: 150px;
     left: 0;
     right: 0;
   }
 
-  &--Conference {
-    background-color: $conference-color;
-    background-image: none;
-    background-position: 0px 0px;
+  &__title {
+    top: 150px;
   }
+
+  &__subtitle {
+    top: 198px;
+    font-size: 16px
+  }
+
+  @media (max-width: $mobile-width) {
+    height: 240px;
+    & > object {
+      height: 240px;
+    }
+    &__title {
+      top: 140px;
+    }
+
+    &__subtitle {
+      top: 192px;
+      font-size: 16px
+    }
+  }
+}
+
+
+
+.Hero--Conference {
+  background-color: $conference-color;
+  background-image: none;
+  background-position: 0px 0px;
 }
