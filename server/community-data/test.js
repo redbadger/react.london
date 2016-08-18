@@ -1,13 +1,13 @@
 import deepFreeze from 'deep-freeze';
-import { mapStateToProps } from '.';
-import { data as fixture } from '../../../test/fixtures/badger-brain-payload.json';
+import communityData from '.';
+import { data as fixture } from '../../test/fixtures/badger-brain-payload.json';
 
 deepFreeze(fixture);
 
-describe('Community mapStateToProps', () => {
+describe('community-data transform', () => {
   it('gets community values', () => {
     const community = fixture.community;
-    const state = mapStateToProps(fixture);
+    const state = communityData(fixture);
     expect(Object.keys(state)).to.deep.equal([
       'title',
       'summary',
@@ -24,8 +24,8 @@ describe('Community mapStateToProps', () => {
   });
 
   it('defaults if no values', () => {
-    expect(mapStateToProps(undefined)).to.deep.equal({});
-    expect(mapStateToProps({})).to.deep.equal({});
+    expect(communityData(undefined)).to.deep.equal({});
+    expect(communityData({})).to.deep.equal({});
   });
 
   describe('featuredEvent selection', () => {
@@ -37,7 +37,7 @@ describe('Community mapStateToProps', () => {
         { title: '4', displayLevel: 'Featured' },
       ];
       const data = { community: { ...fixture.community, events } };
-      const state = mapStateToProps(data);
+      const state = communityData(data);
       expect(state.featuredEvent).to.deep.equal({
         title: '3', displayLevel: 'Featured',
       });
@@ -49,7 +49,7 @@ describe('Community mapStateToProps', () => {
         { title: '2', displayLevel: 'Highlighted' },
       ];
       const data = { community: { ...fixture.community, events } };
-      const state = mapStateToProps(data);
+      const state = communityData(data);
       expect(state.featuredEvent).to.deep.equal({});
     });
   });
@@ -67,7 +67,7 @@ describe('Community mapStateToProps', () => {
         { title: '7', displayLevel: 'Highlighted' },
       ]);
       const data = { community: { ...fixture.community, events } };
-      const state = mapStateToProps(data);
+      const state = communityData(data);
       expect(state.futureEvents).to.deep.equal([
         { title: '2', displayLevel: 'Highlighted' },
         { title: '3', displayLevel: 'Highlighted' },
@@ -81,7 +81,7 @@ describe('Community mapStateToProps', () => {
         { title: '2', displayLevel: 'Highlighted' },
       ]);
       const data = { community: { ...fixture.community, events } };
-      const state = mapStateToProps(data);
+      const state = communityData(data);
       expect(state.futureEvents).to.deep.equal([
         { title: '2', displayLevel: 'Highlighted' },
       ]);
