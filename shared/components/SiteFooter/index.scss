@@ -1,82 +1,242 @@
-// FOOTER
+@mixin text-outline($c) {
+  text-shadow:
+    -2px -2px $c, -2px -1px $c, -2px 0px $c, -2px 1px $c, -2px -2px $c,
+    -1px -2px $c, -1px -1px $c, -1px 0px $c, -1px 1px $c, -1px -2px $c,
+    0px -2px  $c, 0px -1px  $c, 0px 0px  $c, 0px 1px  $c, 0px -2px  $c,
+    1px -2px  $c, 1px -1px  $c, 1px 0px  $c, 1px 1px  $c, 1px -2px  $c,
+    2px -2px  $c, 2px -1px  $c, 2px 0px  $c, 2px 1px  $c, 2px -2px  $c;
+}
 .SiteFooter {
+  border-top: 3px solid $grey;
   display: flex;
-  background: $grey;
 
-  &__links {
-    padding: 20px 0px 13px 0px; // 7px on the __link margin-bottom
-    margin: 0px;
+  > * {
+    width: 100%;
+  }
+}
+
+.SiteFooter__banner {
+  text-align: center;
+  color: $grey;
+  height: 320px;
+  font-size: 16px;
+
+  h2 {
+    margin: 170px 0 0;
+    font-size: 30px;
+  }
+
+  a {
     font-weight: bold;
+    line-height: 0.9;
+    text-align: center;
+    color: $footer-grey;
   }
 
-  &__link {
-    color: #9B9B9B;
+  @media (min-width: 750px) {
+    height: 200px;
+    h2 {
+      margin: 43px 0 0 0;
+    }
+
+    .text-background {
+      line-height: 1.1em;
+    }
+  }
+}
+
+.SiteFooter__conference {
+  background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center top $conference-color;
+
+  @media (min-width: 750px) {
+    background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat center top $conference-color;
+
+    > * {
+      position: relative;
+      left: 220px;
+    }
+
+    .SiteFooter__banner-title {
+      @include text-outline($conference-color);
+    }
+
+    .text-background {
+    }
+  }
+}
+
+.SiteFooter__community {
+  background: url("/img/SVG/Community_Banner_background.svg") no-repeat center top $events-color;
+
+  @media (min-width: 750px) {
+    background: url("/img/SVG/Community_Banner_background_large.svg") no-repeat center top $events-color;
+
+    .SiteFooter__banner-title {
+      @include text-outline($events-color);
+    }
+
+    .text-background {
+      background: $events-color;
+    }
+  }
+}
+
+.SiteFooter__badger {
+  margin-bottom: 12px;
+}
+
+.SiteFooter__links {
+  padding-left: 0;
+  font-weight: bold;
+  list-style-type: none;
+
+
+  li {
+    margin: 15px 0;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.SiteFooter__content {
+  border-top: 3px solid $grey;
+  background: $footer-grey;
+  padding: 60px 29px 80px 29px;
+  color: $white;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.SiteFooter__blerb {
+  margin-bottom: 50px;
+}
+
+.SiteFooter__social-links {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  a {
+    margin-right: 39px;
+  }
+}
+
+.SiteFooter__useful,
+.SiteFooter__serious {
+  a {
+    color: $white;
     text-decoration: none;
-    padding-left: 35px;
-    height: 23px;
-    margin-bottom: 7px;
     display: inline-block;
+    position: relative;
+  }
+  a::after {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    border-bottom: 1px solid $white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3px;
+  }
+}
 
-    &:focus,
-    &:hover {
-      color: white;
-    }
+.SiteFooter__social-link {
+  width: 30px;
+  color: #9B9B9B;
+  text-decoration: none;
+  height: 23px;
+  margin-bottom: 7px;
 
-    &--mail {
-      background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Mail.svg");
-      }
+  &:focus,
+  &:hover {
+    color: white;
+  }
+}
 
-    }
-    &--slack {
-      background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Slack.svg");
-      }
+.SiteFooter__useful {
+  margin-top: 50px;
+}
 
-    }
-    &--youtube {
-      background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Youtube.svg");
-      }
-
-    }
-    &--twitter {
-      background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
-      &:focus,
-      &:hover {
-        background-image: url("/img/SVG/Twitter_white.svg");
-      }
-    }
-
-    & > span {
-      @media (max-width: 616px) {
-        display: none;
-      }
-    }
-
-    &--hashtag {
-      @media (max-width: 616px) {
-        padding-left: 0px;
-      }
-    }
+.SiteFooter__mail {
+  background: url("/img/SVG/Mail_Grey.svg") no-repeat left top;
+  &:focus,
+  &:hover {
+    background-image: url("/img/SVG/Mail.svg");
   }
 
-  &__logo--img,
-  &__logo--svg {
-    height: 81px;
-    display: block;
+}
+.SiteFooter__slack {
+  background: url("/img/SVG/Slack_Grey.svg") no-repeat left top;
+  &:focus,
+  &:hover {
+    background-image: url("/img/SVG/Slack.svg");
   }
 
-  @media (min-width: 616px) {
-    &__links {
-      column-count: 2;
-      column-gap: 80px;
+}
+.SiteFooter__youtube {
+  background: url("/img/SVG/Youtube_Grey.svg") no-repeat left 2px;
+  &:focus,
+  &:hover {
+    background-image: url("/img/SVG/Youtube.svg");
+  }
+
+}
+.SiteFooter__twitter {
+  background: url("/img/SVG/Twitter_Grey.svg") no-repeat left 3px;
+  &:focus,
+  &:hover {
+    background-image: url("/img/SVG/Twitter_white.svg");
+  }
+}
+
+.SiteFooter__instagram {
+  background: url("/img/SVG/Instagram_Grey.svg") no-repeat left 3px;
+  &:focus,
+  &:hover {
+    background-image: url("/img/SVG/Instagram.svg");
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .SiteFooter__additional-info {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .SiteFooter__social {
+    flex: 5;
+  }
+
+  .SiteFooter__serious {
+    flex: 4;
+  }
+
+  .SiteFooter__useful {
+    flex: 3;
+    margin-top: 0;
+  }
+
+  .SiteFooter__links {
+    margin-top: 24px;
+    padding-top: 0;
+  }
+
+  .SiteFooter__blerb {
+    p {
+      max-width: 66.6%
+    }
+  }
+}
+
+.SiteFooter__Community {
+  @media (min-width: $tablet-portrait-width) {
+    .SiteFooter__useful {
+      flex: 7;
     }
   }
 }

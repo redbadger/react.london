@@ -2,9 +2,9 @@ import React from 'react';
 
 const RedBadgerBanner = () => (
   <section className="RedBadgerBanner block">
-    <div className="content">
+    <a href="https://red-badger.com/" target="_blank" className="content">
       Powered by Red Badger
-    </div>
+    </a>
   </section>
 );
 

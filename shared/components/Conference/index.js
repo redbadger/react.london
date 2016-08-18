@@ -23,6 +23,33 @@ const third = {
   watch: ' xgbeý ivr, xqr žvwrgr . - Evpx Bfobear',
 };
 
+const usefulLinks = [
+  // {
+  //   text: 'Our Code of Conduct',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'T & Cs',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'Accessibility',
+  //   url: '#',
+  // },
+];
+
+const seriousLinks = [
+  // {
+  //   text: 'Visiting London',
+  //   url: '#',
+  // },
+  // {
+  //   text: 'Accommodation',
+  //   url: '#',
+  // },
+];
+
+
 const Conference = () => {
   console.log('Hey, there is something to find here=urer! Email us the decrypted message to win a free ticket to a REACT conference!'); // eslint-disable-line max-len, no-console
   return (
@@ -39,7 +66,12 @@ const Conference = () => {
             page="conference"
           />
           <ShareYourIdeas />
-          <SiteFooter sssh={third} />
+          <SiteFooter
+            page="Conference"
+            usefulLinks={usefulLinks}
+            seriousLinks={seriousLinks}
+            sssh={third}
+          />
         </main>
       </div>
     </div>

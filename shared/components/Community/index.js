@@ -9,6 +9,16 @@ import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
 import FutureEvents from '../FutureEvents';
 
+const usefulLinks = [
+  // {
+  //   text: 'Our Code of Conduct',
+  //   url: '#',
+  // },
+];
+
+const seriousLinks = [
+];
+
 const Community = ({
   summary,
   mailingListTitle,
@@ -33,7 +43,7 @@ const Community = ({
       />
       <JoinSlack />
       <FutureEvents events={futureEvents} />
-      <SiteFooter />
+      <SiteFooter page="Community" usefulLinks={usefulLinks} seriousLinks={seriousLinks} />
     </div>
   </div>
 );

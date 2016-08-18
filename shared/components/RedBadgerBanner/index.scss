@@ -3,11 +3,16 @@
 
   font-size: 12px;
   font-weight: bold;
-  color: $white;
   background: $red-badger-color;
   text-align: right;
 
-  > * {
+  a {
     line-height: $height;
+    color: $white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }
