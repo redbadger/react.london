@@ -125,6 +125,26 @@
   }
 }
 
+.SiteFooter__useful,
+.SiteFooter__serious {
+  a {
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+  }
+  a::after {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    border-bottom: 1px solid $white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3px;
+  }
+}
+
 .SiteFooter__social-link {
   width: 30px;
   color: #9B9B9B;
