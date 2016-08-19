@@ -3,7 +3,7 @@ import Sponsor from '../Sponsor';
 
 const EventSponsors = ({ eventSponsors }) => (
   <div className="EventSponsors">
-    <h3>Sponsors</h3>
+    <h3>Partners</h3>
     <ul>
       {eventSponsors && eventSponsors.map((props, index) => (
         <Sponsor key={index} {...props} />
