@@ -10,17 +10,17 @@ import ShareYourIdeas from '../ShareYourIdeas';
 const first = {
   flip: 'Gur orfg jnl gb',
   open: ' yrnea vf ol qbvat',
-  xoyo: ' vg jebat. - Qna Noenzbi',
+  xoyo: ' vg jebat. (Ernpg Arkg, Gry Nivi)',
 };
 const second = {
   alias: 'Yvfc vf trra gnny ,',
   noop: ' urg vf rra obhjzngrevnny.',
-  tail: ' - Nyna Xnl',
+  tail: ' (Ernpgvir Pbas, Oengvfynin)',
 };
 const third = {
   category: 'Ižql xóq , nxb xrol gra ',
   ouch: ', xgb fxbačí hqežnť iáš xóq ohqr aáfvyaý cflpubcng ,',
-  watch: ' xgbeý ivr, xqr žvwrgr . - Evpx Bfobear',
+  watch: ' xgbeý ivr, xqr žvwrgr . (Irybpvgl Nzfgreqnz)',
 };
 
 const usefulLinks = [
