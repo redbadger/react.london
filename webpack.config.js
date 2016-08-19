@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractText = require('extract-text-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 const baseConfig = {
@@ -27,7 +28,7 @@ const baseConfig = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass',
+        loader: ExtractText.extract('style', 'css!sass'),
       },
     ],
   },
@@ -35,6 +36,9 @@ const baseConfig = {
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),
+    new ExtractText('[name].css', {
+      allChunks: true,
+    }),
   ],
   sassLoader: {
     outputStyle: 'compressed',
