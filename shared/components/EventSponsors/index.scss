@@ -1,14 +1,20 @@
 .EventSponsors {
-  margin-left: 0px;
+  padding-bottom: 30px;
+  margin-left: 30px;
 
   ul {
     padding-left: 0px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   ul li {
+    display: inline;
     padding-top: 20px;
     padding-left: 20px;
     list-style-type: none;
+    flex: 1;
   }
 
   ul li a {
@@ -16,14 +22,8 @@
       height: 80px;
     }
   }
-}
 
-@media (min-width: 768px) {
-  .EventSponsors {
-    margin-left: 30px;
-
-    ul li {
-      display: inline;
-    }
+  h3 {
+    margin-top: 0;
   }
 }

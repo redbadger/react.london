@@ -104,12 +104,16 @@
 .SiteFooter__content {
   border-top: 3px solid $grey;
   background: $footer-grey;
-  padding: 60px 29px 80px 29px;
+  padding: 60px 20px 80px 29px;
   color: $white;
 
   h2 {
     margin: 0;
   }
+}
+
+.SiteFooter__content-container.content {
+  padding: 0;
 }
 
 .SiteFooter__blerb {
