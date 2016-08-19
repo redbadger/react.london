@@ -22,7 +22,7 @@ function Banner({ page }) {
             We&rsquo;re launching a new conference<br />focused on React
           </span>
         </p>
-        <a className="SiteFooter__banner-cta" href="https://react.london/">
+        <a className="SiteFooter__banner-cta" href="/conference">
           <span className="text-background">
             Find out more
           </span>
@@ -40,7 +40,7 @@ function Banner({ page }) {
           Looking for our meetups?
         </span>
       </p>
-      <a className="SiteFooter__banner-cta" href="https://meetup.react.london/">
+      <a className="SiteFooter__banner-cta" href="/community">
         <span className="text-background">
           Find out more
         </span>
