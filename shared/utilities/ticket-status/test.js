@@ -10,7 +10,7 @@ describe('getTicketStatusOptions', () => {
       const result = getTicketStatusOptions({ ticketReleaseDate });
 
       expect(result).to.deep.equal({
-        buttonText: 'Free Ticket',
+        buttonText: 'FREE TICKET AVAILABLE SOON',
         linkType: '',
         statusHeader: 'TICKETS WILL GO LIVE ON',
         statusSubHeader: 'Thursday, 1st January 1970, 01:00',
