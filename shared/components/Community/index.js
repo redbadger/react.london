@@ -7,6 +7,7 @@ import EventDetails from '../EventDetails';
 import NextCommunityEvent from '../../components/NextCommunityEvent';
 import MailingList from '../MailingList';
 import JoinSlack from '../JoinSlack';
+import InterestedSpeaker from '../InterestedSpeaker';
 import FutureEvents from '../FutureEvents';
 
 const usefulLinks = [
@@ -32,17 +33,18 @@ const Community = ({
       <RedBadgerBanner />
       <CommunityAbout summary={summary} />
       <NextCommunityEvent {...featuredEvent} />
-      <MailingList
-        mailingListTitle={mailingListTitle}
-        mailingListSummary={mailingListSummary}
-        page="community"
-      />
+      <InterestedSpeaker />
       <EventDetails
         eventSchedule={featuredEvent.schedule}
         eventSponsors={featuredEvent.sponsors}
       />
       <JoinSlack />
       <FutureEvents events={futureEvents} />
+      <MailingList
+        mailingListTitle={mailingListTitle}
+        mailingListSummary={mailingListSummary}
+        page="community"
+      />
       <SiteFooter page="Community" usefulLinks={usefulLinks} seriousLinks={seriousLinks} />
     </div>
   </div>
