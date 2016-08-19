@@ -15,7 +15,7 @@ function router(req, res) {
     res.redirect(COMMUNITY_URL);
   } else {
     const location = req.url;
-    useRoutes(res, routes, location, sendSite);
+    useRoutes(res, routes(), location, sendSite);
   }
 }
 

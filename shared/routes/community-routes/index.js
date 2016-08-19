@@ -2,11 +2,14 @@ import React from 'react';
 import { Route, Redirect, IndexRoute } from 'react-router';
 
 import Layout from '../../components/Layout';
-import Community from '../../containers/Community';
+import Community from '../../components/Community';
 
-export default (
-  <Route path="/" component={Layout}>
-    <IndexRoute component={Community} />
-    <Redirect path="community" to="/" />
-  </Route>
-);
+export default function routes(state) {
+  const CommunityWithData = () => <Community {...state} />;
+  return (
+    <Route path="/" component={Layout}>
+      <IndexRoute component={CommunityWithData} />
+      <Redirect path="community" to="/" />
+    </Route>
+  );
+}

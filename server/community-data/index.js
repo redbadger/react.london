@@ -1,6 +1,3 @@
-import { connect } from 'react-redux';
-import Community from '../../components/Community';
-
 const MAX_EVENTS = 3;
 
 function featuredEvent(events) {
@@ -13,7 +10,7 @@ function futureEvents(events) {
     .slice(0, MAX_EVENTS);
 }
 
-export const mapStateToProps = (state) => {
+export default function communityData(state) {
   if (!state || !state.community) { return {}; }
   const {
     title,
@@ -30,6 +27,4 @@ export const mapStateToProps = (state) => {
     featuredEvent: featuredEvent(events),
     futureEvents: futureEvents(events),
   };
-};
-
-export default connect(mapStateToProps)(Community);
+}
