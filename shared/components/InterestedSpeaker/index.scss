@@ -1,0 +1,35 @@
+.InterestedSpeaker {
+  background: $events-color;
+  text-align: center;
+  padding: 40px 0px;
+
+  &__text {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  &__heading {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 0px;
+  }
+
+  &__btn {
+    border-radius: 6px;
+    border: 0px;
+    padding: 12px 20px 12px 20px;
+    color: $events-color;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: $grey;
+    display: inline-block;
+
+    font-size: 20px;
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+
+  }
+}

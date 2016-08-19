@@ -50,7 +50,7 @@ function defaultValues() {
 export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
   if (isBefore(currentTime, ticketReleaseDate)) {
     return {
-      buttonText: 'Free Ticket',
+      buttonText: 'FREE TICKET AVAILABLE SOON',
       linkType: '',
       statusHeader: 'TICKETS WILL GO LIVE ON',
       statusSubHeader: formatDate(ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm'),

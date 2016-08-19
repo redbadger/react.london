@@ -22,16 +22,10 @@ function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
 }
 
-function eventDate(date) {
-  if (date && date.iso) {
-    return formatDate(date, 'dddd, Do MMMM YYYY');
-  }
-  return placeholderText;
-}
-
-function eventTime(startDateTime, endDateTime) {
+function eventDateAndTime(startDateTime, endDateTime) {
   if (startDateTime && startDateTime.iso && endDateTime && endDateTime.iso) {
-    return formatDate(startDateTime, 'HH:mm - ') + formatDate(endDateTime, 'HH:mm');
+    return formatDate(startDateTime, 'dddd, Do MMMM YYYY | HH:mm - ')
+      + formatDate(endDateTime, 'HH:mm');
   }
   return placeholderText;
 }
@@ -52,7 +46,7 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 
   if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
-    return 'Next Event';
+    return 'Next Meetup';
   }
 }
 
@@ -75,16 +69,7 @@ const NextCommunityEvent = (featuredEvent) => {
                   href={calendarURL}
                   target="_blank"
                 >
-                  {eventDate(startDateTime)}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="NextCommunityEvent__link--time"
-                  href={calendarURL}
-                  target="_blank"
-                >
-                  {eventTime(startDateTime, endDateTime)}
+                  {eventDateAndTime(startDateTime, endDateTime)}
                 </a>
               </li>
               <li>
