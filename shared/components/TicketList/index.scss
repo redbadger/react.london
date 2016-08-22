@@ -9,6 +9,15 @@
     padding: 35px 0px;
     border-bottom: $dash-border;
     font-size: 18px;
+    > span {
+      flex: 4;
+    }
+    > span:first-child {
+      flex: 6;
+    }
+    > span:last-child {
+      text-align: right;
+    }
   }
   &__TCs {
     font-size: 18px;

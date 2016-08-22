@@ -1,19 +1,31 @@
 import React from 'react';
+import { formatDate } from '../../utilities/date';
 
-const TicketList = () => {
+function getTicketReleaseDate(ticket) {
+  if (!ticket.available) {
+    return 'Available Soon';
+  }
+  return 'Available ' + formatDate(ticket.releaseDate, 'Do MMMM, YYYY');
+}
+
+function getTicketPrice(ticket) {
+  if (!ticket.available) {
+    return 'SOLD OUT';
+  }
+  return `£${ticket.price}`;
+}
+
+const TicketList = ({ tickets }) => {
   return (
     <section className="block TicketList">
       <div className="content">
-        <div className="TicketList__ticket">
-          <span><strong>Early Bird</strong></span>
-          <span> Available 1st October, 2016</span>
-          <span><strong>£250</strong></span>
-        </div>
-        <div className="TicketList__ticket">
-          <span><strong>Early Bird</strong></span>
-          <span> Available 1st October, 2016</span>
-          <span><strong>£250</strong></span>
-        </div>
+        {tickets.map((ticket) => (
+          <div className="TicketList__ticket">
+            <span><strong>{ticket.title}</strong></span>
+            <span>{getTicketReleaseDate(ticket)}</span>
+            <span><strong>{getTicketPrice(ticket)}</strong></span>
+          </div>
+        ))}
       </div>
       <div className="TicketList__booking-btn__container">
         <a
