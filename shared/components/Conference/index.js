@@ -1,28 +1,5 @@
 import React from 'react';
-import SiteFooter from '../SiteFooter';
-import Hero from '../Hero';
-import RedBadgerBanner from '../RedBadgerBanner';
-import MailingList from '../MailingList';
-import ConferenceAbout from '../ConferenceAbout';
-import NextConferenceEvent from '../NextConferenceEvent';
-import ShareYourIdeas from '../ShareYourIdeas';
-
-const first = {
-  flip: 'Gur orfg jnl gb',
-  open: ' yrnea vf ol qbvat',
-  xoyo: ' vg jebat. (Ernpg Arkg, Gry Nivi)',
-};
-const second = {
-  alias: 'Yvfc vf trra gnny ,',
-  noop: ' urg vf rra obhjzngrevnny.',
-  tail: ' (Ernpgvir Pbas, Oengvfynin)',
-};
-const third = {
-  category: 'Ižql xóq , nxb xrol gra ',
-  ouch: ', xgb fxbačí hqežnť iáš xóq ohqr aáfvyaý cflpubcng ,',
-  watch: ' xgbeý ivr, xqr žvwrgr . (Irybpvgl Nzfgreqnz)',
-};
-
+import TicketPage from '../TicketPage';
 const usefulLinks = [
   // {
   //   text: 'Our Code of Conduct',
@@ -56,22 +33,7 @@ const Conference = () => {
     <div className="conference">
       <div id="wrapper">
         <main>
-          <Hero page="Conference" sssh={first} />
-          <RedBadgerBanner />
-          <ConferenceAbout />
-          <NextConferenceEvent sssh={second} />
-          <MailingList
-            mailingListTitle="Stay tuned"
-            mailingListSummary="Get ticket reminders and event information about the conference."
-            page="conference"
-          />
-          <ShareYourIdeas />
-          <SiteFooter
-            page="Conference"
-            usefulLinks={usefulLinks}
-            seriousLinks={seriousLinks}
-            sssh={third}
-          />
+          <TicketPage />
         </main>
       </div>
     </div>

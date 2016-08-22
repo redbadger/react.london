@@ -1,0 +1,49 @@
+.TicketList {
+  background-color: $conference-color-faded;
+  padding-bottom: 56px;
+  padding-top: 15px;
+  &__ticket {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 0px;
+    border-bottom: $dash-border;
+    font-size: 18px;
+  }
+  &__TCs {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+  &__booking-btn__container{
+    padding-top: 50px;
+    padding-bottom: 25px;
+  }
+  &__booking-btn {
+    border-radius: 6px;
+    text-transform: uppercase;
+    border: 0px;
+    padding: 12px 15px;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+
+    &--disabled {
+      background-color: $disabled-grey;
+      color: $events-color-faded;
+      cursor: not-allowed;
+    }
+
+    &--active {
+      background-color: $red-badger-color;
+      color: $white;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        background-color: $red-badger-color-darker;
+      }
+    }
+  }
+
+}
