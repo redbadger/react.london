@@ -8,7 +8,7 @@ react.london
 A site for the React London Community.
 
 This project employs a number of Javascript libraries and approaches,
-including _React_, _Redux_, _Server-Side Rendering_, GraphQL, and _WebPack_.
+including _React_, _Server-Side Rendering_, _GraphQL_, and _WebPack_.
 
 Most importantly, we're utilising GDD (Gif Driven Development).
 

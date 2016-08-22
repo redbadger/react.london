@@ -1,21 +1,27 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
-import routes from '../../../shared/routes/conference-routes';
+import conferenceRoutes from '../../../shared/routes/conference-routes';
 import { COMMUNITY_URL } from '../../constants';
 import { useRoutes } from '../../routes';
-
-function sendSite(res, renderProps) {
-  const content = renderToString(<RouterContext {...renderProps} />);
-  return res.render('index', { content, initialState: {} });
-}
+import { getConferenceState } from '../../data';
+import conferenceData from '../../conference-data';
 
 function router(req, res) {
   if (req.path === '/community') {
     res.redirect(COMMUNITY_URL);
   } else {
-    const location = req.url;
-    useRoutes(res, routes(), location, sendSite);
+    getConferenceState().then(state => {
+      const initialState = conferenceData(state);
+      const routes = conferenceRoutes(initialState);
+      const location = req.url;
+      useRoutes(res, routes, location, (_res, renderProps) => {
+        const content = renderToString(
+          <RouterContext {...renderProps} />
+        );
+        return res.render('index', { content, initialState });
+      });
+    });
   }
 }
 

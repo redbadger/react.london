@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NavigationBar = () => (
-  <nav className={'NavigationBar block NavigationBar--Conference'}>
+  <nav className="NavigationBar block NavigationBar--Conference">
     <div className="NavigationBar__links-container">
       <input className="trigger" type="checkbox" id="burger" />
       <label htmlFor="burger">Menu</label>

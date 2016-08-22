@@ -1,22 +1,32 @@
 import deepFreeze from 'deep-freeze';
-import fixturePayload from '../fixtures/badger-brain-payload.json';
-import { getSiteState } from '../../server/data';
+import communityFixture from '../fixtures/badger-brain-payload.json';
+import conferenceFixture from '../fixtures/bb-conference-payload.json';
+import { getCommunityState, getConferenceState } from '../../server/data';
 import { useDummyData } from '.';
 
-deepFreeze(fixturePayload);
+deepFreeze(communityFixture);
+deepFreeze(conferenceFixture);
 
 describe('data/dummy-source useDummyData', () => {
-  it('uses fixture data by default.', () => {
+  it('uses fixture community data by default.', () => {
     useDummyData();
-    return getSiteState()
+    return getCommunityState()
       .then(data => {
-        expect(data).to.deep.equal(fixturePayload.data);
+        expect(data).to.deep.equal(communityFixture.data);
+      });
+  });
+
+  it('uses fixture conference data by default.', () => {
+    useDummyData();
+    return getConferenceState()
+      .then(data => {
+        expect(data).to.deep.equal(conferenceFixture.data);
       });
   });
 
   it('can use other data if passed', () => {
-    useDummyData({ data: 'value' });
-    return getSiteState()
+    useDummyData({ community: { data: 'value' } });
+    return getCommunityState()
       .then(data => {
         expect(data).to.deep.equal('value');
       });
