@@ -34,10 +34,10 @@ export function BuyTickets({ tickets }) {
 }
 
 export function getTicketReleaseDate(ticket) {
-  if (!ticket.available || !ticket.releaseDate) {
+  if (!ticket.available || !ticket.releaseDate || !ticket.releaseDate.iso) {
     return '';
   }
-  return 'Available ' + formatDate(ticket.releaseDate, 'Do MMMM, YYYY');
+  return 'Available ' + formatDate(ticket.releaseDate.iso, 'Do MMMM, YYYY');
 }
 
 const TicketList = ({ tickets }) => {
@@ -62,7 +62,9 @@ const TicketList = ({ tickets }) => {
 
 const ticketType = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
+  releaseDate: PropTypes.shape({
+    iso: PropTypes.string.isRequired,
+  }),
   available: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,
 });
