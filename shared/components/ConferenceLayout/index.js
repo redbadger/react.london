@@ -4,6 +4,7 @@ import Layout from '../Layout';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import SiteFooter from '../SiteFooter';
+import NavigationBar from '../NavigationBar';
 
 const usefulLinks = [
   // {
@@ -39,6 +40,7 @@ const ConferenceLayout = ({ children }) => (
           <Hero page="Conference" />
 
           <RedBadgerBanner />
+          <NavigationBar />
 
           {children}
 
