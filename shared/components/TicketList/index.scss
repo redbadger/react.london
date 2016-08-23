@@ -1,30 +1,37 @@
 .TicketList {
   background-color: $conference-color-faded;
+  padding: 20px;
   padding-bottom: 40px;
-  padding-top: 15px;
+
+  .content {
+    border-collapse: collapse;
+    padding-bottom: 10px;
+  }
+
   &__ticket {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 0px;
+    font-size: 20px;
     border-bottom: $dash-border;
-    font-size: 18px;
-    > span {
-      flex: 4;
-    }
-    > span.sold-out {
-      color: $red-badger-color;
-    }
-    > span:first-child {
-      flex: 6;
-      font-size: 20px;
-    }
-    > span:last-child {
-      text-align: right;
-      font-size: 20px;
+    display: block;
+    padding: 30px 0px;
+
+    td {
+      display: block;
     }
 
+    &__date {
+      font-size: 18px;
+    }
+
+    &--notAvailable {
+      .TicketList__ticket__title {
+        text-decoration: line-through;
+      }
+      .TicketList__ticket__price {
+        color: $red-badger-color;
+      }
+    }
   }
+
   &__TCs {
     font-size: 18px;
     padding-top: 10px;
@@ -62,15 +69,13 @@
   }
 }
 
-@media (max-width: $mobile-width) {
+@media (min-width: $mobile-width) {
   .TicketList {
     &__ticket {
-      flex-direction: column;
-      > span:nth-child(2) {
-        padding: 10px 0px;
-      }
-      > span:last-child {
-        text-align: left;
+      display: table-row;
+      td {
+        display: table-cell;
+        padding: 30px 0px;
       }
     }
   }

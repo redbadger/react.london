@@ -2,18 +2,7 @@ import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
 import classnames from 'classnames';
 
-export function TicketPrice(ticket) {
-  let ticketPrice;
-  const ticketAvailable = ticket.available;
-  if (!ticketAvailable) {
-    ticketPrice = 'SOLD OUT';
-  } else {
-    ticketPrice = `£${ticket.price}`;
-  }
-  return (
-    <span className={!ticketAvailable ? 'sold-out' : ''}><strong>{ticketPrice}</strong></span>
-  );
-}
+export const TicketPrice = (ticket) => <strong>{ticket.available ? `£${ticket.price}` : 'SOLD OUT'}</strong>
 
 export function BuyTickets({ tickets }) {
   const ticketsAvailable = tickets.some((ticket) => ticket.available);
@@ -43,15 +32,19 @@ export function getTicketReleaseDate(ticket) {
 const TicketList = ({ tickets }) => {
   return (
     <section className="block TicketList">
-      <div className="content">
-        {tickets && tickets.map((ticket, i) => (
-          <div className="TicketList__ticket" key={i}>
-            <span><strong>{ticket.title}</strong></span>
-            <span>{getTicketReleaseDate(ticket)}</span>
-            <TicketPrice {...ticket} />
-          </div>
-        ))}
-      </div>
+      <table className="content">
+        <tbody>
+          {tickets && tickets.map((ticket, i) => {
+            return (
+              <tr className={`TicketList__ticket ${!ticket.available ? "TicketList__ticket--notAvailable" : ''}`} key={i}>
+                <td className="TicketList__ticket__title"><strong>{ticket.title}</strong></td>
+                <td className="TicketList__ticket__date">{getTicketReleaseDate(ticket)}</td>
+                <td className="TicketList__ticket__price"><TicketPrice {...ticket} /></td>
+              </tr>
+            )}
+          )}
+        </tbody>
+      </table>
       <BuyTickets tickets={tickets} />
       <div className="TicketList_TCs">
         for T&Cs about tickets, please see <strong>ti.to</strong>
