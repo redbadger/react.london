@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
 import classnames from 'classnames';
 
@@ -16,7 +16,7 @@ export function TicketPrice(ticket) {
 }
 
 export function BuyTickets({ tickets }) {
-  let ticketsAvailable = tickets.some((ticket) => ticket.available);
+  const ticketsAvailable = tickets.some((ticket) => ticket.available);
   const actionClasses = classnames({
     'TicketList__booking-btn': true,
     'TicketList__booking-btn--active': ticketsAvailable,
@@ -35,7 +35,7 @@ export function BuyTickets({ tickets }) {
 
 export function getTicketReleaseDate(ticket) {
   if (!ticket.available || !ticket.releaseDate) {
-    return 'Available Soon';
+    return '';
   }
   return 'Available ' + formatDate(ticket.releaseDate, 'Do MMMM, YYYY');
 }
@@ -44,8 +44,8 @@ const TicketList = ({ tickets }) => {
   return (
     <section className="block TicketList">
       <div className="content">
-        {tickets.map((ticket) => (
-          <div className="TicketList__ticket">
+        {tickets && tickets.map((ticket, i) => (
+          <div className="TicketList__ticket" key={i}>
             <span><strong>{ticket.title}</strong></span>
             <span>{getTicketReleaseDate(ticket)}</span>
             <TicketPrice {...ticket} />
@@ -57,8 +57,23 @@ const TicketList = ({ tickets }) => {
         for T&Cs about tickets, please see <strong>ti.to</strong>
       </div>
     </section>
-
   );
+};
+
+const ticketType = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
+  available: PropTypes.bool.isRequired,
+  price: PropTypes.number.isRequired,
+});
+
+TicketList.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType),
+};
+
+BuyTickets
+.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType),
 };
 
 export default TicketList;
