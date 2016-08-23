@@ -1,15 +1,15 @@
 import React from 'react';
 import { formatDate } from '../../utilities/date';
 
-function getTicketReleaseDate(ticket) {
-  if (!ticket.available) {
+export function getTicketReleaseDate(ticket) {
+  if (!ticket.available || !ticket.releaseDate) {
     return 'Available Soon';
   }
   return 'Available ' + formatDate(ticket.releaseDate, 'Do MMMM, YYYY');
 }
 
-function getTicketPrice(ticket) {
-  if (!ticket.available) {
+export function getTicketPrice(ticket) {
+  if (!ticket.available || !ticket.price) {
     return 'SOLD OUT';
   }
   return `£${ticket.price}`;

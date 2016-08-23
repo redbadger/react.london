@@ -1,12 +1,12 @@
 .TicketList {
   background-color: $conference-color-faded;
-  padding-bottom: 56px;
+  padding-bottom: 40px;
   padding-top: 15px;
   &__ticket {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 35px 0px;
+    padding: 25px 0px;
     border-bottom: $dash-border;
     font-size: 18px;
     > span {
@@ -14,9 +14,11 @@
     }
     > span:first-child {
       flex: 6;
+      font-size: 20px;
     }
     > span:last-child {
       text-align: right;
+      font-size: 20px;
     }
   }
   &__TCs {
@@ -54,5 +56,18 @@
       }
     }
   }
+}
 
+@media (max-width: $mobile-width) {
+  .TicketList {
+    &__ticket {
+      flex-direction: column;
+      > span:nth-child(2) {
+        padding: 10px 0px;
+      }
+      > span:last-child {
+        text-align: left;
+      }
+    }
+  }
 }
