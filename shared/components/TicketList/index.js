@@ -1,18 +1,43 @@
 import React from 'react';
 import { formatDate } from '../../utilities/date';
+import classnames from 'classnames';
+
+export function TicketPrice(ticket) {
+  let ticketPrice;
+  const ticketAvailable = ticket.available;
+  if (!ticketAvailable) {
+    ticketPrice = 'SOLD OUT';
+  } else {
+    ticketPrice = `£${ticket.price}`;
+  }
+  return (
+    <span className={!ticketAvailable ? 'sold-out' : ''}><strong>{ticketPrice}</strong></span>
+  );
+}
+
+export function BuyTickets({ tickets }) {
+  let ticketsAvailable = tickets.some((ticket) => ticket.available);
+  const actionClasses = classnames({
+    'TicketList__booking-btn': true,
+    'TicketList__booking-btn--active': ticketsAvailable,
+    'TicketList__booking-btn--disabled': !ticketsAvailable,
+  });
+  return (
+    <div className="TicketList__booking-btn__container">
+      <a
+        className={actionClasses}
+      >
+        {ticketsAvailable ? 'Buy Tickets' : 'Sold Out'}
+      </a>
+    </div>
+  );
+}
 
 export function getTicketReleaseDate(ticket) {
   if (!ticket.available || !ticket.releaseDate) {
     return 'Available Soon';
   }
   return 'Available ' + formatDate(ticket.releaseDate, 'Do MMMM, YYYY');
-}
-
-export function getTicketPrice(ticket) {
-  if (!ticket.available || !ticket.price) {
-    return 'SOLD OUT';
-  }
-  return `£${ticket.price}`;
 }
 
 const TicketList = ({ tickets }) => {
@@ -23,17 +48,11 @@ const TicketList = ({ tickets }) => {
           <div className="TicketList__ticket">
             <span><strong>{ticket.title}</strong></span>
             <span>{getTicketReleaseDate(ticket)}</span>
-            <span><strong>{getTicketPrice(ticket)}</strong></span>
+            <TicketPrice {...ticket} />
           </div>
         ))}
       </div>
-      <div className="TicketList__booking-btn__container">
-        <a
-          className="TicketList__booking-btn TicketStatus__booking-btn--active"
-        >
-          Buy Tickets
-        </a>
-      </div>
+      <BuyTickets tickets={tickets} />
       <div className="TicketList_TCs">
         for T&Cs about tickets, please see <strong>ti.to</strong>
       </div>
