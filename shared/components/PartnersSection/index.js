@@ -2,20 +2,20 @@ import React, { PropTypes } from 'react';
 
 const defaultImage = '/img/PNG/partner.png';
 
-const Partner = ({ title, description, imageURL, partnerURL }) => {
+const Partner = ({ name, description, imageURL, partnerURL }) => {
   return (
     <li className="Partner">
       <a href={partnerURL} target="_blank" rel="noopener">
-        <img className="Partner__image" src={imageURL || defaultImage} alt={title} />
+        <img className="Partner__image" src={imageURL || defaultImage} alt={name} />
       </a>
-      <h4 className="Partner__title">{title}</h4>
-      <p className="Partner__description">{description}</p>
+      {name && <h4 className="Partner__title">{name}</h4>}
+      {description && <p className="Partner__description">{description}</p>}
     </li>
   );
 };
 
 Partner.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   description: PropTypes.string,
   imageURL: PropTypes.string,
   partnerURL: PropTypes.string,

@@ -2,8 +2,8 @@ import React from 'react';
 import PartnersSection from '../PartnersSection';
 
 function stripDescription(objects = []) {
-  return objects.map(({ title, imageURL, partnerURL }) => {
-    return { title, imageURL, partnerURL };
+  return objects.map(({ name, imageURL, partnerURL }) => {
+    return { name, imageURL, partnerURL };
   });
 }
 
@@ -17,7 +17,7 @@ const ConferencePartners = (props) => {
   const { gold, silver, bronze, supporter } = props;
   return (
     <div>
-      <section className="block ConferenceAbout">
+      <section className="block ConferencePartners__about">
         <div className="content">
           <p>
             React London 2017 is possible due to the kind support
