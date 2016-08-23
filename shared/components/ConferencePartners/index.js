@@ -20,9 +20,9 @@ const ConferencePartners = (props) => {
       <section className="block ConferenceAbout">
         <div className="content">
           <p>
-            React London 2017 is possible due to the kind support of
-            <strong>our amazing partners</strong>, who help us keep tickets
-            affordable.
+            React London 2017 is possible due to the kind support
+            of <strong> our amazing partners</strong>, who help us keep
+            tickets affordable.
           </p>
         </div>
       </section>
@@ -50,6 +50,21 @@ const ConferencePartners = (props) => {
         title="Supporters"
         level="supporters"
       />
+
+      <div className="InterestedPartner block">
+        <h3 className="InterestedPartner__heading">
+          Interested in becoming a partner? Get in touch!
+        </h3>
+        <div className="content">
+          <a
+            target="_blank"
+            href="mailto:hello@react.london?subject=Partnership Enquiry- React London 2017"
+            className="InterestedPartner__btn"
+          >
+            Become a Partner
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

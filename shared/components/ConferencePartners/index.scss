@@ -17,3 +17,40 @@
 .PartnersSection__title {
   border-bottom: $dash-border;
 }
+
+.InterestedPartner {
+  border-top: $solid-border;
+  background: $conference-color-faded;
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.InterestedPartner__text {
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+.InterestedPartner__heading {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+.InterestedPartner__btn {
+  border-radius: 6px;
+  border: 0px;
+
+  padding: 12px 20px 12px 20px;
+  color: $conference-color-faded;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: $grey;
+  display: inline-block;
+
+  font-size: 20px;
+
+  &:focus,
+  &:hover {
+    color: $white;
+  }
+}
