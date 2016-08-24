@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const pageType = PropTypes.oneOf([
   'Conference',
@@ -60,7 +61,7 @@ function LinkList({ title, className, links = [] }) {
       <h2>{title}</h2>
       <ul className="SiteFooter__links">
         {links.map(({ url, text }, index) => (
-          <li key={index}><a href={url}>{text}</a></li>
+          <li key={index}><Link to={url}>{text}</Link></li>
         ))}
       </ul>
     </div>
