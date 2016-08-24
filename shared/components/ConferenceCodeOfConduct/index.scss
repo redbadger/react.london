@@ -1,0 +1,83 @@
+.CodeOfConduct__nav {
+  background-color: $grey;
+  padding: 16px 0;
+
+  a {
+    background: url("/img/SVG/back-arrow.svg") no-repeat left 8px;
+    padding-left: 45px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
+    color: $conference-color;
+    text-decoration: none;
+
+    &:hover {
+      background: url("/img/SVG/back-arrow-white.svg") no-repeat left 8px;
+      color: $conference-color-faded;
+    }
+  }
+}
+
+.CodeOfConduct__intro,
+.CodeOfConduct__section {
+  padding: 40px 0;
+  line-height: 22px;
+
+  a {
+    color: $grey;
+    text-decoration: none;
+    border-bottom: 1px solid $grey;
+  }
+
+  h3,
+  h4 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+
+  ul {
+    margin: 25px 0;
+    padding-left: 22px;
+  }
+
+  li {
+    padding-left: 5px;
+    margin-bottom: 12px;
+  }
+
+  &:nth-of-type(2n) {
+    background-color: $conference-color-faded;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .CodeOfConduct__intro {
+    h3, h4, * {
+      line-height: 31px;
+      font-size: 24px;
+    }
+  }
+
+  .CodeOfConduct__section {
+    h3, h4, * {
+      line-height: 25px;
+      font-size: 18px;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+}
