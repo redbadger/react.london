@@ -9,12 +9,12 @@ const NavigationBar = () => (
       <label htmlFor="burger">Menu</label>
       <ul>
         <li>
-          <Link to="/">
+          <Link activeClassName="active" to="/">
             About
           </Link>
         </li>
         <li>
-          <Link to="/partners">
+          <Link activeClassName="active" to="/partners">
             Partners
           </Link>
         </li>
