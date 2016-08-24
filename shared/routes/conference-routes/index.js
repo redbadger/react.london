@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router';
 
 import ConferenceLayout from '../../components/ConferenceLayout';
 import Conference from '../../components/Conference';
+import TicketPage from '../../components/TicketPage';
 import ConferencePartners from '../../components/ConferencePartners';
 import CodeOfConduct from '../../components/ConferenceCodeOfConduct';
 
@@ -13,6 +14,7 @@ export default function routes(state) {
       <Route component={ConferenceLayout} navbar >
         <Route path="/" component={Conference} />
         <Route path="/partners" component={Partners} />
+        <Route path="/tickets" component={TicketPage} />
       </Route>
 
       <Route component={ConferenceLayout} navbar={false} >

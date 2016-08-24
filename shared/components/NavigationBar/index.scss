@@ -3,6 +3,8 @@
   display: flex;
   &__links-container {
     width: 100%;
+    flex-direction: row;
+    height: initial;
     ul {
       display: none; /* Not displayed on mobile unless the hamburger menu is opened */
       list-style: none;
@@ -10,7 +12,7 @@
       padding: 0;
       flex-direction: column;
       a {
-        padding: 14px 0px 14px 80px;
+        padding: 14px 0px 14px 55px;
         display: block;
         font-weight: bold;
         font-size: 18px;
@@ -38,6 +40,7 @@
         display: block !important; /* Displaying the menu when the burger is clicked */
         display: flex;
         flex-direction: row;
+        padding: 0px;
       }
     }
     /* When the menu is opened, the hamburger label's text is changed to white */
@@ -64,7 +67,7 @@
     cursor: pointer;
     line-height: 2em;
     color: $conference-color;
-    margin-left: 44px;
+    margin-left: 20px;
   }
   /* Burger icon */
   label:before {
@@ -78,12 +81,19 @@
   }
 
   .ticket__button__container {
-    position: absolute;
-    right: 44px;
-    top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--tablet {
+      display: none;
+    }
+    &--mobile {
+      position: absolute;
+      right: 20px;
+      padding-top: 10px;
+    }
+
     .ticket__button {
       background-color: red;
       border-radius: 6px;
@@ -100,6 +110,14 @@
       font-weight: 700;
       text-decoration: none;
       text-align: center;
+      font-size: 18px;
+
+      &.active {
+        background-color: $grey;
+        color: $white;
+        border: 2px solid white;
+        padding: 3px 13px;
+      }
     }
   }
 
@@ -110,6 +128,8 @@
     padding-right: 44px;
     &__links-container {
       flex: 6;
+      flex-direction: column;
+      height: 54px;
       ul {
         display: flex;
         flex-direction: row;
@@ -136,9 +156,21 @@
     }
 
     .ticket__button__container {
-      position: initial;
-      flex: 1;
-      right: 20px;
+      &--tablet {
+        right: 20px;
+        display: initial;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        .ticket__button {
+          &.active {
+            margin-top: 3px;
+          }
+        }
+      }
+      &--mobile {
+        display: none;
+      }
     }
   }
 }

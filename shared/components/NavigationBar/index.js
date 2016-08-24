@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 
 const NavigationBar = () => (
   <nav className="NavigationBar block NavigationBar--Conference">
-    <div className="NavigationBar__links-container">
+    <div className="NavigationBar__links-container block">
       <input className="trigger" type="checkbox" id="burger" />
-      <label htmlFor="burger">Menu</label>
-      <ul>
+      <label htmlFor="burger">MENU</label>
+      <ul className="content">
         <li>
           <Link activeClassName="active" to="/">
             About
@@ -18,13 +18,18 @@ const NavigationBar = () => (
             Partners
           </Link>
         </li>
+        <div className="ticket__button__container ticket__button__container--tablet">
+          <Link activeClassName="active" className="ticket__button" to="/tickets">
+            Tickets
+          </Link>
+        </div>
       </ul>
     </div>
-    {/*
-    <div className="ticket__button__container">
-      <a href="#" className="ticket__button">Tickets</a>
+    <div className="ticket__button__container ticket__button__container--mobile">
+      <Link activeClassName="active" className="ticket__button" to="/tickets">
+        Tickets
+      </Link>
     </div>
-    */}
   </nav>
 );
 
