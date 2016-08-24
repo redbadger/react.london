@@ -14,7 +14,7 @@ const NavigationBar = () => (
           </Link>
         </li>
         <li>
-          <Link to="/Partners">
+          <Link to="/partners">
             Partners
           </Link>
         </li>
