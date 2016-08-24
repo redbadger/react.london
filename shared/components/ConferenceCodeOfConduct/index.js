@@ -115,10 +115,12 @@ const ConferenceCodeOfConduct = () => (
           using the following methods:
         </p>
         <ul>
+        {/*
           <li>
             <strong>Calling</strong> or <strong>messaging</strong> a female:
             42095823 or a male: 1349084
           </li>
+        */}
           <li>
             <strong>Emailing</strong> <a href="mailto:conduct@react.london">conduct@react.london</a>
           </li>
