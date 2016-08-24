@@ -10,7 +10,7 @@ export default function routes(state) {
   const Partners = () => <ConferencePartners {...state} />;
   return (
     <Route>
-      <Route component={ConferenceLayout} navbar={true} >
+      <Route component={ConferenceLayout} navbar >
         <Route path="/" component={Conference} />
         <Route path="/partners" component={Partners} />
       </Route>
