@@ -15,7 +15,7 @@ describe('TicketList component', () => {
           iso: '2016-07-29T23:00:00+0000',
         },
         available: true,
-        price: 250,
+        price: "250",
       },
     ];
     const element = mount(<TicketList tickets={tickets} />);
@@ -36,7 +36,7 @@ describe('TicketList component', () => {
             iso: '2016-07-29T23:00:00+0000',
           },
           available: false,
-          price: 250,
+          price: "250",
         },
       ];
       const element = mount(<TicketList tickets={tickets} />);
@@ -56,7 +56,7 @@ describe('TicketList component', () => {
             iso: '2016-07-29T23:00:00+0000',
           },
           available: false,
-          price: 250,
+          price: "250",
         },
       ];
       const element = mount(<BuyTickets tickets={tickets} />);
