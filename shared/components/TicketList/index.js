@@ -2,7 +2,24 @@ import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
 import classnames from 'classnames';
 
-export const TicketPrice = (ticket) => <strong>{ticket.available ? `£${ticket.price}` : 'SOLD OUT'}</strong>
+const ticketType = PropTypes.shape({
+  title: PropTypes.string,
+  releaseDate: PropTypes.shape({
+    iso: PropTypes.string,
+  }),
+  available: PropTypes.bool,
+  price: PropTypes.number,
+});
+
+const TicketPrice = ({ ticket }) => {
+  return (
+    <strong>{ticket.available ? `£${ticket.price}` : 'SOLD OUT'}</strong>
+  );
+};
+
+TicketPrice.propTypes = {
+  ticket: ticketType,
+};
 
 export function BuyTickets({ tickets }) {
   const ticketsAvailable = tickets.some((ticket) => ticket.available);
@@ -22,6 +39,11 @@ export function BuyTickets({ tickets }) {
   );
 }
 
+BuyTickets
+.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType).isRequired,
+};
+
 export function getTicketReleaseDate(ticket) {
   if (!ticket.available || !ticket.releaseDate || !ticket.releaseDate.iso) {
     return '';
@@ -29,45 +51,38 @@ export function getTicketReleaseDate(ticket) {
   return 'Available ' + formatDate(ticket.releaseDate.iso, 'Do MMMM, YYYY');
 }
 
+function getTicketClass(ticket) {
+  if (!ticket.available) {
+    return ' TicketList__ticket--notAvailable';
+  }
+}
+
 const TicketList = ({ tickets }) => {
   return (
     <section className="block TicketList">
       <table className="content">
         <tbody>
-          {tickets && tickets.map((ticket, i) => {
-            return (
-              <tr className={`TicketList__ticket ${!ticket.available ? "TicketList__ticket--notAvailable" : ''}`} key={i}>
-                <td className="TicketList__ticket__title"><strong>{ticket.title}</strong></td>
-                <td className="TicketList__ticket__date">{getTicketReleaseDate(ticket)}</td>
-                <td className="TicketList__ticket__price"><TicketPrice {...ticket} /></td>
-              </tr>
-            )}
+          {tickets && tickets.map((ticket, i) => (
+            <tr
+              className={'TicketList__ticket' + getTicketClass(ticket)} key={i}
+            >
+              <td className="TicketList__ticket__title"><strong>{ticket.title}</strong></td>
+              <td className="TicketList__ticket__date">{getTicketReleaseDate(ticket)}</td>
+              <td className="TicketList__ticket__price"><TicketPrice ticket={ticket} /></td>
+            </tr>
+            )
           )}
         </tbody>
       </table>
       <BuyTickets tickets={tickets} />
-      <div className="TicketList_TCs">
+      {/* <div className="TicketList_TCs">
         for T&Cs about tickets, please see <strong>ti.to</strong>
-      </div>
+      </div>*/}
     </section>
   );
 };
 
-const ticketType = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  releaseDate: PropTypes.shape({
-    iso: PropTypes.string.isRequired,
-  }),
-  available: PropTypes.bool.isRequired,
-  price: PropTypes.number.isRequired,
-});
-
 TicketList.propTypes = {
-  tickets: PropTypes.arrayOf(ticketType),
-};
-
-BuyTickets
-.propTypes = {
   tickets: PropTypes.arrayOf(ticketType),
 };
 

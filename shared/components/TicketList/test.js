@@ -2,11 +2,6 @@ import React from 'react';
 import TicketList, { BuyTickets } from '.';
 import { mount, shallow } from 'enzyme';
 
-import jsdom from 'jsdom';
-const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
-global.document = doc;
-global.window = doc.defaultView;
-
 describe('TicketList component', () => {
   it('can render okay without any passed properties', () => {
     shallow(<TicketList />);
@@ -24,11 +19,11 @@ describe('TicketList component', () => {
       },
     ];
     const element = mount(<TicketList tickets={tickets} />);
-    expect(element.find('.TicketList__ticket').childAt(0).text()).to.equal('Early Bird');
-    expect(element.find('.TicketList__ticket').childAt(1).text()).to.equal(
+    expect(element.find('.TicketList__ticket__title').text()).to.equal('Early Bird');
+    expect(element.find('.TicketList__ticket__date').text()).to.equal(
       'Available 30th July, 2016'
     );
-    expect(element.find('.TicketList__ticket').childAt(2).text()).to.equal('£250');
+    expect(element.find('.TicketList__ticket__price').text()).to.equal('£250');
   });
 
   it(

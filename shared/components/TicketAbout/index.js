@@ -7,7 +7,7 @@ const TicketAbout = () => {
         <h2>Tickets</h2>
         <p>
           To help more people from groups often underrepresented at tech conferences
-          attend React London 2017, we're offering a limited number of diversity tickets.
+          attend React London 2017, we&#39;re offering a limited number of diversity tickets.
           Watch this space for more details.
         </p>
         <p>We have kept the ticket prices for React London 2017 as low as possible.
