@@ -9,8 +9,14 @@ export function setDataSource(functions) {
   dataSource = functions;
 }
 
-export function getSiteState() {
+export function getCommunityState() {
   return dataSource
-    .getSiteState()
+    .getCommunityState()
+    .then(payload => payload.data);
+}
+
+export function getConferenceState() {
+  return dataSource
+    .getConferenceState()
     .then(payload => payload.data);
 }

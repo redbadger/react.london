@@ -11,14 +11,6 @@ describe('server routing', () => {
     });
   });
 
-  describe('GET /__health__', () => {
-    it('returns 200', () => {
-      return request(app)
-        .get('/__health__')
-        .expect(200);
-    });
-  });
-
   describe('when the hostname is meetup.react.london', () => {
     function get(path) {
       return request(app)
@@ -42,6 +34,7 @@ describe('server routing', () => {
     });
 
     it('GET /conference redirects to conference site', () => {
+      useDummyData();
       return get('/conference')
         .expect(302)
         .expect('LOCATION', process.env.CONFERENCE_URL);
@@ -57,6 +50,7 @@ describe('server routing', () => {
     }
 
     it('GET / renders OK', () => {
+      useDummyData();
       return get('/')
         .expect(/React London/)
         .expect(/Conference/)
@@ -64,12 +58,14 @@ describe('server routing', () => {
     });
 
     it('GET /conference redirects to /', () => {
+      useDummyData();
       return get('/conference')
         .expect(302)
         .expect('LOCATION', '/');
     });
 
     it('GET /community redirects', () => {
+      useDummyData();
       return get('/community')
         .expect(302)
         .expect('LOCATION', process.env.COMMUNITY_URL);

@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
 import communityRoutes from '../../../shared/routes/community-routes';
-import { getSiteState } from '../../data';
+import { getCommunityState } from '../../data';
 import { CONFERENCE_URL } from '../../constants';
 import { useRoutes } from '../../routes';
 import communityData from '../../community-data';
@@ -12,7 +12,7 @@ function router(req, res) {
   if (req.path === '/conference') {
     res.redirect(CONFERENCE_URL);
   } else {
-    getSiteState().then(state => {
+    getCommunityState().then(state => {
       const initialState = communityData(state);
       const routes = communityRoutes(initialState);
       const location = req.url;

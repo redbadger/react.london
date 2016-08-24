@@ -14,9 +14,10 @@ function getEnvVar(key) {
 }
 
 export const communityID = getEnvVar('BADGER_BRAIN_COMMUNITY_ID');
+export const conferenceID = getEnvVar('BADGER_BRAIN_CONFERENCE_ID');
 export const badgerBrainURL = getEnvVar('BADGER_BRAIN_ENDPOINT');
 
-export const siteStateQuery = `
+export const communityStateQuery = `
 query {
   community(id: "${communityID}") {
     title
@@ -75,6 +76,23 @@ query {
   }
 }`;
 
-export function getSiteState(httpPostFn = http.postGraphQL) {
-  return httpPostFn(badgerBrainURL, siteStateQuery);
+export const conferenceStateQuery = `
+query {
+  event(id: "${conferenceID}") {
+    partners {
+      name
+      description
+      partnerURL
+      imageURL
+      level
+    }
+  }
+}`;
+
+export function getCommunityState(httpPostFn = http.postGraphQL) {
+  return httpPostFn(badgerBrainURL, communityStateQuery);
+}
+
+export function getConferenceState(httpPostFn = http.postGraphQL) {
+  return httpPostFn(badgerBrainURL, conferenceStateQuery);
 }
