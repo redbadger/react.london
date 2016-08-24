@@ -55,6 +55,7 @@ function getTicketClass(ticket) {
   if (!ticket.available) {
     return ' TicketList__ticket--notAvailable';
   }
+  return '';
 }
 
 const TicketList = ({ tickets }) => {

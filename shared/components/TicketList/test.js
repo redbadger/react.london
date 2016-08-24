@@ -8,7 +8,7 @@ describe('TicketList component', () => {
   });
 
   it('renders a a TicketList item with the correct price, title and date if available', () => {
-    let tickets = [
+    const tickets = [
       {
         title: 'Early Bird',
         releaseDate: {
@@ -29,7 +29,7 @@ describe('TicketList component', () => {
   it(
     'renders a a TicketList item with the SOLD out and empty date if the ticket is not available'
     , () => {
-      let tickets = [
+      const tickets = [
         {
           title: 'Early Bird',
           releaseDate: {
@@ -49,7 +49,7 @@ describe('TicketList component', () => {
   it(
     'renders a the TicketList button with the disabled class and text if no tickets are available'
     , () => {
-      let tickets = [
+      const tickets = [
         {
           title: 'Early Bird',
           releaseDate: {
