@@ -103,7 +103,7 @@ describe('getTicketStatusOptions', () => {
         buttonText: 'Join Live Stream',
         linkType: 'STREAM',
         statusHeader: 'TICKETS NOW SOLD OUT',
-        statusSubHeader: 'Couldn’t get a ticket? We got your back.',
+        statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
         link: undefined,
       });
     }
@@ -122,7 +122,7 @@ describe('getTicketStatusOptions', () => {
       buttonText: 'Watch',
       linkType: 'STREAM',
       statusHeader: 'This event has ended',
-      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
+      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
       link: undefined,
     });
   });

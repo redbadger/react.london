@@ -102,7 +102,7 @@ export function isStreaming({
       buttonText: 'Join Live Stream',
       linkType: 'STREAM',
       statusHeader: 'TICKETS NOW SOLD OUT',
-      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
+      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
     };
   }
 }
@@ -113,7 +113,7 @@ export function isEnded({ currentTime, endDateTime }) {
       buttonText: 'Watch',
       linkType: 'STREAM',
       statusHeader: 'This event has ended',
-      statusSubHeader: 'Couldn’t get a ticket? We got your back.',
+      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
     };
   }
 }
