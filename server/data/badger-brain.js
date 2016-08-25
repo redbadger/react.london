@@ -87,7 +87,6 @@ query {
       level
     }
     tickets {
-      id
       title
       releaseDate {
         iso

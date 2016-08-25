@@ -44,6 +44,16 @@
           "imageURL": null,
           "level": "Supporter"
         }
+      ],
+      "tickets": [
+        {
+          "title": "Early Bird",
+          "releaseDate": {
+            "iso": "2016-08-26T23:00:00+0000"
+          },
+          "price": "350",
+          "available": true
+        }
       ]
     }
   }
