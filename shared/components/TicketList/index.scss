@@ -71,10 +71,15 @@
 
 @media (min-width: $mobile-width) {
   .TicketList {
+    .content {
+      border-collapse: separate;
+    }
     &__ticket {
       display: table-row;
+      border-bottom: none;
       td {
         display: table-cell;
+        border-bottom: $dash-border;
         padding: 30px 0px;
       }
     }
