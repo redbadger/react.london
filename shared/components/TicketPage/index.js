@@ -1,31 +1,18 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import TicketAbout from '../TicketAbout';
-import TicketList from '../TicketList';
-const tickets = [
-  {
-    title: 'Early Bird',
-    releaseDate: {
-      iso: '2016-07-29T23:00:00+0000',
-    },
-    available: true,
-    price: '250',
-  },
-  {
-    title: 'General Admission',
-    releaseDate: {
-      iso: '2016-07-29T23:00:00+0000',
-    },
-    available: false,
-    price: '250',
-  },
-];
-const TicketPage = () => {
+import TicketList, { ticketType } from '../TicketList';
+
+const TicketPage = ({ tickets }) => {
   return (
     <div>
       <TicketAbout />
       <TicketList tickets={tickets} />
     </div>
   );
+};
+
+TicketPage.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType),
 };
 
 export default TicketPage;

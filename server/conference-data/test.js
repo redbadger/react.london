@@ -51,3 +51,18 @@ describe('conference-data transform', () => {
     ]);
   });
 });
+
+describe('conference querying for ticket data', () => {
+  it('returns the correct associated data for the ticket query', () => {
+    const data = { event: { ...fixture.event } };
+    const state = conferenceData(data);
+    expect(state.tickets).to.deep.equal([{
+      title: 'Early Bird',
+      releaseDate: {
+        iso: '2016-08-26T23:00:00+0000',
+      },
+      price: '350',
+      available: true,
+    }]);
+  });
+});
