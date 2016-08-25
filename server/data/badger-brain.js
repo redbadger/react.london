@@ -85,6 +85,11 @@ query {
       partnerURL
       imageURL
       level
+      jobs {
+        title
+        location
+        description
+      }
     }
   }
 }`;
