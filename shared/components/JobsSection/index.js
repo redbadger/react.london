@@ -14,18 +14,29 @@ const Job = ({ title, location, description, displayDescription }) => (
   </div>
 );
 
+Job.propTypes = {
+  title: PropTypes.string,
+  location: PropTypes.string,
+  description: PropTypes.string,
+  displayDescription: PropTypes.bool,
+};
+
 const JobPartner = ({ name, description, imageURL, partnerURL, displayDescription, jobs }) => {
   if (isEmpty(jobs)) { return null; }
   return (
     <div className="content JobPartner">
-      <a href={partnerURL} target="_blank" rel="noopener">
-        <img className="JobPartner__image" src={imageURL || defaultImage} alt={name} />
-      </a>
-      <h4 className="JobPartner__title">{name}</h4>
-      <p className="JobPartner__description">{description}</p>
+      <div className="JobPartner__image">
+        <a href={partnerURL} target="_blank" rel="noopener">
+          <img src={imageURL || defaultImage} alt={name} />
+        </a>
+      </div>
+      <article className="JobPartner__details">
+        <h4 className="JobPartner__title">{name}</h4>
+        <p className="JobPartner__description">{description}</p>
 
-      {jobs.map((job, index) =>
-        <Job key={index} {...job} displayDescription={displayDescription} />)}
+        {jobs.map((job, index) =>
+          <Job key={index} {...job} displayDescription={displayDescription} />)}
+      </article>
     </div>
   );
 };
