@@ -86,6 +86,19 @@ query {
       imageURL
       level
     }
+    tickets {
+      id
+      title
+      releaseDate {
+        iso
+        date
+        month
+        monthSym
+        year
+      }
+      price
+      available
+    }
   }
 }`;
 
