@@ -1,4 +1,5 @@
 import React from 'react';
+
 import MailingList from '../MailingList';
 import ConferenceAbout from '../ConferenceAbout';
 import NextConferenceEvent from '../NextConferenceEvent';

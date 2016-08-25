@@ -1,0 +1,87 @@
+.TicketList {
+  background-color: $conference-color-faded;
+  padding: 20px;
+  padding-bottom: 40px;
+
+  .content {
+    border-collapse: collapse;
+    padding-bottom: 10px;
+  }
+
+  &__ticket {
+    font-size: 20px;
+    border-bottom: $dash-border;
+    display: block;
+    padding: 30px 0px;
+
+    td {
+      display: block;
+    }
+
+    &__date {
+      font-size: 18px;
+    }
+
+    &--notAvailable {
+      .TicketList__ticket__title {
+        text-decoration: line-through;
+      }
+      .TicketList__ticket__price {
+        color: $red-badger-color;
+      }
+    }
+  }
+
+  &__TCs {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+  &__booking-btn__container{
+    padding-top: 50px;
+    padding-bottom: 25px;
+  }
+  &__booking-btn {
+    border-radius: 6px;
+    text-transform: uppercase;
+    border: 0px;
+    padding: 12px 15px;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+
+    &--disabled {
+      background-color: $disabled-grey;
+      color: $events-color-faded;
+      cursor: not-allowed;
+    }
+
+    &--active {
+      background-color: $red-badger-color;
+      color: $white;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        background-color: $red-badger-color-darker;
+      }
+    }
+  }
+}
+
+@media (min-width: $mobile-width) {
+  .TicketList {
+    .content {
+      border-collapse: separate;
+    }
+    &__ticket {
+      display: table-row;
+      border-bottom: none;
+      td {
+        display: table-cell;
+        border-bottom: $dash-border;
+        padding: 30px 0px;
+      }
+    }
+  }
+}
