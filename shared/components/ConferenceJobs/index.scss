@@ -1,6 +1,7 @@
 .ConferenceJobs__about {
   border-top: none;
-  margin: 22px 0px;
+  padding: 22px 0px;
+  border-bottom: $solid-border;
 
   h2 {
     margin-top: 0px;
@@ -21,6 +22,6 @@
   }
 
   @media (min-width: $tablet-width) {
-    margin: 40px 0px 40px 0px;
+    padding: 40px 0px 40px 0px;
   }
 }
