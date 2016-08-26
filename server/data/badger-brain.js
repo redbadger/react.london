@@ -89,6 +89,7 @@ query {
         title
         location
         description
+        jobURL
       }
     }
   }

@@ -5,12 +5,12 @@ const defaultImage = '/img/PNG/partner.png';
 
 const isEmpty = array => !Array.isArray(array) || !array.length > 0;
 
-const Job = ({ title, location, description, displayDescription }) => (
+const Job = ({ title, location, description, displayDescription, jobURL }) => (
   <div className="Job">
     <h4 className="Job__title">{title}</h4>
     <p className="Job__location">{location}</p>
     {displayDescription && <p className="Job__description">{description}</p>}
-    <a href="#" target="_blank" rel="noopener">Read more</a>
+    {jobURL && <a className="Job__link" href={jobURL} target="_blank" rel="noopener">Read more</a>}
   </div>
 );
 
@@ -19,6 +19,7 @@ Job.propTypes = {
   location: PropTypes.string,
   description: PropTypes.string,
   displayDescription: PropTypes.bool,
+  jobURL: PropTypes.string,
 };
 
 const JobPartner = ({ name, description, imageURL, partnerURL, displayDescription, jobs }) => {
@@ -29,9 +30,9 @@ const JobPartner = ({ name, description, imageURL, partnerURL, displayDescriptio
         <a href={partnerURL} target="_blank" rel="noopener">
           <img src={imageURL || defaultImage} alt={name} />
         </a>
+        <h4 className="JobPartner__title">{name}</h4>
       </div>
       <article className="JobPartner__details">
-        <h4 className="JobPartner__title">{name}</h4>
         <p className="JobPartner__description">{description}</p>
 
         {jobs.map((job, index) =>
