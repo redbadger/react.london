@@ -22,21 +22,6 @@ TicketPrice.propTypes = {
 };
 
 export function BuyTickets() {
-  // const ticketsAvailable = tickets.some((ticket) => ticket.available);
-  // const actionClasses = classnames({
-  //   'TicketList__booking-btn': true,
-  //   'TicketList__booking-btn--active': ticketsAvailable,
-  //   'TicketList__booking-btn--disabled': !ticketsAvailable,
-  // });
-  // return (
-  //   <div className="TicketList__booking-btn__container">
-  //     <a
-  //       className={actionClasses}
-  //     >
-  //       {ticketsAvailable ? 'Buy Tickets' : 'Tickets not available'}
-  //     </a>
-  //   </div>
-  // );
   return (
     <div className="TicketList__booking-btn__container">
       <a
