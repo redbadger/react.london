@@ -91,7 +91,7 @@
     &--mobile {
       position: absolute;
       right: 20px;
-      padding-top: 10px;
+      top: 274px;
     }
 
     .ticket__button {
@@ -117,6 +117,16 @@
         color: $white;
         border: 2px solid white;
         padding: 3px 13px;
+      }
+    }
+  }
+
+  @media (min-width: $mobile-width) {
+    .ticket__button__container {
+      &--mobile {
+        position: absolute;
+        right: 20px;
+        top: 294px;
       }
     }
   }

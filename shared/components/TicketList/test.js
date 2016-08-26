@@ -1,5 +1,5 @@
 import React from 'react';
-import TicketList, { BuyTickets } from '.';
+import TicketList from '.';
 import { mount, shallow } from 'enzyme';
 
 describe('TicketList component', () => {
@@ -45,24 +45,4 @@ describe('TicketList component', () => {
       expect(element.find('.TicketList__ticket').childAt(2).text()).to.equal('SOLD OUT');
     }
   );
-
-  it(
-    'renders a the TicketList button with the disabled class and text if no tickets are available'
-    , () => {
-      const tickets = [
-        {
-          title: 'Early Bird',
-          releaseDate: {
-            iso: '2016-07-29T23:00:00+0000',
-          },
-          available: false,
-          price: '250',
-        },
-      ];
-      const element = mount(<BuyTickets tickets={tickets} />);
-      expect(element.find('a').props().className).to.equal(
-        'TicketList__booking-btn TicketList__booking-btn--disabled'
-      );
-      expect(element.find('a').text()).to.equal('Sold Out');
-    });
 });
