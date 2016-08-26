@@ -45,6 +45,8 @@
     &__email,
     &__submit {
       border-radius: 5px;
+      padding-top: 7px;
+      padding-bottom: 7px;
 
       font-size: 16px;
       line-height: 36px;
@@ -53,7 +55,9 @@
 
     &__email {
       background: $white;
-      padding: 0px 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      line-height: 1;
 
       max-width: 500px;
       width: calc(100% - 150px);
@@ -81,12 +85,8 @@
 }
 
 @media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
-  .MailingList {
-    &__form {
-      &__email {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
+  .MailingList__form__email {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }
