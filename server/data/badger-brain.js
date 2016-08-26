@@ -4,14 +4,8 @@
 //
 
 import * as http from '../http-client';
+import { getEnvVar } from '../env';
 
-function getEnvVar(key) {
-  const value = process.env[key];
-  if (process.env.NODE_ENV !== 'test' && !value) {
-    throw new Error(`Missing ${key} env var`);
-  }
-  return value;
-}
 
 export const communityID = getEnvVar('BADGER_BRAIN_COMMUNITY_ID');
 export const conferenceID = getEnvVar('BADGER_BRAIN_CONFERENCE_ID');
