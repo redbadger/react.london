@@ -3,7 +3,7 @@ import partnerType from '../../prop-types/partner-type';
 
 const defaultImage = '/img/PNG/partner.png';
 
-const isEmpty = array => !Array.isArray(array) || !array.length > 0;
+const isEmpty = array => !Array.isArray(array) || array.length === 0;
 
 const Job = ({ title, location, description, displayDescription, jobURL }) => (
   <div className="Job">
@@ -34,7 +34,6 @@ const JobPartner = ({ name, description, imageURL, partnerURL, displayDescriptio
       </div>
       <article className="JobPartner__details">
         <p className="JobPartner__description">{description}</p>
-
         {jobs.map((job, index) =>
           <Job key={index} {...job} displayDescription={displayDescription} />)}
       </article>
