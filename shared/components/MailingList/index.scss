@@ -2,6 +2,7 @@
 .MailingList {
   background: $events-color;
   border-bottom: $solid-border;
+
   .content {
     padding: 28px 20px 44px 20px;
   }
@@ -26,6 +27,7 @@
   // MAILCHIMP
   &__form__container {
     width: 650px;
+    max-width: 100%;
   }
   &__form {
     font-size: 18px;
