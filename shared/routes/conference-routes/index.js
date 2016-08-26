@@ -5,11 +5,12 @@ import ConferenceLayout from '../../components/ConferenceLayout';
 import Conference from '../../components/Conference';
 import TicketPage from '../../components/TicketPage';
 import ConferencePartners from '../../components/ConferencePartners';
-import Jobs from '../../components/ConferenceJobs';
+import ConferenceJobs from '../../components/ConferenceJobs';
 import CodeOfConduct from '../../components/ConferenceCodeOfConduct';
 
 export default function routes(state) {
   const Partners = () => <ConferencePartners {...state} />;
+  const Jobs = () => <ConferenceJobs {...state} />;
   const Tickets = () => <TicketPage {...state} />;
   return (
     <Route>
