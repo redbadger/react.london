@@ -2,6 +2,7 @@
   "name": "react.london",
   "description": "",
   "scripts": {
+    "postdeploy": "make build-production"
   },
   "env": {
     "BADGER_BRAIN_COMMUNITY_ID": "V3-PWiMAAGEz2yz5",

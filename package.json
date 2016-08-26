@@ -11,6 +11,9 @@
   "bugs": {
     "url": "https://github.com/redbadger/react.london/issues"
   },
+  "scripts": {
+    "start": "make start-production"
+  },
   "homepage": "https://github.com/redbadger/react.london#readme",
   "dependencies": {
     "babel-cli": "^6.8.0",
