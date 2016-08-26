@@ -76,7 +76,7 @@ LinkList.propTypes = {
 
 function footerBlerb(page) {
   if (page === 'Community') {
-    return 'Red Badger run the React.London meetups to help chart what’s possible' +
+    return 'Red Badger run the React London meetups to help chart what’s possible' +
       ' and give the community a place to share discoveries.';
   }
   return 'Red Badger are running the React.London Conference to help chart what’s' +

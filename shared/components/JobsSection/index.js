@@ -48,7 +48,10 @@ JobPartner.propTypes = {
 };
 
 const JobsSection = ({ partners, displayDescription }) => {
-  if (isEmpty(partners)) { return null; }
+  if (isEmpty(partners)) {
+    console.log('No jobs!');
+    return null;
+  }
   return (
     <section className={'block JobsSection'}>
       {partners.map((partner, index) =>

@@ -92,6 +92,18 @@ query {
         jobURL
       }
     }
+    tickets {
+      title
+      releaseDate {
+        iso
+        date
+        month
+        monthSym
+        year
+      }
+      price
+      available
+    }
   }
 }`;
 
