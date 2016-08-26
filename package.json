@@ -12,7 +12,7 @@
     "url": "https://github.com/redbadger/react.london/issues"
   },
   "scripts": {
-    "start": "make start-production"
+    "start": "make build"
   },
   "homepage": "https://github.com/redbadger/react.london#readme",
   "dependencies": {
