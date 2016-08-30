@@ -4,7 +4,7 @@ import JobsSection from '../JobsSection';
 
 const isEmpty = array => !Array.isArray(array) || array.length === 0;
 
-const hasNoJobs = array => array.every(partner => isEmpty(partner.jobs));
+const hasNoJobs = array => Array.isArray(array) && array.every(partner => isEmpty(partner.jobs));
 
 const ConferenceJobs = ({ gold, silver, bronze }) => (
   <div>
