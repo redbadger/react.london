@@ -21,9 +21,18 @@
   height: 320px;
   font-size: 16px;
 
+  > * {
+    position: relative;
+    top: 170px;
+  }
+
   h2 {
-    margin: 170px 0 0;
+    margin: 0;
     font-size: 30px;
+  }
+
+  p {
+    margin: 8px 0;
   }
 
   a {
@@ -35,8 +44,13 @@
 
   @media (min-width: 750px) {
     height: 200px;
-    h2 {
-      margin: 43px 0 0 0;
+
+    > * {
+      top: 43px;
+    }
+
+    p {
+      margin: 16px 0;
     }
 
     .text-background {
