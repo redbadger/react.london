@@ -1,5 +1,4 @@
 import express from 'express';
-import raven from 'raven';
 import morgan from 'morgan';
 import securityMiddleware from 'helmet';
 import communityRouter from './routers/community';
@@ -8,7 +7,6 @@ import enforceHTTPS from './enforce-https';
 import { setDataSource } from './data';
 import * as badgerBrain from './data/badger-brain';
 import isMeetupRequest from '../shared/utilities/meetup-request';
-import { getEnvVar } from './env';
 
 const app = express();
 
@@ -18,10 +16,6 @@ app.set('trust proxy');
 setDataSource(badgerBrain);
 
 if (process.env.NODE_ENV === 'production') {
-  // Raven request handler must be first item
-  const sentryURI = getEnvVar('RAVEN_SENTRY_URI');
-  app.use(raven.middleware.express.requestHandler(sentryURI));
-
   app.use(enforceHTTPS());
 }
 
@@ -43,11 +37,5 @@ app.use((req, res) => {
     conferenceRouter(req, res);
   }
 });
-
-if (process.env.NODE_ENV === 'production') {
-  // Raven error handler must be first error handler
-  const sentryURI = getEnvVar('RAVEN_SENTRY_URI');
-  app.use(raven.middleware.express.errorHandler(sentryURI));
-}
 
 export default app;
