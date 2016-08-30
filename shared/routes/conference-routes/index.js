@@ -7,11 +7,14 @@ import TicketPage from '../../components/TicketPage';
 import ConferencePartners from '../../components/ConferencePartners';
 import ConferenceJobs from '../../components/ConferenceJobs';
 import CodeOfConduct from '../../components/ConferenceCodeOfConduct';
+import SpeakersPage from '../../components/SpeakersPage';
 
 export default function routes(state) {
   const Partners = () => <ConferencePartners {...state} />;
   const Jobs = () => <ConferenceJobs {...state} />;
   const Tickets = () => <TicketPage {...state} />;
+  const Speakers = () => <SpeakersPage {...state} />;
+
   return (
     <Route>
       <Route component={ConferenceLayout} >
@@ -20,6 +23,7 @@ export default function routes(state) {
         <Route path="/tickets" component={Tickets} />
         <Route path="/jobs" component={Jobs} />
         <Route path="/code-of-conduct" component={CodeOfConduct} />
+        <Route path="/speakers" component={Speakers} />
       </Route>
 
       <Redirect path="/conference" to="/" />
