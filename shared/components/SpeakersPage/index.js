@@ -1,14 +1,15 @@
 import React from 'react';
+import SpeakerListIntro from '../SpeakerListIntro';
 
-const TicketPage = () => {
+const SpeakersPage = () => {
   return (
-    <div>
-    On Stage
+    <div className="SpeakersPage">
+      <SpeakerListIntro />
     </div>
   );
 };
 
-TicketPage.propTypes = {
+SpeakersPage.propTypes = {
 };
 
-export default TicketPage;
+export default SpeakersPage;
