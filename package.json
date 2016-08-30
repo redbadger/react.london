@@ -87,8 +87,5 @@
       "post-checkout": [],
       "post-merge": []
     }
-  },
-  "scripts": {
-    "commit": "commit-wizard"
   }
 }
