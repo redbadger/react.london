@@ -32,22 +32,15 @@ const seriousLinks = [
   // },
 ];
 
-function NavBar({ navbar }) {
-  return navbar ? <NavigationBar /> : null;
-}
 
-NavBar.propTypes = {
-  navbar: PropTypes.bool,
-};
-
-const ConferenceLayout = ({ route, children }) => (
+const ConferenceLayout = ({ children }) => (
   <Layout>
     <div className="conference">
       <div id="wrapper">
         <main>
           <Hero page="Conference" />
           <RedBadgerBanner />
-          <NavBar {...route} />
+          <NavigationBar />
 
           {children}
 
@@ -64,7 +57,6 @@ const ConferenceLayout = ({ route, children }) => (
 
 ConferenceLayout.propTypes = {
   children: PropTypes.element.isRequired,
-  route: PropTypes.shape({ navbar: PropTypes.bool }),
 };
 
 export default ConferenceLayout;

@@ -2,6 +2,7 @@
 .MailingList {
   background: $events-color;
   border-bottom: $solid-border;
+
   .content {
     padding: 28px 20px 44px 20px;
   }
@@ -26,6 +27,7 @@
   // MAILCHIMP
   &__form__container {
     width: 650px;
+    max-width: 100%;
   }
   &__form {
     font-size: 18px;
@@ -43,6 +45,8 @@
     &__email,
     &__submit {
       border-radius: 5px;
+      padding-top: 7px;
+      padding-bottom: 7px;
 
       font-size: 16px;
       line-height: 36px;
@@ -51,10 +55,12 @@
 
     &__email {
       background: $white;
-      padding: 0px 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+      line-height: 1;
 
       max-width: 500px;
-      width: calc(100% - 140px); // 109px button width + 15px margin + 18px + 18px paddings removed.
+      width: calc(100% - 150px);
     }
 
     &__submit {
@@ -79,12 +85,8 @@
 }
 
 @media (max-width: 425px) { // 300px + 125px. An input box smaller than 300px is too small.
-  .MailingList {
-    &__form {
-      &__email {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
+  .MailingList__form__email {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }

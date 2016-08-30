@@ -5,7 +5,7 @@ react.london
 [![Coveralls](https://coveralls.io/repos/github/redbadger/react.london/badge.svg)](https://coveralls.io/github/redbadger/react.london)
 [![Code Climate](https://codeclimate.com/github/redbadger/react.london/badges/gpa.svg)](https://codeclimate.com/github/redbadger/react.london)
 
-A site for the React London Community.
+A site for the React London community & conference.
 
 This project employs a number of Javascript libraries and approaches,
 including _React_, _Server-Side Rendering_, _GraphQL_, and _WebPack_.

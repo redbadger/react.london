@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 
 export const ticketType = PropTypes.shape({
   title: PropTypes.string,
@@ -21,19 +21,13 @@ TicketPrice.propTypes = {
   ticket: ticketType,
 };
 
-export function BuyTickets({ tickets }) {
-  const ticketsAvailable = tickets.some((ticket) => ticket.available);
-  const actionClasses = classnames({
-    'TicketList__booking-btn': true,
-    'TicketList__booking-btn--active': ticketsAvailable,
-    'TicketList__booking-btn--disabled': !ticketsAvailable,
-  });
+export function BuyTickets() {
   return (
     <div className="TicketList__booking-btn__container">
       <a
-        className={actionClasses}
+        className="TicketList__booking-btn TicketList__booking-btn--disabled"
       >
-        {ticketsAvailable ? 'Buy Tickets' : 'Sold Out'}
+        Tickets not yet available
       </a>
     </div>
   );

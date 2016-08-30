@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-
 const NavigationBar = () => (
   <nav className="NavigationBar block NavigationBar--Conference">
     <div className="NavigationBar__links-container block">
