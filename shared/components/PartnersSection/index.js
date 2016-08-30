@@ -25,7 +25,7 @@ Partner.propTypes = {
 const PartnersSection = ({ partners, level, title }) => {
   if (!Array.isArray(partners) || !partners.length > 0) { return null; }
   return (
-    <section className={'block PartnersSection__' + level}>
+    <section className={'block PartnersSection PartnersSection__' + level}>
       <div className="content">
         <h3 className="PartnersSection__title">
           {title}
