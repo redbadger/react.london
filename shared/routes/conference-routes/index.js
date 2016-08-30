@@ -12,13 +12,10 @@ export default function routes(state) {
   const Tickets = () => <TicketPage {...state} />;
   return (
     <Route>
-      <Route component={ConferenceLayout} navbar >
+      <Route component={ConferenceLayout} >
         <Route path="/" component={Conference} />
         <Route path="/partners" component={Partners} />
         <Route path="/tickets" component={Tickets} />
-      </Route>
-
-      <Route component={ConferenceLayout} navbar={false} >
         <Route path="/code-of-conduct" component={CodeOfConduct} />
       </Route>
 

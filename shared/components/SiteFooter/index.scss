@@ -134,6 +134,20 @@
   }
 }
 
+.SiteFooter__social-link {
+  display: inline-block;
+  width: 30px;
+  color: #9B9B9B;
+  text-decoration: none;
+  height: 23px;
+  margin-bottom: 7px;
+
+  &:focus,
+  &:hover {
+    color: white;
+  }
+}
+
 .SiteFooter__useful,
 .SiteFooter__serious {
   a {
@@ -151,19 +165,6 @@
     left: 0;
     right: 0;
     top: 3px;
-  }
-}
-
-.SiteFooter__social-link {
-  width: 30px;
-  color: #9B9B9B;
-  text-decoration: none;
-  height: 23px;
-  margin-bottom: 7px;
-
-  &:focus,
-  &:hover {
-    color: white;
   }
 }
 

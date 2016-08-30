@@ -1,18 +1,7 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-
-function navigateBack() {
-  browserHistory.goBack();
-}
 
 const ConferenceCodeOfConduct = () => (
   <div>
-    <nav className="CodeOfConduct__nav block">
-      <div className="content">
-        <a href="#" onClick={navigateBack}>Back to previous page</a>
-      </div>
-    </nav>
-
     <section className="CodeOfConduct__intro block">
       <div className="content">
         <h3>Code of Conduct</h3>
