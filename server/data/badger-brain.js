@@ -79,6 +79,12 @@ query {
       partnerURL
       imageURL
       level
+      jobs {
+        title
+        location
+        description
+        jobURL
+      }
     }
     tickets {
       title

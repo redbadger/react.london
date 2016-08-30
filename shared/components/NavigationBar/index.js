@@ -17,6 +17,11 @@ const NavigationBar = () => (
             Partners
           </Link>
         </li>
+        <li>
+          <Link activeClassName="active" to="/jobs">
+            Jobs
+          </Link>
+        </li>
         <div className="ticket__button__container ticket__button__container--tablet">
           <Link activeClassName="active" className="ticket__button" to="/tickets">
             Tickets

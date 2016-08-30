@@ -7,42 +7,68 @@
           "description": "It is a partner.",
           "partnerURL": "redbadger.com",
           "imageURL": "http://red-badger.com/blog/wp-content/uploads/2013/01/flame_badger_RGB.png",
-          "level": "Bronze"
+          "level": "Bronze",
+          "jobs": [
+            {
+              "title": "Example job title",
+              "location": "London, United Kingdom",
+              "description": "My Description of the universe",
+              "jobURL": "http://red-badger.com/"
+            },
+            {
+              "title": "Amazing job",
+              "location": "World",
+              "description": "Gonna be so good",
+              "jobURL": "http://red-badger.com/"
+            }
+          ]
         },
         {
           "name": "New Partner, No Level",
           "description": "I R Partner",
           "partnerURL": "partner.com",
           "imageURL": "partner.jpg",
-          "level": "Supporter"
+          "level": "Supporter",
+          "jobs": [
+            {
+              "title": "Amazing job",
+              "location": "World",
+              "description": "Gonna be so good",
+              "jobURL": "http://red-badger.com/"
+            }
+          ]
         },
         {
           "name": "Fancy Company",
           "description": "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy.",
           "partnerURL": "fancy.company",
           "imageURL": null,
-          "level": "Supporter"
+          "level": "Supporter",
+          "jobs": []
         },
         {
           "name": "Coco Co.",
           "description": "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy.",
           "partnerURL": "coco.company",
           "imageURL": null,
-          "level": "Supporter"
+          "level": "Supporter",
+          "jobs": []
         },
         {
           "name": "Reactify",
           "description": "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy.",
           "partnerURL": "reactify.company",
           "imageURL": null,
-          "level": "Supporter"
+          "level": "Supporter",
+          "jobs": []
         },
         {
           "name": "Reactify",
           "description": "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy.",
           "partnerURL": "reactify.company",
           "imageURL": null,
-          "level": "Supporter"
+          "level": "Supporter",
+          "jobs": []
         }
       ],
       "tickets": [

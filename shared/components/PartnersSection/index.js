@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import partnerType from '../../prop-types/partner-type';
 
 const defaultImage = '/img/PNG/partner.png';
 
@@ -14,13 +15,7 @@ const Partner = ({ name, description, imageURL, partnerURL }) => {
   );
 };
 
-Partner.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  imageURL: PropTypes.string,
-  partnerURL: PropTypes.string,
-};
-
+Partner.propTypes = partnerType;
 
 const PartnersSection = ({ partners, level, title }) => {
   if (!Array.isArray(partners) || !partners.length > 0) { return null; }
