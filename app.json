@@ -1,13 +1,13 @@
 {
   "name": "react.london",
   "description": "",
-  "scripts": {
-  },
   "env": {
     "BADGER_BRAIN_COMMUNITY_ID": "V3-PWiMAAGEz2yz5",
     "BADGER_BRAIN_ENDPOINT": "https://brain-staging.red-badger.com/graphql",
     "COMMUNITY_URL": "https://meetup-staging.react.london",
     "CONFERENCE_URL": "https://staging.react.london",
+    "BADGER_BRAIN_CONFERENCE_ID": "V2u2YSwAAEQgvXPG",
+    "RAVEN_SENTRY_URI": "http://fillmeinherokuappconfig",
     "NODE_ENV": "production"
   },
   "formation": {
