@@ -5,9 +5,14 @@
   padding-bottom: 30px;
 
   &__booking__heading {
-    margin-top: 16px;
     color: $red-badger-color;
     font-size: 20px;
+    margin-top: 0px;
+    line-height: 1;
+  }
+
+  &__section {
+    padding-top: 21px;
   }
 
   &__booking__text {
@@ -63,7 +68,7 @@
   .TicketStatus {
     &__section {
       width: 50%;
-
+      padding-top: 0px;
       &-container {
         flex-flow: row wrap;
       }

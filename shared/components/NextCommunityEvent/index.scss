@@ -5,8 +5,9 @@
   padding-bottom: 30px;
 
   &__details__heading {
-    margin-top: 16px;
     font-size: 20px;
+    margin-top: 0px;
+    line-height: 1;
   }
 
   &__details {
@@ -74,6 +75,7 @@
   &__section-container {
     display: flex;
     flex-flow: column wrap;
+    padding-top: 21px;
   }
 
   &__section__details {

@@ -1,8 +1,15 @@
 .EventSchedule {
+  border-right: none;;
   &__schedule {
     list-style-type: none;
     border-left: $dash-border;
     margin: 0 30px 40px 80px;
     position: relative;
+  }
+}
+
+@media (min-width: 768px) {
+  .EventSchedule {
+    border-right: $dash-border;
   }
 }
