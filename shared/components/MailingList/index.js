@@ -21,6 +21,7 @@ const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
           target="_blank"
+          rel="noopener"
           noValidate
         >
           <div className="MailingList__form__container">

@@ -7,7 +7,12 @@ const ShareYourIdeas = () => (
         We want to hear from you! Send us your ideas and suggestions for the
         conference.
       </p>
-      <a target="_blank" href="http://slack.red-badger.com/" className="ShareYourIdeas__btn">
+      <a
+        target="_blank"
+        rel="noopener"
+        href="http://slack.red-badger.com/"
+        className="ShareYourIdeas__btn"
+      >
         Share your ideas
       </a>
     </div>

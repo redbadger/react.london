@@ -20,6 +20,7 @@ const NextConferenceEvent = () => (
                 className="NextConferenceEvent__link--date"
                 href={calendarURL}
                 target="_blank"
+                rel="noopener"
               >
                 Tuesday, 28 March 2017
               </a>
@@ -29,6 +30,7 @@ const NextConferenceEvent = () => (
                 className="NextConferenceEvent__link--place"
                 href={locationURL}
                 target="_blank"
+                rel="noopener"
               >
                 QEII Centre, Westminster
               </a>
@@ -46,6 +48,7 @@ const NextConferenceEvent = () => (
             className="NextConferenceEvent__btn"
             href={calendarURL}
             target="_blank"
+            rel="noopener"
           >
             Add to calendar
           </a>

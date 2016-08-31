@@ -6,6 +6,7 @@ const IconLink = ({ present, url, type, title }) => {
     <a
       className={'Speaker__detail Speaker__detail--' + type.toLowerCase()}
       target="_blank"
+      rel="noopener"
       href={url}
       title={title}
     />

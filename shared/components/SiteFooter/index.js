@@ -23,7 +23,12 @@ function Banner({ page }) {
             We&rsquo;re launching a new conference<br />focused on React
           </span>
         </p>
-        <a className="SiteFooter__banner-cta" href="https://react.london/" target="_blank">
+        <a
+          className="SiteFooter__banner-cta"
+          href="https://react.london/"
+          target="_blank"
+          rel="noopener"
+        >
           <span className="text-background">
             Find out more
           </span>
@@ -41,7 +46,12 @@ function Banner({ page }) {
           Looking for our meetups?
         </span>
       </p>
-      <a className="SiteFooter__banner-cta" href="https://meetup.react.london/" target="_blank">
+      <a
+        className="SiteFooter__banner-cta"
+        href="https://meetup.react.london/"
+        target="_blank"
+        rel="noopener"
+      >
         <span className="text-background">
           Find out more
         </span>
@@ -114,18 +124,21 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 className="SiteFooter__social-link SiteFooter__slack"
                 href="http://slack.red-badger.com/"
                 target="_blank"
+                rel="noopener"
               >
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__youtube"
                 href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ"
                 target="_blank"
+                rel="noopener"
               >
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__twitter"
                 href="https://twitter.com/ReactLondon_"
                 target="_blank"
+                rel="noopener"
               >
               </a>
             </div>
