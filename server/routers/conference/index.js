@@ -1,10 +1,9 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { RouterContext } from 'react-router';
-import conferenceRoutes from '../../../shared/routes/conference-routes';
+import { match, RouterContext } from 'react-router';
 import { COMMUNITY_URL } from '../../constants';
-import { useRoutes } from '../../routes';
 import { getConferenceState } from '../../data';
+import conferenceRoutes from '../../../shared/routes/conference-routes';
 import conferenceData from '../../conference-data';
 
 function router(req, res) {
@@ -15,12 +14,25 @@ function router(req, res) {
       const initialState = conferenceData(state);
       const routes = conferenceRoutes(initialState);
       const location = req.url;
-      useRoutes(res, routes, location, (_res, renderProps) => {
-        const content = renderToString(
-          <RouterContext {...renderProps} />
-        );
-        return res.render('index', { content, initialState });
+      match({ routes, location }, (error, redirect, renderProps) => {
+        if (error) {
+          return res.status(500).send(error.message);
+        }
+        if (redirect) {
+          return res.redirect(302, redirect.pathname + redirect.search);
+        }
+        if (renderProps) {
+          const content = renderToString(
+            <RouterContext {...renderProps} />
+          );
+          res.render('index', { content, initialState });
+        }
+        res.status(404).send('Not found');
       });
+    })
+    .catch(err => {
+      // TODO Replace this with a user friendly error page
+      res.status(500).json({ error: err.message });
     });
   }
 }

@@ -1,12 +1,10 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { RouterContext } from 'react-router';
-import communityRoutes from '../../../shared/routes/community-routes';
-import { getCommunityState } from '../../data';
+import { match, RouterContext } from 'react-router';
 import { CONFERENCE_URL } from '../../constants';
-import { useRoutes } from '../../routes';
+import { getCommunityState } from '../../data';
+import communityRoutes from '../../../shared/routes/community-routes';
 import communityData from '../../community-data';
-
 
 function router(req, res) {
   if (req.path === '/conference') {
@@ -16,14 +14,23 @@ function router(req, res) {
       const initialState = communityData(state);
       const routes = communityRoutes(initialState);
       const location = req.url;
-      useRoutes(res, routes, location, (_res, renderProps) => {
-        const content = renderToString(
-          <RouterContext {...renderProps} />
-        );
-        res.render('index', { content, initialState });
+      match({ routes, location }, (error, redirect, renderProps) => {
+        if (error) {
+          return res.status(500).send(error.message);
+        }
+        if (redirect) {
+          return res.redirect(302, redirect.pathname + redirect.search);
+        }
+        if (renderProps) {
+          const content = renderToString(
+            <RouterContext {...renderProps} />
+          );
+          res.render('index', { content, initialState });
+        }
+        res.status(404).send('Not found');
       });
     })
-    .catch((err) => {
+    .catch(err => {
       // TODO Replace this with a user friendly error page
       res.status(500).json({ error: err.message });
     });
