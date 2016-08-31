@@ -25,7 +25,7 @@ function Banner({ page }) {
         </p>
         <a
           className="SiteFooter__banner-cta"
-          href="https://react.london/"
+          href="/conference"
           target="_blank"
           rel="noopener"
         >
@@ -48,7 +48,7 @@ function Banner({ page }) {
       </p>
       <a
         className="SiteFooter__banner-cta"
-        href="https://meetup.react.london/"
+        href="/community"
         target="_blank"
         rel="noopener"
       >
