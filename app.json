@@ -7,6 +7,9 @@
     "COMMUNITY_URL": "https://meetup-staging.react.london",
     "CONFERENCE_URL": "https://staging.react.london",
     "BADGER_BRAIN_CONFERENCE_ID": "V2u2YSwAAEQgvXPG",
+    "RAVEN_SENTRY_URI": {
+      "required": true
+    },
     "NODE_ENV": "production"
   },
   "formation": {
