@@ -24,7 +24,7 @@ function eventLocation(location) {
 
 function eventDateAndTime(startDateTime, endDateTime) {
   if (startDateTime && startDateTime.iso && endDateTime && endDateTime.iso) {
-    return formatDate(startDateTime, 'dddd, Do MMMM YYYY | HH:mm - ')
+    return formatDate(startDateTime, 'dddd, Do MMMM YYYY, HH:mm – ')
       + formatDate(endDateTime, 'HH:mm');
   }
   return placeholderText;
@@ -32,17 +32,17 @@ function eventDateAndTime(startDateTime, endDateTime) {
 
 export function getHeaderText(startDateTime, endDateTime) {
   if (!startDateTime || !endDateTime) {
-    return 'Community Event';
+    return 'Community Meetup';
   }
   const currentDateTime = moment();
   const isToday = moment(startDateTime.iso).isSame(currentDateTime, 'day');
 
   if (isToday && isBefore(currentDateTime, endDateTime.iso)) {
-    return 'Today\'s Event';
+    return 'Today\'s Meetup';
   }
 
   if (isAfter(currentDateTime, endDateTime.iso)) {
-    return 'Last Event';
+    return 'Last Meetup';
   }
 
   if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
