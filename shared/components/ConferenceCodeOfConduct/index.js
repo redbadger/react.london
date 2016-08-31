@@ -111,7 +111,10 @@ const ConferenceCodeOfConduct = () => (
           </li>
         */}
           <li>
-            <strong>Emailing</strong> <a href="mailto:conduct@react.london">conduct@react.london</a>
+            <strong>Emailing </strong>
+            <a href="mailto:conduct@react.london" target="_blank" rel="noopener">
+              conduct@react.london
+            </a>
           </li>
         </ul>
       </div>

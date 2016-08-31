@@ -57,6 +57,7 @@ const ConferencePartners = (props) => {
         </h3>
         <div className="content">
           <a
+            rel="noopener"
             target="_blank"
             href="mailto:hello@react.london?subject=Partnership Enquiry- React London 2017"
             className="InterestedPartner__btn"

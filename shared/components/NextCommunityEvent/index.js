@@ -68,6 +68,7 @@ const NextCommunityEvent = (featuredEvent) => {
                   className="NextCommunityEvent__link--date"
                   href={calendarURL}
                   target="_blank"
+                  rel="noopener"
                 >
                   {eventDateAndTime(startDateTime, endDateTime)}
                 </a>
@@ -77,6 +78,7 @@ const NextCommunityEvent = (featuredEvent) => {
                   className="NextCommunityEvent__link--place"
                   href={googleMapsUrl(location)}
                   target="_blank"
+                  rel="noopener"
                 >
                   {eventLocation(location)}
                 </a>

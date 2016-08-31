@@ -5,7 +5,7 @@ const Sponsor = ({
   imageURL,
 }) => (
   <li>
-    <a href={websiteURL} target="_blank">
+    <a href={websiteURL} target="_blank" rel="noopener">
       <img src={imageURL} alt="logo" />
     </a>
   </li>
