@@ -12,8 +12,9 @@ const ConferenceJobs = ({ gold, silver, bronze }) => (
       <div className="content">
         <h2>Jobs</h2>
         <p>
-          Our Partners are looking for great React developers to join their teams.
-          Take a look at the available jobs from the people that helped make React London possible.
+          Our partners are looking for great React developers to join their team.
+          Take a look at the current vacancies on offer from the people who
+          are helping make React London possible.
         </p>
       </div>
     </section>

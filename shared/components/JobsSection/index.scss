@@ -13,7 +13,7 @@
   &:not(:first-child) {
     margin-top: 30px;
     padding-top: 30px;
-    border-top: $dash-border
+    border-top: $solid-border
   }
   &__title {
     font-size: 20px;
@@ -72,10 +72,11 @@
 @media (min-width: $tablet-width) {
   .JobPartner {
     &.content {
-      padding: 50px 0px 20px 0px;
+      padding: 20px;
+      padding-top: 50px;
     }
     &:first-child {
-      padding: 20px 0px;
+      padding-top: 20px;
     }
     &__image {
       flex: 4;
