@@ -13,8 +13,8 @@
     text-decoration: none;
 
     display: inline-block;
-    background-size: 22px !important;
     background: url("/img/SVG/G_blue.svg") no-repeat 17px 12px $grey;
+    background-size: 22px 22px;
     font-size: 16px;
 
     &:focus,
