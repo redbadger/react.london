@@ -20,7 +20,7 @@ function Banner({ page }) {
         </h2>
         <p>
           <span className="text-background">
-            We&rsquo;re launching a new conference<br />focused on React
+            We&rsquo;re launching a new conference<br />focused on React.
           </span>
         </p>
         <a

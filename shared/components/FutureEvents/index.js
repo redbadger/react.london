@@ -6,7 +6,7 @@ const FutureEvents = ({ events }) => {
   return (
     <section className="FutureEvents block">
       <div className="content">
-        <h2 className="FutureEvents__header">Upcoming Events</h2>
+        <h2 className="FutureEvents__header">Upcoming events</h2>
       </div>
       <div className="FutureEvents__events-list content">
         <div className="FutureEvents__events-container">
