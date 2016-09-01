@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       flex-direction: column;
+      border-bottom: $solid-border;
       a {
         padding: 14px 0px 14px 55px;
         display: block;
@@ -19,7 +20,7 @@
         color: $conference-color;
         text-decoration: none;
         &:hover {
-          background: $conference-color;
+          background: white;
           color: $grey;
         }
       }
