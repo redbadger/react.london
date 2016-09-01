@@ -21,7 +21,7 @@ const ConferencePartners = (props) => {
         <div className="content">
           <p>
             React London 2017 is possible due to the kind support
-            of <strong> our amazing partners</strong>.
+            of<strong> our amazing partners</strong>.
           </p>
         </div>
       </section>
