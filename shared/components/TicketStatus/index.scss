@@ -24,6 +24,10 @@
     text-decoration: underline;
     color: $grey;
     line-height: 1.4em;
+
+    &:hover {
+      color: #777;
+    }
   }
 
   &__live-stream-text {
