@@ -9,7 +9,7 @@ const Partner = ({ name, description, imageURL, partnerURL }) => {
       <a href={partnerURL} target="_blank" rel="noopener">
         <img className="Partner__image" src={imageURL || defaultImage} alt={name} />
       </a>
-      {name && <h4 className="Partner__title">{name}</h4>}
+      {name && <a href={partnerURL} className="Partner__title">{name}</a>}
       {description && <p className="Partner__description">{description}</p>}
     </li>
   );
