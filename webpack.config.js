@@ -1,8 +1,8 @@
-const path          = require('path');
-const webpack       = require('webpack');
-const ExtractText   = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractText = require('extract-text-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
-const autoprefixer  = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
 
 const baseConfig = {
   devtool: 'source-map',
@@ -30,7 +30,7 @@ const baseConfig = {
       {
         test: /\.scss$/,
         loader: ExtractText.extract('style', [
-          'css', 'postcss', 'sass',
+          'css?minimize', 'postcss', 'sass',
         ]),
       },
     ],
