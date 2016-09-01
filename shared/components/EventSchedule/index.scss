@@ -6,3 +6,9 @@
     position: relative;
   }
 }
+
+@media (min-width: $tablet-portrait-width) {
+  .EventSchedule {
+    border-right: $dash-border;
+  }
+}

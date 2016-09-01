@@ -2,8 +2,7 @@
 .NextConferenceEvent {
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 40px 30px;
-
+  padding: 20px 0px;
   &__btn {
     border-radius: 6px;
     border: 0px;
@@ -128,6 +127,7 @@
 
 @media (min-width: 768px) {
   .NextConferenceEvent {
+    padding: 40px 30px;
     &__section-container {
       flex-flow: row wrap;
 

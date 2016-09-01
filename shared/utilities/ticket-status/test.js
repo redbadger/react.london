@@ -12,7 +12,7 @@ describe('getTicketStatusOptions', () => {
       expect(result).to.deep.equal({
         buttonText: 'FREE TICKET AVAILABLE SOON',
         linkType: '',
-        statusHeader: 'TICKETS WILL GO LIVE ON',
+        statusHeader: 'Tickets will go live on',
         statusSubHeader: 'Thursday, 1st January 1970, 01:00',
         link: undefined,
       });
@@ -40,7 +40,7 @@ describe('getTicketStatusOptions', () => {
       expect(result).to.deep.equal({
         buttonText: 'Free Ticket',
         linkType: 'TICKET',
-        statusHeader: 'TICKETS LIVE',
+        statusHeader: 'Tickets live',
         statusSubHeader: 'To get yours, go to Baz',
         link: {
           title: 'Baz',
@@ -70,7 +70,7 @@ describe('getTicketStatusOptions', () => {
     expect(result).to.deep.equal({
       buttonText: 'Join Waitlist',
       linkType: 'TICKET',
-      statusHeader: 'TICKETS NOW SOLD OUT',
+      statusHeader: 'Tickets now sold out',
       statusSubHeader: 'Join the waiting list on Baz',
       link: {
         title: 'Baz',
@@ -102,7 +102,7 @@ describe('getTicketStatusOptions', () => {
       expect(result).to.deep.equal({
         buttonText: 'Join Live Stream',
         linkType: 'STREAM',
-        statusHeader: 'TICKETS NOW SOLD OUT',
+        statusHeader: 'Tickets now sold out',
         statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
         link: undefined,
       });

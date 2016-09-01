@@ -33,7 +33,7 @@ const TicketStatus = (props) => {
       <p className="TicketStatus__live-stream-text">
         Get event updates and reminders
         events <a className="TicketStatus__live-stream-text--link" href="#stay-tuned">
-        below</a>
+        below.</a>
       </p>
     </div>
   );

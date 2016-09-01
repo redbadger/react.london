@@ -52,7 +52,7 @@ export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
     return {
       buttonText: 'FREE TICKET AVAILABLE SOON',
       linkType: '',
-      statusHeader: 'TICKETS WILL GO LIVE ON',
+      statusHeader: 'Tickets will go live on',
       statusSubHeader: formatDate(ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm'),
     };
   }
@@ -63,7 +63,7 @@ export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailab
     return {
       buttonText: 'Free Ticket',
       linkType: 'TICKET',
-      statusHeader: 'TICKETS LIVE',
+      statusHeader: 'Tickets live',
       statusSubHeader: 'To get yours, go to',
     };
   }
@@ -79,7 +79,7 @@ export function isWaitlist({
     return {
       buttonText: 'Join Waitlist',
       linkType: 'TICKET',
-      statusHeader: 'TICKETS NOW SOLD OUT',
+      statusHeader: 'Tickets now sold out',
       statusSubHeader: 'Join the waiting list on',
     };
   }
@@ -101,7 +101,7 @@ export function isStreaming({
     return {
       buttonText: 'Join Live Stream',
       linkType: 'STREAM',
-      statusHeader: 'TICKETS NOW SOLD OUT',
+      statusHeader: 'Tickets now sold out',
       statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
     };
   }

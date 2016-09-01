@@ -11,7 +11,7 @@ const InterestedSpeaker = () => (
         rel="noopener"
         href="https://www.papercall.io/reactlondonmeetup"
         className="InterestedSpeaker__btn"
-      >Become a Speaker</a>
+      >Become a speaker</a>
     </div>
   </div>
 );

@@ -21,27 +21,26 @@ const ConferencePartners = (props) => {
         <div className="content">
           <p>
             React London 2017 is possible due to the kind support
-            of <strong> our amazing partners</strong>, who help us keep
-            tickets affordable.
+            of<strong> our amazing partners</strong>.
           </p>
         </div>
       </section>
 
       <PartnersSection
         partners={gold || []}
-        title="Gold Partners"
+        title="Gold partners"
         level="gold"
       />
 
       <PartnersSection
         partners={silver || []}
-        title="Silver Partners"
+        title="Silver partners"
         level="silver"
       />
 
       <PartnersSection
         partners={stripDescription(bronze)}
-        title="Bronze Partners"
+        title="Bronze partners"
         level="bronze"
       />
 
@@ -62,7 +61,7 @@ const ConferencePartners = (props) => {
             href="mailto:hello@react.london?subject=Partnership Enquiry- React London 2017"
             className="InterestedPartner__btn"
           >
-            Become a Partner
+            Become a partner
           </a>
         </div>
       </div>
