@@ -1,3 +1,4 @@
+import { SLACK_URL } from '../../../server/constants.js';
 import React from 'react';
 
 const ShareYourIdeas = () => (
@@ -10,7 +11,7 @@ const ShareYourIdeas = () => (
       <a
         target="_blank"
         rel="noopener"
-        href="https://redbadger.typeform.com/to/cBuJUl"
+        href={SLACK_URL}
         className="ShareYourIdeas__btn"
       >
         Share your ideas
