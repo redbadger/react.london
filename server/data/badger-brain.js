@@ -98,6 +98,20 @@ query {
       price
       available
     }
+    talks {
+      id
+      title
+      summary
+      speakers {
+        id
+        name
+        company
+        twitterHandle
+        githubHandle
+        blogURL
+        imageURL
+      }
+    }
   }
 }`;
 
