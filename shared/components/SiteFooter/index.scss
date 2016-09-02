@@ -40,6 +40,10 @@
     line-height: 0.9;
     text-align: center;
     color: $grey;
+    &:hover {
+      color: $middle-grey;
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 750px) {
@@ -170,6 +174,12 @@
     text-decoration: none;
     display: inline-block;
     position: relative;
+    &:hover {
+      color: $light-grey;
+      &::after {
+        border-bottom: 1px solid $light-grey;
+      }
+    }
   }
   a::after {
     content: '';
