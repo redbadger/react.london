@@ -6,7 +6,7 @@ const JoinSlack = () => (
       <a
         target="_blank"
         rel="noopener"
-        href="http://slack.red-badger.com/"
+        href="https://redbadger.typeform.com/to/cBuJUl"
         className="JoinSlack__btn"
       >Join us on Slack</a>
     </div>

@@ -10,7 +10,7 @@ const ShareYourIdeas = () => (
       <a
         target="_blank"
         rel="noopener"
-        href="http://slack.red-badger.com/"
+        href="https://redbadger.typeform.com/to/cBuJUl"
         className="ShareYourIdeas__btn"
       >
         Share your ideas

@@ -122,7 +122,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__slack"
-                href="http://slack.red-badger.com/"
+                href="https://redbadger.typeform.com/to/cBuJUl"
                 target="_blank"
                 rel="noopener"
               >
