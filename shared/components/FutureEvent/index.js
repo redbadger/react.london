@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
+import { googleMapsUrl } from '../../google-maps';
+import locationType from '../../prop-types/location-type';
 
 export const placeholderText = 'To be confirmed';
 
@@ -34,7 +36,9 @@ const FutureEvent = ({ title, eventType, startDateTime, location }) => {
           {dateText(startDateTime)}
         </li>
         <li className="FutureEvent__location">
-          {address(location)}
+          <a href={googleMapsUrl(location)} target="_blank" rel="noopener">
+            {address(location)}
+          </a>
         </li>
       </ul>
     </div>
@@ -45,7 +49,7 @@ FutureEvent.propTypes = {
   title: PropTypes.string,
   eventType: PropTypes.string,
   startDateTime: PropTypes.shape({ iso: PropTypes.string }),
-  location: PropTypes.shape({ address: PropTypes.string }),
+  location: locationType,
 };
 
 export default FutureEvent;

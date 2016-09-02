@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import TicketStatus from '../../components/TicketStatus';
+import { googleMapsUrl } from '../../google-maps';
+import locationType from '../../prop-types/location-type';
 import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
@@ -11,12 +13,6 @@ export const placeholderText = 'To be confirmed.';
 const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
   '&tmeid=amhsZzdlaXRpanRoamw5bHRrMm1pZ2x2dm8gbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
   '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
-
-function googleMapsUrl(location) {
-  const { latitude, longitude } = pathOr({}, ['coordinates'], location);
-  if (!latitude || !longitude) { return null; }
-  return `http://www.google.com/maps/place/${latitude},${longitude}`;
-}
 
 function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
@@ -102,13 +98,7 @@ NextCommunityEvent.propTypes = {
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
-  location: PropTypes.shape({
-    address: PropTypes.string,
-    coordinates: PropTypes.shape({
-      latitude: PropTypes.string,
-      longitude: PropTypes.string,
-    }),
-  }),
+  location: locationType,
 };
 
 export default NextCommunityEvent;
