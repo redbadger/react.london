@@ -1,3 +1,4 @@
+import { SLACK_URL } from '../../../server/constants.js';
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
@@ -122,7 +123,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__slack"
-                href="http://slack.red-badger.com/"
+                href={SLACK_URL}
                 target="_blank"
                 rel="noopener"
               >
