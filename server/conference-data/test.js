@@ -66,3 +66,11 @@ describe('conference querying for ticket data', () => {
     }]);
   });
 });
+
+describe('conference querying for calendarURL', () => {
+  it('returns the correct associated data for the calendarURL query', () => {
+    const data = { event: { ...fixture.event } };
+    const state = conferenceData(data);
+    expect(state.calendarURL).to.deep.equal('http://www.google.com');
+  });
+});

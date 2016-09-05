@@ -12,6 +12,7 @@
           "ticketsAvailable": false,
           "waitingListOpen": false,
           "displayLevel": "Featured",
+          "calendarURL": "http://www.google.com",
           "startDateTime": {
             "iso": "2016-07-26T17:30:00+0000"
           },
@@ -111,6 +112,7 @@
           "ticketsAvailable": false,
           "waitingListOpen": false,
           "displayLevel": "Highlighted",
+          "calendarURL": "http://www.google.com",
           "startDateTime": {
             "iso": "2016-08-24T17:30:00+0000"
           },
