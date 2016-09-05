@@ -5,10 +5,10 @@ import ConferenceAbout from '../ConferenceAbout';
 import NextConferenceEvent from '../NextConferenceEvent';
 import ShareYourIdeas from '../ShareYourIdeas';
 
-const Conference = () => (
+const Conference = (props) => (
   <div>
     <ConferenceAbout />
-    <NextConferenceEvent />
+    <NextConferenceEvent {...props} />
     <MailingList
       mailingListTitle="Stay tuned"
       mailingListSummary="Get ticket reminders and event information about the conference."
