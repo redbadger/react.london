@@ -10,9 +10,11 @@ import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
 export const placeholderText = 'To be confirmed.';
 
-const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
-  '&tmeid=amhsZzdlaXRpanRoamw5bHRrMm1pZ2x2dm8gbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
-  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
+function googleMapsUrl(location) {
+  const { latitude, longitude } = pathOr({}, ['coordinates'], location);
+  if (!latitude || !longitude) { return null; }
+  return `http://www.google.com/maps/place/${latitude},${longitude}`;
+}
 
 function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
@@ -47,7 +49,7 @@ export function getHeaderText(startDateTime, endDateTime) {
 }
 
 const NextCommunityEvent = (featuredEvent) => {
-  const { title, startDateTime, endDateTime, location, talks } = featuredEvent;
+  const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
   const statusProps = getTicketStatusOptions(featuredEvent);
   return (
     <section className="NextCommunityEvent block">
