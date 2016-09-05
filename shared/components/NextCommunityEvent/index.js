@@ -10,12 +10,6 @@ import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
 export const placeholderText = 'To be confirmed.';
 
-function googleMapsUrl(location) {
-  const { latitude, longitude } = pathOr({}, ['coordinates'], location);
-  if (!latitude || !longitude) { return null; }
-  return `http://www.google.com/maps/place/${latitude},${longitude}`;
-}
-
 function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
 }
