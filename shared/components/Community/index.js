@@ -45,7 +45,11 @@ const Community = ({
         mailingListSummary={mailingListSummary}
         page="community"
       />
-      <SiteFooter page="Community" usefulLinks={usefulLinks} seriousLinks={seriousLinks} />
+      <SiteFooter
+        page="Community"
+        usefulLinks={usefulLinks}
+        seriousLinks={seriousLinks}
+      />
     </div>
   </div>
 );

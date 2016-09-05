@@ -34,6 +34,14 @@
 
   &--Conference {
     background-color: $conference-color;
+
+    .FutureEvent__datetime {
+      background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
+    }
+
+    .FutureEvent__location {
+      background: url("/img/SVG/Place_icon_blue.svg") no-repeat left top;
+    }
   }
 
   &__title {
@@ -50,17 +58,26 @@
   &__location {
     padding-left: 35px;
     list-style: none;
+
+    a {
+      color: $grey;
+      text-decoration: none;
+    }
   }
 
   &__location {
-    background: url("/img/SVG/Place_icon_white.svg") no-repeat left top;
+    background: url("/img/SVG/Place_icon_green.svg") no-repeat left top;
     margin-top: 15px;
     min-height: 32px;
     padding-top: 5px;
+
+    &:hover {
+      background: url("/img/SVG/Place_icon_white.svg") no-repeat left top;
+    }
   }
 
   &__datetime {
-    background: url("/img/SVG/Date_icon_white.svg") no-repeat left top;
+    background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
     min-height: 26px;
     padding-top: 2px;
   }
