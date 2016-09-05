@@ -34,6 +34,14 @@
 
   &--Conference {
     background-color: $conference-color;
+
+    .FutureEvent__datetime {
+      background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
+    }
+
+    .FutureEvent__location {
+      background: url("/img/SVG/Place_icon_blue.svg") no-repeat left top;
+    }
   }
 
   &__title {
