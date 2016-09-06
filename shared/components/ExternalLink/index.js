@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 export const ExternalLink = (props) => {
-  const linkProps = Object.assign({}, props); // This is done as the props are not mutable
+  const linkProps = { ...props }; // This is done as the props are not mutable
   if (!linkProps.href) {
     delete linkProps.href;
   }
