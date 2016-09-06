@@ -1,6 +1,6 @@
 import React from 'react';
 import NextCommunityEvent, { placeholderText, getHeaderText } from '.';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import tk from 'timekeeper';
 import R from 'ramda';
 
@@ -24,7 +24,7 @@ const fullProps = {
 
 describe('NextCommunityEvent component', () => {
   it('renders OK with all props', () => {
-    const elem = shallow(<NextCommunityEvent {...fullProps} />);
+    const elem = mount(<NextCommunityEvent {...fullProps} />);
     const dateElement = elem.find('.NextCommunityEvent__link--date');
     expect(dateElement.text()).to.equal('Tuesday, 26th July 2016, 18:30 – 21:30');
     expect(dateElement.props().href).to.equal('http://www.google.com/cal');
@@ -33,7 +33,7 @@ describe('NextCommunityEvent component', () => {
   });
 
   it('renders without crashing when passed no props', () => {
-    shallow(<NextCommunityEvent />);
+    mount(<NextCommunityEvent />);
   });
 
   it('has default value for missing the date', () => {
@@ -42,7 +42,7 @@ describe('NextCommunityEvent component', () => {
       ['startDateTime', 'iso'],
     ].forEach(path => {
       const props = R.dissocPath(path, fullProps);
-      const elem = shallow(<NextCommunityEvent {...props} />);
+      const elem = mount(<NextCommunityEvent {...props} />);
       const dateText = elem.find('.NextCommunityEvent__link--date').text();
       expect(dateText).to.equal(placeholderText,
         'Should display default date without prop ' + path.join('.'));
@@ -55,7 +55,7 @@ describe('NextCommunityEvent component', () => {
       ['location', 'address'],
     ].forEach(path => {
       const props = R.dissocPath(path, fullProps);
-      const elem = shallow(<NextCommunityEvent {...props} />);
+      const elem = mount(<NextCommunityEvent {...props} />);
       const dateText = elem.find('.NextCommunityEvent__link--place').text();
       expect(dateText).to.equal(placeholderText,
         'Should display default location without prop ' + path.join('.'));
