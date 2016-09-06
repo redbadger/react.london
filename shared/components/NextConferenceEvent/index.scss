@@ -10,18 +10,20 @@
     color: $conference-color-faded;
     font-weight: bold;
     text-decoration: none;
-
     display: inline-block;
     background: url("/img/SVG/G_blue.svg") no-repeat 17px 12px $grey;
     background-size: 22px 22px;
     font-size: 16px;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      color: $white;
-      background-image: url("/img/SVG/G_white.svg");
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        color: $white;
+        background-image: url("/img/SVG/G_white.svg");
+      }
     }
-
   }
 
   &__save-the-date,
@@ -69,11 +71,14 @@
     background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
     height: 26px;
     padding-top: 2px;
-
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Date_icon_white.svg");
-      text-decoration: underline;
+    pointer-events: none;
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Date_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -81,11 +86,15 @@
     background: url("/img/SVG/Place_icon_blue.svg") no-repeat 0px 1px;
     height: 32px;
     padding-top: 5px;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Place_icon_white.svg");
-      text-decoration: underline;
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Place_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -96,10 +105,15 @@
     padding-top: 10px;
     margin-top: 7px;
     max-width: 15em;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Save_the_date_icon_white.svg");
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Save_the_date_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
