@@ -50,6 +50,13 @@
 .Partner__title {
   margin: 22px 0 6px 0;
   font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: $grey;
+  display: block;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .Partner__description {

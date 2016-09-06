@@ -19,13 +19,15 @@ const fullProps = {
       longitude: '-0.08610963821411133',
     },
   },
+  calendarURL: 'http://www.google.com/cal',
 };
 
 describe('NextCommunityEvent component', () => {
   it('renders OK with all props', () => {
     const elem = shallow(<NextCommunityEvent {...fullProps} />);
-    const dateText = elem.find('.NextCommunityEvent__link--date').text();
-    expect(dateText).to.equal('Tuesday, 26th July 2016 | 18:30 - 21:30');
+    const dateElement = elem.find('.NextCommunityEvent__link--date');
+    expect(dateElement.text()).to.equal('Tuesday, 26th July 2016, 18:30 – 21:30');
+    expect(dateElement.props().href).to.equal('http://www.google.com/cal');
     const locText = elem.find('.NextCommunityEvent__link--place').text();
     expect(locText).to.equal(fullProps.location.address);
   });
@@ -77,7 +79,7 @@ describe('getHeaderText', () => {
 
   it('returns Community Event if no props are passed', () => {
     const result = getHeaderText(null, null);
-    expect(result).to.equal('Community Event');
+    expect(result).to.equal('Community Meetup');
   });
 
   it('returns Last Event if the event time is before the current time (sameDay)', () => {
@@ -86,7 +88,7 @@ describe('getHeaderText', () => {
       { iso: new Date('2016-07-26T17:30:00+0000') },
       { iso: new Date('2016-07-26T19:30:00+0000') }
     );
-    expect(result).to.equal('Last Event');
+    expect(result).to.equal('Last Meetup');
   });
 
   it('returns Last Event if the event time is before the current time (nextDay)', () => {
@@ -95,7 +97,7 @@ describe('getHeaderText', () => {
       { iso: new Date('2016-07-26T17:30:00+0000') },
       { iso: new Date('2016-07-26T19:30:00+0000') }
     );
-    expect(result).to.equal('Last Event');
+    expect(result).to.equal('Last Meetup');
   });
 
   it('returns Todays Event if the event time is today & before the end time', () => {
@@ -104,6 +106,6 @@ describe('getHeaderText', () => {
       { iso: new Date('2016-07-26T17:30:00+0000') },
       { iso: new Date('2016-07-26T19:30:00+0000') }
     );
-    expect(result).to.equal('Today\'s Event');
+    expect(result).to.equal('Today\'s Meetup');
   });
 });

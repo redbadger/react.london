@@ -1,3 +1,4 @@
+import { SLACK_URL } from '../../../server/constants.js';
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
@@ -20,10 +21,15 @@ function Banner({ page }) {
         </h2>
         <p>
           <span className="text-background">
-            We&rsquo;re launching a new conference<br />focused on React
+            We&rsquo;re launching a new conference<br />focused on React.
           </span>
         </p>
-        <a className="SiteFooter__banner-cta" href="https://react.london/" target="_blank">
+        <a
+          className="SiteFooter__banner-cta"
+          href="/conference"
+          target="_blank"
+          rel="noopener"
+        >
           <span className="text-background">
             Find out more
           </span>
@@ -41,7 +47,12 @@ function Banner({ page }) {
           Looking for our meetups?
         </span>
       </p>
-      <a className="SiteFooter__banner-cta" href="https://meetup.react.london/" target="_blank">
+      <a
+        className="SiteFooter__banner-cta"
+        href="/community"
+        target="_blank"
+        rel="noopener"
+      >
         <span className="text-background">
           Find out more
         </span>
@@ -76,10 +87,10 @@ LinkList.propTypes = {
 
 function footerBlerb(page) {
   if (page === 'Community') {
-    return 'Red Badger run the React London meetups to help chart what’s possible' +
+    return 'Red Badger runs the React London meetups to help chart what’s possible,' +
       ' and give the community a place to share discoveries.';
   }
-  return 'Red Badger is running the React.London Conference to help chart what’s' +
+  return 'Red Badger is running the React London Conference to help chart what’s' +
     ' possible and give the community a place to share discoveries. This is' +
     ' not-for-profit, the money generated will help cover our costs for this' +
     ' and future events.';
@@ -112,20 +123,23 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__slack"
-                href="http://slack.red-badger.com/"
+                href={SLACK_URL}
                 target="_blank"
+                rel="noopener"
               >
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__youtube"
                 href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ"
                 target="_blank"
+                rel="noopener"
               >
               </a>
               <a
                 className="SiteFooter__social-link SiteFooter__twitter"
                 href="https://twitter.com/ReactLondon_"
                 target="_blank"
+                rel="noopener"
               >
               </a>
             </div>

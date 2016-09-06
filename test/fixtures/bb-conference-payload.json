@@ -80,7 +80,8 @@
           "price": "350",
           "available": true
         }
-      ]
+      ],
+      "calendarURL": "http://www.google.com"
     }
   }
 }

@@ -78,13 +78,12 @@
     &__ticket {
       display: table-row;
       border-bottom: none;
-      display: flex;
       padding: 0px;
       td {
         display: table-cell;
         border-bottom: $dash-border;
         padding: 30px 0px;
-        flex: 1;
+        width: 33%;
       }
       td:nth-child(2) {
         text-align: center;

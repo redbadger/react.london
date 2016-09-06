@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
-// import classnames from 'classnames';
 
 export const ticketType = PropTypes.shape({
   title: PropTypes.string,
@@ -33,9 +32,8 @@ export function BuyTickets() {
   );
 }
 
-BuyTickets
-.propTypes = {
-  tickets: PropTypes.arrayOf(ticketType).isRequired,
+BuyTickets.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType),
 };
 
 export function getTicketReleaseDate(ticket) {

@@ -24,12 +24,13 @@ export const pickSpeakersFromTalks = (talks) => {
 
 export default function communityData(state) {
   if (!state || !state.event) { return {}; }
-  const { partners, tickets, talks } = state.event;
+  const { partners, tickets, talks, calendarURL } = state.event;
   const speakers = pickSpeakersFromTalks(talks);
 
   return {
     ...groupPartnersByLevel(partners || []),
     tickets,
     speakers,
+    calendarURL,
   };
 }

@@ -14,11 +14,12 @@ export default function routes(state) {
   const Jobs = () => <ConferenceJobs {...state} />;
   const Tickets = () => <TicketPage {...state} />;
   const Speakers = () => <SpeakersPage {...state} />;
+  const ConferencePage = () => <Conference {...state} />;
 
   return (
     <Route>
       <Route component={ConferenceLayout} >
-        <Route path="/" component={Conference} />
+        <Route path="/" component={ConferencePage} />
         <Route path="/partners" component={Partners} />
         <Route path="/tickets" component={Tickets} />
         <Route path="/jobs" component={Jobs} />

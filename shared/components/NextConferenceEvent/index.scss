@@ -2,8 +2,7 @@
 .NextConferenceEvent {
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 40px 30px;
-
+  padding: 20px 0px;
   &__btn {
     border-radius: 6px;
     border: 0px;
@@ -13,8 +12,8 @@
     text-decoration: none;
 
     display: inline-block;
-    background-size: 22px !important;
     background: url("/img/SVG/G_blue.svg") no-repeat 17px 12px $grey;
+    background-size: 22px 22px;
     font-size: 16px;
 
     &:focus,
@@ -128,6 +127,7 @@
 
 @media (min-width: 768px) {
   .NextConferenceEvent {
+    padding: 40px 30px;
     &__section-container {
       flex-flow: row wrap;
 

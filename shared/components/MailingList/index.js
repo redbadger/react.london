@@ -21,6 +21,7 @@ const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
           target="_blank"
+          rel="noopener"
           noValidate
         >
           <div className="MailingList__form__container">
@@ -37,7 +38,7 @@ const MailingList = ({ mailingListTitle, mailingListSummary, page }) => (
             <input
               className={'MailingList__form__submit MailingList__form__submit--' + page}
               type="submit"
-              value="Get Updates"
+              value="Get updates"
               name="subscribe"
               id="mc-embedded-subscribe"
             />

@@ -24,6 +24,7 @@ query {
       ticketsAvailable
       waitingListOpen
       displayLevel
+      calendarURL
       startDateTime {
         iso
       }
@@ -73,6 +74,7 @@ query {
 export const conferenceStateQuery = `
 query {
   event(id: "${conferenceID}") {
+    calendarURL
     partners {
       name
       description

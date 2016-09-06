@@ -1,12 +1,8 @@
-import React from 'react';
-
-const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
-  '&tmeid=YTVpcXZjcTI2aGJhb3Zoamw2NjVkZ2QwOWsgbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
-  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
+import React, { PropTypes } from 'react';
 
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 
-const NextConferenceEvent = () => (
+const NextConferenceEvent = ({ calendarURL }) => (
   <section className="NextConferenceEvent block">
     <div className="content">
       <article className="NextConferenceEvent__section-container">
@@ -20,6 +16,7 @@ const NextConferenceEvent = () => (
                 className="NextConferenceEvent__link--date"
                 href={calendarURL}
                 target="_blank"
+                rel="noopener"
               >
                 Tuesday, 28 March 2017
               </a>
@@ -29,6 +26,7 @@ const NextConferenceEvent = () => (
                 className="NextConferenceEvent__link--place"
                 href={locationURL}
                 target="_blank"
+                rel="noopener"
               >
                 QEII Centre, Westminster
               </a>
@@ -46,6 +44,7 @@ const NextConferenceEvent = () => (
             className="NextConferenceEvent__btn"
             href={calendarURL}
             target="_blank"
+            rel="noopener"
           >
             Add to calendar
           </a>
@@ -55,4 +54,7 @@ const NextConferenceEvent = () => (
   </section>
 );
 
+NextConferenceEvent.propTypes = {
+  calendarURL: PropTypes.string,
+};
 export default NextConferenceEvent;

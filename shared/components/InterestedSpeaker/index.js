@@ -6,7 +6,12 @@ const InterestedSpeaker = () => (
       Interested in becoming a speaker? Get in touch!
     </h3>
     <div className="content">
-      <a target="_blank" href="https://www.papercall.io/reactlondonmeetup" className="InterestedSpeaker__btn">Become a Speaker</a>
+      <a
+        target="_blank"
+        rel="noopener"
+        href="https://www.papercall.io/reactlondonmeetup"
+        className="InterestedSpeaker__btn"
+      >Become a speaker</a>
     </div>
   </div>
 );

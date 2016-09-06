@@ -3,11 +3,11 @@
 
   h3 {
     font-size: 24px;
+    line-height: 1;
   }
 
   &__section {
     &-container {
-      flex: 1;
       display: flex;
       flex-flow: column wrap;
     }
@@ -34,7 +34,6 @@
 
       &-schedule {
         border-bottom: none;
-        border-right: $dash-border;
       }
 
     }

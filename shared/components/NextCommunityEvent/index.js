@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import Talks from '../Talks';
 import TicketStatus from '../../components/TicketStatus';
+import { googleMapsUrl } from '../../google-maps';
+import locationType from '../../prop-types/location-type';
 import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
@@ -8,23 +10,13 @@ import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
 export const placeholderText = 'To be confirmed.';
 
-const calendarURL = 'https://calendar.google.com/calendar/event?action=TEMPLATE' +
-  '&tmeid=amhsZzdlaXRpanRoamw5bHRrMm1pZ2x2dm8gbG5kaDVzdXRrbmtyZjZpbjEzYWgzYmUwbW9AZw' +
-  '&tmsrc=lndh5sutknkrf6in13ah3be0mo%40group.calendar.google.com';
-
-function googleMapsUrl(location) {
-  const { latitude, longitude } = pathOr({}, ['coordinates'], location);
-  if (!latitude || !longitude) { return null; }
-  return `http://www.google.com/maps/place/${latitude},${longitude}`;
-}
-
 function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
 }
 
 function eventDateAndTime(startDateTime, endDateTime) {
   if (startDateTime && startDateTime.iso && endDateTime && endDateTime.iso) {
-    return formatDate(startDateTime, 'dddd, Do MMMM YYYY | HH:mm - ')
+    return formatDate(startDateTime, 'dddd, Do MMMM YYYY, HH:mm – ')
       + formatDate(endDateTime, 'HH:mm');
   }
   return placeholderText;
@@ -32,17 +24,17 @@ function eventDateAndTime(startDateTime, endDateTime) {
 
 export function getHeaderText(startDateTime, endDateTime) {
   if (!startDateTime || !endDateTime) {
-    return 'Community Event';
+    return 'Community Meetup';
   }
   const currentDateTime = moment();
   const isToday = moment(startDateTime.iso).isSame(currentDateTime, 'day');
 
   if (isToday && isBefore(currentDateTime, endDateTime.iso)) {
-    return 'Today\'s Event';
+    return 'Today\'s Meetup';
   }
 
   if (isAfter(currentDateTime, endDateTime.iso)) {
-    return 'Last Event';
+    return 'Last Meetup';
   }
 
   if (!isToday && isBefore(currentDateTime, startDateTime.iso)) {
@@ -51,7 +43,7 @@ export function getHeaderText(startDateTime, endDateTime) {
 }
 
 const NextCommunityEvent = (featuredEvent) => {
-  const { title, startDateTime, endDateTime, location, talks } = featuredEvent;
+  const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
   const statusProps = getTicketStatusOptions(featuredEvent);
   return (
     <section className="NextCommunityEvent block">
@@ -68,6 +60,7 @@ const NextCommunityEvent = (featuredEvent) => {
                   className="NextCommunityEvent__link--date"
                   href={calendarURL}
                   target="_blank"
+                  rel="noopener"
                 >
                   {eventDateAndTime(startDateTime, endDateTime)}
                 </a>
@@ -77,6 +70,7 @@ const NextCommunityEvent = (featuredEvent) => {
                   className="NextCommunityEvent__link--place"
                   href={googleMapsUrl(location)}
                   target="_blank"
+                  rel="noopener"
                 >
                   {eventLocation(location)}
                 </a>
@@ -100,13 +94,7 @@ NextCommunityEvent.propTypes = {
   talks: PropTypes.arrayOf(PropTypes.shape(Talks.propTypes)),
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
-  location: PropTypes.shape({
-    address: PropTypes.string,
-    coordinates: PropTypes.shape({
-      latitude: PropTypes.string,
-      longitude: PropTypes.string,
-    }),
-  }),
+  location: locationType,
 };
 
 export default NextCommunityEvent;
