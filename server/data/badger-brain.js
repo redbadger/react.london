@@ -110,6 +110,10 @@ query {
         githubHandle
         blogURL
         imageURL
+        bio {
+          type
+          text
+        }
       }
     }
   }
