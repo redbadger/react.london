@@ -7,7 +7,7 @@ import { formatDate, isBefore, isAfter } from '../../utilities/date';
 import pathOr from 'ramda/src/pathOr';
 import moment from 'moment';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
-
+import { ExternalLink } from '../ExternalLink';
 export const placeholderText = 'To be confirmed.';
 
 function eventLocation(location) {
@@ -56,24 +56,22 @@ const NextCommunityEvent = (featuredEvent) => {
             <h3 className="NextCommunityEvent__details__heading">{title}</h3>
             <ul className="NextCommunityEvent__details">
               <li>
-                <a
-                  className="NextCommunityEvent__link--date"
+                <ExternalLink
                   href={calendarURL}
-                  target="_blank"
-                  rel="noopener"
+                  className="NextCommunityEvent__link--date"
                 >
                   {eventDateAndTime(startDateTime, endDateTime)}
-                </a>
+                </ExternalLink>
               </li>
               <li>
-                <a
+                <ExternalLink
                   className="NextCommunityEvent__link--place"
                   href={googleMapsUrl(location)}
                   target="_blank"
                   rel="noopener"
                 >
                   {eventLocation(location)}
-                </a>
+                </ExternalLink>
               </li>
             </ul>
           </div>
