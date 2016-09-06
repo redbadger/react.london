@@ -34,11 +34,15 @@
     background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
     height: 26px;
     padding-top: 2px;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Date_icon_white.svg");
-      text-decoration: underline;
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Date_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -46,11 +50,15 @@
     background: url("/img/SVG/Place_icon_green.svg") no-repeat 0px 1px;
     height: 32px;
     padding-top: 5px;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Place_icon_white.svg");
-      text-decoration: underline;
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Place_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -58,11 +66,15 @@
     background: url("/img/SVG/Time_icon_green.svg") no-repeat left top;
     height: 25px;
     padding-top: 3px;
+    pointer-events: none;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Time_icon_white.svg");
-      text-decoration: underline;
+    &[href^="http"] {
+      pointer-events: all;
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Time_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
