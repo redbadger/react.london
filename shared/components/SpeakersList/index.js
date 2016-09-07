@@ -33,11 +33,20 @@ export const speakerBio = (bio) => {
 
 export const speakerSocialLinks = (speaker) => {
   const githubLink = speaker.githubHandle ?
-    (<a href={speaker.githubHandle}><span className="icon-github" /></a>)
+    (<a href={`https://github.com/${speaker.githubHandle}`}><span className="icon-github" /></a>)
     : null;
+  const twitterLink = speaker.blogURL ?
+    (<a href={speaker.blogURL}><span className="icon-link" /></a>)
+    : null;
+  const blogLink = speaker.twitterHandle ?
+    (<a href={`https://twitter.com/${speaker.twitterHandle}`}><span className="icon-twitter" /></a>)
+    : null;
+
   return (
-    <div>
+    <div className="speaker-description-social-links">
       {githubLink}
+      {twitterLink}
+      {blogLink}
     </div>
   );
 };
@@ -63,8 +72,8 @@ const SpeakersList = ({ speakers }) => {
         </div>
         <div className="speaker-description">
           <div>
-            <span>{speaker.name}</span>
-            <span>{speaker.company}</span>
+            <span className="speaker-description-name">{speaker.name}</span>
+            <span className="speaker-description-company">{speaker.company}</span>
           </div>
           {speakerSocialLinks(speaker)}
           <div dangerouslySetInnerHTML={{ __html: marked(speakerBio(speaker.bio)) }} />

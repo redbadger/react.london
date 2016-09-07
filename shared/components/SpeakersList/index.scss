@@ -1,6 +1,7 @@
 .speakers-list-container {
   border-top: 3px solid $grey;
   background-color: $conference-color-faded;
+  padding: 40px 0;
 }
 
 .speakers-list {
@@ -28,4 +29,21 @@ li {
 .speaker-description {
   display: inline-block;
   margin-left: 44px;
+}
+
+.speaker-description-name {
+  font-weight: bold;
+}
+
+.speaker-description-company {
+  margin-left: 5px;
+}
+
+.speaker-description-social-links {
+  margin-top: 20px;
+
+  a {
+    display: inline-block;
+    margin-left: 10px;
+  }
 }
