@@ -9,6 +9,7 @@
 .SiteFooter {
   border-top: 3px solid $grey;
   display: flex;
+  width: 100%;
 
   > * {
     width: 100%;
@@ -102,6 +103,7 @@
 .SiteFooter__badger {
   height: 40px;
   width: 33px;
+  background-size: 100%;
   margin-bottom: 12px;
 }
 

@@ -1,0 +1,14 @@
+li {
+  list-style-type: none;
+}
+
+.speaker-avatar {
+  width: 120px;
+  float: left;
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 3px solid $grey;
+  }
+}

@@ -2,7 +2,6 @@
 
 import React, { PropTypes } from 'react';
 import marked from 'marked';
-import { DEFAULT_SPEAKER_AVATAR } from '../../../server/constants';
 
 export const speakerType = PropTypes.shape({
   id: PropTypes.string,
@@ -32,24 +31,44 @@ export const speakerBio = (bio) => {
   return fullBio.join('\r\n\r\n');
 };
 
+export const speakerSocialLinks = (speaker) => {
+  const githubLink = speaker.githubHandle ?
+    (<a href={speaker.githubHandle}><span className="icon-github" /></a>)
+    : null;
+  return (
+    <div>
+      {githubLink}
+    </div>
+  );
+};
+
+export const speakerAvatarImage = (imageURL, speakerName) => {
+  if (imageURL) {
+    return (<img
+      alt={`Speaker ${speakerName}`}
+      src={imageURL}
+    />);
+  }
+  return (
+    <div className="icon-default-speaker-conference-avatar" />
+  );
+};
+
 const SpeakersList = ({ speakers }) => {
   const speakerList = speakers.map((speaker) => {
     return (
       <li key={speaker.id}>
-        <img
-          alt={`Speaker ${speaker.name}`}
-          src={speaker.imageURL ? speaker.imageURL : DEFAULT_SPEAKER_AVATAR}
-        />
-        <div>
-          <span>{speaker.name}</span>
-          <span>{speaker.company}</span>
+        <div className="speaker-avatar">
+          {speakerAvatarImage(speaker.imageURL, speaker.name)}
         </div>
-        <div>
-          <a href={speaker.githubHandle}><span>Github</span></a>
-          <a href={speaker.twitterHandle}><span>Twitter</span></a>
-          <a href={speaker.blogURL}><span>Blog</span></a>
+        <div className="speaker-description">
+          <div>
+            <span>{speaker.name}</span>
+            <span>{speaker.company}</span>
+          </div>
+          {speakerSocialLinks(speaker)}
+          <div dangerouslySetInnerHTML={{ __html: marked(speakerBio(speaker.bio)) }} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: marked(speakerBio(speaker.bio)) }} />
       </li>
     );
   });
