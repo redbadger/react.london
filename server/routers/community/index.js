@@ -1,8 +1,11 @@
 import { CONFERENCE_URL } from '../../constants';
+import { renderToString } from 'react-dom/server';
+import React from 'react';
 import { getCommunityState } from '../../data';
 import communityRoutes from '../../../shared/routes/community-routes';
 import communityData from '../../community-data';
 import useRouter from '../../use-router';
+import ErrorPage500 from '../../../shared/components/ErrorPage500';
 
 function router(req, res) {
   if (req.path === '/conference') {
@@ -13,10 +16,12 @@ function router(req, res) {
     const routes = communityRoutes(initialState);
     useRouter({ res, req, routes, initialState });
   })
-  .catch(err => {
-    // TODO Replace this with a user friendly error page
-    res.status(500).json({ error: err.message });
-  });
+    .catch(() => {
+      const content = renderToString(
+        <ErrorPage500 />
+      );
+      res.render('index', { content });
+    });
 }
 
 export default router;
