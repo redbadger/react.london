@@ -1,0 +1,14 @@
+  .Conference404Component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0px;
+    &__text {
+      font-weight: normal;
+      text-align: center;
+    }
+    &__image {
+      margin: 20px 0px;
+    }
+  }

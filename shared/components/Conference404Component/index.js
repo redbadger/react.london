@@ -2,14 +2,13 @@
 import React, { PropTypes } from 'react';
 
 const Conference404Component = () => (
-  <section className="Conference404Component block">
+  <section className="block">
     <div className="content">
-      <p className="Conference404Component__text">
-      </p>
-      <p className="Conference404Component__text--bold">
+      <div className="Conference404Component">
         <object
           data={'/img/SVG/404_missing_react.svg'}
           type="image/svg+xml"
+          className="Conference404Component__image"
         >
           <img
             srcSet={'/img/PNG/404_missing_react.png'}
@@ -18,11 +17,11 @@ const Conference404Component = () => (
           />
         </object>
         <h2>Ooops</h2>
-        <h2>
+        <h2 className="Conference404Component__text">
           Seems like the page you are looking for has gone walkies!
-          Please use the navigation above to hunt it down.
+          Please use the <strong>navigation above</strong> to hunt it down.
         </h2>
-      </p>
+      </div>
     </div>
   </section>
 );
