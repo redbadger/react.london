@@ -7,7 +7,7 @@ import TicketPage from '../../components/TicketPage';
 import ConferencePartners from '../../components/ConferencePartners';
 import ConferenceJobs from '../../components/ConferenceJobs';
 import CodeOfConduct from '../../components/ConferenceCodeOfConduct';
-import Conference404Component from '../../components/Conference404Component';
+import ErrorPage404 from '../../components/ErrorPage404';
 
 export default function routes(state) {
   const Partners = () => <ConferencePartners {...state} />;
@@ -21,7 +21,7 @@ export default function routes(state) {
         <Route path="/tickets" component={Tickets} />
         <Route path="/jobs" component={Jobs} />
         <Route path="/code-of-conduct" component={CodeOfConduct} />
-        <Route path="*" component={Conference404Component} />
+        <Route path="*" component={ErrorPage404} />
       </Route>
 
       <Redirect path="/conference" to="/" />

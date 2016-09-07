@@ -33,9 +33,11 @@ html
     main(id="main")
       != content
 
-    script(type='text/javascript').
-      window.__INITIAL_STATE__ = !{JSON.stringify(initialState)}
-    script(src="/static/main.js")
+    if initialState
+      script(type='text/javascript').
+        window.__INITIAL_STATE__ = !{JSON.stringify(initialState)}
+      script(src="/static/main.js")
+
     script(type="text/javascript").
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-16654919-5']);

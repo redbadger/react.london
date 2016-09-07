@@ -1,14 +1,14 @@
 
 import React, { PropTypes } from 'react';
 
-const Conference404Component = () => (
+const ErrorPage404 = () => (
   <section className="block">
     <div className="content">
-      <div className="Conference404Component">
+      <div className="ErrorPage404">
         <object
           data={'/img/SVG/404_missing_react.svg'}
           type="image/svg+xml"
-          className="Conference404Component__image"
+          className="ErrorPage404__image"
         >
           <img
             srcSet={'/img/PNG/404_missing_react.png'}
@@ -17,7 +17,7 @@ const Conference404Component = () => (
           />
         </object>
         <h2>Ooops</h2>
-        <h2 className="Conference404Component__text">
+        <h2 className="ErrorPage404__text">
           Seems like the page you are looking for has gone walkies!
           Please use the <strong>navigation above</strong> to hunt it down.
         </h2>
@@ -26,8 +26,8 @@ const Conference404Component = () => (
   </section>
 );
 
-Conference404Component.propTypes = {
+ErrorPage404.propTypes = {
   summary: PropTypes.string,
 };
 
-export default Conference404Component;
+export default ErrorPage404;
