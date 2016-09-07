@@ -17,6 +17,11 @@ const Conference404Component = () => (
             alt="Red Badger logo"
           />
         </object>
+        <h2>Ooops</h2>
+        <h2>
+          Seems like the page you are looking for has gone walkies!
+          Please use the navigation above to hunt it down.
+        </h2>
       </p>
     </div>
   </section>
