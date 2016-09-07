@@ -74,8 +74,8 @@ const SpeakersList = ({ speakers }) => {
   });
 
   return (
-    <section>
-      <ul>
+    <section className="speakers-list-container">
+      <ul className="speakers-list">
         {speakerList}
       </ul>
     </section>

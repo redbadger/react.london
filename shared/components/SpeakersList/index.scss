@@ -1,14 +1,31 @@
+.speakers-list-container {
+  border-top: 3px solid $grey;
+  background-color: $conference-color-faded;
+}
+
+.speakers-list {
+  max-width: 940px;
+  padding: 0;
+  margin: 0 auto;
+}
+
 li {
   list-style-type: none;
+  margin: 16.5px auto;
 }
 
 .speaker-avatar {
   width: 120px;
-  float: left;
+  display: inline-block;
   img {
     width: 120px;
     height: 120px;
     border-radius: 60px;
     border: 3px solid $grey;
   }
+}
+
+.speaker-description {
+  display: inline-block;
+  margin-left: 44px;
 }
