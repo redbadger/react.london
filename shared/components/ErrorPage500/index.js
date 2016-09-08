@@ -10,17 +10,17 @@ const ErrorPage500 = () => (
             alt="Red Badger logo"
           />
         </div>
-        <h2 className="ErrorPage500__text"><strong>Ooops</strong></h2>
-        <h2 className="ErrorPage500__text">
+        <p className="ErrorPage500__text"><strong>Ooops</strong></p>
+        <p className="ErrorPage500__text">
           Looks like something went wrong.<br />
           We’ve been notified and are on it!
-        </h2>
-        <h2 className="ErrorPage500__text">
+        </p>
+        <p className="ErrorPage500__text">
           In the mean time try refreshing the page or use the navigation above.
-        </h2>
-        <h2>
-          Error Code: 500
-        </h2>
+        </p>
+        <p className="ErrorPage500__text">
+          <strong>Error Code: 500</strong>
+        </p>
       </div>
     </div>
   </section>
