@@ -6,6 +6,7 @@ import { renderToString } from 'react-dom/server';
 import conferenceData from '../../conference-data';
 import useRouter from '../../use-router';
 import ErrorPage500 from '../../../shared/components/ErrorPage500';
+import ConferenceLayout from '../../../shared/components/ConferenceLayout';
 
 function router(req, res) {
   if (req.path === '/community') {
@@ -18,7 +19,9 @@ function router(req, res) {
   })
     .catch(() => {
       const content = renderToString(
-        <ErrorPage500 />
+        <ConferenceLayout>
+          <ErrorPage500 />
+        </ConferenceLayout>
       );
       res.render('index', { content });
     });

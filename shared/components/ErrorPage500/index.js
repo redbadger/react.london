@@ -16,7 +16,7 @@ const ErrorPage500 = () => (
           We’ve been notified and are on it!
         </h2>
         <h2 className="ErrorPage500__text">
-          In the mean time try refreshing the page or using the navigation above.
+          In the mean time try refreshing the page or use the navigation above.
         </h2>
         <h2>
           Error Code: 500

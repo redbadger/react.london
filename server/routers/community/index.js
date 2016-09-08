@@ -6,6 +6,7 @@ import communityRoutes from '../../../shared/routes/community-routes';
 import communityData from '../../community-data';
 import useRouter from '../../use-router';
 import ErrorPage500 from '../../../shared/components/ErrorPage500';
+import CommunityLayout from '../../../shared/components/CommunityLayout';
 
 function router(req, res) {
   if (req.path === '/conference') {
@@ -18,7 +19,9 @@ function router(req, res) {
   })
     .catch(() => {
       const content = renderToString(
-        <ErrorPage500 />
+        <CommunityLayout>
+          <ErrorPage500 />
+        </CommunityLayout>
       );
       res.render('index', { content });
     });
