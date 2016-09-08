@@ -12,12 +12,14 @@
 
 li {
   list-style-type: none;
-  margin: 16.5px auto;
+  margin: 33px auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 .speaker-avatar {
   width: 120px;
-  display: inline-block;
   img {
     width: 120px;
     height: 120px;
@@ -27,7 +29,6 @@ li {
 }
 
 .speaker-description {
-  display: inline-block;
   margin-left: 44px;
   max-width: 760px;
 }
@@ -46,5 +47,9 @@ li {
   a {
     display: inline-block;
     margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
