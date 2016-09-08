@@ -12,4 +12,11 @@
     margin: 20px 0px;
   }
 }
+@media (min-width: $mobile-width) {
+  .ErrorPage500 {
+    &__text {
+      font-size: 24px;
+    }
+  }
+}
 

@@ -16,7 +16,7 @@ const ErrorPage404 = () => (
             alt="Red Badger logo"
           />
         </object>
-        <h2>Ooops</h2>
+        <h2 className="ErrorPage404__text"><strong>Ooops</strong></h2>
         <h2 className="ErrorPage404__text">
           Seems like the page you are looking for has gone walkies!
           Please use the <strong>navigation above</strong> to hunt it down.

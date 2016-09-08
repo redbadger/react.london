@@ -10,7 +10,7 @@ const ErrorPage500 = () => (
             alt="Red Badger logo"
           />
         </div>
-        <h2>Ooops</h2>
+        <h2 className="ErrorPage500__text"><strong>Ooops</strong></h2>
         <h2 className="ErrorPage500__text">
           Looks like something went wrong.<br />
           We’ve been notified and are on it!
