@@ -20,7 +20,7 @@ export default function useRouter({ res, req, routes, initialState }) {
       );
       res.render('index', { content, initialState });
     }
-    res.render('index', { content: 'TODO: You hit the server 404' });
+    res.status(404).send('Not found');
   });
 }
 
