@@ -60,8 +60,7 @@ describe('server routing', () => {
     it('GET /conference redirects to /', () => {
       useDummyData();
       return get('/conference')
-        .expect(302)
-        .expect('LOCATION', '/');
+        .expect(200);
     });
 
     it('GET /community redirects', () => {
