@@ -1,18 +1,22 @@
-  .ErrorPage404 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px 0px;
-    &__text {
-      font-weight: normal;
-      text-align: center;
-      font-size: 16px;
-    }
-    &__image {
-      margin: 20px 0px;
-    }
+.ErrorPage404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 0px;
+  &__text {
+    font-weight: normal;
+    text-align: center;
+    font-size: 16px;
   }
+  &__image {
+    margin: 20px 0px;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%20width%3D%22276px%22%20height%3D%22246px%22%20viewBox%3D%220%200%20276%20246%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%0A%20%20%20%20%3C%21--%20Generator%3A%20Sketch%2039.1%20%2831720%29%20-%20http%3A//www.bohemiancoding.com/sketch%20--%3E%0A%20%20%20%20%3Ctitle%3Emissing%20react%3C/title%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C/desc%3E%0A%20%20%20%20%3Cdefs%3E%3C/defs%3E%0A%20%20%20%20%3Cg%20id%3D%22404%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20stroke-dasharray%3D%223%2C3%2C3%2C2%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22404-Desktop%22%20transform%3D%22translate%28-584.000000%2C%20-277.000000%29%22%20stroke%3D%22%234A4A4A%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22missing-react%22%20transform%3D%22translate%28584.000000%2C%20253.000000%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cellipse%20id%3D%22Oval%22%20transform%3D%22translate%28137.579266%2C%20147.101911%29%20rotate%28-30.000000%29%20translate%28-137.579266%2C%20-147.101911%29%20%22%20cx%3D%22137.579266%22%20cy%3D%22147.101911%22%20rx%3D%2256.8674814%22%20ry%3D%22136.980355%22%3E%3C/ellipse%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cellipse%20id%3D%22Oval%22%20transform%3D%22translate%28137.579266%2C%20147.101911%29%20rotate%28-330.000000%29%20translate%28-137.579266%2C%20-147.101911%29%20%22%20cx%3D%22137.579266%22%20cy%3D%22147.101911%22%20rx%3D%2256.8674814%22%20ry%3D%22136.980355%22%3E%3C/ellipse%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cellipse%20id%3D%22Oval%22%20transform%3D%22translate%28137.579266%2C%20147.101911%29%20rotate%28-270.000000%29%20translate%28-137.579266%2C%20-147.101911%29%20%22%20cx%3D%22137.579266%22%20cy%3D%22147.101911%22%20rx%3D%2256.8674814%22%20ry%3D%22136.980355%22%3E%3C/ellipse%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M138.3232%2C123.283019%20C124.18212%2C123.283019%20112.717172%2C134.763976%20112.717172%2C148.924802%20C112.717172%2C163.085628%20124.18212%2C174.566586%20138.3232%2C174.566586%20C152.46428%2C174.566586%20163.929228%2C163.085628%20163.929228%2C148.924802%20C163.929228%2C134.763976%20152.46428%2C123.283019%20138.3232%2C123.283019%22%20id%3D%22Fill-1%22%3E%3C/path%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%3C/g%3E%0A%3C/svg%3E');
+    background-repeat: no-repeat;
+    height: 246px;
+    width: 276px;
+  }
+}
 
 @media (min-width: $mobile-width) {
   .ErrorPage404 {
