@@ -1,7 +1,8 @@
 // ABOUT REACT LONDON EVENTS
   .CommunityAbout {
+    @include pageIntroText;
+
     background-color: $events-color;
-    font-size: 16px;
     padding: 22px 0px;
 
     &__text {
@@ -15,7 +16,6 @@
     }
 
     @media (min-width: 768px) {
-      font-size: 24px;
       padding: 30px 0px;
 
       &__text {

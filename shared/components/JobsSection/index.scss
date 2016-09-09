@@ -16,11 +16,12 @@
     border-top: $solid-border
   }
   &__title {
-    font-size: 20px;
+    @include secondaryHeading;
     margin-top: 0px;
     margin-bottom: 5px;
   }
   &__description {
+    @include largeParagraph;
     margin: 0px;
     padding-bottom: 30px;
     border-bottom: $dash-border;

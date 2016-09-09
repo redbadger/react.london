@@ -4,7 +4,7 @@
 
   &__name {
     margin: 0px;
-    font-size: 18px;
+    @include secondaryHeading;
     font-weight: normal;
     &--bold {
       font-weight: bold;
@@ -13,8 +13,8 @@
 
   &__title {
     margin: 8px 0px;
-    font-size: 18px;
     font-weight: 600;
+    @include tertiaryHeading;
   }
 
   &__summary {

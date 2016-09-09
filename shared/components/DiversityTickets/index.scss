@@ -4,7 +4,7 @@
   padding-bottom: 20px;
   border-top: $solid-border;
   p {
-    font-size: 24px;
+    @include largeParagraph;
   }
 }
 

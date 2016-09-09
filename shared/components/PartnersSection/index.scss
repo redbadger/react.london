@@ -49,7 +49,7 @@
 
 .Partner__title {
   margin: 22px 0 6px 0;
-  font-size: 18px;
+  @include secondaryHeading;
   font-weight: bold;
   text-decoration: none;
   color: $grey;
@@ -61,5 +61,5 @@
 
 .Partner__description {
   margin: 0;
-  font-size: 18px;
+  @include defaultParagraph;
 }

@@ -8,10 +8,7 @@
   margin: 22px 0px;
 
   h2, p {
-    font-size: 16px;
-    @media (min-width: $tablet-portrait-width) {
-      font-size: 24px;
-    }
+    @include pageIntroText;
   }
 
   h2 {
