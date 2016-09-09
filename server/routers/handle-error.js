@@ -11,6 +11,6 @@ export default function makeErrorHandler(res, Layout) {
         <ErrorPage500 />
       </Layout>
     );
-    res.render('index', { content });
+    res.status(500).render('index', { content });
   };
 }
