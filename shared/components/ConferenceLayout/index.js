@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import SiteFooter from '../SiteFooter';
-// import NavigationBar from '../NavigationBar';
+import NavigationBar from '../NavigationBar';
 
 const usefulLinks = [
   {
@@ -38,14 +38,8 @@ const ConferenceLayout = ({ children }) => (
       <main>
         <Hero page="Conference" />
         <RedBadgerBanner />
-        {/* TODO
-          * This component is functionally ready, but the content on the
-          * pages it links to is not ready.
-          * When they are ready we can add this NavigationBar back.
-            <NavigationBar />
-            */}
-
-            {children}
+        <NavigationBar />
+        {children}
         <SiteFooter
           page="Conference"
           usefulLinks={usefulLinks}

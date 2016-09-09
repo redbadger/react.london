@@ -38,7 +38,7 @@ BuyTickets.propTypes = {
 
 export function getTicketReleaseDate(ticket) {
   if (!ticket.available || !ticket.releaseDate || !ticket.releaseDate.iso) {
-    return '';
+    return 'Available Soon';
   }
   return 'Available ' + formatDate(ticket.releaseDate.iso, 'Do MMMM, YYYY');
 }
