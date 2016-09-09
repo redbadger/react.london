@@ -1,6 +1,12 @@
 // ABOUT REACT LONDON EVENTS
   .CommunityAbout {
-    @include pageIntroText;
+    font-size: 16px;
+    @media (min-width: $tablet-portrait-width) {
+      font-size: 20px;
+    }
+    @media (min-width: $tablet-width) {
+      font-size: 24px;
+    }
 
     background-color: $events-color;
     padding: 22px 0px;

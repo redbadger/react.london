@@ -11,16 +11,15 @@ $disabled-grey: #9B9B9B;
 $footer-grey: #646464;
 $middle-grey: #777;
 
-
-// what are these??
-$mobile-width: 435px;
-$desktop-width: 1200px;
-$tiny-mobile-width: 320px;
-
-// actual design breakpoints
+// design breakpoints
 $tablet-portrait-width: 690px; // go to 2 cols
 $tablet-width: 980px; // go to 3 cols
 $maximum-content-width: 980px;
+
+// other breakpoints
+$mobile-width: 435px;
+$desktop-width: 1200px;
+$tiny-mobile-width: 320px;
 
 
 $desktop-gutter: 5%;
@@ -30,52 +29,3 @@ $mobile-gutter: 5%;
 $solid-border: 3px solid $grey;
 $dash-border: 2px dashed $grey;
 $solid-border-faded: 3px solid $light-grey;
-
-
-@mixin pageTitle {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-@mixin pageIntroText {
-  font-size: 16px;
-  @media (min-width: $tablet-portrait-width) {
-    font-size: 20px;
-  }
-  @media (min-width: $tablet-width) {
-    font-size: 24px;
-  }
-}
-
-@mixin sectionHeading {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-@mixin secondaryHeading {
-  font-size: 20px;
-}
-
-@mixin tertiaryHeading {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-@mixin largeParagraph {
-  font-size: 18px;
-}
-
-@mixin defaultParagraph {
-  font-size: 16px;
-  line-height: 1.4em;
-}
-
-@mixin shoutyButtonLabel {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-@mixin defaultButtonLabel {
-  font-weight: bold;
-  font-size: 16px;
-}
