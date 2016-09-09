@@ -34,11 +34,12 @@
     background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
     height: 26px;
     padding-top: 2px;
-
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Date_icon_white.svg");
-      text-decoration: underline;
+    &[href]{
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Date_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -47,10 +48,12 @@
     height: 32px;
     padding-top: 5px;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Place_icon_white.svg");
-      text-decoration: underline;
+    &[href]{
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Place_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 
@@ -59,10 +62,12 @@
     height: 25px;
     padding-top: 3px;
 
-    &:focus,
-    &:hover {
-      background-image: url("/img/SVG/Time_icon_white.svg");
-      text-decoration: underline;
+    &[href]{
+      &:focus,
+      &:hover {
+        background-image: url("/img/SVG/Time_icon_white.svg");
+        text-decoration: underline;
+      }
     }
   }
 

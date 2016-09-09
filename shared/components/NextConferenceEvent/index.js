@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { ExternalLink } from '../ExternalLink';
 
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 
@@ -12,24 +13,20 @@ const NextConferenceEvent = ({ calendarURL }) => (
           </h3>
           <ul>
             <li>
-              <a
+              <ExternalLink
                 className="NextConferenceEvent__link--date"
                 href={calendarURL}
-                target="_blank"
-                rel="noopener"
               >
                 Tuesday, 28 March 2017
-              </a>
+              </ExternalLink>
             </li>
             <li>
-              <a
+              <ExternalLink
                 className="NextConferenceEvent__link--place"
                 href={locationURL}
-                target="_blank"
-                rel="noopener"
               >
                 QEII Centre, Westminster
-              </a>
+              </ExternalLink>
             </li>
           </ul>
         </div>
@@ -40,14 +37,12 @@ const NextConferenceEvent = ({ calendarURL }) => (
           <h3>
             Save the date
           </h3>
-          <a
+          <ExternalLink
             className="NextConferenceEvent__btn"
             href={calendarURL}
-            target="_blank"
-            rel="noopener"
           >
             Add to calendar
-          </a>
+          </ExternalLink>
         </div>
       </article>
     </div>

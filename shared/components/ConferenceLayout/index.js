@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
 
-import Layout from '../Layout';
 import Hero from '../Hero';
 import RedBadgerBanner from '../RedBadgerBanner';
 import SiteFooter from '../SiteFooter';
-// import NavigationBar from '../NavigationBar';
+import NavigationBar from '../NavigationBar';
 
 const usefulLinks = [
   {
@@ -34,30 +33,21 @@ const seriousLinks = [
 
 
 const ConferenceLayout = ({ children }) => (
-  <Layout>
-    <div className="conference">
-      <div id="wrapper">
-        <main>
-          <Hero page="Conference" />
-          <RedBadgerBanner />
-          {/* TODO
-            * This component is functionally ready, but the content on the
-            * pages it links to is not ready.
-            * When they are ready we can add this NavigationBar back.
-            <NavigationBar />
-          */}
-
-          {children}
-
-          <SiteFooter
-            page="Conference"
-            usefulLinks={usefulLinks}
-            seriousLinks={seriousLinks}
-          />
-        </main>
-      </div>
+  <div className="conference">
+    <div id="wrapper">
+      <main>
+        <Hero page="Conference" />
+        <RedBadgerBanner />
+        <NavigationBar />
+        {children}
+        <SiteFooter
+          page="Conference"
+          usefulLinks={usefulLinks}
+          seriousLinks={seriousLinks}
+        />
+      </main>
     </div>
-  </Layout>
+  </div>
 );
 
 ConferenceLayout.propTypes = {
