@@ -1,15 +1,11 @@
 import React from 'react';
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
-import ErrorPage500 from '../shared/components/ErrorPage500';
 
 export default function useRouter({ res, req, routes, initialState }) {
   match({ routes, location: req.url }, (error, redirect, renderProps) => {
     if (error) {
-      const content = renderToString(
-        <ErrorPage500 />
-      );
-      res.render('index', { content });
+      throw error;
     }
     if (redirect) {
       return res.redirect(302, redirect.pathname + redirect.search);
@@ -23,4 +19,3 @@ export default function useRouter({ res, req, routes, initialState }) {
     res.status(404).send('Not found');
   });
 }
-
