@@ -41,7 +41,7 @@ describe('TicketList component', () => {
       ];
       const element = mount(<TicketList tickets={tickets} />);
       expect(element.find('.TicketList__ticket').childAt(0).text()).to.equal('Early Bird');
-      expect(element.find('.TicketList__ticket').childAt(1).text()).to.equal('');
+      expect(element.find('.TicketList__ticket').childAt(1).text()).to.equal('Available Soon');
       expect(element.find('.TicketList__ticket').childAt(2).text()).to.equal('SOLD OUT');
     }
   );
