@@ -41,11 +41,12 @@
     padding-bottom: 25px;
   }
   &__booking-btn {
+    line-height: 36px;
+    padding: 3px 18px;
     display: inline-block;
-    border-radius: 6px;
+    border-radius: 5px;
     text-transform: uppercase;
     border: 0px;
-    padding: 12px 15px;
     color: $white;
     font-weight: bold;
     text-decoration: none;
