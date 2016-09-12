@@ -16,6 +16,5 @@ export default function useRouter({ res, req, routes, initialState }) {
       );
       res.render('index', { content, initialState });
     }
-    res.status(404).send('Not found');
   });
 }
