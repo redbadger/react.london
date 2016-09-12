@@ -8,18 +8,21 @@
   max-width: 940px;
   padding: 0;
   margin: 0 auto;
-}
-
-li {
-  list-style-type: none;
-  margin: 33px auto;
   display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  li {
+    list-style-type: none;
+    width: 300px;
+
+  }
 }
 
 .speaker-avatar {
   width: 120px;
+  display: block;
+
   img {
     width: 120px;
     height: 120px;
@@ -29,8 +32,7 @@ li {
 }
 
 .speaker-description {
-  margin-left: 44px;
-  max-width: 760px;
+  display: block;
 }
 
 .speaker-description-name {
