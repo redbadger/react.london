@@ -40,10 +40,13 @@
     padding-bottom: 15px;
   }
   &__booking-btn {
-    border-radius: 6px;
+    border-radius: 5px;
+    line-height: 36px;
+    padding: 3px 18px;
+    display: inline-block;
+
     text-transform: uppercase;
     border: 0px;
-    padding: 12px 15px;
     color: $white;
     font-weight: bold;
     text-decoration: none;
@@ -68,7 +71,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet-portrait-width) {
   .TicketStatus {
     &__section {
       width: 50%;

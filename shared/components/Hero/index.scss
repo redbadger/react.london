@@ -35,9 +35,9 @@
     font-size: 16px
   }
 
-  @media (max-width: $mobile-width) {
+  @media (max-width: $tablet-portrait-width) {
     height: 240px;
-    & > object {
+    & > object, & > img, {
       height: 240px;
     }
     &__title {

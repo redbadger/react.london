@@ -4,15 +4,16 @@
   background-color: $conference-color-faded;
   padding: 20px 0px;
   &__btn {
-    border-radius: 6px;
+    border-radius: 5px;
+    line-height: 36px;
     border: 0px;
-    padding: 12px 20px 12px 48px;
+    padding: 3px 18px 3px 53px;
     color: $conference-color-faded;
     font-weight: bold;
     text-decoration: none;
 
     display: inline-block;
-    background: url("/img/SVG/G_blue.svg") no-repeat 17px 12px $grey;
+    background: url("/img/SVG/G_blue.svg") no-repeat 17px 10px $grey;
     background-size: 22px 22px;
     font-size: 16px;
 
@@ -132,7 +133,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet-portrait-width) {
   .NextConferenceEvent {
     padding: 40px 30px;
     &__section-container {

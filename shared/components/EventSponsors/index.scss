@@ -1,6 +1,9 @@
 .EventSponsors {
   padding-bottom: 30px;
-  margin-left: 30px;
+
+  @media (min-width: $tablet-portrait-width) {
+    margin-left: 30px;
+  }
 
   ul {
     padding-left: 0px;

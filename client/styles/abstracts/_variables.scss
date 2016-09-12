@@ -11,11 +11,8 @@ $disabled-grey: #9B9B9B;
 $footer-grey: #646464;
 $middle-grey: #777;
 
-$desktop-width: 1200px;
-$tablet-width: 1024px;
-$tablet-portrait-width: 768px;
-$mobile-width: 435px;
-$tiny-mobile-width: 320px;
+$tablet-portrait-width: 690px; // go to 2 cols
+$tablet-width: 980px; // go to 3 cols
 $maximum-content-width: 980px;
 
 $desktop-gutter: 5%;
@@ -24,4 +21,4 @@ $mobile-gutter: 5%;
 
 $solid-border: 3px solid $grey;
 $dash-border: 2px dashed $grey;
-$solid-border-faded: 3px solid $light-grey
+$solid-border-faded: 3px solid $light-grey;

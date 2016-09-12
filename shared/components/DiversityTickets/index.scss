@@ -4,14 +4,14 @@
   padding-bottom: 20px;
   border-top: $solid-border;
   p {
-    font-size: 24px;
+    font-size: 16px;
   }
 }
 
-@media (max-width: $mobile-width) {
+@media (min-width: $tablet-portrait-width) {
   .DiversityTickets {
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 }

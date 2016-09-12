@@ -19,7 +19,7 @@
   }
 }
 
-@media (min-width: $mobile-width) {
+@media (min-width: $tablet-portrait-width) {
   .ErrorPage404 {
     &__text {
       font-size: 24px;
