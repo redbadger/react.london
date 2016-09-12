@@ -3,6 +3,10 @@
   padding: 40px 0;
   line-height: 22px;
 
+  &__heading {
+    font-size: 24px;
+  }
+
   a {
     color: $grey;
     text-decoration: none;
@@ -11,7 +15,6 @@
 
   h3,
   h4 {
-    font-size: 16px;
     margin: 10px 0;
   }
 
@@ -53,7 +56,6 @@
   .CodeOfConduct__section {
     h3, h4, * {
       line-height: 25px;
-      font-size: 18px;
     }
 
     li {

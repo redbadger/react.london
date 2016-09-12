@@ -16,7 +16,7 @@ const ConferenceCodeOfConduct = () => (
 
     <section className="CodeOfConduct__section block">
       <div className="content">
-        <p>
+        <p className="CodeOfConduct__section__heading">
           <strong>Harassment</strong> includes, but is not limited to:
         </p>
         <ul>
@@ -63,7 +63,7 @@ const ConferenceCodeOfConduct = () => (
 
     <section className="CodeOfConduct__section block">
       <div className="content">
-        <h3>Enforcement</h3>
+        <h3 className="CodeOfConduct__section__heading">Enforcement</h3>
         <p>
           Participants asked to stop any harassing behavior are expected to comply immediately.
         </p>
@@ -83,7 +83,7 @@ const ConferenceCodeOfConduct = () => (
 
     <section className="CodeOfConduct__section block">
       <div className="content">
-        <h3>Reporting</h3>
+        <h3 className="CodeOfConduct__section__heading">Reporting</h3>
         <p>
           If someone makes you or anyone else feel unsafe or unwelcome, please
           report it as soon as possible. Conference staff can be identified by
@@ -98,7 +98,7 @@ const ConferenceCodeOfConduct = () => (
 
     <section className="CodeOfConduct__section block">
       <div className="content">
-        <h3>Talk to us</h3>
+        <h3 className="CodeOfConduct__section__heading">Talk to us</h3>
         <p>
           In addition to speaking to us in person, you can also contact us
           using the following methods:

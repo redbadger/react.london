@@ -34,6 +34,10 @@ const Speaker = ({
       <figure className="Speaker__photo">
         <img className="Speaker__photo--img" src={avatar} alt={name} />
       </figure>
+      <h5 className="Speaker__name">
+        <div className="Speaker__name--bold">{name} </div>
+        {company}
+      </h5>
       <ul className="Speaker__details">
         <li>
           <IconLink
@@ -60,10 +64,7 @@ const Speaker = ({
           />
         </li>
       </ul>
-      <h5 className="Speaker__name">
-        <div className="Speaker__name--bold">{name} </div>
-        {company}
-      </h5>
+
     </article>
   );
 };
