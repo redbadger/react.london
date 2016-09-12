@@ -133,7 +133,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet-portrait-width) {
   .NextConferenceEvent {
     padding: 40px 30px;
     &__section-container {

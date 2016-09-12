@@ -122,7 +122,7 @@
     }
   }
 
-  @media (min-width: $mobile-width) {
+  @media (min-width: $tablet-portrait-width) {
     .ticket__button__container {
       &--mobile {
         position: absolute;
