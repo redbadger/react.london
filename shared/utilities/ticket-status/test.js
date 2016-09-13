@@ -1,6 +1,4 @@
 import { getTicketStatusOptions } from '.';
-// PRE_RELEASE, TICKETS_LIVE, WAITLIST, LIVE_STREAM, EVENT_ENDED
-// Need to have unhappy tests too for this.
 
 describe('getTicketStatusOptions New', () => {
   it('returns the correct status properties for PRE_RELEASE', () => {

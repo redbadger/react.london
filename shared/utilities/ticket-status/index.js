@@ -1,6 +1,3 @@
-// PRE_RELEASE, TICKETS_LIVE, WAITLIST, LIVE_STREAM, EVENT_ENDED
-// Need to add time for subtitle and also what are we going to do about the label?
-
 const statusTypes = {
   PRE_RELEASE: {
     title: 'Tickets will go live on',
@@ -30,7 +27,6 @@ const statusTypes = {
 };
 
 export function getTicketStatusOptions(event) {
-  // Need default check if event has statuses and things
   const ticketStatusOptions = statusTypes[event.status];
   if (ticketStatusOptions) {
     ticketStatusOptions.buttonLink = event.buttonLink;
