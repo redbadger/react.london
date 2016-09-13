@@ -33,7 +33,7 @@ describe('StatusButton component', () => {
   it('renders a disabled StatusButton with the disabled className and # link', () => {
     const inactiveButtonProps = {
       buttonText: 'bar',
-      link: undefined,
+      buttonLink: undefined,
     };
     const wrapper = shallow(<StatusButton {...inactiveButtonProps} />);
     const linkProps = wrapper.find('a').props();
@@ -47,7 +47,7 @@ describe('StatusButton component', () => {
   it('renders an active StatusButton with the active class Name and passed link', () => {
     const activeButtonProps = {
       buttonText: 'foo',
-      link: { url: 'foobaz.com' },
+      buttonLink: 'foobaz.com',
     };
     const wrapper = shallow(<StatusButton {...activeButtonProps} />);
     const linkProps = wrapper.find('a').props();

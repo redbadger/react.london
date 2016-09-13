@@ -1,147 +1,44 @@
-import moment from 'moment';
-import { isBefore, isAfter, formatDate } from '../date';
+// PRE_RELEASE, TICKETS_LIVE, WAITLIST, LIVE_STREAM, EVENT_ENDED
+// Need to add time for subtitle and also what are we going to do about the label?
 
-const defaultOptions = [
-  {
-    title: '',
-    ticketsAvailable: false,
-    waitingListOpen: false,
-    displayLevel: 'Featured',
-    startDateTime: {
-      iso: '',
-    },
-    endDateTime: {
-      iso: '',
-    },
-    ticketReleaseDate: {
-      iso: '',
-    },
-    externalLinks: [
-      { url: '', title: '', type: 'OTHER' },
-    ],
-    location: {
-      address: null,
-      coordinates: {
-        latitude: '',
-        longitude: '',
-      },
-    },
-    schedule: [],
-    sponsors: [],
-    talks: [],
+const statusTypes = {
+  PRE_RELEASE: {
+    title: 'Tickets will go live on',
+    subtitle: 'Date',
+    buttonText: 'FREE TICKET AVAILABLE SOON',
   },
-];
+  TICKETS_LIVE: {
+    title: 'Tickets live',
+    subtitle: 'To get yours, go to',
+    buttonText: 'Free Ticket',
+  },
+  WAITLIST: {
+    title: 'Tickets now sold out',
+    subtitle: 'Join the waiting list on',
+    buttonText: 'Join Waitlist',
+  },
+  LIVE_STREAM: {
+    title: 'Tickets now sold out',
+    subtitle: 'Didn’t make it to the meetup? We got your back.',
+    buttonText: 'Join Live Stream',
+  },
+  EVENT_ENDED: {
+    title: 'This event has ended',
+    subtitle: 'Tickets now sold out',
+    buttonText: 'Watch Video',
+  },
+};
 
-export function getActionLink(externalLinks, type) {
-  if (!externalLinks) return undefined;
-
-  return externalLinks.find(link => link.type === type);
-}
-
-function defaultValues() {
+export function getTicketStatusOptions(event) {
+  // Need default check if event has statuses and things
+  const ticketStatusOptions = statusTypes[event.status];
+  if (ticketStatusOptions) {
+    ticketStatusOptions.buttonLink = event.buttonLink;
+    return ticketStatusOptions;
+  }
   return {
-    buttonText: 'Ticket',
-    linkType: '',
-    statusHeader: 'Tickets not currently available',
-    statusSubHeader: 'Stay tuned for more info',
-  };
-}
-
-export function isTicketPreRelease({ currentTime, ticketReleaseDate }) {
-  if (isBefore(currentTime, ticketReleaseDate)) {
-    return {
-      buttonText: 'FREE TICKET AVAILABLE SOON',
-      linkType: '',
-      statusHeader: 'Tickets will go live on',
-      statusSubHeader: formatDate(ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm'),
-    };
-  }
-}
-
-export function isTicketRelease({ currentTime, ticketReleaseDate, ticketsAvailable }) {
-  if (isAfter(currentTime, ticketReleaseDate) && ticketsAvailable) {
-    return {
-      buttonText: 'Free Ticket',
-      linkType: 'TICKET',
-      statusHeader: 'Tickets live',
-      statusSubHeader: 'To get yours, go to',
-    };
-  }
-}
-
-export function isWaitlist({
-  currentTime,
-  ticketsAvailable,
-  waitingListOpen,
-  ticketReleaseDate,
-}) {
-  if (waitingListOpen && !ticketsAvailable && (isAfter(currentTime, ticketReleaseDate))) {
-    return {
-      buttonText: 'Join Waitlist',
-      linkType: 'TICKET',
-      statusHeader: 'Tickets now sold out',
-      statusSubHeader: 'Join the waiting list on',
-    };
-  }
-}
-
-export function isStreaming({
-  currentTime,
-  ticketReleaseDate,
-  ticketsAvailable,
-  waitingListOpen,
-  endDateTime,
-}) {
-  if (
-    isAfter(currentTime, ticketReleaseDate)
-    && !waitingListOpen
-    && !ticketsAvailable
-    && isBefore(currentTime, endDateTime)
-  ) {
-    return {
-      buttonText: 'Join Live Stream',
-      linkType: 'STREAM',
-      statusHeader: 'Tickets now sold out',
-      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
-    };
-  }
-}
-
-export function isEnded({ currentTime, endDateTime }) {
-  if (currentTime && endDateTime && isAfter(currentTime, endDateTime)) {
-    return {
-      buttonText: 'Watch',
-      linkType: 'STREAM',
-      statusHeader: 'This event has ended',
-      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
-    };
-  }
-}
-
-function statusSubHeader(result, link) {
-  const suffix = (result.linkType === 'TICKET' && link !== undefined)
-    ? ' ' + link.title
-    : '';
-  return `${result.statusSubHeader}${suffix}`;
-}
-
-export function getTicketStatusOptions(opts) {
-  const options = opts || defaultOptions;
-  const parameters = { ...options, currentTime: moment() };
-  const checks = [
-    isTicketPreRelease,
-    isTicketRelease,
-    isWaitlist,
-    isStreaming,
-    isEnded,
-    defaultValues,
-  ];
-  const statusFunc = checks.find(check => check(parameters));
-  const result = statusFunc(parameters);
-  const link = getActionLink(options.externalLinks, result.linkType);
-  return {
-    ...result,
-    link,
-    statusSubHeader: statusSubHeader(result, link),
+    title: 'Tickets currently unavailable',
+    subtitle: 'Please check back later for further details',
+    buttonText: 'Tickets Unavailable',
   };
 }
