@@ -25,6 +25,8 @@ query {
       waitingListOpen
       displayLevel
       calendarURL
+      status
+      buttonLink
       startDateTime {
         iso
       }
