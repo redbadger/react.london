@@ -6,19 +6,34 @@ import communityRoutes from '../shared/routes/community-routes';
 import conferenceRoutes from '../shared/routes/conference-routes';
 import isMeetupRequest from '../shared/utilities/meetup-request';
 
+import * as ReactGA from 'react-ga';
+ReactGA.initialize('UA-16654919-5');
+
 const initialState = window.__INITIAL_STATE__;
 
 let components;
 
+const routerUpdate = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
+
 if (isMeetupRequest(window.location)) {
   components = (
-    <Router history={browserHistory}>
+    <Router
+      history={browserHistory}
+      onUpdate={routerUpdate}
+    >
       {communityRoutes(initialState)}
     </Router>
   );
 } else {
   components = (
-    <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>
+    <Router
+      history={browserHistory}
+      render={applyRouterMiddleware(useScroll())}
+      onUpdate={routerUpdate}
+    >
       {conferenceRoutes(initialState)}
     </Router>
   );
