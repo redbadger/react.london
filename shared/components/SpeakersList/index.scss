@@ -11,17 +11,24 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
 
   li {
     list-style-type: none;
     width: 300px;
+    padding: 0 40px 40px 0;
 
+    &:last-child {
+      padding: 0 0 40px 0;
+    }
   }
 }
 
 .speaker-avatar {
   width: 120px;
+  height: 120px;
   display: block;
+  margin-bottom: 20px;
 
   img {
     width: 120px;
@@ -40,7 +47,6 @@
 }
 
 .speaker-description-company {
-  margin-left: 5px;
 }
 
 .speaker-description-social-links {

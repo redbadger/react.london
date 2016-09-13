@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 
 import React, { PropTypes } from 'react';
-import marked from 'marked';
 
 export const speakerType = PropTypes.shape({
   id: PropTypes.string,
@@ -11,10 +10,6 @@ export const speakerType = PropTypes.shape({
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
   imageURL: PropTypes.string,
-  bio: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.string,
-    value: PropTypes.string,
-  })),
 });
 
 export const speakerBio = (bio) => {
@@ -71,12 +66,9 @@ const SpeakersList = ({ speakers }) => {
           {speakerAvatarImage(speaker.imageURL, speaker.name)}
         </div>
         <div className="speaker-description">
-          <div>
-            <span className="speaker-description-name">{speaker.name}</span>
-            <span className="speaker-description-company">{speaker.company}</span>
-          </div>
+          <div className="speaker-description-name">{speaker.name}</div>
+          <div className="speaker-description-company">{speaker.company}</div>
           {speakerSocialLinks(speaker)}
-          <div dangerouslySetInnerHTML={{ __html: marked(speakerBio(speaker.bio)) }} />
         </div>
       </li>
     );

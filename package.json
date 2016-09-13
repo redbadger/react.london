@@ -46,7 +46,6 @@
     "isomorphic-fetch": "^2.2.1",
     "jsdom": "^9.4.2",
     "json-loader": "^0.5.4",
-    "marked": "^0.3.6",
     "moment": "^2.14.1",
     "moment-timezone": "^0.5.4",
     "morgan": "^1.7.0",
