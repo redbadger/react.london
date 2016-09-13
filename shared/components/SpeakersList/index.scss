@@ -12,6 +12,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  border-bottom: 2px dashed $grey;
 
   li {
     list-style-type: none;
@@ -44,9 +45,11 @@
 
 .speaker-description-name {
   font-weight: bold;
+  font-size: 20px;
 }
 
 .speaker-description-company {
+  font-size: 20px;
 }
 
 .speaker-description-social-links {
@@ -60,4 +63,11 @@
       margin-left: 0;
     }
   }
+}
+
+.more-speakers-announcement {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0 0;
 }

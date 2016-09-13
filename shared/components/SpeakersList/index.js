@@ -79,6 +79,9 @@ const SpeakersList = ({ speakers }) => {
       <ul className="speakers-list">
         {speakerList}
       </ul>
+      <div className="more-speakers-announcement">
+        More speakers will be announced soon
+      </div>
     </section>
   );
 };
