@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
-import SpeakerListIntro from '../SpeakerListIntro';
 import SpeakerList, { speakerType } from '../SpeakersList';
 import MailingList from '../MailingList';
 
 const SpeakersPage = ({ speakers }) => {
   return (
     <div className="SpeakersPage">
-      <SpeakerListIntro />
+      <div className="speakers-list-intro">
+        <h1>On stage</h1>
+      </div>
       <SpeakerList speakers={speakers} />
       <MailingList
         mailingListTitle="Stay tuned"
