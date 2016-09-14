@@ -28,11 +28,11 @@
       }
     }
     &--youtube {
-      background: url("/img/SVG/Youtube.svg") no-repeat 17px 14px $grey;
+      background: url("/img/SVG/Youtube_green.svg") no-repeat 17px 18px $grey;
       &:focus,
       &:hover {
         color: $white;
-        background-image: url("/img/SVG/Youtube.svg");
+        background: url("/img/SVG/Youtube.svg") no-repeat 17px 18px $grey;
       }
     }
   }
