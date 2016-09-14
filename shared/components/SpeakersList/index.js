@@ -12,20 +12,6 @@ export const speakerType = PropTypes.shape({
   imageURL: PropTypes.string,
 });
 
-export const speakerBio = (bio) => {
-  const fullBio = [];
-  if (bio
-    && Array.isArray(bio)
-    && bio.length) {
-    bio.forEach((paragraph) => {
-      if (paragraph.text) {
-        fullBio.push(paragraph.text);
-      }
-    });
-  }
-  return fullBio.join('\r\n\r\n');
-};
-
 export const speakerSocialLinks = (speaker) => {
   const githubLink = speaker.githubHandle ?
     (<a href={`https://github.com/${speaker.githubHandle}`}><span className="icon-github" /></a>)
