@@ -36,35 +36,39 @@ export const getSpeakerAvatarImage = (imageURL, speakerName) => {
 };
 
 const SpeakersList = ({ speakers }) => {
-  const speakerList = speakers.map((speaker) => {
-    return (
-      <li key={speaker.id}>
-        <div className="speaker-avatar">
-          {getSpeakerAvatarImage(speaker.imageURL, speaker.name)}
-        </div>
-        <div className="speaker-description">
-          <div className="speaker-description-name">{speaker.name}</div>
-          <div className="speaker-description-company">{speaker.company}</div>
-          {getSpeakerSocialLinks(speaker)}
-        </div>
-      </li>
-    );
-  });
+  if (speakers && Array.isArray(speakers) && speakers.length) {
+    const speakerList = speakers.map((speaker) => {
+      return (
+        <li key={speaker.id}>
+          <div className="speaker-avatar">
+            {getSpeakerAvatarImage(speaker.imageURL, speaker.name)}
+          </div>
+          <div className="speaker-description">
+            <div className="speaker-description-name">{speaker.name}</div>
+            <div className="speaker-description-company">{speaker.company}</div>
+            {getSpeakerSocialLinks(speaker)}
+          </div>
+        </li>
+      );
+    });
 
-  return (
-    <section className="speakers-list-container">
-      <ul className="speakers-list">
-        {speakerList}
-      </ul>
-      <div className="more-speakers-announcement">
-        More speakers will be announced soon
-      </div>
-    </section>
-  );
+    return (
+      <section className="speakers-list-container">
+        <ul className="speakers-list">
+          {speakerList}
+        </ul>
+        <div className="more-speakers-announcement">
+          More speakers will be announced soon
+        </div>
+      </section>
+    );
+  }
+
+  return null;
 };
 
 SpeakersList.propTypes = {
-  speakers: PropTypes.arrayOf(speakerType),
+  speakers: PropTypes.arrayOf(speakerType).isRequired,
 };
 
 export default SpeakersList;

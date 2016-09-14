@@ -40,4 +40,9 @@ describe('SpeakersList component', () => {
   it('can render', () => {
     shallow(<SpeakersList speakers={speakers} />);
   });
+
+  it('returns null if no speakers are provided', () => {
+    const wrapper = shallow(<SpeakersList />);
+    expect(wrapper.text()).to.equal('');
+  });
 });
