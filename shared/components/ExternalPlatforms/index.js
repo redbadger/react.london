@@ -1,4 +1,4 @@
-import { SLACK_URL } from '../../../server/constants.js';
+import { SLACK_URL, YOUTUBE_URL } from '../../../server/constants.js';
 import React from 'react';
 
 const ExternalPlatforms = () => (
@@ -12,9 +12,9 @@ const ExternalPlatforms = () => (
     <a
       target="_blank"
       rel="noopener"
-      href={SLACK_URL}
+      href={YOUTUBE_URL}
       className="ExternalPlatforms__btn ExternalPlatforms__btn--youtube"
-    >Join us on Slack</a>
+    >Watch previous Meetups</a>
   </div>
 );
 
