@@ -1,14 +1,15 @@
-import { getTicketStatusOptions } from '.';
+import { getTicketStatusOptions, getTicketProvider, getTicketStatusSubtitle } from '.';
 
-describe('getTicketStatusOptions New', () => {
+describe('getTicketStatusOptions', () => {
   it('returns the correct status properties for PRE_RELEASE', () => {
     const event = {
       status: 'PRE_RELEASE',
+      ticketReleaseDate: '31 March 2016',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Tickets will go live on',
-      subtitle: 'Date',
+      subtitle: 'Thursday, 31st March 2016, 00:00',
       buttonText: 'FREE TICKET AVAILABLE SOON',
       buttonLink: undefined,
     });
@@ -21,7 +22,7 @@ describe('getTicketStatusOptions New', () => {
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Tickets live',
-      subtitle: 'To get yours, go to',
+      subtitle: 'To get yours, go to our ticket provider\'s website',
       buttonText: 'Free Ticket',
       buttonLink: 'http://www.google.com',
       linkType: 'ticketLink',
@@ -35,7 +36,7 @@ describe('getTicketStatusOptions New', () => {
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Tickets now sold out',
-      subtitle: 'Join the waiting list on',
+      subtitle: 'Join the waiting list on our ticket provider\'s website',
       buttonText: 'Join Waitlist',
       buttonLink: 'http://www.google.com',
       linkType: 'ticketLink',
@@ -76,5 +77,73 @@ describe('getTicketStatusOptions New', () => {
       subtitle: 'Please check back later for further details',
       buttonText: 'Tickets Unavailable',
     });
+  });
+});
+
+describe('getTicketProvider', () => {
+  it('returns Skillsmatter if the link contains skillsmatter', () => {
+    const link = 'http://skillsmatter.com';
+    expect(getTicketProvider(link)).to.equal('Skillsmatter');
+  });
+  it('returns Ti.to if the link contains ti.to', () => {
+    const link = 'http://ti.to';
+    expect(getTicketProvider(link)).to.equal('Ti.to');
+  });
+  it('returns a default message if no recongized ticket provider is provided', () => {
+    const link = '';
+    expect(getTicketProvider(link)).to.equal('our ticket provider\'s website');
+  });
+});
+
+describe('getTicketStatusSubtitle', () => {
+  it('returns the correct subtitle if PRE_RELEASE is the event status', () => {
+    const event = {
+      status: 'PRE_RELEASE',
+      ticketReleaseDate: '31 March 2016',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'To get yours, go to ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Thursday, 31st March 2016, 00:00'
+    );
+  });
+  it('returns the correct subtitle if TICKETS_LIVE is the event status', () => {
+    const event = {
+      status: 'TICKETS_LIVE',
+      ticketReleaseDate: '31 March 2016',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'To get yours, go to ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'To get yours, go to Ti.to'
+    );
+  });
+  it('returns the correct subtitle if WAITLIST is the event status', () => {
+    const event = {
+      status: 'WAITLIST',
+      ticketReleaseDate: '31 March 2016',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'Join the waiting list on ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Join the waiting list on Ti.to'
+    );
+  });
+  it('returns the correct subtitle if another status is provided', () => {
+    const event = {
+      status: 'EVENT_ENDED',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'Tickets now sold out',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Tickets now sold out'
+    );
   });
 });

@@ -1,18 +1,20 @@
+import { formatDate } from '../date';
+
 const statusTypes = {
   PRE_RELEASE: {
     title: 'Tickets will go live on',
-    subtitle: 'Date',
+    subtitle: '',
     buttonText: 'FREE TICKET AVAILABLE SOON',
   },
   TICKETS_LIVE: {
     title: 'Tickets live',
-    subtitle: 'To get yours, go to',
+    subtitle: 'To get yours, go to ',
     buttonText: 'Free Ticket',
     linkType: 'ticketLink',
   },
   WAITLIST: {
     title: 'Tickets now sold out',
-    subtitle: 'Join the waiting list on',
+    subtitle: 'Join the waiting list on ',
     buttonText: 'Join Waitlist',
     linkType: 'ticketLink',
   },
@@ -30,10 +32,30 @@ const statusTypes = {
   },
 };
 
+export function getTicketProvider(link) {
+  if (link.includes('skillsmatter')) {
+    return 'Skillsmatter';
+  }
+  if (link.includes('ti.to')) {
+    return 'Ti.to';
+  }
+  return 'our ticket provider\'s website';
+}
+
+export function getTicketStatusSubtitle(event, ticketStatusOptions) {
+  if (event.status === 'PRE_RELEASE') {
+    return formatDate(event.ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm');
+  }
+  if (event.status === 'TICKETS_LIVE' || event.status === 'WAITLIST') {
+    return ticketStatusOptions.subtitle + getTicketProvider(ticketStatusOptions.buttonLink);
+  }
+  return ticketStatusOptions.subtitle;
+}
 export function getTicketStatusOptions(event) {
   const ticketStatusOptions = statusTypes[event.status];
   if (ticketStatusOptions) {
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
+    ticketStatusOptions.subtitle = getTicketStatusSubtitle(event, ticketStatusOptions);
     return ticketStatusOptions;
   }
   return {
