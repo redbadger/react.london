@@ -11,7 +11,12 @@ const SpeakersPage = ({ speakers }) => {
       <SpeakerList speakers={speakers} />
       <div className="no-cfp-announcement">
         <p>
-          As we hope the conference will include the newest freshest topics our call for papers will not open until November. We will announce the full speaker line up in February.
+          {
+            'As we hope the conference will include the newest \
+            freshest topics our call for papers will not open until \
+            November. We will announce the full speaker line up in \
+            February.'
+          }
         </p>
       </div>
       <MailingList

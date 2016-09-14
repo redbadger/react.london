@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const pageType = PropTypes.oneOf(['Conference', 'Community']).isRequired;
 
@@ -26,7 +27,7 @@ Title.propTypes = {
 
 const Hero = ({ page }) => (
   <header className={`Hero block Hero--${page}`}>
-    <a href="/">
+    <Link to="/">
       <object
         data={`/img/SVG/${page}_header_transparent.svg`}
         type="image/svg+xml"
@@ -38,7 +39,7 @@ const Hero = ({ page }) => (
         />
       </object>
       <Title page={page} />
-    </a>
+    </Link>
   </header>
 );
 
