@@ -3,7 +3,7 @@ import CommunityAbout from '../CommunityAbout';
 import EventDetails from '../EventDetails';
 import NextCommunityEvent from '../../components/NextCommunityEvent';
 import MailingList from '../MailingList';
-import JoinSlack from '../JoinSlack';
+import ExternalPlatforms from '../ExternalPlatforms';
 import InterestedSpeaker from '../InterestedSpeaker';
 import FutureEvents from '../FutureEvents';
 
@@ -23,7 +23,7 @@ const Community = ({
         eventSchedule={featuredEvent.schedule}
         eventSponsors={featuredEvent.sponsors}
       />
-      <JoinSlack />
+      <ExternalPlatforms />
       <FutureEvents events={futureEvents} />
       <MailingList
         mailingListTitle={mailingListTitle}
