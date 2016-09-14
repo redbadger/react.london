@@ -4,20 +4,19 @@ describe('getTicketStatusOptions New', () => {
   it('returns the correct status properties for PRE_RELEASE', () => {
     const event = {
       status: 'PRE_RELEASE',
-      buttonLink: 'http://www.google.com',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Tickets will go live on',
       subtitle: 'Date',
       buttonText: 'FREE TICKET AVAILABLE SOON',
-      buttonLink: 'http://www.google.com',
+      buttonLink: undefined,
     });
   });
   it('returns the correct status properties for TICKETS_LIVE', () => {
     const event = {
       status: 'TICKETS_LIVE',
-      buttonLink: 'http://www.google.com',
+      ticketLink: 'http://www.google.com',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
@@ -25,12 +24,13 @@ describe('getTicketStatusOptions New', () => {
       subtitle: 'To get yours, go to',
       buttonText: 'Free Ticket',
       buttonLink: 'http://www.google.com',
+      linkType: 'ticketLink',
     });
   });
   it('returns the correct status properties for WAITLIST', () => {
     const event = {
       status: 'WAITLIST',
-      buttonLink: 'http://www.google.com',
+      ticketLink: 'http://www.google.com',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
@@ -38,12 +38,13 @@ describe('getTicketStatusOptions New', () => {
       subtitle: 'Join the waiting list on',
       buttonText: 'Join Waitlist',
       buttonLink: 'http://www.google.com',
+      linkType: 'ticketLink',
     });
   });
   it('returns the correct status properties for LIVE_STREAM', () => {
     const event = {
       status: 'LIVE_STREAM',
-      buttonLink: 'http://www.google.com',
+      streamingLink: 'http://www.google.com',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
@@ -51,12 +52,13 @@ describe('getTicketStatusOptions New', () => {
       subtitle: 'Didn’t make it to the meetup? We got your back.',
       buttonText: 'Join Live Stream',
       buttonLink: 'http://www.google.com',
+      linkType: 'streamingLink',
     });
   });
   it('returns the correct status properties for EVENT_ENDED', () => {
     const event = {
       status: 'EVENT_ENDED',
-      buttonLink: 'http://www.google.com',
+      streamingLink: 'http://www.google.com',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
@@ -64,6 +66,7 @@ describe('getTicketStatusOptions New', () => {
       subtitle: 'Tickets now sold out',
       buttonText: 'Watch Video',
       buttonLink: 'http://www.google.com',
+      linkType: 'streamingLink',
     });
   });
   it('returns the correct status properties when no status is provided', () => {

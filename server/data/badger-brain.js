@@ -26,7 +26,8 @@ query {
       displayLevel
       calendarURL
       status
-      buttonLink
+      ticketLink
+      streamingLink
       startDateTime {
         iso
       }
