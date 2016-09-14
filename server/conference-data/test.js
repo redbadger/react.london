@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import deepFreeze from 'deep-freeze';
 import conferenceData, { pickSpeakersFromTalks } from '.';
 import { data as fixture } from '../../test/fixtures/bb-conference-payload.json';
@@ -91,7 +89,7 @@ describe('pickSpeakersFromTalks', () => {
       {
         id: 'V6IZrywAACwAN97-',
         title: 'Re-writing a frontend with re-usable React Components via an API',
-        summary: 'How Notonthehighstreet use a component library served dynamically over an API allowing them to easily re-write their pages one component at a time.\nLearn some of the patterns and see technologies they\'ve built to make a developer’s life more pleasant.',
+        summary: 'Detailed summary',
         speakers: [
           {
             id: 'V6IZdiwAACwAN94X',
@@ -100,7 +98,7 @@ describe('pickSpeakersFromTalks', () => {
             twitterHandle: null,
             githubHandle: 'chrisface',
             blogURL: null,
-            imageURL: '//res.cloudinary.com/red-badger-assets/image/upload/v1470318214/speaker1_qdmndw.png',
+            imageURL: '//res.cloudinary.com/speaker.png',
           },
           {
             id: 'V8cFyioAACsAd0yt',
@@ -133,7 +131,7 @@ describe('pickSpeakersFromTalks', () => {
         twitterHandle: null,
         githubHandle: 'chrisface',
         blogURL: null,
-        imageURL: '//res.cloudinary.com/red-badger-assets/image/upload/v1470318214/speaker1_qdmndw.png',
+        imageURL: '//res.cloudinary.com/speaker.png',
       },
     ]);
     expect(filteredSpeakers.length).to.equal(2);
