@@ -1,16 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import React, { PropTypes } from 'react';
-
-export const speakerType = PropTypes.shape({
-  id: PropTypes.string,
-  name: PropTypes.string,
-  company: PropTypes.string,
-  twitterHandle: PropTypes.string,
-  githubHandle: PropTypes.string,
-  blogURL: PropTypes.string,
-  imageURL: PropTypes.string,
-});
+import speakerType from '../../prop-types/speaker-type';
 
 export const speakerSocialLinks = (speaker) => {
   const githubLink = speaker.githubHandle ?
