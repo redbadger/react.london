@@ -3,30 +3,23 @@
 
   h1 {
     font-size: 1.5em;
+    margin-left: 20px;
   }
 }
 
 .speakers-list-intro {
-  max-width: 940px;
+  max-width: $maximum-content-width;
   margin: 0 auto 40px;
 }
 
 .no-cfp-announcement {
   margin: auto;
   padding: 40px;
-  border-bottom: 3px solid $grey;
+  border-bottom: $solid-border;
 
   p {
-    max-width: 960px;
+    max-width: $maximum-content-width;
     margin: 0 auto;
     font-size: 20px;
-  }
-}
-
-@media (max-width: $tablet-width) {
-  .speakers-list-intro {
-    h1 {
-      margin-left: 20px;
-    }
   }
 }

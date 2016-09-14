@@ -1,18 +1,18 @@
 .speakers-list-container {
   border-top: 3px solid $grey;
   background-color: $conference-color-faded;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
 .speakers-list {
-  max-width: 940px;
-  padding: 0;
+  max-width: $maximum-content-width;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  border-bottom: 2px dashed $grey;
+  border-bottom: $dash-border;
 
   li {
     list-style-type: none;
@@ -36,7 +36,7 @@
     width: 120px;
     height: 120px;
     border-radius: 60px;
-    border: 3px solid $grey;
+    border: $solid-border;
   }
 }
 
@@ -73,9 +73,9 @@
   margin: 40px 0 0;
 }
 
-@media (max-width: $tablet-width) {
+@media (min-width: $tablet-width) {
   .speakers-list-container {
-    padding: 40px 20px;
+    padding: 40px 0;
   }
 
   .speakers-list {
