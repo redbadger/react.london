@@ -1,6 +1,6 @@
 .TicketList {
   background-color: $conference-color-faded;
-  padding: 20px;
+  padding: 20px 0px;
   padding-bottom: 40px;
 
   .content {
@@ -53,7 +53,7 @@
 
     &--disabled {
       background-color: $disabled-grey;
-      color: $events-color-faded;
+      color: $conference-color-faded;
       cursor: not-allowed;
     }
 
