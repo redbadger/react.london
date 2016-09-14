@@ -16,8 +16,9 @@
 
   li {
     list-style-type: none;
-    width: 300px;
     padding: 0 40px 40px 0;
+    flex-basis: 300px;
+    flex-grow: 1;
 
     &:last-child {
       padding: 0 0 40px 0;
@@ -70,4 +71,14 @@
   font-weight: bold;
   text-align: center;
   margin: 40px 0 0;
+}
+
+@media (max-width: $tablet-width) {
+  .speakers-list-container {
+    padding: 40px 20px;
+  }
+
+  .speakers-list {
+    padding: 0 20px;
+  }
 }

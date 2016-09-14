@@ -14,12 +14,19 @@
 .no-cfp-announcement {
   margin: auto;
   padding: 40px;
-  border-top: 3px solid $grey;
   border-bottom: 3px solid $grey;
 
   p {
     max-width: 960px;
     margin: 0 auto;
     font-size: 20px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .speakers-list-intro {
+    h1 {
+      margin-left: 20px;
+    }
   }
 }
