@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 import speakerType from '../../prop-types/speaker-type';
 
-export const speakerSocialLinks = (speaker) => {
+export const getSpeakerSocialLinks = (speaker) => {
   const githubLink = speaker.githubHandle ?
     (<a href={`https://github.com/${speaker.githubHandle}`}><span className="icon-github" /></a>)
     : null;
@@ -23,7 +23,7 @@ export const speakerSocialLinks = (speaker) => {
   );
 };
 
-export const speakerAvatarImage = (imageURL, speakerName) => {
+export const getSpeakerAvatarImage = (imageURL, speakerName) => {
   if (imageURL) {
     return (<img
       alt={`Speaker ${speakerName}`}
@@ -40,12 +40,12 @@ const SpeakersList = ({ speakers }) => {
     return (
       <li key={speaker.id}>
         <div className="speaker-avatar">
-          {speakerAvatarImage(speaker.imageURL, speaker.name)}
+          {getSpeakerAvatarImage(speaker.imageURL, speaker.name)}
         </div>
         <div className="speaker-description">
           <div className="speaker-description-name">{speaker.name}</div>
           <div className="speaker-description-company">{speaker.company}</div>
-          {speakerSocialLinks(speaker)}
+          {getSpeakerSocialLinks(speaker)}
         </div>
       </li>
     );
