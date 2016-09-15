@@ -1,178 +1,152 @@
-import { getTicketStatusOptions, getActionLink } from '.';
+import { getTicketStatusOptions, getTicketProvider, getTicketStatusSubtitle } from '.';
 import tk from 'timekeeper';
 
 describe('getTicketStatusOptions', () => {
-  it(
-    'returns Free Ticket and empty linkType if the current time is before the ticket release time',
-    () => {
-      tk.freeze(new Date(100));
-      const ticketReleaseDate = new Date(101);
-      const result = getTicketStatusOptions({ ticketReleaseDate });
-
-      expect(result).to.deep.equal({
-        buttonText: 'FREE TICKET AVAILABLE SOON',
-        linkType: '',
-        statusHeader: 'Tickets will go live on',
-        statusSubHeader: 'Thursday, 1st January 1970, 01:00',
-        link: undefined,
-      });
-    }
-  );
-
-  it(
-    'returns freeTicket + eventLinkType when currentTime > the releaseDate + ticketsAvailiable',
-    () => {
-      tk.freeze(new Date(100));
-      const ticketReleaseDate = new Date(99);
-      const result = getTicketStatusOptions({
-        ticketReleaseDate,
-        ticketsAvailable: true,
-        waitingListOpen: false,
-        externalLinks: [
-          {
-            title: 'Baz',
-            url: 'baz.com',
-            type: 'TICKET',
-          },
-        ],
-      });
-
-      expect(result).to.deep.equal({
-        buttonText: 'Free Ticket',
-        linkType: 'TICKET',
-        statusHeader: 'Tickets live',
-        statusSubHeader: 'To get yours, go to Baz',
-        link: {
-          title: 'Baz',
-          url: 'baz.com',
-          type: 'TICKET',
-        },
-      });
-    }
-  );
-
-  it('returns Join Waitlist and Event linkType if the waiting list is open', () => {
-    tk.freeze(new Date(100));
-    const ticketReleaseDate = new Date(99);
-    const result = getTicketStatusOptions({
-      ticketReleaseDate,
-      ticketsAvailable: false,
-      waitingListOpen: true,
-      externalLinks: [
-        {
-          title: 'Baz',
-          url: 'baz.com',
-          type: 'TICKET',
-        },
-      ],
-    });
-
+  it('returns the correct status properties for PRE_RELEASE', () => {
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
+    const event = {
+      status: 'PRE_RELEASE',
+      ticketReleaseDate: '2016-07-24T20:30:00+0000',
+    };
+    const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
+      title: 'Tickets will go live on',
+      subtitle: 'Sunday, 24th July 2016, 21:30',
+      buttonText: 'FREE TICKET AVAILABLE SOON',
+      buttonLink: undefined,
+    });
+  });
+  it('returns the correct status properties for TICKETS_LIVE', () => {
+    const event = {
+      status: 'TICKETS_LIVE',
+      ticketLink: 'http://www.google.com',
+    };
+    const result = getTicketStatusOptions(event);
+    expect(result).to.deep.equal({
+      title: 'Tickets live',
+      subtitle: 'To get yours, go to our ticket provider\'s website',
+      buttonText: 'Free Ticket',
+      buttonLink: 'http://www.google.com',
+      linkType: 'ticketLink',
+    });
+  });
+  it('returns the correct status properties for WAITLIST', () => {
+    const event = {
+      status: 'WAITLIST',
+      ticketLink: 'http://www.google.com',
+    };
+    const result = getTicketStatusOptions(event);
+    expect(result).to.deep.equal({
+      title: 'Tickets now sold out',
+      subtitle: 'Join the waiting list on our ticket provider\'s website',
       buttonText: 'Join Waitlist',
-      linkType: 'TICKET',
-      statusHeader: 'Tickets now sold out',
-      statusSubHeader: 'Join the waiting list on Baz',
-      link: {
-        title: 'Baz',
-        url: 'baz.com',
-        type: 'TICKET',
-      },
+      buttonLink: 'http://www.google.com',
+      linkType: 'ticketLink',
     });
   });
-
-  it(
-    'returns Join Live Stream and Stream linkType if the current time is greater than the' +
-    'release date time and there are no tickets and no wait list',
-    () => {
-      tk.freeze(new Date(100));
-      const result = getTicketStatusOptions({
-        ticketReleaseDate: new Date(99),
-        endDateTime: new Date(101),
-        ticketsAvailable: false,
-        waitingListOpen: false,
-        externalLinks: [
-          {
-            title: 'Baz',
-            url: 'baz.com',
-            type: 'TICKET',
-          },
-        ],
-      });
-
-      expect(result).to.deep.equal({
-        buttonText: 'Join Live Stream',
-        linkType: 'STREAM',
-        statusHeader: 'Tickets now sold out',
-        statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
-        link: undefined,
-      });
-    }
-  );
-
-  it('returns Watch and Stream linkType if the event is completed', () => {
-    tk.freeze(new Date(100));
-    const result = getTicketStatusOptions({
-      ticketReleaseDate: new Date(98),
-      endDateTime: new Date(99),
-      ticketsAvailable: false,
-      waitingListOpen: false,
-    });
-
+  it('returns the correct status properties for LIVE_STREAM', () => {
+    const event = {
+      status: 'LIVE_STREAM',
+      streamingLink: 'http://www.google.com',
+    };
+    const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
-      buttonText: 'Watch',
-      linkType: 'STREAM',
-      statusHeader: 'This event has ended',
-      statusSubHeader: 'Didn’t make it to the meetup? We got your back.',
-      link: undefined,
+      title: 'Tickets now sold out',
+      subtitle: 'Didn’t make it to the meetup? We got your back.',
+      buttonText: 'Join Live Stream',
+      buttonLink: 'http://www.google.com',
+      linkType: 'streamingLink',
     });
   });
-
-  describe('getActionLink', () => {
-    const externalLinks = [
-      {
-        title: 'Baz',
-        url: 'baz.com',
-        type: null,
-      },
-      {
-        title: 'Foo',
-        url: 'foo.com',
-        type: 'TICKET',
-      },
-      {
-        title: 'Boz',
-        url: 'boz.com',
-        type: 'TICKET',
-      },
-      {
-        title: 'Bar',
-        url: 'bar.com',
-        type: 'STREAM',
-      },
-    ];
-
-    it('returns the first found link URL when multiple exist', () => {
-      expect(getActionLink(externalLinks, 'TICKET'))
-        .to.deep.equal({
-          title: 'Foo',
-          url: 'foo.com',
-          type: 'TICKET',
-        });
+  it('returns the correct status properties for EVENT_ENDED', () => {
+    const event = {
+      status: 'EVENT_ENDED',
+      streamingLink: 'http://www.google.com',
+    };
+    const result = getTicketStatusOptions(event);
+    expect(result).to.deep.equal({
+      title: 'This event has ended',
+      subtitle: 'Tickets now sold out',
+      buttonText: 'Watch Video',
+      buttonLink: 'http://www.google.com',
+      linkType: 'streamingLink',
     });
-
-    it('returns undefined when nothing is found', () => {
-      expect(getActionLink(externalLinks, 'FOO'))
-        .to.equal(undefined);
+  });
+  it('returns the correct status properties when no status is provided', () => {
+    const result = getTicketStatusOptions({});
+    expect(result).to.deep.equal({
+      title: 'Tickets currently unavailable',
+      subtitle: 'Please check back later for further details',
+      buttonText: 'Tickets Unavailable',
     });
+  });
+});
 
-    it('handles an empty list of externalLinks being passed in', () => {
-      expect(getActionLink([], 'TICKET'))
-        .to.equal(undefined);
-    });
+describe('getTicketProvider', () => {
+  it('returns Skillsmatter if the link contains skillsmatter', () => {
+    const link = 'http://skillsmatter.com';
+    expect(getTicketProvider(link)).to.equal('Skillsmatter');
+  });
+  it('returns Ti.to if the link contains ti.to', () => {
+    const link = 'http://ti.to';
+    expect(getTicketProvider(link)).to.equal('Ti.to');
+  });
+  it('returns a default message if no recongized ticket provider is provided', () => {
+    const link = '';
+    expect(getTicketProvider(link)).to.equal('our ticket provider\'s website');
+  });
+});
 
-    it('handles a falsy list of externalLinks being passed in', () => {
-      expect(getActionLink(null, 'TICKET'))
-        .to.equal(undefined);
-    });
+describe('getTicketStatusSubtitle', () => {
+  it('returns the correct subtitle if PRE_RELEASE is the event status', () => {
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
+    const event = {
+      status: 'PRE_RELEASE',
+      ticketReleaseDate: '2016-07-24T20:30:00+0000',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'To get yours, go to ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Sunday, 24th July 2016, 21:30'
+    );
+  });
+  it('returns the correct subtitle if TICKETS_LIVE is the event status', () => {
+    const event = {
+      status: 'TICKETS_LIVE',
+      ticketReleaseDate: '31 March 2016',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'To get yours, go to ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'To get yours, go to Ti.to'
+    );
+  });
+  it('returns the correct subtitle if WAITLIST is the event status', () => {
+    const event = {
+      status: 'WAITLIST',
+      ticketReleaseDate: '31 March 2016',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'Join the waiting list on ',
+      buttonLink: 'ti.to',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Join the waiting list on Ti.to'
+    );
+  });
+  it('returns the correct subtitle if another status is provided', () => {
+    const event = {
+      status: 'EVENT_ENDED',
+    };
+    const ticketStatusOptions = {
+      subtitle: 'Tickets now sold out',
+    };
+    expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
+      'Tickets now sold out'
+    );
   });
 });

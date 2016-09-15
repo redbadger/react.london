@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-export const StatusButton = ({ buttonText, link }) => {
+export const StatusButton = ({ buttonText, buttonLink }) => {
   const actionClasses = classnames({
     'TicketStatus__booking-btn': true,
-    'TicketStatus__booking-btn--active': link,
-    'TicketStatus__booking-btn--disabled': !link,
+    'TicketStatus__booking-btn--active': buttonLink,
+    'TicketStatus__booking-btn--disabled': !buttonLink,
   });
   return (
     <div className="TicketStatus__booking-btn__container">
       <a
         className={actionClasses}
-        href={link && link.url}
+        href={buttonLink}
       >
         {buttonText}
       </a>
@@ -20,14 +20,14 @@ export const StatusButton = ({ buttonText, link }) => {
 };
 
 const TicketStatus = (props) => {
-  const { statusHeader, statusSubHeader } = props;
+  const { title, subtitle } = props;
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
       <h3 className="TicketStatus__booking__heading">
-        {statusHeader}
+        {title}
       </h3>
       <p className="TicketStatus__live-stream-text">
-        {statusSubHeader}
+        {subtitle}
       </p>
       <StatusButton {...props} />
       <p className="TicketStatus__live-stream-text">
@@ -40,15 +40,13 @@ const TicketStatus = (props) => {
 };
 
 TicketStatus.propTypes = {
-  statusHeader: PropTypes.string,
-  statusSubHeader: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
 };
 
 StatusButton.propTypes = {
   buttonText: PropTypes.string,
-  link: PropTypes.shape({
-    url: PropTypes.string,
-  }),
+  buttonLink: PropTypes.string,
 };
 
 export default TicketStatus;

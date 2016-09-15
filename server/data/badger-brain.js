@@ -25,6 +25,9 @@ query {
       waitingListOpen
       displayLevel
       calendarURL
+      status
+      ticketLink
+      streamingLink
       startDateTime {
         iso
       }
