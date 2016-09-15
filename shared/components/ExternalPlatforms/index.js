@@ -1,20 +1,21 @@
 import { SLACK_URL, YOUTUBE_URL } from '../../../server/constants.js';
+import { ExternalLink } from '../ExternalLink';
 import React from 'react';
 
 const ExternalPlatforms = () => (
   <div className="ExternalPlatforms">
-    <a
-      target="_blank"
-      rel="noopener"
+    <ExternalLink
       href={SLACK_URL}
       className="ExternalPlatforms__btn ExternalPlatforms__btn--slack"
-    >Join us on Slack</a>
-    <a
-      target="_blank"
-      rel="noopener"
+    >
+      Join us on Slack
+    </ExternalLink>
+    <ExternalLink
       href={YOUTUBE_URL}
       className="ExternalPlatforms__btn ExternalPlatforms__btn--youtube"
-    >Watch previous Meetups</a>
+    >
+      Watch previous Meetups
+    </ExternalLink>
   </div>
 );
 
