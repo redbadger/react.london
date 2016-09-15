@@ -9,8 +9,6 @@
         {
           "title": "React London Meetup July 2016",
           "eventType": "Featured",
-          "ticketsAvailable": false,
-          "waitingListOpen": false,
           "displayLevel": "Featured",
           "calendarURL": "http://www.google.com",
           "startDateTime": {
@@ -109,8 +107,6 @@
         {
           "title": "August React London Meetup",
           "eventType": null,
-          "ticketsAvailable": false,
-          "waitingListOpen": false,
           "displayLevel": "Highlighted",
           "calendarURL": "http://www.google.com",
           "startDateTime": {

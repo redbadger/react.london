@@ -3,7 +3,6 @@ import TicketStatus, { StatusButton } from '.';
 import { shallow } from 'enzyme';
 
 const props = {
-  ticketsAvailable: true,
   externalLinks: [
     {
       title: 'foo baz',
