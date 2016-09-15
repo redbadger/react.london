@@ -14,7 +14,7 @@
   justify-content: flex-start;
   border-bottom: $dash-border;
 
-  li {
+  & > li {
     list-style-type: none;
     padding: 0 40px 40px 0;
     flex-basis: 300px;

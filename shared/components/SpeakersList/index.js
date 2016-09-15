@@ -2,26 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import speakerType from '../../prop-types/speaker-type';
-
-export const getSpeakerSocialLinks = (speaker) => {
-  const githubLink = speaker.githubHandle ?
-    (<a href={`https://github.com/${speaker.githubHandle}`}><span className="icon-github" /></a>)
-    : null;
-  const twitterLink = speaker.blogURL ?
-    (<a href={speaker.blogURL}><span className="icon-link" /></a>)
-    : null;
-  const blogLink = speaker.twitterHandle ?
-    (<a href={`https://twitter.com/${speaker.twitterHandle}`}><span className="icon-twitter" /></a>)
-    : null;
-
-  return (
-    <div className="speaker-description-social-links">
-      {githubLink}
-      {twitterLink}
-      {blogLink}
-    </div>
-  );
-};
+import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
 export const getSpeakerAvatarImage = (imageURL, speakerName) => {
   if (imageURL) {
@@ -46,7 +27,7 @@ const SpeakersList = ({ speakers }) => {
           <div className="speaker-description">
             <div className="speaker-description-name">{speaker.name}</div>
             <div className="speaker-description-company">{speaker.company}</div>
-            {getSpeakerSocialLinks(speaker)}
+            <SpeakerSocialLinks {...speaker} />
           </div>
         </li>
       );
