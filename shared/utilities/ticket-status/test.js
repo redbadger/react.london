@@ -6,12 +6,12 @@ describe('getTicketStatusOptions', () => {
     tk.freeze(new Date('2016-07-24T20:30:00+0000'));
     const event = {
       status: 'PRE_RELEASE',
-      ticketReleaseDate: '31 March 2016 15:00',
+      ticketReleaseDate: '2016-07-24T20:30:00+0000',
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Tickets will go live on',
-      subtitle: 'Thursday, 31st March 2016, 15:00',
+      subtitle: 'Sunday, 24th July 2016, 21:30',
       buttonText: 'FREE TICKET AVAILABLE SOON',
       buttonLink: undefined,
     });
@@ -99,16 +99,17 @@ describe('getTicketProvider', () => {
 
 describe('getTicketStatusSubtitle', () => {
   it('returns the correct subtitle if PRE_RELEASE is the event status', () => {
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
     const event = {
       status: 'PRE_RELEASE',
-      ticketReleaseDate: '31 March 2016 15:00',
+      ticketReleaseDate: '2016-07-24T20:30:00+0000',
     };
     const ticketStatusOptions = {
       subtitle: 'To get yours, go to ',
       buttonLink: 'ti.to',
     };
     expect(getTicketStatusSubtitle(event, ticketStatusOptions)).to.equal(
-      'Thursday, 31st March 2016, 15:00'
+      'Sunday, 24th July 2016, 21:30'
     );
   });
   it('returns the correct subtitle if TICKETS_LIVE is the event status', () => {
