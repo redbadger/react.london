@@ -1,0 +1,47 @@
+.ExternalPlatforms {
+  background: $events-color;
+  text-align: center;
+  padding: 15px 0px;
+  &__text {
+    margin-top: 0px;
+    font-size: 20px;
+  }
+
+  &__btn {
+    margin: 25px;
+    border-radius: 6px;
+    border: 0px;
+    padding: 12px 20px 12px 48px;
+    color: $events-color;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 20px;
+    &--slack {
+      background: url("/img/SVG/Slack_green.svg") no-repeat 17px 14px $grey;
+      &:focus,
+      &:hover {
+        color: $white;
+        background-image: url("/img/SVG/Slack.svg");
+      }
+    }
+    &--youtube {
+      background: url("/img/SVG/Youtube_green.svg") no-repeat 17px 18px $grey;
+      &:focus,
+      &:hover {
+        color: $white;
+        background: url("/img/SVG/Youtube.svg") no-repeat 17px 18px $grey;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .ExternalPlatforms {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
