@@ -1,4 +1,4 @@
-import R from 'ramda';
+import R, { uniq, chain } from 'ramda';
 
 const groupPartnersByLevel = R.groupBy(p => p.level.toLowerCase());
 
@@ -6,20 +6,11 @@ export const pickSpeakersFromTalks = (talks) => {
   // Talks contain speakers, but there is a chance that
   // same speaker would participate in multiple talks
   // We need to make sure we get a list of unique speakers
-  const speakers = [];
   if (talks) {
-    talks.forEach((talk) => {
-      const filteredSpeakers = talk.speakers.filter((speaker) => {
-        if (!speakers.find((s) => s.id === speaker.id)) {
-          return speaker;
-        }
-        return null;
-      });
-
-      speakers.push(...filteredSpeakers);
-    });
+    return uniq(chain(talk => talk.speakers, talks));
   }
-  return speakers;
+
+  return [];
 };
 
 export default function communityData(state) {
