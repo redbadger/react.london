@@ -136,6 +136,11 @@ describe('pickSpeakersFromTalks', () => {
     ]);
     expect(filteredSpeakers.length).to.equal(2);
   });
+
+  it('doesn\'t explode if there are no talks', () => {
+    expect(pickSpeakersFromTalks()).to.deep.equal([]);
+    expect(pickSpeakersFromTalks([])).to.deep.equal([]);
+  });
 });
 
 describe('conference querying for calendarURL', () => {
