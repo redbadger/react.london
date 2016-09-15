@@ -7,7 +7,7 @@ const SpeakersPage = ({ speakers }) => {
   return (
     <div className="SpeakersPage">
       <div className="speakers-list-intro">
-        <h1>On stage</h1>
+        <h2>On stage</h2>
       </div>
       <SpeakerList speakers={speakers} />
       <div className="no-cfp-announcement">

@@ -25,8 +25,10 @@ const SpeakersList = ({ speakers }) => {
             {getSpeakerAvatarImage(speaker.imageURL, speaker.name)}
           </div>
           <div className="speaker-description">
-            <p className="speaker-description-name">{speaker.name}</p>
-            <p className="speaker-description-company">{speaker.company}</p>
+            <h3>
+              <p className="speaker-description-name">{speaker.name}</p>
+              <p className="speaker-description-company">{speaker.company}</p>
+            </h3>
             <SpeakerSocialLinks {...speaker} />
           </div>
         </li>
