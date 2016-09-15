@@ -1,7 +1,9 @@
 import { getTicketStatusOptions, getTicketProvider, getTicketStatusSubtitle } from '.';
+import tk from 'timekeeper';
 
 describe('getTicketStatusOptions', () => {
   it('returns the correct status properties for PRE_RELEASE', () => {
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
     const event = {
       status: 'PRE_RELEASE',
       ticketReleaseDate: '31 March 2016 15:00',
