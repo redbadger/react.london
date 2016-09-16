@@ -9,7 +9,7 @@
 
 .speakers-list-intro {
   max-width: $maximum-content-width;
-  margin: 0 auto 40px;
+  margin: 0 40px 40px;
 }
 
 .no-cfp-announcement {
@@ -21,5 +21,12 @@
     max-width: $maximum-content-width;
     margin: 0 auto;
     font-size: 20px;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .speakers-list-intro {
+    margin: 0 auto 40px;
+    padding-left: 20px;
   }
 }
