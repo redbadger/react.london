@@ -1,12 +1,12 @@
 const MAX_EVENTS = 3;
 
 function featuredEvent(events) {
-  return events.find(e => e.displayLevel === 'Featured') || {};
+  return events.find(e => e.displayLevel === 'Featured' || e.displayLevel === 'Current') || {};
 }
 
 function futureEvents(events) {
   return events
-    .filter(e => e.displayLevel === 'Highlighted')
+    .filter(e => e.displayLevel === 'Highlighted' || e.displayLevel === 'Upcoming')
     .slice(0, MAX_EVENTS);
 }
 
