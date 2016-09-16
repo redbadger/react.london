@@ -5,23 +5,29 @@
 }
 
 .speakers-list {
-  max-width: $maximum-content-width;
-  padding: 0;
+  max-width: 980px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border-bottom: $dash-border;
+  padding: 0;
 
-  & > li {
-    list-style-type: none;
-    padding: 0 40px 40px 0;
-    flex-basis: 300px;
-    flex-grow: 1;
+  & > ul {
+    max-width: $maximum-content-width;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-bottom: $dash-border;
 
-    &:last-child {
-      padding: 0 0 40px 0;
+    & > li {
+      list-style-type: none;
+      padding: 0 40px 40px 0;
+      flex-basis: 300px;
+      flex-grow: 1;
+
+      &:last-child {
+        padding: 0 0 40px 0;
+      }
     }
   }
 }
