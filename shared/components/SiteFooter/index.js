@@ -104,9 +104,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
       <div className="SiteFooter__content-container content">
         <div className="SiteFooter__blerb">
           <object
-            className="SiteFooter__badger"
-            data="/img/SVG/Badger.svg"
-            type="image/svg+xml"
+            className="SiteFooter__badger icon-Badger"
           />
 
           <p>{footerBlerb(page)}</p>

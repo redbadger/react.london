@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import conferenceData from '.';
+import conferenceData, { pickSpeakersFromTalks } from '.';
 import { data as fixture } from '../../test/fixtures/bb-conference-payload.json';
 
 deepFreeze(fixture);
@@ -64,6 +64,82 @@ describe('conference querying for ticket data', () => {
       price: '350',
       available: true,
     }]);
+  });
+});
+
+describe('pickSpeakersFromTalks', () => {
+  it('returns correct list of speakers picked from talks', () => {
+    const talks = [
+      {
+        id: 'V8cF9yoAACoAd01r',
+        title: 'Awesome talk by Christopher',
+        summary: 'Summary of the talk',
+        speakers: [
+          {
+            id: 'V8cFyioAACsAd0yt',
+            name: 'Christopher Chedeau',
+            company: 'Facebook',
+            twitterHandle: 'Vjeux',
+            githubHandle: 'githubhandle',
+            blogURL: 'http://www.google.com',
+            imageURL: 'http://www.google.com/image.jpg',
+          },
+        ],
+      },
+      {
+        id: 'V6IZrywAACwAN97-',
+        title: 'Re-writing a frontend with re-usable React Components via an API',
+        summary: 'Detailed summary',
+        speakers: [
+          {
+            id: 'V6IZdiwAACwAN94X',
+            name: 'Chris McKenzie',
+            company: 'Not on the High Street',
+            twitterHandle: null,
+            githubHandle: 'chrisface',
+            blogURL: null,
+            imageURL: '//res.cloudinary.com/speaker.png',
+          },
+          {
+            id: 'V8cFyioAACsAd0yt',
+            name: 'Christopher Chedeau',
+            company: 'Facebook',
+            twitterHandle: 'Vjeux',
+            githubHandle: 'githubhandle',
+            blogURL: 'http://www.google.com',
+            imageURL: 'http://www.google.com/image.jpg',
+          },
+        ],
+      },
+    ];
+
+    const filteredSpeakers = pickSpeakersFromTalks(talks);
+    expect(filteredSpeakers).to.deep.equal([
+      {
+        id: 'V8cFyioAACsAd0yt',
+        name: 'Christopher Chedeau',
+        company: 'Facebook',
+        twitterHandle: 'Vjeux',
+        githubHandle: 'githubhandle',
+        blogURL: 'http://www.google.com',
+        imageURL: 'http://www.google.com/image.jpg',
+      },
+      {
+        id: 'V6IZdiwAACwAN94X',
+        name: 'Chris McKenzie',
+        company: 'Not on the High Street',
+        twitterHandle: null,
+        githubHandle: 'chrisface',
+        blogURL: null,
+        imageURL: '//res.cloudinary.com/speaker.png',
+      },
+    ]);
+    expect(filteredSpeakers.length).to.equal(2);
+  });
+
+  it('doesn\'t explode if there are no talks', () => {
+    expect(pickSpeakersFromTalks()).to.deep.equal([]);
+    expect(pickSpeakersFromTalks([])).to.deep.equal([]);
   });
 });
 

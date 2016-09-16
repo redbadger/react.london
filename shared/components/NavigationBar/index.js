@@ -13,6 +13,11 @@ const NavigationBar = () => (
           </Link>
         </li>
         <li>
+          <Link activeClassName="active" to="/speakers">
+            Speakers
+          </Link>
+        </li>
+        <li>
           <Link activeClassName="active" to="/partners">
             Partners
           </Link>
