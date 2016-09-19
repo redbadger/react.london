@@ -21,8 +21,6 @@ query {
     events {
       title
       eventType
-      ticketsAvailable
-      waitingListOpen
       displayLevel
       calendarURL
       status
