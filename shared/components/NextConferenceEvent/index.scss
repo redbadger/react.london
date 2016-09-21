@@ -25,7 +25,29 @@
       }
     }
   }
-
+  &__accomodation{
+    > h2 {
+      margin: 0;
+      border-bottom: 2px dashed #4a4a4a;
+      line-height: 2em;
+      margin-top: 20px;
+    }
+    > p {
+      font-size: 18px;
+    }
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__link {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #4a4a4a;
+    line-height: 1.4em;
+    &:hover {
+      color: $middle-grey;
+    }
+  }
   &__save-the-date,
   &__details,
   &__section {
