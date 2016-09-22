@@ -75,7 +75,9 @@ query {
 export const conferenceStateQuery = `
 query {
   event(id: "${conferenceID}") {
+    ticketLink
     calendarURL
+    status
     partners {
       name
       description
