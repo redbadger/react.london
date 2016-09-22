@@ -28,7 +28,7 @@
   &__accomodation{
     > h2 {
       margin: 0;
-      border-bottom: 2px dashed $grey;
+      border-bottom: $dash-border;
       line-height: 2em;
       margin-top: 20px;
     }
