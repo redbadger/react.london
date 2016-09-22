@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ExternalLink } from '../ExternalLink';
+import { isAfter } from '../../utilities/date';
 
 const getTicketStatusDetails = (status) => {
   switch (status) {
@@ -13,7 +14,7 @@ const getTicketStatusDetails = (status) => {
     case 'TICKETS_LIVE':
       return {
         title: 'Get them before they are gone',
-        subtitle: 'Available until Tuesday, 20 December 2016',
+        subtitle: '',
         buttonText: 'FREE TICKET',
         linkType: 'ticketLink',
       };
@@ -33,10 +34,48 @@ const getTicketStatusDetails = (status) => {
   }
 };
 
+export const getCurrentTicket = tickets => {
+/*
+  order by release date
+  discard tickets which have release dates after today
+  -> none left = Tickets currently unavailable
+  -> remainder (release dates are in the past)
+    - which is the most recent release date?
+    - the most recent release date is the current ticket
+*/
+
+  const currentDateTime = new Date().toISOString();
+
+  const ticketTimes = tickets.map(ticket => ticket.releaseDate.iso);
+
+  const pastReleaseDates = ticketTimes.filter(time => isAfter(currentDateTime, time));
+
+  const mostRecentPastReleaseTimes = pastReleaseDates.sort((timeA, timeB) => isAfter(timeA, timeB));
+
+
+  return mostRecentPastReleaseTimes.pop();
+
+  // return tickets.reduce((previousTicket, currentTicket) => {
+  //   previousTicketDate = previousTicket.releaseDate.iso;
+  //   currentTicketDate = currentTicket.releaseDate.iso;
+
+  //   isBefore(currentTicketDate, currentDateTime) //ticket
+  //   if(isBefore(, )){
+  //     return previousTicket
+  //   }
+  // })
+};
+
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 
-const NextConferenceEvent = ({ status, calendarURL }) => {
+const NextConferenceEvent = ({ status, calendarURL, tickets }) => {
   const statusProps = getTicketStatusDetails(status);
+  const currentTicket = getCurrentTicket(tickets);
+
+  console.log('currentTicket', currentTicket);
+
+  const ticketsAvailable = tickets.some((ticket) => (ticket.available));
+  const ticketsAvailableClassSuffix = ticketsAvailable ? 'available' : 'disabled';
 
   return (
     <section className="NextConferenceEvent block">
@@ -76,6 +115,7 @@ const NextConferenceEvent = ({ status, calendarURL }) => {
               className={`
                 NextConferenceEvent__btn
                 NextConferenceEvent__btn--${statusProps.linkType}
+                NextConferenceEvent__btn--${ticketsAvailableClassSuffix}
               `}
               href={calendarURL}
             >
