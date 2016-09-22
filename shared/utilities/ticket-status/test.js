@@ -16,7 +16,6 @@ describe('getTicketStatusOptions', () => {
       buttonLink: undefined,
     });
   });
-
   it('returns the correct status properties for TICKETS_LIVE', () => {
     const event = {
       status: 'TICKETS_LIVE',
@@ -31,7 +30,6 @@ describe('getTicketStatusOptions', () => {
       linkType: 'ticketLink',
     });
   });
-
   it('returns the correct status properties for WAITLIST', () => {
     const event = {
       status: 'WAITLIST',
@@ -46,7 +44,6 @@ describe('getTicketStatusOptions', () => {
       linkType: 'ticketLink',
     });
   });
-
   it('returns the correct status properties for LIVE_STREAM', () => {
     const event = {
       status: 'LIVE_STREAM',
@@ -61,7 +58,6 @@ describe('getTicketStatusOptions', () => {
       linkType: 'streamingLink',
     });
   });
-
   it('returns the correct status properties for EVENT_ENDED', () => {
     const event = {
       status: 'EVENT_ENDED',
@@ -76,7 +72,6 @@ describe('getTicketStatusOptions', () => {
       linkType: 'streamingLink',
     });
   });
-
   it('returns the correct status properties when no status is provided', () => {
     const result = getTicketStatusOptions({});
     expect(result).to.deep.equal({
@@ -92,12 +87,10 @@ describe('getTicketProvider', () => {
     const link = 'http://skillsmatter.com';
     expect(getTicketProvider(link)).to.equal('Skillsmatter');
   });
-
   it('returns Ti.to if the link contains ti.to', () => {
     const link = 'http://ti.to';
     expect(getTicketProvider(link)).to.equal('Ti.to');
   });
-
   it('returns a default message if no recongized ticket provider is provided', () => {
     const link = '';
     expect(getTicketProvider(link)).to.equal('our ticket provider\'s website');
@@ -119,7 +112,6 @@ describe('getTicketStatusSubtitle', () => {
       'Sunday, 24th July 2016, 21:30'
     );
   });
-
   it('returns the correct subtitle if TICKETS_LIVE is the event status', () => {
     const event = {
       status: 'TICKETS_LIVE',
@@ -133,7 +125,6 @@ describe('getTicketStatusSubtitle', () => {
       'To get yours, go to Ti.to'
     );
   });
-
   it('returns the correct subtitle if WAITLIST is the event status', () => {
     const event = {
       status: 'WAITLIST',
@@ -147,7 +138,6 @@ describe('getTicketStatusSubtitle', () => {
       'Join the waiting list on Ti.to'
     );
   });
-
   it('returns the correct subtitle if another status is provided', () => {
     const event = {
       status: 'EVENT_ENDED',
