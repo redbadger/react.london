@@ -50,7 +50,7 @@ const NextConferenceEvent = ({ calendarURL }) => (
         <p>
           We have negotiated a limited number of rooms at
           the <ExternalLink
-            href={calendarURL}
+            href="https://www.parkplaza.co.uk/london-hotel-gb-se1-7ut/gbwestmi"
             className="NextConferenceEvent__link"
           >
             Park Plaza Westminster Bridge
