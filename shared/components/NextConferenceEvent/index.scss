@@ -28,7 +28,7 @@
   &__accomodation{
     > h2 {
       margin: 0;
-      border-bottom: 2px dashed #4a4a4a;
+      border-bottom: 2px dashed $grey;
       line-height: 2em;
       margin-top: 20px;
     }
@@ -42,7 +42,7 @@
   &__link {
     font-weight: 700;
     text-decoration: underline;
-    color: #4a4a4a;
+    color: $grey;
     line-height: 1.4em;
     &:hover {
       color: $middle-grey;
