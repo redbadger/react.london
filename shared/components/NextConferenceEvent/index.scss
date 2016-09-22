@@ -3,30 +3,56 @@
   border-top: $solid-border;
   background-color: $conference-color-faded;
   padding: 20px 0px;
+
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    border-bottom: $dash-border;
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+
+
   &__btn {
     border-radius: 5px;
     line-height: 36px;
     border: 0px;
-    padding: 3px 18px 3px 53px;
     color: $conference-color-faded;
     font-weight: bold;
     text-decoration: none;
 
+    padding: 3px 18px;
+
+    background-color: $grey;
+
+    &--calendarLink {
+      padding: 3px 18px 3px 53px;
+      background: url("/img/SVG/G_blue.svg") no-repeat 17px 10px $grey;
+      background-size: 22px 22px;
+
+      &[href]{
+        &:focus,
+        &:hover {
+          background-image: url("/img/SVG/G_white.svg");
+        }
+      }
+    }
+    &--ticketLink {
+      background-color: $red-badger-color;
+    }
+
     display: inline-block;
-    background: url("/img/SVG/G_blue.svg") no-repeat 17px 10px $grey;
-    background-size: 22px 22px;
     font-size: 16px;
 
     &[href]{
       &:focus,
       &:hover {
         color: $white;
-        background-image: url("/img/SVG/G_white.svg");
       }
     }
   }
 
-  &__save-the-date,
+  &__tickets,
   &__details,
   &__section {
     padding: 10px 0;
@@ -57,11 +83,15 @@
     font-size: 16px;
   }
 
+  &__link--place,
+  &__link--tickets {
+    margin-top: 20px;
+  }
+
   &__link--date,
   &__link--place,
-  &__link--save-the-date {
+  &__link--tickets {
     display: inline-block;
-    margin-top: 20px;
     text-decoration: none;
     color: $grey;
     font-size: 18px;
@@ -95,7 +125,7 @@
     }
   }
 
-  &__link--save-the-date {
+  &__link--tickets {
     background: url("/img/SVG/Save_the_date_icon_blue.svg") no-repeat 0px 1px;
     height: 67px;
     padding-left: 80px;
@@ -124,7 +154,7 @@
     padding-bottom: $vert-spacing;
   }
 
-  &__save-the-date {
+  &__tickets {
     padding-top: $vert-spacing;
 
     h3 {
@@ -145,7 +175,7 @@
     }
 
     &__details,
-    &__save-the-date {
+    &__tickets {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -156,7 +186,7 @@
       padding-right: 20px;
     }
 
-    &__save-the-date {
+    &__tickets {
       padding-left: 20px;
     }
   }

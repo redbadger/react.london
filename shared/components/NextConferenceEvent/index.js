@@ -1,41 +1,51 @@
 import React, { PropTypes } from 'react';
 import { ExternalLink } from '../ExternalLink';
-import { getTicketStatusOptions } from '../../utilities/ticket-status';
 
-const statusTypes = {
-  PRE_RELEASE: {
-    title: 'Save the date',
-    subtitle: '',
-    buttonText: 'Add to calendar',
-  },
-  TICKETS_LIVE: {
-    title: 'Get them before they are gone',
-    subtitle: '',
-    buttonText: 'Free Ticket',
-    linkType: 'ticketLink',
-  },
-  WAITLIST: {
-    title: 'All gone! Sorry, you’re too late.',
-    subtitle: '',
-    buttonText: 'Sold out',
-    linkType: 'ticketLink',
-  },
+const getTicketStatusDetails = (status) => {
+  switch (status) {
+    case 'PRE_RELEASE':
+      return {
+        title: 'Save the date',
+        subtitle: '',
+        buttonText: 'Add to calendar',
+        linkType: 'calendarLink',
+      };
+    case 'TICKETS_LIVE':
+      return {
+        title: 'Get them before they are gone',
+        subtitle: 'Available until Tuesday, 20 December 2016',
+        buttonText: 'FREE TICKET',
+        linkType: 'ticketLink',
+      };
+    case 'WAITLIST':
+      return {
+        title: 'All gone! Sorry, you’re too late.',
+        subtitle: '',
+        buttonText: 'Sold out',
+        linkType: 'ticketLink',
+      };
+    default:
+      return {
+        title: 'Tickets currently unavailable',
+        subtitle: 'Please check back later for further details',
+        buttonText: 'Tickets Unavailable',
+      };
+  }
 };
 
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 
-const NextConferenceEvent = (featuredEvent) => {
-  const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
-  const statusProps = getTicketStatusOptions(featuredEvent, statusTypes);
+const NextConferenceEvent = ({ status, calendarURL }) => {
+  const statusProps = getTicketStatusDetails(status);
 
   return (
     <section className="NextConferenceEvent block">
       <div className="content">
+        <h2>
+          React London 2017
+        </h2>
         <article className="NextConferenceEvent__section-container">
           <div className="NextConferenceEvent__details">
-            <h3>
-              React London 2017
-            </h3>
             <ul>
               <li>
                 <ExternalLink
@@ -58,25 +68,29 @@ const NextConferenceEvent = (featuredEvent) => {
 
           {/* middle */}
 
-          <div className="NextConferenceEvent__save-the-date">
+          <div className="NextConferenceEvent__tickets">
             <h3>
               {statusProps.title}
             </h3>
-            <p>{statusProps.subtitle}</p>
             <ExternalLink
-              className="NextConferenceEvent__btn"
+              className={`
+                NextConferenceEvent__btn
+                NextConferenceEvent__btn--${statusProps.linkType}
+              `}
               href={calendarURL}
             >
               {statusProps.buttonText}
             </ExternalLink>
+            <p>{statusProps.subtitle}</p>
           </div>
         </article>
       </div>
     </section>
   );
-}
+};
 
 NextConferenceEvent.propTypes = {
+  status: PropTypes.string,
   calendarURL: PropTypes.string,
 };
 export default NextConferenceEvent;
