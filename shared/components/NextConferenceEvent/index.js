@@ -45,6 +45,24 @@ const NextConferenceEvent = ({ calendarURL }) => (
           </ExternalLink>
         </div>
       </article>
+      <div className="NextConferenceEvent__accomodation">
+        <h2>Plan your visit</h2>
+        <p>
+          We have negotiated a limited number of rooms at
+          the <ExternalLink
+            href="https://www.parkplaza.co.uk/london-hotel-gb-se1-7ut/gbwestmi"
+            className="NextConferenceEvent__link"
+          >
+            Park Plaza Westminster Bridge
+          </ExternalLink> at
+          a preferential rate of £169 per night single occupancy and £179
+          per night double occupancy if booked before 10th February.
+        </p>
+        <p>
+          Please call<strong> 0844 415 6784</strong> to book and quote reference number
+          <strong> 270317REDD</strong>
+        </p>
+      </div>
     </div>
   </section>
 );
