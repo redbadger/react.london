@@ -14,7 +14,6 @@ export const pickSpeakersFromTalks = (talks) => {
 };
 
 export default function communityData(state) {
-  console.log('state', state)
   if (!state || !state.event) { return {}; }
   const { partners, tickets, talks, calendarURL, status, ticketLink } = state.event;
   const speakers = pickSpeakersFromTalks(talks);

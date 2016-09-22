@@ -10,39 +10,6 @@ import { getTicketStatusOptions } from '../../utilities/ticket-status';
 import { ExternalLink } from '../ExternalLink';
 export const placeholderText = 'To be confirmed.';
 
-const statusTypes = {
-  PRE_RELEASE: {
-    title: 'Tickets will go live on',
-    subtitle: '',
-    buttonText: 'FREE TICKET AVAILABLE SOON',
-  },
-  TICKETS_LIVE: {
-    title: 'Tickets live',
-    subtitle: 'To get yours, go to ',
-    buttonText: 'Free Ticket',
-    linkType: 'ticketLink',
-  },
-  WAITLIST: {
-    title: 'Tickets now sold out',
-    subtitle: 'Join the waiting list on ',
-    buttonText: 'Join Waitlist',
-    linkType: 'ticketLink',
-  },
-  LIVE_STREAM: {
-    title: 'Tickets now sold out',
-    subtitle: 'Didn’t make it to the meetup? We got your back.',
-    buttonText: 'Join Live Stream',
-    linkType: 'streamingLink',
-  },
-  EVENT_ENDED: {
-    title: 'This event has ended',
-    subtitle: 'Tickets now sold out',
-    buttonText: 'Watch Video',
-    linkType: 'streamingLink',
-  },
-};
-
-
 function eventLocation(location) {
   return pathOr(placeholderText, ['address'], location);
 }
@@ -77,7 +44,7 @@ export function getHeaderText(startDateTime, endDateTime) {
 
 const NextCommunityEvent = (featuredEvent) => {
   const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
-  const statusProps = getTicketStatusOptions(featuredEvent, statusTypes);
+  const statusProps = getTicketStatusOptions(featuredEvent);
   return (
     <section className="NextCommunityEvent block">
       <div className="content">

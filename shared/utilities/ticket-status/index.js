@@ -1,5 +1,37 @@
 import { formatDate } from '../date';
 
+const statusTypes = {
+  PRE_RELEASE: {
+    title: 'Tickets will go live on',
+    subtitle: '',
+    buttonText: 'FREE TICKET AVAILABLE SOON',
+  },
+  TICKETS_LIVE: {
+    title: 'Tickets live',
+    subtitle: 'To get yours, go to ',
+    buttonText: 'Free Ticket',
+    linkType: 'ticketLink',
+  },
+  WAITLIST: {
+    title: 'Tickets now sold out',
+    subtitle: 'Join the waiting list on ',
+    buttonText: 'Join Waitlist',
+    linkType: 'ticketLink',
+  },
+  LIVE_STREAM: {
+    title: 'Tickets now sold out',
+    subtitle: 'Didn’t make it to the meetup? We got your back.',
+    buttonText: 'Join Live Stream',
+    linkType: 'streamingLink',
+  },
+  EVENT_ENDED: {
+    title: 'This event has ended',
+    subtitle: 'Tickets now sold out',
+    buttonText: 'Watch Video',
+    linkType: 'streamingLink',
+  },
+};
+
 export function getTicketProvider(link) {
   if (link.includes('skillsmatter')) {
     return 'Skillsmatter';
@@ -19,7 +51,7 @@ export function getTicketStatusSubtitle(event, ticketStatusOptions) {
   }
   return ticketStatusOptions.subtitle;
 }
-export function getTicketStatusOptions(event, statusTypes) {
+export function getTicketStatusOptions(event) {
   const ticketStatusOptions = statusTypes[event.status];
   if (ticketStatusOptions) {
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
