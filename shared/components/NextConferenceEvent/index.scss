@@ -9,6 +9,10 @@
     line-height: 2em;
     margin-top: 20px;
   }
+
+  &__Speaker {
+    width: 100%;
+  }
   &__calendar {
     border-radius: 5px;
     line-height: 36px;
@@ -195,6 +199,10 @@
     }
     &__link--date {
       margin-top: 0px;
+    }
+    &__Speaker {
+      width: 30%;
+      display: inline-block;
     }
 
     &__details,
