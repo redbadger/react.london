@@ -1,16 +1,53 @@
 import React, { PropTypes } from 'react';
 import { ExternalLink } from '../ExternalLink';
-
+import { ticketType } from '../../prop-types/ticket-type';
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
+const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/with/ltudhizmicy';
 
-const NextConferenceEvent = ({ calendarURL }) => (
+const TicketStatus = (props) => {
+  const ticketsAvailable = props.tickets.some((ticket) => ticket.available);
+  if (ticketsAvailable) {
+    return (
+      <div className="NextConferenceEvent__save-the-date">
+        <h3>
+          Grab your ticket before they go
+        </h3>
+        <ExternalLink
+          className="NextConferenceEvent__ticket"
+          href={conferenceTicketURL}
+        >
+          GET ME A TICKET
+        </ExternalLink>
+      </div>
+    );
+  }
+  return (
+    <div className="NextConferenceEvent__save-the-date">
+      <h3>
+        Save the date
+      </h3>
+      <ExternalLink
+        className="NextConferenceEvent__calendar"
+        href={conferenceTicketURL}
+      >
+        Add to calendar
+      </ExternalLink>
+    </div>
+  );
+};
+
+TicketStatus.propTypes = {
+  tickets: PropTypes.arrayOf(ticketType),
+};
+
+const NextConferenceEvent = ({ calendarURL, tickets }) => (
   <section className="NextConferenceEvent block">
     <div className="content">
+      <h2 className="NextConferenceEvent__header">
+        React London 2017
+      </h2>
       <article className="NextConferenceEvent__section-container">
         <div className="NextConferenceEvent__details">
-          <h3>
-            React London 2017
-          </h3>
           <ul>
             <li>
               <ExternalLink
@@ -30,20 +67,9 @@ const NextConferenceEvent = ({ calendarURL }) => (
             </li>
           </ul>
         </div>
+        <TicketStatus tickets={tickets} />
 
         {/* middle */}
-
-        <div className="NextConferenceEvent__save-the-date">
-          <h3>
-            Save the date
-          </h3>
-          <ExternalLink
-            className="NextConferenceEvent__btn"
-            href={calendarURL}
-          >
-            Add to calendar
-          </ExternalLink>
-        </div>
       </article>
       <div className="NextConferenceEvent__accomodation">
         <h2>Plan your visit</h2>

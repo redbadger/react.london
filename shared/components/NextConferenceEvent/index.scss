@@ -3,7 +3,13 @@
   border-top: $solid-border;
   background-color: $conference-color-faded;
   padding: 20px 0px;
-  &__btn {
+  &__header {
+    margin: 0;
+    border-bottom: $dash-border;
+    line-height: 2em;
+    margin-top: 20px;
+  }
+  &__calendar {
     border-radius: 5px;
     line-height: 36px;
     border: 0px;
@@ -22,6 +28,27 @@
       &:hover {
         color: $white;
         background-image: url("/img/SVG/G_white.svg");
+      }
+    }
+  }
+  &__ticket {
+    border-radius: 5px;
+    line-height: 36px;
+    border: 0px;
+    padding: 3px 18px;
+    color: $conference-color-faded;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: inline-block;
+    background: no-repeat 17px 10px $red-badger-color;
+    background-size: 22px 22px;
+    font-size: 16px;
+
+    &[href]{
+      &:focus,
+      &:hover {
+        color: $white;
       }
     }
   }
@@ -159,11 +186,15 @@
   .NextConferenceEvent {
     padding: 40px 0px;
     &__section-container {
+      padding-top: 20px;
       flex-flow: row wrap;
 
       > * {
         width: 50%;
       }
+    }
+    &__link--date {
+      margin-top: 0px;
     }
 
     &__details,
