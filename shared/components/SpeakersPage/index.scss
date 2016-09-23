@@ -10,6 +10,9 @@
 .speakers-list-intro {
   max-width: $maximum-content-width;
   margin: 0 20px 40px;
+  > p {
+    font-size: 20px;
+  }
 }
 
 .no-cfp-announcement {

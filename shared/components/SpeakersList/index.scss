@@ -9,6 +9,28 @@
   margin: 0 auto;
   padding: 0;
 
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__btn {
+    border-radius: 6px;
+    border: 0px;
+
+    padding: 12px 20px 12px 20px;
+    color: $conference-color-faded;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: $grey;
+    display: inline-block;
+
+    font-size: 20px;
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+  }
   & > ul {
     max-width: $maximum-content-width;
     padding: 0;
@@ -17,8 +39,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    border-bottom: $dash-border;
-
     & > li {
       list-style-type: none;
       padding: 0 40px 40px 0;

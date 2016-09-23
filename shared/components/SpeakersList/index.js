@@ -41,9 +41,16 @@ const SpeakersList = ({ speakers }) => {
           <ul>
             {speakerList}
           </ul>
-        </div>
-        <div className="more-speakers-announcement">
-          More speakers will be announced soon
+          <div className="speakers-list__btn-container">
+            <a
+              rel="noopener"
+              target="_blank"
+              href="mailto:hello@react.london?subject=Partnership Enquiry- React London 2017"
+              className="speakers-list__btn"
+            >
+              Interested in speaking?
+            </a>
+          </div>
         </div>
       </section>
     );
