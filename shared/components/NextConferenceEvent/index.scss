@@ -200,11 +200,11 @@
     &__link--date {
       margin-top: 0px;
     }
+
     &__Speaker {
-      width: 30%;
+      width: 48%;
       display: inline-block;
     }
-
     &__details,
     &__save-the-date {
       padding-top: 0;
@@ -219,6 +219,15 @@
 
     &__save-the-date {
       padding-left: 20px;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .NextConferenceEvent {
+    &__Speaker {
+      width: 30%;
+      display: inline-block;
     }
   }
 }
