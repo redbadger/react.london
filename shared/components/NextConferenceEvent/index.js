@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { ExternalLink } from '../ExternalLink';
 import { ticketType } from '../../prop-types/ticket-type';
+import Speaker from '../Speaker';
+
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/with/ltudhizmicy';
 
@@ -40,7 +42,7 @@ TicketStatus.propTypes = {
   tickets: PropTypes.arrayOf(ticketType),
 };
 
-const NextConferenceEvent = ({ calendarURL, tickets }) => (
+const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
   <section className="NextConferenceEvent block">
     <div className="content">
       <h2 className="NextConferenceEvent__header">
@@ -71,6 +73,17 @@ const NextConferenceEvent = ({ calendarURL, tickets }) => (
 
         {/* middle */}
       </article>
+      <div className="NextConferenceEvent__accomodation">
+        <h2>On stage</h2>
+        {speakers && speakers.map((speaker, index) => {
+          return (
+            <div className="NextConferenceEvent__Speaker" key={index}>
+              <Speaker {...speaker} />
+            </div>
+          );
+        })}
+        <h3>More speakers to be announced</h3>
+      </div>
       <div className="NextConferenceEvent__accomodation">
         <h2>Plan your visit</h2>
         <p>
