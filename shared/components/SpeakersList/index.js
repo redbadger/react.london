@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 import speakerType from '../../prop-types/speaker-type';
 import SpeakerSocialLinks from '../SpeakerSocialLinks';
-
+import { ExternalLink } from '../ExternalLink';
 export const getSpeakerAvatarImage = (imageURL, speakerName) => {
   if (imageURL) {
     return (<img
@@ -42,14 +42,12 @@ const SpeakersList = ({ speakers }) => {
             {speakerList}
           </ul>
           <div className="speakers-list__btn-container">
-            <a
-              rel="noopener"
-              target="_blank"
+            <ExternalLink
               href="https://www.papercall.io/reactlondon2017"
               className="speakers-list__btn"
             >
               Interested in speaking?
-            </a>
+            </ExternalLink>
           </div>
         </div>
       </section>
