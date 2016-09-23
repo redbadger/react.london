@@ -45,7 +45,7 @@ const SpeakersList = ({ speakers }) => {
             <a
               rel="noopener"
               target="_blank"
-              href="mailto:hello@react.london?subject=Partnership Enquiry- React London 2017"
+              href="https://www.papercall.io/reactlondon2017"
               className="speakers-list__btn"
             >
               Interested in speaking?
