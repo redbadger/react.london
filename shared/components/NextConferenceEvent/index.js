@@ -74,7 +74,7 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
         {/* middle */}
       </article>
       <div className="NextConferenceEvent__accomodation">
-        <h2>On Stage</h2>
+        <h2>On stage</h2>
         {speakers && speakers.map((speaker, index) => {
           return (
             <div className="NextConferenceEvent__Speaker" key={index}>
