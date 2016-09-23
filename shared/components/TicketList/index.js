@@ -1,14 +1,6 @@
 import React, { PropTypes } from 'react';
 import { formatDate } from '../../utilities/date';
-
-export const ticketType = PropTypes.shape({
-  title: PropTypes.string,
-  releaseDate: PropTypes.shape({
-    iso: PropTypes.string,
-  }),
-  available: PropTypes.bool,
-  price: PropTypes.string,
-});
+import { ticketType } from '../../prop-types/speaker-type';
 
 const TicketPrice = ({ ticket }) => {
   return (

@@ -9,7 +9,7 @@ const NavigationBar = () => (
       <ul className="content">
         <li>
           <Link activeClassName="active" to="/">
-            About
+            Home
           </Link>
         </li>
         <li>
