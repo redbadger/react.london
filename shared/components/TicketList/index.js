@@ -26,7 +26,7 @@ export function BuyTickets({ tickets }) {
     return (
       <ExternalLink
         className="TicketList__booking-btn TicketList__booking-btn--active"
-        href="https://ti.to/red-badger/react-london-2017/with/ltudhizmicy"
+        href="https://ti.to/red-badger/react-london-2017/"
       >
         GET ME A TICKET
       </ExternalLink>
