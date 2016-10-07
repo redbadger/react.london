@@ -5,10 +5,7 @@ import { ticketType } from '../../prop-types/speaker-type';
 
 export function isSoldOut(ticket) {
   const currentDateTime = moment();
-  if (!ticket.available && isAfter(currentDateTime, ticket.releaseDate)) {
-    return true;
-  }
-  return false;
+  return !ticket.available && isAfter(currentDateTime, ticket.releaseDate);
 }
 
 const TicketPrice = ({ ticket }) => {
@@ -85,9 +82,6 @@ const TicketList = ({ tickets }) => {
       <div className="TicketList__booking-btn__container">
         <BuyTickets tickets={tickets} />
       </div>
-      {/* <div className="TicketList_TCs">
-        for T&Cs about tickets, please see <strong>ti.to</strong>
-      </div>*/}
     </section>
   );
 };
