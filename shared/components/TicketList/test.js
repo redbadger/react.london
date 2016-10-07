@@ -1,6 +1,7 @@
 import React from 'react';
-import TicketList from '.';
+import TicketList, { isSoldOut } from '.';
 import { mount, shallow } from 'enzyme';
+import tk from 'timekeeper';
 
 describe('TicketList component', () => {
   it('can render okay without any passed properties', () => {
@@ -41,8 +42,43 @@ describe('TicketList component', () => {
       ];
       const element = mount(<TicketList tickets={tickets} />);
       expect(element.find('.TicketList__ticket').childAt(0).text()).to.equal('Early Bird');
-      expect(element.find('.TicketList__ticket').childAt(1).text()).to.equal('Available Soon');
+      expect(element.find('.TicketList__ticket').childAt(1).text()).to.equal('');
       expect(element.find('.TicketList__ticket').childAt(2).text()).to.equal('SOLD OUT');
     }
   );
+});
+describe('isSoldOut', () => {
+  it(
+    'expects isSoldOut to return true if tickets are NOT available and is after the release Date'
+    , () => {
+      tk.freeze(new Date('2016-07-24T20:30:00+0000'));
+      const ticket = {
+        releaseDate: '2016-06-24T20:30:00+0000',
+        available: false,
+      };
+      const result = isSoldOut(ticket);
+      expect(result).to.equal(true);
+    });
+  it(
+    'expects isSoldOut to return false if tickets are NOT available and is before the release Date'
+    , () => {
+      tk.freeze(new Date('2016-05-24T20:30:00+0000'));
+      const ticket = {
+        releaseDate: '2016-06-24T20:30:00+0000',
+        available: false,
+      };
+      const result = isSoldOut(ticket);
+      expect(result).to.equal(false);
+    });
+  it(
+    'expects isSoldOut to return false if tickets ARE available is before the release Date'
+    , () => {
+      tk.freeze(new Date('2016-05-24T20:30:00+0000'));
+      const ticket = {
+        releaseDate: '2016-06-24T20:30:00+0000',
+        available: true,
+      };
+      const result = isSoldOut(ticket);
+      expect(result).to.equal(false);
+    });
 });

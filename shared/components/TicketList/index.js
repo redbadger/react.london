@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react';
-import { formatDate } from '../../utilities/date';
+import moment from 'moment';
+import { formatDate, isAfter } from '../../utilities/date';
 import { ticketType } from '../../prop-types/speaker-type';
 
+export function isSoldOut(ticket) {
+  const currentDateTime = moment();
+  return !ticket.available && isAfter(currentDateTime, ticket.releaseDate);
+}
+
 const TicketPrice = ({ ticket }) => {
+  const isTicketSoldOut = isSoldOut(ticket);
   return (
-    <strong>{ticket.available ? `£${ticket.price}` : 'SOLD OUT'}</strong>
+    <strong>{!isTicketSoldOut ? `£${ticket.price}` : 'SOLD OUT'}</strong>
   );
 };
 
@@ -12,15 +19,23 @@ TicketPrice.propTypes = {
   ticket: ticketType,
 };
 
-export function BuyTickets() {
-  return (
-    <div className="TicketList__booking-btn__container">
+export function BuyTickets({ tickets }) {
+  const ticketsAvailable = tickets.some((ticket) => ticket.available);
+  if (ticketsAvailable) {
+    return (
       <a
-        className="TicketList__booking-btn TicketList__booking-btn--disabled"
+        className="TicketList__booking-btn TicketList__booking-btn--active"
       >
-        Tickets not yet available
+        Get me a Ticket
       </a>
-    </div>
+    );
+  }
+  return (
+    <a
+      className="TicketList__booking-btn TicketList__booking-btn--disabled"
+    >
+      Tickets not yet available
+    </a>
   );
 }
 
@@ -29,14 +44,19 @@ BuyTickets.propTypes = {
 };
 
 export function getTicketReleaseDate(ticket) {
-  if (!ticket.available || !ticket.releaseDate || !ticket.releaseDate.iso) {
+  const isTicketSoldOut = isSoldOut(ticket);
+  if (isTicketSoldOut) {
+    return '';
+  }
+  if (!ticket.releaseDate || !ticket.releaseDate.iso) {
     return 'Available Soon';
   }
   return 'Available ' + formatDate(ticket.releaseDate.iso, 'Do MMMM, YYYY');
 }
 
 function getTicketClass(ticket) {
-  if (!ticket.available) {
+  const isTicketSoldOut = isSoldOut(ticket);
+  if (isTicketSoldOut) {
     return ' TicketList__ticket--notAvailable';
   }
   return '';
@@ -55,14 +75,13 @@ const TicketList = ({ tickets }) => {
               <td className="TicketList__ticket__date">{getTicketReleaseDate(ticket)}</td>
               <td className="TicketList__ticket__price"><TicketPrice ticket={ticket} /></td>
             </tr>
-            )
+          )
           )}
         </tbody>
       </table>
-      <BuyTickets tickets={tickets} />
-      {/* <div className="TicketList_TCs">
-        for T&Cs about tickets, please see <strong>ti.to</strong>
-      </div>*/}
+      <div className="TicketList__booking-btn__container">
+        <BuyTickets tickets={tickets} />
+      </div>
     </section>
   );
 };
