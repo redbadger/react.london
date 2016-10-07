@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import moment from 'moment';
 import { formatDate, isAfter } from '../../utilities/date';
 import { ticketType } from '../../prop-types/speaker-type';
+import { ExternalLink } from '../ExternalLink';
 
 export function isSoldOut(ticket) {
   const currentDateTime = moment();
@@ -23,19 +24,20 @@ export function BuyTickets({ tickets }) {
   const ticketsAvailable = tickets.some((ticket) => ticket.available);
   if (ticketsAvailable) {
     return (
-      <a
+      <ExternalLink
         className="TicketList__booking-btn TicketList__booking-btn--active"
+        href="https://ti.to/red-badger/react-london-2017/with/ltudhizmicy"
       >
-        Get me a Ticket
-      </a>
+        GET ME A TICKET
+      </ExternalLink>
     );
   }
   return (
-    <a
+    <ExternalLink
       className="TicketList__booking-btn TicketList__booking-btn--disabled"
     >
       Tickets not yet available
-    </a>
+    </ExternalLink>
   );
 }
 
