@@ -4,7 +4,7 @@ import { ticketType } from '../../prop-types/ticket-type';
 import Speaker from '../Speaker';
 
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
-const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/with/ltudhizmicy';
+const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/';
 
 const TicketStatus = (props) => {
   const ticketsAvailable = props.tickets.some((ticket) => ticket.available);
