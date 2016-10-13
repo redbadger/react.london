@@ -9,6 +9,7 @@ import { setDataSource } from './data';
 import * as badgerBrain from './data/badger-brain';
 import isMeetupRequest from '../shared/utilities/meetup-request';
 import { getEnvVar } from './env';
+import robotsTxt from './robots';
 
 const app = express();
 
@@ -35,6 +36,8 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(express.static('dist'));
   app.use(express.static('assets'));
 }
+
+app.get('/robots.txt', robotsTxt);
 
 app.use((req, res) => {
   if (isMeetupRequest(req)) {
