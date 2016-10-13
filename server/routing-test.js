@@ -11,6 +11,14 @@ describe('server routing', () => {
     });
   });
 
+  describe('GET /robots.txt', () => {
+    it('returns 200', () => {
+      return request(app)
+        .get('/robots.txt')
+        .expect(200);
+    });
+  });
+
   describe('when the hostname is meetup.react.london', () => {
     function get(path) {
       return request(app)

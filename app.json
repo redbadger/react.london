@@ -10,6 +10,7 @@
     "RAVEN_SENTRY_URI": {
       "required": true
     },
+    "BLOCK_CRAWLERS": "yes",
     "NODE_ENV": "production"
   },
   "formation": {
