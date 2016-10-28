@@ -46,6 +46,10 @@ describe('TicketList component', () => {
       expect(element.find('.TicketList__ticket').childAt(2).text()).to.equal('SOLD OUT');
     }
   );
+
+  it('does not die with no tickets', () => {
+    mount(<TicketList />);
+  });
 });
 describe('isSoldOut', () => {
   it(

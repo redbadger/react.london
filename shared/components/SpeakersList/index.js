@@ -58,7 +58,7 @@ const SpeakersList = ({ speakers }) => {
 };
 
 SpeakersList.propTypes = {
-  speakers: PropTypes.arrayOf(speakerType).isRequired,
+  speakers: PropTypes.arrayOf(speakerType),
 };
 
 export default SpeakersList;

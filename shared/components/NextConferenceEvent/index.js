@@ -7,7 +7,8 @@ const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/';
 
 const TicketStatus = (props) => {
-  const ticketsAvailable = props.tickets.some((ticket) => ticket.available);
+  const tickets = props.tickets || [];
+  const ticketsAvailable = tickets.some((ticket) => ticket.available);
   if (ticketsAvailable) {
     return (
       <div className="NextConferenceEvent__save-the-date">
@@ -39,7 +40,7 @@ const TicketStatus = (props) => {
 };
 
 TicketStatus.propTypes = {
-  tickets: PropTypes.arrayOf(ticketType),
+  tickets: PropTypes.arrayOf(PropTypes.shape(ticketType)),
 };
 
 const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
