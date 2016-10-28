@@ -17,11 +17,11 @@ const TicketPrice = ({ ticket }) => {
 };
 
 TicketPrice.propTypes = {
-  ticket: ticketType,
+  ticket: PropTypes.shape(ticketType),
 };
 
 export function BuyTickets({ tickets }) {
-  const ticketsAvailable = tickets.some((ticket) => ticket.available);
+  const ticketsAvailable = tickets && tickets.some((ticket) => ticket.available);
   if (ticketsAvailable) {
     return (
       <ExternalLink
@@ -42,7 +42,7 @@ export function BuyTickets({ tickets }) {
 }
 
 BuyTickets.propTypes = {
-  tickets: PropTypes.arrayOf(ticketType),
+  tickets: PropTypes.arrayOf(PropTypes.shape(ticketType)),
 };
 
 export function getTicketReleaseDate(ticket) {
@@ -89,7 +89,7 @@ const TicketList = ({ tickets }) => {
 };
 
 TicketList.propTypes = {
-  tickets: PropTypes.arrayOf(ticketType),
+  tickets: PropTypes.arrayOf(PropTypes.shape(ticketType)),
 };
 
 export default TicketList;
