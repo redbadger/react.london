@@ -1,15 +1,22 @@
-.DiversityTickets {
+.OpportunityTickets {
   background-color: $conference-color;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: $solid-border;
+
   p {
     font-size: 16px;
+  }
+
+  a {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #4a4a4a;
   }
 }
 
 @media (min-width: $tablet-portrait-width) {
-  .DiversityTickets {
+  .OpportunityTickets {
     p {
       font-size: 18px;
     }
