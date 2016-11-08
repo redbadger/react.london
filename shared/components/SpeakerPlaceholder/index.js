@@ -5,7 +5,7 @@ const Speaker = () => {
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
-        <img className="Speaker__photo--img" src={avatar} alt={'jskajskajskajsakjsakjsakjsksaj'} />
+        <img className="Speaker__photo--img" src={avatar} alt={'Speaker placeholder'} />
       </figure>
       <h5 className="Speaker__name">
         <div className="Speaker__name--bold">Could this be you?</div>
