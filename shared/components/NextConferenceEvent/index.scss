@@ -231,5 +231,9 @@
       width: 30%;
       display: inline-block;
     }
+    &__speakers {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }

@@ -3,12 +3,32 @@
   margin: 25px 0px 0px 0px;
 
   &__name {
-    margin: 0px;
+    margin: 20px 0px 0px 0px;
     font-size: 20px;
     font-weight: normal;
     &--bold {
       font-weight: bold;
     }
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: 0px;
+
+    padding: 12px 20px 12px 20px;
+    font-weight: bold;
+    color: $conference-color-faded;
+    text-decoration: none;
+    background-color: $grey;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+
   }
 
   &__title {
@@ -23,11 +43,6 @@
     margin: 0px;
   }
 
-  a {
-    font-weight: bold;
-    text-decoration: underline;
-    color: #4A4A4A;
-  }
 
   &__photo {
     width: 120px;

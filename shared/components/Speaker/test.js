@@ -29,6 +29,6 @@ describe('Speaker component', () => {
     };
     const element = shallow(<Speaker {...props} />);
     const image = element.find('img.Speaker__photo--img');
-    expect(image.props().src).to.equal('/img/PNG/Speaker_Anon.png');
+    expect(image.props().src).to.equal('/img/PNG/SpeakerGreen.png');
   });
 });
