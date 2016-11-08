@@ -3,7 +3,7 @@ import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
 
 const Speaker = (props) => {
-  const avatar = props.imageURL || '/img/PNG/Speaker_Anon.png';
+  const avatar = props.imageURL || '/img/PNG/SpeakerGreen.png';
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">

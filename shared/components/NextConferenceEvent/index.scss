@@ -222,6 +222,10 @@
     &__accomodation {
       padding-top: 20px;
     }
+    &__speakers {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }
 

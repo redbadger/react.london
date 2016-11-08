@@ -7,7 +7,8 @@ const ConferenceAbout = () => (
       <p>Red Badger is launching a new conference focused on React in London for
         2017 – we’re calling it <strong>React London 2017.</strong></p>
       <p>We’re bringing together some great speakers and events
-      – get involved! More details to follow soon.</p>
+        – get involved!
+      </p>
     </div>
   </section>
 );
