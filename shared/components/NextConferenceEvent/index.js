@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { ExternalLink } from '../ExternalLink';
 import { ticketType } from '../../prop-types/ticket-type';
 import SpeakerList from '../SpeakerList';
+import speakerType from '../../prop-types/speaker-type';
 
 const locationURL = 'https://goo.gl/maps/GkqTFrJKaUR2';
 const conferenceTicketURL = 'https://ti.to/red-badger/react-london-2017/';
@@ -102,5 +103,6 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
 
 NextConferenceEvent.propTypes = {
   calendarURL: PropTypes.string,
+  speakers: PropTypes.arrayOf(speakerType),
 };
 export default NextConferenceEvent;

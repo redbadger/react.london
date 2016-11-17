@@ -1,0 +1,110 @@
+.SpeakersPageContent {
+  border-top: $solid-border;
+  background-color: $conference-color-faded;
+  padding: 20px 0px;
+  &__header {
+    margin: 0;
+    border-bottom: $dash-border;
+    line-height: 2em;
+  }
+
+  &__Speaker {
+    width: 100%;
+  }
+  &__section {
+    padding: 10px 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 7px;
+      font-size: 20px;
+    }
+  }
+
+  &__section-container {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+
+  $vert-spacing: 30px;
+
+  &__details {
+    border-bottom: $dash-border;
+    padding-bottom: $vert-spacing;
+  }
+
+  &__save-the-date {
+    padding-top: $vert-spacing;
+
+    h3 {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .NextConferenceEvent {
+    padding: 40px 0px;
+    &__section-container {
+      padding-top: 20px;
+      flex-flow: row wrap;
+
+      > * {
+        width: 50%;
+      }
+    }
+    &__link--date {
+      margin-top: 0px;
+    }
+
+    &__Speaker {
+      width: 48%;
+      display: inline-block;
+    }
+    &__details,
+    &__save-the-date {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &__details {
+      border-right: $dash-border;
+      border-bottom: none;
+      padding-right: 20px;
+    }
+
+    &__save-the-date {
+      padding-left: 20px;
+    }
+    &__accomodation {
+      padding-top: 20px;
+    }
+    &__speakers {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .NextConferenceEvent {
+    &__Speaker {
+      width: 30%;
+      display: inline-block;
+    }
+  }
+}
