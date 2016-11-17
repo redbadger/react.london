@@ -2,8 +2,8 @@
 
 import React, { PropTypes } from 'react';
 import Speaker from '../Speaker';
+import SpeakerPlaceholder from '../SpeakerPlaceholder';
 import speakerType from '../../prop-types/speaker-type';
-import { ExternalLink } from '../ExternalLink';
 
 const SpeakersList = ({ speakers }) => {
   if (speakers && Array.isArray(speakers) && speakers.length) {
@@ -20,15 +20,8 @@ const SpeakersList = ({ speakers }) => {
         <div className="speakers-list">
           <ul>
             {speakerList}
+            <SpeakerPlaceholder />
           </ul>
-          <div className="speakers-list__btn-container">
-            <ExternalLink
-              href="https://www.papercall.io/reactlondon2017"
-              className="speakers-list__btn"
-            >
-              Interested in speaking?
-            </ExternalLink>
-          </div>
         </div>
       </section>
     );
