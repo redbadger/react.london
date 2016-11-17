@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import speakerType from '../../prop-types/speaker-type';
-import SpeakerList from '../SpeakersList';
+import SpeakerList from '../SpeakerList';
 import MailingList from '../MailingList';
 
 const SpeakersPage = ({ speakers }) => {
