@@ -5,6 +5,9 @@ import SpeakersPageContent from '../SpeakersPageContent';
 import MailingList from '../MailingList';
 
 const SpeakersPage = (props) => {
+  // TODO: remove excess scss from the SpeakersPageAbout and
+  // SpeakersPageContent section
+
   return (
     <div className="SpeakersPage">
       <SpeakersPageAbout />
