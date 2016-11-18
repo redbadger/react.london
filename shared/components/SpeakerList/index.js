@@ -5,7 +5,7 @@ import Speaker from '../Speaker';
 import SpeakerPlaceholder from '../SpeakerPlaceholder';
 import speakerType from '../../prop-types/speaker-type';
 
-const SpeakersList = ({ speakers }) => {
+const SpeakerList = ({ speakers }) => {
   if (speakers && Array.isArray(speakers) && speakers.length) {
     const speakerList = speakers.map((speaker) => {
       return (
@@ -32,8 +32,8 @@ const SpeakersList = ({ speakers }) => {
   return null;
 };
 
-SpeakersList.propTypes = {
+SpeakerList.propTypes = {
   speakers: PropTypes.arrayOf(speakerType),
 };
 
-export default SpeakersList;
+export default SpeakerList;
