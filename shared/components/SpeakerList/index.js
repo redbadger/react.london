@@ -20,7 +20,9 @@ const SpeakersList = ({ speakers }) => {
         <div className="speakers-list">
           <ul>
             {speakerList}
-            <SpeakerPlaceholder />
+            <li>
+              <SpeakerPlaceholder />
+            </li>
           </ul>
         </div>
       </section>

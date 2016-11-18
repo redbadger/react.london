@@ -1,28 +1,8 @@
 .SpeakersPageContent {
+  padding: 20px 0;
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 20px 0px;
-  &__preamble {
-    margin: 0 20px;
+  p {
     font-size: 20px;
-  }
-}
-
-@media (min-width: $tablet-portrait-width) {
-  .SpeakersPageContent {
-    padding: 40px 0px;
-    &__section-container {
-      padding-top: 20px;
-      flex-flow: row wrap;
-
-      > * {
-        width: 50%;
-      }
-    }
-  }
-}
-
-@media (min-width: $tablet-width) {
-  .SpeakersPageContent {
   }
 }

@@ -1,6 +1,6 @@
 .speakers-list-container {
   background-color: $conference-color-faded;
-  padding: 40px 20px;
+  padding: 0;
 }
 
 .speakers-list {
@@ -40,13 +40,9 @@
     justify-content: flex-start;
     & > li {
       list-style-type: none;
-      padding: 0 40px 40px 0;
+      padding: 0;
       flex-basis: 300px;
       flex-grow: 1;
-
-      &:last-child {
-        padding: 0 0 40px 0;
-      }
     }
   }
 }
@@ -103,7 +99,7 @@
 
 @media (min-width: $tablet-width) {
   .speakers-list-container {
-    padding: 40px 0;
+    padding: 0;
   }
 
   .speakers-list {

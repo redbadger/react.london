@@ -1,5 +1,5 @@
 .SpeakersPage {
-  margin: 40px auto 0;
+  padding: 0 0;
 
   h1 {
     font-size: 1.5em;
@@ -7,8 +7,8 @@
   }
 
   &__no-cfp {
-    margin: auto;
-    padding: 40px 20px;
+    margin: 22px 0 0 0;
+    padding-bottom: 22px;
     border-bottom: $solid-border;
 
     p {
@@ -16,22 +16,11 @@
       margin: 0 auto;
       font-size: 20px;
     }
+  }
 }
 
 @media (min-width: $tablet-width) {
-  .speakers-list-intro {
-    margin: 0 auto 40px;
-    padding-left: 20px;
-  }
-
-  .speakers-panel-description {
-    margin: 0 auto 40px;
-    padding-left: 20px;
-  }
-
-  .no-cfp-announcement {
-    p {
-      padding: 0 20px;
-    }
+  .SpeakersPage {
+    padding: 0px 0px;
   }
 }
