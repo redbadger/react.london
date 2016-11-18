@@ -9,12 +9,6 @@
 
   h2, p {
     font-size: 16px;
-    @media (min-width: $tablet-portrait-width) {
-      font-size: 20px;
-    }
-    @media (min-width: $tablet-width) {
-      font-size: 24px;
-    }
   }
 
   h2 {
@@ -35,6 +29,16 @@
 
     h2, p:first-of-type {
       margin-bottom: 10px;
+    }
+
+    h2, p {
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: $tablet-portrait-width) {
+    h2, p {
+      font-size: 20px;
     }
   }
 }

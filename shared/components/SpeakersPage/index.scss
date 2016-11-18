@@ -5,35 +5,17 @@
     font-size: 1.5em;
     margin-left: 20px;
   }
-}
 
-.speakers-list-intro {
-  max-width: $maximum-content-width;
-  margin: 0 20px 40px;
-  > p {
-    font-size: 20px;
-  }
-}
+  &__no-cfp {
+    margin: auto;
+    padding: 40px 20px;
+    border-bottom: $solid-border;
 
-.speakers-panel-description {
-  max-width: $maximum-content-width;
-  margin: 0 20px 40px;
-  > p {
-    font-size: 20px;
-  }
-  background-color: $conference-color-faded;
-}
-
-.no-cfp-announcement {
-  margin: auto;
-  padding: 40px 20px;
-  border-bottom: $solid-border;
-
-  p {
-    max-width: $maximum-content-width;
-    margin: 0 auto;
-    font-size: 20px;
-  }
+    p {
+      max-width: $maximum-content-width;
+      margin: 0 auto;
+      font-size: 20px;
+    }
 }
 
 @media (min-width: $tablet-width) {
