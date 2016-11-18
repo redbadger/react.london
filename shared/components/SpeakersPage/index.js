@@ -3,6 +3,7 @@ import speakerType from '../../prop-types/speaker-type';
 import SpeakersPageAbout from '../SpeakersPageAbout';
 import SpeakersPageContent from '../SpeakersPageContent';
 import MailingList from '../MailingList';
+import { ExternalLink } from '../ExternalLink';
 
 const SpeakersPage = (props) => {
   return (
@@ -12,9 +13,15 @@ const SpeakersPage = (props) => {
       <section className="block SpeakersPage__no-cfp">
         <div className="content">
           <p>
-            In order to ensure the day is packed with the freshest,
-            newest content our call for papers will not open until November.
-            We will announce the full speaker line up in February.
+            There are 6 speaking slots up for grabs as well as
+            4 lightning talks - we want to hear from you!
+            Check out the call for papers
+            <ExternalLink
+              href="https://www.papercall.io/reactlondon2017"
+              className="become-speaker-link"
+            >
+              here
+            </ExternalLink>
           </p>
         </div>
       </section>
