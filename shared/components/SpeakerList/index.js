@@ -16,8 +16,8 @@ const SpeakerList = ({ speakers }) => {
     });
 
     return (
-      <section className="speakers-list-container">
-        <div className="speakers-list">
+      <section className="speaker-list-container">
+        <div className="speaker-list">
           <ul>
             {speakerList}
             <li>
