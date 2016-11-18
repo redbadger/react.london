@@ -20,14 +20,14 @@
     @extend .reset-spacing;
   }
 
-  h2, p:first-of-type {
+  h2:first-of-type {
     margin-bottom: 7px;
   }
 
   @media (min-width: $tablet-width) {
     margin: 30px 0px 40px 0px;
 
-    h2, p:first-of-type {
+    h2:first-of-type {
       margin-bottom: 10px;
     }
 
