@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 import React from 'react';
-import SpeakersList from '.';
+import SpeakerList from '.';
 import { shallow } from 'enzyme';
 
 const speakers = [
@@ -36,13 +36,13 @@ const speakers = [
   },
 ];
 
-describe('SpeakersList component', () => {
+describe('SpeakerList component', () => {
   it('can render', () => {
-    shallow(<SpeakersList speakers={speakers} />);
+    shallow(<SpeakerList speakers={speakers} />);
   });
 
   it('returns null if no speakers are provided', () => {
-    const wrapper = shallow(<SpeakersList />);
+    const wrapper = shallow(<SpeakerList />);
     expect(wrapper.text()).to.equal('');
   });
 });

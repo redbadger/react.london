@@ -1,41 +1,20 @@
 .SpeakersPage {
-  margin: 40px auto 0;
+  padding: 0;
 
   h1 {
     font-size: 1.5em;
     margin-left: 20px;
   }
-}
 
-.speakers-list-intro {
-  max-width: $maximum-content-width;
-  margin: 0 20px 40px;
-  > p {
-    font-size: 20px;
-  }
-}
+  &__no-cfp {
+    margin: 22px 0 0 0;
+    padding-bottom: 22px;
+    border-bottom: $solid-border;
 
-.no-cfp-announcement {
-  margin: auto;
-  padding: 40px 20px;
-  border-bottom: $solid-border;
-
-  p {
-    max-width: $maximum-content-width;
-    margin: 0 auto;
-    font-size: 20px;
-  }
-}
-
-@media (min-width: $tablet-width) {
-  .speakers-list-intro {
-    margin: 0 auto 40px;
-    padding-left: 20px;
-  }
-
-  .no-cfp-announcement {
     p {
-      padding: 0 20px;
+      max-width: $maximum-content-width;
+      margin: 0 auto;
+      font-size: 20px;
     }
   }
 }

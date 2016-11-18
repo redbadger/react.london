@@ -9,9 +9,6 @@
     line-height: 2em;
   }
 
-  &__Speaker {
-    width: 100%;
-  }
   &__calendar {
     border-radius: 5px;
     line-height: 36px;
@@ -200,10 +197,6 @@
       margin-top: 0px;
     }
 
-    &__Speaker {
-      width: 48%;
-      display: inline-block;
-    }
     &__details,
     &__save-the-date {
       padding-top: 0;
@@ -221,19 +214,6 @@
     }
     &__accomodation {
       padding-top: 20px;
-    }
-    &__speakers {
-      display: flex;
-      flex-wrap: wrap;
-    }
-  }
-}
-
-@media (min-width: $tablet-width) {
-  .NextConferenceEvent {
-    &__Speaker {
-      width: 30%;
-      display: inline-block;
     }
   }
 }

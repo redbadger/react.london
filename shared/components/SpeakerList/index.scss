@@ -1,0 +1,36 @@
+.speaker-list-container {
+  background-color: $conference-color-faded;
+  padding: 0;
+}
+
+.speaker-list {
+  max-width: $maximum-content-width;
+  margin: 0 auto;
+  padding: 0;
+
+  & > ul {
+    max-width: $maximum-content-width;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    & > li {
+      list-style-type: none;
+      padding: 0;
+      flex-basis: 300px;
+      flex-grow: 1;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .speaker-list-container {
+    padding: 0;
+  }
+
+  .speaker-list {
+    padding: 0 20px;
+  }
+}
