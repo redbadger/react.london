@@ -1,5 +1,5 @@
 .SpeakersPage {
-  padding: 0 0;
+  padding: 0;
 
   h1 {
     font-size: 1.5em;
@@ -16,11 +16,5 @@
       margin: 0 auto;
       font-size: 20px;
     }
-  }
-}
-
-@media (min-width: $tablet-width) {
-  .SpeakersPage {
-    padding: 0px 0px;
   }
 }
