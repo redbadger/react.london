@@ -1,7 +1,6 @@
 .TicketList {
   background-color: $conference-color-faded;
-  padding: 20px 0px;
-  padding-bottom: 40px;
+  padding: 10px 0px 40px 0px;
   border-top: $solid-border;
   .content {
     border-collapse: separate;
@@ -38,7 +37,6 @@
   }
   &__booking-btn__container{
     padding-top: 50px;
-    padding-bottom: 25px;
   }
   &__booking-btn {
     line-height: 36px;

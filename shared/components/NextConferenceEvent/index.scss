@@ -2,7 +2,7 @@
 .NextConferenceEvent {
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 20px 0px;
+  padding: 40px 0px;
   &__header {
     margin: 0;
     border-bottom: $dash-border;
@@ -184,7 +184,6 @@
 
 @media (min-width: $tablet-portrait-width) {
   .NextConferenceEvent {
-    padding: 40px 0px;
     &__section-container {
       padding-top: 20px;
       flex-flow: row wrap;
