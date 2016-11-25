@@ -2,14 +2,14 @@ import React from 'react';
 import PartnersSection from '../PartnersSection';
 
 function stripDescription(objects = []) {
-  return objects.map(({ name, imageURL, partnerURL }) => {
-    return { name, imageURL, partnerURL };
+  return objects.map(({ name, imageURL, url }) => {
+    return { name, imageURL, url };
   });
 }
 
 function stripText(objects = []) {
-  return objects.map(({ imageURL, partnerURL }) => {
-    return { imageURL, partnerURL };
+  return objects.map(({ imageURL, url }) => {
+    return { imageURL, url };
   });
 }
 

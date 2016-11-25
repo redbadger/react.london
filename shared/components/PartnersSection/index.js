@@ -3,13 +3,13 @@ import partnerType from '../../prop-types/partner-type';
 
 const defaultImage = '/img/PNG/partner.png';
 
-const Partner = ({ name, description, imageURL, partnerURL }) => {
+const Partner = ({ name, description, imageURL, url }) => {
   return (
     <li className="Partner">
-      <a href={partnerURL} target="_blank" rel="noopener">
+      <a href={url} target="_blank" rel="noopener">
         <img className="Partner__image" src={imageURL || defaultImage} alt={name} />
       </a>
-      {name && <a href={partnerURL} className="Partner__title">{name}</a>}
+      {name && <a href={url} className="Partner__title">{name}</a>}
       {description && <p className="Partner__description">{description}</p>}
     </li>
   );
