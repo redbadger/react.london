@@ -79,7 +79,7 @@ query {
     partners {
       name
       description
-      partnerURL
+      url
       imageURL
       level
       jobs {
