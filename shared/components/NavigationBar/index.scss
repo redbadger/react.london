@@ -99,7 +99,7 @@
       background-color: red;
       border-radius: 6px;
       text-transform: uppercase;
-      background-color: #d2091e;
+      background-color: $red-badger-color;
       color: #fff;
       cursor: pointer;
       text-decoration: none;
@@ -117,7 +117,7 @@
         background-color: $grey;
         color: $white;
         border: 2px solid white;
-        padding: 3px 13px;
+        padding: 3px 15px;
       }
     }
   }
@@ -174,11 +174,7 @@
         align-items: center;
         display: flex;
         flex: 1;
-        .ticket__button {
-          &.active {
-            margin-top: 3px;
-          }
-        }
+        margin-top: 3px;
       }
       &--mobile {
         display: none;

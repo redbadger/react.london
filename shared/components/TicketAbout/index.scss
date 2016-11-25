@@ -1,7 +1,6 @@
 .TicketAbout {
   background-color: $conference-color;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 0px;
 
   h2, p {
     font-size: 16px;
@@ -19,5 +18,9 @@
 
   h2 {
     margin-bottom: 10px;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 40px 0px;
   }
 }
