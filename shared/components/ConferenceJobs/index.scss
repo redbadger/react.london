@@ -1,24 +1,21 @@
 .ConferenceJobs {
   &__about {
     border-top: none;
-    padding: 22px 0px;
+    padding: 40px 0px;
     border-bottom: $solid-border;
 
-    h2, p {
-      font-size: 16px;
+    p {
+      font-size: 20px;
       line-height: 1.3;
-      margin: 0px;
       padding: 0px;
-      @media (min-width: $tablet-portrait-width) {
-        font-size: 20px;
-      }
-      @media (min-width: $tablet-width) {
-        font-size: 24px;
-      }
+      margin: 10px 0px 0px 0px;
     }
 
     h2 {
-      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.3;
+      margin: 0px;
+      padding: 0px;
     }
 
     @media (min-width: $tablet-width) {

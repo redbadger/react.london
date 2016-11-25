@@ -19,6 +19,9 @@ const ConferencePartners = (props) => {
     <div>
       <section className="block ConferencePartners__about">
         <div className="content">
+          <h2>
+            Partners
+          </h2>
           <p>
             React London 2017 is possible due to the kind support
             of<strong> our amazing partners</strong>.

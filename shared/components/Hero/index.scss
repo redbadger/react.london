@@ -28,26 +28,12 @@
 
   &__title {
     top: 140px;
+    font-size: 30px;
   }
 
   &__subtitle {
     top: 193px;
     font-size: 16px
-  }
-
-  @media (max-width: $tablet-portrait-width) {
-    height: 240px;
-    & > object, & > img, {
-      height: 240px;
-    }
-    &__title {
-      top: 130px;
-    }
-
-    &__subtitle {
-      top: 182px;
-      font-size: 16px
-    }
   }
 }
 
