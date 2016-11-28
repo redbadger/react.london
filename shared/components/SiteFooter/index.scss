@@ -72,6 +72,7 @@
     > * {
       position: relative;
       left: 220px;
+      top: 43px;
     }
 
     .SiteFooter__banner-title {
@@ -91,6 +92,10 @@
 
     .SiteFooter__banner-title {
       @include text-outline($events-color);
+    }
+
+    > * {
+      top: 78px;
     }
 
     .text-background {
