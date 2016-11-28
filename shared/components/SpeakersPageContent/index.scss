@@ -2,8 +2,15 @@
   padding: 40px 0px 26px 0px;
   border-top: $solid-border;
   background-color: $conference-color-faded;
+  border-bottom: $solid-border;
   p {
-    font-size: 20px;
-    margin: 0px 0px 20px 0px;
+    font-size: 16px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  &__header {
+    margin: 0;
+    border-bottom: 2px dashed #4a4a4a;
+    line-height: 2em;
   }
 }
