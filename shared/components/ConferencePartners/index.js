@@ -55,7 +55,7 @@ const ConferencePartners = (props) => {
 
       <div className="InterestedPartner block">
         <h3 className="InterestedPartner__heading">
-          Interested in becoming a partner? Get in touch!
+          Interested in becoming a partner? Get in touch.
         </h3>
         <div className="content">
           <a
