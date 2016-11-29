@@ -17,11 +17,11 @@
 
     padding: 12px 20px 12px 20px;
     font-weight: bold;
-    color: $conference-color-faded;
+    background-color: $red-badger-color;
     text-decoration: none;
-    background-color: $grey;
+    color: $white;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 14px;
     font-size: 16px;
 
     &:focus,

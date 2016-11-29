@@ -11,7 +11,6 @@
       margin: 0;
       padding: 0;
       flex-direction: column;
-      border-bottom: $solid-border;
       a {
         padding: 14px 0px 14px 55px;
         display: block;
@@ -92,14 +91,14 @@
     &--mobile {
       position: absolute;
       right: 20px;
-      top: 274px;
+      top: 294px;
     }
 
     .ticket__button {
       background-color: red;
       border-radius: 6px;
       text-transform: uppercase;
-      background-color: #d2091e;
+      background-color: $red-badger-color;
       color: #fff;
       cursor: pointer;
       text-decoration: none;
@@ -117,7 +116,7 @@
         background-color: $grey;
         color: $white;
         border: 2px solid white;
-        padding: 3px 13px;
+        padding: 3px 15px;
       }
     }
   }
@@ -139,7 +138,7 @@
     padding-right: 44px;
     &__links-container {
       flex: 6;
-      flex-direction: column;
+      justify-content: center;
       height: 54px;
       ul {
         display: flex;
@@ -149,6 +148,7 @@
           flex: 1;
           a {
             padding-left: 0;
+            border-bottom: 3px solid $grey;
           }
           .active {
             color: white;
@@ -174,11 +174,7 @@
         align-items: center;
         display: flex;
         flex: 1;
-        .ticket__button {
-          &.active {
-            margin-top: 3px;
-          }
-        }
+        margin-top: 3px;
       }
       &--mobile {
         display: none;

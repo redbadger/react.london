@@ -10,5 +10,8 @@
 @media (min-width: $tablet-portrait-width) {
   .EventSchedule {
     border-right: $dash-border;
+    &__schedule {
+      margin: 0 30px 0px 80px;
+    }
   }
 }

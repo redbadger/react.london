@@ -18,9 +18,9 @@
 
     display: inline-block;
 
-    font-size: 20px;
+    font-size: 16px;
     &--slack {
-      background: url("/img/SVG/Slack_green.svg") no-repeat 17px 14px $grey;
+      background: url("/img/SVG/Slack_green.svg") no-repeat 17px 11px $grey;
       &:focus,
       &:hover {
         color: $white;
@@ -28,11 +28,11 @@
       }
     }
     &--youtube {
-      background: url("/img/SVG/Youtube_green.svg") no-repeat 17px 18px $grey;
+      background: url("/img/SVG/Youtube_green.svg") no-repeat 17px 14px $grey;
       &:focus,
       &:hover {
         color: $white;
-        background: url("/img/SVG/Youtube.svg") no-repeat 17px 18px $grey;
+        background: url("/img/SVG/Youtube.svg") no-repeat 17px 14px $grey;
       }
     }
   }

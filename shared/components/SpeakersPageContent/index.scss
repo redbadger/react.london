@@ -1,8 +1,24 @@
 .SpeakersPageContent {
-  padding: 40px 0;
+  padding: 40px 0px 40px 0px;
+  padding: 40px 0px;
   border-top: $solid-border;
   background-color: $conference-color-faded;
+  border-bottom: $solid-border;
   p {
-    font-size: 20px;
+    font-size: 16px;
+    margin: 20px 0px 20px 0px;
+  }
+
+  &__header {
+    margin: 0;
+    border-bottom: 2px dashed #4a4a4a;
+    line-height: 2em;
   }
 }
+
+@media (min-width: $tablet-width) {
+  .SpeakersPageContent {
+    padding: 40px 0px 30px 0px;
+  }
+}
+

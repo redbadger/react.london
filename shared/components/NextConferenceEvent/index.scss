@@ -2,7 +2,7 @@
 .NextConferenceEvent {
   border-top: $solid-border;
   background-color: $conference-color-faded;
-  padding: 20px 0px;
+  padding: 40px 0px;
   &__header {
     margin: 0;
     border-bottom: $dash-border;
@@ -60,7 +60,7 @@
       margin-top: 20px;
     }
     > p {
-      font-size: 18px;
+      font-size: 16px;
     }
     *:last-child {
       margin-bottom: 0;
@@ -113,7 +113,7 @@
     margin-top: 20px;
     text-decoration: none;
     color: $grey;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   &__link--date {
@@ -184,7 +184,6 @@
 
 @media (min-width: $tablet-portrait-width) {
   .NextConferenceEvent {
-    padding: 40px 0px;
     &__section-container {
       padding-top: 20px;
       flex-flow: row wrap;
