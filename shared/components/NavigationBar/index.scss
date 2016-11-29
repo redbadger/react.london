@@ -11,7 +11,6 @@
       margin: 0;
       padding: 0;
       flex-direction: column;
-      border-bottom: $solid-border;
       a {
         padding: 14px 0px 14px 55px;
         display: block;
@@ -139,7 +138,7 @@
     padding-right: 44px;
     &__links-container {
       flex: 6;
-      flex-direction: column;
+      justify-content: center;
       height: 54px;
       ul {
         display: flex;
@@ -149,6 +148,7 @@
           flex: 1;
           a {
             padding-left: 0;
+            border-bottom: 3px solid $grey;
           }
           .active {
             color: white;
