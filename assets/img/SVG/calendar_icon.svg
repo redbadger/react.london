@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="31px" viewBox="0 0 28 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>E914F04F-C080-412F-B719-93321E16D041</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="2.1875" width="32.8125" height="32.8125"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32.8125" height="32.8125" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="4.921875" y="8.203125" width="22.96875" height="21.875"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="22.96875" height="21.875" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Schedule-L" transform="translate(-251.000000, -403.000000)">
+            <g id="calendar" transform="translate(251.000000, 404.000000)">
+                <g id="Group-22">
+                    <g id="Group-10" stroke="#4A4A4A">
+                        <use id="Rectangle-12" mask="url(#mask-2)" stroke-width="6" fill="#C6DDE7" xlink:href="#path-1"></use>
+                        <use id="Rectangle-13" mask="url(#mask-4)" stroke-width="6" fill="#FFFFFF" xlink:href="#path-3"></use>
+                        <g id="Group-7" transform="translate(4.921875, 0.000000)" stroke-width="3" stroke-linecap="square">
+                            <path d="M0.8203125,0.580291647 L0.8203125,4.83520196" id="Line"></path>
+                            <path d="M11.2109375,0.580291647 L11.2109375,4.83520196" id="Line-Copy"></path>
+                            <path d="M22.1484375,0.580291647 L22.1484375,4.83520196" id="Line-Copy-2"></path>
+                        </g>
+                    </g>
+                    <polygon id="+" fill="#4A4A4A" points="15.2775 19.87125 12.2675 19.87125 12.2675 17.84125 15.2775 17.84125 15.2775 14.60375 17.4475 14.60375 17.4475 17.84125 20.475 17.84125 20.475 19.87125 17.4475 19.87125 17.4475 23.10875 15.2775 23.10875"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

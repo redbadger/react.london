@@ -18,6 +18,11 @@ const NavigationBar = () => (
           </Link>
         </li>
         <li>
+          <Link activeClassName="active" to="/schedule">
+            Schedule
+          </Link>
+        </li>
+        <li>
           <Link activeClassName="active" to="/partners">
             Partners
           </Link>

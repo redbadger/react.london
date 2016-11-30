@@ -1,0 +1,70 @@
+.SchedulePageOverview {
+  border-bottom: $solid-border;
+  &__container {
+    flex-direction: row;
+    display: flex;
+  }
+
+  &__details {
+    flex-grow: 1;
+    padding: 40px 0px;
+
+    div:first-child {
+      margin-bottom: 10px;
+    }
+
+    div:last-child {
+      margin-top: 10px;
+    }
+  }
+
+  &__cfp {
+    flex-grow: 1;
+    padding: 40px 0px;
+    text-align: center;
+  }
+
+  &__date {
+    font-weight: 800;
+    font-size: 24px;
+    background: url(/img/SVG/calendar_icon.svg) no-repeat 0 0;
+    height: 26px;
+    padding-top: 2px;
+    padding-left: 35px;
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: 0;
+  }
+
+  &__cfp {
+    flex-grow: 1;
+    padding: 40px 0px;
+    text-align: center;
+  }
+
+  &__date {
+    font-weight: 800;
+    font-size: 24px;
+    background: url(/img/SVG/calendar_icon.svg) no-repeat 0 0;
+    height: 26px;
+    padding-top: 2px;
+    padding-left: 35px;
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: 0;
+    padding: 12px 20px;
+    font-weight: 700;
+    background-color: #fc1d42;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+
