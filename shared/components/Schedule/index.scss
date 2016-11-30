@@ -1,6 +1,6 @@
 .Schedule {
   background-color: $conference-color-faded;
-  padding: 80px 90px 40px 30px;
+  padding: 80px 40px 60px 30px;
   &__list {
     list-style-type: none;
     border-left: 2px dashed #4a4a4a;
@@ -47,3 +47,35 @@
     }
   }
 }
+
+
+.Schedule {
+  @media (min-width: $tablet-portrait-width) {
+    padding-top: 40px;
+    &__item--time {
+      margin: 20px 0px 20px 0px;
+      position: relative;
+      &:before {
+        content: attr(data-time);
+        text-align: right;
+        color: #4a4a4a;
+        position: absolute;
+        top: 0px;
+        left: -220px;
+      }
+      &:after {
+        margin-top: -12px;
+        content: "";
+        left: -48px;
+        width: 15px;
+        top: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #4a4a4a;
+        position: absolute;
+      }
+    }
+  }
+}
+
+

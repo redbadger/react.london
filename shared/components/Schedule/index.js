@@ -2,12 +2,12 @@ import React from 'react';
 
 const Schedule = () => {
   return (
-    <div className="Schedule">
+    <div className="Schedule block">
       <ol className="Schedule__list">
         <li>
           <p
             className="Schedule__item--time Schedule__item--first"
-            data-time="19:30"
+            data-time="8:30am – 9:30am"
           >
             Registration
           </p>
