@@ -23,7 +23,7 @@ const SchedulePageOverview = () => {
               target="_blank"
               rel="noopener"
             >
-              Call for speakers
+              Call for papers
             </a>
             <div>
               Closes 31 Jan
