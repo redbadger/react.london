@@ -22,7 +22,15 @@ const Schedule = () => {
           </li>
           <li>
             <p className="Schedule__item--time" data-time="12:40pm – 1:40pm">
-              Street food lunch catered by <span className="Schedule__caterer">Leiths</span>
+              Street food lunch catered by &#160;
+              <a
+                className="Schedule__caterer"
+                href="http://www.leithsdining.co.uk/our-food/"
+                target="_blank"
+                rel="noopener"
+              >
+                Leiths
+              </a>
             </p>
           </li>
           <li>
