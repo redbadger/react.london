@@ -19,6 +19,7 @@ Most importantly, we're utilising GDD (Gif Driven Development).
 ### Dev
 
 * Install [NodeJS](https://nodejs.org/en/)
+* Install [npm](https://www.npmjs.com)
 
 Add these lines to your hosts file
 
@@ -30,14 +31,24 @@ Add these lines to your hosts file
 Then you can access the community site from `meetup-dev.react.london:8080` and
 the conference site from `dev.react.london:8080`.
 
+Create a `.env` file with contents provided by an admin or copy from `.env.example`.
+
 ```sh
+# Update the current shell environment
+source .env
+
+# Install the dependencies
+npm install
+
 # Print task help
 make
 
-# Run the dev server
-make start
 # Run the dev frontend compiler
 make build
+
+# Run the dev server
+# (make build must be running)
+make start
 
 # Run the tests
 make test
