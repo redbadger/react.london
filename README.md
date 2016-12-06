@@ -19,7 +19,12 @@ Most importantly, we're utilising GDD (Gif Driven Development).
 ### Dev
 
 * Install [NodeJS](https://nodejs.org/en/)
-* Install [npm](https://www.npmjs.com)
+* Update [npm](https://www.npmjs.com)
+
+```
+npm install npm@latest -g
+
+```
 
 Add these lines to your hosts file
 
@@ -34,9 +39,6 @@ the conference site from `dev.react.london:8080`.
 Create a `.env` file with contents provided by an admin or copy from `.env.example`.
 
 ```sh
-# Update the current shell environment
-source .env
-
 # Install the dependencies
 npm install
 
