@@ -16,7 +16,8 @@ const Community = ({
   <div className="community">
     <div id="wrapper">
       <CommunityAbout summary={summary} />
-      {featuredEvents.map((each, index) => <NextCommunityEvent key={index} {...each} />)}
+      {featuredEvents.map((featuredEvent, index) =>
+        <NextCommunityEvent key={index} {...featuredEvent} />)}
       <InterestedSpeaker />
       <ExternalPlatforms />
       <FutureEvents events={futureEvents} />
