@@ -1,7 +1,7 @@
 const MAX_EVENTS = 3;
 
-function featuredEvent(events) {
-  return events.find(e => e.displayLevel === 'Featured' || e.displayLevel === 'Current') || {};
+function featuredEvents(events) {
+  return events.filter(e => e.displayLevel === 'Featured' || e.displayLevel === 'Current');
 }
 
 function futureEvents(events) {
@@ -19,12 +19,13 @@ export default function communityData(state) {
     mailingListSummary,
     events,
   } = state.community;
-  return {
+  const data = {
     title,
     summary,
     mailingListTitle,
     mailingListSummary,
-    featuredEvent: featuredEvent(events),
+    featuredEvents: featuredEvents(events),
     futureEvents: futureEvents(events),
   };
+  return data;
 }

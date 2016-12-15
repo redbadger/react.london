@@ -33,6 +33,9 @@ const statusTypes = {
 };
 
 export function getTicketProvider(link) {
+  if (!link) {
+    return 'our ticket provider\'s website';
+  }
   if (link.includes('skillsmatter')) {
     return 'Skillsmatter';
   }

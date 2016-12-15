@@ -83,6 +83,10 @@ describe('getTicketStatusOptions', () => {
 });
 
 describe('getTicketProvider', () => {
+  it('returns empty string if linkn is null', () => {
+    const link = null;
+    expect(getTicketProvider(link)).to.equal('our ticket provider\'s website');
+  });
   it('returns Skillsmatter if the link contains skillsmatter', () => {
     const link = 'http://skillsmatter.com';
     expect(getTicketProvider(link)).to.equal('Skillsmatter');
