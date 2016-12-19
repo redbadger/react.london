@@ -20,6 +20,7 @@ const fullProps = {
     },
   },
   calendarURL: 'http://www.google.com/cal',
+  featuredEventDescription: 'awesome description',
 };
 
 describe('NextCommunityEvent component', () => {
@@ -30,6 +31,8 @@ describe('NextCommunityEvent component', () => {
     expect(dateElement.props().href).to.equal('http://www.google.com/cal');
     const locText = elem.find('.NextCommunityEvent__link--place').text();
     expect(locText).to.equal(fullProps.location.address);
+    const featuredDescriptionElememtn = elem.find('.NextCommunityEvent__featured-description');
+    expect(featuredDescriptionElememtn.text()).to.equal('awesome description');
   });
 
   it('renders without crashing when passed no props', () => {

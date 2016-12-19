@@ -12,7 +12,7 @@ describe('getTicketStatusOptions', () => {
     expect(result).to.deep.equal({
       title: 'Tickets will go live on',
       subtitle: 'Sunday, 24th July 2016, 21:30',
-      buttonText: 'FREE TICKET AVAILABLE SOON',
+      buttonText: 'FREE TICKETS AVAILABLE SOON',
       buttonLink: undefined,
     });
   });
@@ -23,9 +23,9 @@ describe('getTicketStatusOptions', () => {
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
-      title: 'Tickets live',
+      title: 'Get your tickets before they are sold out.',
       subtitle: 'To get yours, go to our ticket provider\'s website',
-      buttonText: 'Free Ticket',
+      buttonText: 'Free Tickets',
       buttonLink: 'http://www.google.com',
       linkType: 'ticketLink',
     });
@@ -37,7 +37,7 @@ describe('getTicketStatusOptions', () => {
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
-      title: 'Tickets now sold out',
+      title: 'Tickets are sold out',
       subtitle: 'Join the waiting list on our ticket provider\'s website',
       buttonText: 'Join Waitlist',
       buttonLink: 'http://www.google.com',
@@ -51,9 +51,9 @@ describe('getTicketStatusOptions', () => {
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
-      title: 'Tickets now sold out',
+      title: 'Couldn\'t make it? Watch the event live.',
       subtitle: 'Didn’t make it to the meetup? We got your back.',
-      buttonText: 'Join Live Stream',
+      buttonText: 'Watch Live Stream',
       buttonLink: 'http://www.google.com',
       linkType: 'streamingLink',
     });
@@ -65,7 +65,7 @@ describe('getTicketStatusOptions', () => {
     };
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
-      title: 'This event has ended',
+      title: 'This event has ended. Watch the video here.',
       subtitle: 'Tickets now sold out',
       buttonText: 'Watch Video',
       buttonLink: 'http://www.google.com',

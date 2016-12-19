@@ -67,17 +67,17 @@ class NextCommunityEvent extends React.Component {
 
   render() {
     const featuredEvent = this.props;
-    const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
+    const { title, startDateTime, endDateTime, location, talks, calendarURL,
+      featuredEventDescription } = featuredEvent;
     const statusProps = getTicketStatusOptions(featuredEvent);
     return (
       <section className="NextCommunityEvent block">
         <div className="content">
           <h2 className="NextCommunityEvent__header">
-            {getHeaderText(startDateTime, endDateTime)}
+            {title}
           </h2>
           <article className="NextCommunityEvent__section-container">
             <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
-              <h3 className="NextCommunityEvent__details__heading">{title}</h3>
               <ul className="NextCommunityEvent__details">
                 <li>
                   <ExternalLink
@@ -97,6 +97,13 @@ class NextCommunityEvent extends React.Component {
                     {eventLocation(location)}
                   </ExternalLink>
                 </li>
+                {featuredEventDescription &&
+                  <li>
+                    <p className="NextCommunityEvent__featured-description">
+                      {featuredEventDescription}
+                    </p>
+                  </li>
+                }
               </ul>
             </div>
             <TicketStatus {...statusProps} />
@@ -119,6 +126,7 @@ NextCommunityEvent.propTypes = {
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
   location: locationType,
+  featuredEventDescription: PropTypes.string,
 };
 
 export default NextCommunityEvent;

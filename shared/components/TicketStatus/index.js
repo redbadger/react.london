@@ -20,21 +20,13 @@ export const StatusButton = ({ buttonText, buttonLink }) => {
 };
 
 const TicketStatus = (props) => {
-  const { title, subtitle } = props;
+  const { subtitle } = props;
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
-      <h3 className="TicketStatus__booking__heading">
-        {title}
-      </h3>
       <p className="TicketStatus__live-stream-text">
         {subtitle}
       </p>
       <StatusButton {...props} />
-      <p className="TicketStatus__live-stream-text">
-        Get event updates and reminders
-        events <a className="TicketStatus__live-stream-text--link" href="#stay-tuned">
-        below.</a>
-      </p>
     </div>
   );
 };

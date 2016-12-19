@@ -25,7 +25,7 @@ const Talks = ({ talks, collapsed }) => {
           const speakerProps = pathOr({}, ['speakers', 0], talk);
           return (
             <div className="Talk" key={index}>
-              <Speaker {...speakerProps} />
+              <Speaker {...speakerProps} collapsed={collapsed} />
               {talkDetails(talk, collapsed)}
             </div>
           );
