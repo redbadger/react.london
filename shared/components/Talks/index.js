@@ -2,15 +2,13 @@ import React, { PropTypes } from 'react';
 import Speaker from '../Speaker';
 import pathOr from 'ramda/src/pathOr';
 
-const talkDetails = (talk, collapsed) => {
-  if (!collapsed) {
-    return (
-      <div>
-        <h4 className="Speaker__title">{talk.title}</h4>
-        <p className="Speaker__summary">{talk.summary}</p>
-      </div>
-    );
-  }
+const TalkDetails = ({ talk }) => {
+  return (
+    <div>
+      <h4 className="Speaker__title">{talk.title}</h4>
+      <p className="Speaker__summary">{talk.summary}</p>
+    </div>
+  );
 };
 
 const Talks = ({ talks, collapsed }) => {
@@ -26,7 +24,7 @@ const Talks = ({ talks, collapsed }) => {
           return (
             <div className="Talk" key={index}>
               <Speaker {...speakerProps} collapsed={collapsed} />
-              {talkDetails(talk, collapsed)}
+              {!collapsed && <TalkDetails talk={talk} />}
             </div>
           );
         })}
