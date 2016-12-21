@@ -104,6 +104,5 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
 NextConferenceEvent.propTypes = {
   calendarURL: PropTypes.string,
   speakers: PropTypes.arrayOf(speakerType),
-  tickets: PropTypes.arrayOf(PropTypes.shape(ticketType)),
 };
 export default NextConferenceEvent;
