@@ -42,6 +42,15 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
+const ReadMoreButton = ({ onClick }) => (
+  <a
+    href="#"
+    className="NextCommunityEvent__readmore"
+    onClick={onClick}>
+    Read more
+  </a>
+);
+
 class NextCommunityEvent extends React.Component {
   constructor(props) {
     super(props);
@@ -51,18 +60,6 @@ class NextCommunityEvent extends React.Component {
   expandInfo(e) {
     this.setState({ collapsed: false });
     e.preventDefault();
-  }
-
-  readmoreButton() {
-    if (this.state.collapsed) {
-      return (
-        <a
-          href="#"
-          className="NextCommunityEvent__readmore"
-          onClick={this.expandInfo.bind(this)}>
-          Read more
-        </a>);
-    }
   }
 
   render() {
@@ -110,7 +107,7 @@ class NextCommunityEvent extends React.Component {
           </article>
         </div>
         <Talks talks={talks} collapsed={this.state.collapsed} />
-        {this.readmoreButton()}
+        {this.state.collapsed && <ReadMoreButton onClick={this.expandInfo.bind(this)} />}
       </section>
     );
   }
