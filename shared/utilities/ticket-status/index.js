@@ -2,7 +2,7 @@ import { formatDate } from '../date';
 
 const statusTypes = {
   PRE_RELEASE: {
-    title: 'Tickets will go live on',
+    title: 'Tickets will go live on ',
     subtitle: '',
     buttonText: 'FREE TICKETS AVAILABLE SOON',
   },
@@ -13,7 +13,7 @@ const statusTypes = {
     linkType: 'ticketLink',
   },
   WAITLIST: {
-    title: 'Tickets are sold out',
+    title: 'Tickets are sold out.',
     subtitle: 'Join the waiting list on ',
     buttonText: 'Join Waitlist',
     linkType: 'ticketLink',
@@ -26,7 +26,7 @@ const statusTypes = {
   },
   EVENT_ENDED: {
     title: 'This event has ended. Watch the video here.',
-    subtitle: 'Tickets now sold out',
+    subtitle: 'Tickets now sold out.',
     buttonText: 'Watch Video',
     linkType: 'streamingLink',
   },
@@ -45,6 +45,14 @@ export function getTicketProvider(link) {
   return 'our ticket provider\'s website';
 }
 
+export function getTicketStatusTitle(event, ticketStatusOptions) {
+  if (event.status === 'PRE_RELEASE') {
+    return ticketStatusOptions.title + formatDate(event.ticketReleaseDate,
+      'dddd, Do MMMM YYYY, HH:mm');
+  }
+  return ticketStatusOptions.title;
+}
+
 export function getTicketStatusSubtitle(event, ticketStatusOptions) {
   if (event.status === 'PRE_RELEASE') {
     return formatDate(event.ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm');
@@ -54,10 +62,12 @@ export function getTicketStatusSubtitle(event, ticketStatusOptions) {
   }
   return ticketStatusOptions.subtitle;
 }
+
 export function getTicketStatusOptions(event) {
   const ticketStatusOptions = statusTypes[event.status];
   if (ticketStatusOptions) {
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
+    ticketStatusOptions.title = getTicketStatusTitle(event, ticketStatusOptions);
     ticketStatusOptions.subtitle = getTicketStatusSubtitle(event, ticketStatusOptions);
     return ticketStatusOptions;
   }

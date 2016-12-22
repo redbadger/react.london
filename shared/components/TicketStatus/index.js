@@ -20,11 +20,11 @@ export const StatusButton = ({ buttonText, buttonLink }) => {
 };
 
 const TicketStatus = (props) => {
-  const { subtitle } = props;
+  const { title } = props;
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
       <p className="TicketStatus__live-stream-text">
-        {subtitle}
+        {title}
       </p>
       <StatusButton {...props} />
     </div>
