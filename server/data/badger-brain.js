@@ -26,6 +26,7 @@ query {
       status
       ticketLink
       streamingLink
+      featuredEventDescription
       startDateTime {
         iso
       }

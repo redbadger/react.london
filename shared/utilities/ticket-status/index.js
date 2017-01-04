@@ -2,37 +2,40 @@ import { formatDate } from '../date';
 
 const statusTypes = {
   PRE_RELEASE: {
-    title: 'Tickets will go live on',
+    title: 'Tickets will go live on ',
     subtitle: '',
-    buttonText: 'FREE TICKET AVAILABLE SOON',
+    buttonText: 'FREE TICKETS AVAILABLE SOON',
   },
   TICKETS_LIVE: {
-    title: 'Tickets live',
+    title: 'Get your tickets before they are sold out.',
     subtitle: 'To get yours, go to ',
-    buttonText: 'Free Ticket',
+    buttonText: 'Free Tickets',
     linkType: 'ticketLink',
   },
   WAITLIST: {
-    title: 'Tickets now sold out',
+    title: 'Tickets are sold out.',
     subtitle: 'Join the waiting list on ',
     buttonText: 'Join Waitlist',
     linkType: 'ticketLink',
   },
   LIVE_STREAM: {
-    title: 'Tickets now sold out',
+    title: 'Couldn\'t make it? Watch the event live.',
     subtitle: 'Didn’t make it to the meetup? We got your back.',
-    buttonText: 'Join Live Stream',
+    buttonText: 'Watch Live Stream',
     linkType: 'streamingLink',
   },
   EVENT_ENDED: {
-    title: 'This event has ended',
-    subtitle: 'Tickets now sold out',
+    title: 'This event has ended. Watch the video here.',
+    subtitle: 'Tickets now sold out.',
     buttonText: 'Watch Video',
     linkType: 'streamingLink',
   },
 };
 
 export function getTicketProvider(link) {
+  if (!link) {
+    return 'our ticket provider\'s website';
+  }
   if (link.includes('skillsmatter')) {
     return 'Skillsmatter';
   }
@@ -40,6 +43,14 @@ export function getTicketProvider(link) {
     return 'Ti.to';
   }
   return 'our ticket provider\'s website';
+}
+
+export function getTicketStatusTitle(event, ticketStatusOptions) {
+  if (event.status === 'PRE_RELEASE') {
+    return ticketStatusOptions.title + formatDate(event.ticketReleaseDate,
+      'dddd, Do MMMM YYYY, HH:mm');
+  }
+  return ticketStatusOptions.title;
 }
 
 export function getTicketStatusSubtitle(event, ticketStatusOptions) {
@@ -51,10 +62,12 @@ export function getTicketStatusSubtitle(event, ticketStatusOptions) {
   }
   return ticketStatusOptions.subtitle;
 }
+
 export function getTicketStatusOptions(event) {
   const ticketStatusOptions = statusTypes[event.status];
   if (ticketStatusOptions) {
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
+    ticketStatusOptions.title = getTicketStatusTitle(event, ticketStatusOptions);
     ticketStatusOptions.subtitle = getTicketStatusSubtitle(event, ticketStatusOptions);
     return ticketStatusOptions;
   }

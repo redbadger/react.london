@@ -13,10 +13,7 @@ const Speaker = (props) => {
         <div className="Speaker__name--bold">{props.name} </div>
         {props.company}
       </h5>
-      <SpeakerSocialLinks
-        {...props}
-      />
-
+      {!props.collapsed && <SpeakerSocialLinks {...props} />}
     </article>
   );
 };

@@ -13,14 +13,14 @@ describe('community-data transform', () => {
       'summary',
       'mailingListTitle',
       'mailingListSummary',
-      'featuredEvent',
+      'featuredEvents',
       'futureEvents',
     ]);
     expect(state.title).to.equal(community.title);
     expect(state.summary).to.equal(community.summary);
     expect(state.mailingListTitle).to.equal(community.mailingListTitle);
     expect(state.mailingListSummary).to.equal(community.mailingListSummary);
-    expect(state.featuredEvent).to.be.a('object');
+    expect(state.featuredEvents).to.be.a('array');
   });
 
   it('defaults if no values', () => {
@@ -28,7 +28,7 @@ describe('community-data transform', () => {
     expect(communityData({})).to.deep.equal({});
   });
 
-  describe('featuredEvent selection', () => {
+  describe('featuredEvents selection', () => {
     it('selects a the next event with a Featured displayLevel', () => {
       const events = [
         { title: '1', displayLevel: 'Regular' },
@@ -38,9 +38,12 @@ describe('community-data transform', () => {
       ];
       const data = { community: { ...fixture.community, events } };
       const state = communityData(data);
-      expect(state.featuredEvent).to.deep.equal({
+      expect(state.featuredEvents).to.deep.equal([{
         title: '3', displayLevel: 'Featured',
-      });
+      },
+      {
+        title: '4', displayLevel: 'Featured',
+      }]);
     });
     it('selects a the next event with a Current displayLevel', () => {
       const events = [
@@ -50,9 +53,9 @@ describe('community-data transform', () => {
       ];
       const data = { community: { ...fixture.community, events } };
       const state = communityData(data);
-      expect(state.featuredEvent).to.deep.equal({
+      expect(state.featuredEvents).to.deep.equal([{
         title: '3', displayLevel: 'Current',
-      });
+      }]);
     });
 
     it('defaults to {} with no event with a Featured or Current displayLevel', () => {
@@ -62,7 +65,7 @@ describe('community-data transform', () => {
       ];
       const data = { community: { ...fixture.community, events } };
       const state = communityData(data);
-      expect(state.featuredEvent).to.deep.equal({});
+      expect(state.featuredEvents).to.deep.equal([]);
     });
   });
 

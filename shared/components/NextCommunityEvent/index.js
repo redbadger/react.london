@@ -42,46 +42,76 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
-const NextCommunityEvent = (featuredEvent) => {
-  const { title, startDateTime, endDateTime, location, talks, calendarURL } = featuredEvent;
-  const statusProps = getTicketStatusOptions(featuredEvent);
-  return (
-    <section className="NextCommunityEvent block">
-      <div className="content">
-        <h2 className="NextCommunityEvent__header">
-          {getHeaderText(startDateTime, endDateTime)}
-        </h2>
-        <article className="NextCommunityEvent__section-container">
-          <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
-            <h3 className="NextCommunityEvent__details__heading">{title}</h3>
-            <ul className="NextCommunityEvent__details">
-              <li>
-                <ExternalLink
-                  href={calendarURL}
-                  className="NextCommunityEvent__link--date"
-                >
-                  {eventDateAndTime(startDateTime, endDateTime)}
-                </ExternalLink>
-              </li>
-              <li>
-                <ExternalLink
-                  className="NextCommunityEvent__link--place"
-                  href={googleMapsUrl(location)}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {eventLocation(location)}
-                </ExternalLink>
-              </li>
-            </ul>
-          </div>
-          <TicketStatus {...statusProps} />
-        </article>
-      </div>
-      <Talks talks={talks} />
-    </section>
-  );
-};
+const ReadMoreButton = ({ onClick }) => (
+  <a
+    href="#"
+    className="NextCommunityEvent__readmore"
+    onClick={onClick}>
+    Read more
+  </a>
+);
+
+class NextCommunityEvent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { collapsed: true };
+  }
+
+  expandInfo(e) {
+    this.setState({ collapsed: false });
+    e.preventDefault();
+  }
+
+  render() {
+    const featuredEvent = this.props;
+    const { title, startDateTime, endDateTime, location, talks, calendarURL,
+      featuredEventDescription } = featuredEvent;
+    const statusProps = getTicketStatusOptions(featuredEvent);
+    return (
+      <section className="NextCommunityEvent block">
+        <div className="content">
+          <h2 className="NextCommunityEvent__header">
+            {title}
+          </h2>
+          <article className="NextCommunityEvent__section-container">
+            <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
+              <ul className="NextCommunityEvent__details">
+                <li>
+                  <ExternalLink
+                    href={calendarURL}
+                    className="NextCommunityEvent__link--date"
+                  >
+                    {eventDateAndTime(startDateTime, endDateTime)}
+                  </ExternalLink>
+                </li>
+                <li>
+                  <ExternalLink
+                    className="NextCommunityEvent__link--place"
+                    href={googleMapsUrl(location)}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {eventLocation(location)}
+                  </ExternalLink>
+                </li>
+                {featuredEventDescription &&
+                  <li>
+                    <p className="NextCommunityEvent__featured-description">
+                      {featuredEventDescription}
+                    </p>
+                  </li>
+                }
+              </ul>
+            </div>
+            <TicketStatus {...statusProps} />
+          </article>
+        </div>
+        <Talks talks={talks} collapsed={this.state.collapsed} />
+        {this.state.collapsed && <ReadMoreButton onClick={this.expandInfo.bind(this)} />}
+      </section>
+    );
+  }
+}
 
 const dateTimeType = PropTypes.shape({
   iso: React.PropTypes.string,
@@ -93,6 +123,7 @@ NextCommunityEvent.propTypes = {
   startDateTime: dateTimeType,
   endDateTime: dateTimeType,
   location: locationType,
+  featuredEventDescription: PropTypes.string,
 };
 
 export default NextCommunityEvent;

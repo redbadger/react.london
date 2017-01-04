@@ -25,7 +25,7 @@ describe('Community component', () => {
           blogURL: 'https://foo.bar',
         },
       ],
-      featuredEvent: {
+      featuredEvents: [{
         schedule: [
           { time: '6pm', text: 'Do things' },
           { time: '9pm', text: 'Do stuff' },
@@ -34,7 +34,7 @@ describe('Community component', () => {
           { websiteURL: 'barfoo', imageURL: 'slim' },
           { websiteURL: 'foobar', imageURL: 'foobar' },
         ],
-      },
+      }],
       upcomingEvents: [
         {
           venue: 'codemesh',
@@ -58,7 +58,7 @@ describe('Community component', () => {
       eventDate: 'Tomorrow!',
       eventStartTime: '6pm',
       eventEndTime: '9pm',
-      featuredEvent: {},
+      featuredEvents: [],
     };
     shallow(<Community {...props} />);
   });
