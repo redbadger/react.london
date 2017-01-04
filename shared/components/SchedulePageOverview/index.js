@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SchedulePageOverview = () => {
+const SchedulePageOverview = (props) => {
   return (
     <div className="SchedulePageOverview block">
       <div className="content">
@@ -11,7 +11,7 @@ const SchedulePageOverview = () => {
             </div>
             <a
               className="SchedulePageOverview__date"
-              href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=aHJsNXJsaG42dWJkbHFwaG1zYmpnYzY4aXMgcmVkLWJhZGdlci5jb21fNGM0c3VlMjVwbzJvaDhpY3VndXNjMDBoa2tAZw&tmsrc=red-badger.com_4c4sue25po2oh8icugusc00hkk%40group.calendar.google.com"
+              href={props.calendarURL}
               target="_blank"
               rel="noopener"
             >
@@ -38,6 +38,10 @@ const SchedulePageOverview = () => {
       </div>
     </div>
   );
+};
+
+SchedulePageOverview.propTypes = {
+  calendarURL: React.PropTypes.string,
 };
 
 export default SchedulePageOverview;
