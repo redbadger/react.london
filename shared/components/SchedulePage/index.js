@@ -3,10 +3,10 @@ import MailingList from '../MailingList';
 import SchedulePageOverview from '../SchedulePageOverview';
 import Schedule from '../Schedule';
 
-const SchedulePage = () => {
+const SchedulePage = (props) => {
   return (
     <div>
-      <SchedulePageOverview />
+      <SchedulePageOverview {...props} />
       <Schedule />
       <MailingList
         mailingListTitle="Stay tuned"
