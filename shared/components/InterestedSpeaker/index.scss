@@ -1,7 +1,5 @@
 .InterestedSpeaker {
   background: $events-color;
-  text-align: center;
-  padding: 40px 0px;
 
   &__text {
     margin-top: 0px;
@@ -24,6 +22,7 @@
     background-color: $grey;
     display: inline-block;
     font-size: 16px;
+    white-space: nowrap;
 
     &:focus,
     &:hover {

@@ -3,6 +3,15 @@
     background-color: $events-color;
     padding: 40px 0px;
 
+    & .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & .InterestedSpeaker {
+      margin-top: 36px;
+    }
+
     &__text {
       margin: 0px;
       font-size: 20px;
@@ -14,3 +23,16 @@
       font-size: 24px;
     }
   }
+
+@media (min-width: $tablet-portrait-width) {
+  .CommunityAbout {
+    & .content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    & .InterestedSpeaker {
+      margin-left: 30px;
+    }
+  }
+}
