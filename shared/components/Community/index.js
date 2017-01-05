@@ -3,7 +3,6 @@ import CommunityAbout from '../CommunityAbout';
 import NextCommunityEvent from '../../components/NextCommunityEvent';
 import MailingList from '../MailingList';
 import ExternalPlatforms from '../ExternalPlatforms';
-import InterestedSpeaker from '../InterestedSpeaker';
 import FutureEvents from '../FutureEvents';
 
 const Community = ({
@@ -18,7 +17,6 @@ const Community = ({
       <CommunityAbout summary={summary} />
       {featuredEvents.map((featuredEvent, index) =>
         <NextCommunityEvent key={index} {...featuredEvent} />)}
-      <InterestedSpeaker />
       <ExternalPlatforms />
       <FutureEvents events={futureEvents} />
       <MailingList
