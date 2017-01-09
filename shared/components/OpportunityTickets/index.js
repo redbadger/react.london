@@ -11,7 +11,7 @@ const OpportunityTickets = () => {
           We are dedicated to inclusion and even more so - opportunity at React
           London 2017. We acknowledge that the cost of a conference ticket may
           be out of reach to some in our community. As a result we have
-          created 50 opportunity tickets which will be free of charge.
+          created opportunity tickets which will be free of charge.
         </p>
         <p>
           To apply, please fill out this short
