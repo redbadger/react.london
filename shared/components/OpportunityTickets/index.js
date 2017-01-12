@@ -6,7 +6,10 @@ const OpportunityTickets = () => {
   return (
     <section className="block OpportunityTickets">
       <div className="content">
-        <h2>Opportunity Tickets</h2>
+        <h2>
+          <span className="tickets-title">Opportunity Tickets</span>
+          <span> - APPLICATIONS CLOSED</span>
+        </h2>
         <p>
           We are dedicated to inclusion and even more so - opportunity at React
           London 2017. We acknowledge that the cost of a conference ticket may
