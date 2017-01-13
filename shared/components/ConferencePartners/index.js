@@ -31,19 +31,16 @@ const ConferencePartners = (props) => {
 
       <PartnersSection
         partners={gold || []}
-        title="Pioneer partners"
         level="gold"
       />
 
       <PartnersSection
         partners={silver || []}
-        title="Explorer partners"
         level="silver"
       />
 
       <PartnersSection
         partners={stripDescription(bronze)}
-        title="Trekker partners"
         level="bronze"
       />
 
