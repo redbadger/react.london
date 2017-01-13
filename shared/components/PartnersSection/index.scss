@@ -1,3 +1,11 @@
+.PartnersSectionContainer {
+  padding-top: 40px;
+
+  &.PartnersSection__supporters {
+    padding-top: 0;
+  }
+}
+
 .PartnersSection__title {
   font-size: 24px;
   margin: 0px;

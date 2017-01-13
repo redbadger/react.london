@@ -20,12 +20,15 @@ Partner.propTypes = partnerType;
 const PartnersSection = ({ partners, level, title }) => {
   if (!Array.isArray(partners) || !partners.length > 0) { return null; }
   return (
-    <section className={'block PartnersSection__' + level}>
-      <div className="content">
-        <h3 className="PartnersSection__title">
-          {title}
-        </h3>
-      </div>
+    <section className={'block PartnersSectionContainer PartnersSection__' + level}>
+      {
+        title &&
+          <div className="content">
+            <h3 className="PartnersSection__title">
+              {title}
+            </h3>
+          </div>
+      }
 
       <ul className="content PartnersSection__list">
         {partners.map((partner, index) =>
@@ -38,7 +41,7 @@ const PartnersSection = ({ partners, level, title }) => {
 PartnersSection.propTypes = {
   partners: PropTypes.arrayOf(PropTypes.shape(Partner.propTypes)),
   level: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default PartnersSection;
