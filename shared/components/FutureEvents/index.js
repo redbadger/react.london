@@ -12,7 +12,9 @@ const FutureEvents = ({ events }) => {
         <div className="FutureEvents__events-container">
 
           {events.slice(0, 3).map((props, index) => (
-            <FutureEvent {...props} key={index} />
+            <div className="FutureEvents__events-container-event">
+              <FutureEvent {...props} key={index} />
+            </div>
           ))}
 
         </div>
