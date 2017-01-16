@@ -14,6 +14,15 @@
     flex-wrap: nowrap;
     &-event {
       width: 100%;
+
+      &:nth-child(2) {
+        border-left: $dash-border;
+        border-right: $dash-border;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
     }
   }
 }
@@ -26,15 +35,6 @@
   height: 100%;
   padding: 20px;
   flex: 1;
-
-  &:nth-child(2) {
-    border-left: $dash-border;
-    border-right: $dash-border;
-  }
-
-  &:last-child {
-    border-right: none;
-  }
 
   &--Conference {
     background-color: $conference-color;
