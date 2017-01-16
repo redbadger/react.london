@@ -11,30 +11,38 @@
   &__events-container {
     padding-bottom: 20px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    &-event {
+      width: 100%;
+
+      &:nth-child(2) {
+        border-left: $dash-border;
+        border-right: $dash-border;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &.Conference{
+        background-color: $conference-color;
+      }
+    }
   }
 }
 
 .FutureEvent {
-  background: $events-color;
+  position: relative;
+  
   border-right: none;
   border-top: $dash-border;
   min-width: 33.33%;
+  height: 100%;
+  min-height: 100%;
   padding: 20px;
   flex: 1;
 
-  &:nth-child(2) {
-    border-left: $dash-border;
-    border-right: $dash-border;
-  }
-
-  &:last-child {
-    border-right: none;
-  }
-
   &--Conference {
-    background-color: $conference-color;
-
     .FutureEvent__datetime {
       background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
     }
@@ -42,6 +50,10 @@
     .FutureEvent__location {
       background: url("/img/SVG/Place_icon_blue.svg") no-repeat left top;
     }
+  }
+
+  &--Meetup {
+    background: $events-color;
   }
 
   &__title {
@@ -92,6 +104,22 @@
       border-right: none;
     }
   }
+
+  .FutureEvents {
+    &__events-container {
+     flex-wrap: wrap;
+      &-event {
+        &:nth-child(2) {
+          border-left: none;
+          border-right: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $tablet-portrait-width) {
@@ -101,6 +129,21 @@
 
     &:nth-child(2) {
       border-left: none;
+    }
+  }
+
+   .FutureEvents {
+    &__events-container {
+      &-event {
+        &:nth-child(2) {
+          border-left: none;
+          border-right: none;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
     }
   }
 }

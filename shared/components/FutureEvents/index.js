@@ -1,6 +1,14 @@
 import React, { PropTypes } from 'react';
 import FutureEvent from '../FutureEvent';
 
+
+function calculateEventType(eventType) {
+  if (eventType) {
+    const type = eventType.replace(/[^a-z]/gi, '-');
+    return type;
+  }
+}
+
 const FutureEvents = ({ events }) => {
   if (!events || events.length === 0) { return null; }
   return (
@@ -11,9 +19,14 @@ const FutureEvents = ({ events }) => {
       <div className="FutureEvents__events-list content">
         <div className="FutureEvents__events-container">
 
-          {events.slice(0, 3).map((props, index) => (
-            <FutureEvent {...props} key={index} />
-          ))}
+          {events.slice(0, 3).map((props, index) => {
+            const eventType = calculateEventType(props.eventType);
+            return (
+              <div className={`FutureEvents__events-container-event ${eventType}`}>
+                <FutureEvent {...props} key={index} />
+              </div>
+          );
+          })}
 
         </div>
       </div>
