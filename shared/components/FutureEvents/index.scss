@@ -23,13 +23,17 @@
       &:last-child {
         border-right: none;
       }
+
+      &.Conference{
+        background-color: $conference-color;
+      }
     }
   }
 }
 
 .FutureEvent {
   position: relative;
-  background: $events-color;
+  
   border-right: none;
   border-top: $dash-border;
   min-width: 33.33%;
@@ -39,8 +43,6 @@
   flex: 1;
 
   &--Conference {
-    background-color: $conference-color;
-    
     .FutureEvent__datetime {
       background: url("/img/SVG/Date_icon_blue.svg") no-repeat left top;
     }
@@ -48,6 +50,10 @@
     .FutureEvent__location {
       background: url("/img/SVG/Place_icon_blue.svg") no-repeat left top;
     }
+  }
+
+  &--Meetup {
+    background: $events-color;
   }
 
   &__title {
@@ -75,7 +81,6 @@
     background: url("/img/SVG/Place_icon_green.svg") no-repeat left top;
     margin-top: 15px;
     min-height: 32px;
-    height: 32px;
     padding-top: 5px;
 
     &:hover {
