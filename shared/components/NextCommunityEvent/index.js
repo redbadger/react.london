@@ -46,27 +46,32 @@ const ReadMoreButton = ({ onClick }) => (
   <a
     href="#"
     className="NextCommunityEvent__readmore"
-    onClick={onClick}>
+    onClick={onClick}
+  >
     Read more
   </a>
 );
 
 class NextCommunityEvent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { collapsed: true };
-  }
 
+
+  componentWillMount() {
+    this.state = {
+      collapsed: true,
+      statusProps: getTicketStatusOptions(this.props),
+    };
+  }
   expandInfo(e) {
     this.setState({ collapsed: false });
     e.preventDefault();
   }
 
   render() {
+    const { statusProps } = this.state;
     const featuredEvent = this.props;
     const { title, startDateTime, endDateTime, location, talks, calendarURL,
       featuredEventDescription } = featuredEvent;
-    const statusProps = getTicketStatusOptions(featuredEvent);
+
     return (
       <section className="NextCommunityEvent block">
         <div className="content">
