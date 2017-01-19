@@ -23,5 +23,6 @@ export default function communityData(state) {
     tickets,
     speakers,
     calendarURL,
+    talks,
   };
 }

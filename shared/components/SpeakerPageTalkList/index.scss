@@ -1,0 +1,30 @@
+.speaker-page-talk-list-container {
+  background-color: $conference-color-faded;
+  padding: 0;
+}
+
+.speaker-page-talk-list {
+  max-width: $maximum-content-width;
+  margin: 0 auto;
+  padding: 0;
+
+  & > ul {
+    max-width: $maximum-content-width;
+    padding: 0;
+    margin: 0 auto;
+    & > li {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .peaker-page-talk-list-container {
+    padding: 0;
+  }
+
+  .speaker-page-talk-list {
+    padding: 0 20px;
+  }
+}
