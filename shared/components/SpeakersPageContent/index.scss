@@ -14,6 +14,32 @@
     border-bottom: 2px dashed #4a4a4a;
     line-height: 2em;
   }
+
+   &__footer {
+     text-align: center;
+     border-top: 2px #4a4a4a dashed;
+     padding-top: 30px;
+     margin-top: 30px;
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    &__text {
+      font-size: 16px;
+      color: #4a4a4a;
+      margin-bottom: 30px;
+    }
+    &__button {
+      display: inline-block;
+      padding: 15px 20px;
+      border-radius: 6px;
+      background-color: #fc1d42;
+      color: white;  
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
 }
 
 @media (min-width: $tablet-width) {
