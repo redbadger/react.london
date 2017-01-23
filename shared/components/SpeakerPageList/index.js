@@ -1,23 +1,23 @@
 /* eslint-disable react/no-danger */
 
 import React, { PropTypes } from 'react';
-import SpeakerPageTalk from '../SpeakerPageTalk';
+import SpeakerPageSpeaker from '../SpeakerPageSpeaker';
 import SpeakerPagePlaceholder from '../SpeakerPagePlaceholder';
 import speakerType from '../../prop-types/speaker-type';
 
-const SpeakerPageTalkList = ({ talks }) => {
-  if (talks && Array.isArray(talks) && talks.length) {
-    const speakerList = talks.map((talk, index) => {
+const SpeakerPageList = ({ speakers }) => {
+  if (speakers && Array.isArray(speakers) && speakers.length) {
+    const speakerList = speakers.map((speaker, index) => {
       return (
         <li key={index}>
-          <SpeakerPageTalk {...talk} />
+          <SpeakerPageSpeaker {...speaker} />
         </li>
       );
     });
 
     return (
-      <section className="speaker-page-talk-list-container">
-        <div className="speaker-page-talk-list">
+      <section className="SpeakerPageList">
+        <div className="SpeakerPageList__list">
           <ul>
             {speakerList}
             <li>
@@ -32,8 +32,8 @@ const SpeakerPageTalkList = ({ talks }) => {
   return null;
 };
 
-SpeakerPageTalkList.propTypes = {
+SpeakerPageList.propTypes = {
   speakers: PropTypes.arrayOf(speakerType),
 };
 
-export default SpeakerPageTalkList;
+export default SpeakerPageList;

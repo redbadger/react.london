@@ -7,7 +7,21 @@ export const pickSpeakersFromTalks = (talks) => {
   // same speaker would participate in multiple talks
   // We need to make sure we get a list of unique speakers
   if (talks) {
-    return uniq(chain(talk => talk.speakers, talks));
+    // This is a list of all speakers with an added property
+    // of talks
+    const speakers = uniq(chain(talk => talk.speakers, talks));
+
+    // Lookup the speakers' talk and add that talk information
+    return chain(speaker => {
+      const speakerWithTalks = speaker;
+      speakerWithTalks.talks = [];
+      talks.forEach(talk => {
+        if (talk.speakers && talk.speakers.filter(each => each.id === speaker.id).length > 0) {
+          speakerWithTalks.talks.push({ id: talk.id, title: talk.title, summary: talk.summary });
+        }
+      });
+      return speakerWithTalks;
+    }, speakers);
   }
 
   return [];

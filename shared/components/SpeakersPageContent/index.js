@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import SpeakerPageTalkList from '../SpeakerPageTalkList';
+import SpeakerPageList from '../SpeakerPageList';
 import speakerType from '../../prop-types/speaker-type';
 import { ExternalLink } from '../ExternalLink';
 
@@ -12,7 +12,7 @@ const SpeakersPageContent = (props) => {
           We are thrilled to have members of the Facebook team joining
           us on the day for a panel discussion.
         </p>
-        <SpeakerPageTalkList talks={props.talks} />
+        <SpeakerPageList speakers={props.speakers} />
         <div className="SpeakersPageContent__footer">
           <div className="SpeakersPageContent__footer__title">
             "Simply put everyone is welcome!"

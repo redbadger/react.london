@@ -123,6 +123,18 @@ describe('pickSpeakersFromTalks', () => {
         githubHandle: 'githubhandle',
         blogURL: 'http://www.google.com',
         imageURL: 'http://www.google.com/image.jpg',
+        talks: [
+          {
+            id: 'V8cF9yoAACoAd01r',
+            title: 'Awesome talk by Christopher',
+            summary: 'Summary of the talk',
+          },
+          {
+            id: 'V6IZrywAACwAN97-',
+            title: 'Re-writing a frontend with re-usable React Components via an API',
+            summary: 'Detailed summary',
+          },
+        ],
       },
       {
         id: 'V6IZdiwAACwAN94X',
@@ -132,6 +144,13 @@ describe('pickSpeakersFromTalks', () => {
         githubHandle: 'chrisface',
         blogURL: null,
         imageURL: '//res.cloudinary.com/speaker.png',
+        talks: [
+          {
+            id: 'V6IZrywAACwAN97-',
+            title: 'Re-writing a frontend with re-usable React Components via an API',
+            summary: 'Detailed summary',
+          },
+        ],
       },
     ]);
     expect(filteredSpeakers.length).to.equal(2);

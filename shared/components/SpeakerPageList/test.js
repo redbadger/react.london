@@ -23,6 +23,7 @@ const speakers = [
         text: 'Full description',
       },
     ],
+    talks: [],
   },
   {
     id: 'V6IbaywAACsAN-X7',
@@ -33,6 +34,7 @@ const speakers = [
     blogURL: null,
     imageURL: '//res.cloudinary.com/red-badger-assets/image/upload/v1470318218/speaker3_zkq7nl.png',
     bio: null,
+    talks: [],
   },
 ];
 

@@ -1,0 +1,51 @@
+.SpeakerPagePlaceholder {
+    
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+
+  &__text{
+    padding: 0px;
+    font-size: 20px;      
+    font-weight: bold;
+    margin: 0px;
+  }
+
+  &__info{
+    margin-left: 45px;
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: 0px;
+
+    padding: 12px 20px 12px 20px;
+    background-color: $light-blue-grey;
+    text-decoration: none;
+    color: $conference-color;
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 16px;
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__photo {
+    min-width: 120px;
+    min-height: 120px;
+    width: 120px;
+    height: 120px;
+    margin: 0px;
+    overflow: hidden;
+    border: $solid-border;
+    border-radius: 50%;
+    text-align: center;
+    &--svg, &--img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
