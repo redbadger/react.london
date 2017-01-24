@@ -77,7 +77,7 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
       </article>
       <div className="NextConferenceEvent__accomodation">
         <h2>On stage</h2>
-        <SpeakerList speakers={speakers} />
+        <SpeakerList speakers={speakers} conference />
       </div>
       <div className="NextConferenceEvent__accomodation">
         <h2>Plan your visit</h2>

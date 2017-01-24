@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
-
 const Speaker = (props) => {
-  const avatar = props.imageURL || '/img/PNG/SpeakerGreen.png';
+  const avatar = props.imageURL ||
+    (props.conference ? '/img/PNG/SpeakerBlue.png' : '/img/PNG/SpeakerGreen.png');
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
@@ -26,6 +26,7 @@ Speaker.propTypes = {
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
   imageURL: PropTypes.string,
+  conference: PropTypes.bool,
 };
 
 export default Speaker;

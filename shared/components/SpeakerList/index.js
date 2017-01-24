@@ -5,12 +5,12 @@ import Speaker from '../Speaker';
 import SpeakerPlaceholder from '../SpeakerPlaceholder';
 import speakerType from '../../prop-types/speaker-type';
 
-const SpeakerList = ({ speakers }) => {
+const SpeakerList = ({ speakers, conference }) => {
   if (speakers && Array.isArray(speakers) && speakers.length) {
     const speakerList = speakers.map((speaker) => {
       return (
         <li key={speaker.id}>
-          <Speaker {...speaker} />
+          <Speaker {...speaker} conference={conference} />
         </li>
       );
     });
@@ -34,6 +34,7 @@ const SpeakerList = ({ speakers }) => {
 
 SpeakerList.propTypes = {
   speakers: PropTypes.arrayOf(speakerType),
+  conference: PropTypes.bool,
 };
 
 export default SpeakerList;

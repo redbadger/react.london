@@ -3,7 +3,7 @@ import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
 
 const SpeakerPageSpeaker = (speaker) => {
-  const avatar = speaker.imageURL || '/img/PNG/SpeakerGreen.png';
+  const avatar = speaker.imageURL || '/img/PNG/SpeakerBlue.png';
   return (
     <article className="SpeakerPageSpeaker">
       <figure className="SpeakerPageSpeaker__photo">
