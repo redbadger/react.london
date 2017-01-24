@@ -17,7 +17,7 @@ const SpeakerPageSpeaker = (speaker) => {
         <SpeakerSocialLinks {...speaker} />
         {
           speaker.talks.map(talk => (
-            <div>
+            <div key={talk.title} >
               <div className="SpeakerPageSpeaker__details__title--bold">{talk.title} </div>
               <div className="SpeakerPageSpeaker__details__summary">{talk.summary}</div>
             </div>
@@ -30,7 +30,7 @@ const SpeakerPageSpeaker = (speaker) => {
 
 
 SpeakerPageSpeaker.propTypes = {
-  speaker: {
+  speaker: PropTypes.shape({
     name: PropTypes.string,
     company: PropTypes.string,
     title: PropTypes.string,
@@ -43,7 +43,7 @@ SpeakerPageSpeaker.propTypes = {
       summary: PropTypes.string,
       title: PropTypes.string,
     }],
-  },
+  }),
 };
 
 export default SpeakerPageSpeaker;

@@ -8,10 +8,6 @@ const SpeakersPageContent = (props) => {
     <section className="SpeakersPageContent block">
       <div className="content">
         <h2 className="SpeakersPageContent__header">On stage</h2>
-        <p>
-          We are thrilled to have members of the Facebook team joining
-          us on the day for a panel discussion.
-        </p>
         <SpeakerPageList speakers={props.speakers} />
         <div className="SpeakersPageContent__footer">
           <div className="SpeakersPageContent__footer__title">
