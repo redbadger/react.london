@@ -16,5 +16,12 @@ COPY . /usr/src/app
 # Build assets
 RUN make build-production
 
+# Increase security by running app as non-root user
+ENV user react-london-app
+RUN groupadd --system $user \
+  && useradd --system --create-home --gid $user $user \
+  && chown $user  --recursive .
+USER $user
+
 EXPOSE 8080
 CMD [ "make", "start-production" ]
