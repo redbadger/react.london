@@ -5,7 +5,9 @@ const listOfTalks = (talks) => {
   if (talks && Array.isArray(talks) && talks.length > 0) {
     return (
       <div>
-        {talks.map(talk => (<h5 key={talk.id}>{talk.title}</h5>))}
+        {talks.map(talk => (
+          <h5 className="Speaker__talk-title" key={talk.id}>{talk.title}</h5>
+        ))}
       </div>
     );
   }

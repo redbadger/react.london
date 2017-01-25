@@ -18,9 +18,13 @@
     justify-content: flex-start;
     & > li {
       list-style-type: none;
-      padding: 0;
+      padding-right: 45px;
       flex-basis: 300px;
       flex-grow: 0;
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
   }
 }
