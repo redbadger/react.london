@@ -1,12 +1,14 @@
 .speaker-list-container {
   background-color: $conference-color-faded;
   padding: 0;
+  text-align: center;
 }
 
 .speaker-list {
   max-width: $maximum-content-width;
   margin: 0 auto;
   padding: 0;
+  text-align: left;
 
   & > ul {
     max-width: $maximum-content-width;

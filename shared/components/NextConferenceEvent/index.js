@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 import { ExternalLink } from '../ExternalLink';
 import { ticketType } from '../../prop-types/ticket-type';
 import SpeakerList from '../SpeakerList';
