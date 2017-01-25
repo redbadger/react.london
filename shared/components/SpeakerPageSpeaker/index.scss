@@ -62,7 +62,7 @@
 
     &__name{
       &--bold {
-        font-size: 20px;      
+        font-size: 20px;
         margin-right: 10px;
         font-weight: bold;
       }
@@ -75,10 +75,10 @@
 
     &__title{
       &--bold {
-        margin: 15px 0px;
+        margin: 15px 0px 10px 0;
         font-weight: bold;
-        font-size: 16px;      
-        font-weight: bold;
+        font-size: 16px;
+        text-decoration: underline;
       }
     }
 
@@ -87,7 +87,7 @@
       line-height: 1.3em;
       color: #4a4a4a;
     }
-    
+
   }
 
   &__detail {
