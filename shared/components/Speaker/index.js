@@ -27,7 +27,7 @@ const Speaker = (props) => {
         {props.company}
       </h5>
       {listOfTalks(props.talks)}
-      {!props.collapsed && <SpeakerSocialLinks {...props} />}
+      {(!props.collapsed && !props.conference) && <SpeakerSocialLinks {...props} />}
     </article>
   );
 };
