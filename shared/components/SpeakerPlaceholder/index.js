@@ -8,7 +8,7 @@ const Speaker = () => {
         <img className="Speaker__photo--img" src={avatar} alt={'Speaker placeholder'} />
       </figure>
       <h5 className="Speaker__name">
-        <div className="Speaker__name--bold placeholder">Could this be you?</div>
+        <div className="Speaker__name--bold__placeholder">Could this be you?</div>
       </h5>
       <ExternalLink
         href="https://www.papercall.io/reactlondon2017"

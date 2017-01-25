@@ -12,7 +12,7 @@
       margin-bottom: 5px;
     }
 
-    &--bold.placeholder {
+    &--bold__placeholder {
       text-decoration: none;
     }
   }
@@ -106,7 +106,6 @@
       &:hover {
         background-image: url('/img/SVG/Twitter.svg');
       }
-
     }
     &--blog {
       background-image: url('/img/SVG/Blog_Grey.svg');
@@ -120,7 +119,7 @@
     }
   }
 
-  .Speaker__talk-title {
+  &__talk-title {
     font-size: 16px;
     margin: 5px 0;
   }

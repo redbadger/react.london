@@ -11,13 +11,13 @@
 
   &__header {
     margin: 0;
-    border-bottom: 2px dashed #4a4a4a;
+    border-bottom: 2px dashed $grey;
     line-height: 2em;
   }
 
    &__footer {
      text-align: center;
-     border-top: 2px #4a4a4a dashed;
+     border-top: 2px $grey dashed;
      padding-top: 30px;
      margin-top: 30px;
     &__title {
@@ -27,15 +27,15 @@
     }
     &__text {
       font-size: 16px;
-      color: #4a4a4a;
+      color: $grey;
       margin-bottom: 30px;
     }
     &__button {
       display: inline-block;
       padding: 15px 20px;
       border-radius: 6px;
-      background-color: #fc1d42;
-      color: white;  
+      background-color: $red-badger-color;
+      color: white;
       text-decoration: none;
       text-transform: uppercase;
     }
