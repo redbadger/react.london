@@ -77,6 +77,10 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
       </article>
       <div className="NextConferenceEvent__accomodation">
         <h2>On stage</h2>
+        <p>
+          We are thrilled to have members of the Facebook team
+          joining us on the day for a panel discussion.
+        </p>
         <SpeakerList speakers={speakers} />
       </div>
       <div className="NextConferenceEvent__accomodation">
