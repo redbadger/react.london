@@ -13,7 +13,7 @@ const SpeakersPageContent = (props) => {
             "Simply put everyone is welcome!"
           </div>
           <div className="SpeakersPageContent__footer__text">
-            Read <ExternalLink href="">
+            Read <ExternalLink className="SpeakersPageContent__footer__link" href="https://red-badger.com/blog/2017/1/23/inclusivity-at-react-london-2017">
               10 steps we've taken to make React London 2017 as inclusive as possible
             </ExternalLink>
           </div>
