@@ -1,0 +1,149 @@
+.SpeakerPageSpeaker {
+  width: 100%;
+  margin: 45px 0 0 0;
+  display: flex;
+
+  &__details {
+    margin: 20px 0 0 0;
+    font-size: 20px;
+    font-weight: normal;
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: 0px;
+
+    padding: 12px 20px;
+    font-weight: bold;
+    background-color: $red-badger-color;
+    text-decoration: none;
+    color: $white;
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 16px;
+
+    &:focus,
+    &:hover {
+      color: $white;
+    }
+
+  }
+
+  &__photo {
+    min-width: 120px;
+    min-height: 120px;
+    width: 120px;
+    height: 120px;
+    margin: 0px;
+    overflow: hidden;
+    border: $solid-border;
+    border-radius: 50%;
+    text-align: center;
+    &--svg, &--img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+
+  &__details {
+    padding: 0px;
+    margin: 0 0 0 45px;
+    li {
+      list-style-type: none;
+    }
+
+    &__speaker{
+      margin-bottom: 15px;
+    }
+
+    &__name{
+      &--bold {
+        font-size: 20px;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+    }
+
+    &__company{
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    &__title{
+      &--bold {
+        margin: 15px 0 10px 0;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+
+    &__summary{
+      font-size: 16px;
+      line-height: 1.3em;
+      color: $grey;
+    }
+
+  }
+
+  &__detail {
+    margin-right: 25px;
+    background: no-repeat;
+
+    display: block;
+
+    text-indent: -999em;
+    outline: 0;
+
+    &--github {
+      background-image: url('/img/SVG/Github.svg');
+      height: 25px;
+      width: 25px;
+      &:focus,
+      &:hover {
+        background-image: url('/img/SVG/Github_Grey.svg');
+      }
+    }
+    &--twitter {
+      background-image: url('/img/SVG/Twitter.svg');
+      height: 19px;
+      width: 24px;
+      &:focus,
+      &:hover {
+        background-image: url('/img/SVG/Twitter_Grey.svg');
+      }
+
+    }
+    &--blog {
+      background-image: url('/img/SVG/Blog.svg');
+      height: 23px;
+      width: 23px;
+      &:focus,
+      &:hover {
+        background-image: url('/img/SVG/Blog_Grey.svg');
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-portrait-width) {
+  .SpeakerPageSpeaker {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__details {
+      margin-left: 0;
+
+      &__name--bold {
+        display: block;
+      }
+    }
+
+    &__photo {
+      margin-bottom: 20px;
+    }
+  }
+}
