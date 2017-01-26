@@ -128,3 +128,22 @@
     }
   }
 }
+
+@media (max-width: $mobile-portrait-width) {
+  .SpeakerPageSpeaker {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__details {
+      margin-left: 0;
+
+      &__name--bold {
+        display: block;
+      }
+    }
+
+    &__photo {
+      margin-bottom: 20px;
+    }
+  }
+}
