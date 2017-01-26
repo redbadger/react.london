@@ -1,5 +1,4 @@
 .SpeakersPageContent {
-  padding: 40px 0px 40px 0px;
   padding: 40px 0px;
   border-top: $solid-border;
   background-color: $conference-color-faded;
@@ -44,7 +43,7 @@
 
 @media (min-width: $tablet-width) {
   .SpeakersPageContent {
-    padding: 40px 0px 30px 0px;
+    padding: 0 0 30px 0;
   }
 }
 

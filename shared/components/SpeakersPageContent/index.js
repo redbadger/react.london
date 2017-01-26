@@ -7,7 +7,6 @@ const SpeakersPageContent = (props) => {
   return (
     <section className="SpeakersPageContent block">
       <div className="content">
-        <h2 className="SpeakersPageContent__header">On stage</h2>
         <SpeakerPageList speakers={props.speakers} />
         <div className="SpeakersPageContent__footer">
           <div className="SpeakersPageContent__footer__title">
@@ -15,7 +14,7 @@ const SpeakersPageContent = (props) => {
           </div>
           <div className="SpeakersPageContent__footer__text">
             Read <ExternalLink href="">
-              10 ways we’ve made React London 2017 an inclusive event
+              10 steps we've taken to make React London 2017 as inclusive as possible
             </ExternalLink>
           </div>
 
