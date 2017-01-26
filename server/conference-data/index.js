@@ -13,7 +13,7 @@ export const pickSpeakersFromTalks = (talks) => {
 
     // Lookup the speakers' talk and add that talk information
     return chain(speaker => {
-      const speakerWithTalks = speaker;
+      const speakerWithTalks = Object.assign({}, speaker);
       speakerWithTalks.talks = [];
       talks.forEach(talk => {
         if (talk.speakers && talk.speakers.filter(each => each.id === speaker.id).length > 0) {
