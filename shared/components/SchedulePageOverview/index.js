@@ -22,16 +22,19 @@ const SchedulePageOverview = (props) => {
             </div>
           </div>
           <div className="SchedulePageOverview__cfp">
-            <a
-              href="https://www.papercall.io/reactlondon2017"
+            <span
               className="SchedulePageOverview__button"
-              target="_blank"
-              rel="noopener"
             >
-              Call for papers
-            </a>
+              Call for papers closed
+            </span>
             <div>
-              Closes 31 Jan
+              Too late? Talk at our monthly <a
+                href="/community"
+                target="_blank"
+                rel="noopener"
+              >
+                React meetup
+              </a>
             </div>
           </div>
         </div>
@@ -45,4 +48,3 @@ SchedulePageOverview.propTypes = {
 };
 
 export default SchedulePageOverview;
-
