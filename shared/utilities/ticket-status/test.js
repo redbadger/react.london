@@ -1,6 +1,13 @@
 import { getTicketStatusOptions, getTicketProvider, getTicketStatusSubtitle } from '.';
 import tk from 'timekeeper';
 
+const expectedUpcomingEvent = {
+  title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
+  subtitle: 'Sunday, 24th July 2016, 21:30',
+  buttonText: 'FREE TICKETS AVAILABLE SOON',
+  buttonLink: undefined,
+};
+
 describe('getTicketStatusOptions', () => {
   it('returns the correct status properties for PRE_RELEASE', () => {
     tk.freeze(new Date('2016-07-24T20:30:00+0000'));
@@ -9,12 +16,7 @@ describe('getTicketStatusOptions', () => {
       ticketReleaseDate: '2016-07-24T20:30:00+0000',
     };
     const result = getTicketStatusOptions(event);
-    expect(result).to.deep.equal({
-      title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
-      subtitle: 'Sunday, 24th July 2016, 21:30',
-      buttonText: 'FREE TICKETS AVAILABLE SOON',
-      buttonLink: undefined,
-    });
+    expect(result).to.deep.equal(expectedUpcomingEvent);
   });
 
   it('returns the correct status properties for PRE_RELEASE when requested twice', () => {
@@ -24,20 +26,10 @@ describe('getTicketStatusOptions', () => {
       ticketReleaseDate: '2016-07-24T20:30:00+0000',
     };
     const result = getTicketStatusOptions(event);
-    expect(result).to.deep.equal({
-      title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
-      subtitle: 'Sunday, 24th July 2016, 21:30',
-      buttonText: 'FREE TICKETS AVAILABLE SOON',
-      buttonLink: undefined,
-    });
+    expect(result).to.deep.equal(expectedUpcomingEvent);
 
     const resultTwo = getTicketStatusOptions(event);
-    expect(resultTwo).to.deep.equal({
-      title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
-      subtitle: 'Sunday, 24th July 2016, 21:30',
-      buttonText: 'FREE TICKETS AVAILABLE SOON',
-      buttonLink: undefined,
-    });
+    expect(resultTwo).to.deep.equal(expectedUpcomingEvent);
   });
 
 
