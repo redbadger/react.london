@@ -22,7 +22,7 @@ const FutureEvents = ({ events }) => {
           {events.slice(0, 3).map((props, index) => {
             const eventType = calculateEventType(props.eventType);
             return (
-              <div className={`FutureEvents__events-container-event ${eventType}`}>
+              <div key={index} className={`FutureEvents__events-container-event ${eventType}`}>
                 <FutureEvent {...props} key={index} />
               </div>
           );

@@ -16,6 +16,31 @@ describe('getTicketStatusOptions', () => {
       buttonLink: undefined,
     });
   });
+
+  it('returns the correct status properties for PRE_RELEASE when requested twice', () => {
+    tk.freeze(new Date('2016-07-24T20:30:00+0000'));
+    const event = {
+      status: 'PRE_RELEASE',
+      ticketReleaseDate: '2016-07-24T20:30:00+0000',
+    };
+    const result = getTicketStatusOptions(event);
+    expect(result).to.deep.equal({
+      title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
+      subtitle: 'Sunday, 24th July 2016, 21:30',
+      buttonText: 'FREE TICKETS AVAILABLE SOON',
+      buttonLink: undefined,
+    });
+
+    const resultTwo = getTicketStatusOptions(event);
+    expect(resultTwo).to.deep.equal({
+      title: 'Tickets will go live on Sunday, 24th July 2016, 21:30',
+      subtitle: 'Sunday, 24th July 2016, 21:30',
+      buttonText: 'FREE TICKETS AVAILABLE SOON',
+      buttonLink: undefined,
+    });
+  });
+
+
   it('returns the correct status properties for TICKETS_LIVE', () => {
     const event = {
       status: 'TICKETS_LIVE',
