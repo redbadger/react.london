@@ -1,6 +1,5 @@
 .SpeakersPageContent {
-  padding: 40px 0px 40px 0px;
-  padding: 40px 0px;
+  padding: 0 0 40px;
   border-top: $solid-border;
   background-color: $conference-color-faded;
   border-bottom: $solid-border;
@@ -11,14 +10,47 @@
 
   &__header {
     margin: 0;
-    border-bottom: 2px dashed #4a4a4a;
+    border-bottom: 2px dashed $grey;
     line-height: 2em;
+  }
+
+   &__footer {
+     text-align: center;
+     border-top: 2px $grey dashed;
+     padding-top: 30px;
+     margin-top: 30px;
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    &__text {
+      font-size: 16px;
+      color: $grey;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    &__link {
+      font-size: 16px;
+      color: $grey;
+      font-weight: bold;
+    }
+    &__button {
+      display: inline-block;
+      padding: 15px 20px;
+      border-radius: 6px;
+      background-color: $red-badger-color;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
   }
 }
 
 @media (min-width: $tablet-width) {
   .SpeakersPageContent {
-    padding: 40px 0px 30px 0px;
+    padding: 0 0 30px 0;
   }
 }
 

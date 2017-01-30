@@ -8,6 +8,11 @@
     font-weight: normal;
     &--bold {
       font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    &--bold__placeholder {
+      text-decoration: none;
     }
   }
 
@@ -17,9 +22,9 @@
 
     padding: 12px 20px 12px 20px;
     font-weight: bold;
-    background-color: $red-badger-color;
+    background-color: $grey;
     text-decoration: none;
-    color: $white;
+    color: $conference-color-faded;
     display: inline-block;
     margin-top: 14px;
     font-size: 16px;
@@ -82,32 +87,39 @@
     outline: 0;
 
     &--github {
-      background-image: url('/img/SVG/Github.svg');
+      background-image: url('/img/SVG/Github_Grey.svg');
+
       height: 25px;
       width: 25px;
       &:focus,
       &:hover {
-        background-image: url('/img/SVG/Github_Grey.svg');
+        background-image: url('/img/SVG/Github.svg');
       }
     }
     &--twitter {
-      background-image: url('/img/SVG/Twitter.svg');
+      background-image: url('/img/SVG/Twitter_Grey.svg');
+
       height: 19px;
       width: 24px;
       &:focus,
       &:hover {
-        background-image: url('/img/SVG/Twitter_Grey.svg');
+        background-image: url('/img/SVG/Twitter.svg');
       }
-
     }
     &--blog {
-      background-image: url('/img/SVG/Blog.svg');
+      background-image: url('/img/SVG/Blog_Grey.svg');
+
       height: 23px;
       width: 23px;
       &:focus,
       &:hover {
-        background-image: url('/img/SVG/Blog_Grey.svg');
+        background-image: url('/img/SVG/Blog.svg');
       }
     }
+  }
+
+  &__talk-title {
+    font-size: 16px;
+    margin: 5px 0;
   }
 }

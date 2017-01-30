@@ -1,9 +1,22 @@
 import React, { PropTypes } from 'react';
 import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
+const listOfTalks = (talks) => {
+  if (talks && Array.isArray(talks) && talks.length > 0) {
+    return (
+      <div>
+        {talks.map(talk => (
+          <h5 className="Speaker__talk-title" key={talk.id}>{talk.title}</h5>
+        ))}
+      </div>
+    );
+  }
+};
 
 const Speaker = (props) => {
-  const avatar = props.imageURL || '/img/PNG/SpeakerGreen.png';
+  const avatar = props.imageURL ||
+    (props.conference ? '/img/PNG/SpeakerBlue.png' : '/img/PNG/SpeakerGreen.png');
+
   return (
     <article className="Speaker">
       <figure className="Speaker__photo">
@@ -13,7 +26,8 @@ const Speaker = (props) => {
         <div className="Speaker__name--bold">{props.name} </div>
         {props.company}
       </h5>
-      {!props.collapsed && <SpeakerSocialLinks {...props} />}
+      {listOfTalks(props.talks)}
+      {(!props.collapsed && !props.conference) && <SpeakerSocialLinks {...props} />}
     </article>
   );
 };
@@ -26,6 +40,8 @@ Speaker.propTypes = {
   githubHandle: PropTypes.string,
   blogURL: PropTypes.string,
   imageURL: PropTypes.string,
+  conference: PropTypes.bool,
+  collapsed: PropTypes.bool,
 };
 
 export default Speaker;

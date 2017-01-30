@@ -55,12 +55,14 @@ const ReadMoreButton = ({ onClick }) => (
 class NextCommunityEvent extends React.Component {
 
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.state = {
       collapsed: true,
-      statusProps: getTicketStatusOptions(this.props),
+      statusProps: getTicketStatusOptions(props),
     };
   }
+
   expandInfo(e) {
     this.setState({ collapsed: false });
     e.preventDefault();
