@@ -65,7 +65,7 @@ export function getTicketStatusSubtitle(event, ticketStatusOptions) {
 
 export function getTicketStatusOptions(event) {
   if (statusTypes[event.status]) {
-    const ticketStatusOptions = Object.assign({}, statusTypes[event.status]);
+    const ticketStatusOptions = { ...statusTypes[event.status] };
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
     ticketStatusOptions.title = getTicketStatusTitle(event, ticketStatusOptions);
     ticketStatusOptions.subtitle = getTicketStatusSubtitle(event, ticketStatusOptions);
