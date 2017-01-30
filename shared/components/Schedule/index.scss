@@ -1,102 +1,101 @@
+$left-column-width: 200px;
+
 .Schedule {
-  background-color: $conference-color-faded;
-  padding: 40px 0px;
-  border-bottom: $solid-border;
   &__list {
-    left: 5px;
-    list-style-type: none;
-    border-left: 2px dashed #4a4a4a;
-    position: relative;
-    display: inline-block;
-  }
-  &__header {
-    margin: 0px 0px 50px 0px;
-  }
-  &__subtext {
-    margin-top: 30px;
-  }
-  &__caterer {
-    font-weight: bold;
-    text-decoration: underline;
-    color: $grey;
-  }
-  &__item--time {
-    margin: 70px 0px 20px 0px;
-    position: relative;
-    &:before {
-      content: attr(data-time);
-      top: -30px;
-      text-align: right;
-      color: #4a4a4a;
-      position: absolute;
-    }
-    &:after {
-      margin-top: -12px;
-      content: "";
-      left: -48px;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #4a4a4a;
-      position: absolute;
-    }
-  }
-  &__item--first {
-    margin-top: 0px;
-  }
-  &__item--last {
-    margin-bottom: -30px;
-  }
-  &__item {
-    margin: 40px 0px;
-    &:after {
-      margin-top: 2px;
-      content: "";
-      left: -8px;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #4a4a4a;
-      position: absolute;
-    }
-  }
-}
+    margin-top: 20px;
+    border-left: 3px dashed #4a4a4a;
 
-
-.Schedule {
-  @media (min-width: $tablet-portrait-width) {
-    padding-left: 0px;
-    padding-top: 40px;
-    &__list {
-      left: 180px;
-    }
-    &__header {
-      margin: 0px 0px 20px 0px;
-    }
-    &__item--time {
-      margin: -5px 0px -5px 0px;
+    @media (min-width: $tablet-portrait-width) {
+      border-left: 0;
       position: relative;
-      &:before {
-        content: attr(data-time);
-        text-align: right;
-        color: #4a4a4a;
-        position: absolute;
-        top: 0px;
-        left: -220px;
-      }
+
       &:after {
-        margin-top: -12px;
-        content: "";
-        left: -48px;
-        width: 15px;
-        top: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background: #4a4a4a;
+        content: '';
         position: absolute;
+        left: $left-column-width;
+        bottom: 0;
+        height: 100%;
+        border-left: 3px dashed #4a4a4a;
       }
     }
   }
 }
 
+.ScheduleItem {
+  display: flex;
+  flex-wrap: wrap;
 
+  &__header {
+    width: 100%;
+    text-align: left;
+    min-height: 80px;
+    padding-left: 17px;
+
+    &__time {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        left: -26px;
+        top: 3px;
+        width: 15px;
+        height: 15px;
+        border-radius: 7.5px;
+        background-color: #4a4a4a;
+
+        @media (min-width: $tablet-portrait-width) {
+          left: auto;
+          right: -26px;
+        }
+      }
+    }
+    &__title {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $tablet-portrait-width) {
+      width: $left-column-width;
+      text-align: right;
+      padding-right: 17px;
+    }
+  }
+
+  &__details {
+    width: 100%;
+    padding-left: 17px;
+
+    &__description {
+      margin: 0;
+      display: block;
+    }
+
+    @media (min-width: $tablet-portrait-width) {
+      width: calc(100% - 200px);
+    }
+  }
+}
+
+.ScheduleDetail {
+  &__time {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      left: -23px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 5px;
+      background-color: #4a4a4a;
+
+      @media (min-width: $tablet-portrait-width) {
+        left: -20px;
+      }
+    }
+  }
+}

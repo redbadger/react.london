@@ -1,58 +1,97 @@
 import React from 'react';
 
+const scheduleData = [
+  {
+    time: '9:40 - 11:00 am',
+    title: 'Registration',
+    description: 'Registration and breakfast',
+    details: [],
+  },
+  {
+    time: '9:40 - 11:00 am',
+    title: 'Welcome',
+    description: 'Opening talk',
+    details: [],
+  },
+  {
+    time: '9:40 - 11:00 am',
+    title: 'Morning Talks',
+    description: 'Blurb about morning talks',
+    details: [
+      {
+        time: '9:40 - 10:20 am',
+        title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
+        description: 'Lorem ipsum',
+        speaker: {
+          name: 'Christopher Chedau',
+          url: 'http://example.com',
+          company: 'Facebook',
+        },
+      },
+      {
+        time: '9:40 - 10:20 am',
+        title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
+        description: 'Lorem ipsum',
+        speaker: {
+          name: 'Christopher Chedau',
+          url: 'http://example.com',
+          company: 'Facebook',
+        },
+      },
+    ],
+  },
+];
+
+const ScheduleDetail = ({ detail }) => (
+  <div className="ScheduleDetail">
+    <div className="ScheduleDetail__time">
+      {detail.time}
+    </div>
+    <div className="ScheduleDetail__title">
+      {detail.title}
+    </div>
+    <div className="ScheduleDetail__description">
+      {detail.description}
+    </div>
+    <a href={detail.speaker.url} className="ScheduleDetail__author">
+      {detail.speaker.name}
+    </a>
+    <span className="ScheduleDetail__author--company">
+      {detail.speaker.company}
+    </span>
+  </div>
+);
+
+const ScheduleItem = ({ item }) => (
+  <div className="ScheduleItem">
+    <div className="ScheduleItem__header">
+      <div className="ScheduleItem__header__time">
+        {item.time}
+      </div>
+      <h3 className="ScheduleItem__header__title">
+        {item.title}
+      </h3>
+    </div>
+    <div className="ScheduleItem__details">
+      <p className="ScheduleItem__details__description">
+        {item.description}
+      </p>
+      {item.details.map(detail => <ScheduleDetail detail={detail} />)}
+    </div>
+  </div>
+);
+
+
 const Schedule = () => {
   return (
     <div className="Schedule block">
       <div className="content">
-        <h2 className="Schedule__header">Schedule</h2>
-        <ol className="Schedule__list">
-          <li>
-            <p
-              className="Schedule__item--time Schedule__item--first"
-              data-time="8:30am – 9:30am"
-            >
-              Registration
-            </p>
-          </li>
-          <li>
-            <p className="Schedule__item">3 morning talks</p>
-          </li>
-          <li>
-            <p className="Schedule__item">1 panel discussion</p>
-          </li>
-          <li>
-            <p className="Schedule__item--time" data-time="12:40pm – 1:40pm">
-              Street food lunch catered by &#160;
-              <a
-                className="Schedule__caterer"
-                href="http://www.leithsdining.co.uk/our-food/"
-                target="_blank"
-                rel="noopener"
-              >
-                Leiths
-              </a>
-            </p>
-          </li>
-          <li>
-            <p className="Schedule__item">4 lightning talks</p>
-          </li>
-          <li>
-            <p className="Schedule__item">3 afternoon talks</p>
-          </li>
-          <li>
-            <p
-              className="Schedule__item--time Schedule__item--last"
-              data-time="6:00pm – 9:00pm"
-            >
-              Join us for a drink
-            </p>
-          </li>
-        </ol>
-        <div className="Schedule__subtext">Full schedule to come soon</div>
+        <div className="Schedule__list">
+          {scheduleData.map(scheduleItem => <ScheduleItem item={scheduleItem} />)}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Schedule;
-
