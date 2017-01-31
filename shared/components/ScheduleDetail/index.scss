@@ -1,0 +1,54 @@
+.ScheduleDetail {
+  padding-bottom: 30px;
+
+  &__time {
+    display: block;
+    font-size: 16px;
+    line-height: 1.31;
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      left: -24px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: $grey;
+
+      @media (min-width: $tablet-portrait-width) {
+        left: -20px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  &__description {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &__author {
+    display: inline-block;
+    font-weight: bold;
+    color: $grey;
+    padding-right: 4px;
+  }
+
+  &__company {
+    display: inline-block;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}

@@ -1,4 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+
+import ScheduleItem from '../ScheduleItem';
+import CommunityEvents from '../CommunityEvents';
 
 const mainEventData = {
   name: 'React London 2017',
@@ -45,111 +48,6 @@ const mainEventData = {
     },
   ],
 };
-
-const communityEventsData = {
-  date: 'Monday, 27th March 2017',
-  events: [
-    {
-      title: 'What React Means to me',
-      url: 'http://example.com',
-      venue: 'Ticketmaster, Somewhere',
-      time: '6:00pm - 9:00pm',
-    },
-    {
-      title: 'Networking',
-      url: 'http://example.com',
-      venue: 'Trainline',
-    },
-  ],
-};
-
-const CommunityEvents = () => (
-  <div className="CommunityEvents">
-    <h2 className="Schedule__name">
-      Community Events
-    </h2>
-    <h2 className="Schedule__date">Monday, 27th March 2017</h2>
-    <p>
-      Our awesome partners are organising some great events the evening of 27th March. Take a look
-      and sign yourself up. Tickets are limited to one event per conference ticket holder, just use
-      the password provided with your ticket.
-    </p>
-    <ul className="CommunityEvents__list">
-      {communityEventsData.events.map((event, index) => (
-        <li key={index} className="CommunityEvents__event">
-          <a href={event.url}>{event.title}</a>,
-          <span className="CommunityEvents__venue">
-            {event.time ? [event.venue, event.time].join(', ') : event.venue}
-          </span>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const ScheduleDetail = ({ detail }) => (
-  <li className="ScheduleDetail">
-    <time className="ScheduleDetail__time">
-      {detail.time}
-    </time>
-    <h4 className="ScheduleDetail__title">
-      {detail.title}
-    </h4>
-    <p className="ScheduleDetail__description">
-      {detail.description}
-    </p>
-    <a href={detail.speaker.url} className="ScheduleDetail__author">
-      {detail.speaker.name}
-    </a>
-    <span className="ScheduleDetail__company">
-      {detail.speaker.company}
-    </span>
-  </li>
-);
-
-ScheduleDetail.propTypes = {
-  detail: PropTypes.shape({
-    time: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    speaker: PropTypes.shape({
-      name: PropTypes.string,
-      url: PropTypes.string,
-      company: PropTypes.string,
-    }),
-  }),
-};
-
-const ScheduleItem = ({ item }) => (
-  <div className="ScheduleItem">
-    <div className="ScheduleItem__header">
-      <time className="ScheduleItem__header__time">
-        {item.time}
-      </time>
-      <h3 className="ScheduleItem__header__title">
-        {item.title}
-      </h3>
-    </div>
-    <div className="ScheduleItem__details">
-      <p className="ScheduleItem__details__description">
-        {item.description}
-      </p>
-      <ul className="ScheduleItem__details__list">
-      {item.details.map((detail, index) => <ScheduleDetail key={index} detail={detail} />)}
-      </ul>
-    </div>
-  </div>
-);
-
-ScheduleItem.propTypes = {
-  item: PropTypes.shape({
-    time: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.description,
-    details: PropTypes.arrayOf(PropTypes.shape(ScheduleDetail.propTypes)),
-  }),
-};
-
 
 const Schedule = () => {
   return (
