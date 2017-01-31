@@ -21,13 +21,6 @@
   &__cfp {
     text-align: left;
     padding-bottom: 40px;
-
-    a {
-      color: inherit;
-      &:hover {
-        color: $middle-grey;
-      }
-    }
   }
 
   &__date {
@@ -45,9 +38,9 @@
     border: 0;
     padding: 12px 20px;
     font-weight: 700;
-    background-color: $disabled-grey;
+    background-color: #fc1d42;
     text-decoration: none;
-    color: $conference-color-faded;
+    color: #fff;
     display: inline-block;
     font-size: 16px;
     margin-bottom: 10px;
@@ -79,3 +72,5 @@
     }
   }
 }
+
+
