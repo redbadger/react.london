@@ -1,46 +1,50 @@
 import React, { PropTypes } from 'react';
 
-const scheduleData = [
-  {
-    time: '9:40 - 11:00 am',
-    title: 'Registration',
-    description: 'Registration and breakfast',
-    details: [],
-  },
-  {
-    time: '9:40 - 11:00 am',
-    title: 'Welcome',
-    description: 'Opening talk',
-    details: [],
-  },
-  {
-    time: '9:40 - 11:00 am',
-    title: 'Morning Talks',
-    description: 'Blurb about morning talks',
-    details: [
-      {
-        time: '9:40 - 10:20 am',
-        title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-        description: 'Lorem ipsum',
-        speaker: {
-          name: 'Christopher Chedau',
-          url: 'http://example.com',
-          company: 'Facebook',
+const data = {
+  name: 'React London 2017',
+  date: 'Tuesday, 28th March 2017',
+  schedule: [
+    {
+      time: '9:40 - 11:00 am',
+      title: 'Registration',
+      description: 'Registration and breakfast',
+      details: [],
+    },
+    {
+      time: '9:40 - 11:00 am',
+      title: 'Welcome',
+      description: 'Opening talk',
+      details: [],
+    },
+    {
+      time: '9:40 - 11:00 am',
+      title: 'Morning Talks',
+      description: 'Blurb about morning talks',
+      details: [
+        {
+          time: '9:40 - 10:20 am',
+          title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
+          description: 'Lorem ipsum',
+          speaker: {
+            name: 'Christopher Chedau',
+            url: 'http://example.com',
+            company: 'Facebook',
+          },
         },
-      },
-      {
-        time: '9:40 - 10:20 am',
-        title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-        description: 'Lorem ipsum',
-        speaker: {
-          name: 'Christopher Chedau',
-          url: 'http://example.com',
-          company: 'Facebook',
+        {
+          time: '9:40 - 10:20 am',
+          title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
+          description: 'Lorem ipsum',
+          speaker: {
+            name: 'Christopher Chedau',
+            url: 'http://example.com',
+            company: 'Facebook',
+          },
         },
-      },
-    ],
-  },
-];
+      ],
+    },
+  ],
+};
 
 const ScheduleDetail = ({ detail }) => (
   <div className="ScheduleDetail">
@@ -108,8 +112,12 @@ const Schedule = () => {
   return (
     <div className="Schedule block">
       <div className="content">
+        <h2 className="Schedule__name">
+          {data.name}
+        </h2>
+        <h2 className="Schedule__date">{data.date}</h2>
         <div className="Schedule__list">
-          {scheduleData.map((scheduleItem, index) => (
+          {data.schedule.map((scheduleItem, index) => (
             <ScheduleItem key={index} item={scheduleItem} />
           ))}
         </div>
