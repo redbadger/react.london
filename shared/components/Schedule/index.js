@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const scheduleData = [
   {
@@ -62,6 +62,19 @@ const ScheduleDetail = ({ detail }) => (
   </div>
 );
 
+ScheduleDetail.propTypes = {
+  detail: PropTypes.shape({
+    time: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    speaker: PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string,
+      company: PropTypes.string,
+    }),
+  }),
+};
+
 const ScheduleItem = ({ item }) => (
   <div className="ScheduleItem">
     <div className="ScheduleItem__header">
@@ -76,10 +89,19 @@ const ScheduleItem = ({ item }) => (
       <p className="ScheduleItem__details__description">
         {item.description}
       </p>
-      {item.details.map(detail => <ScheduleDetail detail={detail} />)}
+      {item.details.map((detail, index) => <ScheduleDetail key={index} detail={detail} />)}
     </div>
   </div>
 );
+
+ScheduleItem.propTypes = {
+  item: PropTypes.shape({
+    time: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.description,
+    details: PropTypes.arrayOf(PropTypes.shape(ScheduleDetail.propTypes)),
+  }),
+};
 
 
 const Schedule = () => {
@@ -87,7 +109,9 @@ const Schedule = () => {
     <div className="Schedule block">
       <div className="content">
         <div className="Schedule__list">
-          {scheduleData.map(scheduleItem => <ScheduleItem item={scheduleItem} />)}
+          {scheduleData.map((scheduleItem, index) => (
+            <ScheduleItem key={index} item={scheduleItem} />
+          ))}
         </div>
       </div>
     </div>
