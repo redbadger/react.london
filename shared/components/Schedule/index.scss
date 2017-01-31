@@ -1,8 +1,26 @@
 $left-column-width: 200px;
 
 .Schedule {
+  background-color: $conference-color-faded;
+  padding: 40px 0;
+  border-bottom: $solid-border;
+
+  &__name {
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 20px;
+    line-height: 29px;
+  }
+
+  &__date {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: normal;
+  }
+
   &__list {
-    margin-top: 20px;
+    margin-top: 34px;
     border-left: 3px dashed #4a4a4a;
 
     @media (min-width: $tablet-portrait-width) {
@@ -14,7 +32,7 @@ $left-column-width: 200px;
         position: absolute;
         left: $left-column-width;
         bottom: 0;
-        height: 100%;
+        height: calc(100% - 4px);
         border-left: 3px dashed #4a4a4a;
       }
     }
@@ -28,10 +46,12 @@ $left-column-width: 200px;
   &__header {
     width: 100%;
     text-align: left;
-    min-height: 80px;
     padding-left: 17px;
 
     &__time {
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: bold;
       position: relative;
 
       &::after {
@@ -40,9 +60,9 @@ $left-column-width: 200px;
         display: inline-block;
         left: -26px;
         top: 3px;
-        width: 15px;
-        height: 15px;
-        border-radius: 7.5px;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
         background-color: #4a4a4a;
 
         @media (min-width: $tablet-portrait-width) {
@@ -52,8 +72,10 @@ $left-column-width: 200px;
       }
     }
     &__title {
+      font-size: 20px;
+      line-height: 29px;
       margin-top: 10px;
-      margin-bottom: 0;
+      margin-bottom: 30px;
     }
 
     @media (min-width: $tablet-portrait-width) {
