@@ -87,25 +87,24 @@ const CommunityEvents = () => (
   </div>
 );
 
-
 const ScheduleDetail = ({ detail }) => (
-  <div className="ScheduleDetail">
-    <div className="ScheduleDetail__time">
+  <li className="ScheduleDetail">
+    <time className="ScheduleDetail__time">
       {detail.time}
-    </div>
-    <div className="ScheduleDetail__title">
+    </time>
+    <h4 className="ScheduleDetail__title">
       {detail.title}
-    </div>
-    <div className="ScheduleDetail__description">
+    </h4>
+    <p className="ScheduleDetail__description">
       {detail.description}
-    </div>
+    </p>
     <a href={detail.speaker.url} className="ScheduleDetail__author">
       {detail.speaker.name}
     </a>
     <span className="ScheduleDetail__company">
       {detail.speaker.company}
     </span>
-  </div>
+  </li>
 );
 
 ScheduleDetail.propTypes = {
@@ -124,9 +123,9 @@ ScheduleDetail.propTypes = {
 const ScheduleItem = ({ item }) => (
   <div className="ScheduleItem">
     <div className="ScheduleItem__header">
-      <div className="ScheduleItem__header__time">
+      <time className="ScheduleItem__header__time">
         {item.time}
-      </div>
+      </time>
       <h3 className="ScheduleItem__header__title">
         {item.title}
       </h3>
@@ -135,7 +134,9 @@ const ScheduleItem = ({ item }) => (
       <p className="ScheduleItem__details__description">
         {item.description}
       </p>
+      <ul className="ScheduleItem__details__list">
       {item.details.map((detail, index) => <ScheduleDetail key={index} detail={detail} />)}
+      </ul>
     </div>
   </div>
 );

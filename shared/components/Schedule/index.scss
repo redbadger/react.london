@@ -59,6 +59,7 @@ $left-column-width: 200px;
     padding-left: 17px;
 
     &__time {
+      display: block;
       font-size: 16px;
       line-height: 21px;
       font-weight: bold;
@@ -107,6 +108,11 @@ $left-column-width: 200px;
       display: block;
     }
 
+    &__list {
+      list-style-type: none;
+      padding: 0;
+    }
+
     @media (min-width: $tablet-portrait-width) {
       width: calc(100% - 200px);
     }
@@ -117,6 +123,7 @@ $left-column-width: 200px;
   padding-bottom: 30px;
 
   &__time {
+    display: block;
     font-size: 16px;
     line-height: 1.31;
     margin-bottom: 10px;
@@ -142,10 +149,12 @@ $left-column-width: 200px;
 
   &__title {
     font-weight: bold;
+    margin-top: 10px;
     margin-bottom: 5px;
   }
 
   &__description {
+    margin-top: 0;
     margin-bottom: 10px;
   }
 
