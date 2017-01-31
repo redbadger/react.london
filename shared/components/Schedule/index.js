@@ -24,7 +24,7 @@ const data = {
         {
           time: '9:40 - 10:20 am',
           title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-          description: 'Lorem ipsum',
+          description: 'Stu is a founder with a delivery focus. He ensures that everything we create is both great for the client, and challenging for us.', // eslint-disable-line max-len
           speaker: {
             name: 'Christopher Chedau',
             url: 'http://example.com',
@@ -34,7 +34,7 @@ const data = {
         {
           time: '9:40 - 10:20 am',
           title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-          description: 'Lorem ipsum',
+          description: 'Stu is a founder with a delivery focus. He ensures that everything we create is both great for the client, and challenging for us.', // eslint-disable-line max-len
           speaker: {
             name: 'Christopher Chedau',
             url: 'http://example.com',
@@ -60,7 +60,7 @@ const ScheduleDetail = ({ detail }) => (
     <a href={detail.speaker.url} className="ScheduleDetail__author">
       {detail.speaker.name}
     </a>
-    <span className="ScheduleDetail__author--company">
+    <span className="ScheduleDetail__company">
       {detail.speaker.company}
     </span>
   </div>

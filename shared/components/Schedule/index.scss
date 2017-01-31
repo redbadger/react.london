@@ -21,7 +21,7 @@ $left-column-width: 200px;
 
   &__list {
     margin-top: 34px;
-    border-left: 3px dashed #4a4a4a;
+    border-left: 3px dashed $grey;
 
     @media (min-width: $tablet-portrait-width) {
       border-left: 0;
@@ -33,7 +33,7 @@ $left-column-width: 200px;
         left: $left-column-width;
         bottom: 0;
         height: calc(100% - 4px);
-        border-left: 3px dashed #4a4a4a;
+        border-left: 3px dashed $grey;
       }
     }
   }
@@ -63,7 +63,7 @@ $left-column-width: 200px;
         width: 16px;
         height: 16px;
         border-radius: 8px;
-        background-color: #4a4a4a;
+        background-color: $grey;
 
         @media (min-width: $tablet-portrait-width) {
           left: auto;
@@ -90,7 +90,10 @@ $left-column-width: 200px;
     padding-left: 17px;
 
     &__description {
-      margin: 0;
+      font-size: 16px;
+      line-height: 1.31;
+      margin-top: 0;
+      margin-bottom: 21px;
       display: block;
     }
 
@@ -101,23 +104,53 @@ $left-column-width: 200px;
 }
 
 .ScheduleDetail {
+  padding-bottom: 30px;
+
   &__time {
+    font-size: 16px;
+    line-height: 1.31;
+    margin-bottom: 10px;
+    font-weight: bold;
     position: relative;
 
     &::after {
       position: absolute;
       content: '';
       display: inline-block;
-      left: -23px;
+      left: -24px;
       top: 6px;
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 5px;
-      background-color: #4a4a4a;
+      background-color: $grey;
 
       @media (min-width: $tablet-portrait-width) {
         left: -20px;
       }
     }
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  &__description {
+    margin-bottom: 10px;
+  }
+
+  &__author {
+    display: inline-block;
+    font-weight: bold;
+    color: $grey;
+    padding-right: 4px;
+  }
+
+  &__company {
+    display: inline-block;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
   }
 }
