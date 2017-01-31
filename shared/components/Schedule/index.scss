@@ -8,19 +8,25 @@ $left-column-width: 200px;
   &__name {
     display: inline-block;
     padding-right: 20px;
+    margin: 0;
     font-size: 20px;
     line-height: 29px;
+
+    @media (min-width: $tablet-portrait-width) {
+      line-height: 17px;
+    }
   }
 
   &__date {
     display: inline-block;
     font-size: 20px;
+    margin: 0;
     line-height: 29px;
     font-weight: normal;
   }
 
   &__list {
-    margin-top: 34px;
+    margin: 34px 0 30px;
     border-left: 3px dashed $grey;
 
     @media (min-width: $tablet-portrait-width) {
@@ -36,6 +42,10 @@ $left-column-width: 200px;
         border-left: 3px dashed $grey;
       }
     }
+  }
+
+  &__info {
+    margin-bottom: 0;
   }
 }
 
@@ -152,5 +162,34 @@ $left-column-width: 200px;
 
   &:last-child {
     padding-bottom: 0;
+  }
+}
+
+.CommunityEvents {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 3px dashed $grey;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__description {
+    margin-bottom: 0;
+  }
+
+  &__event {
+    margin-bottom: 21px;
+    font-weight: bold;
+
+    a {
+      color: $grey;
+    }
+  }
+
+  &__venue {
+    display: inline-block;
+    font-weight: normal;
   }
 }
