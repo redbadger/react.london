@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ScheduleItem from '../ScheduleItem';
-import CommunityEvents from '../CommunityEvents';
 
 const mainEventData = {
   name: 'React London 2017',
@@ -65,7 +64,6 @@ const Schedule = () => {
           ))}
         </ol>
         <p className="Schedule__info">Schedule subject to change.</p>
-        <CommunityEvents />
       </div>
     </div>
   );
