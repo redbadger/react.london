@@ -5,10 +5,10 @@ import ScheduleDetail from '../ScheduleDetail';
 const ScheduleItem = ({ item }) => (
   <div className="ScheduleItem">
     <div className="ScheduleItem__header">
-      <time className="ScheduleItem__header__time">
-        {item.time}
-      </time>
       <h3 className="ScheduleItem__header__title">
+        <time className="ScheduleItem__header__time">
+          {item.time}
+        </time>
         {item.title}
       </h3>
     </div>
@@ -16,9 +16,13 @@ const ScheduleItem = ({ item }) => (
       <p className="ScheduleItem__details__description">
         {item.description}
       </p>
-      <ul className="ScheduleItem__details__list">
-        {item.details.map((detail, index) => <ScheduleDetail key={index} detail={detail} />)}
-      </ul>
+      <ol className="ScheduleItem__details__list">
+        {item.details.map((detail, index) => (
+          <li>
+            <ScheduleDetail key={index} detail={detail} />
+          </li>
+        ))}
+      </ol>
     </div>
   </div>
 );

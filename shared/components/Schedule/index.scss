@@ -26,6 +26,8 @@ $left-column-width: 200px;
   }
 
   &__list {
+    list-style-type: none;
+    padding: 0;
     margin: 34px 0 30px;
     border-left: 3px dashed $grey;
 
@@ -114,7 +116,7 @@ $left-column-width: 200px;
     }
 
     @media (min-width: $tablet-portrait-width) {
-      width: calc(100% - 200px);
+      width: auto;
     }
   }
 }

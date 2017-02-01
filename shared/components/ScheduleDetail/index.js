@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
 const ScheduleDetail = ({ detail }) => (
-  <li className="ScheduleDetail">
-    <time className="ScheduleDetail__time">
-      {detail.time}
-    </time>
+  <div className="ScheduleDetail">
     <h4 className="ScheduleDetail__title">
+      <time className="ScheduleDetail__time">
+        {detail.time}
+      </time>
       {detail.title}
     </h4>
     <p className="ScheduleDetail__description">
@@ -17,7 +17,7 @@ const ScheduleDetail = ({ detail }) => (
     <span className="ScheduleDetail__company">
       {detail.speaker.company}
     </span>
-  </li>
+  </div>
 );
 
 ScheduleDetail.propTypes = {

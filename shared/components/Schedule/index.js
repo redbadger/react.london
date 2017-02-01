@@ -57,11 +57,13 @@ const Schedule = () => {
           {mainEventData.name}
         </h2>
         <h2 className="Schedule__date">{mainEventData.date}</h2>
-        <div className="Schedule__list">
+        <ol className="Schedule__list">
           {mainEventData.schedule.map((scheduleItem, index) => (
-            <ScheduleItem key={index} item={scheduleItem} />
+            <li>
+              <ScheduleItem key={index} item={scheduleItem} />
+            </li>
           ))}
-        </div>
+        </ol>
         <p className="Schedule__info">Schedule subject to change.</p>
         <CommunityEvents />
       </div>
