@@ -45,7 +45,7 @@ TicketStatus.propTypes = {
   tickets: PropTypes.arrayOf(PropTypes.shape(ticketType)),
 };
 
-const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
+const NextConferenceEvent = ({ calendarURL, featuredSpeakers, tickets }) => (
   <section className="NextConferenceEvent block">
     <div className="content">
       <h2 className="NextConferenceEvent__header">
@@ -78,7 +78,7 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
       </article>
       <div className="NextConferenceEvent__accomodation">
         <h2>On stage</h2>
-        <SpeakerList speakers={speakers} conference />
+        <SpeakerList speakers={featuredSpeakers} conference />
       </div>
       <div className="NextConferenceEvent__accomodation">
         <h2>Plan your visit</h2>
@@ -104,6 +104,6 @@ const NextConferenceEvent = ({ calendarURL, speakers, tickets }) => (
 
 NextConferenceEvent.propTypes = {
   calendarURL: PropTypes.string,
-  speakers: PropTypes.arrayOf(speakerType),
+  featuredSpeakers: PropTypes.arrayOf(speakerType),
 };
 export default NextConferenceEvent;

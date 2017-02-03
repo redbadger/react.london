@@ -32,10 +32,15 @@ export default function communityData(state) {
   const { partners, tickets, talks, calendarURL } = state.event;
   const speakers = pickSpeakersFromTalks(talks);
 
+  // Note that this line also affects order of the original
+  // speakers list, which is exactly what we want
+  const featuredSpeakers = speakers.reverse().slice(0, 5);
+
   return {
     ...groupPartnersByLevel(partners || []),
     tickets,
     speakers,
+    featuredSpeakers,
     calendarURL,
     talks,
   };
