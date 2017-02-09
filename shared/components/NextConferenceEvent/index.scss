@@ -180,6 +180,14 @@
       margin-bottom: 12px;
     }
   }
+
+  &__city-guide {
+    margin-top: 30px;
+
+    a {
+      color: $grey;
+    }
+  }
 }
 
 @media (min-width: $tablet-portrait-width) {
