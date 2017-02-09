@@ -103,9 +103,11 @@ const NextConferenceEvent = ({ calendarURL, featuredSpeakers, tickets }) => (
           </span><br />
           <span>
             {'We\'ve put together some great tips in '}
-            <ExternalLink href="https://red-badger.com/blog/2017/2/2/a-badgers-guide-to-london">
-              <strong>A Badger's guide to London</strong>
-            </ExternalLink>
+            <strong>
+              <ExternalLink href="https://red-badger.com/blog/2017/2/2/a-badgers-guide-to-london">
+                {'A Badger\'s guide to London'}
+              </ExternalLink>
+            </strong>
           </span>
         </p>
       </div>
