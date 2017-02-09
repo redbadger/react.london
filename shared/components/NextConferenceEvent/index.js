@@ -97,6 +97,17 @@ const NextConferenceEvent = ({ calendarURL, featuredSpeakers, tickets }) => (
           Please call<strong> 0844 415 6784</strong> to book and quote reference number
           <strong> 270317REDD</strong>
         </p>
+        <h3>Visiting London for the first time?</h3>
+        <p className="NextConferenceEvent__city-guide">
+          <span>
+            {'We\'ve put together some great tips in '}
+            <strong>
+              <ExternalLink href="https://red-badger.com/blog/2017/2/2/a-badgers-guide-to-london">
+                {'A Badger\'s guide to London'}
+              </ExternalLink>
+            </strong>
+          </span>
+        </p>
       </div>
     </div>
   </section>
