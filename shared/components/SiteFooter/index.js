@@ -140,6 +140,13 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 rel="noopener"
               >
               </a>
+              <a
+                className="SiteFooter__social-link SiteFooter__instagram"
+                href="https://instagram.com/reactlondon_"
+                target="_blank"
+                rel="noopener"
+              >
+              </a>
             </div>
           </div>
 

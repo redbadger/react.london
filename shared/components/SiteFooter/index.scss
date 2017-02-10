@@ -237,10 +237,10 @@
 }
 
 .SiteFooter__instagram {
-  background: url("/img/SVG/Instagram_Grey.svg") no-repeat left 3px;
+  background: url("/img/SVG/Instagram.svg") no-repeat left 3px;
   &:focus,
   &:hover {
-    background-image: url("/img/SVG/Instagram.svg");
+    background-image: url("/img/SVG/Instagram_Grey.svg");
   }
 }
 
