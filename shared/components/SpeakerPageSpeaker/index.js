@@ -5,7 +5,7 @@ import SpeakerSocialLinks from '../SpeakerSocialLinks';
 const SpeakerPageSpeaker = (speaker) => {
   const avatar = speaker.imageURL || '/img/PNG/SpeakerBlue.png';
   return (
-    <article className="SpeakerPageSpeaker">
+    <article className="SpeakerPageSpeaker" id={speaker.githubHandle}>
       <figure className="SpeakerPageSpeaker__photo">
         <img className="SpeakerPageSpeaker__photo--img" src={avatar} alt={speaker.name} />
       </figure>

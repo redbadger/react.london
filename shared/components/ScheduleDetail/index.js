@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 const ScheduleDetail = ({ detail }) => (
   <div className="ScheduleDetail">
@@ -11,9 +12,9 @@ const ScheduleDetail = ({ detail }) => (
     <p className="ScheduleDetail__description">
       {detail.description}
     </p>
-    <a href={detail.speaker.url} className="ScheduleDetail__author">
+    <Link to={`/speakers#${detail.speaker.id}`} className="ScheduleDetail__author">
       {detail.speaker.name}
-    </a>
+    </Link>
     <span className="ScheduleDetail__company">
       {detail.speaker.company}
     </span>
@@ -27,7 +28,7 @@ ScheduleDetail.propTypes = {
     description: PropTypes.string,
     speaker: PropTypes.shape({
       name: PropTypes.string,
-      url: PropTypes.string,
+      id: PropTypes.string,
       company: PropTypes.string,
     }),
   }),

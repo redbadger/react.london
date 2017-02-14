@@ -18,8 +18,8 @@ const ScheduleItem = ({ item }) => (
       </p>
       <ol className="ScheduleItem__details__list">
         {item.details.map((detail, index) => (
-          <li>
-            <ScheduleDetail key={index} detail={detail} />
+          <li key={index}>
+            <ScheduleDetail detail={detail} />
           </li>
         ))}
       </ol>

@@ -8,7 +8,7 @@ const detail = {
   description: 'Stu is a founder with a delivery focus.',
   speaker: {
     name: 'Christopher Chedau',
-    url: 'http://example.com',
+    id: 'vjeux',
     company: 'Facebook',
   },
 };
@@ -35,14 +35,6 @@ describe('ScheduleDetail', () => {
     expect(
       wrapper.containsMatchingElement(
         <p>Stu is a founder with a delivery focus.</p>
-      )
-    ).to.be.equal(true);
-  });
-
-  it('should display speaker\'s name pointing to the given url', () => {
-    expect(
-      wrapper.containsMatchingElement(
-        <a href='http://example.com'>Christopher Chedau</a>
       )
     ).to.be.equal(true);
   });
