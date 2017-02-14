@@ -7,43 +7,94 @@ const mainEventData = {
   date: 'Tuesday, 28th March 2017',
   schedule: [
     {
-      time: '9:40 - 11:00 am',
-      title: 'Registration',
-      description: 'Registration and breakfast',
+      time: '8:30 - 9:30',
+      title: '',
+      description: 'Breakfast and registration',
       details: [],
     },
     {
-      time: '9:40 - 11:00 am',
-      title: 'Welcome',
-      description: 'Opening talk',
+      time: '9:30 - 9:40',
+      title: '',
+      description: 'Conference welcome',
       details: [],
     },
     {
-      time: '9:40 - 11:00 am',
-      title: 'Morning Talks',
-      description: 'Blurb about morning talks',
-      details: [
-        {
-          time: '9:40 - 10:20 am',
-          title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-          description: 'Stu is a founder with a delivery focus. He ensures that everything we create is both great for the client, and challenging for us.', // eslint-disable-line max-len
-          speaker: {
-            name: 'Christopher Chedau',
-            url: 'http://example.com',
-            company: 'Facebook',
-          },
-        },
-        {
-          time: '9:40 - 10:20 am',
-          title: 'Computer Hardware Desktops And Notebooks And Handhelds Oh My',
-          description: 'Stu is a founder with a delivery focus. He ensures that everything we create is both great for the client, and challenging for us.', // eslint-disable-line max-len
-          speaker: {
-            name: 'Christopher Chedau',
-            url: 'http://example.com',
-            company: 'Facebook',
-          },
-        },
-      ],
+      time: '9:40 - 10:20',
+      title: '',
+      description: 'Christopher',
+      details: [],
+    },
+    {
+      time: '10:25 - 11:10',
+      title: '',
+      description: 'Andrey',
+      details: [],
+    },
+    {
+      time: '11:10 - 11:30',
+      title: '',
+      description: 'Refreshment break',
+      details: [],
+    },
+    {
+      time: '11:30 - 12:15',
+      title: '',
+      description: 'Cheng',
+      details: [],
+    },
+    {
+      time: '12:15 - 13:20',
+      title: '',
+      description: 'Lightning talks - Anna, Oliver, Jani, Jasdeep',
+      details: [],
+    },
+    {
+      time: '13:20 - 14:20',
+      title: '',
+      description: 'Lunch',
+      details: [],
+    },
+    {
+      time: '14:20 - 15:05',
+      title: '',
+      description: 'Max',
+      details: [],
+    },
+    {
+      time: '15:05 - 15:50',
+      title: '',
+      description: 'Dustan',
+      details: [],
+    },
+    {
+      time: '15:50 - 16:10',
+      title: '',
+      description: 'Refreshment break',
+      details: [],
+    },
+    {
+      time: '16:10 - 17:10',
+      title: '',
+      description: 'Panel discussion - Christopher, Dan, Lee, Ben',
+      details: [],
+    },
+    {
+      time: '17:10 - 17:50',
+      title: '',
+      description: 'Ken Wheeler',
+      details: [],
+    },
+    {
+      time: '17:50 - 18:00',
+      title: '',
+      description: 'Closing remarks',
+      details: [],
+    },
+    {
+      time: '18:00',
+      title: '',
+      description: 'Stick around for some drinks, more fantastic food from Leith\'s and great conversation with the community', // eslint-disable-line
+      details: [],
     },
   ],
 };
