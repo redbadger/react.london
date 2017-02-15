@@ -16,11 +16,12 @@ const Conference = (props) => {
     <div>
       <Helmet
         meta={[
-           { property: 'twitter:card', content: 'summary_large_image' },
-           { property: 'twitter:site', content: '@ReactLondon_' },
-           { property: 'twitter:title', content: title },
-           { property: 'twitter:description', content: description },
-           { property: 'twitter:image', content: metaImage },
+           { name: 'twitter:card', content: 'summary_large_image' },
+           { name: 'twitter:site', content: '@ReactLondon_' },
+           { name: 'twitter:title', content: title },
+           { name: 'twitter:description', content: description },
+           { name: 'twitter:image', content: metaImage },
+           { property: 'og:type', content: 'website' },
            { property: 'og:url', content: 'https://react.london' },
            { property: 'og:title', content: title },
            { property: 'og:image', content: metaImage },
