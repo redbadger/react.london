@@ -5,14 +5,14 @@ import ScheduleDetail from '../ScheduleDetail';
 const ScheduleItem = ({ item }) => (
   <div className="ScheduleItem">
     <div className="ScheduleItem__header">
-      <h3 className="ScheduleItem__header__title">
-        <time className="ScheduleItem__header__time">
-          {item.time}
-        </time>
-        {item.title}
-      </h3>
+      <time className="ScheduleItem__header__time">
+        {item.time}
+      </time>
     </div>
     <div className="ScheduleItem__details">
+      <h3 className="ScheduleItem__header__title">
+        {item.title}
+      </h3>
       <p className="ScheduleItem__details__description">
         {item.description}
       </p>

@@ -48,76 +48,10 @@ $left-column-width: 200px;
 
   &__info {
     margin-bottom: 0;
-  }
-}
 
-.ScheduleItem {
-  display: flex;
-  flex-wrap: wrap;
-
-  &__header {
-    width: 100%;
-    text-align: left;
-    padding-left: 17px;
-
-    &__time {
-      display: block;
-      font-size: 16px;
-      line-height: 21px;
+    a {
       font-weight: bold;
-      margin-bottom: 0;
-      position: relative;
-
-      &::after {
-        position: absolute;
-        content: '';
-        display: inline-block;
-        left: -26px;
-        top: 3px;
-        width: 16px;
-        height: 16px;
-        border-radius: 8px;
-        background-color: $grey;
-
-        @media (min-width: $tablet-portrait-width) {
-          left: auto;
-          right: -26px;
-        }
-      }
-    }
-    &__title {
-      font-size: 20px;
-      line-height: 29px;
-      margin-top: 10px;
-      margin-bottom: 30px;
-    }
-
-    @media (min-width: $tablet-portrait-width) {
-      width: $left-column-width;
-      text-align: right;
-      padding-right: 17px;
-    }
-  }
-
-  &__details {
-    width: 100%;
-    padding-left: 17px;
-
-    &__description {
-      font-size: 16px;
-      line-height: 1.31;
-      margin-top: 0;
-      margin-bottom: 21px;
-      display: block;
-    }
-
-    &__list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    @media (min-width: $tablet-portrait-width) {
-      width: auto;
+      color: $grey;
     }
   }
 }

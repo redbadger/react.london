@@ -1,5 +1,5 @@
 .ScheduleDetail {
-  padding-bottom: 30px;
+  margin-bottom: 20px;
 
   &__time {
     display: block;
@@ -45,9 +45,5 @@
 
   &__company {
     display: inline-block;
-  }
-
-  &:last-child {
-    padding-bottom: 30px;
   }
 }

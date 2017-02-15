@@ -72,7 +72,7 @@ const mainEventData = {
     {
       time: '12:15 - 13:20',
       title: 'Lightning Talks',
-      description: 'Each lightning talks takes 30 minutes',
+      description: 'Each lightning talks takes 15 minutes',
       details: [
         {
           title: 'Snapshot testing',
@@ -115,7 +115,7 @@ const mainEventData = {
     {
       time: '13:20 - 14:20',
       title: 'Lunch',
-      description: 'Lunch catered by Leith\'s',
+      description: 'Street food lunch catered by Leith\'s',
       details: [],
     },
     {
@@ -154,9 +154,10 @@ const mainEventData = {
     {
       time: '16:10 - 17:10',
       title: 'Panel discussion',
-      description: 'Panel descussion with some talented people from Facebook',
+      description: 'Panel discussion with some talented people from Facebook',
       details: [
         {
+          listElement: true,
           speaker: {
             name: 'Christopher Chedeau',
             id: 'vjeux',
@@ -164,6 +165,7 @@ const mainEventData = {
           },
         },
         {
+          listElement: true,
           speaker: {
             name: 'Dan Abramov',
             id: 'gaearon',
@@ -171,6 +173,7 @@ const mainEventData = {
           },
         },
         {
+          listElement: true,
           speaker: {
             name: 'Lee Byron',
             id: 'leebyron',
@@ -178,6 +181,7 @@ const mainEventData = {
           },
         },
         {
+          listElement: true,
           speaker: {
             name: 'Ben Alpert',
             id: 'spicyj',
@@ -234,6 +238,7 @@ const Schedule = () => {
             </li>
           ))}
         </ol>
+        <p className="Schedule__info">All food and drinks are catered by <a href="http://www.leithsdining.co.uk/">Leith's</a>.</p>
         <p className="Schedule__info">Schedule subject to change.</p>
       </div>
     </div>

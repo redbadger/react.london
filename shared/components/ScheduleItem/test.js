@@ -25,9 +25,9 @@ describe('ScheduleItem', () => {
     wrapper = shallow(<ScheduleItem item={item} />);
   });
 
-  it('should display the title along with the time of the event', () => {
+  it('should display the time of the event', () => {
     expect(
-      wrapper.containsMatchingElement(<h3><time>9:40 - 11:00 am</time>Registration</h3>)
+      wrapper.containsMatchingElement(<time>9:40 - 11:00 am</time>)
     ).to.be.equal(true);
   });
 
