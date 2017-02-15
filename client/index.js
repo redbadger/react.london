@@ -7,7 +7,10 @@ import conferenceRoutes from '../shared/routes/conference-routes';
 import isMeetupRequest from '../shared/utilities/meetup-request';
 
 import * as ReactGA from 'react-ga';
-ReactGA.initialize('UA-16654919-5');
+const domainList = ['react.london', 'ti.to'];
+ReactGA.initialize('UA-16654919-5', { gaOptions: { allowLinker: 'true' } });
+ReactGA.ga('require', 'linker');
+ReactGA.ga('linker:autoLink', domainList);
 
 const initialState = window.__INITIAL_STATE__;
 
