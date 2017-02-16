@@ -21,7 +21,7 @@ const routerUpdate = () => {
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) element.scrollIntoView();
-    }, 0);
+    }, 100);
   }
 
   ReactGA.set({ page: window.location.pathname });
