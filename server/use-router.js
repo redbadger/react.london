@@ -1,4 +1,6 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+
 import { match, RouterContext } from 'react-router';
 import { renderToString } from 'react-dom/server';
 
@@ -14,7 +16,8 @@ export default function useRouter({ res, req, routes, initialState }) {
       const content = renderToString(
         <RouterContext {...renderProps} />
       );
-      res.render('index', { content, initialState });
+      const meta = typeof(window) === 'undefined' ? (Helmet.rewind()).meta : null;
+      res.render('index', { content, initialState, meta });
     }
   });
 }
