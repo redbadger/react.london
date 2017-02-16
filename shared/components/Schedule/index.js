@@ -35,7 +35,7 @@ const mainEventData = {
           },
         },
         {
-          time: '10:25 - 11:10',
+          time: '10:20 - 11:10',
             title: 'Logux, a new approach to client-server communication',
             description: 'Combining ideas from both Redux and CRDT, Logux is a new tool which replaces AJAX with real-time data in applications, synchronising action logs between the client and server while also providing an offline mode. This approach could significantly simplify application code and bring plug&play support for live updates and offline editing.',
             speaker: {
@@ -72,7 +72,7 @@ const mainEventData = {
     {
       time: '12:15 - 13:20',
       title: 'Lightning Talks',
-      description: 'Each lightning talks takes 15 minutes',
+      description: '4 inspiring talks at lightning speed',
       details: [
         {
           title: 'Snapshot testing',
@@ -154,7 +154,7 @@ const mainEventData = {
     {
       time: '16:10 - 17:10',
       title: 'Panel discussion',
-      description: 'Panel discussion with some talented people from Facebook',
+      description: 'Panel discussion with some of the talented people from the Facebook team',
       details: [
         {
           listElement: true,
@@ -238,7 +238,6 @@ const Schedule = () => {
             </li>
           ))}
         </ol>
-        <p className="Schedule__info">All food and drinks are catered by <a href="http://www.leithsdining.co.uk/">Leith's</a>.</p>
         <p className="Schedule__info">Schedule subject to change.</p>
       </div>
     </div>
