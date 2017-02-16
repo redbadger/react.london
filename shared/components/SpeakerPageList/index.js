@@ -2,7 +2,6 @@
 
 import React, { PropTypes } from 'react';
 import SpeakerPageSpeaker from '../SpeakerPageSpeaker';
-import SpeakerPagePlaceholder from '../SpeakerPagePlaceholder';
 import speakerType from '../../prop-types/speaker-type';
 
 const SpeakerPageList = ({ speakers }) => {
@@ -20,9 +19,6 @@ const SpeakerPageList = ({ speakers }) => {
         <div className="SpeakerPageList__list">
           <ul>
             {speakerList}
-            <li>
-              <SpeakerPagePlaceholder />
-            </li>
           </ul>
         </div>
       </section>
