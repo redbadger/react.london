@@ -1,33 +1,74 @@
 .ScheduleItem {
-  font-size: 16px;
-  padding-bottom: 5px;
-  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
 
-  &:last-of-type {
-    padding-bottom: 0;
+  &__header {
+    width: 100%;
+    text-align: left;
+    padding-left: 17px;
+
+    &__time {
+      display: block;
+      font-size: 16px;
+      line-height: 21px;
+      margin-bottom: 1px;
+      font-weight: bold;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        left: -26px;
+        top: 2px;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        background-color: $grey;
+
+        @media (min-width: $tablet-portrait-width) {
+          left: auto;
+          right: -26px;
+        }
+      }
+    }
+    &__title {
+      position: relative;
+      top: -5px;
+      font-size: 20px;
+      line-height: 29px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $tablet-portrait-width) {
+      width: $left-column-width;
+      text-align: right;
+      padding-right: 17px;
+    }
   }
 
-  &:before, &:after {
-    position: absolute;
-    top: 0;
-    display: block;
-  }
+  &__details {
+    width: 100%;
+    padding-left: 17px;
 
-  &:before {
-    content: attr(data-time);
-    min-width: 120px;
-    left: -194px;
-    text-align: right;
-    color: $grey;
-  }
+    &__description {
+      font-size: 16px;
+      line-height: 1.31;
+      margin-top: 0;
+      margin-bottom: 21px;
+      display: block;
+    }
 
-  &:after {
-    margin-top: 5px;
-    content: "";
-    left: -48px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: $grey;
+    &__list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    @media (min-width: $tablet-portrait-width) {
+      width: calc(100% - 200px);
+    }
   }
 }
+

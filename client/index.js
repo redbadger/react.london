@@ -17,6 +17,16 @@ const initialState = window.__INITIAL_STATE__;
 let components;
 
 const routerUpdate = () => {
+  const { hash } = window.location;
+
+  if (hash !== '') {
+    setTimeout(() => {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) element.scrollIntoView();
+    }, 100);
+  }
+
   ReactGA.set({ page: window.location.pathname });
   ReactGA.pageview(window.location.pathname);
 };
