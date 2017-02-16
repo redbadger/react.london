@@ -10,7 +10,7 @@ const SpeakersPageContent = (props) => {
         <SpeakerPageList speakers={props.speakers} />
         <div className="SpeakersPageContent__footer">
           <div className="SpeakersPageContent__footer__title">
-            "Simply put everyone is welcome!"
+            "Simply put, everyone is welcome!"
           </div>
           <div className="SpeakersPageContent__footer__text">
             Read <ExternalLink className="SpeakersPageContent__footer__link" href="https://red-badger.com/blog/2017/1/23/inclusivity-at-react-london-2017">
