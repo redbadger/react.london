@@ -34,7 +34,7 @@ export default function communityData(state) {
 
   // Note that this line also affects order of the original
   // speakers list, which is exactly what we want
-  const featuredSpeakers = speakers.reverse().slice(0, 5);
+  const featuredSpeakers = speakers.reverse().slice(0, 6);
 
   return {
     ...groupPartnersByLevel(partners || []),
