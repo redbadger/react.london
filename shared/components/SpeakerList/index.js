@@ -4,7 +4,6 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import Speaker from '../Speaker';
-import SpeakerPlaceholder from '../SpeakerPlaceholder';
 import speakerType from '../../prop-types/speaker-type';
 
 const SpeakerList = ({ speakers, conference }) => {
@@ -22,9 +21,6 @@ const SpeakerList = ({ speakers, conference }) => {
         <div className="speaker-list">
           <ul>
             {speakerList}
-            <li>
-              <SpeakerPlaceholder />
-            </li>
           </ul>
         </div>
         <Link
