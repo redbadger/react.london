@@ -214,7 +214,7 @@ const mainEventData = {
       details: [],
     },
     {
-      time: '18:00 - 2100',
+      time: '18:00 - 21:00',
       title: 'Drinks',
       description: 'Stick around for some drinks, more fantastic food from Leith\'s and great conversation with the community',
       details: [],
