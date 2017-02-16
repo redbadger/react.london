@@ -27,7 +27,7 @@ const mainEventData = {
         {
           time: '9:40 - 10:20',
           title: 'Javascript code formatting',
-          description: 'JavaScript developers are spending soooo much time formatting their code and even more in back and forth in code review fixing small nits. It turns out that machines are really good at doing this kind of tasks. Christopher will walk us through the technical and people challenges of bringing a JavaScript code formatter to reality.',
+          description: 'JavaScript developers are spending soooo much time formatting their code and even more in back and forth in code review fixing small nits. It turns out that machines are really good at doing these kind of tasks. Christopher will walk us through the technical and people challenges of bringing a JavaScript code formatter to reality.',
           speaker: {
             name: 'Christopher Chedeau',
             id: 'vjeux',
