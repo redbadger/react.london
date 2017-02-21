@@ -29,7 +29,7 @@ const ConferenceJobs = ({ gold, silver, bronze }) => (
 
     <JobsSection
       partners={gold || []}
-      displayCareerBrief
+      displayDescription
     />
 
     <JobsSection

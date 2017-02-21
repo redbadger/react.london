@@ -5,11 +5,11 @@ const defaultImage = '/img/PNG/partner.png';
 
 const isEmpty = array => !Array.isArray(array) || array.length === 0;
 
-const Job = ({ title, location, description, displayCareerBrief, jobURL }) => (
+const Job = ({ title, location, description, displayDescription, jobURL }) => (
   <div className="Job">
     <h4 className="Job__title">{title}</h4>
     <p className="Job__location">{location}</p>
-    {displayCareerBrief && <p className="Job__description">{description}</p>}
+    {displayDescription && <p className="Job__description">{description}</p>}
     {jobURL && <a className="Job__link" href={jobURL} target="_blank" rel="noopener">Read more</a>}
   </div>
 );
@@ -18,11 +18,11 @@ Job.propTypes = {
   title: PropTypes.string,
   location: PropTypes.string,
   careerBrief: PropTypes.string,
-  displayCareerBrief: PropTypes.bool,
+  displayDescription: PropTypes.bool,
   jobURL: PropTypes.string,
 };
 
-const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayCareerBrief, jobs }) => {
+const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayDescription, jobs }) => {
   if (isEmpty(jobs)) { return null; }
   return (
     <div className="content JobPartner">
@@ -35,7 +35,7 @@ const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayCareerBrie
       <article className="JobPartner__details">
         <p className="JobPartner__description">{careerBrief}</p>
         {jobs.map((job, index) =>
-          <Job key={index} {...job} displayCareerBrief={displayCareerBrief} />)}
+          <Job key={index} {...job} displayDescription={displayDescription} />)}
       </article>
     </div>
   );
@@ -43,22 +43,22 @@ const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayCareerBrie
 
 JobPartner.propTypes = {
   ...partnerType,
-  displayCareerBrief: PropTypes.bool,
+  displayDescription: PropTypes.bool,
 };
 
-const JobsSection = ({ partners, displayCareerBrief }) => {
+const JobsSection = ({ partners, displayDescription }) => {
   if (isEmpty(partners)) { return null; }
   return (
     <section className={'block JobsSection'}>
       {partners.map((partner, index) =>
-        <JobPartner key={index} {...partner} displayCareerBrief={displayCareerBrief} />)}
+        <JobPartner key={index} {...partner} displayDescription={displayDescription} />)}
     </section>
   );
 };
 
 JobsSection.propTypes = {
   partners: PropTypes.arrayOf(PropTypes.shape(partnerType)),
-  displayCareerBrief: PropTypes.bool,
+  displayDescription: PropTypes.bool,
 };
 
 export default JobsSection;
