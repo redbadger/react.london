@@ -10,6 +10,7 @@ import * as badgerBrain from './data/badger-brain';
 import isMeetupRequest from '../shared/utilities/meetup-request';
 import { getEnvVar } from './env';
 import robotsTxt from './robots';
+import versionTxt from './version';
 
 const app = express();
 
@@ -38,6 +39,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 app.get('/robots.txt', robotsTxt);
+app.get('/version.txt', versionTxt);
 
 app.use((req, res) => {
   if (isMeetupRequest(req)) {

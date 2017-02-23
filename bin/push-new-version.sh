@@ -22,7 +22,7 @@ echo Authenticating.
 eval $(aws ecr get-login --region=$AWS_REGION)
 
 echo Building docker image
-docker build -t $APP_NAME .
+docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
 docker tag $APP_NAME $ECR_REPO:$TAG
 
 echo Pushing docker image
