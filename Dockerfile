@@ -1,4 +1,6 @@
 FROM node:argon
+ARG GIT_COMMIT
+ENV GIT_COMMIT ${GIT_COMMIT}
 
 ENV NODE_ENV=production
 
