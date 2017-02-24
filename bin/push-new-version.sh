@@ -8,7 +8,6 @@ AWS_ACCOUNT=578418881509
 AWS_REGION=eu-west-1
 ECR_REPO=$AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME
 EB_BUCKET=elasticbeanstalk-$AWS_REGION-$AWS_ACCOUNT
-LAST_COMMIT_INFO=$(git log -1 --format='%h %cd')
 
 set -eu
 set -o pipefail
@@ -23,7 +22,7 @@ echo Authenticating.
 eval $(aws ecr get-login --region=$AWS_REGION)
 
 echo Building docker image
-docker build -t $APP_NAME --build-arg GIT_COMMIT=$LAST_COMMIT_INFO .
+docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
 docker tag $APP_NAME $ECR_REPO:$TAG
 
 echo Pushing docker image
