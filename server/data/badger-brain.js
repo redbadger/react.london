@@ -80,6 +80,7 @@ query {
     partners {
       name
       description
+      careerBrief
       url
       imageURL
       level

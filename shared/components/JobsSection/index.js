@@ -17,12 +17,12 @@ const Job = ({ title, location, description, displayDescription, jobURL }) => (
 Job.propTypes = {
   title: PropTypes.string,
   location: PropTypes.string,
-  description: PropTypes.string,
+  careerBrief: PropTypes.string,
   displayDescription: PropTypes.bool,
   jobURL: PropTypes.string,
 };
 
-const JobPartner = ({ name, description, imageURL, partnerURL, displayDescription, jobs }) => {
+const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayDescription, jobs }) => {
   if (isEmpty(jobs)) { return null; }
   return (
     <div className="content JobPartner">
@@ -33,7 +33,7 @@ const JobPartner = ({ name, description, imageURL, partnerURL, displayDescriptio
         <h4 className="JobPartner__title">{name}</h4>
       </div>
       <article className="JobPartner__details">
-        <p className="JobPartner__description">{description}</p>
+        <p className="JobPartner__description">{careerBrief}</p>
         {jobs.map((job, index) =>
           <Job key={index} {...job} displayDescription={displayDescription} />)}
       </article>
