@@ -117,6 +117,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
               <a
                 className="SiteFooter__social-link SiteFooter__mail"
                 href="mailto:hello@react.london"
+                title="React London email"
               >
               </a>
               <a
@@ -124,6 +125,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 href={SLACK_URL}
                 target="_blank"
                 rel="noopener"
+                title="React London community slack (opens in a new window)"
               >
               </a>
               <a
@@ -131,6 +133,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 href="https://www.youtube.com/playlist?list=PLW6ORi0XZU0BL3Up9mXpP75ilJBDOjMsQ"
                 target="_blank"
                 rel="noopener"
+                title="React London youtube account (opens in a new window)"
               >
               </a>
               <a
@@ -138,6 +141,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 href="https://twitter.com/ReactLondon_"
                 target="_blank"
                 rel="noopener"
+                title="React London twitter account (opens in a new window)"
               >
               </a>
               <a
@@ -145,6 +149,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
                 href="https://instagram.com/reactlondon_"
                 target="_blank"
                 rel="noopener"
+                title="React London instagram account (opens in a new window)"
               >
               </a>
             </div>
