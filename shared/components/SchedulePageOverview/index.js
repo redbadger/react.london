@@ -7,7 +7,7 @@ const SchedulePageOverview = (props) => {
         <div className="SchedulePageOverview__container">
           <div className="SchedulePageOverview__details">
             <div>
-              8:30 - 9pm
+              8:30am - 9pm
             </div>
             <a
               className="SchedulePageOverview__date"
