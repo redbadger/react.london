@@ -10,6 +10,7 @@ import CodeOfConduct from '../../components/ConferenceCodeOfConduct';
 import SpeakersPage from '../../components/SpeakersPage';
 import ErrorPage404 from '../../components/ErrorPage404';
 import SchedulePage from '../../components/SchedulePage';
+import PostConference from '../../components/PostConferencePage';
 
 export default function routes(state) {
   const Partners = () => <ConferencePartners {...state} />;
@@ -18,11 +19,15 @@ export default function routes(state) {
   const Speakers = () => <SpeakersPage {...state} />;
   const Schedule = () => <SchedulePage {...state} />;
   const ConferencePage = () => <Conference {...state} />;
+  const PostConferencePage = () => <PostConference {...state} />;
+
+  const isPostConference = (new Date('2017-03-2').getTime() - new Date().getTime()) < 0;
+  // const isPostConference = false;
 
   return (
     <Route>
       <Route component={ConferenceLayout} >
-        <Route path="/" component={ConferencePage} />
+        <Route path="/" component={isPostConference ? PostConferencePage : ConferencePage} />
         <Route path="/partners" component={Partners} />
         <Route path="/tickets" component={Tickets} />
         <Route path="/jobs" component={Jobs} />

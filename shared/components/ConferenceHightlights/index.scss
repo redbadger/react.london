@@ -1,0 +1,91 @@
+.ConferenceHighlights {
+  border-top: $solid-border;
+  background-color: $conference-color-faded;
+  padding: 40px 0px;
+  text-align: center;
+
+  h2, h3 {
+    text-align: left;
+  }
+
+  &__instagram {
+    display: none;
+    border: solid 3px $grey;
+    margin: 30px 0;
+
+    &:nth-child(1) {
+      display: block;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  &__tweet {
+    display: none;
+    margin: 30px 0;
+    background: $grey;
+    padding: 35px;
+    color: $white;
+    text-decoration: none;
+    overflow: hidden;
+    text-align: left;
+
+    &:nth-child(1) {
+      display: block;
+    }
+
+    &__name {
+      color: $conference-color;
+    }
+
+    &__name, &__username {
+      font-weight: bold;
+    }
+
+    p {
+      word-wrap: break-word;
+      margin: 20px 0 0;
+    }
+  }
+
+  &__see-more-btn {
+    display: inline-block;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    border: $solid-border;
+    border-radius: 5px;
+    color: $grey;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .ConferenceHighlights {
+    &__gallery {
+      display: flex;
+    }
+
+    &__instagram, &__tweet {
+      display: block;
+      margin: 0;
+
+      &:nth-child(2) {
+        margin: 0 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .ConferenceHighlights {
+    &__instagram, &__tweet {
+      &:nth-child(2) {
+        margin: 0 47px;
+      }
+    }
+  }
+}
