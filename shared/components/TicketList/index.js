@@ -34,9 +34,10 @@ export function BuyTickets({ tickets }) {
   }
   return (
     <ExternalLink
-      className="TicketList__booking-btn TicketList__booking-btn--disabled"
+      className="TicketList__booking-btn TicketList__booking-btn--active"
+      href="https://ti.to/red-badger/react-london-2017/"
     >
-      Tickets not yet available
+      JOIN THE WAITING LIST
     </ExternalLink>
   );
 }

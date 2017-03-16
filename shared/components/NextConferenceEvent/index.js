@@ -29,13 +29,13 @@ const TicketStatus = (props) => {
   return (
     <div className="NextConferenceEvent__save-the-date">
       <h3>
-        Save the date
+        Tickets sold out
       </h3>
       <ExternalLink
-        className="NextConferenceEvent__calendar"
+        className="NextConferenceEvent__ticket"
         href={conferenceTicketURL}
       >
-        Add to calendar
+        JOIN THE WAITING LIST
       </ExternalLink>
     </div>
   );
