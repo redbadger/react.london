@@ -5,16 +5,23 @@ const SlideShare = ({ href, src, name, company, title }) => (
     className="ConferenceHighlights__slideshare"
     href={href}
     target="_blank"
+    rel="noopener"
     title={`Slides from talk ${title} by ${name} (opens in a new window)`}
   >
-    <div
+    <article
       className="ConferenceHighlights__slideshare__background-image"
       style={{ backgroundImage: `url(${src})` }}
-    />
+    >
+      <div className="ConferenceHighlights__slideshare__background-image__play" />
+    </article>
 
-    <h4>{name}</h4>
-    <p>{company}</p>
-    <h5>{title}</h5>
+    <h5><div className="ConferenceHighlights__slideshare--bold">{name}</div></h5>
+    <h5>{company}</h5>
+    <h5>
+      <div className="ConferenceHighlights__slideshare--bold">
+        <small>{title}</small>
+      </div>
+    </h5>
   </a>
 );
 

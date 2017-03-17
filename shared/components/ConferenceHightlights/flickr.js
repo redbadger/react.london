@@ -5,6 +5,7 @@ const Flickr = ({ href, src }) => (
     className="ConferenceHighlights__flickr"
     href={href}
     target="_blank"
+    rel="noopener"
     title="Flick photo from React London 2017 (opens in a new window)"
   >
     <div

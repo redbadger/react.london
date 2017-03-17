@@ -101,15 +101,15 @@ const data = {
   twitter: [
     {
       href: 'http://twitter.com',
-      username: 'katie_fenn',
-      name: 'Katie Fenn',
-      content: 'New article: building a static website with Gulp and React http://www.katiefenn.co.uk/building-a-static-website-with-react',
+      username: 'shorttweet',
+      name: 'Ken Wheeler',
+      content: '...Where the beer tastes like absolute shit.',
     },
     {
       href: 'http://twitter.com',
-      username: 'katie_fenn',
+      username: 'longtweet',
       name: 'Katie Fenn',
-      content: 'New article: building a static website with Gulp and React http://www.katiefenn.co.uk/building-a-static-website-with-react',
+      content: 'New article: building a static website with Gulp and React http://www.katiefenn.co.uk/building-a-static-website-with-react, right? Wrong!',
     },
     {
       href: 'http://twitter.com',
@@ -134,10 +134,12 @@ const ConferenceHighlights = ({ finalStage }) => (
             className="ConferenceHighlights__see-more-btn"
             href="https://instagram.com/reactlondon_"
             target="_blank"
+            rel="noopener"
             title="React London Instagram (opens in a new window)"
           >
             See more photos
           </a>
+          <hr />
         </div>}
 
       {finalStage &&
@@ -150,10 +152,12 @@ const ConferenceHighlights = ({ finalStage }) => (
             className="ConferenceHighlights__see-more-btn"
             href="https://instagram.com/reactlondon_"
             target="_blank"
+            rel="noopener"
             title="Playlist of the talks on Youtube (opens in a new window)"
           >
             See playlist
           </a>
+          <hr />
 
           <h3 className="ConferenceHighlights__header-linkedin">
             Slides from each talk on SlideShare
@@ -165,10 +169,12 @@ const ConferenceHighlights = ({ finalStage }) => (
             className="ConferenceHighlights__see-more-btn"
             href="https://slideshare.com/reactlondon_"
             target="_blank"
+            rel="noopener"
             title="Slides from each talk on SlideShare (opens in a new window)"
           >
             See all slides
           </a>
+          <hr />
 
           <h3 className="ConferenceHighlights__header-flickr">Photos on Flickr</h3>
           <div className="ConferenceHighlights__gallery">
@@ -178,14 +184,16 @@ const ConferenceHighlights = ({ finalStage }) => (
             className="ConferenceHighlights__see-more-btn"
             href="https://flickr.com/reactlondon_"
             target="_blank"
+            rel="noopener"
             title="Photos from the conference on Flickr (opens in a new window)"
           >
             See all photos
           </a>
+          <hr />
         </div>}
 
       <h3 className="ConferenceHighlights__header-twitter">
-        Conversation on Twitter with #React2017
+        Conversation on Twitter with #{hashtag}
       </h3>
       <div className="ConferenceHighlights__gallery">
         {data.twitter.map(attrs => <Tweet {...attrs} />)}
@@ -194,6 +202,7 @@ const ConferenceHighlights = ({ finalStage }) => (
         className="ConferenceHighlights__see-more-btn"
         href={`https://twitter.com/search?q=%23${hashtag}`}
         target="_blank"
+        rel="noopener"
         title={`Twitter search for #${hashtag} (opens in a new window)`}
       >
         #{hashtag}

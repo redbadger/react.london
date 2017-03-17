@@ -7,16 +7,20 @@ const Youtube = ({ href, src, name, company, title }) => (
     target="_blank"
     title={`Youtube video ${title} by ${name} (opens in a new window)`}
   >
-    <div
+    <article
       className="ConferenceHighlights__youtube__background-image"
       style={{ backgroundImage: `url(${src})` }}
     >
       <div className="ConferenceHighlights__youtube__background-image__play" />
-    </div>
+    </article>
 
-    <h4>{name}</h4>
-    <p>{company}</p>
-    <h5>{title}</h5>
+    <h5><div className="ConferenceHighlights__youtube--bold">{name}</div></h5>
+    <h5>{company}</h5>
+    <h5>
+      <div className="ConferenceHighlights__youtube--bold">
+        <small>{title}</small>
+      </div>
+    </h5>
   </a>
 );
 

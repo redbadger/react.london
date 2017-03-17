@@ -5,7 +5,7 @@ const ConferenceAbout = ({ isAfterConference }) => (
     <div className="content">
       {isAfterConference ? (
         <div>
-          <h2>The conference has finihsed now.</h2>
+          <h2>The conference has finished now.</h2>
           <p>Thanks for coming, we had a blast.</p>
         </div>
       ) : (

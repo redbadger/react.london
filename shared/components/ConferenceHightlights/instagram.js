@@ -5,6 +5,7 @@ const Instagram = ({ href, src, name }) => (
     className="ConferenceHighlights__instagram"
     href={href}
     target="_blank"
+    rel="noopener"
     title={`Instagram photo by ${name} (opens in a new window)`}
   >
     <img src={src} alt="instagram" />

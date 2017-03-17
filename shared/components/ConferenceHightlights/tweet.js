@@ -5,6 +5,7 @@ const Tweet = ({ username, name, content, href }) => (
     className="ConferenceHighlights__tweet"
     href={href}
     target="_blank"
+    rel="noopener"
     title={`Tweet by ${name} (opens in a new window)`}
   >
     <div className="ConferenceHighlights__tweet__name">{name}</div>

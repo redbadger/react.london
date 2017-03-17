@@ -13,24 +13,21 @@ import SchedulePage from '../../components/SchedulePage';
 import PostConference from '../../components/PostConferencePage';
 
 export default function routes(state) {
-  // testing purposes only
-  const finalStage = typeof window !== 'undefined' && /final/.test(window.location.href);
-  const inUrl = typeof window !== 'undefined' && /postconference/.test(window.location.href);
-
   const Partners = () => <ConferencePartners {...state} />;
   const Jobs = () => <ConferenceJobs {...state} />;
   const Tickets = () => <TicketPage {...state} />;
   const Speakers = () => <SpeakersPage {...state} />;
   const Schedule = () => <SchedulePage {...state} />;
   const ConferencePage = () => <Conference {...state} />;
-  const PostConferencePage = () => <PostConference {...state} finalStage={finalStage} />;
-
-  const isPostConference = (new Date('2017-03-29').getTime() - new Date().getTime()) < 0 || inUrl;
+  const PostConferencePage = () => <PostConference {...state} />;
+  const PostConferenceFinalPage = () => <PostConference {...state} finalStage />;
 
   return (
     <Route>
       <Route component={ConferenceLayout} >
-        <Route path="/" component={isPostConference ? PostConferencePage : ConferencePage} />
+        <Route path="/" component={ConferencePage} />
+        <Route path="/post-conference" component={PostConferencePage} />
+        <Route path="/post-conference-final" component={PostConferenceFinalPage} />
         <Route path="/partners" component={Partners} />
         <Route path="/tickets" component={Tickets} />
         <Route path="/jobs" component={Jobs} />
