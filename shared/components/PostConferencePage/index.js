@@ -5,7 +5,7 @@ import MailingList from '../MailingList';
 import ConferenceAbout from '../ConferenceAbout';
 import ConferenceHighlights from '../ConferenceHightlights';
 
-const PostConference = props => {
+const PostConference = ({ finalStage }) => {
   const description = 'London’s first React conference brought to you by Europe’s biggest React community.';
   const metaImage = 'https://react.london/img/JPG/OG_React_Home.jpg';
   const title = 'React London 2017';
@@ -26,7 +26,7 @@ const PostConference = props => {
         ]}
       />
       <ConferenceAbout isAfterConference />
-      <ConferenceHighlights />
+      <ConferenceHighlights finalStage={finalStage} />
       <MailingList
         mailingListTitle="Stay tuned"
         mailingListSummary="Get post-conference emails and information on future events."

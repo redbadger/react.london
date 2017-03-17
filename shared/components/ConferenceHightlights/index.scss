@@ -8,10 +8,50 @@
     text-align: left;
   }
 
+  h2 {
+    border-bottom: $dash-border;
+    padding-bottom: 20px;
+    margin-bottom: 18px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  &__header {
+    &-instagram {
+      background: url(/img/SVG/Instagram_DarkGrey.svg) no-repeat;
+      padding-left: 30px;
+    }
+
+    &-twitter {
+      background: url(/img/SVG/Twitter.svg) no-repeat;
+      padding-left: 30px;
+    }
+
+    &-youtube {
+      background: url(/img/SVG/Youtube_DarkGrey.svg) 0px 2px no-repeat;
+      padding-left: 35px;
+    }
+
+    &-linkedin {
+      background: url(/img/SVG/Linkedin_DarkGrey.svg) no-repeat;
+      padding-left: 30px;
+    }
+
+    &-flickr {
+      background: url(/img/SVG/Flickr.svg) no-repeat;
+      padding-left: 30px;
+    }
+  }
+
   &__instagram {
+    background-color: $light-grey;
     display: none;
     border: solid 3px $grey;
     margin: 30px 0;
+    flex: 1;
+    overflow: hidden;
 
     &:nth-child(1) {
       display: block;
@@ -19,7 +59,50 @@
 
     img {
       display: block;
-      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  &__youtube, &__slideshare, &__flickr {
+    display: none;
+    margin: 30px 0;
+    flex: 1;
+    flex-basis: 30%;
+    text-align: left;
+    text-decoration: none;
+    color: $grey;
+
+    &:nth-child(1) {
+      display: block;
+    }
+
+    &__background-image {
+      border: solid 3px $grey;
+      height: 155px;
+      background-color: $light-grey;
+      background-position: center;
+      background-size: cover;
+
+      &__play {
+        background: url(/img/SVG/Youtube.svg) center no-repeat;
+        background-size: 15%;
+        height: 100%;
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    h5 {
+      font-size: 16px;
+      margin: 0;
     }
   }
 
@@ -32,6 +115,7 @@
     text-decoration: none;
     overflow: hidden;
     text-align: left;
+    flex: 1;
 
     &:nth-child(1) {
       display: block;
@@ -67,24 +151,31 @@
   .ConferenceHighlights {
     &__gallery {
       display: flex;
+      flex-wrap: wrap;
     }
 
-    &__instagram, &__tweet {
+    &__instagram, &__tweet, &__youtube, &__slideshare, &__flickr {
       display: block;
       margin: 0;
 
-      &:nth-child(2) {
-        margin: 0 30px;
+      &:nth-child(2), &:nth-child(5) {
+        margin-left: 30px;
+        margin-right: 30px;
       }
+    }
+
+    &__flickr {
+      margin: 0 0 30px;
     }
   }
 }
 
 @media (min-width: $tablet-width) {
   .ConferenceHighlights {
-    &__instagram, &__tweet {
-      &:nth-child(2) {
-        margin: 0 47px;
+    &__instagram, &__tweet, &__youtube {
+      &:nth-child(2), &:nth-child(5) {
+        margin-left: 47px;
+        margin-right: 47px;
       }
     }
   }

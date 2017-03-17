@@ -13,16 +13,19 @@ import SchedulePage from '../../components/SchedulePage';
 import PostConference from '../../components/PostConferencePage';
 
 export default function routes(state) {
+  // testing purposes only
+  const finalStage = typeof window !== 'undefined' && /final/.test(window.location.href);
+  const inUrl = typeof window !== 'undefined' && /postconference/.test(window.location.href);
+
   const Partners = () => <ConferencePartners {...state} />;
   const Jobs = () => <ConferenceJobs {...state} />;
   const Tickets = () => <TicketPage {...state} />;
   const Speakers = () => <SpeakersPage {...state} />;
   const Schedule = () => <SchedulePage {...state} />;
   const ConferencePage = () => <Conference {...state} />;
-  const PostConferencePage = () => <PostConference {...state} />;
+  const PostConferencePage = () => <PostConference {...state} finalStage={finalStage} />;
 
-  const isPostConference = (new Date('2017-03-2').getTime() - new Date().getTime()) < 0;
-  // const isPostConference = false;
+  const isPostConference = (new Date('2017-03-29').getTime() - new Date().getTime()) < 0 || inUrl;
 
   return (
     <Route>
