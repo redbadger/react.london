@@ -167,7 +167,7 @@ const ConferenceHighlights = ({ finalStage }) => (
           </div>
           <a
             className="ConferenceHighlights__see-more-btn"
-            href="https://slideshare.com/reactlondon_"
+            href="https://www.slideshare.net/ReactLondon2017"
             target="_blank"
             rel="noopener"
             title="Slides from each talk on SlideShare (opens in a new window)"
@@ -182,7 +182,7 @@ const ConferenceHighlights = ({ finalStage }) => (
           </div>
           <a
             className="ConferenceHighlights__see-more-btn"
-            href="https://flickr.com/reactlondon_"
+            href="https://www.flickr.com/photos/148731833@N05/"
             target="_blank"
             rel="noopener"
             title="Photos from the conference on Flickr (opens in a new window)"
