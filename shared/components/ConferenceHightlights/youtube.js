@@ -1,17 +1,17 @@
 import React from 'react';
 
-export default ({ href, src, name, company, title }) => (
+const Youtube = ({ href, src, name, company, title }) => (
   <a
-    className='ConferenceHighlights__youtube'
+    className="ConferenceHighlights__youtube"
     href={href}
-    target='_blank'
+    target="_blank"
     title={`Youtube video ${title} by ${name} (opens in a new window)`}
   >
     <div
-      className='ConferenceHighlights__youtube__background-image'
+      className="ConferenceHighlights__youtube__background-image"
       style={{ backgroundImage: `url(${src})` }}
     >
-      <div className='ConferenceHighlights__youtube__background-image__play' />
+      <div className="ConferenceHighlights__youtube__background-image__play" />
     </div>
 
     <h4>{name}</h4>
@@ -19,3 +19,13 @@ export default ({ href, src, name, company, title }) => (
     <h5>{title}</h5>
   </a>
 );
+
+Youtube.propTypes = {
+  href: React.PropTypes.string.isRequired,
+  src: React.PropTypes.string.isRequired,
+  name: React.PropTypes.string.isRequired,
+  company: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
+};
+
+export default Youtube;
