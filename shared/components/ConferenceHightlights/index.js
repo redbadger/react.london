@@ -124,7 +124,7 @@ const ConferenceHighlights = ({ finalStage }) => (
     <div className="content">
       <h2>Here are some highlights from the day. {finalStage ? '' : '(More coming soon)'}</h2>
 
-      {!finalStage &&
+      {!finalStage && data.instagram.length &&
         <div>
           <h3 className="ConferenceHighlights__header-instagram">Photos on Instagram</h3>
           <div className="ConferenceHighlights__gallery">
@@ -144,69 +144,81 @@ const ConferenceHighlights = ({ finalStage }) => (
 
       {finalStage &&
         <div>
-          <h3 className="ConferenceHighlights__header-youtube">Playlist of the talks on Youtube</h3>
-          <div className="ConferenceHighlights__gallery">
-            {data.youtube.map(attrs => <Youtube {...attrs} />)}
-          </div>
-          <a
-            className="ConferenceHighlights__see-more-btn"
-            href="https://instagram.com/reactlondon_"
-            target="_blank"
-            rel="noopener"
-            title="Playlist of the talks on Youtube (opens in a new window)"
-          >
-            See playlist
-          </a>
-          <hr />
+          {data.youtube.length &&
+            <div>
+              <h3 className="ConferenceHighlights__header-youtube">Playlist of the talks on Youtube</h3>
+              <div className="ConferenceHighlights__gallery">
+                {data.youtube.map(attrs => <Youtube {...attrs} />)}
+              </div>
+              <a
+                className="ConferenceHighlights__see-more-btn"
+                href="https://instagram.com/reactlondon_"
+                target="_blank"
+                rel="noopener"
+                title="Playlist of the talks on Youtube (opens in a new window)"
+              >
+                See playlist
+              </a>
+              <hr />
+            </div>}
 
-          <h3 className="ConferenceHighlights__header-linkedin">
-            Slides from each talk on SlideShare
-          </h3>
-          <div className="ConferenceHighlights__gallery">
-            {data.youtube.map(attrs => <SlideShare {...attrs} />)}
-          </div>
-          <a
-            className="ConferenceHighlights__see-more-btn"
-            href="https://www.slideshare.net/ReactLondon2017"
-            target="_blank"
-            rel="noopener"
-            title="Slides from each talk on SlideShare (opens in a new window)"
-          >
-            See all slides
-          </a>
-          <hr />
+          {data.slideshare.length &&
+            <div>
+              <h3 className="ConferenceHighlights__header-linkedin">
+                Slides from each talk on SlideShare
+              </h3>
+              <div className="ConferenceHighlights__gallery">
+                {data.slideshare.map(attrs => <SlideShare {...attrs} />)}
+              </div>
+              <a
+                className="ConferenceHighlights__see-more-btn"
+                href="https://www.slideshare.net/ReactLondon2017"
+                target="_blank"
+                rel="noopener"
+                title="Slides from each talk on SlideShare (opens in a new window)"
+              >
+                See all slides
+              </a>
+              <hr />
+            </div>}
 
-          <h3 className="ConferenceHighlights__header-flickr">Photos on Flickr</h3>
-          <div className="ConferenceHighlights__gallery">
-            {data.flickr.map(attrs => <Flickr {...attrs} />)}
-          </div>
-          <a
-            className="ConferenceHighlights__see-more-btn"
-            href="https://www.flickr.com/photos/148731833@N05/"
-            target="_blank"
-            rel="noopener"
-            title="Photos from the conference on Flickr (opens in a new window)"
-          >
-            See all photos
-          </a>
-          <hr />
+          {data.flickr.length &&
+            <div>
+              <h3 className="ConferenceHighlights__header-flickr">Photos on Flickr</h3>
+              <div className="ConferenceHighlights__gallery">
+                {data.flickr.map(attrs => <Flickr {...attrs} />)}
+              </div>
+              <a
+                className="ConferenceHighlights__see-more-btn"
+                href="https://www.flickr.com/photos/148731833@N05/"
+                target="_blank"
+                rel="noopener"
+                title="Photos from the conference on Flickr (opens in a new window)"
+              >
+                See all photos
+              </a>
+              <hr />
+            </div>}
         </div>}
 
-      <h3 className="ConferenceHighlights__header-twitter">
-        Conversation on Twitter with #{hashtag}
-      </h3>
-      <div className="ConferenceHighlights__gallery">
-        {data.twitter.map(attrs => <Tweet {...attrs} />)}
-      </div>
-      <a
-        className="ConferenceHighlights__see-more-btn"
-        href={`https://twitter.com/search?q=%23${hashtag}`}
-        target="_blank"
-        rel="noopener"
-        title={`Twitter search for #${hashtag} (opens in a new window)`}
-      >
-        #{hashtag}
-      </a>
+      {data.twitter.length &&
+        <div>
+          <h3 className="ConferenceHighlights__header-twitter">
+            Conversation on Twitter with #{hashtag}
+          </h3>
+          <div className="ConferenceHighlights__gallery">
+            {data.twitter.map(attrs => <Tweet {...attrs} />)}
+          </div>
+          <a
+            className="ConferenceHighlights__see-more-btn"
+            href={`https://twitter.com/search?q=%23${hashtag}`}
+            target="_blank"
+            rel="noopener"
+            title={`Twitter search for #${hashtag} (opens in a new window)`}
+          >
+            #{hashtag}
+          </a>
+        </div>}
     </div>
   </div>
 );
