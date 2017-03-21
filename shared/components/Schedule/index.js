@@ -76,7 +76,7 @@ const mainEventData = {
       details: [
         {
           title: 'Snapshot testing',
-          description: 'Facebook introduced snapshot testing in Jest last year and it has already picked up a huge interest. Why is snapshot testing so popular? How and when should you use it? Can you use it even if you’re not using jest? Anna will explain all this and more in only 10 minutes',
+          description: 'Facebook introduced snapshot testing in Jest last year and it has already picked up a huge interest. Why is snapshot testing so popular? How and when should you use it? Can you use it even if you’re not using Jest? Anna will explain all this and more in only 10 minutes',
           speaker: {
             name: 'Anna Doubkova',
             id: 'lithin',
@@ -103,7 +103,7 @@ const mainEventData = {
         },
         {
           title: 'Next.js in production',
-          description: 'Next.js has generated a lot of hype in the short time that it’s been out (rightly so). It’s unveiling coincided with an initiative to rebuild the Deliveroo\'s web application as a standalone app. Jadeep will share his experiences using it so far, including some of the benefits & trade-offs.',
+          description: 'Next.js has generated a lot of hype in the short time that it’s been out (rightly so). It’s unveiling coincided with an initiative to rebuild Deliveroo\'s web application as a standalone app. Jasdeep will share his experiences using it so far, including some of the benefits & trade-offs.',
           speaker: {
             name: 'Jasdeep Lalli',
             id: 'jazlalli',
