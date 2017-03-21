@@ -146,7 +146,9 @@ const ConferenceHighlights = ({ finalStage }) => (
         <div>
           {data.youtube.length &&
             <div>
-              <h3 className="ConferenceHighlights__header-youtube">Playlist of the talks on Youtube</h3>
+              <h3 className="ConferenceHighlights__header-youtube">
+                Playlist of the talks on Youtube
+              </h3>
               <div className="ConferenceHighlights__gallery">
                 {data.youtube.map(attrs => <Youtube {...attrs} />)}
               </div>
