@@ -6,127 +6,121 @@ import Youtube from './youtube';
 import SlideShare from './slideshare';
 import Flickr from './flickr';
 
-const hashtag = 'ReactLondon2017';
+const hashtag = 'ReactLondon';
 
 const data = {
   instagram: [
-    {
-      href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
-      src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17267595_263928080729375_8631151348735279104_n.jpg',
-      name: 'Doug The Pug',
-    },
-    {
-      href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
-      src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17266112_1846047625667173_5961802609898553344_n.jpg',
-      name: 'Doug The Pug',
-    },
-    {
-      href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
-      src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17333132_1812017895790889_7291888165390909440_n.jpg',
-      name: 'Doug The Pug',
-    },
+    // {
+    //   href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
+    //   src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17267595_263928080729375_8631151348735279104_n.jpg',
+    //   name: 'Doug The Pug',
+    // },
+    // {
+    //   href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
+    //   src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17266112_1846047625667173_5961802609898553344_n.jpg',
+    //   name: 'Doug The Pug',
+    // },
+    // {
+    //   href: 'https://www.instagram.com/p/BRn8_yajwFR/?taken-by=itsdougthepug',
+    //   src: 'https://scontent-lhr3-1.cdninstagram.com/t51.2885-15/e35/17333132_1812017895790889_7291888165390909440_n.jpg',
+    //   name: 'Doug The Pug',
+    // },
   ],
   youtube: [
-    {
-      href: 'https://www.youtube.com/',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486565031/react-london-2017/jani_evakallio_photo.jpg',
-      name: 'Jani Eväkallio',
-      company: 'Formidable Labs',
-      title: 'Lightning talk: Offline for the greater good',
-    },
-    {
-      href: 'https://www.youtube.com/',
-      src: 'https://pbs.twimg.com/profile_images/829282867020722177/el35E312.jpg',
-      name: 'Anna Doubkova',
-      company: 'Red Badger',
-      title: 'Lightning talk: Offline for the greater good',
-    },
-    {
-      href: 'https://www.youtube.com/',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486054146/react-london-2017/Ken_Wheeler_small.jpg.jpg', // eslint-disable-line
-      name: 'Ken Wheeler',
-      company: 'Formidable Labs',
-      title: 'Lightning talk: Offline for the greater good',
-    },
+    // {
+    //   href: 'https://www.youtube.com/',
+    //   src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486565031/react-london-2017/jani_evakallio_photo.jpg',
+    //   name: 'Jani Eväkallio',
+    //   company: 'Formidable Labs',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
+    // {
+    //   href: 'https://www.youtube.com/',
+    //   src: 'https://pbs.twimg.com/profile_images/829282867020722177/el35E312.jpg',
+    //   name: 'Anna Doubkova',
+    //   company: 'Red Badger',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
+    // {
+    //   href: 'https://www.youtube.com/',
+    //   src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486054146/react-london-2017/Ken_Wheeler_small.jpg.jpg', // eslint-disable-line
+    //   name: 'Ken Wheeler',
+    //   company: 'Formidable Labs',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
   ],
   slideshare: [
-    {
-      href: 'https://www.slideshare.com/',
-      src: '',
-      name: 'Jani Eväkallio',
-      company: 'Formidable Labs',
-      title: 'Lightning talk: Offline for the greater good',
-    },
-    {
-      href: 'https://www.slideshare.com/',
-      src: '',
-      name: 'Anna Doubkova',
-      company: 'Red Badger',
-      title: 'Lightning talk: Offline for the greater good',
-    },
-    {
-      href: 'https://www.slideshare.com/',
-      src: '',
-      name: 'Ken Wheeler',
-      company: 'Formidable Labs',
-      title: 'Lightning talk: Offline for the greater good',
-    },
+    // {
+    //   href: 'https://www.slideshare.com/',
+    //   src: '',
+    //   name: 'Jani Eväkallio',
+    //   company: 'Formidable Labs',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
+    // {
+    //   href: 'https://www.slideshare.com/',
+    //   src: '',
+    //   name: 'Anna Doubkova',
+    //   company: 'Red Badger',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
+    // {
+    //   href: 'https://www.slideshare.com/',
+    //   src: '',
+    //   name: 'Ken Wheeler',
+    //   company: 'Formidable Labs',
+    //   title: 'Lightning talk: Offline for the greater good',
+    // },
   ],
   flickr: [
     {
-      href: '',
-      src: '',
+      href: 'https://www.flickr.com/photos/148731833@N05/33694503386/',
+      src: '/img/JPG/post-conf-2017-01.jpg',
     },
     {
-      href: '',
-      src: '',
+      href: 'https://www.flickr.com/photos/148731833@N05/32921976263/',
+      src: '/img/JPG/post-conf-2017-02.jpg',
     },
     {
-      href: '',
-      src: '',
-    },
-    {
-      href: '',
-      src: '',
-    },
-    {
-      href: '',
-      src: '',
-    },
-    {
-      href: '',
-      src: '',
+      href: 'https://www.flickr.com/photos/148731833@N05/32921981233/',
+      src: '/img/JPG/post-conf-2017-03.jpg',
     },
   ],
   twitter: [
     {
-      href: 'http://twitter.com',
-      username: 'shorttweet',
-      name: 'Ken Wheeler',
-      content: '...Where the beer tastes like absolute shit.',
+      href: 'https://twitter.com/elibelly/status/846689763251884032',
+      username: 'elibelly',
+      name: 'Eli Schutze Ramirez‏',
+      content: "'Offline support democratises internet usage' @jevakallio we have to think about emerging markets!! ✊#reactlondon", // eslint-disable-line max-len
     },
     {
-      href: 'http://twitter.com',
-      username: 'longtweet',
-      name: 'Katie Fenn',
-      content: 'New article: building a static website with Gulp and React http://www.katiefenn.co.uk/building-a-static-website-with-react, right? Wrong!',
+      href: 'https://twitter.com/mike20/status/846720660311347200',
+      username: 'mike20',
+      name: 'Mike Evans',
+      content: 'Oooh, @mxstbr just announced polished, a SASS-like toolset for writing styles at #ReactLondon', // eslint-disable-line max-len
     },
     {
-      href: 'http://twitter.com',
-      username: 'katie_fenn',
-      name: 'Katie Fenn',
-      content: 'New article: building a static website with Gulp and React http://www.katiefenn.co.uk/building-a-static-website-with-react',
+      href: 'https://twitter.com/_calumjames/status/846747604201459712',
+      username: '_calumjames',
+      name: 'Calum James‏',
+      content: "Great insight from @leeb at #ReactLondon on progressive web apps vs. native, drawing on experience from @facebook's iOS HTML5 app experiment", // eslint-disable-line max-len
     },
   ],
 };
 const ConferenceHighlights = ({ finalStage }) => (
   <div className="ConferenceHighlights block">
     <div className="content">
-      <h2>Here are some highlights from the day. {finalStage ? '' : '(More coming soon)'}</h2>
+      <h2>
+        Here are some highlights from the day.{' '}
+        {finalStage ? '' : '(More coming soon)'}
+      </h2>
 
-      {!finalStage && data.instagram.length &&
+      {!finalStage &&
+        data.instagram.length &&
         <div>
-          <h3 className="ConferenceHighlights__header-instagram">Photos on Instagram</h3>
+          <h3 className="ConferenceHighlights__header-instagram">
+            Photos on Instagram
+          </h3>
           <div className="ConferenceHighlights__gallery">
             {data.instagram.map(attrs => <Instagram {...attrs} />)}
           </div>
@@ -144,7 +138,7 @@ const ConferenceHighlights = ({ finalStage }) => (
 
       {finalStage &&
         <div>
-          {data.youtube.length &&
+          {data.youtube.length > 0 &&
             <div>
               <h3 className="ConferenceHighlights__header-youtube">
                 Playlist of the talks on Youtube
@@ -164,7 +158,7 @@ const ConferenceHighlights = ({ finalStage }) => (
               <hr />
             </div>}
 
-          {data.slideshare.length &&
+          {data.slideshare.length > 0 &&
             <div>
               <h3 className="ConferenceHighlights__header-linkedin">
                 Slides from each talk on SlideShare
@@ -186,7 +180,9 @@ const ConferenceHighlights = ({ finalStage }) => (
 
           {data.flickr.length &&
             <div>
-              <h3 className="ConferenceHighlights__header-flickr">Photos on Flickr</h3>
+              <h3 className="ConferenceHighlights__header-flickr">
+                Photos on Flickr
+              </h3>
               <div className="ConferenceHighlights__gallery">
                 {data.flickr.map(attrs => <Flickr {...attrs} />)}
               </div>
