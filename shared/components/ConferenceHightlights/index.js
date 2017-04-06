@@ -35,7 +35,9 @@ const data = {
       title: 'Javascript code formatting',
     },
     {
-      name: 'Coming Soon - Andrey Sitnik',
+      href: 'https://www.youtube.com/watch?v=UUvX7US8TSc',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486118576/react-london-2017/Andrey_Sitnik_small_zuthye.jpg',
+      name: 'Andrey Sitnik',
       company: 'Evil Martians',
       title: 'Logux, a new approach to client-server communication',
     },
