@@ -12,7 +12,6 @@ const SlideShare = ({ href, src, name, company, title }) => (
       className="ConferenceHighlights__slideshare__background-image"
       style={{ backgroundImage: `url(${src})` }}
     >
-      <div className="ConferenceHighlights__slideshare__background-image__play" />
     </article>
 
     <h5><div className="ConferenceHighlights__slideshare--bold">{name}</div></h5>

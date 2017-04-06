@@ -27,50 +27,48 @@ const data = {
     // },
   ],
   youtube: [
-    // {
-    //   href: 'https://www.youtube.com/',
-    //   src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486565031/react-london-2017/jani_evakallio_photo.jpg',
-    //   name: 'Jani Eväkallio',
-    //   company: 'Formidable Labs',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
-    // {
-    //   href: 'https://www.youtube.com/',
-    //   src: 'https://pbs.twimg.com/profile_images/829282867020722177/el35E312.jpg',
-    //   name: 'Anna Doubkova',
-    //   company: 'Red Badger',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
-    // {
-    //   href: 'https://www.youtube.com/',
-    //   src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486054146/react-london-2017/Ken_Wheeler_small.jpg.jpg', // eslint-disable-line
-    //   name: 'Ken Wheeler',
-    //   company: 'Formidable Labs',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
+    {
+      href: 'https://www.youtube.com/watch?v=ziAShzxAVKY',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1474453522/react-london-2017/Christopher_Chedeau.jpg',
+      name: 'Christopher Chedeau',
+      company: 'Facebook',
+      title: 'Javascript code formatting',
+    },
+    {
+      href: 'https://www.youtube.com/watch?v=UUvX7US8TSc',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486118576/react-london-2017/Andrey_Sitnik_small_zuthye.jpg',
+      name: 'Andrey Sitnik',
+      company: 'Evil Martians',
+      title: 'Logux, a new approach to client-server communication',
+    },
+    {
+      name: 'Coming Soon - Cheng Lou',
+      company: 'Facebook',
+      title: 'What\'s in a language?',
+    },
   ],
   slideshare: [
-    // {
-    //   href: 'https://www.slideshare.com/',
-    //   src: '',
-    //   name: 'Jani Eväkallio',
-    //   company: 'Formidable Labs',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
-    // {
-    //   href: 'https://www.slideshare.com/',
-    //   src: '',
-    //   name: 'Anna Doubkova',
-    //   company: 'Red Badger',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
-    // {
-    //   href: 'https://www.slideshare.com/',
-    //   src: '',
-    //   name: 'Ken Wheeler',
-    //   company: 'Formidable Labs',
-    //   title: 'Lightning talk: Offline for the greater good',
-    // },
+    {
+      href: 'https://www.slideshare.net/ReactLondon2017/realtime-webpack-pushing-ondemand-bundling-to-the-limits-by-oliver-woodings',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486728551/react-london-2017/11782311_10206485469192198_6948163418787834571_o.jpg',
+      name: 'Oliver Woodings',
+      company: 'Qubit',
+      title: 'Lightning talk: Realtime Webpack - Pushing on-demand bundling to the limits',
+    },
+    {
+      href: 'https://www.slideshare.net/ReactLondon2017/offline-for-the-greater-good-by-jani-evkallio',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486565031/react-london-2017/jani_evakallio_photo.jpg',
+      name: 'Jani Eväkallio',
+      company: 'Formidable Labs',
+      title: 'Lightning talk: Offline for the greater good',
+    },
+    {
+      href: 'https://www.slideshare.net/ReactLondon2017/nextjs-in-production-by-jasdeep-lalli',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486653616/react-london-2017/Jaz_Lalli_small.jpg',
+      name: 'Jasdeep Lalli',
+      company: 'Deliveroo',
+      title: 'Lightning talk: Next.js in production',
+    },
   ],
   flickr: [
     {
@@ -148,7 +146,7 @@ const ConferenceHighlights = ({ finalStage }) => (
               </div>
               <a
                 className="ConferenceHighlights__see-more-btn"
-                href="https://instagram.com/reactlondon_"
+                href="https://www.youtube.com/channel/UCV4LIEkC0S9KUAPDm2g4mNQ"
                 target="_blank"
                 rel="noopener"
                 title="Playlist of the talks on Youtube (opens in a new window)"
