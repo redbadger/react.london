@@ -28,7 +28,7 @@ const data = {
   ],
   youtube: [
     {
-      href: 'https://www.youtube.com/watch?v=ziAShzxAVKY&t=12s',
+      href: 'https://www.youtube.com/watch?v=ziAShzxAVKY',
       src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1474453522/react-london-2017/Christopher_Chedeau.jpg',
       name: 'Christopher Chedeau',
       company: 'Facebook',
