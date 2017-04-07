@@ -42,7 +42,9 @@ const data = {
       title: 'Logux, a new approach to client-server communication',
     },
     {
-      name: 'Coming Soon - Cheng Lou',
+      href: 'https://www.youtube.com/watch?v=rlBacJST08U',
+      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1485434856/events/Cheng_Lou_1_dr0gpw.jpg',
+      name: 'Cheng Lou',
       company: 'Facebook',
       title: 'What\'s in a language?',
     },
