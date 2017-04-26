@@ -28,21 +28,21 @@ const data = {
   ],
   youtube: [
     {
-      href: 'https://www.youtube.com/watch?v=ziAShzxAVKY',
+      href: 'https://www.youtube.com/watch?v=0Q4kUNx85_4',
       src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1474453522/react-london-2017/Christopher_Chedeau.jpg',
       name: 'Christopher Chedeau',
       company: 'Facebook',
       title: 'Javascript code formatting',
     },
     {
-      href: 'https://www.youtube.com/watch?v=UUvX7US8TSc',
+      href: 'https://www.youtube.com/watch?v=3LecnX1hjyw',
       src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486118576/react-london-2017/Andrey_Sitnik_small_zuthye.jpg',
       name: 'Andrey Sitnik',
       company: 'Evil Martians',
       title: 'Logux, a new approach to client-server communication',
     },
     {
-      href: 'https://www.youtube.com/watch?v=rlBacJST08U',
+      href: 'https://www.youtube.com/watch?v=24S5u_4gx7w',
       src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1485434856/events/Cheng_Lou_1_dr0gpw.jpg',
       name: 'Cheng Lou',
       company: 'Facebook',
