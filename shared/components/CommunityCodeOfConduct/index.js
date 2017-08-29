@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ConferenceCodeOfConduct = () => (
+const CommunityCodeOfConduct = () => (
   <div>
     <section className="CodeOfConduct__intro block">
       <div className="content">
@@ -122,4 +122,4 @@ const ConferenceCodeOfConduct = () => (
   </div>
 );
 
-export default ConferenceCodeOfConduct;
+export default CommunityCodeOfConduct;
