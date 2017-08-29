@@ -86,12 +86,11 @@ const CommunityCodeOfConduct = () => (
         <h3 className="CodeOfConduct__section__heading">Reporting</h3>
         <p>
           If someone makes you or anyone else feel unsafe or unwelcome, please
-          report it as soon as possible. Conference staff can be identified by
-          t-shirts. Harassment and other code of conduct violations reduce the
+          report it as soon as possible. Harassment and other code of conduct violations reduce the
           value of our event for everyone.
         </p>
         <p>
-          <strong>We want you to be happy at React London 2017</strong>
+          <strong>We want you to be happy at React London events.</strong>
         </p>
       </div>
     </section>
@@ -111,10 +110,13 @@ const CommunityCodeOfConduct = () => (
           </li>
         */}
           <li>
-            <strong>Emailing </strong>
+            <strong>Email us </strong>
             <a href="mailto:conduct@react.london" target="_blank" rel="noopener">
-              conduct@react.london
+              hello@react.london
             </a>
+          </li>
+          <li>
+            <strong>DM us </strong> @reactlondon_
           </li>
         </ul>
       </div>
