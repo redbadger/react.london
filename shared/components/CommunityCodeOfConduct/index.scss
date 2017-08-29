@@ -1,0 +1,65 @@
+.CodeOfConduct__intro,
+.CodeOfConduct__section {
+  padding: 40px 0;
+  line-height: 22px;
+
+  &__heading {
+    font-size: 24px;
+  }
+
+  a {
+    color: $grey;
+    text-decoration: none;
+    border-bottom: 1px solid $grey;
+  }
+
+  h3,
+  h4 {
+    margin: 10px 0;
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+
+  ul {
+    margin: 25px 0;
+    padding-left: 22px;
+  }
+
+  li {
+    padding-left: 5px;
+    margin-bottom: 12px;
+  }
+
+  &:nth-of-type(2n) {
+    background-color: $conference-color-faded;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: $tablet-portrait-width) {
+  .CodeOfConduct__intro {
+    h3, h4, * {
+      line-height: 31px;
+      font-size: 24px;
+    }
+  }
+
+  .CodeOfConduct__section {
+    h3, h4, * {
+      line-height: 25px;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+}
