@@ -6,7 +6,7 @@ import SiteFooter from '../SiteFooter';
 const usefulLinks = [
   {
     text: 'Our Code of Conduct',
-    url: '#',
+    url: '/code-of-conduct',
   },
 ];
 
