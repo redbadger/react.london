@@ -111,7 +111,7 @@ const CommunityCodeOfConduct = () => (
         */}
           <li>
             <strong>Email us </strong>
-            <a href="mailto:conduct@react.london" target="_blank" rel="noopener">
+            <a href="mailto:hello@react.london" target="_blank" rel="noopener">
               hello@react.london
             </a>
           </li>
