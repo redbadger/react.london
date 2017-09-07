@@ -1,11 +1,11 @@
+/* eslint-disable max-len */
 import React from 'react';
 
 const InterestedSpeaker = () => (
   <div className="InterestedSpeaker">
     <a
-      target="_blank"
       rel="noopener"
-      href="https://www.papercall.io/reactlondonmeetup"
+      href="mailto:hello@react.london?subject=I'd like to talk about speaking at the React London meetup"
       className="InterestedSpeaker__btn">Become a speaker</a>
   </div>
 );
