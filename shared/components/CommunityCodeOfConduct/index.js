@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const CommunityCodeOfConduct = () => (
   <div>
     <section className="CodeOfConduct__intro block">
