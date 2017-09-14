@@ -3,7 +3,7 @@ import React from 'react';
 
 const CommunityCodeOfConduct = () => (
   <div>
-    <section className="CodeOfConduct__intro block">
+    <section className="CommunityCodeOfConduct__intro block">
       <div className="content">
         <h3>Code of Conduct</h3>
         <h4>TL;DR &mdash; Don&apos;t be a Jerk :)</h4>
@@ -15,9 +15,9 @@ const CommunityCodeOfConduct = () => (
       </div>
     </section>
 
-    <section className="CodeOfConduct__section block">
+    <section className="CommunityCodeOfConduct__section block">
       <div className="content">
-        <p className="CodeOfConduct__section__heading">
+        <p className="CommunityCodeOfConduct__section__heading">
           <strong>Harassment</strong> includes, but is not limited to:
         </p>
         <ul>
@@ -62,9 +62,9 @@ const CommunityCodeOfConduct = () => (
       </div>
     </section>
 
-    <section className="CodeOfConduct__section block">
+    <section className="CommunityCodeOfConduct__section block">
       <div className="content">
-        <h3 className="CodeOfConduct__section__heading">Enforcement</h3>
+        <h3 className="CommunityCodeOfConduct__section__heading">Enforcement</h3>
         <p>
           Participants asked to stop any harassing behavior are expected to comply immediately.
         </p>
@@ -82,9 +82,9 @@ const CommunityCodeOfConduct = () => (
       </div>
     </section>
 
-    <section className="CodeOfConduct__section block">
+    <section className="CommunityCodeOfConduct__section block">
       <div className="content">
-        <h3 className="CodeOfConduct__section__heading">Reporting</h3>
+        <h3 className="CommunityCodeOfConduct__section__heading">Reporting</h3>
         <p>
           If someone makes you or anyone else feel unsafe or unwelcome, please
           report it as soon as possible. Harassment and other code of conduct violations reduce the
@@ -96,9 +96,9 @@ const CommunityCodeOfConduct = () => (
       </div>
     </section>
 
-    <section className="CodeOfConduct__section block">
+    <section className="CommunityCodeOfConduct__section block">
       <div className="content">
-        <h3 className="CodeOfConduct__section__heading">Talk to us</h3>
+        <h3 className="CommunityCodeOfConduct__section__heading">Talk to us</h3>
         <p>
           In addition to speaking to us in person, you can also contact us
           using the following methods:
