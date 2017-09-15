@@ -118,7 +118,7 @@ const CommunityCodeOfConduct = () => (
           </li>
           <li>
             <strong>Tweet us </strong>
-            <a href="https://twitter.com/redbadgerteam" target="_blank" rel="noopener">
+            <a href="https://twitter.com/ReactLondon_" target="_blank" rel="noopener">
             @reactlondon_
             </a>
           </li>
