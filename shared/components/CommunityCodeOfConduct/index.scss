@@ -47,17 +47,12 @@
 
 @media (min-width: $tablet-portrait-width) {
   .CommunityCodeOfConduct__intro {
-    h3, h4, * {
-      line-height: 31px;
-      font-size: 24px;
-    }
+    line-height: 31px;
+    font-size: 24px;
   }
 
   .CommunityCodeOfConduct__section {
-    h3, h4, * {
-      line-height: 25px;
-    }
-
+    line-height: 25px;
     li {
       margin-bottom: 20px;
     }
