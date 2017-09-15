@@ -4,10 +4,10 @@ import RedBadgerBanner from '../RedBadgerBanner';
 import SiteFooter from '../SiteFooter';
 
 const usefulLinks = [
-  // {
-  //   text: 'Our Code of Conduct',
-  //   url: '#',
-  // },
+  {
+    text: 'Our Code of Conduct',
+    url: '/code-of-conduct',
+  },
 ];
 
 const seriousLinks = [

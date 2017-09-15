@@ -35,6 +35,7 @@ if (isMeetupRequest(window.location)) {
   components = (
     <Router
       history={browserHistory}
+      render={applyRouterMiddleware(useScroll())}
       onUpdate={routerUpdate}
     >
       {communityRoutes(initialState)}
