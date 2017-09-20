@@ -29,21 +29,21 @@ const data = {
   youtube: [
     {
       href: 'https://www.youtube.com/watch?v=0Q4kUNx85_4',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1474453522/react-london-2017/Christopher_Chedeau.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2Fc78f9390-7503-4226-8f01-c6c3a29c2e82_christopher_chedeau.jpg',
       name: 'Christopher Chedeau',
       company: 'Facebook',
       title: 'Javascript code formatting',
     },
     {
       href: 'https://www.youtube.com/watch?v=3LecnX1hjyw',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486118576/react-london-2017/Andrey_Sitnik_small_zuthye.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2Fe8697654-b80a-4035-8f8b-b3852ae63196_andrey_sitnik_small_zuthye.jpg',
       name: 'Andrey Sitnik',
       company: 'Evil Martians',
       title: 'Logux, a new approach to client-server communication',
     },
     {
       href: 'https://www.youtube.com/watch?v=24S5u_4gx7w',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1485434856/events/Cheng_Lou_1_dr0gpw.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2F26af1939-71c7-42c1-9c44-691df222e72b_cheng_lou_1_dr0gpw.jpg',
       name: 'Cheng Lou',
       company: 'Facebook',
       title: 'What\'s in a language?',
@@ -52,21 +52,21 @@ const data = {
   slideshare: [
     {
       href: 'https://www.slideshare.net/ReactLondon2017/realtime-webpack-pushing-ondemand-bundling-to-the-limits-by-oliver-woodings',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486728551/react-london-2017/11782311_10206485469192198_6948163418787834571_o.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2Fdb5f9598-058f-4580-b24d-74475b6d5d2b_11782311_10206485469192198_6948163418787834571_o.jpg',
       name: 'Oliver Woodings',
       company: 'Qubit',
       title: 'Lightning talk: Realtime Webpack - Pushing on-demand bundling to the limits',
     },
     {
       href: 'https://www.slideshare.net/ReactLondon2017/offline-for-the-greater-good-by-jani-evkallio',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486565031/react-london-2017/jani_evakallio_photo.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2Fecd6443a-be19-45f8-94dc-568cd46f9244_jani_evakallio_photo.jpg',
       name: 'Jani Eväkallio',
       company: 'Formidable Labs',
       title: 'Lightning talk: Offline for the greater good',
     },
     {
       href: 'https://www.slideshare.net/ReactLondon2017/nextjs-in-production-by-jasdeep-lalli',
-      src: 'https://res.cloudinary.com/red-badger-assets/image/upload/v1486653616/react-london-2017/Jaz_Lalli_small.jpg',
+      src: 'https://prismic-io.s3.amazonaws.com/rb-website%2F6299b024-ca8b-4225-ab57-232a57e6d9a4_jaz_lalli_small.jpg',
       name: 'Jasdeep Lalli',
       company: 'Deliveroo',
       title: 'Lightning talk: Next.js in production',
