@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 VERSION=$(git rev-parse HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z_-]/-/g')
