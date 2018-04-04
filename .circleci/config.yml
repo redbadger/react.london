@@ -1,0 +1,98 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: redbadger/react-london-circle:1
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node_modules-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: Install Node modules
+          command: npm install
+
+      - save_cache:
+          key: node_modules-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+
+  lint:
+    docker:
+      - image: redbadger/react-london-circle:1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node_modules-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: Lint code
+          command: make lint
+
+  test:
+    docker:
+      - image: redbadger/react-london-circle:1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node_modules-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: Test with coverage
+          command: make test-cover
+
+      - run:
+          name: Send coverage report
+          command: make send-cover
+
+  deploy_staging:
+    docker:
+      - image: redbadger/react-london-circle:1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node_modules-{{ checksum "package-lock.json" }}
+
+      - setup_remote_docker
+
+      - run:
+          name: Push new version
+          command: ./bin/push-new-version.sh
+
+      - run:
+          name: Deploy version
+          command: ./bin/deploy-version.js staging
+
+      - run:
+          name: Notify slack
+          command: ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
+
+workflows:
+  version: 2
+
+  build_and_deploy:
+    jobs:
+      - build
+
+      - lint:
+          requires:
+            - build
+
+      - test:
+          requires:
+            - build
+
+      - deploy_staging:
+          requires:
+            - build
+            - lint
+            - test
+          filters:
+            branches:
+              only: master
+
