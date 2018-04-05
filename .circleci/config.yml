@@ -92,7 +92,7 @@ workflows:
             - build
             - lint
             - test
-              #   filters:
-              #branches:
-              #only: master
+          filters:
+            branches:
+              only: master
 
