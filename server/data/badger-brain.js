@@ -6,7 +6,6 @@
 import * as http from '../http-client';
 import { getEnvVar } from '../env';
 
-
 export const communityID = getEnvVar('BADGER_BRAIN_COMMUNITY_ID');
 export const conferenceID = getEnvVar('BADGER_BRAIN_CONFERENCE_ID');
 export const badgerBrainURL = getEnvVar('BADGER_BRAIN_ENDPOINT');
@@ -65,7 +64,6 @@ query {
           company
           twitterHandle
           githubHandle
-          blogURL
           imageURL
         }
       }
@@ -113,7 +111,6 @@ query {
         company
         twitterHandle
         githubHandle
-        blogURL
         imageURL
       }
     }
