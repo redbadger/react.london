@@ -1,10 +1,9 @@
 @mixin text-outline($c) {
-  text-shadow:
-    -2px -2px $c, -2px -1px $c, -2px 0px $c, -2px 1px $c, -2px -2px $c,
-    -1px -2px $c, -1px -1px $c, -1px 0px $c, -1px 1px $c, -1px -2px $c,
-    0px -2px  $c, 0px -1px  $c, 0px 0px  $c, 0px 1px  $c, 0px -2px  $c,
-    1px -2px  $c, 1px -1px  $c, 1px 0px  $c, 1px 1px  $c, 1px -2px  $c,
-    2px -2px  $c, 2px -1px  $c, 2px 0px  $c, 2px 1px  $c, 2px -2px  $c;
+  text-shadow: -2px -2px $c, -2px -1px $c, -2px 0px $c, -2px 1px $c,
+    -2px -2px $c, -1px -2px $c, -1px -1px $c, -1px 0px $c, -1px 1px $c,
+    -1px -2px $c, 0px -2px $c, 0px -1px $c, 0px 0px $c, 0px 1px $c, 0px -2px $c,
+    1px -2px $c, 1px -1px $c, 1px 0px $c, 1px 1px $c, 1px -2px $c, 2px -2px $c,
+    2px -1px $c, 2px 0px $c, 2px 1px $c, 2px -2px $c;
 }
 .SiteFooter {
   border-top: 3px solid $grey;
@@ -64,10 +63,12 @@
 }
 
 .SiteFooter__conference {
-  background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center top $conference-color;
+  background: url("/img/SVG/Conference_Banner_background.svg") no-repeat center
+    top $conference-color;
 
   @media (min-width: 750px) {
-    background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat center top $conference-color;
+    background: url("/img/SVG/Conference_Banner_background_large.svg") no-repeat
+      center top $conference-color;
 
     > * {
       position: relative;
@@ -85,10 +86,12 @@
 }
 
 .SiteFooter__community {
-  background: url("/img/SVG/Community_Banner_background.svg") no-repeat center top $events-color;
+  background: url("/img/SVG/Community_Banner_background.svg") no-repeat center
+    top $events-color;
 
   @media (min-width: 750px) {
-    background: url("/img/SVG/Community_Banner_background_large.svg") no-repeat center top $events-color;
+    background: url("/img/SVG/Community_Banner_background_large.svg") no-repeat
+      center top $events-color;
 
     .SiteFooter__banner-title {
       @include text-outline($events-color);
@@ -115,7 +118,6 @@
   padding-left: 0;
   font-weight: bold;
   list-style-type: none;
-
 
   li {
     margin: 15px 0;
@@ -148,6 +150,13 @@
   p {
     margin-top: 0;
   }
+
+  p a {
+    color: $white;
+    &:hover {
+      color: $light-grey;
+    }
+  }
 }
 
 .SiteFooter__social-links {
@@ -163,7 +172,7 @@
 .SiteFooter__social-link {
   display: inline-block;
   width: 30px;
-  color: #9B9B9B;
+  color: #9b9b9b;
   text-decoration: none;
   height: 23px;
   margin-bottom: 7px;
@@ -189,7 +198,7 @@
     }
   }
   a::after {
-    content: '';
+    content: "";
     display: inline-block;
     height: 1em;
     border-bottom: 1px solid $white;
@@ -210,7 +219,6 @@
   &:hover {
     background-image: url("/img/SVG/Mail_Grey.svg");
   }
-
 }
 .SiteFooter__slack {
   background: url("/img/SVG/Slack.svg") no-repeat left top;
@@ -218,7 +226,6 @@
   &:hover {
     background-image: url("/img/SVG/Slack_Grey.svg");
   }
-
 }
 .SiteFooter__youtube {
   background: url("/img/SVG/Youtube.svg") no-repeat left 2px;
@@ -226,7 +233,6 @@
   &:hover {
     background-image: url("/img/SVG/Youtube_Grey.svg");
   }
-
 }
 .SiteFooter__twitter {
   background: url("/img/SVG/Twitter_white.svg") no-repeat left 3px;
@@ -270,7 +276,7 @@
 
   .SiteFooter__blerb {
     p {
-      max-width: 66.6%
+      max-width: 66.6%;
     }
   }
 }
