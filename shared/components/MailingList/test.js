@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 
 const defaultProps = Object.freeze({
   mailingListTitle: 'Hear more about events',
-  mailingListSummary: 'They are going to be great!',
   page: 'conference',
 });
 
