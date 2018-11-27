@@ -5,25 +5,16 @@ import MailingList from '../MailingList';
 import ExternalPlatforms from '../ExternalPlatforms';
 import FutureEvents from '../FutureEvents';
 
-const Community = ({
-  summary,
-  mailingListTitle,
-  mailingListSummary,
-  featuredEvents,
-  futureEvents,
-}) => (
+const Community = ({ summary, mailingListTitle, featuredEvents, futureEvents }) => (
   <div className="community">
     <div id="wrapper">
       <CommunityAbout summary={summary} />
-      {featuredEvents.map((featuredEvent, index) =>
-        <NextCommunityEvent key={index} {...featuredEvent} />)}
+      {featuredEvents.map((featuredEvent, index) => (
+        <NextCommunityEvent key={index} {...featuredEvent} />
+      ))}
       <ExternalPlatforms />
       <FutureEvents events={futureEvents} />
-      <MailingList
-        mailingListTitle={mailingListTitle}
-        mailingListSummary={mailingListSummary}
-        page="community"
-      />
+      <MailingList mailingListTitle={mailingListTitle} page="community" />
     </div>
   </div>
 );
