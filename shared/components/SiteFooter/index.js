@@ -97,7 +97,7 @@ const SiteFooter = ({ page, seriousLinks, usefulLinks }) => (
             We use <a href="https://red-badger.com/cookie-policy">cookies</a> on our website. For
             more information, view our{' '}
             <a href="https://red-badger.com/privacy-policy">privacy policy</a> and website{' '}
-            <a href="https://red-badger.com/terms-and-conditions">T&C's</a>.
+            <a href="https://red-badger.com/terms-and-conditions">T&C&apos;s</a>.
           </p>
         </div>
 

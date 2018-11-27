@@ -45,7 +45,6 @@ const MailingList = ({ mailingListTitle, page }) => (
       </div>
 
       <p className="MailingList__summary">
-        {' '}
         Once you are signed up to our monthly newsletter, you can unsubscribe and update your
         preferences at any time. We’ll update you on ticket release dates and event details for our
         next React London Meetups. View our{' '}
