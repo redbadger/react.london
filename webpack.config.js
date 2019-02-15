@@ -1,80 +1,65 @@
-const path = require('path');
-const webpack = require('webpack');
-const ExtractText = require('extract-text-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
-const autoprefixer = require('autoprefixer');
+const path = require("path");
+const webpack = require("webpack");
+const ExtractText = require("extract-text-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
+const autoprefixer = require("autoprefixer");
 
 const baseConfig = {
-  devtool: 'source-map',
+  devtool: "source-map",
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    path: path.join(__dirname, "dist"),
+    filename: "[name].js"
   },
   module: {
-    preLoaders: [
+    rules: [
       {
+        enforce: "pre",
         test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
       },
-    ],
-    loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        loaders: ["babel"]
       },
       {
         test: /\.json$/,
-        loader: 'json-loader',
+        loader: "json-loader"
       },
       {
         test: /\.scss$/,
-        loader: ExtractText.extract('style', [
-          'css?minimize', 'postcss', 'sass',
-        ]),
-      },
-    ],
+        loaders: ExtractText.extract({
+          fallback: "style",
+          use: ["css?minimize", "postcss", "sass"]
+        }),
+        options: {
+          plugins: function() {
+            return [autoprefixer];
+          }
+        }
+      }
+    ]
   },
   plugins: [
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV',
-    ]),
-    new ExtractText('[name].css', {
-      allChunks: true,
-    }),
-  ],
-  postcss: () => [
-    autoprefixer,
-  ],
+    new webpack.EnvironmentPlugin(["NODE_ENV"]),
+    new ExtractText({ filename: "[name].css", allChunks: true })
+  ]
 };
 
-const browserConfig = Object.assign({},
-  baseConfig,
-  {
-    target: 'web',
-    entry: {
-      'static/main': ['babel-polyfill', './client/index'],
-      main: ['./client/styles/main.scss'],
-    },
+const browserConfig = Object.assign({}, baseConfig, {
+  target: "web",
+  entry: {
+    "static/main": ["babel-polyfill", "./client/index"],
+    main: ["./client/styles/main.scss"]
   }
-);
+});
 
-const serverConfig = Object.assign({},
-  baseConfig,
-  {
-    target: 'node',
-    externals: [nodeExternals()],
-    entry: {
-      server: [
-        'isomorphic-fetch',
-        'babel-polyfill',
-        './server/start-server.js',
-      ],
-    },
+const serverConfig = Object.assign({}, baseConfig, {
+  target: "node",
+  externals: [nodeExternals()],
+  entry: {
+    server: ["isomorphic-fetch", "babel-polyfill", "./server/start-server.js"]
   }
-);
+});
 
-module.exports = [
-  browserConfig,
-  serverConfig,
-];
+module.exports = [browserConfig, serverConfig];
