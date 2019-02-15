@@ -61,7 +61,7 @@
     "react-helmet": "^4.0.0",
     "react-router": "^2.5.2",
     "react-router-scroll": "^0.3.2",
-    "sass-loader": "^3.2.1",
+    "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-node-externals": "^1.2.0"
