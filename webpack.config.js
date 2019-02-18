@@ -1,12 +1,12 @@
-import { join } from 'path';
-import { EnvironmentPlugin } from 'webpack';
-import nodeExternals from 'webpack-node-externals';
-import MiniCSSExtractPlugin, { loader as _loader } from 'mini-css-extract-plugin';
+const path = require('path');
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = {
   devtool: 'source-map',
   output: {
-    path: join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js',
   },
   mode: 'development',
@@ -24,7 +24,7 @@ const baseConfig = {
         test: /\.scss$/,
         use: [
           {
-            loader: _loader,
+            loader: MiniCSSExtractPlugin.loader,
           },
           'css-loader?minimize',
           'sass-loader',
@@ -45,7 +45,7 @@ const baseConfig = {
     ],
   },
   plugins: [
-    new EnvironmentPlugin(['NODE_ENV']),
+    new webpack.EnvironmentPlugin(['NODE_ENV']),
     new MiniCSSExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
