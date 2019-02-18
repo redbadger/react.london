@@ -80,6 +80,3 @@ workflows:
       - deploy_to_staging:
           requires:
             - build
-          filters:
-            branches:
-              only: master
