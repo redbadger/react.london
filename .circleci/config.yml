@@ -55,6 +55,8 @@ jobs:
           path: /tmp/circleci-test-results
 
   deploy_to_staging:
+    requires:
+      - build
     filters:
       branches:
         only: master
@@ -69,5 +71,3 @@ workflows:
     jobs:
       - build
       - deploy_to_staging
-        requires:
-          - build
