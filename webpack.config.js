@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const ExtractText = require("extract-text-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 const autoprefixer = require("autoprefixer");
+const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 const baseConfig = {
   devtool: "source-map",
@@ -10,6 +11,7 @@ const baseConfig = {
     path: path.join(__dirname, "dist"),
     filename: "[name].js"
   },
+  mode: "development",
   module: {
     rules: [
       {
@@ -22,21 +24,34 @@ const baseConfig = {
       },
       {
         test: /\.scss$/,
-        use: ExtractText.extract({
-          fallback: "style-loader",
-          use: [
-            { loader: "css-loader?minimize" },
-            { loader: "sass-loader" },
-            {
-              loader: "postcss-loader",
-              options: {
-                plugins: function() {
-                  return [autoprefixer];
-                }
+        use: [
+          {
+            loader: MiniCSSExtractPlugin.loader,
+            options: {
+              plugins: function() {
+                return [autoprefixer];
               }
             }
-          ]
-        })
+          },
+          "css-loader?minimize",
+          "sass-loader",
+          "postcss-loader"
+        ]
+        // use: ExtractText.extract({
+        //   fallback: "style-loader",
+        //   use: [
+        //     { loader: "css-loader?minimize" },
+        //     { loader: "sass-loader" },
+        //     {
+        //       loader: "postcss-loader",
+        //       options: {
+        //         plugins: function() {
+        //           return [autoprefixer];
+        //         }
+        //       }
+        //     }
+        //   ]
+        // })
       },
       {
         test: /\.js$/,
@@ -53,7 +68,10 @@ const baseConfig = {
   },
   plugins: [
     new webpack.EnvironmentPlugin(["NODE_ENV"]),
-    new ExtractText({ filename: "[name].css", allChunks: true })
+    new MiniCSSExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ]
 };
 
