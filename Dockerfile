@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node:8.15.0
 ARG GIT_COMMIT
 ENV GIT_COMMIT ${GIT_COMMIT}
 

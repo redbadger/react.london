@@ -1,6 +1,6 @@
 machine:
   node:
-    version: 4.3.0 # Match Dockerfile. ish.
+    version: 8.15.0 # Match Dockerfile. ish.
   services:
     - docker
 
