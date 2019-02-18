@@ -13,30 +13,41 @@ const baseConfig = {
   module: {
     rules: [
       {
-        enforce: "pre",
         test: /\.js$/,
-        loader: "eslint-loader",
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        loaders: ["babel"]
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader"
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
       },
       {
         test: /\.scss$/,
-        loaders: ExtractText.extract({
-          fallback: "style",
-          use: ["css?minimize", "postcss", "sass"]
-        }),
-        options: {
-          plugins: function() {
-            return [autoprefixer];
+        use: ExtractText.extract({
+          fallback: "style-loader",
+          use: [
+            { loader: "css-loader?minimize" },
+            { loader: "sass-loader" },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: function() {
+                  return [autoprefixer];
+                }
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: /\.js$/,
+
+        use: [
+          {
+            loader: "eslint-loader"
           }
-        }
+        ],
+        exclude: /node_modules/,
+        enforce: "pre"
       }
     ]
   },
