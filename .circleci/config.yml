@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/redbadger/react.london
+    parallelism: 1
+    shell: /bin/bash --login
+
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+
+    docker:
+      - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
+        command: /sbin/init
+    steps:
+      - checkout
+
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+
+      - run:
+          working_directory: ~/redbadger/react.london
+          command: nvm install 8.15.0 && nvm alias default 8.15.0
+      - run:
+          working_directory: ~/redbadger/react.london
+          command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
+
+      - restore_cache:
+          keys:
+            - v1-dep-{{ .Branch }}-
+
+            - v1-dep-master-
+
+            - v1-dep-
+
+      - run: if [ -z "${NODE_ENV:-}" ]; then export NODE_ENV=test; fi
+      - run: export PATH="~/redbadger/react.london/node_modules/.bin:$PATH"
+      - run: npm install
+
+      - save_cache:
+          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          paths:
+            - ./node_modules
+
+      - run: make build-production
+      - run: make lint
+      - run: make test-cover
+      - run: make send-cover
+      # Deployment
+
+      - store_test_results:
+          path: /tmp/circleci-test-results
+      - store_artifacts:
+          path: /tmp/circleci-artifacts
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+
+  deploy_to_staging:
+    filters:
+      branches:
+        only: master
+    steps:
+      - run: ./bin/push-new-version.sh
+      - run: ./bin/deploy-version.js staging
+      - run: ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_to_staging
+        requires:
+          - build
