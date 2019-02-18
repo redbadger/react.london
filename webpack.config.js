@@ -69,4 +69,4 @@ const serverConfig = Object.assign({}, baseConfig, {
   },
 });
 
-export default [browserConfig, serverConfig];
+module.exports = [browserConfig, serverConfig];
