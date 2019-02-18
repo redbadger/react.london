@@ -45,7 +45,6 @@ jobs:
       - run: make lint
       - run: make test-cover
       - run: make send-cover
-      # Deployment
 
       - store_test_results:
           path: /tmp/circleci-test-results
@@ -55,12 +54,24 @@ jobs:
           path: /tmp/circleci-test-results
 
   deploy_to_staging:
+    working_directory: ~/redbadger/react.london
+    parallelism: 1
+    shell: /bin/bash --login
+
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+
+    docker:
+      - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
+        command: /sbin/init
     requires:
       - build
     filters:
       branches:
         only: master
     steps:
+      - checkout
       - run: ./bin/push-new-version.sh
       - run: ./bin/deploy-version.js staging
       - run: ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
