@@ -68,6 +68,7 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker
       - run: ./bin/push-new-version.sh
       - run: ./bin/deploy-version.js staging
       - run: ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
