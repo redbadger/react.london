@@ -2,7 +2,7 @@
 
 VERSION=$(git rev-parse HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z_-]/-/g')
-TAG=master-$VERSION
+TAG=$BRANCH-$VERSION
 APP_NAME=react-london
 AWS_ACCOUNT=578418881509
 AWS_REGION=eu-west-1
@@ -19,7 +19,7 @@ echo Creating new application version $TAG
 #   - AWS_ACCESS_KEY_ID
 #   - AWS_SECRET_ACCESS_KEY
 echo Authenticating.
-eval $(aws ecr get-login --region=$AWS_REGION)
+echo eval $(aws ecr get-login --region=$AWS_REGION)
 
 echo Building docker image
 docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
