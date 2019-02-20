@@ -2,7 +2,7 @@
 
 VERSION=$(git rev-parse HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z_-]/-/g')
-TAG=$BRANCH-$VERSION
+TAG=master-$VERSION
 APP_NAME=react-london
 AWS_ACCOUNT=578418881509
 AWS_REGION=eu-west-1

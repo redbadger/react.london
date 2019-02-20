@@ -3,13 +3,15 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+const env = process.env.NODE_ENV;
+
 const baseConfig = {
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
   },
-  mode: 'production',
+  mode: env,
   module: {
     rules: [
       {
