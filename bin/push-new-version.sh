@@ -14,9 +14,6 @@ set -o pipefail
 
 echo Creating new application version $TAG
 
-echo starting docker????? ? ? ? ??? ????? :S
-docker service start
-
 echo eval $(docker version)
 
 # Authenticate
