@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const RedBadgerBanner = () => (
   <section className="RedBadgerBanner block">
@@ -8,7 +8,7 @@ const RedBadgerBanner = () => (
       rel="noopener"
       className="content"
     >
-      Powered by Red Badger 💖
+      Powered by Red Badger
     </a>
   </section>
 );
