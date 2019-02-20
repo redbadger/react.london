@@ -14,6 +14,14 @@ set -o pipefail
 
 echo Creating new application version $TAG
 
+echo eval $(docker version)
+
+echo status docker.service ting
+systemctl status docker.service
+
+echo starting docker?
+systemctl start docker
+
 # Authenticate
 # Requires these env vars set on CI:
 #   - AWS_ACCESS_KEY_ID
