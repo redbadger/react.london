@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const RedBadgerBanner = () => (
-  <section className="RedBadgerBanner block">
+  <section className='RedBadgerBanner block'>
     <a
-      href="https://red-badger.com/"
-      target="_blank"
-      rel="noopener"
-      className="content"
+      href='https://red-badger.com/'
+      target='_blank'
+      rel='noopener'
+      className='content'
     >
       Powered by Red Badger
     </a>
