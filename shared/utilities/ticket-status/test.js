@@ -96,8 +96,8 @@ describe('getTicketStatusOptions', () => {
     const result = getTicketStatusOptions(event);
     expect(result).to.deep.equal({
       title: 'Registration is now closed.',
-      subtitle: '',
-      buttonText: 'Registration closed',
+      subtitle: 'Video will be available soon.',
+      buttonText: 'Video coming soon',
       buttonLink: undefined,
       linkType: 'registrationClosedLink',
     });

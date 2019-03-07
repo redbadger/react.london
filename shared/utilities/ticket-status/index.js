@@ -20,8 +20,8 @@ const statusTypes = {
   },
   REGISTRATION_CLOSED: {
     title: 'Registration is now closed.',
-    subtitle: '',
-    buttonText: 'Registration closed',
+    subtitle: 'Video will be available soon.',
+    buttonText: 'Video coming soon',
     linkType: 'registrationClosedLink',
   },
   LIVE_STREAM: {
