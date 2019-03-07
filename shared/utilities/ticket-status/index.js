@@ -18,6 +18,12 @@ const statusTypes = {
     buttonText: 'Join Waitlist',
     linkType: 'ticketLink',
   },
+  REGISTRATION_CLOSED: {
+    title: 'Registration is now closed.',
+    subtitle: '',
+    buttonText: 'Registration closed',
+    linkType: 'registrationClosedLink',
+  },
   LIVE_STREAM: {
     title: 'Couldn\'t make it? Watch the event live.',
     subtitle: 'Didn’t make it to the meetup? We got your back.',

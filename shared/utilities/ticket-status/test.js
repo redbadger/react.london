@@ -89,6 +89,19 @@ describe('getTicketStatusOptions', () => {
       linkType: 'streamingLink',
     });
   });
+  it('returns the correct status properties for REGISTRATION_CLOSED', () => {
+    const event = {
+      status: 'REGISTRATION_CLOSED',
+    };
+    const result = getTicketStatusOptions(event);
+    expect(result).to.deep.equal({
+      title: 'Registration is now closed.',
+      subtitle: '',
+      buttonText: 'Registration closed',
+      buttonLink: undefined,
+      linkType: 'registrationClosedLink',
+    });
+  });
   it('returns the correct status properties when no status is provided', () => {
     const result = getTicketStatusOptions({});
     expect(result).to.deep.equal({
