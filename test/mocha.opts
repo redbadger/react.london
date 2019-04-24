@@ -1,4 +1,4 @@
---require babel-register
---require babel-polyfill
+--require @babel/register
+--require @babel/polyfill
 --require ./test/mocha-env.js
 ./{,!(node_modules)/**/}*test.js

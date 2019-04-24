@@ -1,21 +1,26 @@
 import React, { PropTypes } from 'react';
 import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
-const listOfTalks = (talks) => {
+const listOfTalks = talks => {
   if (talks && Array.isArray(talks) && talks.length > 0) {
     return (
       <div>
         {talks.map(talk => (
-          <h5 className="Speaker__talk-title" key={talk.id}>{talk.title}</h5>
+          <h5 className="Speaker__talk-title" key={talk.id}>
+            {talk.title}
+          </h5>
         ))}
       </div>
     );
   }
 };
 
-const Speaker = (props) => {
-  const avatar = props.imageURL ||
-    (props.conference ? '/img/PNG/SpeakerBlue.png' : '/img/PNG/SpeakerGreen.png');
+const Speaker = props => {
+  const avatar =
+    props.imageURL ||
+    (props.conference
+      ? '/img/PNG/SpeakerBlue.png'
+      : '/img/PNG/SpeakerGreen.png');
 
   return (
     <article className="Speaker">
@@ -27,7 +32,9 @@ const Speaker = (props) => {
         {props.company}
       </h5>
       {listOfTalks(props.talks)}
-      {(!props.collapsed && !props.conference) && <SpeakerSocialLinks {...props} />}
+      {!props.collapsed && !props.conference && (
+        <SpeakerSocialLinks {...props} />
+      )}
     </article>
   );
 };
@@ -42,6 +49,17 @@ Speaker.propTypes = {
   imageURL: PropTypes.string,
   conference: PropTypes.bool,
   collapsed: PropTypes.bool,
+  talks: PropTypes.arrayOf({
+    talks: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: React.PropTypes.string,
+        summary: React.PropTypes.string,
+        title: React.PropTypes.string,
+        speakers: PropTypes.arrayOf(PropTypes.shape(Speaker.propTypes)),
+      })
+    ),
+    collapsed: PropTypes.bool,
+  }),
 };
 
 export default Speaker;

@@ -20,6 +20,7 @@ Job.propTypes = {
   careerBrief: PropTypes.string,
   displayDescription: PropTypes.bool,
   jobURL: PropTypes.string,
+  description: PropTypes.string,
 };
 
 const JobPartner = ({ name, careerBrief, imageURL, partnerURL, displayDescription, jobs }) => {

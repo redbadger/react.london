@@ -36,6 +36,7 @@ const FutureEvents = ({ events }) => {
 
 FutureEvents.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape(FutureEvent.propTypes)),
+  eventType: PropTypes.string,
 };
 
 export default FutureEvents;
