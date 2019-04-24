@@ -4,7 +4,8 @@ import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
 import TicketAbout from '../TicketAbout';
-import TicketList, { ticketType } from '../TicketList';
+import TicketList from '../TicketList';
+import { ticketType } from '../../prop-types/ticket-type';
 import OpportunityTickets from '../OpportunityTickets';
 
 const TicketPage = ({ tickets }) => {
