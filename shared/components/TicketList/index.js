@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
 import { formatDate, isAfter } from '../../utilities/date';
-import { ticketType } from '../../prop-types/speaker-type';
+import { ticketType } from '../../prop-types/ticket-type';
 import { ExternalLink } from '../ExternalLink';
 
 export function isSoldOut(ticket) {

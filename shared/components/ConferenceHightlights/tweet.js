@@ -18,7 +18,7 @@ Tweet.propTypes = {
   username: React.PropTypes.string.isRequired,
   href: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
-  content: React.PropTypes.string.isRequire,
+  content: React.PropTypes.string.isRequired,
 };
 
 export default Tweet;

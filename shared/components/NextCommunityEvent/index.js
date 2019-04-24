@@ -52,8 +52,11 @@ const ReadMoreButton = ({ onClick }) => (
   </a>
 );
 
-class NextCommunityEvent extends React.Component {
+ReadMoreButton.propTypes = {
+  onClick: PropTypes.func,
+};
 
+class NextCommunityEvent extends React.Component {
 
   constructor(props) {
     super(props);

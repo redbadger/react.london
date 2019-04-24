@@ -12,35 +12,45 @@ const TalkDetails = ({ talk }) => {
 };
 
 const Talks = ({ talks, collapsed }) => {
-  if (!Array.isArray(talks)) { return null; }
+  if (!Array.isArray(talks)) {
+    return null;
+  }
   return (
     <section className="Speakers block">
       <div className="content">
         <h2 className="Speakers__header">Speakers</h2>
       </div>
       <div className="Speakers__container content">
-        {talks && talks.map((talk, index) => {
-          const speakerProps = pathOr({}, ['speakers', 0], talk);
-          return (
-            <div className="Talk" key={index}>
-              <Speaker {...speakerProps} collapsed={collapsed} />
-              {!collapsed && <TalkDetails talk={talk} />}
-            </div>
-          );
-        })}
+        {talks &&
+          talks.map((talk, index) => {
+            const speakerProps = pathOr({}, ['speakers', 0], talk);
+            return (
+              <div className="Talk" key={index}>
+                <Speaker {...speakerProps} collapsed={collapsed} />
+                {!collapsed && <TalkDetails talk={talk} />}
+              </div>
+            );
+          })}
       </div>
     </section>
   );
 };
 
+const talkProps = {
+  id: React.PropTypes.string,
+  summary: React.PropTypes.string,
+  title: React.PropTypes.string,
+  speakers: PropTypes.arrayOf(PropTypes.shape(Speaker.propTypes)),
+};
+
+TalkDetails.propTypes = {
+  talk: PropTypes.shape(talkProps),
+};
+
+
 Talks.propTypes = {
   talks: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: React.PropTypes.string,
-      summary: React.PropTypes.string,
-      title: React.PropTypes.string,
-      speakers: PropTypes.arrayOf(PropTypes.shape(Speaker.propTypes)),
-    })
+    PropTypes.shape(talkProps)
   ),
   collapsed: PropTypes.bool,
 };

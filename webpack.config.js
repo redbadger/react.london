@@ -28,7 +28,7 @@ const baseConfig = {
           {
             loader: MiniCSSExtractPlugin.loader,
           },
-          'css-loader?minimize',
+          'css-loader',
           'sass-loader',
           'postcss-loader',
         ],
@@ -58,7 +58,7 @@ const baseConfig = {
 const browserConfig = Object.assign({}, baseConfig, {
   target: 'web',
   entry: {
-    'static/main': ['babel-polyfill', './client/index'],
+    'static/main': ['@babel/polyfill', './client/index'],
     main: ['./client/styles/main.scss'],
   },
 });
@@ -67,7 +67,7 @@ const serverConfig = Object.assign({}, baseConfig, {
   target: 'node',
   externals: [nodeExternals()],
   entry: {
-    server: ['isomorphic-fetch', 'babel-polyfill', './server/start-server.js'],
+    server: ['isomorphic-fetch', '@babel/polyfill', './server/start-server.js'],
   },
 });
 

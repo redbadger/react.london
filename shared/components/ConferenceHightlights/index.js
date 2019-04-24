@@ -33,6 +33,7 @@ const data = {
       name: 'Christopher Chedeau',
       company: 'Facebook',
       title: 'Javascript code formatting',
+      key: 'youtube-video-01',
     },
     {
       href: 'https://www.youtube.com/watch?v=3LecnX1hjyw',
@@ -40,6 +41,7 @@ const data = {
       name: 'Andrey Sitnik',
       company: 'Evil Martians',
       title: 'Logux, a new approach to client-server communication',
+      key: 'youtube-video-02',
     },
     {
       href: 'https://www.youtube.com/watch?v=24S5u_4gx7w',
@@ -47,6 +49,7 @@ const data = {
       name: 'Cheng Lou',
       company: 'Facebook',
       title: 'What\'s in a language?',
+      key: 'youtube-video-03',
     },
   ],
   slideshare: [
@@ -56,6 +59,7 @@ const data = {
       name: 'Oliver Woodings',
       company: 'Qubit',
       title: 'Lightning talk: Realtime Webpack - Pushing on-demand bundling to the limits',
+      key: 'slideshare-01',
     },
     {
       href: 'https://www.slideshare.net/ReactLondon2017/offline-for-the-greater-good-by-jani-evkallio',
@@ -63,6 +67,7 @@ const data = {
       name: 'Jani Eväkallio',
       company: 'Formidable Labs',
       title: 'Lightning talk: Offline for the greater good',
+      key: 'slideshare-02',
     },
     {
       href: 'https://www.slideshare.net/ReactLondon2017/nextjs-in-production-by-jasdeep-lalli',
@@ -70,20 +75,24 @@ const data = {
       name: 'Jasdeep Lalli',
       company: 'Deliveroo',
       title: 'Lightning talk: Next.js in production',
+      key: 'slideshare-03',
     },
   ],
   flickr: [
     {
       href: 'https://www.flickr.com/photos/148731833@N05/33694503386/',
       src: '/img/JPG/post-conf-2017-01.jpg',
+      key: 'flickr-01',
     },
     {
       href: 'https://www.flickr.com/photos/148731833@N05/32921976263/',
       src: '/img/JPG/post-conf-2017-02.jpg',
+      key: 'flickr-02',
     },
     {
       href: 'https://www.flickr.com/photos/148731833@N05/32921981233/',
       src: '/img/JPG/post-conf-2017-03.jpg',
+      key: 'flickr-03',
     },
   ],
   twitter: [
@@ -92,18 +101,21 @@ const data = {
       username: 'elibelly',
       name: 'Eli Schutze Ramirez‏',
       content: "'Offline support democratises internet usage' @jevakallio we have to think about emerging markets!! ✊#reactlondon", // eslint-disable-line max-len
+      key: 'twitter-01',
     },
     {
       href: 'https://twitter.com/mike20/status/846720660311347200',
       username: 'mike20',
       name: 'Mike Evans',
       content: 'Oooh, @mxstbr just announced polished, a SASS-like toolset for writing styles at #ReactLondon', // eslint-disable-line max-len
+      key: 'twitter-02',
     },
     {
       href: 'https://twitter.com/_calumjames/status/846747604201459712',
       username: '_calumjames',
       name: 'Calum James‏',
       content: "Great insight from @leeb at #ReactLondon on progressive web apps vs. native, drawing on experience from @facebook's iOS HTML5 app experiment", // eslint-disable-line max-len
+      key: 'twitter-03',
     },
   ],
 };
