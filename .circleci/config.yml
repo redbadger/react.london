@@ -83,4 +83,6 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - bugfix/circleci
