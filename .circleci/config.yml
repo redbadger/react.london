@@ -10,7 +10,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
     docker:
-      - image: cimg/base:2020.01
+      - image: circleci/node:8.15
         # command: /sbin/init
     steps:
       - checkout
@@ -19,11 +19,7 @@ jobs:
 
       - run:
           working_directory: ~/redbadger/react.london
-          command: nvm install 8.15.0 && nvm alias default 8.15.0
-
-      - run:
-          working_directory: ~/redbadger/react.london
-          command: "docker info >/dev/null 2>&1 || service docker start; "
+          command: "docker info >/dev/null 2>&1 || docker start; "
 
       - restore_cache:
           keys:
