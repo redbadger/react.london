@@ -10,7 +10,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
     docker:
-      - image: ubuntu:18.04
+      - image: cimg/base:2020.01
         # command: /sbin/init
     steps:
       - checkout
@@ -19,7 +19,7 @@ jobs:
 
       - run:
           working_directory: ~/redbadger/react.london
-          command: "docker info >/dev/null 2>&1 || service docker start; "
+          command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
 
       - restore_cache:
           keys:
