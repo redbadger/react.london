@@ -18,6 +18,10 @@ jobs:
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
       - run:
+        working_directory: ~/redbadger/react.london
+        command: nvm install 8.15.0 && nvm alias default 8.15.0
+
+      - run:
           working_directory: ~/redbadger/react.london
           command: "docker info >/dev/null 2>&1 || service docker start; "
 
