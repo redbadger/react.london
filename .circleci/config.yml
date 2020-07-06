@@ -10,7 +10,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
     docker:
-      - image: circleci/node:8.15
+      - image: ubuntu:18.04
         # command: /sbin/init
     steps:
       - checkout
