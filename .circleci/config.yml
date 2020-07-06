@@ -11,7 +11,7 @@ jobs:
 
     docker:
       - image: circleci/node:8.15
-        # command: /sbin/init
+
     steps:
       - checkout
 
@@ -60,8 +60,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
     docker:
-      - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-        command: /sbin/init
+      - image: circleci/node:8.15
 
     steps:
       - checkout
