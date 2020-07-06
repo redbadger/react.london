@@ -19,9 +19,6 @@ jobs:
 
       - run:
           working_directory: ~/redbadger/react.london
-          # command: nvm install 8.15.0 && nvm alias default 8.15.0
-      - run:
-          working_directory: ~/redbadger/react.london
           command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
 
       - restore_cache:
