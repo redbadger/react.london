@@ -19,7 +19,7 @@ jobs:
 
       - run:
           working_directory: ~/redbadger/react.london
-          command: "docker info >/dev/null 2>&1 || docker start; "
+          command: "sudo docker info >/dev/null 2>&1 || sudo service docker start;"
 
       - restore_cache:
           keys:
