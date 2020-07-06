@@ -19,7 +19,7 @@ echo Creating new application version $TAG
 #   - AWS_ACCESS_KEY_ID
 #   - AWS_SECRET_ACCESS_KEY
 echo Authenticating.
-eval $(aws ecr get-login --region=$AWS_REGION | sed 's|https://||')
+eval $(aws ecr get-login --region=$AWS_REGION --no-include-email | sed 's|https://||')
 
 echo Building docker image
 docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
