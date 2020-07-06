@@ -11,7 +11,7 @@ jobs:
 
     docker:
       - image: ubuntu:18.04
-        # command: /sbin/init
+        command: /sbin/init
     steps:
       - checkout
 
@@ -83,3 +83,4 @@ workflows:
               only:
                 - master
                 - bugfix/circleci
+                - bugfix/spanners
