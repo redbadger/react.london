@@ -17,9 +17,9 @@ jobs:
 
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
-      - run:
-          working_directory: ~/redbadger/react.london
-          command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
+      # - run:
+      #     working_directory: ~/redbadger/react.london
+      #     command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
 
       - restore_cache:
           keys:
