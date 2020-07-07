@@ -19,14 +19,7 @@ echo Creating new application version $TAG
 #   - AWS_ACCESS_KEY_ID
 #   - AWS_SECRET_ACCESS_KEY
 echo Authenticating.
-
-sudo apt-get -y -qq install awscli
-
-aws --region ${AWS_REGION} ecr get-login-password \
-    | docker login \
-        --password-stdin \
-        --username AWS \
-        "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+eval $(aws ecr get-login --region=$AWS_REGION | sed 's|https://||')
 
 echo Building docker image
 docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
