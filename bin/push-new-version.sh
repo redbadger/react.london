@@ -20,6 +20,8 @@ echo Creating new application version $TAG
 #   - AWS_SECRET_ACCESS_KEY
 echo Authenticating.
 
+sudo apt-get -y -qq install awscli
+
 aws --region ${AWS_REGION} ecr get-login-password \
     | docker login \
         --password-stdin \
