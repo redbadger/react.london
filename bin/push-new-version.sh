@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 VERSION=$(git rev-parse HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z_-]/-/g')
 TAG=$BRANCH-$VERSION
@@ -18,15 +17,6 @@ echo Creating new application version $TAG
 # Requires these env vars set on CI:
 #   - AWS_ACCESS_KEY_ID
 #   - AWS_SECRET_ACCESS_KEY
-echo Authenticating.
-eval $(aws ecr get-login --region=$AWS_REGION | sed 's|https://||')
-
-echo Building docker image
-docker build -t $APP_NAME --build-arg GIT_COMMIT=$(git rev-parse --short HEAD) .
-docker tag $APP_NAME $ECR_REPO:$TAG
-
-echo Pushing docker image
-docker push $ECR_REPO:$TAG
 
 echo Creating new EB version zip
 cp Dockerrun.aws.json.template Dockerrun.aws.json

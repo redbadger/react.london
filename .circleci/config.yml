@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+orbs:
+  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-cli: circleci/aws-cli@1.2.1
 jobs:
   build:
     working_directory: ~/redbadger/react.london
@@ -10,19 +13,11 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
     docker:
-      - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-        command: /sbin/init
+      - image: circleci/node:8.15
     steps:
       - checkout
 
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-
-      - run:
-          working_directory: ~/redbadger/react.london
-          command: nvm install 8.15.0 && nvm alias default 8.15.0
-      - run:
-          working_directory: ~/redbadger/react.london
-          command: "sudo docker info >/dev/null 2>&1 || sudo service docker start; "
 
       - restore_cache:
           keys:
@@ -62,13 +57,13 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
 
-    docker:
-      - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-        command: /sbin/init
+    executor: aws-cli/default
 
     steps:
       - checkout
-      - setup_remote_docker
+      - aws-cli/setup: {
+        configure-default-region: FALSE
+      }
       - run: ./bin/push-new-version.sh
       - run: ./bin/deploy-version.js staging
       - run: ./bin/notify-slack.sh '[CircleCi] Deploying React.London master to staging.'
@@ -78,9 +73,25 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+      - aws-ecr/build-and-push-image:
+          requires:
+            - build
+          account-url: AWS_ECR_ACCOUNT_URL_ENV_VAR_NAME
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          create-repo: false
+          dockerfile: Dockerfile
+          path: .
+          region: AWS_REGION
+          tag: "$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z_-]/-/g')-$(git rev-parse HEAD)"
+          repo: react-london
+          extra-build-args: "--build-arg GIT_COMMIT=$CIRCLE_SHA1"
       - deploy_to_staging:
           requires:
             - build
+            - aws-ecr/build-and-push-image
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - bugfix/ci-issues
