@@ -94,4 +94,3 @@ workflows:
             branches:
               only:
                 - master
-                - bugfix/ci-issues
