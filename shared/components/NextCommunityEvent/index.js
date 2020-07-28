@@ -63,6 +63,8 @@ class NextCommunityEvent extends React.Component {
       collapsed: true,
       statusProps: getTicketStatusOptions(props),
     };
+
+    this.expandInfo = this.expandInfo.bind(this);
   }
 
   expandInfo(e) {
@@ -125,9 +127,7 @@ class NextCommunityEvent extends React.Component {
           </article>
         </div>
         <Talks talks={talks} collapsed={this.state.collapsed} />
-        {this.state.collapsed && (
-          <ReadMoreButton onClick={this.expandInfo.bind(this)} />
-        )}
+        {this.state.collapsed && <ReadMoreButton onClick={this.expandInfo} />}
       </section>
     );
   }
