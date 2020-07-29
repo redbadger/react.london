@@ -8,12 +8,12 @@ import { pathOr } from 'ramda';
 import moment from 'moment';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
 import { ExternalLink } from '../ExternalLink';
+import { isRemoteEvent } from '../../utilities/location';
 export const placeholderText = 'To be confirmed.';
 
 function eventLocation(location) {
-  const address = pathOr(placeholderText, ['address'], location);
-  if (address.toLowerCase() === 'remote') return 'This is a remote event';
-  return address;
+  if (isRemoteEvent(location)) return 'This is a remote event';
+  return pathOr(placeholderText, ['address'], location);
 }
 
 function eventDateAndTime(startDateTime, endDateTime) {
