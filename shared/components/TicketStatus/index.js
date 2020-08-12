@@ -21,7 +21,7 @@ const TicketStatus = (props) => {
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
       <p className="TicketStatus__live-stream-text">{title}</p>
-      {props.buttonLink ? <StatusButton {...props} /> : null}
+      {props.buttonLink && <StatusButton {...props} />}
     </div>
   );
 };
