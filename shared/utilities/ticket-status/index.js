@@ -25,13 +25,13 @@ const statusTypes = {
     linkType: 'registrationClosedLink',
   },
   LIVE_STREAM: {
-    title: 'Couldn\'t make it? Watch the event live.',
+    title: "Couldn't make it? Watch the event live.",
     subtitle: 'Didn’t make it to the meetup? We got your back.',
     buttonText: 'Watch Live Stream',
     linkType: 'streamingLink',
   },
   EVENT_ENDED: {
-    title: 'This event has ended. Watch the video here.',
+    title: 'This event has ended.',
     subtitle: 'Tickets now sold out.',
     buttonText: 'Watch Video',
     linkType: 'streamingLink',
@@ -40,7 +40,7 @@ const statusTypes = {
 
 export function getTicketProvider(link) {
   if (!link) {
-    return 'our ticket provider\'s website';
+    return "our ticket provider's website";
   }
   if (link.includes('skillsmatter')) {
     return 'Skillsmatter';
@@ -48,13 +48,18 @@ export function getTicketProvider(link) {
   if (link.includes('ti.to')) {
     return 'Ti.to';
   }
-  return 'our ticket provider\'s website';
+  return "our ticket provider's website";
 }
 
 export function getTicketStatusTitle(event, ticketStatusOptions) {
   if (event.status === 'PRE_RELEASE') {
-    return ticketStatusOptions.title + formatDate(event.ticketReleaseDate,
-      'dddd, Do MMMM YYYY, HH:mm');
+    return (
+      ticketStatusOptions.title +
+      formatDate(event.ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm')
+    );
+  }
+  if (event.status === 'EVENT_ENDED' && ticketStatusOptions.buttonLink) {
+    return ticketStatusOptions.title + ' Watch the video here.';
   }
   return ticketStatusOptions.title;
 }
@@ -64,7 +69,10 @@ export function getTicketStatusSubtitle(event, ticketStatusOptions) {
     return formatDate(event.ticketReleaseDate, 'dddd, Do MMMM YYYY, HH:mm');
   }
   if (event.status === 'TICKETS_LIVE' || event.status === 'WAITLIST') {
-    return ticketStatusOptions.subtitle + getTicketProvider(ticketStatusOptions.buttonLink);
+    return (
+      ticketStatusOptions.subtitle +
+      getTicketProvider(ticketStatusOptions.buttonLink)
+    );
   }
   return ticketStatusOptions.subtitle;
 }
@@ -73,8 +81,14 @@ export function getTicketStatusOptions(event) {
   if (statusTypes[event.status]) {
     const ticketStatusOptions = { ...statusTypes[event.status] };
     ticketStatusOptions.buttonLink = event[ticketStatusOptions.linkType];
-    ticketStatusOptions.title = getTicketStatusTitle(event, ticketStatusOptions);
-    ticketStatusOptions.subtitle = getTicketStatusSubtitle(event, ticketStatusOptions);
+    ticketStatusOptions.title = getTicketStatusTitle(
+      event,
+      ticketStatusOptions
+    );
+    ticketStatusOptions.subtitle = getTicketStatusSubtitle(
+      event,
+      ticketStatusOptions
+    );
     return ticketStatusOptions;
   }
   return {

@@ -9,10 +9,7 @@ export const StatusButton = ({ buttonText, buttonLink }) => {
   });
   return (
     <div className="TicketStatus__booking-btn__container">
-      <a
-        className={actionClasses}
-        href={buttonLink}
-      >
+      <a className={actionClasses} href={buttonLink}>
         {buttonText}
       </a>
     </div>
@@ -23,10 +20,8 @@ const TicketStatus = (props) => {
   const { title } = props;
   return (
     <div className="TicketStatus__section TicketStatus__section__booking">
-      <p className="TicketStatus__live-stream-text">
-        {title}
-      </p>
-      <StatusButton {...props} />
+      <p className="TicketStatus__live-stream-text">{title}</p>
+      {props.buttonLink && <StatusButton {...props} />}
     </div>
   );
 };
