@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 import Speaker from '../Speaker';
 import pathOr from 'ramda/src/pathOr';
 
@@ -11,7 +12,7 @@ const TalkDetails = ({ talk }) => {
   );
 };
 
-const Talks = ({ talks, collapsed }) => {
+const Talks = ({ talks }) => {
   if (!Array.isArray(talks)) {
     return null;
   }
@@ -26,8 +27,8 @@ const Talks = ({ talks, collapsed }) => {
             const speakerProps = pathOr({}, ['speakers', 0], talk);
             return (
               <div className="Talk" key={index}>
-                <Speaker {...speakerProps} collapsed={collapsed} />
-                {!collapsed && <TalkDetails talk={talk} />}
+                <Speaker {...speakerProps} />
+                <TalkDetails talk={talk} />
               </div>
             );
           })}
@@ -47,12 +48,8 @@ TalkDetails.propTypes = {
   talk: PropTypes.shape(talkProps),
 };
 
-
 Talks.propTypes = {
-  talks: PropTypes.arrayOf(
-    PropTypes.shape(talkProps)
-  ),
-  collapsed: PropTypes.bool,
+  talks: PropTypes.arrayOf(PropTypes.shape(talkProps)),
 };
 
 export default Talks;

@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
+
 import SpeakerSocialLinks from '../SpeakerSocialLinks';
 
-const listOfTalks = talks => {
+const listOfTalks = (talks) => {
   if (talks && Array.isArray(talks) && talks.length > 0) {
     return (
       <div>
-        {talks.map(talk => (
+        {talks.map((talk) => (
           <h5 className="Speaker__talk-title" key={talk.id}>
             {talk.title}
           </h5>
@@ -15,7 +16,7 @@ const listOfTalks = talks => {
   }
 };
 
-const Speaker = props => {
+const Speaker = (props) => {
   const avatar =
     props.imageURL ||
     (props.conference
@@ -32,9 +33,7 @@ const Speaker = props => {
         {props.company}
       </h5>
       {listOfTalks(props.talks)}
-      {!props.collapsed && !props.conference && (
-        <SpeakerSocialLinks {...props} />
-      )}
+      {!props.conference && <SpeakerSocialLinks {...props} />}
     </article>
   );
 };
@@ -48,7 +47,6 @@ Speaker.propTypes = {
   blogURL: PropTypes.string,
   imageURL: PropTypes.string,
   conference: PropTypes.bool,
-  collapsed: PropTypes.bool,
   talks: PropTypes.arrayOf({
     talks: PropTypes.arrayOf(
       PropTypes.shape({
@@ -58,7 +56,6 @@ Speaker.propTypes = {
         speakers: PropTypes.arrayOf(PropTypes.shape(Speaker.propTypes)),
       })
     ),
-    collapsed: PropTypes.bool,
   }),
 };
 
