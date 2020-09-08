@@ -43,7 +43,7 @@ class ArchivedCommunityEvent extends React.Component {
     return (
       <section className="ArchivedEvent">
         <div className="talk">
-          <h2 className="">
+          <h2>
             <Link to={`/event/${eventId}`}>{title}</Link>
           </h2>
           <p>{eventDateAndTime(startDateTime, endDateTime)}</p>
@@ -60,7 +60,7 @@ class ArchivedCommunityEvent extends React.Component {
 }
 
 const dateTimeType = PropTypes.shape({
-  iso: React.PropTypes.string,
+  iso: PropTypes.string,
 });
 
 ArchivedCommunityEvent.propTypes = {
