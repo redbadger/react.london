@@ -63,7 +63,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.4",
     "morgan": "^1.9.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.0-beta3",
