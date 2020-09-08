@@ -50,23 +50,6 @@ export function getHeaderText(startDateTime, endDateTime) {
 }
 
 class NextCommunityEvent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      statusProps: getTicketStatusOptions(props),
-    };
-  }
-
-  componentDidUpdate(preProps) {
-    this.updateStatusPropsIfEventChanges(preProps, this.props);
-  }
-
-  updateStatusPropsIfEventChanges(preProps, props) {
-    if (preProps.title !== props.title) {
-      this.setState({ statusProps: getTicketStatusOptions(this.props) });
-    }
-  }
-
   renderLocationLink(location) {
     return (
       <ExternalLink
@@ -81,7 +64,6 @@ class NextCommunityEvent extends React.Component {
   }
 
   render() {
-    const { statusProps } = this.state;
     const {
       title,
       startDateTime,
@@ -92,6 +74,7 @@ class NextCommunityEvent extends React.Component {
       featuredEventDescription,
       eventId,
     } = this.props;
+    const statusProps = getTicketStatusOptions(this.props);
 
     return (
       <section className="NextCommunityEvent block">
