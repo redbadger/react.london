@@ -1,14 +1,17 @@
 import React, { PropTypes } from 'react';
+import { formatDate, isAfter, isBefore } from '../../utilities/date';
+
+import { ExternalLink } from '../ExternalLink';
+import ReactPlayer from 'react-player';
 import Talks from '../Talks';
 import TicketStatus from '../../components/TicketStatus';
-import { googleMapsUrl } from '../../google-maps';
-import locationType from '../../prop-types/location-type';
-import { formatDate, isBefore, isAfter } from '../../utilities/date';
-import { pathOr } from 'ramda';
-import moment from 'moment';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
-import { ExternalLink } from '../ExternalLink';
+import { googleMapsUrl } from '../../google-maps';
 import { isRemoteEvent } from '../../utilities/location';
+import locationType from '../../prop-types/location-type';
+import moment from 'moment';
+import { pathOr } from 'ramda';
+
 export const placeholderText = 'To be confirmed.';
 
 function eventLocation(location) {
@@ -46,32 +49,7 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
-const ReadMoreButton = ({ onClick }) => (
-  <a href="#" className="NextCommunityEvent__readmore" onClick={onClick}>
-    Read more
-  </a>
-);
-
-ReadMoreButton.propTypes = {
-  onClick: PropTypes.func,
-};
-
 class NextCommunityEvent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapsed: true,
-      statusProps: getTicketStatusOptions(props),
-    };
-
-    this.expandInfo = this.expandInfo.bind(this);
-  }
-
-  expandInfo(e) {
-    this.setState({ collapsed: false });
-    e.preventDefault();
-  }
-
   renderLocationLink(location) {
     return (
       <ExternalLink
@@ -86,8 +64,6 @@ class NextCommunityEvent extends React.Component {
   }
 
   render() {
-    const { statusProps } = this.state;
-    const featuredEvent = this.props;
     const {
       title,
       startDateTime,
@@ -96,7 +72,9 @@ class NextCommunityEvent extends React.Component {
       talks,
       calendarURL,
       featuredEventDescription,
-    } = featuredEvent;
+      eventId,
+    } = this.props;
+    const statusProps = getTicketStatusOptions(this.props);
 
     return (
       <section className="NextCommunityEvent block">
@@ -126,8 +104,13 @@ class NextCommunityEvent extends React.Component {
             <TicketStatus {...statusProps} />
           </article>
         </div>
-        <Talks talks={talks} collapsed={this.state.collapsed} />
-        {this.state.collapsed && <ReadMoreButton onClick={this.expandInfo} />}
+        <Talks talks={talks} />
+        {eventId && statusProps.buttonLink && (
+          <ReactPlayer
+            url={statusProps.buttonLink}
+            style={{ margin: '20px' }}
+          />
+        )}
       </section>
     );
   }
@@ -144,6 +127,8 @@ NextCommunityEvent.propTypes = {
   endDateTime: dateTimeType,
   location: locationType,
   featuredEventDescription: PropTypes.string,
+  eventId: PropTypes.string,
+  calendarURL: PropTypes.string,
 };
 
 export default NextCommunityEvent;

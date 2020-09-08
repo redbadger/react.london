@@ -29,6 +29,7 @@ const TicketStatus = (props) => {
 TicketStatus.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  buttonLink: PropTypes.string,
 };
 
 StatusButton.propTypes = {

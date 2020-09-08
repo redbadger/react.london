@@ -1,0 +1,54 @@
+// ARCHIVED EVENT
+.ArchivedEvent {
+  background-color: $events-color-faded;
+  padding-bottom: 20px;
+  display: flex;
+
+  .talk {
+    width: 75%;
+
+    @media (max-width: $tablet-portrait-width) {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  h2,
+  p {
+    margin: 0.25em 0 0.25em 0;
+  }
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  &__video {
+    width: 25%;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
+    @media (max-width: $tablet-portrait-width) {
+      display: none;
+    }
+
+    &-btn {
+      border: 1px solid $grey;
+      border-radius: 5px;
+      line-height: 36px;
+      padding: 3px 18px;
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: none;
+      color: $grey;
+      cursor: pointer;
+    }
+  }
+}

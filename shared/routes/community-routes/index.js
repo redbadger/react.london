@@ -1,18 +1,26 @@
-import React from 'react';
-import { Route, Redirect, IndexRoute } from 'react-router';
-import CommunityLayout from '../../components/CommunityLayout';
+import { IndexRoute, Redirect, Route } from 'react-router';
+import React, { PropTypes } from 'react';
+
 import Community from '../../components/Community';
-import ErrorPage404 from '../../components/ErrorPage404';
 import CommunityCodeOfConduct from '../../components/CommunityCodeOfConduct';
+import CommunityLayout from '../../components/CommunityLayout';
+import ErrorPage404 from '../../components/ErrorPage404';
 
 export default function routes(state) {
-  const CommunityWithData = () => <Community {...state} />;
+  const CommunityWithData = (props) => (
+    <Community {...state} {...props.params} />
+  );
   return (
     <Route path="/" component={CommunityLayout}>
       <IndexRoute component={CommunityWithData} />
       <Redirect path="community" to="/" />
+      <Route path="/event/:eventId" component={CommunityWithData} />
       <Route path="/code-of-conduct" component={CommunityCodeOfConduct} />
       <Route path="*" component={ErrorPage404} />
     </Route>
   );
 }
+
+routes.propTypes = {
+  params: PropTypes.shape({}),
+};
