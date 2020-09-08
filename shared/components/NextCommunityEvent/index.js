@@ -82,7 +82,6 @@ class NextCommunityEvent extends React.Component {
 
   render() {
     const { statusProps } = this.state;
-    const featuredEvent = this.props;
     const {
       title,
       startDateTime,
@@ -92,7 +91,7 @@ class NextCommunityEvent extends React.Component {
       calendarURL,
       featuredEventDescription,
       eventId,
-    } = featuredEvent;
+    } = this.props;
 
     return (
       <section className="NextCommunityEvent block">
@@ -145,6 +144,8 @@ NextCommunityEvent.propTypes = {
   endDateTime: dateTimeType,
   location: locationType,
   featuredEventDescription: PropTypes.string,
+  eventId: PropTypes.string,
+  calendarURL: PropTypes.string,
 };
 
 export default NextCommunityEvent;

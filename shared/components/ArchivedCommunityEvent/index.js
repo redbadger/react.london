@@ -20,8 +20,7 @@ function eventDateAndTime(startDateTime, endDateTime) {
 
 class ArchivedCommunityEvent extends React.Component {
   renderVideoButton() {
-    const featuredEvent = this.props;
-    const { streamingLink } = featuredEvent;
+    const { streamingLink, eventId } = this.props;
 
     return streamingLink ? (
       <div className="ArchivedEvent__video">
@@ -31,10 +30,7 @@ class ArchivedCommunityEvent extends React.Component {
       </div>
     ) : (
       <div className="ArchivedEvent__video">
-        <Link
-          to={`/event/${featuredEvent.eventId}`}
-          className="ArchivedEvent__video-btn"
-        >
+        <Link to={`/event/${eventId}`} className="ArchivedEvent__video-btn">
           Read More
         </Link>
       </div>
@@ -42,14 +38,13 @@ class ArchivedCommunityEvent extends React.Component {
   }
 
   render() {
-    const featuredEvent = this.props;
-    const { title, startDateTime, endDateTime, talks } = featuredEvent;
+    const { title, startDateTime, endDateTime, talks, eventId } = this.props;
 
     return (
       <section className="ArchivedEvent">
         <div className="talk">
           <h2 className="">
-            <Link to={`/event/${featuredEvent.eventId}`}>{title}</Link>
+            <Link to={`/event/${eventId}`}>{title}</Link>
           </h2>
           <p>{eventDateAndTime(startDateTime, endDateTime)}</p>
           <ul>
@@ -75,6 +70,8 @@ ArchivedCommunityEvent.propTypes = {
   endDateTime: dateTimeType,
   location: locationType,
   featuredEventDescription: PropTypes.string,
+  eventId: PropTypes.string,
+  streamingLink: PropTypes.string,
 };
 
 export default ArchivedCommunityEvent;
