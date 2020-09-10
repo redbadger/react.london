@@ -5,6 +5,7 @@ import { ExternalLink } from '../ExternalLink';
 import ReactPlayer from 'react-player';
 import Talks from '../Talks';
 import TicketStatus from '../../components/TicketStatus';
+import { browserHistory } from 'react-router';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
 import { googleMapsUrl } from '../../google-maps';
 import { isRemoteEvent } from '../../utilities/location';
@@ -74,6 +75,11 @@ class NextCommunityEvent extends React.Component {
       featuredEventDescription,
       eventId,
     } = this.props;
+
+    if (eventId && !title) {
+      browserHistory.push('/404');
+    }
+
     const statusProps = getTicketStatusOptions(this.props);
 
     return (
