@@ -50,16 +50,25 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
-const ResponsivePlayer = ({ url }) => (
-  <div className="player-wrapper">
-    <ReactPlayer
-      className="react-player"
-      url={url}
-      width="100%"
-      height="100%"
-    />
-  </div>
-);
+const ResponsivePlayer = ({ eventId, statusProps }) => {
+  console.log(eventId, statusProps);
+  const { buttonLink, linkType } = statusProps;
+
+  if (!eventId || !buttonLink || linkType !== 'streamingLink') return null;
+
+  return (
+    <div className="player-constraint">
+      <div className="player-wrapper">
+        <ReactPlayer
+          className="react-player"
+          url={buttonLink}
+          width="100%"
+          height="100%"
+        />
+      </div>
+    </div>
+  );
+};
 
 class NextCommunityEvent extends React.Component {
   renderLocationLink(location) {
@@ -123,11 +132,7 @@ class NextCommunityEvent extends React.Component {
             </article>
           </div>
           <Talks talks={talks} />
-          {eventId && statusProps.buttonLink && (
-            <div className="player-constraint">
-              <ResponsivePlayer url={statusProps.buttonLink} />
-            </div>
-          )}
+          <ResponsivePlayer statusProps={statusProps} eventId={eventId} />
         </section>
       </div>
     );
