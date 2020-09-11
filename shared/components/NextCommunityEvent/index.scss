@@ -31,44 +31,44 @@
   }
 
   &__link--date {
-    background: url("/img/SVG/Date_icon_green.svg") no-repeat left top;
+    background: url('/img/SVG/Date_icon_green.svg') no-repeat left top;
     height: 26px;
     padding-top: 2px;
     font-weight: bold;
 
-    &[href]{
+    &[href] {
       &:focus,
       &:hover {
-        background-image: url("/img/SVG/Date_icon_white.svg");
+        background-image: url('/img/SVG/Date_icon_white.svg');
         text-decoration: underline;
       }
     }
   }
 
   &__link--place {
-    background: url("/img/SVG/Place_icon_green.svg") no-repeat 0px 1px;
+    background: url('/img/SVG/Place_icon_green.svg') no-repeat 0px 1px;
     height: 32px;
     padding-top: 5px;
     font-weight: bold;
 
-    &[href]{
+    &[href] {
       &:focus,
       &:hover {
-        background-image: url("/img/SVG/Place_icon_white.svg");
+        background-image: url('/img/SVG/Place_icon_white.svg');
         text-decoration: underline;
       }
     }
   }
 
   &__link--time {
-    background: url("/img/SVG/Time_icon_green.svg") no-repeat left top;
+    background: url('/img/SVG/Time_icon_green.svg') no-repeat left top;
     height: 25px;
     padding-top: 3px;
 
-    &[href]{
+    &[href] {
       &:focus,
       &:hover {
-        background-image: url("/img/SVG/Time_icon_white.svg");
+        background-image: url('/img/SVG/Time_icon_white.svg');
         text-decoration: underline;
       }
     }
@@ -92,9 +92,9 @@
 
   &__readmore {
     border-radius: 6px;
-    border: solid 3px #4a4a4a;
+    border: solid 3px $grey;
     padding: 12px 20px;
-    color: #4a4a4a;
+    color: $grey;
     font-weight: 700;
     text-decoration: none;
     display: inline-block;
@@ -110,9 +110,26 @@
   }
 }
 
+.player-constraint {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2em 1em 0 1em;
+}
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 @media (min-width: $tablet-portrait-width) {
   .NextCommunityEvent {
-
     &__details {
       margin: 0;
     }

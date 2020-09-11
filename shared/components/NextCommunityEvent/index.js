@@ -5,6 +5,7 @@ import { ExternalLink } from '../ExternalLink';
 import ReactPlayer from 'react-player';
 import Talks from '../Talks';
 import TicketStatus from '../../components/TicketStatus';
+import { browserHistory } from 'react-router';
 import { getTicketStatusOptions } from '../../utilities/ticket-status';
 import { googleMapsUrl } from '../../google-maps';
 import { isRemoteEvent } from '../../utilities/location';
@@ -49,6 +50,17 @@ export function getHeaderText(startDateTime, endDateTime) {
   }
 }
 
+const ResponsivePlayer = ({ url }) => (
+  <div className="player-wrapper">
+    <ReactPlayer
+      className="react-player"
+      url={url}
+      width="100%"
+      height="100%"
+    />
+  </div>
+);
+
 class NextCommunityEvent extends React.Component {
   renderLocationLink(location) {
     return (
@@ -74,44 +86,50 @@ class NextCommunityEvent extends React.Component {
       featuredEventDescription,
       eventId,
     } = this.props;
+
+    if (eventId && !title) {
+      browserHistory.push('/404');
+    }
+
     const statusProps = getTicketStatusOptions(this.props);
 
     return (
-      <section className="NextCommunityEvent block">
-        <div className="content">
-          <h2 className="NextCommunityEvent__header">{title}</h2>
-          <article className="NextCommunityEvent__section-container">
-            <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
-              <ul className="NextCommunityEvent__details">
-                <li>
-                  <ExternalLink
-                    href={calendarURL}
-                    className="NextCommunityEvent__link--date"
-                  >
-                    {eventDateAndTime(startDateTime, endDateTime)}
-                  </ExternalLink>
-                </li>
-                <li>{this.renderLocationLink(location)}</li>
-                {featuredEventDescription && (
+      <div>
+        <section className="NextCommunityEvent block">
+          <div className="content">
+            <h2 className="NextCommunityEvent__header">{title}</h2>
+            <article className="NextCommunityEvent__section-container">
+              <div className="NextCommunityEvent__section NextCommunityEvent__section__details">
+                <ul className="NextCommunityEvent__details">
                   <li>
-                    <p className="NextCommunityEvent__featured-description">
-                      {featuredEventDescription}
-                    </p>
+                    <ExternalLink
+                      href={calendarURL}
+                      className="NextCommunityEvent__link--date"
+                    >
+                      {eventDateAndTime(startDateTime, endDateTime)}
+                    </ExternalLink>
                   </li>
-                )}
-              </ul>
+                  <li>{this.renderLocationLink(location)}</li>
+                  {featuredEventDescription && (
+                    <li>
+                      <p className="NextCommunityEvent__featured-description">
+                        {featuredEventDescription}
+                      </p>
+                    </li>
+                  )}
+                </ul>
+              </div>
+              <TicketStatus {...statusProps} />
+            </article>
+          </div>
+          <Talks talks={talks} />
+          {eventId && statusProps.buttonLink && (
+            <div className="player-constraint">
+              <ResponsivePlayer url={statusProps.buttonLink} />
             </div>
-            <TicketStatus {...statusProps} />
-          </article>
-        </div>
-        <Talks talks={talks} />
-        {eventId && statusProps.buttonLink && (
-          <ReactPlayer
-            url={statusProps.buttonLink}
-            style={{ margin: '20px' }}
-          />
-        )}
-      </section>
+          )}
+        </section>
+      </div>
     );
   }
 }
