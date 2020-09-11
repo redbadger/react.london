@@ -51,7 +51,6 @@ export function getHeaderText(startDateTime, endDateTime) {
 }
 
 const ResponsivePlayer = ({ eventId, statusProps }) => {
-  console.log(eventId, statusProps);
   const { buttonLink, linkType } = statusProps;
 
   if (!eventId || !buttonLink || linkType !== 'streamingLink') return null;
