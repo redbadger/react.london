@@ -110,8 +110,14 @@
   }
 }
 
+.player-constraint {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2em 1em 0 1em;
+}
+
 .player-wrapper {
-  background-color: $events-color-faded;
   position: relative;
   padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
 }

@@ -57,7 +57,6 @@ const ResponsivePlayer = ({ url }) => (
       url={url}
       width="100%"
       height="100%"
-      style={{ padding: '1em' }}
     />
   </div>
 );
@@ -124,10 +123,12 @@ class NextCommunityEvent extends React.Component {
             </article>
           </div>
           <Talks talks={talks} />
+          {eventId && statusProps.buttonLink && (
+            <div className="player-constraint">
+              <ResponsivePlayer url={statusProps.buttonLink} />
+            </div>
+          )}
         </section>
-        {eventId && statusProps.buttonLink && (
-          <ResponsivePlayer url={statusProps.buttonLink} />
-        )}
       </div>
     );
   }
