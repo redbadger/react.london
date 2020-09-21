@@ -14,7 +14,7 @@ export default function routes(state) {
     <Route path="/" component={CommunityLayout}>
       <IndexRoute component={CommunityWithData} />
       <Redirect path="community" to="/" />
-      <Route path="/event/:eventId" component={CommunityWithData} />
+      <Route path="/event/:eventId(\\d+)" component={CommunityWithData} />
       <Route path="/code-of-conduct" component={CommunityCodeOfConduct} />
       <Route path="*" component={ErrorPage404} />
     </Route>
