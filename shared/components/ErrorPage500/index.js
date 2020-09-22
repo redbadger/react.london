@@ -5,18 +5,19 @@ const ErrorPage500 = () => (
     <div className="content">
       <div className="ErrorPage500">
         <div>
-          <img
-            src={'/img/500-error.gif'}
-            alt="Red Badger logo"
-          />
+          <img src={'/img/500-error.gif'} alt="Red Badger logo" />
         </div>
-        <p className="ErrorPage500__text"><strong>Ooops</strong></p>
         <p className="ErrorPage500__text">
-          Looks like something went wrong.<br />
+          <strong>Ooops</strong>
+        </p>
+        <p className="ErrorPage500__text">
+          Looks like something went wrong.
+          <br />
           We’ve been notified and are on it!
         </p>
         <p className="ErrorPage500__text">
-          In the mean time try refreshing the page or use the navigation above.
+          In the mean time try refreshing the page or{' '}
+          <a href="/">returning to the home page</a>.
         </p>
         <p className="ErrorPage500__text">
           <strong>Error Code: 500</strong>
