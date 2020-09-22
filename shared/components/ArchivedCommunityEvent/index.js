@@ -10,10 +10,7 @@ export const placeholderText = 'To be confirmed.';
 
 function eventDateAndTime(startDateTime, endDateTime) {
   if (startDateTime && startDateTime.iso && endDateTime && endDateTime.iso) {
-    return (
-      formatDate(startDateTime, 'dddd, Do MMMM YYYY, HH:mm – ') +
-      formatDate(endDateTime, 'HH:mm')
-    );
+    return formatDate(startDateTime, 'dddd, Do MMMM YYYY');
   }
   return placeholderText;
 }
