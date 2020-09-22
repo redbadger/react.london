@@ -149,7 +149,7 @@ NextCommunityEvent.propTypes = {
   endDateTime: dateTimeType,
   location: locationType,
   featuredEventDescription: PropTypes.string,
-  eventId: PropTypes.string,
+  eventId: PropTypes.number,
   calendarURL: PropTypes.string,
 };
 
